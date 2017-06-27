@@ -1,6 +1,5 @@
 'use strict';
 
-
 const gulp = require('gulp');
 const del = require('del');
 const sass = require('gulp-sass');
@@ -22,6 +21,36 @@ gulp.task('fractal:start', function(){
   });
 });
 
+gulp.task('fractal:build', function(){
+  const fractal  = require('./fractal.js');
+  const logger = fractal.cli.console;
+  const builder = fractal.web.builder();
+  builder.on('progress', (completed, total) => logger.update(`Exported ${completed} of ${total} items`, 'info'));
+  builder.on('error', err => logger.error(err.message));
+  return builder.build().then(() => {
+    logger.success('Fractal build completed!');
+  });
+});
+
+/*
+ * Fonts
+ */
+gulp.task('fonts:clean', function() {
+  return del(['public/font']);
+});
+
+gulp.task('fonts:copy', function() {
+  return gulp.src('node_modules/mdbootstrap/font/**/*').pipe(gulp.dest('public/font'));
+});
+
+gulp.task('fonts:watch', function () {
+  gulp.watch([
+    'node_modules/mdbootstrap/font/**/*',
+  ], gulp.series('fonts'));
+});
+
+gulp.task('fonts', gulp.series('fonts:clean', 'fonts:copy'));
+
 /*
  * CSS
  */
@@ -33,8 +62,6 @@ gulp.task('css:process', function() {
     }))
     .on('error', err => console.log(err.message))
     .pipe(gulp.dest('public/css'));
-    // .pipe(bust('cachebust.json'))
-    // .pipe(gulp.dest('.'));
 });
 
 gulp.task('css:clean', function() {
@@ -49,8 +76,14 @@ gulp.task('css:watch', function () {
 
 gulp.task('css', gulp.series('css:clean', 'css:process'));
 
-gulp.task('default', gulp.parallel('css'));
+
+/*
+ * Combinations
+ */
+gulp.task('default', gulp.parallel('css', 'fonts'));
+
+gulp.task('build', gulp.series('default', 'fractal:build'));
 
 gulp.task('watch', gulp.parallel('css:watch'));
 
-gulp.task('dev', gulp.series('css', 'fractal:start', 'watch'));
+gulp.task('dev', gulp.series('default', 'fractal:start', 'watch'));

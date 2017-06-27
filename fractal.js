@@ -39,3 +39,8 @@ fractal.web.set('builder.dest', __dirname + '/build');
  * Other configurations
  */
 fractal.web.set('server.sync', true);
+
+fractal.web.set('server.syncOptions', {
+  files: ["src/**/*.scss"],
+  reloadDelay: 1000
+});
