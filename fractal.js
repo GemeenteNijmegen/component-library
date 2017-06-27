@@ -40,7 +40,10 @@ fractal.web.set('builder.dest', __dirname + '/build');
  */
 fractal.web.set('server.sync', true);
 
+/* Options passed to BrowserSync */
 fractal.web.set('server.syncOptions', {
+  /* Files to watch for changes */
   files: ["src/**/*.scss"],
+  /* Adding a delay to make sure the sourcefiles are compiled before pushing the refresh to the browser */
   reloadDelay: 1000
 });
