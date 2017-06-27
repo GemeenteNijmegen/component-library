@@ -7,7 +7,7 @@ First make sure you install the node modules:
 
     docker-compose run --user="$UID" frontend yarn
 
-Then start the development enviroment:
+Then start the development environment:
 
     docker-compose up
 
