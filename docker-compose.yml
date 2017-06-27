@@ -1,0 +1,20 @@
+version: '3'
+services:
+  frontend:
+    build: .
+    command: "yarn start"
+    volumes:
+      - ./:/app
+    environment:
+      NODE_ENV: development
+    ports:
+      - 3000:3000
+    networks:
+      - nijmegen
+networks:
+  nijmegen:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 192.168.84.0/24

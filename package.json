@@ -1,0 +1,22 @@
+{
+  "name": "Nijmegen-Component-Library",
+  "version": "1.0.0",
+  "description": "Nijmegen Component Library built by Enrise",
+  "main": "index.js",
+  "repository": "https://github.com/Enrise/nijmegen-component-library",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@frctl/fractal": "^1.1.4",
+    "mdbootstrap": "^4.3.2"
+  },
+  "scripts": {
+    "start": "gulp dev",
+    "build": "gulp build"
+  },
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "gulpjs/gulp#4.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sass-glob": "^1.0.8"
+  }
+}
