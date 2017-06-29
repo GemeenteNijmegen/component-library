@@ -7,5 +7,5 @@ WORKDIR /app
 # Expose port
 EXPOSE 9000
 
-# Command must be explicitly set
-CMD yarn run ${command:-start}
+# Start app
+CMD yarn run start

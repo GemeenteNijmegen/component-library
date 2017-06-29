@@ -1,0 +1,28 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  # Update Docker
+  - sudo apt-get update
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+  - docker --version
+  # Build container
+  - docker build -t enrise/nijmegen-component-library .
+
+script:
+  # Install node modules
+  - docker run -t --rm -v `pwd`:/app enrise/nijmegen-component-library yarn
+  # Run build
+  - docker run -t --rm -v `pwd`:/app enrise/nijmegen-component-library yarn build
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: "nijmegen-component-library"
+    skip_cleanup: true
+    local_dir: build
+    region: "eu-west-1"
+    acl: public_read
