@@ -20,4 +20,4 @@ Generate a production build in `build/` with:
     docker-compose run --user="$UID" frontend yarn build
 
 
-The (temporary) production enviroment is reachable on <http://nijmegen-component-library.s3-website-eu-west-1.amazonaws.com>.
+The (temporary) production enviroment is reachable on <http://nijmegen-component-library.s3-website-eu-west-1.amazonaws.com>
