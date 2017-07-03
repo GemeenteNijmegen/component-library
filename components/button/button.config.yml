@@ -1,17 +1,19 @@
 ---
 title: Button component
 notes: 
-status: wip
+status: ready # prototype, wip, ready
 context:
   label: Button label
   label-disabled: Button disabled
+default: "info" # http://fractal.build/guide/components/variants#the-default-variant
 variants:
-  - name: default
-    context:
-      modifier: default
   - name: primary
     context:
       modifier: primary
   - name: secondary
     context:
       modifier: secondary
+  - name: info
+    label: "Info"
+    context:
+      modifier: info
