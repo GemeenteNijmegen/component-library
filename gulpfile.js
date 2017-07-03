@@ -52,6 +52,25 @@ gulp.task('fonts:watch', function () {
 gulp.task('fonts', gulp.series('fonts:clean', 'fonts:copy'));
 
 /*
+ * MDB JavaScript
+ */
+gulp.task('mdb-js:clean', function() {
+  return del(['public/js']);
+});
+
+gulp.task('mdb-js:copy', function() {
+  return gulp.src('node_modules/mdbootstrap/js/**/*.min.js').pipe(gulp.dest('public/js'));
+});
+
+gulp.task('mdb-js:watch', function () {
+  gulp.watch([
+    'node_modules/mdbootstrap/js/**/*',
+  ], gulp.series('mdb-js'));
+});
+
+gulp.task('mdb-js', gulp.series('mdb-js:clean', 'mdb-js:copy'));
+
+/*
  * CSS
  */
 gulp.task('css:process', function() {
@@ -68,19 +87,24 @@ gulp.task('css:clean', function() {
   return del(['public/css']);
 });
 
+// Copy MDB style file
+gulp.task('mdb-css:copy', function() {
+  return gulp.src('node_modules/mdbootstrap/css/bootstrap.min.css').pipe(gulp.dest('public/css'));
+});
+
 gulp.task('css:watch', function () {
   gulp.watch([
     'src/scss/**/*.scss',
   ], gulp.series('css'));
 });
 
-gulp.task('css', gulp.series('css:clean', 'css:process'));
+gulp.task('css', gulp.series('css:clean', 'mdb-css:copy', 'css:process'));
 
 
 /*
  * Combinations
  */
-gulp.task('default', gulp.parallel('css', 'fonts'));
+gulp.task('default', gulp.parallel('css', 'fonts', 'mdb-js'));
 
 gulp.task('build', gulp.series('default', 'fractal:build'));
 

@@ -4,3 +4,4 @@ node_modules
 /build
 /public/css/
 /public/font/
+/public/js/

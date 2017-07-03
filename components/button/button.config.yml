@@ -1,0 +1,17 @@
+---
+title: Button component
+notes: 
+status: wip
+context:
+  label: Button label
+  label-disabled: Button disabled
+variants:
+  - name: default
+    context:
+      modifier: default
+  - name: primary
+    context:
+      modifier: primary
+  - name: secondary
+    context:
+      modifier: secondary
