@@ -2,81 +2,95 @@
     @extend .btn-primary;
 
     &:hover {
-        background-color: #199b82 !important;
+        background-color: color('nijmegen-primary', 'lighten-1') !important;
     }
 
     &:focus {
-        background-color: #1a6b5b !important;
+        background-color: color('nijmegen-primary', 'darken-1') !important;
+        outline: 3px auto $focus-color !important;
     }
 
     &:active,
-    &.active {
-        background-color: #123f36 !important;
+    &.active,
+    &:active:hover,
+    &.active:hover {
+        background-color: color('nijmegen-primary', 'darken-3') !important;
     }
 
     &:disabled,
     &:disabled:hover {
-        background-color: #dadada !important;
+        background-color: color('nijmegen-grey', 'base') !important;
+        box-shadow: none;
     }
 }
 
 .btn-secondary {
     @extend .btn-secondary;
-    color: #157c68 !important;
+    border: 1px solid color('nijmegen-grey', 'darken-1');
+    color: color('nijmegen-primary', 'base') !important;
 
     &:hover,
     &:focus {
-        background-color: #efefef !important;
-        color: #17564a !important;
+        background-color: color('nijmegen-grey', 'lighten-1') !important;
+        color: color('nijmegen-primary', 'darken-2') !important;
+    }
+
+    &:focus {
+        outline: 3px auto $focus-color !important;
     }
 
     &:active,
-    &.active {
-        background-color: #efefef !important;
+    &.active,
+    &:active:hover,
+    &.active:hover {
+        background-color: color('nijmegen-grey', 'lighten-1') !important;
         color: #212121 !important;
     }
 
     &:disabled,
     &:disabled:hover {
-        background-color: #fff !important;
-        border: 1px solid #dadada;
-        box-shadow: none;
-        color: #dadada !important;
+        @extend .z-depth-1;
+        background-color: color('shades', 'white') !important;
+        border-color: color('nijmegen-grey', 'darken-1');
+        color: color('nijmegen-grey', 'base') !important;
     }
 }
 
 .btn-info {
     @extend .btn-info;
 
-    background-color: #fff;
     border: 1px solid transparent;
     box-shadow: none;
-    color: #157c68 !important;
+    color: color('nijmegen-primary', 'base') !important;
 
     &:hover,
     &:focus {
-        background-color: #fff !important;
+        background-color: color('nijmegen-grey', 'lighten-1') !important;
         border-color: transparent;
         box-shadow: none;
-        color: #17564a !important;
+        color: color('nijmegen-primary', 'darken-2') !important;
     }
 
     &:focus {
-        border-color: #dadada;
+        background-color: color('shades', 'white') !important;
+        border-color: color('nijmegen-grey', 'base');
+        outline: 3px auto $focus-color !important;
     }
 
     &:active,
-    &:active:hover {
-        background-color: #efefef !important;
+    &.active,
+    &:active:hover,
+    &.active:hover {
+        background-color: color('shades', 'white');
         border-color: transparent;
         box-shadow: none;
-        color: #212121 !important;
+        color: $body-color !important;
     }
 
     &:disabled,
     &:disabled:hover {
-        background-color: #fff !important;
+        background-color: color('shades', 'white') !important;
         border-color: transparent;
-        color: #dadada !important;
+        color: color('nijmegen-grey', 'base') !important;
     }
 }

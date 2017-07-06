@@ -1,6 +1,6 @@
 ---
 title: Nijmegen Component Library
-status: draft # draft, ready
+status: ready # draft, ready
 ---
 
 You can browse the component library using the navigation on the left.
