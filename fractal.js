@@ -37,6 +37,11 @@ fractal.web.set('builder.dest', __dirname + '/build');
 
 /*
  * Other configurations
+ * See
+ *   http://fractal.build/guide/web/configuration
+ *   https://www.browsersync.io/docs/options#option-reloadDelay
+ * Omdat ik een watch instel op de source bestanden moet BrowserSync even wachten voordat de browser een refresh krijgt gepushed want in de tussentijd zal Gulp de CSS bestanden genereren.
+ * Ik had liever een watch ingesteld op de gegenereerde CSS bestanden, maar die werd niet altijd opgepakt gek genoeg.
  */
 fractal.web.set('server.sync', true);
 
