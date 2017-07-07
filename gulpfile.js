@@ -61,7 +61,7 @@ gulp.task('mdb-js:clean', function() {
 });
 
 gulp.task('mdb-js:copy', function() {
-  return gulp.src(mdbootstrapPath+'/js/**/*.min.js').pipe(gulp.dest('public/js'));
+  return gulp.src(mdbootstrapPath+'/js/*.min.js').pipe(gulp.dest('public/js'));
 });
 
 gulp.task('mdb-js:watch', function () {
