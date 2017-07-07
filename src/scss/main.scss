@@ -3,32 +3,34 @@
 // MDB Framework //
 
 // Mixins
-@import "node_modules/mdbootstrap/sass/mdb/free/data/prefixer";
-@import "node_modules/mdbootstrap/sass/mdb/free/data/mixins";
+@import "mdb/free/data/prefixer";
+@import "mdb/free/data/mixins";
 
 // Variables
-// @import "node_modules/mdbootstrap/sass/mdb/free/data/colors";
+// @import "mdb/free/data/colors";
 @import "nijmegen/mdb-colors-override";
 
-@import "node_modules/mdbootstrap/sass/mdb/free/data/variables-b4";
-@import "node_modules/mdbootstrap/sass/mdb/free/data/variables";
+@import "mdb/free/data/variables-b4";
+@import "mdb/free/data/variables";
 
-//Global
-@import "node_modules/mdbootstrap/sass/mdb/free/global";
+// Global
+@import "mdb/free/global";
 
 // MDB Free
-@import "node_modules/mdbootstrap/sass/mdb/free/roboto";
-@import "node_modules/mdbootstrap/sass/mdb/free/typography";
-@import "node_modules/mdbootstrap/sass/mdb/free/animations";
-@import "node_modules/mdbootstrap/sass/mdb/free/waves";
-@import "node_modules/mdbootstrap/sass/mdb/free/helpers";
-@import "node_modules/mdbootstrap/sass/mdb/free/buttons";
-@import "node_modules/mdbootstrap/sass/mdb/free/forms-basic";
-@import "node_modules/mdbootstrap/sass/mdb/free/cards-basic";
-@import "node_modules/mdbootstrap/sass/mdb/free/navbars";
-@import "node_modules/mdbootstrap/sass/mdb/free/hover-effects";
-@import "node_modules/mdbootstrap/sass/mdb/free/footer";
-@import "node_modules/mdbootstrap/sass/mdb/free/carousels-basic";
-@import "node_modules/mdbootstrap/sass/mdb/free/modals";
+@import "mdb/free/roboto";
+@import "mdb/free/typography";
+@import "mdb/free/animations";
+@import "mdb/free/waves";
+@import "mdb/free/helpers";
+@import "mdb/free/buttons";
+@import "mdb/free/forms-basic";
+@import "mdb/free/cards-basic";
+@import "mdb/free/navbars";
+@import "mdb/free/hover-effects";
+@import "mdb/free/footer";
+@import "mdb/free/carousels-basic";
+@import "mdb/free/modals";
+
+// Nijmegen overrides //
 
 @import "nijmegen/buttons";
