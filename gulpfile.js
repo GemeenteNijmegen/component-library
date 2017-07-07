@@ -5,6 +5,8 @@ const del = require('del');
 const sass = require('gulp-sass');
 const sassGlob = require('gulp-sass-glob');
 
+const mdbootstrapPath = 'src/mdbootstrap-pro/v4.3.2';
+
 /*
  * Fractal
  */
@@ -40,12 +42,12 @@ gulp.task('fonts:clean', function() {
 });
 
 gulp.task('fonts:copy', function() {
-  return gulp.src('node_modules/mdbootstrap/font/**/*').pipe(gulp.dest('public/font'));
+  return gulp.src(mdbootstrapPath+'/font/**/*').pipe(gulp.dest('public/font'));
 });
 
 gulp.task('fonts:watch', function () {
   gulp.watch([
-    'node_modules/mdbootstrap/font/**/*',
+    mdbootstrapPath+'/font/**/*',
   ], gulp.series('fonts'));
 });
 
@@ -59,12 +61,12 @@ gulp.task('mdb-js:clean', function() {
 });
 
 gulp.task('mdb-js:copy', function() {
-  return gulp.src('node_modules/mdbootstrap/js/**/*.min.js').pipe(gulp.dest('public/js'));
+  return gulp.src(mdbootstrapPath+'/js/*.min.js').pipe(gulp.dest('public/js'));
 });
 
 gulp.task('mdb-js:watch', function () {
   gulp.watch([
-    'node_modules/mdbootstrap/js/**/*',
+    mdbootstrapPath+'/js/**/*',
   ], gulp.series('mdb-js'));
 });
 
@@ -77,7 +79,9 @@ gulp.task('css:process', function() {
   return gulp.src('src/scss/*.scss')
     .pipe(sassGlob())
     .pipe(sass({
-      includePaths: './node_modules'
+      // set path to MDB sass files so these can be found by 'import' statements
+      // while compiling new CSS
+      includePaths: mdbootstrapPath+'/sass/'
     }))
     .on('error', err => console.log(err.message))
     .pipe(gulp.dest('public/css'));
@@ -89,7 +93,7 @@ gulp.task('css:clean', function() {
 
 // Copy MDB style file
 gulp.task('mdb-css:copy', function() {
-  return gulp.src('node_modules/mdbootstrap/css/bootstrap.min.css').pipe(gulp.dest('public/css'));
+  return gulp.src(mdbootstrapPath+'/css/bootstrap.min.css').pipe(gulp.dest('public/css'));
 });
 
 gulp.task('css:watch', function () {

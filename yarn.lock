@@ -2424,10 +2424,6 @@ matchdep@^1.0.0:
     resolve "~1.1.6"
     stack-trace "0.0.9"
 
-mdbootstrap@^4.3.2:
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/mdbootstrap/-/mdbootstrap-4.3.2.tgz#b3721e13aea00cb4d74bfc3d811853842108172a"
-
 media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
