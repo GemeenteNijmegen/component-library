@@ -41,17 +41,15 @@ gulp.task('fonts:clean', function() {
   return del(['public/font']);
 });
 
-gulp.task('fonts:copy', function() {
+gulp.task('mdb-fonts:copy', function() {
   return gulp.src(mdbootstrapPath+'/font/**/*').pipe(gulp.dest('public/font'));
 });
 
-gulp.task('fonts:watch', function () {
-  gulp.watch([
-    mdbootstrapPath+'/font/**/*',
-  ], gulp.series('fonts'));
+gulp.task('fonts:copy', function() {
+  return gulp.src('./src/font/**/*').pipe(gulp.dest('public/font'));
 });
 
-gulp.task('fonts', gulp.series('fonts:clean', 'fonts:copy'));
+gulp.task('fonts', gulp.series('fonts:clean', 'fonts:copy', 'mdb-fonts:copy'));
 
 /*
  * MDB JavaScript
