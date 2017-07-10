@@ -17,7 +17,16 @@ $nijmegen-primary: (
     "darken-3":   #123f36,      // rgb(18, 63, 54)
 );
 
+$nijmegen-backgrounds: (
+    'default':    $body-color,
+    'primary':    #5b5b5b,
+    'success':    #cddc39,
+    'info':       #40c4ff,
+    'warning':    #ffab00,
+    'danger':     #d50000,
+);
 // add the custom Nijmegen colors to the overall colors mapping so
 // we can easily use a function/mixin to get a specific color
 $colors: map-merge($colors, ('nijmegen-grey': $nijmegen-grey));
 $colors: map-merge($colors, ('nijmegen-primary': $nijmegen-primary));
+$colors: map-merge($colors, ('nijmegen-backgrounds': $nijmegen-backgrounds));

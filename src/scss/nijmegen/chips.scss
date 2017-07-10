@@ -1,0 +1,8 @@
+.chip {
+  color: $body-color !important;
+  background-color: #ffffff;
+
+  .close {
+    color: color('nijmegen-primary', 'base');
+  }
+}
