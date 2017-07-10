@@ -1,8 +1,12 @@
 .chip {
   color: $body-color !important;
   background-color: #ffffff;
-
+  font-weight: $font-weight-semibold;
+  font-size: 0.8rem;
+  padding-left: 16px;
+  padding-right: 16px;
   .close {
     color: color('nijmegen-primary', 'base');
+    margin-right: -8px;
   }
 }

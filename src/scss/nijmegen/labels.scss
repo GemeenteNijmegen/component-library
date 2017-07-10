@@ -3,7 +3,8 @@
   min-width: 5rem;
   padding: .4em;
   border-radius: 0;
-  font-weight: 500;
+  font-weight: $font-weight-semibold;
+  font-size: 0.8rem;
 
   &.badge-default {
     background-color: color('nijmegen-backgrounds', 'default');
