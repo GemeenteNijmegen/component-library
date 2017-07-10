@@ -47,7 +47,16 @@ html {
 body,
 input,
 button  {
+    color: $body-color;
     font-family: 'Source Sans Pro', sans-serif;
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+    /* Support for IE. */
+    font-feature-settings: 'liga';
 }
 
 h1,
@@ -58,6 +67,14 @@ h5,
 h6 {
     font-family: 'Oranda', sans-serif;
     font-weight: $font-weight-normal;
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+    /* Support for IE. */
+    font-feature-settings: 'liga';
 }
 
 h1 {

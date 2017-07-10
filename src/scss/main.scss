@@ -18,8 +18,6 @@
 
 // MDB Free
 @import "mdb/free/typography";
-@import "nijmegen/typography";
-
 @import "mdb/free/animations";
 @import "mdb/free/waves";
 @import "mdb/free/helpers";
@@ -32,7 +30,12 @@
 @import "mdb/free/carousels-basic";
 @import "mdb/free/modals";
 
-// Nijmegen overrides //
+// MDB Pro
+@import "mdb/pro/progress";
 
+// Nijmegen overrides //
+@import "nijmegen/icons";
+@import "nijmegen/typography";
 @import "nijmegen/buttons";
 @import "nijmegen/listgroups";
+@import "nijmegen/progress";
