@@ -21,10 +21,21 @@
         margin-bottom: 0;
     }
 
-    .list-group-item {
+    a.list-group-item {
         &.active {
             background-color: color('nijmegen-grey', 'lighten-1') !important;
             color: color('nijmegen-primary', 'darken-2') !important;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: color('nijmegen-grey', 'lighten-1') !important;
+            color: color('nijmegen-primary', 'darken-2') !important;
+        }
+
+        &:active,
+        &:focus {
+            outline: 3px auto $focus-color !important;
         }
     }
 
