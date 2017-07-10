@@ -18,8 +18,6 @@
 
 // MDB Free
 @import "mdb/free/typography";
-@import "nijmegen/typography";
-
 @import "mdb/free/animations";
 @import "mdb/free/waves";
 @import "mdb/free/helpers";
@@ -33,6 +31,7 @@
 @import "mdb/free/modals";
 
 // Nijmegen overrides //
-
+@import "nijmegen/icons";
+@import "nijmegen/typography";
 @import "nijmegen/buttons";
 @import "nijmegen/pagination";
