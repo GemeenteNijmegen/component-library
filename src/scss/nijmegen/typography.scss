@@ -61,12 +61,12 @@ h1 {
 }
 
 h2 {
-    color: $nijmegen-brand;
+    color: color('nijmegen-brand', 'base');
     font-size: 2.25rem;
 }
 
 h3 {
-    color: $nijmegen-brand;
+    color: color('nijmegen-brand', 'base');
 }
 
 h4 {
@@ -81,4 +81,45 @@ h5 {
 h6 {
     color: color('nijmegen-grey', 'darken-2');
     font-size: 1.5rem;
+}
+
+ul:not(.list-inline) {
+    position: relative;
+
+    li {
+        &:before {
+            content: '●';
+            font-size: 0.5em;
+            position: absolute;
+            left: 0;
+            margin-top: 0.75em;
+        }
+    }
+}
+
+a {
+    &:hover {
+        color: $link-hover-color;
+
+        h2 {
+            color: color('nijmegen-brand', 'darken-1');
+        }
+    }
+
+    &:focus {
+        color: $link-focus-color;
+        outline: 1px solid $focus-color;
+
+        h2 {
+            color: color('nijmegen-brand', 'darken-1');
+        }
+    }
+
+    &:active {
+        color: $link-active-color;
+
+        h2 {
+            color: color('nijmegen-brand', 'darken-2');
+        }
+    }
 }
