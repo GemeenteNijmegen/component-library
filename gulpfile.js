@@ -45,12 +45,6 @@ gulp.task('mdb-fonts:copy', function() {
   return gulp.src(mdbootstrapPath+'/font/**/*').pipe(gulp.dest('public/font'));
 });
 
-gulp.task('mdb-fonts:watch', function () {
-  gulp.watch([
-    mdbootstrapPath+'/font/**/*',
-  ], gulp.series('fonts'));
-});
-
 gulp.task('fonts:copy', function() {
   return gulp.src('./src/font/**/*').pipe(gulp.dest('public/font'));
 });

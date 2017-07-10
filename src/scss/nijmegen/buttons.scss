@@ -1,7 +1,7 @@
 .btn {
     display: block;
-    font-size: 1.125rem;
-    font-weight: 600; //semibold
+    font-size: $font-size-base * 1.125;
+    font-weight: $font-weight-semibold;
     letter-spacing: 0.7px;
     width: calc(100% - 6px - 6px); // MDB sets left and right margins of 6px each
 

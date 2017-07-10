@@ -3,25 +3,25 @@ $body-color: #212121;           // rgb(33, 33, 33)
 $focus-color: #00b593;          // rgb(0, 181, 147)
 
 $nijmegen-brand: (
-    "base":       #a80a2d,      // rgb(168, 10, 45);
-    "darken-1":   #780721,      // rgb(120, 7, 33);
-    "darken-2":   #580518,      // rgb(88, 5, 24);
+    'base':       #a80a2d,      // rgb(168, 10, 45);
+    'darken-1':   #780721,      // rgb(120, 7, 33);
+    'darken-2':   #580518,      // rgb(88, 5, 24);
 );
 
 $nijmegen-grey: (
-    "lighten-1":  #efefef,      // rgb(239, 239, 239)
-    "base":       #dadada,      // rgb(218, 218, 218)
-    "darken-1":   #ababab,      // rgb(171, 171, 171)
-    "darken-2":   #6b6b6b,      // rgb(107, 107, 107)
+    'lighten-1':  #efefef,      // rgb(239, 239, 239)
+    'base':       #dadada,      // rgb(218, 218, 218)
+    'darken-1':   #ababab,      // rgb(171, 171, 171)
+    'darken-2':   #6b6b6b,      // rgb(107, 107, 107)
 );
 
 $nijmegen-primary: (
-    "lighten-2":  #00b593,      // rgb(0, 181, 147)
-    "lighten-1":  #30a08b,      // rgb(48, 160, 139)
-    "base":       #157c68,      // rgb(21, 124, 104)
-    "darken-1":   #1a6b5b,      // rgb(26, 107, 91)
-    "darken-2":   #17564a,      // rgb(23, 86, 74)
-    "darken-3":   #123f36,      // rgb(18, 63, 54)
+    'lighten-2':  #00b593,      // rgb(0, 181, 147)
+    'lighten-1':  #30a08b,      // rgb(48, 160, 139)
+    'base':       #157c68,      // rgb(21, 124, 104)
+    'darken-1':   #1a6b5b,      // rgb(26, 107, 91)
+    'darken-2':   #17564a,      // rgb(23, 86, 74)
+    'darken-3':   #123f36,      // rgb(18, 63, 54)
 );
 
 // add the custom Nijmegen colors to the overall colors mapping so
