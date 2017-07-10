@@ -1,4 +1,7 @@
-.progress .progress-bar {
-    border-radius: 0.25rem;
-    background-color: color('nijmegen-brand', 'darken-1');
+.progress {
+    background-color: color('nijmegen-grey', 'base');
+    .progress-bar {
+        border-radius: 0.25rem;
+        background-color: color('nijmegen-brand', 'darken-1');
+    }
 }
