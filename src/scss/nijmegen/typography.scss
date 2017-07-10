@@ -112,6 +112,11 @@ a {
 
         h2 {
             color: color('nijmegen-brand', 'darken-1');
+            outline: inherit;
+        }
+
+        h4 {
+            outline: inherit;
         }
     }
 
