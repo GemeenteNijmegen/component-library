@@ -45,11 +45,15 @@ gulp.task('mdb-fonts:copy', function() {
   return gulp.src(mdbootstrapPath+'/font/**/*').pipe(gulp.dest('public/font'));
 });
 
+gulp.task('material-icon-fonts:copy', function() {
+  return gulp.src('node_modules/material-design-icons/iconfont/*.{eot,svg,ttf,woff,woff2}').pipe(gulp.dest('public/font/materialicons'));
+});
+
 gulp.task('fonts:copy', function() {
   return gulp.src('./src/font/**/*').pipe(gulp.dest('public/font'));
 });
 
-gulp.task('fonts', gulp.series('fonts:clean', 'fonts:copy', 'mdb-fonts:copy'));
+gulp.task('fonts', gulp.series('fonts:clean', 'fonts:copy', 'mdb-fonts:copy', 'material-icon-fonts:copy'));
 
 /*
  * MDB JavaScript
