@@ -27,7 +27,7 @@
 
     &.active .page-link {
       background-color: color('nijmegen-backgrounds', 'pagination-active') !important;
-      color: #ffffff;
+      color: color('shades', 'white');
       box-shadow: none;
     }
   }
