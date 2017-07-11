@@ -35,9 +35,11 @@
 @import "mdb/pro/progress";
 
 // Nijmegen overrides //
+@import "nijmegen/mixins";
 @import "nijmegen/icons";
 @import "nijmegen/typography";
 @import "nijmegen/buttons";
 @import "nijmegen/chips";
 @import "nijmegen/labels";
+@import "nijmegen/pagination";
 @import "nijmegen/progress";
