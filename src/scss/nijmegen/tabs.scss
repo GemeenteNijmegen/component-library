@@ -1,0 +1,47 @@
+$border-bottom-size: 5; // Size is in pt
+$text-height: to-rem(48 - $border-bottom-size);
+
+.tabs-wrapper {
+    border-top: to-rem(1) solid color('nijmegen-grey', 'base');
+    border-right: to-rem(1) solid color('nijmegen-grey', 'base');
+    border-left: to-rem(1) solid color('nijmegen-grey', 'base');
+
+    .classic-tabs {
+        height: to-rem(48);
+        position: relative;
+        &:before {
+            content: '';
+            background-color: color('nijmegen-grey', 'base');
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: to-rem($border-bottom-size);
+            z-index: 2;
+        }
+
+        li {
+            flex: inherit;
+            height: to-rem(48);
+            z-index: 5;
+            &:first-child {
+                margin-left: 0;
+            }
+
+            a {
+                height: to-rem(48);
+                line-height: $text-height;
+                padding-top: 0;
+                padding-bottom: 0;
+                border-radius: 0;
+                &.active {
+                    border-bottom: to-rem($border-bottom-size) solid color('nijmegen-brand', 'darken-1');
+                }
+
+                &:focus {
+                    @include focus
+                }
+            }
+        }
+    }
+}
