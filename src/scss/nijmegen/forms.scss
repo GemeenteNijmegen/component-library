@@ -1,11 +1,16 @@
 .md-form {
     margin-top: 1.125rem;
+    margin-bottom: 1.7rem;
 
     label {
         font-size: 1.125rem !important;
+        color: color('nijmegen-text', 'unfocussed-gray');
+        width: 100%;
+        top: -0.3rem;
 
         &.active {
             font-weight: $font-weight-semibold;
+            top: 0.8rem;
         }
     }
 
@@ -13,9 +18,47 @@
         font-weight: $font-weight-semibold;
         font-size: 1.125rem;
         color: $body-color;
+        height: 1.125rem;
 
         @include placeholder {
             font-weight: $font-weight-normal;
+            color: color('nijmegen-text', 'placeholder');
+        }
+
+        &:disabled {
+            font-weight: $font-weight-normal;
+            border-bottom-color: rgba(0,0,0,0.26);
+        }
+
+        &:focus + label {
+            color: color('nijmegen-primary', 'base');
+        }
+
+        &.valid + label:after,
+        &.invalid + label:after {
+            font-size: 0.875rem;
+        }
+
+        &.invalid {
+            border-color: color('nijmegen-text', 'error');
+            box-shadow: 0 1px 0 0 color('nijmegen-text', 'error');
+
+            & + label:before {
+                color: color('nijmegen-text', 'error');
+                @include material-icons;
+                content: 'warning';
+                display: block;
+                position: absolute;
+                transition: .2s opacity ease-out, .2s color ease-out;
+                right: 0;
+                font-size: 1.5rem;
+                top: 4.2rem;
+            }
+
+            & + label:after {
+                color: color('nijmegen-text', 'error');
+                top: 4.2rem;
+            }
         }
     }
 }
