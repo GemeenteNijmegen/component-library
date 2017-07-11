@@ -4,7 +4,7 @@
 
     label {
         font-size: to-rem(16) !important;
-        color: color('nijmegen-text', 'unfocussed-gray');
+        color: color('nijmegen-forms', 'unfocussed-gray');
         width: 100%;
         top: -0.3rem;
 
@@ -23,7 +23,7 @@
 
         @include placeholder {
             font-weight: $font-weight-normal;
-            color: color('nijmegen-text', 'placeholder');
+            color: color('nijmegen-forms', 'placeholder');
         }
 
         &:disabled {
@@ -41,8 +41,8 @@
         }
 
         &.invalid {
-            border-color: color('nijmegen-text', 'error');
-            box-shadow: 0 1px 0 0 color('nijmegen-text', 'error');
+            border-color: color('nijmegen-forms', 'error');
+            box-shadow: 0 1px 0 0 color('nijmegen-forms', 'error');
 
             & + label {
                 &:before {
@@ -56,7 +56,7 @@
                 }
                 &:before,
                 &:after {
-                    color: color('nijmegen-text', 'error');
+                    color: color('nijmegen-forms', 'error');
                     top: 4.2rem;
                 }
             }
