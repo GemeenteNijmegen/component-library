@@ -3,18 +3,18 @@
 
 $oranda-font-path: '../font/oranda/';
 
-$font-weight-normal:   400;
+$font-weight-normal: 400;
 $font-weight-semibold: 600;
-$font-weight-bold:     700;
+$font-weight-bold: 700;
 
 @font-face {
     font-family: 'Oranda';
     src: local(Oranda BT Bold), url('#{$oranda-font-path}oranda_bold_bt.eot');
     src: url('#{$oranda-font-path}oranda_bold_bt.eot?#iefix') format('embedded-opentype'),
-         url('#{$oranda-font-path}oranda_bold_bt.woff2') format('woff2'),
-         url('#{$oranda-font-path}oranda_bold_bt.woff') format('woff'),
-         url('#{$oranda-font-path}oranda_bold_bt.ttf') format('truetype'),
-         url('#{$oranda-font-path}oranda_bold_bt.svg#oranda_btbold') format('svg');
+    url('#{$oranda-font-path}oranda_bold_bt.woff2') format('woff2'),
+    url('#{$oranda-font-path}oranda_bold_bt.woff') format('woff'),
+    url('#{$oranda-font-path}oranda_bold_bt.ttf') format('truetype'),
+    url('#{$oranda-font-path}oranda_bold_bt.svg#oranda_btbold') format('svg');
     font-weight: $font-weight-bold;
     font-style: normal;
 }
@@ -23,10 +23,10 @@ $font-weight-bold:     700;
     font-family: 'Oranda';
     src: local(Oranda BT Roman), url('#{$oranda-font-path}oranda_bt.eot');
     src: url('#{$oranda-font-path}oranda_bt.eot?#iefix') format('embedded-opentype'),
-         url('#{$oranda-font-path}oranda_bt.woff2') format('woff2'),
-         url('#{$oranda-font-path}oranda_bt.woff') format('woff'),
-         url('#{$oranda-font-path}oranda_bt.ttf') format('truetype'),
-         url('#{$oranda-font-path}oranda_bt.svg#oranda_btroman') format('svg');
+    url('#{$oranda-font-path}oranda_bt.woff2') format('woff2'),
+    url('#{$oranda-font-path}oranda_bt.woff') format('woff'),
+    url('#{$oranda-font-path}oranda_bt.ttf') format('truetype'),
+    url('#{$oranda-font-path}oranda_bt.svg#oranda_btroman') format('svg');
     font-weight: $font-weight-normal;
     font-style: normal;
 
@@ -46,7 +46,7 @@ html {
 
 body,
 input,
-button  {
+button {
     color: $body-color;
     font-family: 'Source Sans Pro', sans-serif;
     /* Support for all WebKit browsers. */
@@ -104,7 +104,7 @@ h6 {
     font-size: 1.5rem;
 }
 
-ul:not(.list-inline):not(.list-group) {
+ul:not(.list-inline):not(.list-group):not(.pagination) {
     position: relative;
 
     li {
