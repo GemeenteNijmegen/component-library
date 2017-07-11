@@ -26,17 +26,17 @@ $nijmegen-primary: (
 
 $nijmegen-backgrounds: (
     'default':    $body-color,
-    'primary':    #5b5b5b,
-    'success':    #cddc39,
-    'info':       #40c4ff,
-    'warning':    #ffab00,
-    'danger':     #d50000,
-    'pagination-active': #3a3a3a,
+    'primary':    #5b5b5b,      // rgb(91, 91, 91)
+    'success':    #cddc39,      // rgb(205, 220, 57)
+    'info':       #40c4ff,      // rgb(64, 196, 255)
+    'warning':    #ffab00,      // rgb(255, 171, 0)
+    'danger':     #d50000,      // rgb(213, 0, 0)
+    'pagination-active': #3a3a3a, // rgb(58, 58 ,58)
 );
 
 $nijmegen-text: (
-        'body-color': $body-color,
-        'disabled': #cccccc          // rgb(204, 204, 204)
+    'body-color': $body-color,
+    'disabled': #cccccc,        // rgb(204, 204, 204)
 );
 
 // add the custom Nijmegen colors to the overall colors mapping so
