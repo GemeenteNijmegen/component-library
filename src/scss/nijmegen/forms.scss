@@ -3,22 +3,23 @@
     margin-bottom: 1.7rem;
 
     label {
-        font-size: 1.125rem !important;
+        font-size: to-rem(16) !important;
         color: color('nijmegen-text', 'unfocussed-gray');
         width: 100%;
         top: -0.3rem;
 
         &.active {
             font-weight: $font-weight-semibold;
-            top: 0.8rem;
+            top: 0.3rem;
         }
     }
 
     input.form-control {
         font-weight: $font-weight-semibold;
-        font-size: 1.125rem;
         color: $body-color;
-        height: 1.125rem;
+        font-size: to-rem(16);
+        height: to-rem(16);
+        padding-bottom: 0.5em;
 
         @include placeholder {
             font-weight: $font-weight-normal;
@@ -36,28 +37,28 @@
 
         &.valid + label:after,
         &.invalid + label:after {
-            font-size: 0.875rem;
+            font-size: to-rem(14);
         }
 
         &.invalid {
             border-color: color('nijmegen-text', 'error');
             box-shadow: 0 1px 0 0 color('nijmegen-text', 'error');
 
-            & + label:before {
-                color: color('nijmegen-text', 'error');
-                @include material-icons;
-                content: 'warning';
-                display: block;
-                position: absolute;
-                transition: .2s opacity ease-out, .2s color ease-out;
-                right: 0;
-                font-size: 1.5rem;
-                top: 4.2rem;
-            }
-
-            & + label:after {
-                color: color('nijmegen-text', 'error');
-                top: 4.2rem;
+            & + label {
+                &:before {
+                    @include material-icons;
+                    content: 'warning';
+                    display: block;
+                    position: absolute;
+                    transition: .2s opacity ease-out, .2s color ease-out;
+                    right: 0;
+                    font-size: to-rem(17);
+                }
+                &:before,
+                &:after {
+                    color: color('nijmegen-text', 'error');
+                    top: 4.2rem;
+                }
             }
         }
     }
