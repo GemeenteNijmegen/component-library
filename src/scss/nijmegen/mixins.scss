@@ -1,27 +1,27 @@
 // Function to convert the pt from zeplin to rem, the by framework used format.
 @function to-rem($pt) {
-  @return ($pt / ($font-size-root / 1px)) + rem;
+    @return ($pt / ($font-size-root / 1px)) + rem;
 }
 
 @mixin material-icons {
-  @include web-font-rendering-support;
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1;
+    @include web-font-rendering-support;
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
 }
 
 @mixin web-font-rendering-support {
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-  /* Support for IE. */
-  font-feature-settings: 'liga';
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+    /* Support for IE. */
+    font-feature-settings: 'liga';
 }
 
 @mixin tab-focus() {
-  outline: 3px auto $focus-color !important;
+    outline: 3px auto $focus-color !important;
 }
