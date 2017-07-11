@@ -1,0 +1,12 @@
+---
+title: Tabs
+notes: 
+status: ready # prototype, wip, ready
+default: "tabs" # http://fractal.build/guide/components/variants#the-default-variant
+variants:
+  - name: tabs
+    context:
+      modifier:
+  - name: Tabs No Line
+    context:
+      modifier: -no-line

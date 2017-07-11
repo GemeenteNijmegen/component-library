@@ -21,3 +21,7 @@
   /* Support for IE. */
   font-feature-settings: 'liga';
 }
+
+@mixin tab-focus() {
+  outline: 3px auto $focus-color !important;
+}
