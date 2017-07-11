@@ -1,0 +1,21 @@
+.md-form {
+    margin-top: 1.125rem;
+
+    label {
+        font-size: 1.125rem !important;
+
+        &.active {
+            font-weight: $font-weight-semibold;
+        }
+    }
+
+    input.form-control {
+        font-weight: $font-weight-semibold;
+        font-size: 1.125rem;
+        color: $body-color;
+
+        @include placeholder {
+            font-weight: $font-weight-normal;
+        }
+    }
+}
