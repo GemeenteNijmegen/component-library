@@ -1,0 +1,33 @@
+---
+title: Labels
+notes: 
+status: ready # prototype, wip, ready
+context:
+  label-label: Person tag
+variants:
+  - name: default
+    context:
+      label: "Default"
+      modifier: default
+  - name: primary
+    context:
+      label: "Primary"
+      modifier: primary
+  - name: success
+    context:
+      label: "Success"
+      modifier: success
+  - name: info
+    context:
+      label: "Info"
+      modifier: info
+  - name: warning
+    context:
+      label: "Warning"
+      modifier: warning
+  - name: danger
+    context:
+      label: "Danger"
+      modifier: danger
+
+
