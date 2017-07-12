@@ -1,0 +1,13 @@
+footer.page-footer {
+    background-color: color('nijmegen-backgrounds', 'footer-primary');
+
+    .title {
+        font-size: to-rem(20);
+        font-family: 'Source Sans Pro', sans-serif;
+        text-transform: none;
+    }
+
+    .footer-copyright {
+        background-color: color('nijmegen-backgrounds', 'default');
+    }
+}

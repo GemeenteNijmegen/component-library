@@ -104,7 +104,7 @@ h6 {
     font-size: 1.5rem;
 }
 
-ul:not(.list-inline):not(.pagination) {
+ul:not(.list-inline):not(.pagination):not(.link-list) {
     position: relative;
 
     li {
