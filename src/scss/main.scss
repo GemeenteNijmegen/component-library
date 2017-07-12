@@ -32,9 +32,11 @@
 
 // MDB Pro
 @import "mdb/pro/progress";
+@import "mdb/pro/buttons-pro";
 
 // Nijmegen overrides //
 @import "nijmegen/mixins";
+@import "nijmegen/fab";
 @import "nijmegen/icons";
 @import "nijmegen/typography";
 @import "nijmegen/buttons";

@@ -1,0 +1,21 @@
+.btn-nijmegen-primary {
+    background-color: color('nijmegen-primary', 'base');
+    color: color('shades', 'white');
+
+    &:hover {
+        background-color: color('nijmegen-primary', 'lighten-1');
+    }
+
+    &:focus {
+        background-color: color('nijmegen-primary', 'lighten-2');
+        @include tab-focus;
+    }
+
+    &:active{
+        background-color: color('nijmegen-primary', 'darken-3') !important;
+    }
+
+    .material-icons {
+        font-size: to-rem(28);
+    }
+}
