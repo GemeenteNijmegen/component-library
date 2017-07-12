@@ -1,18 +1,19 @@
 .chip {
-  color: $body-color !important;
-  background-color: #ffffff;
-  font-weight: $font-weight-semibold;
-  font-size: 0.8rem;
-  padding-left: 16px;
-  padding-right: 16px;
-  .close {
-    color: color('nijmegen-primary', 'base');
-    margin-right: -8px;
-    font-size: 1rem;
-    font-weight: 600;
+    color: $body-color !important;
+    background-color: color('shades', 'white');
+    font-weight: $font-weight-semibold;
+    font-size: to-rem(13);
+    padding-right: 16px;
 
-    &:focus, &:hover {
-      color: color('nijmegen-primary', 'darken-2');
+    .close {
+        color: color('nijmegen-primary', 'base');
+        margin-right: -8px;
+        font-size: to-rem(16);
+        font-weight: $font-weight-semibold;
+
+        &:focus,
+        &:hover {
+            color: color('nijmegen-primary', 'darken-2');
+        }
     }
-  }
 }

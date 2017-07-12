@@ -4,7 +4,6 @@ notes:
 status: ready # prototype, wip, ready
 context:
   label-label: Person tag
-default: "default" # http://fractal.build/guide/components/variants#the-default-variant
 variants:
   - name: default
     context:
