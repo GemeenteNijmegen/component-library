@@ -1,13 +1,81 @@
 footer.page-footer {
     background-color: color('nijmegen-backgrounds', 'footer-primary');
+    padding-top: 30px;
 
     .title {
         font-size: to-rem(20);
+        line-height: to-rem(26);
         font-family: 'Source Sans Pro', sans-serif;
         text-transform: none;
     }
 
     .footer-copyright {
         background-color: color('nijmegen-backgrounds', 'default');
+        color: color('shades', 'white');
+        height: to-rem(78);
+        line-height: to-rem(78);
+        font-size: to-rem(16);
+    }
+}
+
+.footer-content {
+    padding-left: to-rem(84);
+    padding-right: to-rem(84);
+
+    .link-list-wrapper {
+        display: flex;
+        > .link-list {
+            flex: 1;
+        }
+    }
+
+    table tbody tr td,
+    .link-list li a {
+        padding-top: to-rem(4);
+        padding-bottom: to-rem(4);
+        font-size: to-rem(14);
+        letter-spacing: to-rem(0.1);
+    }
+
+    .link-list li a {
+        height: to-rem(35);
+        line-height: to-rem(35);
+        padding: to-rem(4) to-rem(8);
+    }
+
+    .vertical-spacer {
+        margin: 15px 0;
+    }
+
+    .link-list li .material-icons {
+        padding: to-rem(10) to-rem(8);
+    }
+
+    .link-list li span {
+        font-size: to-rem(16);
+        padding: to-rem(10) 0;
+        vertical-align: super;
+    }
+
+    table {
+        width: 100%;
+
+        tbody tr td {
+            &:first-child {
+                padding-left: to-rem(8);
+                padding-right: to-rem(4);
+            }
+            &:last-child {
+                padding-left: to-rem(4);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $medium-screen) {
+
+    .footer-content {
+        padding-left: to-rem(37);
+        padding-right: to-rem(37);
     }
 }
