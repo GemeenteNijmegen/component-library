@@ -14,51 +14,52 @@
         }
     }
 
-    input.form-control {
-        font-weight: $font-weight-semibold;
-        color: $body-color;
-        font-size: to-rem(16);
-        height: to-rem(16);
-        padding-bottom: 0.5em;
+}
 
-        @include placeholder {
-            font-weight: $font-weight-normal;
-            color: color('nijmegen-forms', 'placeholder');
-        }
+.form-control {
+    font-weight: $font-weight-semibold;
+    color: $body-color;
+    font-size: to-rem(16);
+    height: to-rem(16);
+    padding-bottom: 0.5em;
 
-        &:disabled {
-            font-weight: $font-weight-normal;
-            border-bottom-color: rgba(0,0,0,0.26);
-        }
+    @include placeholder {
+        font-weight: $font-weight-normal;
+        color: color('nijmegen-forms', 'placeholder');
+    }
 
-        &:focus + label {
-            color: color('nijmegen-primary', 'base');
-        }
+    &:disabled {
+        font-weight: $font-weight-normal;
+        border-bottom-color: rgba(35, 31, 32, 0.26);
+    }
 
-        &.valid + label:after,
-        &.invalid + label:after {
-            font-size: to-rem(14);
-        }
+    &:focus + label {
+        color: color('nijmegen-primary', 'base');
+    }
 
-        &.invalid {
-            border-color: color('nijmegen-forms', 'error');
-            box-shadow: 0 1px 0 0 color('nijmegen-forms', 'error');
+    &.valid + label:after,
+    &.invalid + label:after {
+        font-size: to-rem(14);
+    }
 
-            & + label {
-                &:before {
-                    @include material-icons;
-                    content: 'warning';
-                    display: block;
-                    position: absolute;
-                    transition: .2s opacity ease-out, .2s color ease-out;
-                    right: 0;
-                    font-size: to-rem(17);
-                }
-                &:before,
-                &:after {
-                    color: color('nijmegen-forms', 'error');
-                    top: 4.2rem;
-                }
+    &.invalid {
+        border-color: color('nijmegen-forms', 'error');
+        box-shadow: 0 1px 0 0 color('nijmegen-forms', 'error');
+
+        & + label {
+            &:before {
+                @include material-icons;
+                content: 'warning';
+                display: block;
+                position: absolute;
+                transition: .2s opacity ease-out, .2s color ease-out;
+                right: 0;
+                font-size: to-rem(17);
+            }
+            &:before,
+            &:after {
+                color: color('nijmegen-forms', 'error');
+                top: 4.2rem;
             }
         }
     }
