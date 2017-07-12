@@ -2,20 +2,46 @@
     background-color: color('nijmegen-primary', 'base');
     color: color('shades', 'white');
 
+
     &:hover {
         background-color: color('nijmegen-primary', 'lighten-1');
     }
 
     &:focus {
         background-color: color('nijmegen-primary', 'lighten-2');
-        @include tab-focus;
+
+        &:after {
+            border: 1px solid $focus-color !important;
+        }
     }
 
     &:active{
         background-color: color('nijmegen-primary', 'darken-3') !important;
     }
+}
+
+
+.btn-floating.btn-large {
+    height: to-rem(56);
+    width: to-rem(56);
 
     .material-icons {
         font-size: to-rem(28);
+    }
+
+    &:focus {
+        outline: none;
+        overflow: initial;
+        position: relative;
+
+        &:after {
+            position: absolute;
+            border-radius: 100%;
+            content: '';
+            left: - to-rem(7);
+            right: - to-rem(7);
+            bottom: - to-rem(7);
+            top: - to-rem(7);
+        }
     }
 }
