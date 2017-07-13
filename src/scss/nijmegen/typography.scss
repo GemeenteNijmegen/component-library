@@ -46,7 +46,9 @@ html {
 
 body,
 input,
-button  {
+button,
+textarea,
+select {
     color: $body-color;
     font-family: 'Source Sans Pro', sans-serif;
     @include web-font-rendering-support;
