@@ -13,7 +13,7 @@ $select-height: 60;
 
         &.active {
             font-weight: $font-weight-semibold;
-            top: 0.3rem;
+            top: 1rem;
         }
     }
 
@@ -24,7 +24,7 @@ $select-height: 60;
     color: $body-color;
     font-size: to-rem(16);
     height: to-rem(16);
-    padding-bottom: 0.5em;
+    padding-bottom: 0;
 
     @include placeholder {
         font-weight: $font-weight-normal;
@@ -33,7 +33,7 @@ $select-height: 60;
 
     &:disabled {
         font-weight: $font-weight-normal;
-        border-bottom-color: rgba(35, 31, 32, 0.26);
+        border-bottom-color: rgba(color('nijmegen-forms', 'disabled-border'), 0.26);
     }
 
     &:focus + label {
@@ -63,7 +63,7 @@ $select-height: 60;
             &:before,
             &:after {
                 color: color('nijmegen-forms', 'error');
-                top: 4.2rem;
+                top: 4rem;
             }
         }
     }
