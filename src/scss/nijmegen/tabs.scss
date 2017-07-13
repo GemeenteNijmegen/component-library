@@ -1,72 +1,72 @@
 $border-bottom-size: 5; // Size is in pt
 $text-height: to-rem(48 - $border-bottom-size);
 
-.tabs-wrapper {
-    .classic-tabs-no-line,
-    .classic-tabs {
+.classic-tabs-no-line,
+.classic-tabs {
+    height: to-rem(48);
+    position: relative;
+
+    li {
+        flex: inherit;
         height: to-rem(48);
+        z-index: 5;
         position: relative;
+        &:first-child {
+            margin-left: 0;
+        }
 
-        li {
-            flex: inherit;
+        &:not(:last-child):after {
+            content: '';
+            border-right: to-rem(1) solid color('nijmegen-grey', 'base');
+            position: absolute;
+            right: 0;
+            top: 12px;
+            bottom: 12px;
+        }
+
+        a {
             height: to-rem(48);
-            z-index: 5;
-            position: relative;
-            &:first-child {
-                margin-left: 0;
+            line-height: $text-height;
+            padding-top: 0;
+            padding-bottom: 0;
+            border-radius: 0;
+            font-size: to-rem(18);
+            color: color('nijmegen-brand', 'base');
+            text-transform: none;
+
+            &.active {
+                border-bottom: to-rem($border-bottom-size) solid $body-color;
+                color: $body-color;
             }
 
-            &:not(:last-child):after {
-                content: '';
-                border-right: to-rem(1) solid color('nijmegen-grey', 'base');
-                position: absolute;
-                right: 0;
-                top: 12px;
-                bottom: 12px;
+            &:hover {
+                border-bottom: to-rem($border-bottom-size) solid color('nijmegen-brand', 'darken-1');
+                color: color('nijmegen-brand', 'darken-1');
             }
 
-            a {
-                height: to-rem(48);
-                line-height: $text-height;
-                padding-top: 0;
-                padding-bottom: 0;
-                border-radius: 0;
-                font-size: to-rem(18);
-                color: color('nijmegen-brand', 'base');
-                text-transform: none;
-
-                &.active {
-                    border-bottom: to-rem($border-bottom-size) solid $body-color;
-                }
-
-                &:hover {
-                    border-bottom: to-rem($border-bottom-size) solid color('nijmegen-brand', 'darken-1');
-                }
-
-                &:focus {
-                    @include tab-focus;
-                    border-radius: 2px;
-                }
+            &:focus {
+                @include tab-focus;
+                border-radius: 2px;
             }
         }
     }
+}
 
-    .classic-tabs {
-        height: to-rem(48 + 1); // Plus border-top
-        border-top: to-rem(1) solid color('nijmegen-grey', 'base');
-        border-right: to-rem(1) solid color('nijmegen-grey', 'base');
-        border-left: to-rem(1) solid color('nijmegen-grey', 'base');
+.classic-tabs {
+    height: to-rem(48 + 1); // Plus border-top
+    border-top: to-rem(1) solid color('nijmegen-grey', 'base');
+    border-right: to-rem(1) solid color('nijmegen-grey', 'base');
+    border-left: to-rem(1) solid color('nijmegen-grey', 'base');
 
-        &:before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: to-rem($border-bottom-size);
-            border-bottom: to-rem($border-bottom-size) solid color('nijmegen-grey', 'base');
-            z-index: 2;
-        }
+    &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: to-rem($border-bottom-size);
+        border-bottom: to-rem($border-bottom-size) solid color('nijmegen-grey', 'base');
+        z-index: 2;
     }
 }
 
