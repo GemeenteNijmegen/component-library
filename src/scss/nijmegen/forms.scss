@@ -52,7 +52,7 @@
                 content: 'warning';
                 display: block;
                 position: absolute;
-                transition: .2s opacity ease-out, .2s color ease-out;
+                transition: 0.2s opacity ease-out, 0.2s color ease-out;
                 right: 0;
                 font-size: to-rem(17);
             }
