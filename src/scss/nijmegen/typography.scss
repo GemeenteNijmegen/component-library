@@ -91,7 +91,7 @@ h6 {
     font-size: to-rem(24);
 }
 
-ul:not(.list-inline):not(.pagination) {
+ul:not(.list-inline):not(.pagination):not(.dropdown-content):not(.select-dropdown) {
     position: relative;
 
     li {

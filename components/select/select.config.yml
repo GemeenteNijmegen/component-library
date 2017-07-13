@@ -1,0 +1,5 @@
+---
+title: Button component
+notes:
+status: ready # prototype, wip, ready
+default: "info" # http://fractal.build/guide/components/variants#the-default-variant
