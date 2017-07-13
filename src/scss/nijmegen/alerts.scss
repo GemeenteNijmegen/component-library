@@ -1,0 +1,19 @@
+.toast-success {
+    background-color: color('nijmegen-backgrounds', 'success');
+    color: $body-color;
+}
+
+.toast-info {
+    background-color: color('nijmegen-backgrounds', 'info');
+    color: $body-color;
+}
+
+.toast-warning {
+    background-color: color('nijmegen-backgrounds', 'warning');
+    color: $body-color;
+}
+
+.toast-error{
+    background-color: color('nijmegen-backgrounds', 'danger');
+    font-size: to-rem(16);
+}
