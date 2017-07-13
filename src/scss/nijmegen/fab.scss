@@ -35,9 +35,9 @@
         position: relative;
 
         &:after {
+            content: '';
             position: absolute;
             border-radius: 100%;
-            content: '';
             left: - to-rem(7);
             right: - to-rem(7);
             bottom: - to-rem(7);
