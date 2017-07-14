@@ -2,7 +2,6 @@
 title: Button component
 notes: 
 status: ready # prototype, wip, ready
-context:
 default: "small" # http://fractal.build/guide/components/variants#the-default-variant
 variants:
   - name: small
