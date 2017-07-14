@@ -3,7 +3,6 @@ $text-height: to-rem(48 - $border-bottom-size);
 
 .classic-tabs-no-line,
 .classic-tabs {
-    height: to-rem(48);
     position: relative;
 
     li {
@@ -54,7 +53,6 @@ $text-height: to-rem(48 - $border-bottom-size);
 }
 
 .classic-tabs {
-    height: to-rem(48 + 1); // Plus border-top
     border-top: to-rem(1) solid color('nijmegen-grey', 'base');
     border-right: to-rem(1) solid color('nijmegen-grey', 'base');
     border-left: to-rem(1) solid color('nijmegen-grey', 'base');

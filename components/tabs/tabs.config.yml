@@ -6,7 +6,7 @@ default: "tabs" # http://fractal.build/guide/components/variants#the-default-var
 variants:
   - name: tabs
     context:
-      modifier:
+      modifier: classic-tabs
   - name: Tabs No Line
     context:
-      modifier: -no-line
+      modifier: classic-tabs-no-line
