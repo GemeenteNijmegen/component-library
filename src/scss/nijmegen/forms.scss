@@ -1,0 +1,77 @@
+.md-form {
+    margin-top: 1.125rem;
+    margin-bottom: 1.7rem;
+
+    label {
+        font-size: to-rem(16) !important;
+        color: color('nijmegen-forms', 'unfocussed-gray');
+        width: 100%;
+        top: -0.3rem;
+
+        &.active {
+            font-weight: $font-weight-semibold;
+            top: 1rem;
+        }
+    }
+
+}
+
+.form-control {
+    font-weight: $font-weight-semibold;
+    color: $body-color;
+    font-size: to-rem(16);
+    height: to-rem(16);
+    padding-bottom: 0;
+
+    @include placeholder {
+        font-weight: $font-weight-normal;
+        color: color('nijmegen-forms', 'placeholder');
+    }
+
+    &:disabled {
+        font-weight: $font-weight-normal;
+        border-bottom-color: rgba(color('nijmegen-forms', 'disabled-border'), 0.26);
+    }
+
+    &:focus {
+        color: $body-color;
+    }
+
+    &:focus + label {
+        color: color('nijmegen-primary', 'base');
+    }
+
+    &.valid + label:after,
+    &.invalid + label:after {
+        font-size: to-rem(14);
+    }
+
+    &.invalid {
+        border-color: color('nijmegen-forms', 'error');
+        box-shadow: 0 1px 0 0 color('nijmegen-forms', 'error');
+
+        & + label {
+            &:before {
+                @include material-icons;
+                content: 'warning';
+                display: block;
+                position: absolute;
+                transition: 0.2s opacity ease-out, 0.2s color ease-out;
+                right: 0;
+                font-size: to-rem(17);
+            }
+
+            &:before,
+            &:after {
+                color: color('nijmegen-forms', 'error');
+                top: 4rem;
+            }
+        }
+    }
+}
+
+.md-textarea {
+    font-weight: $font-weight-normal;
+    padding: 0.6rem 0 !important;
+    min-height: to-rem(72) !important;
+}

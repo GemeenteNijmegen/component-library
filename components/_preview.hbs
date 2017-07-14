@@ -31,5 +31,10 @@
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="{{ path '/js/mdb.min.js' }}"></script>
 
+{{#> scripts-block }}
+    {{#if @partial-block}}
+        {{> @partial-block }}
+    {{/if}}
+{{/scripts-block}}
 </body>
 </html>
