@@ -4,7 +4,7 @@ $icon-size: 24px;
 #toast-container > .toast {
     height: 60px !important;
     box-shadow: none !important;
-    opacity: 1 !important;
+    opacity: 1;
     padding-left: $icon-spacing !important;
     position: relative;
     background-image: none !important;
