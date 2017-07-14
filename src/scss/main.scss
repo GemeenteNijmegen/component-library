@@ -34,10 +34,12 @@
 @import "mdb/pro/chips";
 @import "mdb/pro/progress";
 @import "mdb/pro/toasts";
+@import "mdb/pro/buttons-pro";
 @import "mdb/pro/tabs";
 
 // Nijmegen overrides //
 @import "nijmegen/mixins";
+@import "nijmegen/button-floating";
 @import "nijmegen/icons";
 @import "nijmegen/typography";
 @import "nijmegen/buttons";
