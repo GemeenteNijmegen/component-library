@@ -1,0 +1,19 @@
+---
+title: Button component
+notes: 
+status: ready # prototype, wip, ready
+default: "small" # http://fractal.build/guide/components/variants#the-default-variant
+variants:
+  - name: small
+    context:
+      modifier: sm
+      label: "Small"
+  - name: medium
+    context:
+      modifier: md
+      label: "Medium"
+  - name: large
+    context:
+      modifier: lg
+      label: "Large"
+      twobuttons: true
