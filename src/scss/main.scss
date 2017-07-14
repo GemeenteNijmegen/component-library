@@ -35,10 +35,12 @@
 @import "mdb/pro/progress";
 @import "mdb/pro/forms-pro";
 @import "mdb/pro/dropdowns-pro";
+@import "mdb/pro/buttons-pro";
 @import "mdb/pro/tabs";
 
 // Nijmegen overrides //
 @import "nijmegen/mixins";
+@import "nijmegen/button-floating";
 @import "nijmegen/icons";
 @import "nijmegen/typography";
 @import "nijmegen/buttons";
