@@ -2,8 +2,6 @@
 title: Labels
 notes: 
 status: ready # prototype, wip, ready
-context:
-  label-label: Person tag
 variants:
   - name: default
     context:
@@ -29,5 +27,3 @@ variants:
     context:
       label: "Danger"
       modifier: danger
-
-
