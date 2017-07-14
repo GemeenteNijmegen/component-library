@@ -4,17 +4,20 @@ $text-height: to-rem(48 - $border-bottom-size);
 .classic-tabs-no-line,
 .classic-tabs {
     position: relative;
-    background: linear-gradient(#e1e1e1, #e1e1e1);
+    background: linear-gradient(color('nijmegen-grey', 'base'), color('nijmegen-grey', 'base'));
     background-size: 100% 5px;
     background-repeat: no-repeat;
     background-position: 0 100%;
+    display: flex;
+    white-space: nowrap;
+    overflow-x: auto;
 
     li {
         flex: inherit;
         height: to-rem(48);
         z-index: 2;
         position: relative;
-        background: linear-gradient(#e1e1e1, #e1e1e1);
+        background: linear-gradient(color('nijmegen-grey', 'base'), color('nijmegen-grey', 'base'));
         background-size: 100% 5px;
         background-repeat: no-repeat;
         background-position: 0 100%;
@@ -68,7 +71,7 @@ $text-height: to-rem(48 - $border-bottom-size);
 
 .classic-tabs-no-line {
     background: none;
-    
+
     li {
         background: none;
     }
