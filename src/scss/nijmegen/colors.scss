@@ -35,9 +35,13 @@ $nijmegen-backgrounds: (
     'footer-primary': #3a3a3a,  // rgb(58, 58 ,58)
 );
 
-$nijmegen-text: (
+$nijmegen-forms: (
     'body-color': $body-color,
-    'disabled': #cccccc,        // rgb(204, 204, 204)
+    'disabled':   #cccccc,      // rgb(204, 204, 204)
+    'placeholder': #7b7b7b,     // rgb(123, 123, 123)
+    'unfocussed-gray': #878787, // rgb(135, 135, 135)
+    'error':     #d50000,       // rgb(213, 0, 0)
+    'disabled-border': #231f20  // rgb(35, 31, 32)
 );
 
 // add the custom Nijmegen colors to the overall colors mapping so
@@ -46,7 +50,7 @@ $colors: map-merge($colors, ('nijmegen-brand': $nijmegen-brand));
 $colors: map-merge($colors, ('nijmegen-grey': $nijmegen-grey));
 $colors: map-merge($colors, ('nijmegen-primary': $nijmegen-primary));
 $colors: map-merge($colors, ('nijmegen-backgrounds': $nijmegen-backgrounds));
-$colors: map-merge($colors, ('nijmegen-text': $nijmegen-text));
+$colors: map-merge($colors, ('nijmegen-forms': $nijmegen-forms));
 
 $link-color:        map-get($nijmegen-primary, 'base');
 $link-hover-color:  map-get($nijmegen-primary, 'darken-2');
