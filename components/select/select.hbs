@@ -8,8 +8,9 @@
     <label>Example label</label>
 </div>
 
-<script>
-    setTimeout(function () {
+
+{{#> @scripts-block }}
+    <script>
         $('.mdb-select').material_select();
-    }, 2000);
-</script>
+    </script>
+{{/@scripts-block}}
