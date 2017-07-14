@@ -28,7 +28,9 @@
     .material-icons {
         font-size: to-rem(28);
     }
+}
 
+.btn-floating {
     &:focus {
         outline: none;
         overflow: initial;
@@ -38,10 +40,10 @@
             content: '';
             position: absolute;
             border-radius: 100%;
-            left: - to-rem(7);
-            right: - to-rem(7);
-            bottom: - to-rem(7);
-            top: - to-rem(7);
+            left: to-rem(-7);
+            right: to-rem(-7);
+            bottom: to-rem(-7);
+            top: to-rem(-7);
         }
     }
 }
