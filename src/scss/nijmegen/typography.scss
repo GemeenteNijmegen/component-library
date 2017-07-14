@@ -46,17 +46,12 @@ html {
 
 body,
 input,
-button  {
+button,
+textarea,
+select {
     color: $body-color;
     font-family: 'Source Sans Pro', sans-serif;
-    /* Support for all WebKit browsers. */
-    -webkit-font-smoothing: antialiased;
-    /* Support for Safari and Chrome. */
-    text-rendering: optimizeLegibility;
-    /* Support for Firefox. */
-    -moz-osx-font-smoothing: grayscale;
-    /* Support for IE. */
-    font-feature-settings: 'liga';
+    @include web-font-rendering-support;
 }
 
 h1,
@@ -67,41 +62,35 @@ h5,
 h6 {
     font-family: 'Oranda', sans-serif;
     font-weight: $font-weight-normal;
-    /* Support for all WebKit browsers. */
-    -webkit-font-smoothing: antialiased;
-    /* Support for Safari and Chrome. */
-    text-rendering: optimizeLegibility;
-    /* Support for Firefox. */
-    -moz-osx-font-smoothing: grayscale;
-    /* Support for IE. */
-    font-feature-settings: 'liga';
+    @include web-font-rendering-support;
 }
 
 h1 {
-    font-size: 2.375rem;
+    font-size: to-rem(38);
 }
 
 h2 {
     color: color('nijmegen-brand', 'base');
-    font-size: 2.25rem;
+    font-size: to-rem(36);
 }
 
 h3 {
     color: color('nijmegen-brand', 'base');
+    font-size: to-rem(28);
 }
 
 h4 {
-    font-size: 1.75rem;
+    font-size: to-rem(28);
 }
 
 h5 {
     color: color('shades', 'white');
-    font-size: 1.75rem;
+    font-size: to-rem(28);
 }
 
 h6 {
     color: color('nijmegen-grey', 'darken-2');
-    font-size: 1.5rem;
+    font-size: to-rem(24);
 }
 
 ul:not(.list-inline):not(.list-group):not(.pagination) {
@@ -110,7 +99,7 @@ ul:not(.list-inline):not(.list-group):not(.pagination) {
     li {
         &:before {
             content: '●';
-            font-size: 0.5em;
+            font-size: to-rem(8);
             position: absolute;
             left: 0;
             margin-top: 0.75em;
