@@ -7,6 +7,6 @@ variants:
   - name: Tabs
     context:
       modifier: classic-tabs
-  - name: Tabs No Line
+  - name: tabs no line
     context:
       modifier: classic-tabs-no-line
