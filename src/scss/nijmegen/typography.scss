@@ -93,7 +93,9 @@ h6 {
     font-size: to-rem(24);
 }
 
-ul:not(.list-inline):not(.list-group):not(.pagination) {
+ul:not([class]) {
+    margin-left: 1rem;
+    padding-left: 1.5rem;
     position: relative;
 
     li {

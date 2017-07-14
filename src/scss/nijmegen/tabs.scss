@@ -1,0 +1,78 @@
+$border-bottom-size: 5; // Size is in pt
+$text-height: to-rem(48 - $border-bottom-size);
+
+.classic-tabs-no-line,
+.classic-tabs {
+    position: relative;
+    display: flex;
+    white-space: nowrap;
+    overflow-x: auto;
+
+    li {
+        flex: inherit;
+        height: to-rem(48);
+        z-index: 2;
+        position: relative;
+
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:not(:last-child):after {
+            content: '';
+            border-right: to-rem(1) solid color('nijmegen-grey', 'base');
+            position: absolute;
+            right: 0;
+            top: 12px;
+            bottom: 12px;
+        }
+
+        a {
+            height: to-rem(48);
+            line-height: $text-height;
+            padding-top: 0;
+            padding-bottom: 0;
+            border-radius: 0;
+            font-size: to-rem(18);
+            color: color('nijmegen-brand', 'base');
+            text-transform: none;
+
+            &.active {
+                border-bottom: to-rem($border-bottom-size) solid $body-color;
+                color: $body-color;
+            }
+
+            &:hover {
+                border-bottom: to-rem($border-bottom-size) solid color('nijmegen-brand', 'darken-1');
+                color: color('nijmegen-brand', 'darken-1');
+            }
+
+            &:focus {
+                @include tab-focus;
+                border-radius: 2px;
+            }
+        }
+    }
+}
+
+.classic-tabs {
+    border-top: to-rem(1) solid color('nijmegen-grey', 'base');
+    border-right: to-rem(1) solid color('nijmegen-grey', 'base');
+    border-left: to-rem(1) solid color('nijmegen-grey', 'base');
+    background: linear-gradient(color('nijmegen-grey', 'base'), color('nijmegen-grey', 'base'));
+    background-size: 100% 5px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+
+    li {
+        background: linear-gradient(color('nijmegen-grey', 'base'), color('nijmegen-grey', 'base'));
+        background-size: 100% 5px;
+        background-repeat: no-repeat;
+        background-position: 0 100%;
+    }
+}
+
+.tab-content {
+    box-shadow: none;
+}
