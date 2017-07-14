@@ -33,10 +33,12 @@
 // MDB Pro
 @import "mdb/pro/chips";
 @import "mdb/pro/progress";
+@import "mdb/pro/buttons-pro";
 @import "mdb/pro/tabs";
 
 // Nijmegen overrides //
 @import "nijmegen/mixins";
+@import "nijmegen/button-floating";
 @import "nijmegen/icons";
 @import "nijmegen/typography";
 @import "nijmegen/buttons";
@@ -46,5 +48,6 @@
 @import "nijmegen/pagination";
 @import "nijmegen/progress";
 @import "nijmegen/footer";
+@import "nijmegen/modals";
 @import "nijmegen/tabs";
 @import "nijmegen/forms";

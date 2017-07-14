@@ -1,0 +1,41 @@
+<button type="button" class="btn btn-primary" data-toggle="modal"
+        data-target="#centralModal{{ modifier }}">{{ label }} Modal
+</button>
+
+<div class="modal fade" id="centralModal{{ modifier }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-{{ modifier }}" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100" id="myModalLabel">Title</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec metus et turpis fermentum molestie.
+                    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec
+                    neque risus, ornare vitae ante nec, sodales lobortis neque. Nam odio nisi, volutpat vel quam at,
+                    tristique dictum velit. Vivamus eu nisi nisi. Fusce efficitur, ipsum sed gravida luctus, velit justo
+                    congue tellus, efficitur euismod sapien massa sit amet orci. Mauris rhoncus ornare lectus, sed
+                    imperdiet leo placerat eu. Proin vitae mattis ipsum. Aenean leo augue, fermentum sollicitudin purus
+                    ac, maximus efficitur justo.</p>
+            </div>
+            <!--Footer-->
+            <div class="modal-footer">
+
+                {{#if twobuttons}}
+                    <button type="button" class="btn btn-secondary">
+                        Button label
+                    </button>
+                {{/if}}
+
+                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
