@@ -1,0 +1,35 @@
+.badge {
+    box-shadow: none;
+    min-width: 5rem;
+    padding: 0.4rem;
+    border-radius: 0;
+    font-weight: $font-weight-semibold;
+    font-size: to-rem(13);
+}
+
+.badge-default {
+    background-color: color('nijmegen-backgrounds', 'default');
+}
+
+.badge-primary {
+    background-color: color('nijmegen-backgrounds', 'primary');
+}
+
+.badge-success {
+    background-color: color('nijmegen-backgrounds', 'success');
+    color: $body-color;
+}
+
+.badge-info {
+    background-color: color('nijmegen-backgrounds', 'info');
+    color: $body-color;
+}
+
+.badge-warning {
+    background-color: color('nijmegen-backgrounds', 'warning');
+    color: $body-color;
+}
+
+.badge-danger {
+    background-color: color('nijmegen-backgrounds', 'danger');
+}

@@ -47,7 +47,7 @@ $icon-size: 24;
 
                                 &:hover {
                                     font-weight: $font-weight-semibold;
-                                    color: color('nijmegen-text', 'dark-background-active');
+                                    color: color('nijmegen-backgrounds', 'dark-background-active');
                                     font-size: to-rem(18);
                                 }
                             }

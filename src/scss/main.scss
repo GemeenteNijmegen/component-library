@@ -31,14 +31,21 @@
 @import "mdb/free/modals";
 
 // MDB Pro
+@import "mdb/pro/chips";
 @import "mdb/pro/progress";
 @import "mdb/pro/side-nav";
+@import "mdb/pro/tabs";
 
 // Nijmegen overrides //
 @import "nijmegen/mixins";
 @import "nijmegen/icons";
 @import "nijmegen/typography";
 @import "nijmegen/buttons";
+@import "nijmegen/listgroups";
+@import "nijmegen/chips";
+@import "nijmegen/labels";
 @import "nijmegen/pagination";
 @import "nijmegen/progress";
 @import "nijmegen/sidenav";
+@import "nijmegen/tabs";
+@import "nijmegen/forms";
