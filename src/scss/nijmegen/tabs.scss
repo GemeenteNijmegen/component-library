@@ -4,10 +4,6 @@ $text-height: to-rem(48 - $border-bottom-size);
 .classic-tabs-no-line,
 .classic-tabs {
     position: relative;
-    background: linear-gradient(color('nijmegen-grey', 'base'), color('nijmegen-grey', 'base'));
-    background-size: 100% 5px;
-    background-repeat: no-repeat;
-    background-position: 0 100%;
     display: flex;
     white-space: nowrap;
     overflow-x: auto;
@@ -17,10 +13,7 @@ $text-height: to-rem(48 - $border-bottom-size);
         height: to-rem(48);
         z-index: 2;
         position: relative;
-        background: linear-gradient(color('nijmegen-grey', 'base'), color('nijmegen-grey', 'base'));
-        background-size: 100% 5px;
-        background-repeat: no-repeat;
-        background-position: 0 100%;
+
 
         &:first-child {
             margin-left: 0;
@@ -67,13 +60,16 @@ $text-height: to-rem(48 - $border-bottom-size);
     border-top: to-rem(1) solid color('nijmegen-grey', 'base');
     border-right: to-rem(1) solid color('nijmegen-grey', 'base');
     border-left: to-rem(1) solid color('nijmegen-grey', 'base');
-}
-
-.classic-tabs-no-line {
-    background: none;
+    background: linear-gradient(color('nijmegen-grey', 'base'), color('nijmegen-grey', 'base'));
+    background-size: 100% 5px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
 
     li {
-        background: none;
+        background: linear-gradient(color('nijmegen-grey', 'base'), color('nijmegen-grey', 'base'));
+        background-size: 100% 5px;
+        background-repeat: no-repeat;
+        background-position: 0 100%;
     }
 }
 
