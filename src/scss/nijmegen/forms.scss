@@ -33,6 +33,10 @@
         border-bottom-color: rgba(color('nijmegen-forms', 'disabled-border'), 0.26);
     }
 
+    &:focus {
+        color: $body-color;
+    }
+
     &:focus + label {
         color: color('nijmegen-primary', 'base');
     }
