@@ -4,7 +4,7 @@ notes:
 status: ready # prototype, wip, ready
 default: "tabs" # http://fractal.build/guide/components/variants#the-default-variant
 variants:
-  - name: Tabs
+  - name: tabs
     context:
       modifier: classic-tabs
   - name: tabs no line
