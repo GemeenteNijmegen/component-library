@@ -3,8 +3,6 @@ title: Button component
 notes: 
 status: ready # prototype, wip, ready
 context:
-  label: Button label
-  label-disabled: Button disabled
 default: "small" # http://fractal.build/guide/components/variants#the-default-variant
 variants:
   - name: small
