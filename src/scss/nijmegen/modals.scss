@@ -1,0 +1,16 @@
+.modal-footer,
+.modal-header {
+    border: none;
+}
+
+.modal-header {
+    .close {
+        opacity: 1;
+        color: color('nijmegen-primary', 'base');
+    }
+}
+
+.modal-body {
+    padding-top: 0;
+    padding-bottom: 0;
+}
