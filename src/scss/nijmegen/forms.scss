@@ -1,5 +1,5 @@
-$icon-size: 17;
-$select-height: 60;
+$form-control-error-icon-size: 17;
+$select-caret-icon-size: 24;
 
 .md-form {
     margin-top: 1.125rem;
@@ -61,7 +61,7 @@ $select-height: 60;
                 position: absolute;
                 transition: 0.2s opacity ease-out, 0.2s color ease-out;
                 right: 0;
-                font-size: to-rem($icon-size);
+                font-size: to-rem($form-control-error-icon-size);
             }
 
             &:before,
@@ -90,7 +90,7 @@ $select-height: 60;
             position: absolute;
             visibility: visible;
             right: 15px;
-            font-size: to-rem($icon-size);
+            font-size: to-rem($select-caret-icon-size);
             color: color('nijmegen-primary', 'base');
         }
     }
@@ -105,19 +105,14 @@ $select-height: 60;
             color: color('nijmegen-primary', 'darken-2');
         }
     }
-
 }
 
 .dropdown-content {
     li {
-        height: to-rem($select-height);
         border-bottom: 1px solid rgba(0, 0, 0, .125);
 
         span {
             color: $body-color;
-            padding: 0 1rem;
-            height: to-rem($select-height);
-            line-height: to-rem($select-height);
             font-size: to-rem(16);
         }
 
@@ -145,14 +140,19 @@ $select-height: 60;
             border-bottom: 0;
         }
 
+        &:first-child {
+            position: relative;
+        }
+
         &:first-child:after {
             @include material-icons;
             content: 'keyboard_arrow_up';
             position: absolute;
             visibility: visible;
             right: 15px;
-            top: to-rem(($select-height / 2) - ($icon-size / 2));
-            font-size: to-rem($icon-size);
+            top: 50%;
+            margin-top: to-rem(-$select-caret-icon-size / 2);
+            font-size: to-rem($select-caret-icon-size);
             color: color('nijmegen-primary', 'base');
         }
     }
