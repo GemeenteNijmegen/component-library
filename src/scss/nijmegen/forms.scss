@@ -2,14 +2,10 @@ $form-control-error-icon-size: 17;
 $select-caret-icon-size: 24;
 
 .md-form {
-    margin-top: 1.125rem;
-    margin-bottom: 1.7rem;
-
     label {
         font-size: to-rem(16) !important;
         color: color('nijmegen-forms', 'unfocussed-gray');
         width: 100%;
-        top: -0.3rem;
 
         &.active {
             font-weight: $font-weight-semibold;
@@ -23,7 +19,6 @@ $select-caret-icon-size: 24;
     font-weight: $font-weight-semibold;
     color: $body-color;
     font-size: to-rem(16);
-    height: to-rem(16);
     padding-bottom: 0;
 
     @include placeholder {
@@ -50,13 +45,11 @@ $select-caret-icon-size: 24;
     }
 
     &.invalid {
-        border-color: color('nijmegen-forms', 'error');
-        box-shadow: 0 1px 0 0 color('nijmegen-forms', 'error');
-
         & + label {
             &:before {
                 @include material-icons;
                 content: 'warning';
+                color: color('nijmegen-forms', 'error');
                 display: block;
                 position: absolute;
                 transition: 0.2s opacity ease-out, 0.2s color ease-out;
@@ -66,7 +59,6 @@ $select-caret-icon-size: 24;
 
             &:before,
             &:after {
-                color: color('nijmegen-forms', 'error');
                 top: 4rem;
             }
         }

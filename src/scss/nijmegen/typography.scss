@@ -114,16 +114,16 @@ a {
         color: $link-hover-color;
 
         h2 {
-            color: color('nijmegen-brand', 'darken-1');
+            color: color('nijmegen-brand', 'darken-2');
         }
     }
 
     &:focus {
+        @include tab-focus-minimal;
         color: $link-focus-color;
-        outline: 1px solid $focus-color;
 
         h2 {
-            color: color('nijmegen-brand', 'darken-1');
+            color: color('nijmegen-brand', 'darken-2');
             outline: inherit;
         }
 
@@ -136,7 +136,7 @@ a {
         color: $link-active-color;
 
         h2 {
-            color: color('nijmegen-brand', 'darken-2');
+            color: color('nijmegen-brand', 'darken-3');
         }
     }
 }
