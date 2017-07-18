@@ -21,7 +21,7 @@
             margin-left: calc((17px + 54px) * -1);
         }
 
-        img {
+        .logo {
             width: 34px;
         }
     }
@@ -80,6 +80,12 @@
             background-color: rgba(255, 255, 255, 0.5);
         }
 
+        .navbar-nav {
+            @media #{$large-and-up} {
+                margin-left: to-rem(-27); //27 is the sum of the margin-left and padding-left of the first anchor
+            }
+        }
+
         .navbar-brand {
             @media #{$large-and-up} {
                 display: none;
@@ -89,6 +95,10 @@
         &.top-nav-collapse {
             @media #{$large-and-up} {
                 background-color: rgba(255, 255, 255, 0.97);
+            }
+
+            .navbar-nav {
+                margin-left: 0;
             }
 
             .navbar-brand {
