@@ -79,10 +79,6 @@
 
     // do we need specific styling when the navbar is animated to a smaller version based on browser scrolling?
     &.top-nav-collapse {
-        .navbar-nav {
-            margin-left: 0;
-        }
-
         .nav-link {
             @media #{$large-and-up} {
                 padding-top: 0;
@@ -260,13 +256,30 @@
         transition: opacity .5s ease-in-out;
     }
 
+    .navbar-collapse {
+        @media #{$medium-and-down} {
+            margin-left: -1rem;
+            margin-right: -1rem;
+        }
+    }
+
     .nav-item {
+
+        &:first-of-type {
+            @media #{$medium-and-down} {
+                border-top: 1px solid rgb(195, 83, 108);
+            }
+        }
+
+        @media #{$medium-and-down} {
+            border-bottom: 1px solid rgb(195, 83, 108);
+        }
+
         .nav-link {
             margin: 0;
 
             @media #{$medium-and-down} {
-                padding-left: 0;
-                padding-right: 0;
+                padding: 0.75em 1rem;
             }
 
             @media #{$large-and-up} {
@@ -285,6 +298,12 @@
 
             &:focus {
                 @include tab-focus-minimal;
+            }
+
+            @media #{$medium-and-down} {
+                &:active {
+                    background-color: color('nijmegen-brand', 'darken-2');
+                }
             }
         }
 
@@ -321,6 +340,13 @@
     }
 
     form {
+        @media #{$medium-and-down} {
+            margin-left: 1rem;
+            margin-right: 1rem;
+            padding-top: 1em;
+            padding-bottom: 0.5em;
+        }
+
         .form-control {
             @include placeholder {
                 color: color('shades', 'white') !important;
