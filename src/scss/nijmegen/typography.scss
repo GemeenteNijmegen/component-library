@@ -119,8 +119,8 @@ a {
     }
 
     &:focus {
+        @include tab-focus-minimal;
         color: $link-focus-color;
-        outline: 1px solid $focus-color;
 
         h2 {
             color: color('nijmegen-brand', 'darken-1');
