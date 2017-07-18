@@ -11,7 +11,7 @@
   },
   "scripts": {
     "start": "gulp dev",
-    "build": "gulp build"
+    "build": "gulp build --env prod"
   },
   "devDependencies": {
     "del": "^3.0.0",

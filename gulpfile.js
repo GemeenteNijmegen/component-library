@@ -9,7 +9,7 @@ const sourcemaps   = require('gulp-sourcemaps');
 
 const mdbootstrapPath = 'src/mdbootstrap-pro/v4.3.2';
 
-let buildMode = 'dev'; // dev || prod
+let buildMode = gutil.env.env || 'dev'; // dev || prod
 
 /*
  * Fractal
@@ -119,10 +119,7 @@ gulp.task('css', gulp.series('css:clean', 'mdb-css:copy', 'css:process'));
  */
 gulp.task('default', gulp.parallel('css', 'fonts', 'mdb-js'));
 
-gulp.task('build', function() {
-  buildMode = 'prod';
-  gulp.series('default', 'fractal:build');
-});
+gulp.task('build', gulp.series('default', 'fractal:build'));
 
 gulp.task('watch', gulp.parallel('css:watch'));
 
