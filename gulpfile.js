@@ -1,11 +1,15 @@
 'use strict';
 
 const gulp = require('gulp');
+const gutil = require('gulp-util');
 const del = require('del');
 const sass = require('gulp-sass');
 const sassGlob = require('gulp-sass-glob');
+const sourcemaps   = require('gulp-sourcemaps');
 
 const mdbootstrapPath = 'src/mdbootstrap-pro/v4.3.2';
+
+let buildMode = gutil.env.env || 'dev'; // dev || prod
 
 /*
  * Fractal
@@ -79,13 +83,16 @@ gulp.task('mdb-js', gulp.series('mdb-js:clean', 'mdb-js:copy'));
  */
 gulp.task('css:process', function() {
   return gulp.src('src/scss/*.scss')
+    .pipe(sourcemaps.init())
     .pipe(sassGlob())
     .pipe(sass({
       // set path to MDB sass files so these can be found by 'import' statements
       // while compiling new CSS
-      includePaths: mdbootstrapPath+'/sass/'
+      includePaths: mdbootstrapPath+'/sass/',
+      outputStyle: buildMode === 'dev' ? 'nested' : 'compressed'
     }))
     .on('error', err => console.log(err.message))
+    .pipe(buildMode === 'dev' ? sourcemaps.write('maps') : gutil.noop())
     .pipe(gulp.dest('public/css'));
 });
 
@@ -98,7 +105,7 @@ gulp.task('mdb-css:copy', function() {
   return gulp.src(mdbootstrapPath+'/css/bootstrap.min.css').pipe(gulp.dest('public/css'));
 });
 
-gulp.task('css:watch', function () {
+gulp.task('css:watch', function() {
   gulp.watch([
     'src/scss/**/*.scss',
   ], gulp.series('css'));

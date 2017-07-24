@@ -537,7 +537,7 @@ $mdb-color: #45526E;
     background-color: $mdb-color!important;
 }
 
-$error-color: color("red", "base") !default;
+$error-color: color("nijmegen-forms", "error");
 // RGBA colors
 // Light overlays
 $rgba-blue-light: rgba(3, 169, 244, 0.3);

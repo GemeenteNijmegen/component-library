@@ -1,11 +1,14 @@
-$body-color: #212121;           // rgb(33, 33, 33)
+$body-color:      #212121;      // rgb(33, 33, 33)
 
-$focus-color: #00b593;          // rgb(0, 181, 147)
+$focus-color:     #00b593;      // rgb(0, 181, 147)
 
 $nijmegen-brand: (
+    'lighten-2':  #f4dfe4,      // rgb(244, 223, 228);
+    'lighten-1':  #e4b3be,      // rgb(228, 179, 190);
     'base':       #a80a2d,      // rgb(168, 10, 45);
-    'darken-1':   #780721,      // rgb(120, 7, 33);
-    'darken-2':   #580518,      // rgb(88, 5, 24);
+    'darken-1':   #890825,      // rgb(137, 8, 37);
+    'darken-2':   #780721,      // rgb(120, 7, 33);
+    'darken-3':   #580518,      // rgb(88, 5, 24);
 );
 
 $nijmegen-grey: (
@@ -36,11 +39,11 @@ $nijmegen-backgrounds: (
 );
 
 $nijmegen-forms: (
-    'body-color': $body-color,
-    'disabled':   #cccccc,      // rgb(204, 204, 204)
-    'placeholder': #7b7b7b,     // rgb(123, 123, 123)
+    'body-color':      $body-color,
+    'disabled':        #cccccc, // rgb(204, 204, 204)
+    'placeholder':     #7b7b7b, // rgb(123, 123, 123)
     'unfocussed-gray': #878787, // rgb(135, 135, 135)
-    'error':     #d50000,       // rgb(213, 0, 0)
+    'error':           #d50000, // rgb(213, 0, 0)
     'disabled-border': #231f20  // rgb(35, 31, 32)
 );
 
