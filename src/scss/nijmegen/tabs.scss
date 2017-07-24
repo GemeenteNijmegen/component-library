@@ -44,8 +44,8 @@ $text-height: to-rem(48 - $border-bottom-size);
             }
 
             &:hover {
-                border-bottom: to-rem($border-bottom-size) solid color('nijmegen-brand', 'darken-1');
-                color: color('nijmegen-brand', 'darken-1');
+                border-bottom: to-rem($border-bottom-size) solid color('nijmegen-brand', 'darken-2');
+                color: color('nijmegen-brand', 'darken-2');
             }
 
             &:focus {

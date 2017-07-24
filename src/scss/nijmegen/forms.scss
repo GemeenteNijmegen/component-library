@@ -1,12 +1,11 @@
-.md-form {
-    margin-top: 1.125rem;
-    margin-bottom: 1.7rem;
+$form-control-error-icon-size: 17;
+$select-caret-icon-size: 24;
 
+.md-form {
     label {
         font-size: to-rem(16) !important;
         color: color('nijmegen-forms', 'unfocussed-gray');
         width: 100%;
-        top: -0.3rem;
 
         &.active {
             font-weight: $font-weight-semibold;
@@ -20,7 +19,6 @@
     font-weight: $font-weight-semibold;
     color: $body-color;
     font-size: to-rem(16);
-    height: to-rem(16);
     padding-bottom: 0;
 
     @include placeholder {
@@ -47,23 +45,20 @@
     }
 
     &.invalid {
-        border-color: color('nijmegen-forms', 'error');
-        box-shadow: 0 1px 0 0 color('nijmegen-forms', 'error');
-
         & + label {
             &:before {
                 @include material-icons;
                 content: 'warning';
+                color: color('nijmegen-forms', 'error');
                 display: block;
                 position: absolute;
                 transition: 0.2s opacity ease-out, 0.2s color ease-out;
                 right: 0;
-                font-size: to-rem(17);
+                font-size: to-rem($form-control-error-icon-size);
             }
 
             &:before,
             &:after {
-                color: color('nijmegen-forms', 'error');
                 top: 4rem;
             }
         }
@@ -74,4 +69,83 @@
     font-weight: $font-weight-normal;
     padding: 0.6rem 0 !important;
     min-height: to-rem(72) !important;
+}
+
+.mdb-select {
+    .caret {
+        visibility: hidden;
+        position: relative;
+
+        &:before {
+            @include material-icons;
+            content: 'keyboard_arrow_down';
+            position: absolute;
+            visibility: visible;
+            right: 15px;
+            font-size: to-rem($select-caret-icon-size);
+            color: color('nijmegen-primary', 'base');
+        }
+    }
+
+    & + label {
+        font-weight: $font-weight-semibold;
+        top: -1.5rem;
+    }
+
+    &:hover {
+        &:before {
+            color: color('nijmegen-primary', 'darken-2');
+        }
+    }
+}
+
+.dropdown-content {
+    li {
+        border-bottom: 1px solid rgba(0, 0, 0, .125);
+
+        span {
+            color: $body-color;
+            font-size: to-rem(16);
+        }
+
+        &.active {
+            background-color: transparent;
+
+            span {
+                color: color('nijmegen-primary', 'base');
+            }
+        }
+
+        &.selected {
+            background-color: transparent;
+            color: color('nijmegen-primary', 'base');
+        }
+
+        &:hover:not(.disabled) {
+            background-color: color('nijmegen-grey', 'darken-2');
+            span {
+                color: color('shades', 'white');
+            }
+        }
+
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        &:first-child {
+            position: relative;
+        }
+
+        &:first-child:after {
+            @include material-icons;
+            content: 'keyboard_arrow_up';
+            position: absolute;
+            visibility: visible;
+            right: 15px;
+            top: 50%;
+            margin-top: to-rem(-$select-caret-icon-size / 2);
+            font-size: to-rem($select-caret-icon-size);
+            color: color('nijmegen-primary', 'base');
+        }
+    }
 }

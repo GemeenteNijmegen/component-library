@@ -11,12 +11,14 @@
   },
   "scripts": {
     "start": "gulp dev",
-    "build": "gulp build"
+    "build": "gulp build --env prod"
   },
   "devDependencies": {
     "del": "^3.0.0",
     "gulp": "gulpjs/gulp#4.0",
     "gulp-sass": "^3.1.0",
-    "gulp-sass-glob": "^1.0.8"
+    "gulp-sass-glob": "^1.0.8",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-util": "^3.0.8"
   }
 }

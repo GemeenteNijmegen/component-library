@@ -25,3 +25,7 @@
 @mixin tab-focus() {
     outline: 3px auto $focus-color !important;
 }
+
+@mixin tab-focus-minimal() {
+    outline: 1px solid $focus-color !important;
+}
