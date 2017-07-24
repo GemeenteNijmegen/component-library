@@ -2,9 +2,61 @@ $item-height: 50;
 $icon-size: 24;
 .side-nav {
     background-color: color('nijmegen-backgrounds', 'primary');
+    padding-top: 40px;
 
-    .search-form input[type=text] {
-        padding-left: 20px;
+    .search-form {
+
+        form {
+            padding: 0 !important;
+            margin: 0 !important;
+            position: relative;
+
+            .form-control {
+                font-size: to-rem(16);
+                padding-left: 20px;
+                padding-right: 40px;
+
+                @include placeholder {
+                    color: color('shades', 'white') !important;
+                }
+
+                border-bottom: 2px solid color('nijmegen-grey', 'base') !important;
+                color: color('shades', 'white') !important;
+                margin-left: 0;
+                margin-right: 0;
+                width: 100%;
+
+                &:focus {
+                    box-shadow: none;
+                    @include placeholder {
+                        color: color('shades', 'white') !important;
+                    }
+
+                    border-bottom: 2px solid color('nijmegen-primary', 'base') !important;
+
+                    + .material-icons {
+                        color: color('shades', 'white');
+                    }
+                }
+            }
+
+            .material-icons {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                margin-top: -12px;
+                margin-right: 8px;
+
+                &:hover {
+                    cursor: default;
+                }
+            }
+
+            .material-icons {
+                color: color('shades', 'white');
+            }
+
+        }
     }
 
     .collapsible.collapsible-accordion {
@@ -46,9 +98,7 @@ $icon-size: 24;
                                 font-size: to-rem(16);
 
                                 &:hover {
-                                    font-weight: $font-weight-semibold;
                                     color: color('nijmegen-backgrounds', 'dark-background-active');
-                                    font-size: to-rem(18);
                                 }
                             }
                         }
