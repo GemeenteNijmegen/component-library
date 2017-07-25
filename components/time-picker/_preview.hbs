@@ -1,0 +1,20 @@
+{{> '@tpl-head' }}
+</head>
+<body>
+
+{{!-- Underneath will render component output --}}
+{{{ yield }}}
+
+
+{{> '@tpl-scripts' }}
+
+<script>
+    $('#input_starttime').pickatime({
+        twelvehour: false,
+        donetext: 'Gereed'
+    });
+    $('#input_starttime').click();
+</script>
+
+</body>
+</html>
