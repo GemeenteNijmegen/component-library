@@ -14,7 +14,6 @@
     })
 
     $('.carousel-play-pause').on('click', '> i', function(e) {
-        console.log(e);
         if ($(this).hasClass("play")) {
             $('.carousel').carousel("cycle");
             $(this).hide();
