@@ -61,7 +61,7 @@ gulp.task('mdb-images:copy', function () {
 });
 
 gulp.task('mdb-images:clean', function() {
-    return del(['public/img']);
+    return del(['public/img/lightbox', 'public/img/overlays', 'public/img/svg']);
 });
 
 gulp.task('mdb-images', gulp.series('mdb-images:clean', 'mdb-images:copy'));

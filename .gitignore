@@ -5,5 +5,7 @@ node_modules
 /public/css/
 /public/font/
 /public/js/
-/public/img/
+/public/img/overlays/
+/public/img/lightbox/
+/public/img/svg/
 /public/mdb-addons/
