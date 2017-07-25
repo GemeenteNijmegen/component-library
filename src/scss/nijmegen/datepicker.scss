@@ -8,13 +8,16 @@
         }
 
         > div:not(.picker__weekday-display) {
-            font-family: 'Oranda', sans-serif;
             color: color('shades', 'white');
             font-size: to-rem(38);
 
             &.picker__month-display,
             &.picker__year-display {
                 font-size: to-rem(18);
+            }
+
+            &.picker__day-display {
+                font-family: 'Oranda', sans-serif;
             }
         }
     }
