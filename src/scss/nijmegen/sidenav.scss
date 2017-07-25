@@ -64,12 +64,30 @@ $icon-size: 24;
             padding: 0;
             border-bottom: 1px solid color('nijmegen-grey', 'darken-2');
 
+            &.active i.rotate-icon {
+                transform: rotate(180deg);
+                color: color('shades', 'white');
+            }
+
+            a.active {
+                background-color: color('nijmegen-backgrounds', 'sidebar-title-active');
+
+            }
+
             a {
                 padding: 0 0 0 20px;
                 margin: 0;
                 font-size: to-rem(16);
                 height: to-rem($item-height);
                 line-height: to-rem($item-height);
+
+                &:hover {
+                    background-color: color('nijmegen-backgrounds', 'sidebar-hover');
+
+                    i.rotate-icon {
+                        color: color('shades', 'white');
+                    }
+                }
 
                 i {
                     vertical-align: middle;
@@ -84,27 +102,25 @@ $icon-size: 24;
                 }
             }
 
-            &.active {
-                > a.active {
-                    font-weight: $font-weight-semibold;
-                }
+            .collapsible-body {
+                ul {
+                    background-color: $body-color;
 
-                .collapsible-body {
-                    ul {
-                        background-color: $body-color;
-                        li {
-                            a {
-                                padding-left: to-rem(50);
-                                font-size: to-rem(16);
+                    li a {
+                        padding-left: to-rem(50);
+                        font-size: to-rem(16);
 
-                                &:hover {
-                                    color: color('nijmegen-backgrounds', 'dark-background-active');
-                                }
-                            }
+                        &:hover {
+                            color: color('nijmegen-backgrounds', 'dark-background-active');
+                            background-color: $body-color;
                         }
                     }
                 }
             }
         }
     }
+}
+
+#sidenav-overlay {
+    background-color: rgba(0, 0, 0, 0.2);
 }
