@@ -1,0 +1,13 @@
+.sticky.widget {
+    background-color: color('nijmegen-brand', 'base');
+    padding: 20px;
+
+    h5 {
+        margin-bottom: 22px;
+    }
+
+    p,
+    h5 {
+        color: color('shades', 'white');
+    }
+}

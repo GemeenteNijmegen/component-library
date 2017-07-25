@@ -1,0 +1,22 @@
+{{> '@tpl-head' }}
+<style>
+    .sticky {
+        margin-bottom: 50px;
+    }
+    .sidebar {
+        float:left;
+        width:230px;
+        padding:0;
+    }
+ </style>
+</head>
+<body>
+
+{{!-- Underneath will render component output --}}
+{{{ yield }}}
+
+
+{{> '@tpl-scripts' }}
+
+</body>
+</html>
