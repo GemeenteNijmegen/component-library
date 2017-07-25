@@ -91,7 +91,7 @@ $icon-size: 24;
 
 
             a.active {
-                font-weight: $font-weight-semibold;
+                background-color: color('nijmegen-backgrounds', 'sidebar-title-active');
             }
 
             .collapsible-body {
