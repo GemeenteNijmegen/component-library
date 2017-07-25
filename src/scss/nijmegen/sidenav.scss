@@ -64,7 +64,6 @@ $icon-size: 24;
             padding: 0;
             border-bottom: 1px solid color('nijmegen-grey', 'darken-2');
 
-
             &.active i.rotate-icon {
                 transform: rotate(180deg);
                 color: color('shades', 'white');
@@ -99,18 +98,17 @@ $icon-size: 24;
                 }
             }
 
-
             .collapsible-body {
                 ul {
                     background-color: $body-color;
-                    li {
-                        a {
-                            padding-left: to-rem(50);
-                            font-size: to-rem(16);
 
-                            &:hover {
-                                color: color('nijmegen-backgrounds', 'dark-background-active');
-                            }
+                    li a {
+                        padding-left: to-rem(50);
+                        font-size: to-rem(16);
+
+                        &:hover {
+                            color: color('nijmegen-backgrounds', 'dark-background-active');
+                            background-color: $body-color;
                         }
                     }
                 }
