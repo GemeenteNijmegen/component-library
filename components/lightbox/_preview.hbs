@@ -1,0 +1,16 @@
+{{> '@tpl-head' }}
+</head>
+<body>
+
+{{!-- Underneath will render component output --}}
+{{{ yield }}}
+
+
+{{> '@tpl-scripts' }}
+
+<script>
+    $("#mdb-lightbox-ui").load("/mdb-addons/mdb-lightbox-ui.html");
+</script>
+
+</body>
+</html>
