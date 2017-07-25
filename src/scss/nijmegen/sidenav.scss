@@ -67,6 +67,12 @@ $icon-size: 24;
 
             &.active i.rotate-icon {
                 transform: rotate(180deg);
+                color: color('shades', 'white');
+            }
+
+            a.active {
+                background-color: color('nijmegen-backgrounds', 'sidebar-title-active');
+
             }
 
             a {
@@ -75,6 +81,10 @@ $icon-size: 24;
                 font-size: to-rem(16);
                 height: to-rem($item-height);
                 line-height: to-rem($item-height);
+
+                &:hover {
+                    background-color: color('nijmegen-backgrounds', 'sidebar-hover');
+                }
 
                 i {
                     vertical-align: middle;
@@ -89,10 +99,6 @@ $icon-size: 24;
                 }
             }
 
-
-            a.active {
-                background-color: color('nijmegen-backgrounds', 'sidebar-title-active');
-            }
 
             .collapsible-body {
                 ul {
