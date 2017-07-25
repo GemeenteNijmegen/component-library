@@ -83,6 +83,10 @@ $icon-size: 24;
 
                 &:hover {
                     background-color: color('nijmegen-backgrounds', 'sidebar-hover');
+
+                    i.rotate-icon {
+                        color: color('shades', 'white');
+                    }
                 }
 
                 i {
@@ -115,4 +119,8 @@ $icon-size: 24;
             }
         }
     }
+}
+
+#sidenav-overlay {
+    background-color: rgba(0, 0, 0, 0.2);
 }
