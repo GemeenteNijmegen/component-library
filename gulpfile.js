@@ -39,6 +39,34 @@ gulp.task('fractal:build', function(){
 });
 
 /*
+ * MDB Addons
+ */
+gulp.task('mdb-addons:copy', function () {
+  return gulp.src(mdbootstrapPath+'/mdb-addons/**/*').pipe(gulp.dest('public/mdb-addons'));
+});
+
+gulp.task('mdb-addons:clean', function() {
+    return del(['public/mdb-addons']);
+});
+
+gulp.task('mdb-addons', gulp.series('mdb-addons:clean', 'mdb-addons:copy'));
+
+
+/*
+ * MDB Images
+ */
+gulp.task('mdb-images:copy', function () {
+    return gulp.src(mdbootstrapPath+'/img/**/*').pipe(gulp.dest('public/img'));
+});
+
+gulp.task('mdb-images:clean', function() {
+    return del(['public/img/lightbox', 'public/img/overlays', 'public/img/svg']);
+});
+
+gulp.task('mdb-images', gulp.series('mdb-images:clean', 'mdb-images:copy'));
+
+
+/*
  * Fonts
  */
 gulp.task('fonts:clean', function() {
@@ -117,7 +145,7 @@ gulp.task('css', gulp.series('css:clean', 'mdb-css:copy', 'css:process'));
 /*
  * Combinations
  */
-gulp.task('default', gulp.parallel('css', 'fonts', 'mdb-js'));
+gulp.task('default', gulp.parallel('css', 'fonts', 'mdb-js', 'mdb-addons', 'mdb-images'));
 
 gulp.task('build', gulp.series('default', 'fractal:build'));
 

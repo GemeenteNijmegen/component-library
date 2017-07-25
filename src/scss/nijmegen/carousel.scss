@@ -1,0 +1,52 @@
+.carousel {
+    .carousel-control-prev,
+    .carousel-control-next {
+        top: calc(50% - 28px);
+        width: 56px;
+        height: 56px;
+        border-radius: 100%;
+
+        &.carousel-control-prev {
+            left: 84px;
+        }
+
+        &.carousel-control-next {
+            right: 84px;
+        }
+
+        &:hover {
+            @extend .z-depth-1;
+            background-color: rgba($focus-color, 0.5);
+        }
+
+        &:focus {
+            outline: none !important;
+        }
+    }
+
+    .carousel-indicators li {
+        border: 2px solid color('shades', 'white');
+        background-color: transparent;
+
+        &.carousel-play-pause {
+            color: color('shades', 'white');
+            font-size: 0;
+            text-indent: initial;
+            height: 10px;
+            min-width: initial;
+            min-height: 24px;
+            margin-left: 30px;
+            margin-top: -7px;
+            border: none;
+            display: block;
+
+            i.play {
+                display: none;
+            }
+        }
+
+        &.active {
+            background-color: color('shades', 'white');
+        }
+    }
+}
