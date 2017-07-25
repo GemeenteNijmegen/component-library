@@ -1,0 +1,27 @@
+.popover {
+
+    .popover-title {
+        color: $body-color;
+        font-size: to-rem(28);
+        position: relative;
+        padding-right: 40px;
+
+        &:after {
+            content: 'close';
+            @include material-icons;
+            position: absolute;
+            right: to-rem(20 / 2);
+            bottom: 0;
+            left: 0;
+            top: calc(50% - (20px / 2));
+            color: color('nijmegen-primary', 'base');
+            text-align: right;
+            font-size: to-rem(20);
+        }
+    }
+
+    .popover-content {
+        font-size: to-rem(16);
+        line-height: 26px;
+    }
+}
