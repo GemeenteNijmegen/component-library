@@ -41,6 +41,10 @@
 @import "mdb/pro/tabs";
 @import "mdb/pro/navbars-pro";
 @import "mdb/pro/carousels-pro";
+@import "mdb/pro/date_picker/default";
+@import "mdb/pro/date_picker/default.date";
+@import "mdb/pro/date_picker/default.time";
+@import "mdb/pro/light-box";
 
 // Nijmegen overrides //
 @import "nijmegen/mixins";
@@ -61,3 +65,6 @@
 @import "nijmegen/forms";
 @import "nijmegen/navbars";
 @import "nijmegen/carousel";
+@import "nijmegen/datepicker";
+@import "nijmegen/timepicker";
+@import "nijmegen/lightbox";

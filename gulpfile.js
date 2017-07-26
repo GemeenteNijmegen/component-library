@@ -65,7 +65,6 @@ gulp.task('mdb-images:clean', function() {
 
 gulp.task('mdb-images', gulp.series('mdb-images:clean', 'mdb-images:copy'));
 
-
 /*
  * Fonts
  */
