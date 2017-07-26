@@ -1,0 +1,44 @@
+.accordion {
+    .card {
+        .card-header {
+            padding: 0;
+
+            a {
+                padding: to-rem(32) to-rem(24);
+                display: block;
+
+                &:not(.collapsed) {
+                    h5,
+                    i {
+                        color: color('nijmegen-primary', 'darken-3');
+                    }
+                }
+
+                h5 {
+                    font-family: 'Oranda', sans-serif;
+                    color: color('nijmegen-primary', 'base');
+                }
+
+                i {
+                    float: right;
+                    font-size: to-rem(36);
+                }
+                &:focus,
+                &:hover {
+                    h5,
+                    i {
+                        color: color('nijmegen-primary', 'darken-2');
+                    }
+                }
+
+                &:focus {
+                    @include tab-focus;
+                }
+            }
+        }
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}
