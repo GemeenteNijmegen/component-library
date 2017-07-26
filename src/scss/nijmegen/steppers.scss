@@ -15,14 +15,13 @@
             text-align: center;
             line-height: 28px;
             font-size: to-rem(14);
-
+            font-weight: $font-weight-bold;
         }
 
         .label {
             margin-top: 0;
             font-weight: $font-weight-normal !important;
-            color: $body-color;
-
+            color: $body-color !important;
         }
 
         &:hover {
