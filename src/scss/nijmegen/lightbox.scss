@@ -1,0 +1,41 @@
+.mdb-lightbox figure {
+    position: relative;
+
+    a {
+        &:hover {
+            cursor: zoom-in;
+            display: block;
+
+            &:before {
+                position: absolute;
+                content: "";
+                background-color: rgba($focus-color, 0.2);
+                left: 0.5rem;
+                right: 0.5rem;
+                bottom: 0.5rem;
+                top: 0.5rem;
+            }
+        }
+
+        &:focus {
+            outline: none !important;
+
+            &:after {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                top: 0;
+                border: 3px solid $focus-color;
+            }
+        }
+
+        img {
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
