@@ -17,7 +17,7 @@
 
         &:hover {
             @extend .z-depth-1;
-            background-color: rgba($focus-color, 0.5);
+            background-color: rgba(color('nijmegen-primary', 'lighten-1'), 0.5)
         }
 
         &:focus {

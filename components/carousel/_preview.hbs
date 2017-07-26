@@ -14,9 +14,7 @@
 {{> '@tpl-scripts' }}
 
 <script>
-    $('.carousel').carousel({
-        interval: 2000
-    })
+    $('.carousel').carousel();
 
     $('.carousel-play-pause').on('click', '> i', function() {
         if ($(this).hasClass("play")) {
