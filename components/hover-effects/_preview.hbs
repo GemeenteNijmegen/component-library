@@ -1,0 +1,15 @@
+{{> '@tpl-head' }}
+    <style type="text/css">
+    .view { margin-bottom: 2rem; width: 300px; }
+    </style>
+</head>
+<body>
+
+{{!-- Underneath will render component output --}}
+{{{ yield }}}
+
+
+{{> '@tpl-scripts' }}
+
+</body>
+</html>
