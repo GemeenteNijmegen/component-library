@@ -4,9 +4,8 @@
             padding: 0;
 
             a {
-                padding: 1rem 1.5rem;
-                width: 100%;
-                display: inline-block;
+                padding: to-rem(32) to-rem(24);
+                display: block;
 
                 &:not(.collapsed) {
                     h5,
