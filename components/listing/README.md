@@ -18,7 +18,7 @@ to eachother per row.
 <div class="container">
     <ul class="row">
         <li class="col-12 col-md-6">
-                <a href="#" class="listing-item">
+            <a href="#" class="listing-item">
                 <p class="title">Dapibus ac facilisis in</p>
                 <p>Lorem ipsum Morbi leo risus</p>
             </a>
