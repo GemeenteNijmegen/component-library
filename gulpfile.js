@@ -51,7 +51,6 @@ gulp.task('mdb-addons:clean', function() {
 
 gulp.task('mdb-addons', gulp.series('mdb-addons:clean', 'mdb-addons:copy'));
 
-
 /*
  * MDB Images
  */
