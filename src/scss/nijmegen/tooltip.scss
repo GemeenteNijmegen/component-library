@@ -2,6 +2,7 @@
     .tooltip-inner {
         font-size: to-rem(18);
         background-color: $body-color;
+        font-family: 'Source Sans Pro', sans-serif;
     }
 
     &.bs-tether-element-attached-top .tooltip-inner:before {
