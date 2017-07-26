@@ -1,0 +1,29 @@
+.listing {
+    color: $body-color;
+    padding: 10px;
+    display: inline-block;
+
+    .title {
+        font-family: 'Oranda', sans-serif;
+        color: color('nijmegen-brand', 'base');
+        font-size: to-rem(36);
+    }
+
+    &:focus {
+        @include tab-focus;
+
+        .title {
+            color: color('nijmegen-brand', 'darken-2');
+        }
+    }
+
+    &:hover {
+        .title {
+            color: color('nijmegen-brand', 'darken-2');
+        }
+
+        p {
+            color: $body-color;
+        }
+    }
+}
