@@ -1,0 +1,21 @@
+{{> '@tpl-head' }}
+</head>
+<body>
+
+{{!-- Underneath will render component output --}}
+{{{ yield }}}
+
+
+{{> '@tpl-scripts' }}
+
+<script>
+    $('.responsive-table > tbody  > tr').each(function (i, el) {
+        $(el).find('> td').each(function (j, td) {
+            var title = $($('.responsive-table > thead > tr > th').get(j)).text();
+            $(td).attr("data-title", title);
+        })
+    });
+</script>
+
+</body>
+</html>

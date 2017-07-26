@@ -1,0 +1,76 @@
+table.responsive-table {
+    width: 100%;
+    border: none;
+
+    tbody tr td:before,
+    thead tr th {
+        color: color('nijmegen-grey', 'darken-2');
+        font-weight: $font-weight-normal;
+        font-size: to-rem(14);
+        letter-spacing: 0.1px;
+        border-bottom: 2px solid color('nijmegen-grey', 'base');
+        line-height: 38px;
+    }
+
+    tbody tr {
+        line-height: 38px;
+
+        td {
+            color: $body-color;
+            font-size: to-rem(16);
+            border-bottom: 2px solid color('nijmegen-grey', 'base');
+        }
+    }
+
+    @media only screen and (max-width: 760px),
+    (min-device-width: 768px) and (max-device-width: 1024px) {
+
+        /* Force table to not be like tables anymore */
+        &, & thead, & tbody, & th, & td, & tr {
+            display: block;
+        }
+
+        /* Hide table headers (but not display: none;, for accessibility) */
+        & thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+        tr {
+            border-top: 1px solid #ccc;
+            &:last-child {
+                border-bottom: 1px solid color('nijmegen-grey', 'base');
+            }
+        }
+
+        td {
+            border: none !important;
+            position: relative;
+            padding-left: 50%;
+            line-height: 30px;
+
+            &:before {
+                content: attr(data-title);
+                position: absolute;
+                left: 0;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                border-bottom: none !important;
+                line-height: 30px !important;
+            }
+        }
+
+        td:before {
+        }
+    }
+
+    /* Smartphones (portrait and landscape) ----------- */
+    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    }
+
+    /* iPads (portrait and landscape) ----------- */
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    }
+}
