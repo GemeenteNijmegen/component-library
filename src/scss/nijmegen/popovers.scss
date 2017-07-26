@@ -7,6 +7,7 @@
         position: relative;
         padding: 15px 40px 15px 14px;
         border-bottom: 0;
+        background-color: color('nijmegen-grey', 'lighten-1');
 
         &:after {
             content: 'close';
@@ -46,6 +47,11 @@
 
     &.bs-tether-element-attached-top:before,
     &.popover-bottom:before {
-        border-color: transparent;
+        border-bottom-color: rgba(0, 0, 0, 0.1);
+    }
+
+    &.bs-tether-element-attached-top:after,
+    &.popover-bottom:after {
+        border-bottom-color: color('nijmegen-grey', 'lighten-1');
     }
 }
