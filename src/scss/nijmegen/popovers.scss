@@ -1,10 +1,12 @@
 .popover {
+    padding: 0 !important;
 
     .popover-title {
         color: $body-color;
         font-size: to-rem(28);
         position: relative;
-        padding-right: 40px;
+        padding: 15px 40px 15px 14px;
+        border-bottom: 0;
 
         &:after {
             content: 'close';
@@ -23,5 +25,26 @@
     .popover-content {
         font-size: to-rem(16);
         line-height: 26px;
+        padding: 14px 20px;
+    }
+
+    &.bs-tether-element-attached-bottom:before,
+    &.popover-top:before {
+        border-top-color: rgba(0, 0, 0, 0.1);
+    }
+
+    &.bs-tether-element-attached-right:before,
+    &.popover-left:before {
+        border-left-color: rgba(0, 0, 0, 0.1);
+    }
+
+    &.bs-tether-element-attached-left:before,
+    &.popover-right:before {
+        border-right-color: rgba(0, 0, 0, 0.1);
+    }
+
+    &.bs-tether-element-attached-top:before,
+    &.popover-bottom:before {
+        border-color: transparent;
     }
 }
