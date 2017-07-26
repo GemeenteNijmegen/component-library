@@ -1,0 +1,33 @@
+{{> '@tpl-head' }}
+<style>
+    .carousel {
+        max-width: 1020px;
+    }
+</style>
+</head>
+<body>
+
+{{!-- Underneath will render component output --}}
+{{{ yield }}}
+
+
+{{> '@tpl-scripts' }}
+
+<script>
+    $('.carousel').carousel();
+
+    $('.carousel-play-pause').on('click', '> i', function() {
+        if ($(this).hasClass("play")) {
+            $('.carousel').carousel("cycle");
+            $(this).hide();
+            $(".pause").show();
+        } else {
+            $('.carousel').carousel("pause");
+            $(this).hide();
+            $(".play").show();
+        }
+    });
+</script>
+
+</body>
+</html>

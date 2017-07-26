@@ -54,7 +54,6 @@ gulp.task('mdb-addons', gulp.series('mdb-addons:clean', 'mdb-addons:copy'));
 /*
  * MDB Images
  */
-
 gulp.task('mdb-images:copy', function () {
     return gulp.src(mdbootstrapPath+'/img/**/*').pipe(gulp.dest('public/img'));
 });
