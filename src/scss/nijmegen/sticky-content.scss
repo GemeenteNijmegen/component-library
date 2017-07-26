@@ -2,12 +2,14 @@
     background-color: color('nijmegen-brand', 'base');
     padding: 20px;
 
-    h5 {
+    .title {
+        font-family: 'Oranda', sans-serif;
+        font-size: to-rem(28);
         margin-bottom: 22px;
+        line-height: 1.1;
     }
 
-    p,
-    h5 {
+    p {
         color: color('shades', 'white');
     }
 }
