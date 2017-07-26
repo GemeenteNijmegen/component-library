@@ -33,6 +33,7 @@
 // MDB Pro
 @import "mdb/pro/chips";
 @import "mdb/pro/progress";
+@import "mdb/pro/side-nav";
 @import "mdb/pro/forms-pro";
 @import "mdb/pro/dropdowns-pro";
 @import "mdb/pro/toasts";
@@ -40,6 +41,10 @@
 @import "mdb/pro/tabs";
 @import "mdb/pro/navbars-pro";
 @import "mdb/pro/stepper";
+@import "mdb/pro/date_picker/default";
+@import "mdb/pro/date_picker/default.date";
+@import "mdb/pro/date_picker/default.time";
+@import "mdb/pro/light-box";
 
 // Nijmegen overrides //
 @import "nijmegen/mixins";
@@ -52,9 +57,14 @@
 @import "nijmegen/labels";
 @import "nijmegen/pagination";
 @import "nijmegen/progress";
+@import "nijmegen/sidenav";
+@import "nijmegen/footer";
 @import "nijmegen/alerts";
 @import "nijmegen/modals";
 @import "nijmegen/tabs";
 @import "nijmegen/forms";
 @import "nijmegen/navbars";
 @import "nijmegen/steppers";
+@import "nijmegen/datepicker";
+@import "nijmegen/timepicker";
+@import "nijmegen/lightbox";
