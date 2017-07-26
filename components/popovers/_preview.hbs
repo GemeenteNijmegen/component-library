@@ -1,0 +1,24 @@
+{{> '@tpl-head' }}
+<style type="text/css">
+    body {
+        padding: 150px 0 0;
+    }
+</style>
+</head>
+<body>
+
+{{!-- Underneath will render component output --}}
+{{{ yield }}}
+
+
+{{> '@tpl-scripts' }}
+
+<script>
+    $('[data-toggle="popover"]').popover({
+        trigger: 'focus'
+    })
+
+</script>
+
+</body>
+</html>
