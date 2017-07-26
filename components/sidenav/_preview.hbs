@@ -1,0 +1,18 @@
+{{> '@tpl-head' }}
+    <style type="text/css">
+    </style>
+</head>
+<body>
+
+{{!-- Underneath will render component output --}}
+{{{ yield }}}
+
+
+{{> '@tpl-scripts' }}
+
+<script>
+    $(".button-collapse").sideNav();
+</script>
+
+</body>
+</html>
