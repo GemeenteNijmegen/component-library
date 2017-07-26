@@ -1,16 +1,28 @@
-## Material Select
+## Carousel
 
-Based on the version from MDB (https://mdbootstrap.com/javascript/material-select/)
+Based on the version from MDB (https://mdbootstrap.com/javascript/carousel/)
 
-### Using the select element in HTML
+### Using the carousel element in HTML
 
-Aside from the JavaScript libraries, you need to initialise the Material Select components.
-This can be done by adding underneath JavaScript and make sure it's placed after the
-required JavaScript files used by the framework
-
+For the play/pause functionality you need a little custom javascript to make it work
 ```javascript
 <script>
-// Assuming you've given your Select element a classname of 'mdb-select'
-$('.mdb-select').material_select();
+    // Set the carousel options
+    $('.carousel').carousel({
+        interval: 2000
+    })
+    
+    // The custom javascript for the play/pause functionality
+    $('.carousel-play-pause').on('click', '> i', function() {
+        if ($(this).hasClass("play")) {
+            $('.carousel').carousel("cycle");
+            $(this).hide();
+            $(".pause").show();
+        } else {
+            $('.carousel').carousel("pause");
+            $(this).hide();
+            $(".play").show();
+        }
+    });
 </script>
 ```

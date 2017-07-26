@@ -13,7 +13,7 @@
         interval: 2000
     })
 
-    $('.carousel-play-pause').on('click', '> i', function(e) {
+    $('.carousel-play-pause').on('click', '> i', function() {
         if ($(this).hasClass("play")) {
             $('.carousel').carousel("cycle");
             $(this).hide();
