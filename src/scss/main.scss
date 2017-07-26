@@ -41,6 +41,7 @@
 @import "mdb/pro/tabs";
 @import "mdb/pro/navbars-pro";
 @import "mdb/pro/accordion";
+@import "mdb/pro/stepper";
 @import "mdb/pro/date_picker/default";
 @import "mdb/pro/date_picker/default.date";
 @import "mdb/pro/date_picker/default.time";
@@ -64,7 +65,13 @@
 @import "nijmegen/tabs";
 @import "nijmegen/forms";
 @import "nijmegen/navbars";
+<<<<<<< HEAD
 @import "nijmegen/accordion";
+=======
+@import "nijmegen/tooltip";
+@import "nijmegen/hover-effects";
+>>>>>>> 217744c692a44ced3ef5bd7e8de32a43b1a54a2d
 @import "nijmegen/datepicker";
 @import "nijmegen/timepicker";
 @import "nijmegen/lightbox";
+@import "nijmegen/steppers";
