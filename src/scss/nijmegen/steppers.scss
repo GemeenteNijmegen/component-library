@@ -13,9 +13,12 @@
             width: 28px;
             height: 28px;
             text-align: center;
-            line-height: 28px;
-            font-size: to-rem(14);
-            font-weight: $font-weight-bold;
+
+            &, .mdi {
+                line-height: 28px;
+                font-size: to-rem(14);
+                font-weight: $font-weight-bold;
+            }
         }
 
         .label {
