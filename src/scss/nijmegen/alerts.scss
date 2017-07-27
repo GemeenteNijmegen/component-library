@@ -19,7 +19,6 @@ $icon-size: 24px;
     }
 
     &:before {
-        @include material-icons;
         position: absolute;
         left: 0;
         top: calc(50% - #{$icon-size / 2});
@@ -35,7 +34,7 @@ $icon-size: 24px;
     background-color: color('nijmegen-backgrounds', 'success') !important;
 
     &:before {
-        content: 'check';
+        @include mdi('check');
     }
 }
 
@@ -43,7 +42,7 @@ $icon-size: 24px;
     background-color: color('nijmegen-backgrounds', 'info') !important;
 
     &:before {
-        content: 'info';
+        @include mdi('information');
     }
 }
 
@@ -51,7 +50,7 @@ $icon-size: 24px;
     background-color: color('nijmegen-backgrounds', 'warning') !important;
 
     &:before {
-        content: 'warning';
+        @include mdi('alert');
     }
 }
 
@@ -60,7 +59,7 @@ $icon-size: 24px;
     color: color('shades', 'white') !important;
 
     &:before {
-        content: 'info';
+        @include mdi('information');
         color: color('shades', 'white') !important;
     }
 }

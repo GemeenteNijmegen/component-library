@@ -8,6 +8,7 @@ const sassGlob = require('gulp-sass-glob');
 const sourcemaps   = require('gulp-sourcemaps');
 
 const mdbootstrapPath = 'src/mdbootstrap-pro/v4.3.2';
+const materialdesigniconsPath = 'node_modules/mdi';
 
 let buildMode = gutil.env.env || 'dev'; // dev || prod
 
@@ -75,15 +76,15 @@ gulp.task('mdb-fonts:copy', function() {
   return gulp.src(mdbootstrapPath+'/font/**/*').pipe(gulp.dest('public/font'));
 });
 
-gulp.task('material-icon-fonts:copy', function() {
-  return gulp.src('node_modules/material-design-icons/iconfont/*.{eot,svg,ttf,woff,woff2}').pipe(gulp.dest('public/font/materialicons'));
+gulp.task('mdi-fonts:copy', function() {
+  return gulp.src('node_modules/mdi/fonts/*.{eot,svg,ttf,woff,woff2}').pipe(gulp.dest('public/font/mdi'));
 });
 
 gulp.task('fonts:copy', function() {
   return gulp.src('./src/font/**/*').pipe(gulp.dest('public/font'));
 });
 
-gulp.task('fonts', gulp.series('fonts:clean', 'fonts:copy', 'mdb-fonts:copy', 'material-icon-fonts:copy'));
+gulp.task('fonts', gulp.series('fonts:clean', 'fonts:copy', 'mdb-fonts:copy', 'mdi-fonts:copy'));
 
 /*
  * MDB JavaScript
@@ -114,7 +115,7 @@ gulp.task('css:process', function() {
     .pipe(sass({
       // set path to MDB sass files so these can be found by 'import' statements
       // while compiling new CSS
-      includePaths: mdbootstrapPath+'/sass/',
+      includePaths: [mdbootstrapPath+'/sass/', materialdesigniconsPath+'/scss/'],
       outputStyle: buildMode === 'dev' ? 'nested' : 'compressed'
     }))
     .on('error', err => console.log(err.message))
