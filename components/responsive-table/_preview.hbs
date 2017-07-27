@@ -9,12 +9,16 @@
 {{> '@tpl-scripts' }}
 
 <script>
-    $('.responsive-table > tbody  > tr').each(function () {
-        $table = this;
-        $(this).find('> td').each(function (j, td) {
-            var title = $($($table).parents(".responsive-table").find('> thead > tr > th').get(j)).text();
-            $(td).attr("data-title", title);
-        })
+    $('.responsive-table').each(function() {
+        var headings = $(this).find('thead th').map(function() {
+            return this.textContent;
+        }).toArray();
+
+        if (headings.length > 0) {
+            $(this).find('tbody td').each(function(tdIdx) {
+                this.setAttribute('data-title', headings[tdIdx % headings.length]);
+            });
+        }
     });
 </script>
 </body>
