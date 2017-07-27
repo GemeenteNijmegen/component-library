@@ -9,16 +9,19 @@ table.responsive-table {
         font-size: to-rem(14);
         letter-spacing: 0.1px;
         border-bottom: 2px solid color('nijmegen-grey', 'base');
-        line-height: 38px;
+        padding-top: 6px;
+        padding-bottom: 6px;
     }
 
     tbody tr {
-        line-height: 38px;
-
+        padding-top: 6px;
+        padding-bottom: 6px;
         td {
             color: $body-color;
             font-size: to-rem(16);
             border-bottom: 2px solid color('nijmegen-grey', 'base');
+            padding-top: 5px;
+            padding-bottom: 5px;
         }
     }
 
@@ -51,7 +54,8 @@ table.responsive-table {
             border: none !important;
             position: relative;
             padding-left: 50%;
-            line-height: 30px;
+            padding-top: 6px;
+            padding-bottom: 6px;
 
             &:before {
                 content: attr(data-title);
@@ -60,7 +64,6 @@ table.responsive-table {
                 display: inline-table;
                 white-space: normal;
                 border-bottom: none !important;
-                line-height: 30px !important;
             }
         }
     }

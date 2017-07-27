@@ -9,13 +9,27 @@
 {{> '@tpl-scripts' }}
 
 <script>
-    $('.responsive-table > tbody  > tr').each(function (i, el) {
-        $(el).find('> td').each(function (j, td) {
-            var title = $($('.responsive-table > thead > tr > th').get(j)).text();
+    $('.responsive-table > tbody  > tr').each(function () {
+        $table = this;
+
+        $(this).find('> td').each(function (j, td) {
+            var title = $($($table).closest(".responsive-table").find('> thead > tr > th').get(j)).text();
             $(td).attr("data-title", title);
         })
     });
-</script>
 
+
+    $('.responsive-table').each(function() {
+        $table = this;
+
+        $($table).find('> tbody  > tr').each(function () {
+            $(this).find('> td').each(function (j, td) {
+                var title = $($($table).find('> thead > tr > th').get(j)).text();
+
+                $(td).attr("data-title", title);
+            });
+        });
+    });
+</script>
 </body>
 </html>
