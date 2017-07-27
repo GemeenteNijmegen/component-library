@@ -66,31 +66,55 @@ h6 {
 }
 
 h1 {
-    font-size: to-rem(38);
+    font-size: to-rem(36);
+
+    @media only screen and (min-width: #{$medium-screen-portrait}) {
+        font-size: to-rem(38);
+    }
 }
 
 h2 {
     color: color('nijmegen-brand', 'base');
-    font-size: to-rem(36);
+    font-size: to-rem(34);
+
+    @media only screen and (min-width: #{$medium-screen-portrait}) {
+        font-size: to-rem(36);
+    }
 }
 
 h3 {
     color: color('nijmegen-brand', 'base');
-    font-size: to-rem(28);
+    font-size: to-rem(26);
+
+    @media only screen and (min-width: #{$medium-screen-portrait}) {
+        font-size: to-rem(28);
+    }
 }
 
 h4 {
-    font-size: to-rem(28);
+    font-size: to-rem(26);
+
+    @media only screen and (min-width: #{$medium-screen-portrait}) {
+        font-size: to-rem(28);
+    }
 }
 
 h5 {
     color: color('shades', 'white');
-    font-size: to-rem(28);
+    font-size: to-rem(26);
+
+    @media only screen and (min-width: #{$medium-screen-portrait}) {
+        font-size: to-rem(28);
+    }
 }
 
 h6 {
     color: color('nijmegen-grey', 'darken-2');
-    font-size: to-rem(24);
+    font-size: to-rem(22);
+
+    @media only screen and (min-width: #{$medium-screen-portrait}) {
+        font-size: to-rem(24);
+    }
 }
 
 ul:not([class]) {

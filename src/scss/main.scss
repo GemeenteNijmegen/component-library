@@ -49,6 +49,8 @@
 @import "mdb/pro/light-box";
 
 // Nijmegen overrides //
+$medium-screen-portrait: 768px;
+
 @import "nijmegen/mixins";
 @import "nijmegen/button-floating";
 @import "nijmegen/icons";

@@ -213,7 +213,7 @@
         background-color: color('nijmegen-brand', 'darken-1');
         transition: height .5s ease-in-out;
 
-        @media only screen and (min-width: 768px) and (max-width : #{$medium-screen}) {
+        @media only screen and (min-width: #{$medium-screen-portrait}) and (max-width : #{$medium-screen}) {
             height: 62px;
         }
 
@@ -380,7 +380,7 @@
     .navbar-collapse {
         margin-top: to-rem(6);
 
-        @media only screen and (min-width: 768px) and (max-width : #{$medium-screen}) {
+        @media only screen and (min-width: #{$medium-screen-portrait}) and (max-width : #{$medium-screen}) {
             margin-top: to-rem(12);
         }
 
@@ -392,7 +392,7 @@
     // do we need specific styling when the navbar is animated to a smaller version based on browser scrolling?
     &.top-nav-collapse {
         &:before {
-            @media only screen and (min-width: 768px) and (max-width : #{$medium-screen}) {
+            @media only screen and (min-width: #{$medium-screen-portrait}) and (max-width : #{$medium-screen}) {
                 height: 54px;
             }
         }
