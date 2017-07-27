@@ -32,7 +32,7 @@
 
 .btn-floating {
     &:focus {
-        outline: none;
+        outline: none !important;
         overflow: initial;
         position: relative;
 
@@ -46,4 +46,11 @@
             top: to-rem(-7);
         }
     }
+}
+
+// This comes directly from mdb
+.btn-floating.btn-small .mdi {
+    font-size: 0.93rem;
+    margin-top: 5px;
+    line-height: 37px;
 }

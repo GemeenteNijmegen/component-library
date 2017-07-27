@@ -65,11 +65,15 @@
             }
         }
 
-        .material-icons {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            margin-top: -12px;
+        .mdi {
+            &:before {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                margin-top: -12px;
+                font-size: to-rem(24);
+                line-height: 1;
+            }
 
             &:hover {
                 cursor: default;
@@ -175,13 +179,13 @@
 
                 border-bottom: 2px solid color('nijmegen-primary', 'base') !important;
 
-                + .material-icons {
+                + .mdi {
                     color: $body-color;
                 }
             }
         }
 
-        .material-icons {
+        .mdi {
             color: color('nijmegen-brand', 'base');
         }
     }
@@ -366,13 +370,13 @@
 
                 border-bottom: 2px solid color('nijmegen-primary', 'base') !important;
 
-                + .material-icons {
+                + .mdi {
                     color: color('shades', 'white');
                 }
             }
         }
 
-        .material-icons {
+        .mdi {
             color: color('shades', 'white');
         }
     }
