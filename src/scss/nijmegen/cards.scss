@@ -19,12 +19,13 @@
     }
 
     figure {
-        position: relative;
+        @include aspect-ratio(7, 3);
 
         .badge {
             font-size: to-rem(12);
             padding: to-rem(6) to-rem(20);
             position: absolute;
+            z-index: 2;
             left: 0;
             bottom: 0;
         }
