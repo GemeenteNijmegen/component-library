@@ -1,6 +1,7 @@
 .picker {
     .picker__header .picker__date-display {
         background-color: color('nijmegen-brand', 'base');
+        padding-bottom: 15px;
 
         .picker__weekday-display {
             text-transform: capitalize;
@@ -29,9 +30,9 @@
         }
         
         &:before {
-            @include material-icons;
             border: 0;
-            margin: initial;
+            margin: initial !important;
+            display: block !important;
             font-size: to-rem(18);
             color: color('nijmegen-primary', 'base');
         }
@@ -39,15 +40,19 @@
 
     .picker__nav--prev {
         left: -0.5em;
+
         &:before {
-            content: 'arrow_back';
+            @include mdi('arrow-left');
+            font-size: to-rem(18);
         }
     }
 
     .picker__nav--next {
         right: -0.5em;
+
         &:before {
-            content: 'arrow_forward';
+            @include mdi('arrow-right');
+            font-size: to-rem(18);
         }
     }
 

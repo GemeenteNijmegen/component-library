@@ -7,7 +7,7 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@frctl/fractal": "^1.1.4",
-    "material-design-icons": "^3.0.1"
+    "mdi": "^2.0.46"
   },
   "scripts": {
     "start": "gulp dev",

@@ -47,8 +47,7 @@ $select-caret-icon-size: 24;
     &.invalid {
         & + label {
             &:before {
-                @include material-icons;
-                content: 'warning';
+                @include mdi('alert');
                 color: color('nijmegen-forms', 'error');
                 display: block;
                 position: absolute;
@@ -77,8 +76,7 @@ $select-caret-icon-size: 24;
         position: relative;
 
         &:before {
-            @include material-icons;
-            content: 'keyboard_arrow_down';
+            @include mdi('chevron-down');
             position: absolute;
             visibility: visible;
             right: 15px;
@@ -137,8 +135,7 @@ $select-caret-icon-size: 24;
         }
 
         &:first-child:after {
-            @include material-icons;
-            content: 'keyboard_arrow_up';
+            @include mdi('chevron-up');
             position: absolute;
             visibility: visible;
             right: 15px;
