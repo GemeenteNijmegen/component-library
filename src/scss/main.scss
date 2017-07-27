@@ -49,7 +49,9 @@
 @import "mdb/pro/light-box";
 
 // Nijmegen overrides //
-$medium-screen-portrait: 768px;
+
+// comes from: mdb/free/data/variables-b4 and has value: 768px
+$medium-screen-portrait: map-get($grid-breakpoints, 'md');
 
 @import "nijmegen/mixins";
 @import "nijmegen/button-floating";
