@@ -10,8 +10,7 @@
         background-color: color('nijmegen-grey', 'lighten-1');
 
         &:after {
-            content: 'close';
-            @include material-icons;
+            @include mdi('close');
             position: absolute;
             right: to-rem(20 / 2);
             bottom: 0;
