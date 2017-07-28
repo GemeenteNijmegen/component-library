@@ -35,6 +35,7 @@
 @import "mdb/pro/progress";
 @import "mdb/pro/side-nav";
 @import "mdb/pro/forms-pro";
+@import "mdb/pro/cards-pro";
 @import "mdb/pro/dropdowns-pro";
 @import "mdb/pro/toasts";
 @import "mdb/pro/buttons-pro";
@@ -49,6 +50,10 @@
 @import "mdb/pro/light-box";
 
 // Nijmegen overrides //
+
+// comes from: mdb/free/data/variables-b4 and has value: 768px
+$medium-screen-portrait: map-get($grid-breakpoints, 'md');
+
 @import "nijmegen/mixins";
 @import "nijmegen/button-floating";
 @import "nijmegen/icons";
@@ -78,3 +83,4 @@
 @import "nijmegen/sticky-content";
 @import "nijmegen/responsive-table";
 @import "nijmegen/listing";
+@import "nijmegen/cards";
