@@ -17,7 +17,7 @@ const mandelbrot = require('@frctl/mandelbrot');
 
 const nijmegenTheme = mandelbrot({
     nav: ['docs', 'components'],
-    panels: ["html", "info", "notes"],
+    panels: ['html', 'info', 'notes'],
     styles: ['default', '/_subtheme/css/nijmegen.css'], // link to the default stylesheet followed by a custom one
     favicon: '/_subtheme/img/favicon.ico',
 });
@@ -63,7 +63,7 @@ fractal.web.set('server.sync', true);
 /* Options passed to BrowserSync */
 fractal.web.set('server.syncOptions', {
   /* Files to watch for changes */
-  files: ["src/**/*.scss"],
+  files: ['src/**/*.scss'],
   /* Adding a delay to make sure the sourcefiles are compiled before pushing the refresh to the browser */
   reloadDelay: 1000
 });
