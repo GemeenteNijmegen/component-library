@@ -56,6 +56,7 @@ $medium-screen-portrait: map-get($grid-breakpoints, 'md');
 
 @import "nijmegen/mixins";
 @import "nijmegen/button-floating";
+@import "nijmegen/button-horizontal-collapse";
 @import "nijmegen/icons";
 @import "nijmegen/typography";
 @import "nijmegen/buttons";
