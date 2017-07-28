@@ -1,13 +1,9 @@
-{{> '@tpl-head' }}
-</head>
-<body>
+## Responsive table
+This is a custom component, based on this [demo](https://css-tricks.com/examples/ResponsiveTables/responsive.php).
 
-{{!-- Underneath will render component output --}}
-{{{ yield }}}
-
-{{> '@tpl-scripts' }}
-
-<script>
+### Using responsive tables in HTML
+To use the responsive tables we need a little bit of js to make it work properly on mobile.
+```javascript
     $('.responsive-table').each(function() {
         var headings = $(this).find('thead th').map(function() {
             return this.textContent;
@@ -19,6 +15,4 @@
             });
         }
     });
-</script>
-</body>
-</html>
+```
