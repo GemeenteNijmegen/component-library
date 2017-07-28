@@ -59,7 +59,7 @@ table.responsive-table {
             padding-bottom: 6px;
 
             &:before {
-                padding-top: 0 !important;
+                padding-top: 3px !important;
                 padding-bottom: 0 !important;
                 content: attr(data-title);
                 margin-left: -100%;
