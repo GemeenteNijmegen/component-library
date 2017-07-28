@@ -53,17 +53,29 @@ table.responsive-table {
         td {
             border: none !important;
             position: relative;
-            padding-left: 50%;
+            width: 50%;
+            margin-left: 50%;
             padding-top: 6px;
             padding-bottom: 6px;
 
             &:before {
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
                 content: attr(data-title);
                 margin-left: -100%;
                 width: 100%;
-                display: inline-table;
+                display: inline-block;
                 white-space: normal;
                 border-bottom: none !important;
+                float: left;
+            }
+
+            &:after {
+                content: "";
+                display: block;
+                height: 0;
+                clear: both;
+                visibility: hidden;
             }
         }
     }
