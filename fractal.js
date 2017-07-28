@@ -11,6 +11,21 @@ const path = require('path');
 const fractal = module.exports = require('@frctl/fractal').create();
 
 /*
+ * Require the Fractal theme
+ */
+const mandelbrot = require('@frctl/mandelbrot');
+
+const nijmegenTheme = mandelbrot({
+    nav: ['docs', 'components'],
+    panels: ['html', 'info', 'notes'],
+    styles: ['default', '/_subtheme/css/nijmegen.css'], // link to the default stylesheet followed by a custom one
+    favicon: '/_subtheme/img/favicon.ico',
+});
+
+// Add Nijmegen subtheme to fractal instance
+fractal.web.theme(nijmegenTheme);
+
+/*
  * Give your project a title.
  */
 fractal.set('project.title', 'Nijmegen Component Library');
@@ -48,7 +63,7 @@ fractal.web.set('server.sync', true);
 /* Options passed to BrowserSync */
 fractal.web.set('server.syncOptions', {
   /* Files to watch for changes */
-  files: ["src/**/*.scss"],
+  files: ['src/**/*.scss'],
   /* Adding a delay to make sure the sourcefiles are compiled before pushing the refresh to the browser */
   reloadDelay: 1000
 });
