@@ -27,7 +27,7 @@ a:hover {
 }
 
 [dir="ltr"] .Header-button {
-    border-right: 1px solid #a80a2d;
+    border-right: 1px solid rgba(168, 10, 45, 0.10);
 }
 
 .Browser-tab.is-active a {
