@@ -1,0 +1,39 @@
+a,
+a:active {
+    color: #a80a2d;
+}
+
+a:hover {
+    color: #890825;
+}
+
+
+#tree-docs a,
+#tree-docs a:active {
+    color: #157c68;
+}
+
+#tree-docs a:hover {
+    color: #1a6b5b;
+}
+
+.Header {
+    color: #a80a2d;
+    background-color: #fff;
+}
+
+.Header-navToggle svg {
+    fill: #a80a2d;
+}
+
+[dir="ltr"] .Header-button {
+    border-right: 1px solid #a80a2d;
+}
+
+.Browser-tab.is-active a {
+    border-bottom-color: #a80a2d;
+}
+
+.Pen-previewLink svg {
+    fill: #444;
+}

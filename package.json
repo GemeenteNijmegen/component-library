@@ -7,6 +7,7 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@frctl/fractal": "^1.1.4",
+    "@frctl/mandelbrot": "^1.1.0",
     "mdi": "^2.0.46"
   },
   "scripts": {

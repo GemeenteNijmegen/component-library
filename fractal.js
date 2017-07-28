@@ -11,6 +11,21 @@ const path = require('path');
 const fractal = module.exports = require('@frctl/fractal').create();
 
 /*
+ * Require the Fractal theme
+ */
+const mandelbrot = require('@frctl/mandelbrot');
+
+const nijmegenTheme = mandelbrot({
+    nav: ['docs', 'components'],
+    panels: ["html", "info", "notes"],
+    styles: ['default', '/_subtheme/css/nijmegen.css'], // link to the default stylesheet followed by a custom one
+    favicon: '/_subtheme/img/favicon.ico',
+});
+
+// Add Nijmegen subtheme to fractal instance
+fractal.web.theme(nijmegenTheme);
+
+/*
  * Give your project a title.
  */
 fractal.set('project.title', 'Nijmegen Component Library');
