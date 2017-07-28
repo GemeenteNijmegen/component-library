@@ -1,12 +1,15 @@
 .horizontal-collapse {
-    .expand-horizontal {
-        ul {
-            margin: 0;
-            padding: 0;
-            list-style: none;
+    position: relative;
+    .btn-floating-collapse {
 
-            li {
-            }
+    }
+    .expand-horizontal {
+        position: absolute;
+        top: 16px;
+        bottom: 16px;
+        background: red;
+        margin: 0;
+        li {
         }
     }
 }
