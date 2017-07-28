@@ -25,6 +25,15 @@ const nijmegenTheme = mandelbrot({
 // Add Nijmegen subtheme to fractal instance
 fractal.web.theme(nijmegenTheme);
 
+const hbs = require('@frctl/handlebars')({
+    helpers: {
+        componentPath: require('./helpers/component-path')(fractal),
+    },
+});
+
+// Make docs use the slightly modified Handlebars engine
+fractal.docs.engine(hbs);
+
 /*
  * Give your project a title.
  */
