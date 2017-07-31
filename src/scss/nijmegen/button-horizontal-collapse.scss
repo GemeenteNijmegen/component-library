@@ -12,7 +12,7 @@
     .expand-horizontal {
         @extend .z-depth-1;
         position: absolute;
-        top: 16px;
+        top: 14px;
         background-color: color('nijmegen-primary', 'base');
         color: color('shades', 'white');
         margin: 0;
@@ -25,7 +25,8 @@
             line-height: 44px;
             margin: 0 10px;
 
-            i.mdi {
+            .mdi {
+                color: color('shades', 'white');
                 line-height: inherit;
             }
 
@@ -41,9 +42,6 @@
         }
 
         .expand-horizontal {
-            right: 0;
-            display: block;
-            left: initial;
             transform: translateX(0%);
         }
     }
