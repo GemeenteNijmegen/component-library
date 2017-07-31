@@ -23,18 +23,11 @@ module.exports = (fractal) => {
             routeComponent = getRouteComponent(fractal);
         }
 
-        // console.info(routeComponent);
-        // console.log(path);
-        // console.log(fractal);
-        // console.log(fractal._config.web.builder);
-
         // Return the HTTP path to the component
-        let retval = `${routeComponent.replace(':handle', path)}`;//+fractal._config.web.builder.ext;
+        let retval = `${routeComponent.replace(':handle', path)}`;
         if (fractal._config.env === 'production') {
             retval += fractal._config.web.builder.ext;
         }
-        // console.log(retval);
         return retval;
-        // return `${routeComponent.replace(':handle', path)}${fractal._config.web.builder.ext}`;
     };
 };
