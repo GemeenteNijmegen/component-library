@@ -49,4 +49,9 @@
             background-color: color('shades', 'white');
         }
     }
+    
+    .carousel-item img {
+        width: 100%;
+        align-self: center;
+    }
 }
