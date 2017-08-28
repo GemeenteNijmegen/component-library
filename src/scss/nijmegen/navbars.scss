@@ -68,14 +68,13 @@
         .mdi {
             position: absolute;
             right: 0;
+            top: calc(50% - 12px);
             font-size: 1.5rem;
             line-height: 1;
 
             &:before {
                 position: absolute;
                 right: 0;
-                top: 50%;
-                margin-top: -12px;
                 font-size: to-rem(24);
                 line-height: 1;
             }
