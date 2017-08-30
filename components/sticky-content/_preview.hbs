@@ -10,6 +10,11 @@
     .spacer {
         height: 1200px;
     }
+
+    #header {
+        left: 1rem;
+        right: 1rem;
+    }
 </style>
 </head>
 <body>
@@ -22,11 +27,13 @@
 <script>
     $(function () {
         $("#header").sticky({
+            topSpacing: 16,
             zIndex: 3,
             stopper: ".sidebar"
         });
 
         $("#sidebar").sticky({
+            topSpacing: 16,
             zIndex: 2,
             stopper: "#footer"
         });
