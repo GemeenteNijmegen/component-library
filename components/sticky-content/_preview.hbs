@@ -1,12 +1,21 @@
 {{> '@tpl-head' }}
 <style>
-    .sidebar {
+    .sidebar,
+    #sidebar {
         float: left;
-        margin-top: 50px;
-        padding: 0;
         width: 230px;
     }
- </style>
+
+    #footer,
+    .spacer {
+        height: 1200px;
+    }
+
+    #header {
+        left: 1rem;
+        right: 1rem;
+    }
+</style>
 </head>
 <body>
 
@@ -15,6 +24,20 @@
 
 
 {{> '@tpl-scripts' }}
+<script>
+    $(function () {
+        $("#header").sticky({
+            topSpacing: 16,
+            zIndex: 3,
+            stopper: ".sidebar"
+        });
 
+        $("#sidebar").sticky({
+            topSpacing: 16,
+            zIndex: 2,
+            stopper: "#footer"
+        });
+    });
+</script>
 </body>
 </html>
