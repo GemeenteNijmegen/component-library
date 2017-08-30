@@ -4,7 +4,7 @@
             padding: 0;
 
             a {
-                padding: to-rem(32) to-rem(24);
+                padding: to-rem(26) 0;
                 display: block;
 
                 &:not(.collapsed) {
@@ -36,6 +36,10 @@
                     @include tab-focus;
                 }
             }
+        }
+
+        .card-block {
+            padding: 0 0 to-rem(10) 0;
         }
 
         &:last-child {
