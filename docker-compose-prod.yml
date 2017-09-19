@@ -1,0 +1,13 @@
+version: '3'
+services:
+  componentlibrary:
+    build:
+      context: .
+      dockerfile: Dockerfile-prod
+    image: ${CI_REGISTRY_IMAGE}:${DOCKER_TAG}
+#    networks:
+#      - default
+#
+#networks:
+#  default:
+#    external: false

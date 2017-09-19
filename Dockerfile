@@ -5,7 +5,7 @@ RUN mkdir -p /app
 WORKDIR /app
 
 # Expose port
-EXPOSE 9000
+EXPOSE 3000
 
 # Start app
 CMD yarn run start
