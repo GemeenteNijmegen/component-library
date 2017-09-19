@@ -1,0 +1,114 @@
+<div class="container">
+    <div class="row header">
+        <div class="col-md-12">
+            <h2>Wat zoekt u?</h2>
+        </div>
+    </div>
+    <div class="search-query md-form">
+        <form>
+            <i class="fa fa-search prefix"></i>
+            <input
+                type="text"
+                id="oi-query"
+                class="oi-query form-control"
+                name="oi-query"
+                autocomplete="off"
+                spellcheck="false"
+                maxlength="127"
+                dir="ltr"
+            />
+            <label for="oi-query" class="">Wat zoekt u?</label>
+            <!-- <input type="button" id="oi-submit" class="oi-submit" name="oi-submit" value="Search"/> -->
+        </form>
+        
+    </div>
+    <div class="row">
+        <!-- Trending results can be enabled here (needed on the homepage)  -->
+        <!-- <div id="oi-trending-results"></div>  -->
+        <div id="oi-related-queries"></div>
+        <div class="col-md-2">
+            <div class="oi-facet-constraints" id="oi-facet-cat"></div>
+            <div class="oi-facet-constraints" id="oi-facet-date"></div>
+            <div class="oi-facet-constraints" id="oi-facet-type"></div>
+            <div class="oi-facet-constraints" id="oi-facet-lang"></div>
+        </div>
+        <div class="col-md-10">
+            <span id="oi-spellcheck"></span>
+            <span id="oi-header"></span>
+            <div id="oi-results"></div>
+            <div id="oi-pager"></div>
+        </div>
+    </div>
+</div>
+<script type="application/javascript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="http://www.openindex.io/js/openindex.69694b9315763c81.js"></script>
+<script type="text/javascript">
+$(function() {
+    openindex.suggest.development = true;
+    openindex.spell.autoFollowSuggest = true;
+    openindex.lang.header = "Taal";
+    openindex.type.header = "Bestandstype";
+    openindex.type.mapping =
+    {
+        "text/html" : "Webpagina",
+        "application/pdf" : "PDF bestand"
+    };
+    openindex.lang.mapping = {
+        "af":"Afrikaans",
+        "ar":"العربية",
+        "bg":"Български",
+        "bn":"বাংলা",
+        "cs":"Česky",
+        "da":"Dansk",
+        "de":"Deutsch",
+        "el":"Ελληνικά",
+        "en":"English",
+        "es":"Español",
+        "et":"Eesti",
+        "fa":"فارسی",
+        "fi":"Suomi",
+        "fr":"Français",
+        "fy":"Frysk",
+        "gu":"ગુજરાતી",
+        "he":"עברית",
+        "hi":"हिन्दी",
+        "hr":"Hrvatski",
+        "hu":"Magyar",
+        "id":"Bahasa Indonesia",
+        "is":"Íslenska",
+        "it":"Italiano",
+        "ja":"日本語",
+        "kn":"ಕನ್ನಡ",
+        "ko":"한국어",
+        "lt":"Lietuvių",
+        "lv":"Latviešu",
+        "mk":"Македонски",
+        "ml":"മലയാളം",
+        "mr":"मराठी",
+        "ne":"नेपाली",
+        "nl":"Nederlands",
+        "no":"Norsk (bokmål)",
+        "pa":"ਪੰਜਾਬੀ",
+        "pl":"Polski",
+        "pt":"Português",
+        "ro":"Română",
+        "ru":"Русский",
+        "sk":"Slovenčina",
+        "sl":"Slovenščina",
+        "so":"Soomaaliga",
+        "sq":"Shqip",
+        "sv":"Svenska",
+        "sw":"Kiswahili",
+        "ta":"தமிழ்",
+        "te":"తెలుగు",
+        "th":"ไทย",
+        "tl":"Tagalog",
+        "tr":"Türkçe",
+        "uk":"Українська",
+        "ur":"اردو",
+        "vi":"Tiếng Việt",
+        "zh-cn":"中文",
+        "zh-tw":"國語"
+    };
+});
+</script>
