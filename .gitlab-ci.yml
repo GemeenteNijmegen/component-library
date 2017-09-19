@@ -1,0 +1,47 @@
+# ======================
+# CI Stages
+# ======================
+
+stages:
+    - build
+    - deploy
+
+# ======================
+# Global variables
+# ======================
+
+variables:
+    DOCKER_DRIVER: overlay2
+    DOCKER_HOST: tcp://docker:2375
+
+build:
+    stage: build
+    services:
+        - docker:dind
+    before_script:
+        - docker build -t enrise/nijmegen-component-library .
+    script:
+        - docker run -t --rm -v `pwd`:/app enrise/nijmegen-component-library yarn
+        - docker run -t --rm -v `pwd`:/app enrise/nijmegen-component-library yarn build
+    artifacts:
+        paths:
+            - build/
+        expire_in: 1 week
+
+deploy to s3:
+    stage: deploy
+    environment:
+        name: s3
+        url: http://nijmegen-component-library.s3-website-eu-west-1.amazonaws.com
+    services:
+        - docker:dind
+    before_script:
+        - apk --no-cache add python py-pip
+        - pip install --upgrade awscli s3cmd
+    script:
+        - aws s3 sync build/ s3://nijmegen-component-library/ --acl public-read --delete
+    only:
+        - master
+    dependencies:
+        - build
+
