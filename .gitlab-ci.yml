@@ -39,9 +39,9 @@ deploy to s3:
         - apk --no-cache add python py-pip
         - pip install --upgrade awscli s3cmd
     script:
-        - aws s3 sync build/ s3://nijmegen-test-tim/ --acl public-read --delete
-#    only:
-#        - master
+        - aws s3 sync build/ s3://nijmegen-component-library/ --acl public-read --delete
+    only:
+        - master
     dependencies:
         - build
 
