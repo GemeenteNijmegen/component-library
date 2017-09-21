@@ -13,7 +13,7 @@ stages:
 variables:
   DOCKER_DRIVER: overlay2
   BASE_VERSION: "1.0."
-  EXTERNAL_DOCKER_HOST: tcp://localhost:50000
+  EXTERNAL_DOCKER_HOST: tcp://localhost:5099
   SERVICE_NAME: componentlibrary
 
 build:
@@ -44,11 +44,24 @@ deploy:
         export DOCKER_TAG="$CI_COMMIT_REF_SLUG";
       fi;
     - apk --no-cache add openssh
-    - mkdir ~/.ssh/ && echo $SSH_PRIVATE_KEY > ~/.ssh/id_ed25519 && chmod 600 ~/.ssh/id_ed25519
+    # Run ssh-agent (inside the build environment)
+    - eval $(ssh-agent -s)
+    # Add the SSH key stored in SSH_PRIVATE_KEY variable to the agent store
+#    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+
+    - echo "$SSH_PRIVATE_KEY"
+    - echo "$SSH_PRIVATE_KEY" | ssh-add -
+    - mkdir /root/.ssh/
+    - ssh-keyscan -H 'acc01.nijmegen.cobytes.io' >> ~/.ssh/known_hosts
+    - ssh-keyscan -H 'jump01.nijmegen.cobytes.io' >> ~/.ssh/known_hosts
+#    - echo $SSH_PRIVATE_KEY | tr -d '\r' > /root/.ssh/id_rsa
+#    - chmod 600 /root/.ssh/id_rsa && chmod 700 /root/.ssh
+#    - ssh-add /root/.ssh/id_rsa
   script:
-    - ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -M -S docker-socket -fnNT -L 50000:localhost:2375 enrise-docker-deploy@185.71.61.61
+    - ssh -v -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q enrise@jump01.nijmegen.cobytes.io" -M -S docker-socket -fnNT -L 5099:/var/run/docker/libcontainerd/docker-containerd.sock enrise-docker-deploy@acc01.nijmegen.cobytes.io
+    - ssh -S docker-socket -O check enrise-docker-deploy@acc01.nijmegen.cobytes.io
     - DOCKER_HOST=$EXTERNAL_DOCKER_HOST docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - DOCKER_HOST=$EXTERNAL_DOCKER_HOST docker stack deploy --with-registry-auth --compose-file=docker-compose-prod.yml ${SERVICE_NAME}
-    - ssh -S docker-socket -O exit enrise-docker-deploy@185.71.61.61
+    - ssh -S docker-socket -O exit enrise-docker-deploy@acc01.nijmegen.cobytes.io
 #  only:
 #    - master
