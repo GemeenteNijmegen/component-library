@@ -46,7 +46,7 @@ deploy:
     - apk --no-cache add openssh
     - mkdir ~/.ssh/ && echo $SSH_PRIVATE_KEY > ~/.ssh/id_ed25519
   script:
-    - ssh -M -S docker-socket -fnNT -L 50000:localhost:2375 enrise-docker-deploy@185.71.61.61
+    - ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -M -S docker-socket -fnNT -L 50000:localhost:2375 enrise-docker-deploy@185.71.61.61
     - DOCKER_HOST=$EXTERNAL_DOCKER_HOST docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - DOCKER_HOST=$EXTERNAL_DOCKER_HOST docker stack deploy --with-registry-auth --compose-file=docker-compose-prod.yml ${SERVICE_NAME}
     - ssh -S docker-socket -O exit enrise-docker-deploy@185.71.61.61
