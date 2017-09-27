@@ -5,6 +5,9 @@ services:
       context: .
       dockerfile: Dockerfile-prod
     image: ${CI_REGISTRY_IMAGE}:${DOCKER_TAG}
+    ports:
+      - "8083:80"
+    target_num_containers: 2
 #    networks:
 #      - default
 #
