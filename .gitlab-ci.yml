@@ -29,8 +29,8 @@ build:
     - pip install --upgrade docker-compose
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
-    - docker-compose -f docker-compose-prod.yml build
-    - docker-compose -f docker-compose-prod.yml push
+    - docker build -t ${CI_REGISTRY_IMAGE}:${DOCKER_TAG} -f Dockerfile-prod .
+    - docker push ${CI_REGISTRY_IMAGE}:${DOCKER_TAG}
 
 deploy:
   stage: deploy
@@ -54,7 +54,7 @@ deploy:
     - ssh -o ProxyCommand="ssh -W %h:%p -q enrise@jump01.nijmegen.cobytes.io" -M -S docker-socket-ssh -fnNT -L 50040:127.0.0.1:2375 enrise-docker-deploy@acc01.nijmegen.cobytes.io
     - ssh -S docker-socket-ssh -O check enrise-docker-deploy@acc01.nijmegen.cobytes.io
     - DOCKER_HOST=tcp://127.0.0.1:50040 docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-    - DOCKER_HOST=tcp://127.0.0.1:50040 docker stack deploy --with-registry-auth --compose-file=docker-compose-prod.yml ${SERVICE_NAME}
+    - DOCKER_HOST=tcp://127.0.0.1:50040 docker stack deploy --with-registry-auth --compose-file=docker-stack-prod.yml ${SERVICE_NAME}
     - ssh -S docker-socket-ssh -O exit enrise-docker-deploy@acc01.nijmegen.cobytes.io
 #  only:
 #    - master
