@@ -52,8 +52,7 @@ deploy acceptance:
     - echo "$SSH_PRIVATE_KEY" | ssh-add -
     # Add host keys
     - mkdir /root/.ssh/
-    - ssh-keyscan -H 'acc01.nijmegen.cobytes.io' >> ~/.ssh/known_hosts
-    - ssh-keyscan -H 'jump01.nijmegen.cobytes.io' >> ~/.ssh/known_hosts
+    - echo "$SSH_SERVER_HOSTKEYS" > ~/.ssh/known_hosts
     # Cleanup old socket
     - rm -f docker-socket-ssh
   script:
@@ -91,8 +90,7 @@ deploy production:
     - echo "$SSH_PRIVATE_KEY" | ssh-add -
     # Add host keys
     - mkdir /root/.ssh/
-    - ssh-keyscan -H 'containerprod01.nijmegen.cobytes.io' >> ~/.ssh/known_hosts
-    - ssh-keyscan -H 'jump01.nijmegen.cobytes.io' >> ~/.ssh/known_hosts
+    - echo "$SSH_SERVER_HOSTKEYS" > ~/.ssh/known_hosts
     # Cleanup old socket
     - rm -f docker-socket-ssh
   script:
