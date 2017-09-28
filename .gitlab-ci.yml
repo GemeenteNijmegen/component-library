@@ -69,8 +69,8 @@ deploy acceptance:
     - DOCKER_HOST=tcp://127.0.0.1:50040 docker stack deploy --with-registry-auth --compose-file=docker-compose-prod.yml ${SERVICE_NAME}
     # Exit SSH tunnel
     - ssh -S docker-socket-ssh -O exit enrise-docker-deploy@acc01.nijmegen.cobytes.io
-#  only:
-#    - master
+  only:
+    - master
 
 deploy production:
   stage: deploy
@@ -91,5 +91,5 @@ deploy production:
     - DOCKER_HOST=tcp://127.0.0.1:50040 docker stack deploy --with-registry-auth --compose-file=docker-compose-prod.yml ${SERVICE_NAME}
     # Exit SSH tunnel
     - ssh -S docker-socket-ssh -O exit enrise-docker-deploy@containerprod01.nijmegen.cobytes.io
-#  only:
-#    - master
+  only:
+    - master
