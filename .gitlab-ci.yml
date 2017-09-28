@@ -15,6 +15,25 @@ variables:
   BASE_VERSION: "1.0."
   SERVICE_NAME: componentlibrary
 
+
+.prepare-ssh: &prepare-ssh
+  before_script:
+    - if [ "$CI_COMMIT_REF_SLUG" = "master" ]; then
+        export DOCKER_TAG="$BASE_VERSION$CI_PIPELINE_ID";
+      else
+        export DOCKER_TAG="$CI_COMMIT_REF_SLUG";
+      fi;
+    - apk --no-cache add openssh
+    # Run ssh-agent (inside the build environment)
+    - eval $(ssh-agent -s)
+    # Add private key
+    - echo "$SSH_PRIVATE_KEY" | ssh-add -
+    # Add host keys
+    - mkdir /root/.ssh/
+    - echo "$SSH_SERVER_HOSTKEYS" > ~/.ssh/known_hosts
+    # Cleanup old socket
+    - rm -f docker-socket-ssh
+
 build:
   stage: build
   services:
@@ -39,22 +58,7 @@ deploy acceptance:
   environment:
     name: acceptance
     url: https://componenten.acc.nijmegen.nl
-  before_script:
-    - if [ "$CI_COMMIT_REF_SLUG" = "master" ]; then
-        export DOCKER_TAG="$BASE_VERSION$CI_PIPELINE_ID";
-      else
-        export DOCKER_TAG="$CI_COMMIT_REF_SLUG";
-      fi;
-    - apk --no-cache add openssh
-    # Run ssh-agent (inside the build environment)
-    - eval $(ssh-agent -s)
-    # Add private key
-    - echo "$SSH_PRIVATE_KEY" | ssh-add -
-    # Add host keys
-    - mkdir /root/.ssh/
-    - echo "$SSH_SERVER_HOSTKEYS" > ~/.ssh/known_hosts
-    # Cleanup old socket
-    - rm -f docker-socket-ssh
+  <<: *prepare-ssh
   script:
     # Setup SSH tunnel to Docker Engine
     - ssh -o ProxyCommand="ssh -W %h:%p -q enrise@jump01.nijmegen.cobytes.io" -M -S docker-socket-ssh -fnNT -L 50040:127.0.0.1:2375 enrise-docker-deploy@acc01.nijmegen.cobytes.io
@@ -68,7 +72,6 @@ deploy acceptance:
 #  only:
 #    - master
 
-
 deploy production:
   stage: deploy
   services:
@@ -77,22 +80,7 @@ deploy production:
     name: production
     url: https://componenten.nijmegen.nl
   when: manual
-  before_script:
-    - if [ "$CI_COMMIT_REF_SLUG" = "master" ]; then
-        export DOCKER_TAG="$BASE_VERSION$CI_PIPELINE_ID";
-      else
-        export DOCKER_TAG="$CI_COMMIT_REF_SLUG";
-      fi;
-    - apk --no-cache add openssh
-    # Run ssh-agent (inside the build environment)
-    - eval $(ssh-agent -s)
-    # Add private key
-    - echo "$SSH_PRIVATE_KEY" | ssh-add -
-    # Add host keys
-    - mkdir /root/.ssh/
-    - echo "$SSH_SERVER_HOSTKEYS" > ~/.ssh/known_hosts
-    # Cleanup old socket
-    - rm -f docker-socket-ssh
+  <<: *prepare-ssh
   script:
     # Setup SSH tunnel to Docker Engine
     - ssh -o ProxyCommand="ssh -W %h:%p -q enrise@jump01.nijmegen.cobytes.io" -M -S docker-socket-ssh -fnNT -L 50040:127.0.0.1:2375 enrise-docker-deploy@containerprod01.nijmegen.cobytes.io
