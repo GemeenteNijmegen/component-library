@@ -6,7 +6,7 @@
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@allmarkedup/fang/-/fang-1.0.0.tgz#20aa2ea365c57b0a28e6b563613270f5630d6883"
 
-"@frctl/fractal@^1.0.0", "@frctl/fractal@^1.1.0-alpha.0", "@frctl/fractal@^1.1.4":
+"@frctl/fractal@^1.0.0", "@frctl/fractal@^1.1.0-alpha.0":
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/@frctl/fractal/-/fractal-1.1.4.tgz#82ead616d44dcc4448261efaf3cf3b071029ca43"
   dependencies:
@@ -49,6 +49,50 @@
     vinyl "^1.2.0"
     vorpal "~1.11.2"
 
+"@frctl/fractal@^1.1.4":
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/@frctl/fractal/-/fractal-1.1.7.tgz#7f2e0874ef88b0f611a8d594965e3510f8c9ada3"
+  dependencies:
+    "@allmarkedup/fang" "^1.0.0"
+    "@frctl/handlebars" "^1.1.3"
+    "@frctl/mandelbrot" "^1.1.0"
+    anymatch "^1.3.0"
+    bluebird "^3.4.1"
+    browser-sync "^2.18.13"
+    chalk "^1.1.3"
+    chokidar "^1.6.0"
+    cli-table2 "^0.2.0"
+    co "^4.6.0"
+    columnify "^1.5.4"
+    express "^4.14.0"
+    fs-extra "^0.30.0"
+    globby "^6.0.0"
+    gray-matter "^2.0.2"
+    handlebars "^4.0.5"
+    highlight.js "^9.5.0"
+    inquirer "^1.1.2"
+    istextorbinary "^2.1.0"
+    js-beautify "1.6.14"
+    js-yaml "^3.6.1"
+    liftoff "^2.3.0"
+    lodash "^4.14.1"
+    log-update "^1.0.2"
+    marked "^0.3.6"
+    mime "^1.3.4"
+    minimist "^1.2.0"
+    mixwith "^0.1.1"
+    nunjucks "^2.4.2"
+    path-to-regexp "^1.5.3"
+    portscanner "^1.0.0"
+    readable-stream "^2.1.4"
+    require-all "^2.0.0"
+    semver "^5.3.0"
+    shelljs "^0.7.3"
+    throat "^3.0.0"
+    update-notifier "^1.0.2"
+    vinyl "^1.2.0"
+    vorpal "~1.11.2"
+
 "@frctl/handlebars@^1.1.3":
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/@frctl/handlebars/-/handlebars-1.1.4.tgz#8472988d75f0927dd28cfabd869a38487c652e40"
@@ -60,8 +104,8 @@
     promised-handlebars "^2.0.0"
 
 "@frctl/mandelbrot@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@frctl/mandelbrot/-/mandelbrot-1.1.0.tgz#b3aa0870852d0d91b1657cc15d4025bad16ab1f8"
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@frctl/mandelbrot/-/mandelbrot-1.2.0.tgz#801164a8efeb5353e74e61a326decf1007ae621d"
   dependencies:
     "@frctl/fractal" "^1.1.0-alpha.0"
     js-beautify "^1.6.2"
@@ -501,6 +545,37 @@ browser-sync@^2.14.0:
     ua-parser-js "0.7.12"
     yargs "6.4.0"
 
+browser-sync@^2.18.13:
+  version "2.18.13"
+  resolved "https://registry.yarnpkg.com/browser-sync/-/browser-sync-2.18.13.tgz#c28dc3eb3be67c97a907082b772a37f915c14d7d"
+  dependencies:
+    browser-sync-client "2.5.1"
+    browser-sync-ui "0.6.3"
+    bs-recipes "1.3.4"
+    chokidar "1.7.0"
+    connect "3.5.0"
+    dev-ip "^1.0.1"
+    easy-extender "2.3.2"
+    eazy-logger "3.0.2"
+    emitter-steward "^1.0.0"
+    fs-extra "3.0.1"
+    http-proxy "1.15.2"
+    immutable "3.8.1"
+    localtunnel "1.8.3"
+    micromatch "2.3.11"
+    opn "4.0.2"
+    portscanner "2.1.1"
+    qs "6.2.1"
+    resp-modifier "6.0.2"
+    rx "4.1.0"
+    serve-index "1.8.0"
+    serve-static "1.12.2"
+    server-destroy "1.0.1"
+    socket.io "1.6.0"
+    socket.io-client "1.6.0"
+    ua-parser-js "0.7.12"
+    yargs "6.4.0"
+
 bs-recipes@1.3.4:
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/bs-recipes/-/bs-recipes-1.3.4.tgz#0d2d4d48a718c8c044769fdc4f89592dc8b69585"
@@ -830,7 +905,7 @@ dateformat@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/dateformat/-/dateformat-2.0.0.tgz#2743e3abb5c3fc2462e527dca445e04e9f4dee17"
 
-debug-fabulous@0.1.X:
+debug-fabulous@>=0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/debug-fabulous/-/debug-fabulous-0.1.1.tgz#1b970878c9fa4fbd1c88306eab323c830c58f1d6"
   dependencies:
@@ -865,6 +940,12 @@ debug@2.6.4:
 debug@2.6.7, debug@^2.2.0:
   version "2.6.7"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.7.tgz#92bad1f6d05bbb6bba22cca88bcd0ec894c2861e"
+  dependencies:
+    ms "2.0.0"
+
+debug@2.6.8:
+  version "2.6.8"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.8.tgz#e731531ca2ede27d188222427da17821d68ff4fc"
   dependencies:
     ms "2.0.0"
 
@@ -1654,15 +1735,15 @@ gulp-sourcemaps@1.6.0:
     vinyl "^1.0.0"
 
 gulp-sourcemaps@^2.6.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/gulp-sourcemaps/-/gulp-sourcemaps-2.6.0.tgz#7ccce899a8a3bfca1593a3348d0fbf41dd3f51e5"
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/gulp-sourcemaps/-/gulp-sourcemaps-2.6.1.tgz#833a4e28f0b8f4661075032cd782417f7cd8fb0b"
   dependencies:
     "@gulp-sourcemaps/identity-map" "1.X"
     "@gulp-sourcemaps/map-sources" "1.X"
     acorn "4.X"
     convert-source-map "1.X"
     css "2.X"
-    debug-fabulous "0.1.X"
+    debug-fabulous ">=0.1.1"
     detect-newline "2.X"
     graceful-fs "4.X"
     source-map "0.X"
@@ -2146,7 +2227,7 @@ js-base64@^2.1.8:
   version "2.1.9"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.1.9.tgz#f0e80ae039a4bd654b5f281fc93f04a914a7fcce"
 
-js-beautify@^1.6.2:
+js-beautify@1.6.14, js-beautify@^1.6.2:
   version "1.6.14"
   resolved "https://registry.yarnpkg.com/js-beautify/-/js-beautify-1.6.14.tgz#d3b8f7322d02b9277d58bd238264c327e58044cd"
   dependencies:
@@ -2299,6 +2380,15 @@ localtunnel@1.8.2:
     debug "2.2.0"
     openurl "1.1.0"
     request "2.78.0"
+    yargs "3.29.0"
+
+localtunnel@1.8.3:
+  version "1.8.3"
+  resolved "https://registry.yarnpkg.com/localtunnel/-/localtunnel-1.8.3.tgz#dcc5922fd85651037d4bde24fd93248d0b24eb05"
+  dependencies:
+    debug "2.6.8"
+    openurl "1.1.1"
+    request "2.81.0"
     yargs "3.29.0"
 
 lodash._basecopy@^3.0.0:
@@ -2887,6 +2977,10 @@ openurl@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/openurl/-/openurl-1.1.0.tgz#e2f2189d999c04823201f083f0f1a7cd8903187a"
 
+openurl@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/openurl/-/openurl-1.1.1.tgz#3875b4b0ef7a52c156f0db41d4609dbb0f94b387"
+
 opn@4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/opn/-/opn-4.0.2.tgz#7abc22e644dff63b0a96d5ab7f2790c0f01abc95"
@@ -3289,7 +3383,7 @@ replace-ext@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/replace-ext/-/replace-ext-0.0.1.tgz#29bbd92078a739f0bcce2b4ee41e837953522924"
 
-request@2, request@^2.79.0, request@^2.81.0:
+request@2, request@2.81.0, request@^2.79.0, request@^2.81.0:
   version "2.81.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.81.0.tgz#c6928946a0e06c5f8d6f8a9333469ffda46298a0"
   dependencies:

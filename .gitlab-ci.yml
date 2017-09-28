@@ -45,16 +45,23 @@ deploy:
     - apk --no-cache add openssh
     # Run ssh-agent (inside the build environment)
     - eval $(ssh-agent -s)
+    # Add private key
     - echo "$SSH_PRIVATE_KEY" | ssh-add -
+    # Add host keys
     - mkdir /root/.ssh/
     - ssh-keyscan -H 'acc01.nijmegen.cobytes.io' >> ~/.ssh/known_hosts
     - ssh-keyscan -H 'jump01.nijmegen.cobytes.io' >> ~/.ssh/known_hosts
+    # Cleanup old socket
     - rm -f docker-socket-ssh
   script:
+    # Setup SSH tunnel to Docker Engine
     - ssh -o ProxyCommand="ssh -W %h:%p -q enrise@jump01.nijmegen.cobytes.io" -M -S docker-socket-ssh -fnNT -L 50040:127.0.0.1:2375 enrise-docker-deploy@acc01.nijmegen.cobytes.io
     - ssh -S docker-socket-ssh -O check enrise-docker-deploy@acc01.nijmegen.cobytes.io
+    # Let Docker authenticate against the GitLab registry
     - DOCKER_HOST=tcp://127.0.0.1:50040 docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    # Deploy the stack
     - DOCKER_HOST=tcp://127.0.0.1:50040 docker stack deploy --with-registry-auth --compose-file=docker-compose-prod.yml ${SERVICE_NAME}
+    # Exit SSH tunnel
     - ssh -S docker-socket-ssh -O exit enrise-docker-deploy@acc01.nijmegen.cobytes.io
 #  only:
 #    - master
