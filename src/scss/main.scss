@@ -85,3 +85,6 @@ $medium-screen-portrait: map-get($grid-breakpoints, 'md');
 @import "nijmegen/responsive-table";
 @import "nijmegen/listing";
 @import "nijmegen/cards";
+
+// Nijmegen search overrides based on OpenIndex implementation //
+@import "nijmegen/3rdparty/openindex.scss";

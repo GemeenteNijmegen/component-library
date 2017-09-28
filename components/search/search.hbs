@@ -1,42 +1,41 @@
-<div class="container">
-
-    <!-- Trending results to show on the overlay -->
-    <div id="oi-trending-results"></div>
-
-    <div class="row header">
-        <div class="col-md-12">
-            <h2>Wat zoekt u?</h2>
+<div class="container oi-container">
+    <div class="row">
+        <div class="offset-md-4 col-md-4">
+            <form class="md-form">
+                <div class="input-group">
+                    <input
+                        type="text"
+                        id="oi-query"
+                        class="form-control"
+                        name="oi-query"
+                        autocomplete="off"
+                        spellcheck="false"
+                        maxlength="127"
+                        dir="ltr"
+                    />
+                    <div class="input-group-addon"><i class="mdi mdi-magnify" aria-hidden="true"></i></div>
+                    <label for="oi-query">Wat zoekt u?</label>
+                </div>
+            </form>
         </div>
     </div>
-    <div class="search-query md-form">
-        <form>
-            <i class="fa fa-search prefix"></i>
-            <input
-                type="text"
-                id="oi-query"
-                class="oi-query form-control"
-                name="oi-query"
-                autocomplete="off"
-                spellcheck="false"
-                maxlength="127"
-                dir="ltr"
-            />
-            <label for="oi-query" class="">Wat zoekt u?</label>
-        </form>
 
-    </div>
     <div class="row">
-        <div id="oi-related-queries"></div>
         <div class="col-md-2">
             <div class="oi-facet-constraints" id="oi-facet-cat"></div>
             <div class="oi-facet-constraints" id="oi-facet-date"></div>
             <div class="oi-facet-constraints" id="oi-facet-type"></div>
         </div>
-        <div class="col-md-10">
-            <span id="oi-spellcheck"></span>
-            <span id="oi-header"></span>
+        <div class="offset-md-1 col-md-9">
+            <p id="oi-header"></p>
             <div id="oi-results"></div>
             <div id="oi-pager"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="offset-md-4 col-md-4">
+            <div id="oi-trending-results"></div>
         </div>
     </div>
 </div>
