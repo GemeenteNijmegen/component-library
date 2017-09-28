@@ -3,45 +3,93 @@
 # ======================
 
 stages:
-    - build
-    - deploy
+  - build
+  - deploy
 
 # ======================
 # Global variables
 # ======================
 
 variables:
-    DOCKER_DRIVER: overlay2
-    DOCKER_HOST: tcp://docker:2375
+  DOCKER_DRIVER: overlay2
+  BASE_VERSION: "1.0."
+  SERVICE_NAME: componentlibrary
+
+
+.prepare-ssh: &prepare-ssh
+  before_script:
+    - if [ "$CI_COMMIT_REF_SLUG" = "master" ]; then
+        export DOCKER_TAG="$BASE_VERSION$CI_PIPELINE_ID";
+      else
+        export DOCKER_TAG="$CI_COMMIT_REF_SLUG";
+      fi;
+    - apk --no-cache add openssh
+    # Run ssh-agent (inside the build environment)
+    - eval $(ssh-agent -s)
+    # Add private key
+    - echo "$SSH_PRIVATE_KEY" | ssh-add -
+    # Add host keys
+    - mkdir /root/.ssh/
+    - echo "$SSH_SERVER_HOSTKEYS" > ~/.ssh/known_hosts
+    # Cleanup old socket
+    - rm -f docker-socket-ssh
 
 build:
-    stage: build
-    services:
-        - docker:dind
-    before_script:
-        - docker build -t enrise/nijmegen-component-library .
-    script:
-        - docker run -t --rm -v `pwd`:/app enrise/nijmegen-component-library yarn
-        - docker run -t --rm -v `pwd`:/app enrise/nijmegen-component-library yarn build
-    artifacts:
-        paths:
-            - build/
-        expire_in: 1 week
+  stage: build
+  services:
+    - docker:dind
+  before_script:
+    - if [ "$CI_COMMIT_REF_SLUG" = "master" ]; then
+        export DOCKER_TAG="$BASE_VERSION$CI_PIPELINE_ID";
+      else
+        export DOCKER_TAG="$CI_COMMIT_REF_SLUG";
+      fi;
+    - apk --no-cache add python py-pip
+    - pip install --upgrade docker-compose
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  script:
+    - docker-compose -f docker-compose-prod.yml build
+    - docker-compose -f docker-compose-prod.yml push
 
-deploy to s3:
-    stage: deploy
-    environment:
-        name: s3
-        url: http://nijmegen-component-library.s3-website-eu-west-1.amazonaws.com
-    services:
-        - docker:dind
-    before_script:
-        - apk --no-cache add python py-pip
-        - pip install --upgrade awscli s3cmd
-    script:
-        - aws s3 sync build/ s3://nijmegen-component-library/ --acl public-read --delete
-    only:
-        - master
-    dependencies:
-        - build
+deploy acceptance:
+  stage: deploy
+  services:
+    - docker:dind
+  environment:
+    name: acceptance
+    url: https://componenten.acc.nijmegen.nl
+  <<: *prepare-ssh
+  script:
+    # Setup SSH tunnel to Docker Engine
+    - ssh -o ProxyCommand="ssh -W %h:%p -q enrise@jump01.nijmegen.cobytes.io" -M -S docker-socket-ssh -fnNT -L 50040:127.0.0.1:2375 enrise-docker-deploy@acc01.nijmegen.cobytes.io
+    - ssh -S docker-socket-ssh -O check enrise-docker-deploy@acc01.nijmegen.cobytes.io
+    # Let Docker authenticate against the GitLab registry
+    - DOCKER_HOST=tcp://127.0.0.1:50040 docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    # Deploy the stack
+    - DOCKER_HOST=tcp://127.0.0.1:50040 docker stack deploy --with-registry-auth --compose-file=docker-compose-prod.yml ${SERVICE_NAME}
+    # Exit SSH tunnel
+    - ssh -S docker-socket-ssh -O exit enrise-docker-deploy@acc01.nijmegen.cobytes.io
+  only:
+    - master
 
+deploy production:
+  stage: deploy
+  services:
+    - docker:dind
+  environment:
+    name: production
+    url: https://componenten.nijmegen.nl
+  when: manual
+  <<: *prepare-ssh
+  script:
+    # Setup SSH tunnel to Docker Engine
+    - ssh -o ProxyCommand="ssh -W %h:%p -q enrise@jump01.nijmegen.cobytes.io" -M -S docker-socket-ssh -fnNT -L 50040:127.0.0.1:2375 enrise-docker-deploy@containerprod01.nijmegen.cobytes.io
+    - ssh -S docker-socket-ssh -O check enrise-docker-deploy@containerprod01.nijmegen.cobytes.io
+    # Let Docker authenticate against the GitLab registry
+    - DOCKER_HOST=tcp://127.0.0.1:50040 docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    # Deploy the stack
+    - DOCKER_HOST=tcp://127.0.0.1:50040 docker stack deploy --with-registry-auth --compose-file=docker-compose-prod.yml ${SERVICE_NAME}
+    # Exit SSH tunnel
+    - ssh -S docker-socket-ssh -O exit enrise-docker-deploy@containerprod01.nijmegen.cobytes.io
+  only:
+    - master

@@ -1,0 +1,14 @@
+FROM node:8.4.0-alpine as builder
+ARG NODE_ENV=production
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+COPY package.json yarn.lock /usr/src/app/
+RUN yarn install --non-interactive --ignore-optional && yarn cache clean
+COPY . /usr/src/app
+RUN yarn build
+
+FROM nginx:1.13.5-alpine
+COPY dev/dockerconfig/nginx.conf /etc/nginx/nginx.conf
+COPY --from=builder /usr/src/app/build /usr/share/nginx/html
+EXPOSE 80
+RUN chown nginx.nginx /usr/share/nginx/html/ -R
