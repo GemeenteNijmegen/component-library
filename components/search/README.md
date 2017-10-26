@@ -18,9 +18,43 @@ $(function() {
         }
     };
 
+    //Geen result icons tonen (want die zijn nog niet gedefinieerd)
+    openindex.result.icons=false;
+    openindex.result.defaultIcon=false;
+
+    //Trending pages vertaling
+    openindex.trending.header = "Veel gezocht";
+
+    //Titeltekst bij ontbrekende titels
+    openindex.result.defaultTitle = "Geen titel";
+
+    //Spellcheck vertaling
+    openindex.spell.spellcheckFollow = "Niets gevonden voor %QUERY%, getoonde resultaten zijn voor %SUGGEST%.";
+    openindex.spell.spellcheckSuggest = "Bedoelt u %SUGGEST%?";
+
+    // Datum sinds.. vertalingen
+    openindex.result.timeSinceFormat = "%AMOUNT% %UNIT% geleden";
+    openindex.result.timeSinceMapping = {
+        "now": "nu",
+        "today": "vandaag",
+        "yesterday": "gisteren",
+        "seconds": "seconden",
+        "minutes": "minuten",
+        "hours": "uur",
+        "days": "dagen",
+        "weeks": "weken",
+        "months": "maanden",
+        "years": "jaren"
+    };
+
+    openindex.type.multiSelect = true;
+    openindex.cat.multiSelect = false;
+
     openindex.suggest.development = false;
     openindex.suggest.rows = 8; /* MIN: 2 and MAX: 8, DEFAULT: 4*/
     openindex.result.showTimeSince = true;
+    openindex.result.removeFromTitle = / \| Gemeente nijmegen/gi;
+    openindex.trending.removeFromTitle = / \| Gemeente nijmegen/gi;
     openindex.spell.autoFollowSuggest = true;
 
     openindex.cat.header = "Categorie";
@@ -34,6 +68,13 @@ $(function() {
     openindex.pager.fewResults = "%TOTAL% resultaten gevonden";
     openindex.pager.oneResult = "Exact 1 resultaat gevonden";
     openindex.spell.spellcheckSuggest = "Bedoelde u %SUGGEST%?";
+
+    openindex.date.mapping =
+    {
+        "week" : "Deze week",
+        "today" : "Vandaag",
+        "month" : "Deze maand"
+    };
 
     openindex.type.mapping =
     {
