@@ -69,6 +69,13 @@ $(function() {
     openindex.pager.oneResult = "Exact 1 resultaat gevonden";
     openindex.spell.spellcheckSuggest = "Bedoelde u %SUGGEST%?";
 
+    openindex.date.mapping =
+    {
+        "week" : "Deze week",
+        "today" : "Vandaag",
+        "month" : "Deze maand"
+    };
+
     openindex.type.mapping =
     {
         "text/html" : "Webpagina",
