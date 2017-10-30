@@ -20,6 +20,17 @@
         }
     }
 
+    #oi-spellcheck {
+        color: color('nijmegen-forms', 'unfocussed-gray');
+        font-style: italic;
+    }
+
+    #oi-spellcheck-msg {
+        span {
+            color: $body-color;
+        }
+    }
+
     .io-facet-header {
         color: $body-color;
     }
