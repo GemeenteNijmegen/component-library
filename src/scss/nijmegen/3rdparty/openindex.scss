@@ -15,6 +15,11 @@
     #oi-query {
         padding-right: 35px;
 
+        &:focus {
+            border-bottom-color: color('nijmegen-brand', 'base');
+            box-shadow: 0 1px 0 0 color('nijmegen-brand', 'base');
+        }
+
         &::-ms-clear {
             display: none;
         }
