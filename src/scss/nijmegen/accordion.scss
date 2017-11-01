@@ -7,14 +7,22 @@
                 padding: to-rem(26) 0;
                 display: block;
 
+                h1, h2, h3, h4, h5, h6 {
+                    font-size: to-rem(26);
+
+                    @media only screen and (min-width: #{$medium-screen-portrait}) {
+                        font-size: to-rem(28);
+                    }
+                }
+
                 &:not(.collapsed) {
-                    h5,
+                    h1, h2, h3, h4, h5, h6,
                     i {
                         color: color('nijmegen-primary', 'darken-3');
                     }
                 }
 
-                h5 {
+                h1, h2, h3, h4, h5, h6 {
                     font-family: 'Oranda', sans-serif;
                     color: color('nijmegen-primary', 'base');
                 }
@@ -26,7 +34,7 @@
                 }
                 &:focus,
                 &:hover {
-                    h5,
+                    h1, h2, h3, h4, h5, h6,
                     i {
                         color: color('nijmegen-primary', 'darken-2');
                     }
@@ -34,6 +42,11 @@
 
                 &:focus {
                     @include tab-focus;
+
+                    // typography.scss sets an outline for h2, h4 headings in an anchor, yet we don't want that in this usecase
+                    h2, h4 {
+                        outline: none;
+                    }
                 }
             }
         }
