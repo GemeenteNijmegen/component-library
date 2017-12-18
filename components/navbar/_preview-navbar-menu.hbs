@@ -90,5 +90,19 @@
 
 {{> '@tpl-script-openindex' }}
 
+<script>
+    var navbarToggler = $('.navbar-toggler');
+    // is the mobile nav active?
+    if (navbarToggler.is(':visible')) {
+        // act on in-page anchors
+        window.addEventListener('hashchange', function() {
+            // is the menu open?
+            if (!navbarToggler.hasClass('collapsed')) {
+                navbarToggler.trigger('click');
+            }
+        }, false);
+    }
+</script>
+
 </body>
 </html>
