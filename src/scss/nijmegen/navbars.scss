@@ -253,10 +253,6 @@
         @media #{$large-and-up} {
             background-color: rgba(255, 255, 255, 0.97);
         }
-
-        .navbar-brand {
-            display: inline-block;
-        }
     }
 }
 
@@ -495,6 +491,10 @@
         #navbar-collapse > ul {
             width: 100%;
         }
+
+        .navbar-brand {
+            display: inline-block;
+        }
     }
     
     .navbar-primary {
@@ -505,6 +505,7 @@
         &:before {
             background-color: color('nijmegen-brand', 'base') !important;
         }
+
         &.top-nav-collapse .navbar-brand {
             .logo {
                 opacity: 1;
@@ -515,8 +516,10 @@
                 opacity: 0;
             }
         }
+
         .navbar-brand {
             display: inline-block;
+
             img {
                 transition: none !important;
             }

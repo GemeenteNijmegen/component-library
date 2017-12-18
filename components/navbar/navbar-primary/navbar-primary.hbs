@@ -1,27 +1,32 @@
-<nav class="navbar fixed-top navbar-toggleable-md scrolling-navbar navbar-light">
+<nav class="navbar fixed-top navbar-toggleable-md scrolling-navbar navbar-primary">
     <div class="container">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="collapseEx2" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="./"><img src="{{ path '/img/beeldmerk.svg' }}" class="logo" alt=""></a>
+        <a class="navbar-brand" href="./">
+            <div class="navbar-brand-container">
+                <img src="{{ path '/img/beeldmerklabelwit.svg' }}" class="logo-labeled" alt="">
+                <img src="{{ path '/img/beeldmerkwit.svg' }}" class="logo" alt="">
+            </div>
+        </a>
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a href="#" class="nav-link">Diensten <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a href="#section-1" class="nav-link">Menu 1</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Nieuws</a>
+                    <a href="#section-2" class="nav-link">Menu 2</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Bestuur</a>
+                    <a href="#section-3" class="nav-link">Menu 3</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Contact</a>
+                    <a href="#section-4" class="nav-link">Menu 4</a>
                 </li>
             </ul>
             <form class="form-inline">
                 <label for="frm-navbar-search" class="sr-only">Zoeken</label>
-                <input class="form-control" id="frm-navbar-search" type="text" placeholder="Zoeken" autocomplete="off">
+                <input class="form-control" id="oi-query" type="text" placeholder="Zoeken" autocomplete="off">
                 <i class="mdi mdi-magnify" aria-hidden="true"></i>
             </form>
         </div>
