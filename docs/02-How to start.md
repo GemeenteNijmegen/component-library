@@ -39,10 +39,10 @@ In order to start using components from this library, you need to start with the
 
 When you have above in place, you can start filling the blank spot between the *template component(s)*
 HTML comments.
-If you want to start with a grid for instance, you can have a look here [MDB Grid](https://mdbootstrap.com/css/layout-grid/) and use one of the examples there to use in your own template.
+If you want to start with a grid for instance, you can have a look here [MDB Grid](https://mdbootstrap.com/legacy/4.3.2/?page=css/layout) and use one of the examples there to use in your own template.
 
 On the left-side you see all the components which are marked to be used by Nijmegen based on the 
-components from the [MDB framework](https://mdbootstrap.com/) and styled specific for Nijmegen
+components from the [MDB framework](https://mdbootstrap.com/legacy/4.3.2/) and styled specific for Nijmegen
 to create a consistent look-and-feel.
 By selecting a component you will see a preview window which will show the component's look-and-feel.
 Underneath the component preview you'll see the *HTML tab* in which you can copy the markup needed

@@ -11,7 +11,7 @@ If you only need one item, a copy-paste from the HTML tab would suffice.
 
 Let's say you want to create a grid type of listing with multiple items in it,
 see below for an example HTML markup.
-On mobile the items are stacked underneath eachother and on a tablet view and wider (*see* [MDB Grid options](https://mdbootstrap.com/css/layout-grid/#grid-options)) you will see 2 items next
+On mobile the items are stacked underneath eachother and on a tablet view and wider (*see* [MDB Grid options](https://mdbootstrap.com/legacy/4.3.2/?page=css/layout#grid-options)) you will see 2 items next
 to eachother per row.
 
 ```html

@@ -1,6 +1,6 @@
 ## Sticky Content
 
-Based on the version from MDB (https://mdbootstrap.com/javascript/stickycontent/). A demo can be seen [here](https://mdbootstrap.com/live/_MDB4/docs/sticky-content.html).
+Based on the version from MDB (https://mdbootstrap.com/legacy/4.3.2/?page=javascript/sticky-content). A demo can be seen [here](https://mdbootstrap.com/live/_MDB4/docs/sticky-content.html).
 
 ### Using the sticky content elements in HTML
 To use the sticky content you should use a stopper, that tells the sticky content to not be sticky anymore.
