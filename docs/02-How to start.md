@@ -16,7 +16,7 @@ In order to start using components from this library, you need to start with the
     <!-- Material Design Bootstrap combined with  custom styles -->
     <link rel="stylesheet" href="/css/main.css">
 
-    <title>Title of the page</title>
+    <title>Titel van de pagina</title>
 </head>
 <body>
 

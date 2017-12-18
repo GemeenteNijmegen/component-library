@@ -19,8 +19,8 @@ $(function() {
     };
 
     //Geen result icons tonen (want die zijn nog niet gedefinieerd)
-    openindex.result.icons=false;
-    openindex.result.defaultIcon=false;
+    openindex.result.icons = false;
+    openindex.result.defaultIcon = false;
 
     //Trending pages vertaling
     openindex.trending.header = "Veel gezocht";
@@ -69,15 +69,13 @@ $(function() {
     openindex.pager.oneResult = "Exact 1 resultaat gevonden";
     openindex.spell.spellcheckSuggest = "Bedoelde u %SUGGEST%?";
 
-    openindex.date.mapping =
-    {
+    openindex.date.mapping = {
         "week" : "Deze week",
         "today" : "Vandaag",
         "month" : "Deze maand"
     };
 
-    openindex.type.mapping =
-    {
+    openindex.type.mapping = {
         "text/html" : "Webpagina",
         "application/pdf" : "PDF bestand",
         "application/document" : "Document"
