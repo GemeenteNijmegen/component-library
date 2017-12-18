@@ -3,7 +3,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="./"><img src="{{ path '/img/beeldmerk.svg' }}" class="logo" alt=""></a>
+        <a class="navbar-brand" href="/"><img src="{{ path '/img/beeldmerk.svg' }}" class="logo" alt=""></a>
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
@@ -19,10 +19,10 @@
                     <a href="#section-4" class="nav-link">Menu 4</a>
                 </li>
             </ul>
-            <form class="form-inline">
+            <form action="/" class="form-inline">
                 <label for="frm-navbar-search" class="sr-only">Zoeken</label>
                 <input class="form-control" id="oi-query" type="text" placeholder="Zoeken" autocomplete="off">
-                <i class="mdi mdi-magnify" aria-hidden="true"></i>
+                <button type="button" class="btn-search"><i class="mdi mdi-magnify" aria-hidden="true"></i></button>
             </form>
         </div>
     </div>
