@@ -4,9 +4,11 @@ footer.page-footer {
     padding-top: 30px;
 
     .title {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: normal;
         font-size: to-rem(20);
         line-height: to-rem(26);
-        font-family: 'Source Sans Pro', sans-serif;
+        margin-bottom: 0.5rem;
         text-transform: none;
     }
 
