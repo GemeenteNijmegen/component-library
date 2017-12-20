@@ -87,5 +87,13 @@ $(function() {
 });
 </script>
 
+<script>
+// Underneath is just here for testing purpose within the Component library,
+// since the search field moved to the navbar and we want to see the results here
+if (window.location.hash.indexOf('#q=') === -1) {
+    window.location.href = window.location.href + '#q=paspoort';
+}
+</script>
+
 </body>
 </html>
