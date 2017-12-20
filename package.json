@@ -18,6 +18,6 @@
   },
   "scripts": {
     "start": "gulp dev",
-    "build": "gulp build --env prod"
+    "build": "gulp build --env prod --buildurl https://componenten.nijmegen.nl"
   }
 }
