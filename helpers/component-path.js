@@ -25,6 +25,12 @@ module.exports = (fractal) => {
 
         // Return the HTTP path to the component
         let retval = `${routeComponent.replace(':handle', path)}`;
+
+        if (fractal._config.env === 'production') {
+          // This placeholder will be replaced by Nginx
+            retval = '%%HOSTNAME%%' + retval;
+        }
+
         if (fractal._config.env === 'production') {
             retval += fractal._config.web.builder.ext;
         }
