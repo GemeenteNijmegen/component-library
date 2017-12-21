@@ -1,5 +1,5 @@
 module.exports = (fractal) => {
-    // This get's called for every `{{ buildAbsPath '@handle' }}`
+    // This get's called for every `{{ assetPath '/a-path-to-a-file' }}`
     return (path) => {
 
         if (fractal._config.env === 'production') {
