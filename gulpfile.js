@@ -10,13 +10,14 @@ const sourcemaps   = require('gulp-sourcemaps');
 const mdbootstrapPath = 'src/mdbootstrap-pro/v4.3.2';
 const materialdesigniconsPath = 'node_modules/mdi';
 
-let buildMode = gutil.env.env || 'dev'; // dev || prod
+const buildMode = gutil.env.env || 'dev'; // dev || prod
 
 /*
  * Fractal
  */
 gulp.task('fractal:start', function(){
   const fractal = require('./fractal.js');
+  fractal._config.env = buildMode === 'dev' ? 'development' : 'production';
   const logger = fractal.cli.console;
   const server = fractal.web.server({
     sync: true
@@ -32,6 +33,7 @@ gulp.task('fractal:build', function(){
   const fractal = require('./fractal.js');
   const logger = fractal.cli.console;
   const builder = fractal.web.builder();
+
   builder.on('progress', (completed, total) => logger.update(`Exported ${completed} of ${total} items`, 'info'));
   builder.on('error', err => logger.error(err.message));
   return builder.build().then(() => {
