@@ -51,4 +51,4 @@ There are some components which have some complementary documentation which can 
 
 ## Download the library assets
 
-[Download here]({{ path '/archive.zip' }}) an archive of the public files.
+[Download here]({{ assetPath '/archive.zip' }}) an archive of the public files.
