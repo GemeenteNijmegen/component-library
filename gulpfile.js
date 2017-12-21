@@ -11,8 +11,6 @@ const mdbootstrapPath = 'src/mdbootstrap-pro/v4.3.2';
 const materialdesigniconsPath = 'node_modules/mdi';
 
 const buildMode = gutil.env.env || 'dev'; // dev || prod
-// buildURL can be used to prefix the static assets paths, can be a specific folder or even an absolute URL
-const buildURL = gutil.env.buildurl || null;
 
 /*
  * Fractal
@@ -35,11 +33,6 @@ gulp.task('fractal:build', function(){
   const fractal  = require('./fractal.js');
   const logger = fractal.cli.console;
   const builder = fractal.web.builder();
-
-  if (buildURL) {
-    logger.success(`Building for URL ${buildURL}`);
-    fractal.set('build.url', buildURL);
-  }
 
   builder.on('progress', (completed, total) => logger.update(`Exported ${completed} of ${total} items`, 'info'));
   builder.on('error', err => logger.error(err.message));
