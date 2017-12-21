@@ -48,3 +48,7 @@ By selecting a component you will see a preview window which will show the compo
 Underneath the component preview you'll see the *HTML tab* in which you can copy the markup needed
 to use in your own template.
 There are some components which have some complementary documentation which can be seen in the *Notes tab*, for instance: [carousel]({{ componentPath '@carousel' }}), [listing]({{ componentPath '@listing' }}) or [select]({{ componentPath '@select' }}) etc.
+
+## Download the library assets
+
+[Download here]({{ path '/archive.zip' }}) an archive of the public files.

@@ -16,7 +16,7 @@ let buildMode = gutil.env.env || 'dev'; // dev || prod
  * Fractal
  */
 gulp.task('fractal:start', function(){
-  const fractal  = require('./fractal.js');
+  const fractal = require('./fractal.js');
   const logger = fractal.cli.console;
   const server = fractal.web.server({
     sync: true
@@ -29,7 +29,7 @@ gulp.task('fractal:start', function(){
 });
 
 gulp.task('fractal:build', function(){
-  const fractal  = require('./fractal.js');
+  const fractal = require('./fractal.js');
   const logger = fractal.cli.console;
   const builder = fractal.web.builder();
   builder.on('progress', (completed, total) => logger.update(`Exported ${completed} of ${total} items`, 'info'));
@@ -94,7 +94,7 @@ gulp.task('mdb-js:clean', function() {
 });
 
 gulp.task('mdb-js:copy', function() {
-  return gulp.src(mdbootstrapPath+'/js/*.min.js').pipe(gulp.dest('public/js'));
+  return gulp.src([mdbootstrapPath+'/js/*.min.js', '!'+mdbootstrapPath+'/js/jquery-2.2.3.min.js']).pipe(gulp.dest('public/js'));
 });
 
 gulp.task('mdb-js:watch', function () {
@@ -141,12 +141,20 @@ gulp.task('css:watch', function() {
 gulp.task('css', gulp.series('css:clean', 'mdb-css:copy', 'css:process'));
 
 
+// Build archive of public files
+var zip = require('gulp-zip');
+gulp.task('build-archive', function() {
+  return gulp.src(['build/{css,font,img,js,mdb-addons}/**'], {base: 'build/'})
+    .pipe(zip('archive.zip'))
+    .pipe(gulp.dest('build/'));
+});
+
 /*
  * Combinations
  */
 gulp.task('default', gulp.parallel('css', 'fonts', 'mdb-js', 'mdb-addons', 'mdb-images'));
 
-gulp.task('build', gulp.series('default', 'fractal:build'));
+gulp.task('build', gulp.series('default', 'fractal:build', 'build-archive'));
 
 gulp.task('watch', gulp.parallel('css:watch'));
 
