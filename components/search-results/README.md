@@ -1,8 +1,8 @@
-## Search
+## Search results
 
-Status: WIP
+This component relies on a third-party service OpenIndex (https://www.openindex.io) in order to show results.
 
-### Using the search in HTML
+### Using the search results in HTML
 
 To make the search work properly we need to initialize it and connect to OpenIndex, so place underneath JavaScript just before the closing BODY element and after the jQuery script tag:
 ```javascript
