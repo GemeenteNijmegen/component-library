@@ -2,7 +2,7 @@
     "preview": "@preview-navbar-menu",
     "context": {
         "searchComponent": true,
-        "searchAction": "/"
+        "searchAction": "https://www.nijmegen.nl"
     },
     "variants": [
         {

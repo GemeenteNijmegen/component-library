@@ -3,7 +3,7 @@
     "context": {
         "menuComponent": true,
         "searchComponent": true,
-        "searchAction": "/"
+        "searchAction": "https://www.nijmegen.nl"
     },
     "variants": [
         {
