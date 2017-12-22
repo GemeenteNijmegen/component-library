@@ -8,11 +8,10 @@
 
 {{> '@tpl-scripts' }}
 
+{{> '@tpl-script-timepicker-config' }}
+
+{{!-- Open the timepicker onload --}}
 <script>
-    $('#input_starttime').pickatime({
-        twelvehour: false,
-        donetext: 'Gereed'
-    });
     $('#input_starttime').click();
 </script>
 
