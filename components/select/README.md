@@ -1,6 +1,6 @@
 ## Material Select
 
-Based on the version from MDB (https://mdbootstrap.com/javascript/material-select/)
+Based on the version from MDB (https://mdbootstrap.com/legacy/4.3.2/?page=javascript/material-select)
 
 ### Using the select element in HTML
 

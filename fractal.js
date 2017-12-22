@@ -28,8 +28,12 @@ fractal.web.theme(nijmegenTheme);
 const hbs = require('@frctl/handlebars')({
     helpers: {
         componentPath: require('./helpers/component-path')(fractal),
+        assetPath: require('./helpers/asset-path')(fractal),
     },
 });
+
+// Make components use the slightly modified Handlebars engine
+fractal.components.engine(hbs);
 
 // Make docs use the slightly modified Handlebars engine
 fractal.docs.engine(hbs);

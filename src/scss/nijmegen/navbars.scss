@@ -52,6 +52,13 @@
             padding-top: 6px;
         }
 
+        @media #{$medium-and-down} {
+            margin-left: 1rem;
+            margin-right: 1rem;
+            padding-top: 1em;
+            padding-bottom: 0.5em;
+        }
+
         .form-control {
             font-size: to-rem(20);
             margin-left: 0;
@@ -65,19 +72,15 @@
             }
         }
 
-        .mdi {
+        .btn-search {
+            background-color: transparent;
+            border: 0;
+            font-size: to-rem(24);
+            line-height: 1;
+            padding: 0;
             position: absolute;
             right: 0;
             top: calc(50% - 12px);
-            font-size: 1.5rem;
-            line-height: 1;
-
-            &:before {
-                position: absolute;
-                right: 0;
-                font-size: to-rem(24);
-                line-height: 1;
-            }
 
             &:hover {
                 cursor: default;
@@ -146,10 +149,6 @@
     .nav-item {
         @media #{$medium-and-down} {
             border-bottom: 1px solid color('nijmegen-grey', 'base');
-        }
-
-        &:last-child {
-            border-bottom: none;
         }
 
         .nav-link {
@@ -250,10 +249,6 @@
         @media #{$large-and-up} {
             background-color: rgba(255, 255, 255, 0.97);
         }
-
-        .navbar-brand {
-            display: inline-block;
-        }
     }
 }
 
@@ -332,10 +327,6 @@
             border-bottom: 1px solid color('nijmegen-brand', 'darken-3');
         }
 
-        &:last-child {
-            border-bottom: none;
-        }
-
         .nav-link {
             margin: 0;
 
@@ -401,13 +392,6 @@
     }
 
     form {
-        @media #{$medium-and-down} {
-            margin-left: 1rem;
-            margin-right: 1rem;
-            padding-top: 1em;
-            padding-bottom: 0.5em;
-        }
-
         .form-control {
             @include placeholder {
                 color: color('shades', 'white') !important;
@@ -489,42 +473,9 @@
     }
 }
 
-.hide-on-mobile {
-    display: flex;
-
-    @media #{$medium-and-down} {
-        display: none;
-    }
-}
-
-.show-on-mobile {
-    display: none;
-    width: 50%;
-    margin: 0 !important;
-    padding: 0 !important;
-
-    @media #{$medium-and-down} {
-        display: flex;
-        float: right;
-    }
-}
-
 .navbar-brand {
     @media #{$medium-and-down} {
         display: none;
-    }
-}
-
-.navbar-primary form.show-on-mobile {
-    margin-top: 4px !important;
-}
-
-.navbar-primary form.show-on-mobile,
-.top-nav-collapse form.show-on-mobile {
-    width: 24px;
-    input.form-control {
-        border-bottom: none !important;
-        visibility: hidden;
     }
 }
 
@@ -536,6 +487,10 @@
         #navbar-collapse > ul {
             width: 100%;
         }
+
+        .navbar-brand {
+            display: inline-block;
+        }
     }
     
     .navbar-primary {
@@ -546,6 +501,7 @@
         &:before {
             background-color: color('nijmegen-brand', 'base') !important;
         }
+
         &.top-nav-collapse .navbar-brand {
             .logo {
                 opacity: 1;
@@ -556,16 +512,13 @@
                 opacity: 0;
             }
         }
+
         .navbar-brand {
             display: inline-block;
+
             img {
                 transition: none !important;
             }
         }
     }
-}
-
-.navbar-light .show-on-mobile {
-    padding-top: 6px !important;
-    padding-top: 0 !important;
 }

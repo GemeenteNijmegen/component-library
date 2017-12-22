@@ -1,0 +1,108 @@
+{{> '@tpl-head' }}
+    <style>
+    body {padding: 150px 0 0;}
+    section {padding-top:50px;}
+    </style>
+</head>
+<body>
+
+{{!-- Underneath will render component output --}}
+{{{ yield }}}
+
+<div class="container">
+    <section id="section-1">
+        <h1>Menu 1</h1>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+    </section>
+    <section id="section-2">
+        <h1>Menu 2</h1>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+    </section>
+    <section id="section-3">
+        <h1>Menu 3</h1>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+    </section>
+    <section id="section-4">
+        <h1>Menu 4</h1>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+    </section>
+    <div>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+    </div>
+</div>
+
+{{> '@tpl-scripts' }}
+
+{{> '@tpl-script-openindex' }}
+
+<script>
+    var navbarToggler = $('.navbar-toggler');
+    // is the mobile nav active?
+    if (navbarToggler.is(':visible')) {
+        // act on in-page anchors
+        window.addEventListener('hashchange', function() {
+            // is the menu open?
+            if (!navbarToggler.hasClass('collapsed')) {
+                navbarToggler.trigger('click');
+            }
+        }, false);
+    }
+</script>
+
+</body>
+</html>
