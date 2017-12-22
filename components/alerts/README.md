@@ -1,6 +1,6 @@
 ## Alerts
 
-Based on the version from MDB (https://mdbootstrap.com/javascript/alerts/)
+Based on the version from MDB (https://mdbootstrap.com/legacy/4.3.2/?page=javascript/alerts)
 
 ### Using the alerts element in HTML
 

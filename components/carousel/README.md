@@ -1,6 +1,6 @@
 ## Carousel
 
-Based on the version from MDB (https://mdbootstrap.com/javascript/carousel/)
+Based on the version from MDB (https://mdbootstrap.com/legacy/4.3.2/?page=javascript/carousel)
 
 ### Using the carousel element in HTML
 

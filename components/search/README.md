@@ -6,8 +6,8 @@ Status: WIP
 
 To make the search work properly we need to initialize it and connect to OpenIndex, so place underneath JavaScript just before the closing BODY element and after the jQuery script tag:
 ```javascript
-<script type="text/javascript" src="//www.openindex.io/js/openindex.69694b9315763c81.js"></script>
-<script type="text/javascript">
+<script src="//www.openindex.io/js/openindex.69694b9315763c81.js"></script>
+<script>
 $(function() {
     openindex.preCallback = function(q) {
         if (q && q.length > 0) {
@@ -19,8 +19,8 @@ $(function() {
     };
 
     //Geen result icons tonen (want die zijn nog niet gedefinieerd)
-    openindex.result.icons=false;
-    openindex.result.defaultIcon=false;
+    openindex.result.icons = false;
+    openindex.result.defaultIcon = false;
 
     //Trending pages vertaling
     openindex.trending.header = "Veel gezocht";
@@ -69,15 +69,13 @@ $(function() {
     openindex.pager.oneResult = "Exact 1 resultaat gevonden";
     openindex.spell.spellcheckSuggest = "Bedoelde u %SUGGEST%?";
 
-    openindex.date.mapping =
-    {
+    openindex.date.mapping = {
         "week" : "Deze week",
         "today" : "Vandaag",
         "month" : "Deze maand"
     };
 
-    openindex.type.mapping =
-    {
+    openindex.type.mapping = {
         "text/html" : "Webpagina",
         "application/pdf" : "PDF bestand",
         "application/document" : "Document"
