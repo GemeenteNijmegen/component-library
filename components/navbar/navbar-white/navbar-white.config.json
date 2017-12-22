@@ -1,3 +1,14 @@
 {
-    "preview": "@preview-navbar-menu"
+    "preview": "@preview-navbar-menu",
+    "context": {
+        "searchComponent": true
+    },
+    "variants": [
+        {
+            "name": "no-search",
+            "context": {
+                "searchComponent": false
+            }
+        }
+    ]
 }
