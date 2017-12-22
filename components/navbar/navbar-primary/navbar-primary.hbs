@@ -10,6 +10,7 @@
             </div>
         </a>
         <div class="collapse navbar-collapse" id="navbar-collapse">
+            {{#if menuComponent}}
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a href="#section-1" class="nav-link">Menu 1</a>
@@ -24,6 +25,7 @@
                     <a href="#section-4" class="nav-link">Menu 4</a>
                 </li>
             </ul>
+            {{/if}}
             {{#if searchComponent}}
             <form action="/" class="form-inline">
                 <label for="frm-navbar-search" class="sr-only">Zoeken</label>

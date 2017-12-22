@@ -1,12 +1,21 @@
 {
     "preview": "@preview-navbar-menu",
     "context": {
+        "menuComponent": true,
         "searchComponent": true
     },
     "variants": [
         {
             "name": "no-search",
             "context": {
+                "menuComponent": true,
+                "searchComponent": false
+            }
+        },
+        {
+            "name": "no-menu-no-search",
+            "context": {
+                "menuComponent": false,
                 "searchComponent": false
             }
         }
