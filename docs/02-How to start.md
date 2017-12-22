@@ -12,9 +12,9 @@ In order to start using components from this library, you need to start with the
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ assetPath '/css/bootstrap.min.css' }}">
     <!-- Material Design Bootstrap combined with  custom styles -->
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="{{ assetPath '/css/main.css' }}">
 
     <title>Titel van de pagina</title>
 </head>
@@ -26,13 +26,13 @@ In order to start using components from this library, you need to start with the
 
 <!-- SCRIPTS -->
 <!-- JQuery -->
-<script src="/js/jquery-3.1.1.min.js"></script>
+<script src="{{ assetPath '/js/jquery-3.1.1.min.js' }}"></script>
 <!-- Bootstrap tooltips -->
-<script src="/js/tether.min.js"></script>
+<script src="{{ assetPath '/js/tether.min.js' }}"></script>
 <!-- Bootstrap core JavaScript -->
-<script src="/js/bootstrap.min.js"></script>
+<script src="{{ assetPath '/js/bootstrap.min.js' }}"></script>
 <!-- MDB core JavaScript -->
-<script src="/js/mdb.min.js"></script>
+<script src="{{ assetPath '/js/mdb.min.js' }}"></script>
 </body>
 </html>
 ```
