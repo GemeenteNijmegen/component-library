@@ -2,7 +2,8 @@
     "preview": "@preview-navbar-menu",
     "context": {
         "menuComponent": true,
-        "searchComponent": true
+        "searchComponent": true,
+        "searchAction": "/"
     },
     "variants": [
         {
