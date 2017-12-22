@@ -420,6 +420,7 @@
 
     .navbar-collapse {
         margin-top: to-rem(6);
+        justify-content: flex-end;
 
         @media only screen and (min-width: #{$medium-screen-portrait}) and (max-width : #{$medium-screen}) {
             margin-top: to-rem(12);
