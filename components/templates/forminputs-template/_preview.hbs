@@ -1,0 +1,24 @@
+{{> '@tpl-head' }}
+<style>
+    body { padding: 150px 0 0; }
+    main .row { padding: 20px 0; }
+    footer.page-footer { margin-top: 50px; }
+</style>
+</head>
+<body>
+
+{{!-- Underneath will render component output --}}
+{{{ yield }}}
+
+{{> '@tpl-scripts' }}
+
+{{> '@tpl-script-openindex' }}
+
+{{> '@tpl-script-select-config' }}
+
+{{> '@tpl-script-datepicker-config' }}
+
+{{> '@tpl-script-timepicker-config' }}
+
+</body>
+</html>
