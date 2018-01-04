@@ -1,8 +1,10 @@
 <nav class="navbar fixed-top navbar-toggleable-md scrolling-navbar navbar-primary">
     <div class="container">
+        {{#if menuComponent}}
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        {{/if}}
         <a class="navbar-brand" href="/">
             <div class="navbar-brand-container">
                 <img src="{{ assetPath '/img/beeldmerklabelwit.svg' }}" class="logo-labeled" alt="">
@@ -10,6 +12,7 @@
             </div>
         </a>
         <div class="collapse navbar-collapse" id="navbar-collapse">
+            {{#if menuComponent}}
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a href="#section-1" class="nav-link">Menu 1</a>
@@ -24,11 +27,14 @@
                     <a href="#section-4" class="nav-link">Menu 4</a>
                 </li>
             </ul>
-            <form action="/" class="form-inline">
+            {{/if}}
+            {{#if searchComponent}}
+            <form action="{{ searchAction }}" class="form-inline">
                 <label for="frm-navbar-search" class="sr-only">Zoeken</label>
                 <input class="form-control" id="oi-query" type="text" placeholder="Zoeken" autocomplete="off">
                 <button type="button" class="btn-search"><i class="mdi mdi-magnify" aria-hidden="true"></i></button>
             </form>
+            {{/if}}
         </div>
     </div>
 </nav>

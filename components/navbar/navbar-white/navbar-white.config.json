@@ -1,3 +1,15 @@
 {
-    "preview": "@preview-navbar-menu"
+    "preview": "@preview-navbar-menu",
+    "context": {
+        "searchComponent": true,
+        "searchAction": "https://www.nijmegen.nl"
+    },
+    "variants": [
+        {
+            "name": "no-search",
+            "context": {
+                "searchComponent": false
+            }
+        }
+    ]
 }
