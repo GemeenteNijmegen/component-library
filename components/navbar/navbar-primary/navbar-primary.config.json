@@ -3,6 +3,7 @@
     "context": {
         "menuComponent": true,
         "searchComponent": true,
+        "hamburgerIcon": true,
         "searchAction": "https://www.nijmegen.nl",
         "smoothScroll": " smooth-scroll"
     },
@@ -24,7 +25,8 @@
             "name": "no-menu-no-search",
             "context": {
                 "menuComponent": false,
-                "searchComponent": false
+                "searchComponent": false,
+                "hamburgerIcon": false
             }
         }
     ]
