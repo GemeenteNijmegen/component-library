@@ -20,9 +20,11 @@ In order to start using components from this library, you need to start with the
 </head>
 <body>
 
-<!-- START template component(s) -->
-<!-- ... -->
-<!-- END template component(s) -->
+<main>
+    <!-- START template component(s) -->
+    <!-- ... -->
+    <!-- END template component(s) -->
+</main>
 
 <!-- SCRIPTS -->
 <!-- JQuery -->

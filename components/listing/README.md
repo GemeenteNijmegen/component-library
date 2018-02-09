@@ -7,6 +7,10 @@ so the full element is clickable.
 
 If you only need one item, a copy-paste from the HTML tab would suffice.
 
+Please note the usage of the `aria-labelledby` attribute on the anchor and is there to provide a more descriptive label to assistive technology
+instead of reading all the contents of the children of this anchor
+and should point to a child element with this unique `id`.
+
 ### Using the listing-item in a grid
 
 Let's say you want to create a grid type of listing with multiple items in it,

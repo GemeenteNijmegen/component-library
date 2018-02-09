@@ -1,0 +1,19 @@
+{{> '@tpl-head' }}
+</head>
+<body>
+
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                {{!-- Underneath will render component output --}}
+                {{{ yield }}}
+            </div>
+        </div>
+    </div>
+</main>
+
+{{> '@tpl-scripts' }}
+
+</body>
+</html>
