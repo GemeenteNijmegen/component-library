@@ -1,4 +1,16 @@
 .carousel {
+    .carousel-control-pause,
+    .carousel-control-play {
+        background-color: transparent;
+        border: 0;
+        color: white;
+        padding: 0;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
     .carousel-control-prev,
     .carousel-control-next {
         top: calc(50% - 28px);
@@ -39,10 +51,7 @@
             margin-top: -7px;
             border: none;
             display: block;
-
-            i.play {
-                display: none;
-            }
+            text-indent: 0;
         }
 
         &.active {

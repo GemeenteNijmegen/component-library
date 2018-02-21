@@ -8,20 +8,26 @@ For the play/pause functionality you need a little custom javascript to make it 
 ```javascript
 <script>
     // Set the carousel options
-    $('.carousel').carousel({
+    var carouselElm = $('.carousel');
+    carouselElm.carousel({
         interval: 2000
-    })
+    });
     
     // The custom javascript for the play/pause functionality
-    $('.carousel-play-pause').on('click', '> i', function() {
-        if ($(this).hasClass("play")) {
-            $('.carousel').carousel("cycle");
-            $(this).hide();
-            $(".pause").show();
+    $('.carousel-play-pause').on('click', 'button', function() {
+        $(this).hide();
+        if (this.classList.contains('carousel-control-play')) {
+            carouselElm.carousel('cycle');
+            this.setAttribute('aria-hidden', 'true');
+            $(this).parent().find('.carousel-control-pause')
+                .attr('aria-hidden', 'false')
+                .show();
         } else {
-            $('.carousel').carousel("pause");
-            $(this).hide();
-            $(".play").show();
+            carouselElm.carousel('pause');
+            this.setAttribute('aria-hidden', 'true');
+            $(this).parent().find('.carousel-control-play')
+                .attr('aria-hidden', 'false')
+                .show();
         }
     });
 </script>

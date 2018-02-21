@@ -6,25 +6,31 @@
         <li data-target="#carousel-example" data-slide-to="1"></li>
         <li data-target="#carousel-example" data-slide-to="2"></li>
         <li class="carousel-play-pause">
-            <i class="mdi mdi-pause pause" aria-hidden="true"></i>
-            <i class="mdi mdi-play play" aria-hidden="true"></i>
+            <button type="button" class="carousel-control-pause">
+                <i class="mdi mdi-pause" aria-hidden="true"></i>
+                <span class="sr-only">Pauzeer slideshow</span>
+            </button>
+            <button type="button" class="carousel-control-play" aria-hidden="true" style="display: none;">
+                <i class="mdi mdi-play play" aria-hidden="true"></i>
+                <span class="sr-only">Speel slideshow af</span>
+            </button>
         </li>
     </ol>
     <!--/.Indicators-->
     <!--Slides-->
     <div class="carousel-inner" role="listbox">
         <!--First slide-->
-        <div class="carousel-item active">
+        <div class="carousel-item active" role="option">
             <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(18).jpg" alt="First slide">
         </div>
         <!--/First slide-->
         <!--Second slide-->
-        <div class="carousel-item">
+        <div class="carousel-item" role="option">
             <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(19).jpg" alt="Second slide">
         </div>
         <!--/Second slide-->
         <!--Third slide-->
-        <div class="carousel-item">
+        <div class="carousel-item" role="option">
             <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(20).jpg" alt="Third slide">
         </div>
         <!--/Third slide-->
@@ -32,10 +38,10 @@
     <!--/.Slides-->
     <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
+        <span class="sr-only">Vorige slide</span>
     </a>
     <a class="carousel-control-next" href="#carousel-example" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
+        <span class="sr-only">Volgende slide</span>
     </a>
 </div>
