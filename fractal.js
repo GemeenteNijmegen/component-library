@@ -22,6 +22,9 @@ const nijmegenTheme = mandelbrot({
     favicon: '/_subtheme/img/favicon.ico',
 });
 
+// specify a directory to hold the theme override templates
+nijmegenTheme.addLoadPath(__dirname + '/src/theme-overrides/views');
+
 // Add Nijmegen subtheme to fractal instance
 fractal.web.theme(nijmegenTheme);
 
