@@ -1,0 +1,11 @@
+<link rel="shortcut icon" href="{{ path(frctl.theme.get('favicon')) }}" type="image/ico">
+{% include 'partials/stylesheets.nunj' %}
+<title>{% if page.title %}{{ page.title }} | {% endif %}{{ frctl.get('project.title') }}</title>
+
+<!-- // IE 11: Load Browser Polyfill -->
+<!-- @from: https://github.com/frctl/mandelbrot/issues/56#issuecomment-316794992 -->
+<script>
+if (!('from' in Array)) {
+    document.write("<script src='//cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js' crossorigin='anonymous'><\/script>");
+}
+</script>
