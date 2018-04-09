@@ -17,7 +17,7 @@ const mandelbrot = require('@frctl/mandelbrot');
 
 const nijmegenTheme = mandelbrot({
     nav: ['docs', 'components'],
-    panels: ['html', 'info', 'notes'],
+    panels: ['html', 'notes', 'info'],
     styles: ['default', '/_subtheme/css/nijmegen.css'], // link to the default stylesheet followed by a custom one
     favicon: '/_subtheme/img/favicon.ico',
 });
