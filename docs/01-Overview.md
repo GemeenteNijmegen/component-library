@@ -11,10 +11,15 @@ The goals of this component library are:
 * A code and documentation deliverable for implementation by a third party development agency.
 * A reference document for different teams, to ensure consistency between sites and/or platforms.
 
+Built upon [MDB framework](https://mdbootstrap.com/legacy/4.3.2/) with custom styling specific for Nijmegen.
+
 
 ## Component listing
 
-On the left the component listing is presented which shows the available components in this library.
+On the left-side you see all the components which are marked to be used by Nijmegen based on the 
+components from the [MDB framework](https://mdbootstrap.com/legacy/4.3.2/) and styled specific for Nijmegen
+to create a consistent look-and-feel.
+
 When a component has multiple visual representations, it will act as a folder marked with an arrow
 in front of the components name. Unfolding such a component will list the various versions which can be viewed separately.
 
@@ -45,7 +50,15 @@ The pane with the several tabs provide information mainly aimed at implementors.
 </tr>
 <tr>
   <td>Notes</td>
-  <td>When applicable, specific information for the component<br>(<i>e.g. documentation on implementing an interactive JavaScript component like the "Alert"</i>)</td>
+  <td>
+    When applicable, specific information for the component<br><br>
+    *documenting for instance<br>
+    <ul>
+      <li>additions to the component (compared to the original from MDB framework) for accessibility reasons like [listing]({{ componentPath '@listing' }})</li>
+      <li>implementation of an interactive JavaScript component like [carousel]({{ componentPath '@carousel' }}) or [select]({{ componentPath '@select' }})</li>
+    </ul>
+    *
+  </td>
 </tr>
 <tr>
   <td>Component library info</td>
