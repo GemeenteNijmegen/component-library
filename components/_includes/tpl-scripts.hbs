@@ -1,9 +1,50 @@
 <!-- SCRIPTS -->
 <!-- JQuery -->
-<script src="{{ assetPath '/js/jquery-3.1.1.min.js' }}"></script>
+<script src="{{ assetPath '/js/jquery-3.2.1.min.js' }}"></script>
 <!-- Bootstrap tooltips -->
-<script src="{{ assetPath '/js/tether.min.js' }}"></script>
+<script src="{{ assetPath '/js/popper.min.js' }}"></script>
 <!-- Bootstrap core JavaScript -->
 <script src="{{ assetPath '/js/bootstrap.min.js' }}"></script>
 <!-- MDB core JavaScript -->
 <script src="{{ assetPath '/js/mdb.min.js' }}"></script>
+
+<script src="http://localhost/testers/accessibility/node_modules/axe-core/axe.min.js"></script>
+<script>
+var context = document.querySelector('main');
+var options = {
+    // To run only WCAG 2.0 Level A rules, specify options as:
+    /*runOnly: {
+        type: "tag",
+        values: ["wcag2a"]
+    }*/
+    // To run both WCAG 2.0 Level A and Level AA rules, you must specify both wcag2a and wcag2aa:
+    /*runOnly: {
+        type: "tag",
+        values: ["wcag2a", "wcag2aa"]
+    }*/
+    runOnly: {
+        type: "tag",
+        values: ["best-practice"]
+    }
+};
+
+options = {};
+context = document.documentElement;
+
+function runAxe() {
+    // axe.a11yCheck(context, options, function(err, results) {
+    axe.run(context, options, function(err, results) {
+    //axe.run(function(err, results) {
+        if (err) throw err;
+        console.info(results);
+        if (results.violations.length > 0) {
+            console.warn(results.violations);
+        }
+        // ok(results.violations.length === 0, 'Should be no accessibility issues');
+        // complete the async call
+        // ...
+    });
+}
+window.onload = runAxe;
+</script>
+<button type="button" onclick="runAxe()">Run aXe accessibility tool</button>
