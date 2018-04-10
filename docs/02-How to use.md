@@ -7,7 +7,7 @@ status: ready # draft, ready
 
 To maintain a consistent look-and-feel of the implementation, it's needed to link to the correct styling and interaction libraries.<br>
 It's the library's responsibility to provide these files and the implementors responsibility to use them.<br>
-In the next section you can see a full example of the minimum setup to get your started.
+In the next section you can see an example of the minimum setup to get your started.
 
 
 ## Start your implementation
