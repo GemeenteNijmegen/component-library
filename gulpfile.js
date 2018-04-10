@@ -49,7 +49,7 @@ gulp.task('mdb-addons:copy', function () {
 });
 
 gulp.task('mdb-addons:clean', function() {
-    return del(['public/mdb-addons']);
+  return del(['public/mdb-addons']);
 });
 
 gulp.task('mdb-addons', gulp.series('mdb-addons:clean', 'mdb-addons:copy'));
@@ -58,11 +58,11 @@ gulp.task('mdb-addons', gulp.series('mdb-addons:clean', 'mdb-addons:copy'));
  * MDB Images
  */
 gulp.task('mdb-images:copy', function () {
-    return gulp.src(mdbootstrapPath+'/img/**/*').pipe(gulp.dest('public/img'));
+  return gulp.src(mdbootstrapPath+'/img/**/*').pipe(gulp.dest('public/img'));
 });
 
 gulp.task('mdb-images:clean', function() {
-    return del(['public/img/lightbox', 'public/img/overlays', 'public/img/svg']);
+  return del(['public/img/lightbox', 'public/img/overlays', 'public/img/svg']);
 });
 
 gulp.task('mdb-images', gulp.series('mdb-images:clean', 'mdb-images:copy'));
