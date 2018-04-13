@@ -1,5 +1,5 @@
 ---
-title: Button component
+title: Modal
 notes: 
 status: ready # prototype, wip, ready
 default: "small" # http://fractal.build/guide/components/variants#the-default-variant

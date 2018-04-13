@@ -5,7 +5,7 @@ https://mdbootstrap.com/legacy/4.3.2/?page=components/navbars#basic-example
 
 ### Using
 
-Aside from the markup, an extra JavaScript include is needed (_when the search is part of the component_) to have a fully functional component.
+Aside from the markup, an extra JavaScript include is needed (**when the search is part of the component**) to have a fully functional component.
 
 By adding underneath `script` tag after the other required `script` tags (as documented in [How to use](/docs/how-to-use)) and before the closing `body` tag, OpenIndex will connect a real-time autocomplete to the search input field.
 

@@ -1,4 +1,4 @@
-## Anchors
+## Paragraph
 
 The designers style guide (built by Stroomt) has a typography section with specific typography styling for Nijmegen.
 
