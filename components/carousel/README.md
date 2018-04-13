@@ -1,10 +1,18 @@
 ## Carousel
 
-Based on the version from MDB (https://mdbootstrap.com/legacy/4.3.2/?page=javascript/carousel)
+Based on the version from MDB:<br>
+https://mdbootstrap.com/legacy/4.3.2/?page=javascript/carousel#basic-example
 
-### Using the carousel element in HTML
+With custom play/pause addition.
 
-For the play/pause functionality you need a little custom javascript to make it work
+### Accessibility
+
+Regarding the `alt` attribute on the images, please follow the decision tree as can be seen here https://www.w3.org/WAI/tutorials/images/decision-tree/
+
+### Using
+
+To start using this component, some JavaScript is needed to initialize it. Underneath a jQuery example with the play/pause addition.
+
 ```javascript
 <script>
     // Set the carousel options
@@ -13,7 +21,7 @@ For the play/pause functionality you need a little custom javascript to make it 
         interval: 2000
     });
     
-    // The custom javascript for the play/pause functionality
+    // Custom JavaScript for the play/pause functionality
     $('.carousel-play-pause').on('click', 'button', function() {
         $(this).hide();
         if (this.classList.contains('carousel-control-play')) {
@@ -32,3 +40,7 @@ For the play/pause functionality you need a little custom javascript to make it 
     });
 </script>
 ```
+
+### Notes
+
+* MDB carousel by default starts sliding through the available slides, therefor a play/pause functionality has been added on top of the component to comply to the first bullet point in *"What makes a carousel accessible"* (https://www.w3.org/WAI/tutorials/carousels/)

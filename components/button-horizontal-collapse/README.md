@@ -1,10 +1,21 @@
 ## Horizontal collapse button
-This is a custom component.
 
-### Using horizontal collapsible button in HTML
-To use the horizontal collapsible button we need a little bit of js to make it.
+A custom component created for Nijmegen.
+
+### Accessibility
+
+Be sure to add textual content to the anchors so this will be available to assistive technologies. The text can be visually hidden to the user
+by applying a `class="sr-only"` to the child element containing the text.<br>
+When using an icon as part of the anchor, be sure to add `aria-hidden="true"` to the icon to hide it for assistive technologies since it's here for decorative reasons.<br>
+(https://www.24a11y.com/2017/svg-icon-fonts-accessibility-case-study/)
+
+### Using
+
+To start using this component, some JavaScript is needed to initialize it.
+Underneath a jQuery example on how to achieve this.
+
 ```javascript
-$('.horizontal-collapse').on('click', '.btn-floating-collapse', function () {
+$('.horizontal-collapse').on('click', '.btn-floating-collapse', function() {
     if ($(this).parent().hasClass('active')) {
         $(this).parent().removeClass('active');
         $(this).parent().find('.expand-horizontal').removeClass('slideInRight').addClass('slideOutRight');

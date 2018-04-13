@@ -50,6 +50,7 @@
 .card-filename {
     .card-title {
         font-size: to-rem(28);
+        line-height: 1.5;
         margin-bottom: 1.5rem;
         min-height: 90px;
     }
@@ -62,6 +63,8 @@
 .card-news {
     .card-title {
         font-size: to-rem(24);
+        line-height: 1.5;
+        margin-bottom: 1rem;
     }
 }
 
