@@ -1,6 +1,10 @@
-## Default template
+## Default Template
 
-### Smooth scroll
+A custom template created for Nijmegen to showcase various components from this library in one overall view.
+
+### Using
+
+#### Smooth scroll
 By adding the `smooth-scroll` class to the list container in the navbar component, you're able to use the
 Smooth Scroll interaction as documented in MDB (https://mdbootstrap.com/legacy/4.3.2/?page=javascript/smooth-scroll)
 
@@ -12,6 +16,14 @@ Aside from this addition, the anchor(s) in the list container should have an hre
 with an `id="section-1"` should be present in the page thus allowing the Smooth Scroll interaction to scroll
 nicely to the corresponding section.
 
+#### Displaying the cards in a grid
 
-### Button horizontal collapse
-This element is shown when viewed on devices smaller than a tablet. So any mobile phone will do.
+Let's say you want to create a grid type of listing with multiple cards in it.<br>
+On _extra small_, _small_ and _medium_ the items are stacked underneath eachother and on a _large_ view and wider (**≥ 992px**, *see* [MDB Grid options](https://mdbootstrap.com/legacy/4.3.2/?page=css/layout#grid-options)) you will see 3 items next to eachother per row.
+
+#### Button horizontal collapse
+This element is shown when viewed on devices smaller than a tablet.
+
+### Notes
+
+* Used components: see the "References" in the component library info tab

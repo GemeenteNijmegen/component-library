@@ -10,8 +10,10 @@
 {{> '@tpl-scripts' }}
 
 <script>
-    $('[data-toast-type]').click(function () {
-        toastr[$(this).data('toast-type')]($(this).data('toast-text'))
+    $('[data-toast-type]').click(function() {
+        var toastrType = $(this).data('toast-type');
+        var toastrText = $(this).data('toast-text');
+        toastr[toastrType](toastrText);
     });
 </script>
 

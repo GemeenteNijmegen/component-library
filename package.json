@@ -15,10 +15,15 @@
     "gulp-sourcemaps": "^2.6.0",
     "gulp-util": "^3.0.8",
     "gulp-zip": "^4.1.0",
-    "mdi": "^2.0.46"
+    "mdi": "^2.2.43"
   },
   "scripts": {
     "start": "gulp dev",
-    "build": "gulp build --env prod"
+    "build": "gulp build --env prod",
+    "build-icons-listing": "gulp build-icons-listing"
+  },
+  "devDependencies": {
+    "fs": "^0.0.1-security",
+    "gulp-edit-xml": "^3.0.0"
   }
 }

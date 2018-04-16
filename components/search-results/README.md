@@ -1,12 +1,19 @@
-## Search results
+## Search Results
 
-This component relies on a third-party service OpenIndex (https://www.openindex.io) in order to show results.
+A custom component created for Nijmegen, which relies on a third-party service OpenIndex (https://www.openindex.io) to show results.
 
-### Using the search results in HTML
+### Using
 
-To make the search work properly we need to initialize it and connect to OpenIndex, so place underneath JavaScript just before the closing BODY element and after the jQuery script tag:
+Aside from the markup, an extra JavaScript include and OpenIndex configuration is needed to have a fully functional component.
+
+Adding underneath `script` tag after the other required `script` tags (as documented in [How to use](/docs/how-to-use)) and before the closing `body` tag is needed.
+
 ```javascript
 <script src="//www.openindex.io/js/openindex.69694b9315763c81.js"></script>
+```
+To render actual search results based on URL hash parameter `#q`, underneath OpenIndex configuration is needed which can follow above JavaScript include.
+
+```javascript
 <script>
 $(function() {
     openindex.preCallback = function(q) {
@@ -83,3 +90,7 @@ $(function() {
 });
 </script>
 ```
+
+### Notes
+
+* As an example, a predefined search term with value "paspoort" is used here
