@@ -15,7 +15,7 @@ In the next section you can see an example of the minimum setup to get your star
 You can start with the following HTML output as a template which gives you the 
 basic markup needed and all the proper references to styling and interactivity in order to start using components from this library.
 
-All files (css and js) used in underneath example originate from the MDB framework and are therefor needed to kick-start your implementation.
+All files (CSS and JavaScript) used in underneath example originate from the MDB framework and are therefor needed to kick-start your implementation.
 
 ```html
 <!doctype html>
@@ -23,22 +23,24 @@ All files (css and js) used in underneath example originate from the MDB framewo
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Start: Core styling -->
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="{{ assetPath '/css/bootstrap.min.css' }}">
     <!-- Material Design Bootstrap combined with custom Nijmegen styles -->
     <link rel="stylesheet" href="{{ assetPath '/css/main.css' }}">
+    <!-- End: Core styling -->
 
     <title>Titel van de pagina</title>
 </head>
 <body>
 
 <main>
-    <!-- START template component(s) -->
+    <!-- START: template component(s) -->
     <!-- ... -->
-    <!-- END template component(s) -->
+    <!-- END: template component(s) -->
 </main>
 
-<!-- SCRIPTS -->
+<!-- Start: Core scripts -->
 <!-- JQuery -->
 <script src="{{ assetPath '/js/jquery-3.1.1.min.js' }}"></script>
 <!-- Bootstrap tooltips -->
@@ -47,6 +49,10 @@ All files (css and js) used in underneath example originate from the MDB framewo
 <script src="{{ assetPath '/js/bootstrap.min.js' }}"></script>
 <!-- MDB core JavaScript -->
 <script src="{{ assetPath '/js/mdb.min.js' }}"></script>
+<!-- End: Core scripts -->
+
+<!-- Start: Additional component(s) script -->
+<!-- End: Additional component(s) script -->
 </body>
 </html>
 ```
@@ -62,6 +68,8 @@ Underneath the component preview you'll see the *HTML tab* in which you can copy
 to use in your own template.
 
 There are some components which have some complementary documentation which can be seen in the *Notes tab*, for instance: [carousel]({{ componentPath '@carousel' }}), [listing]({{ componentPath '@listing' }}) or [select]({{ componentPath '@select' }}) etc.
+
+Several components (like: [carousel]({{ componentPath '@carousel' }}), [date picker]({{ componentPath '@date-picker' }}) or [tooltips]({{ componentPath '@tooltips' }})) specify additional JavaScript needed for the implementation. As seen in above example, the place to add additional JavaScript is just before the closing `body` tag and after the core scripts.
 
 
 ## Templates
