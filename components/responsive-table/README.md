@@ -1,9 +1,14 @@
-## Responsive table
-This is a custom component, based on this [demo](https://css-tricks.com/examples/ResponsiveTables/responsive.php).
+## Responsive Table
 
-### Using responsive tables in HTML
-To use the responsive tables we need a little bit of js to make it work properly on mobile.
+A custom component created for Nijmegen, based on this [CSS-Tricks demo](https://css-tricks.com/examples/ResponsiveTables/responsive.php).
+
+### Using
+
+To start using this component and facilitate a correct layout on mobile devices, some JavaScript is needed to initialize it.<br>
+Underneath a jQuery example on how to achieve this and should be placed in the `Additional component(s) script` section as documented in [How to use](/docs/how-to-use).
+
 ```javascript
+<script>
     $('.responsive-table').each(function() {
         var headings = $(this).find('thead th').map(function() {
             return this.textContent;
@@ -15,4 +20,5 @@ To use the responsive tables we need a little bit of js to make it work properly
             });
         }
     });
+</script>
 ```

@@ -13,6 +13,19 @@ Then start the development environment:
 
 See the frontend on <http://localhost:3000>
 
+## Update Material Design Icons listing
+
+Nijmegen isn't using the icons that come with the MDBootstrap framework.
+As a substitute Material Design Icons (https://materialdesignicons.com) is added as a dependency to this framework.
+
+In order to see which icons are supported, a build target is available to generate a full listing based on the icons SVG file.
+
+    docker-compose run frontend yarn build-icons-listing
+
+By issuing above command, `components/icons/icons.hbs` will be populated with HTML icons based on all the available glyphs in `node_modules/mdi/fonts/materialdesignicons-webfont.svg`.
+
+**Note**: this command is only needed when an update of the icons dependency has been done.
+
 ## Production build
 
 Generate a production build in `build/` with:

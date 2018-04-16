@@ -5,13 +5,22 @@ const gutil = require('gulp-util');
 const del = require('del');
 const sass = require('gulp-sass');
 const sassGlob = require('gulp-sass-glob');
-const sourcemaps   = require('gulp-sourcemaps');
+const sourcemaps = require('gulp-sourcemaps');
 
 // const mdbootstrapPath = 'src/mdbootstrap-pro/v4.3.2';
 const mdbootstrapPath = 'src/mdbootstrap-pro/v4.5.0';
 const materialdesigniconsPath = 'node_modules/mdi';
+const materialdesigniconsFontPath = materialdesigniconsPath + '/fonts';
 
 const buildMode = gutil.env.env || 'dev'; // dev || prod
+
+let xmlEdit;
+let fs;
+
+if (buildMode === 'dev') {
+  xmlEdit = require('gulp-edit-xml');
+  fs = require('fs');
+}
 
 /*
  * Fractal
@@ -50,7 +59,7 @@ gulp.task('mdb-addons:copy', function () {
 });
 
 gulp.task('mdb-addons:clean', function() {
-    return del(['public/mdb-addons']);
+  return del(['public/mdb-addons']);
 });
 
 gulp.task('mdb-addons', gulp.series('mdb-addons:clean', 'mdb-addons:copy'));
@@ -59,11 +68,11 @@ gulp.task('mdb-addons', gulp.series('mdb-addons:clean', 'mdb-addons:copy'));
  * MDB Images
  */
 gulp.task('mdb-images:copy', function () {
-    return gulp.src(mdbootstrapPath+'/img/**/*').pipe(gulp.dest('public/img'));
+  return gulp.src(mdbootstrapPath+'/img/**/*').pipe(gulp.dest('public/img'));
 });
 
 gulp.task('mdb-images:clean', function() {
-    return del(['public/img/lightbox', 'public/img/overlays', 'public/img/svg']);
+  return del(['public/img/lightbox', 'public/img/overlays', 'public/img/svg']);
 });
 
 gulp.task('mdb-images', gulp.series('mdb-images:clean', 'mdb-images:copy'));
@@ -146,12 +155,39 @@ gulp.task('css', gulp.series('css:clean', 'mdb-css:copy', 'css:process'));
 
 
 // Build archive of public files
-var zip = require('gulp-zip');
+const zip = require('gulp-zip');
 gulp.task('build-archive', function() {
   return gulp.src(['build/{css,font,img,js,mdb-addons}/**'], {base: 'build/'})
     .pipe(zip('archive.zip'))
     .pipe(gulp.dest('build/'));
 });
+
+// Generate component view with all icons from icon library
+let icons = [];
+gulp.task('extract-icons-from-mdi-svg', function() {
+  const stream = gulp
+    .src(materialdesigniconsFontPath+'/materialdesignicons-webfont.svg')
+    .pipe(
+      xmlEdit(function(xml) {
+        const nodes = xml.svg.defs[0].font[0].glyph;
+        const nodesLen = nodes.length;
+        for (let i = 0; i < nodesLen; i++) {
+          const cn = nodes[i].$;
+          icons.push('<i class="mdi mdi-' + cn['glyph-name'] + '" aria-hidden="true"></i>');
+        }
+        return xml;
+      })
+    );
+  return stream;
+});
+
+gulp.task('build-icons-listing', gulp.series('extract-icons-from-mdi-svg', function(done) {
+  if (icons.length) {
+    fs.writeFileSync('components/icons/icons.hbs', icons.join('\n'));
+  }
+  done();
+}));
+
 
 /*
  * Combinations

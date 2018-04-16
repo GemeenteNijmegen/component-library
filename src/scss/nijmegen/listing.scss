@@ -4,9 +4,11 @@
     display: block;
 
     .title {
-        font-family: 'Oranda', sans-serif;
         color: color('nijmegen-brand', 'base');
+        font-family: 'Oranda', sans-serif;
         font-size: to-rem(36);
+        line-height: 1.5;
+        margin-bottom: 1rem;
     }
 
     &:focus {
