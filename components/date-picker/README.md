@@ -5,7 +5,26 @@ https://mdbootstrap.com/legacy/4.3.2/?page=javascript/date-picker
 
 ### Using
 
-No additional actions, aside from the markup, are needed to use this component.
+To start using this component, some JavaScript is needed to initialize it.<br>
+Underneath a jQuery example on how to achieve this and should be placed in the `Additional component(s) script` section as documented in [How to use](/docs/how-to-use).
+
+```javascript
+<script>
+    $('.datepicker').pickadate({
+        monthsFull: [ 'januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december' ],
+        monthsShort: [ 'jan', 'feb', 'maa', 'apr', 'mei', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec' ],
+        weekdaysFull: [ 'zondag', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag' ],
+        weekdaysShort: [ 'zo', 'ma', 'di', 'wo', 'do', 'vr', 'za' ],
+        today: 'vandaag',
+        clear: 'verwijderen',
+        close: 'sluiten',
+        firstDay: 1,
+        format: 'dddd d mmmm yyyy',
+        formatSubmit: 'yyyy/mm/dd',
+        buttonClear: 'none'
+    });
+</script>
+```
 
 ### Notes
 

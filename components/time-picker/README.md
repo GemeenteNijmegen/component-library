@@ -5,7 +5,17 @@ https://mdbootstrap.com/legacy/4.3.2/?page=javascript/time-picker
 
 ### Using
 
-No additional actions, aside from the markup, are needed to use this component.
+To start using this component, some JavaScript is needed to initialize it.<br>
+Underneath a jQuery example on how to achieve this and should be placed in the `Additional component(s) script` section as documented in [How to use](/docs/how-to-use).
+
+```javascript
+<script>
+    $('.timepicker').pickatime({
+        twelvehour: false,
+        donetext: 'Gereed'
+    });
+</script>
+```
 
 ### Notes
 

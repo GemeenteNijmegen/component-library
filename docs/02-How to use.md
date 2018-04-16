@@ -52,6 +52,7 @@ All files (CSS and JavaScript) used in underneath example originate from the MDB
 <!-- End: Core scripts -->
 
 <!-- Start: Additional component(s) script -->
+<!-- ... -->
 <!-- End: Additional component(s) script -->
 </body>
 </html>
