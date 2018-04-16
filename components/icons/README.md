@@ -1,7 +1,14 @@
-## Material UI icons
+## Icons (Material Design)
 
-Just a few examples are displayed here, for the full listing visit this URL https://materialdesignicons.com/
+Nijmegen requested to add Material Design Icons (https://materialdesignicons.com) to this framework instead of the default that comes with the MDB framework.
 
-### Using the icons in HTML
+In above preview panel, all icons available in this framework are displayed.
 
-@see: https://materialdesignicons.com/bootstrap
+### Accessibility
+
+When using an icon for decorative reason, be sure to add `aria-hidden="true"` to the icon to hide it for assistive technologies.<br>
+(https://www.24a11y.com/2017/svg-icon-fonts-accessibility-case-study/)
+
+### Using
+
+No additional actions, aside from the markup, are needed to use these icons.
