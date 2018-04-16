@@ -13,8 +13,13 @@ const materialdesigniconsFontPath = materialdesigniconsPath + '/fonts';
 
 const buildMode = gutil.env.env || 'dev'; // dev || prod
 
-const xmlEdit = require('gulp-edit-xml');
-const fs = require('fs');
+let xmlEdit;
+let fs;
+
+if (buildMode === 'dev') {
+  xmlEdit = require('gulp-edit-xml');
+  fs = require('fs');
+}
 
 /*
  * Fractal
