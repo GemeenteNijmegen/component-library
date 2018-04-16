@@ -1,11 +1,15 @@
 ## Navbar
 
-Based on the version from MDB:<br>
+Based on the fixed top version from MDB:<br>
 https://mdbootstrap.com/legacy/4.3.2/?page=components/navbars#basic-example
 
 ### Using
 
-Aside from the markup, an extra JavaScript include is needed (**when the search is part of the component**) to have a fully functional component.
+Aside from the markup, some extra actions are needed.
+
+* Since the navbar is fixed top, it's advisable to add some padding (_with a minimum of 74 pixels_) to the `body` element to not risk having content under the navbar which should be visible by default.
+
+* An extra JavaScript include is needed (**when the search is part of the component**) to have a fully functional component.
 
 By adding underneath `script` tag after the other required `script` tags (as documented in [How to use](/docs/how-to-use)) and before the closing `body` tag, OpenIndex will connect a real-time autocomplete to the search input field.
 
