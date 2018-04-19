@@ -32,10 +32,12 @@ $medium-screen-portrait: map-get($grid-breakpoints, 'md');
 @import "component/buttons";
 @import "component/cards";
 @import "component/carousel";
+@import "component/chips"; // tags, labels, badges
 @import "component/datepicker";
 @import "component/footer";
-@import "component/hover-effects";
 @import "component/forms";
+@import "component/hover-effects";
+@import "component/labels"; // tags, labels, badges
 @import "component/lightbox";
 @import "component/listgroups";
 @import "component/listing";
@@ -45,12 +47,12 @@ $medium-screen-portrait: map-get($grid-breakpoints, 'md');
 @import "component/popovers";
 @import "component/progress";
 @import "component/responsive-table";
-@import "component/3rdparty/openindex"; // Nijmegen search overrides based on OpenIndex implementation //
 @import "component/sidenav";
 @import "component/steppers";
 @import "component/sticky-content";
 @import "component/tabs";
-@import "component/chips"; // tags, labels, badges
-@import "component/labels"; // tags, labels, badges
 @import "component/timepicker";
 @import "component/tooltip";
+
+// 3rdparty
+@import "component/3rdparty/openindex"; // Nijmegen search overrides based on OpenIndex implementation //
