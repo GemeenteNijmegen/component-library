@@ -11,13 +11,13 @@ The goals of this component library are:
 * A code and documentation deliverable for implementation by a third party development agency.
 * A reference document for different teams, to ensure consistency between sites and/or platforms.
 
-Built upon [MDB framework](https://mdbootstrap.com/legacy/4.3.2/) with custom styling specific for Nijmegen.
+Built upon [MDB framework]({{ mdbootstrapPath '/' }}) with custom styling specific for Nijmegen.
 
 
 ## Component listing
 
 On the left-side you see all the components which are marked to be used by Nijmegen based on the 
-components from the [MDB framework](https://mdbootstrap.com/legacy/4.3.2/) and styled specific for Nijmegen
+components from the [MDB framework]({{ mdbootstrapPath '/' }}) and styled specific for Nijmegen
 to create a consistent look-and-feel.
 
 When a component has multiple visual representations, it will act as a folder marked with an arrow
@@ -28,7 +28,7 @@ in front of the components name. Unfolding such a component will list the variou
 
 By clicking on a component from the listing on the left you will see the interface change to underneath screenshot.
 
-<figure style="border: 1px solid #535363;">![Viewing a component which shows a preview pane and tabs to copy the HTML needed to use this component, see any notes described by the component and the component library specific information](/img/docs-component-view.png)</figure>
+<figure style="border: 1px solid #535363;">![Viewing a component which shows a preview pane and tabs to copy the HTML needed to use this component, see any notes described by the component and the component library specific information]({{ assetPath '/img/docs-component-view.png' }})</figure>
 
 Here you will see the components name, it's status on the right of the name, the preview pane under the name and a pane with several tabs (HTML, Notes and component library info)
 with more in-depth information regarding the component.

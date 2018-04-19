@@ -1,9 +1,9 @@
 ## Sticky Content
 
 Based on the version from MDB:<br>
-https://mdbootstrap.com/legacy/4.3.2/?page=javascript/sticky-content
+{{ mdbootstrapPath '/javascript/stickycontent/' }}
 
-Aside from this version, an MDB demo can be seen [here](https://mdbootstrap.com/live/_MDB4/docs/sticky-content.html) with some more layout and content.
+Aside from this version, an MDB demo can be seen [here]({{ mdbootstrapPath '/previews/docs/latest/html/sticky-content/sticky-content.html' }}) with some more layout and content.
 
 ### Using
 

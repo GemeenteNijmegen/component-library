@@ -1,7 +1,7 @@
 ## Tabs
 
 Based on the version from MDB:<br>
-https://mdbootstrap.com/legacy/4.3.2/?page=components/tabs#classic-tabs
+{{ mdbootstrapPath '/components/tabs/#classic-tabs' }}
 
 ### Using
 

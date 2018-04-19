@@ -3,7 +3,7 @@
 _Chips (without avatar) in MDB naming, but Nijmegen preferred tags_
 
 Based on the version from MDB:<br>
-https://mdbootstrap.com/legacy/4.3.2/?page=components/tags#chips
+{{ mdbootstrapPath '/components/badges/#chips' }}
 
 ### Using
 
