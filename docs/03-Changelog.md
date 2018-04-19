@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 - _Component cards_: changed `card-block` to `card-body`
 - _Component navbar_: changed `navbar-toggleable-md` to `navbar-expand-lg`
+- _Template default_: changed `hidden-md-up` to `d-md-none` since the underlying Bootstrap version (as part of the MDB framework as a whole) updated to v4 and uses different display utilities (see: {{ mdbootstrapPath '/utilities/bootstrap-display-property/' }})
 
 ### Removed
 - _Component popovers_: removed obsolete `data-trigger="focus"` attribute, since this already is specified in the JavaScript initialization
