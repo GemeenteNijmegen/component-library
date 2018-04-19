@@ -128,7 +128,7 @@ gulp.task('css:process', function() {
       // set path to MDB sass files so these can be found by 'import' statements
       // while compiling new CSS
       // includePaths: [mdbootstrapPath+'/sass/', materialdesigniconsPath+'/scss/'],
-      includePaths: [mdbootstrapPath+'/scss/', materialdesigniconsPath+'/scss/'],
+      includePaths: [mdbootstrapPath+'/scss/', materialdesigniconsPath+'/scss/', 'src/scss/nijmegen/'],
       outputStyle: buildMode === 'dev' ? 'nested' : 'compressed'
     }))
     .on('error', err => console.log(err.message))
