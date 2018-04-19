@@ -1,4 +1,11 @@
+.stepper li.active a .circle,
+.stepper li.completed a .circle {
+    background-color: color('nijmegen-primary', 'base') !important;
+}
+
 .stepper-horizontal li {
+    align-items: initial;
+    flex: initial;
 
     &:hover,
     &:not(:last-child):after,

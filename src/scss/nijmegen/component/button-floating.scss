@@ -1,7 +1,6 @@
 .btn-floating-primary {
     background-color: color('nijmegen-primary', 'base');
-    color: color('shades', 'white');
-
+    color: color('white', 'base');
 
     &:hover {
         background-color: color('nijmegen-primary', 'lighten-1');
@@ -27,6 +26,7 @@
 
     i {
         font-size: to-rem(28);
+        line-height: (56 / 28);
     }
 }
 

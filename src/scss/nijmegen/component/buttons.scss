@@ -14,6 +14,8 @@
 .btn-primary {
     @extend .btn-primary;
 
+    background-color: color('nijmegen-primary', 'base') !important;
+
     &:hover {
         background-color: color('nijmegen-primary', 'lighten-1') !important;
     }
@@ -26,7 +28,8 @@
     &:active,
     &.active,
     &:active:hover,
-    &.active:hover {
+    &.active:hover,
+    &:not([disabled]):not(.disabled):active {
         background-color: color('nijmegen-primary', 'darken-3') !important;
     }
 
@@ -39,12 +42,15 @@
 
 .btn-secondary {
     @extend .btn-secondary;
+
+    background-color: color('white', 'base') !important;
     border: 1px solid color('nijmegen-grey', 'darken-1');
     color: color('nijmegen-primary', 'base') !important;
 
     &:hover,
     &:focus {
         background-color: color('nijmegen-grey', 'lighten-1') !important;
+        border-color: color('nijmegen-grey', 'darken-1');
         color: color('nijmegen-primary', 'darken-2') !important;
     }
 
@@ -55,7 +61,8 @@
     &:active,
     &.active,
     &:active:hover,
-    &.active:hover {
+    &.active:hover,
+    &:not([disabled]):not(.disabled):active {
         background-color: color('nijmegen-grey', 'lighten-1') !important;
         color: #212121 !important;
     }
@@ -63,7 +70,7 @@
     &:disabled,
     &:disabled:hover {
         @extend .z-depth-1;
-        background-color: color('shades', 'white') !important;
+        background-color: color('white', 'base') !important;
         border-color: color('nijmegen-grey', 'darken-1');
         color: color('nijmegen-grey', 'base') !important;
     }
@@ -72,6 +79,7 @@
 .btn-info {
     @extend .btn-info;
 
+    background-color: color('white', 'base') !important;
     border: 1px solid transparent;
     box-shadow: none;
     color: color('nijmegen-primary', 'base') !important;
@@ -85,7 +93,7 @@
     }
 
     &:focus {
-        background-color: color('shades', 'white') !important;
+        background-color: color('white', 'base') !important;
         border-color: color('nijmegen-grey', 'base');
         @include tab-focus;
     }
@@ -93,8 +101,9 @@
     &:active,
     &.active,
     &:active:hover,
-    &.active:hover {
-        background-color: color('shades', 'white');
+    &.active:hover,
+    &:not([disabled]):not(.disabled):active {
+        background-color: color('white', 'base') !important;
         border-color: transparent;
         box-shadow: none;
         color: $body-color !important;
@@ -102,7 +111,7 @@
 
     &:disabled,
     &:disabled:hover {
-        background-color: color('shades', 'white') !important;
+        background-color: color('white', 'base') !important;
         border-color: transparent;
         color: color('nijmegen-grey', 'base') !important;
     }

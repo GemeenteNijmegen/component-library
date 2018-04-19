@@ -12,6 +12,15 @@
         padding-bottom: to-rem(6);
     }
 
+    .container {
+        @media #{$medium-and-down} {
+            display: block;
+            margin-left: 0;
+            margin-right: 0;
+            max-width: 100%;
+        }
+    }
+
     .navbar-brand {
         padding-top: 0;
         padding-bottom: 0;
@@ -47,6 +56,8 @@
 
 
     form {
+        position: relative;
+
         @media #{$medium-and-down} {
             padding-top: 6px;
         }
@@ -58,12 +69,23 @@
             padding-bottom: 0.5em;
         }
 
+        .waves-input-wrapper {
+            border-radius: 0;
+
+            @media #{$medium-and-down} {
+                width: 100%;
+            }
+        }
+
         .form-control {
+            background-color: transparent;
+            border-radius: 0;
+            box-sizing: content-box;
             font-size: to-rem(20);
+            height: 1rem;
             margin-left: 0;
             margin-right: 0;
-            padding-bottom: 0.6rem;
-            padding-right: 30px;
+            padding: 0.5rem 30px 0.5rem 0;
             width: 100%;
 
             &:focus {
@@ -89,6 +111,7 @@
 
     .navbar-toggler {
         margin-left: -0.75rem;
+        position: relative;
 
         & + .navbar-brand {
             @media #{$medium-and-down} {
@@ -134,6 +157,78 @@
                 margin-top: -10px;
             }
         }
+
+        .nav-item {
+            @media #{$medium-and-down} {
+                border-bottom: 1px solid color('nijmegen-grey', 'base');
+            }
+    
+            .nav-link {
+                margin: 0 to-rem(19);
+    
+                @media #{$medium-and-down} {
+                    margin: 0;
+                    padding: 0.75em 1rem;
+                }
+            // }
+    
+            // a {
+                color: color('nijmegen-brand', 'base');
+                transition: none;
+    
+                @media #{$medium-and-down} {
+                    color: $body-color;
+                }
+    
+                &:focus,
+                &:hover {
+                    color: color('nijmegen-brand', 'darken-2');
+                    @media #{$medium-and-down} {
+                        color: $body-color;
+                    }
+                }
+    
+                &:focus {
+                    @include tab-focus-minimal;
+                }
+    
+                @media #{$medium-and-down} {
+                    &:active {
+                        background-color: color('nijmegen-grey', 'darken-3');
+                        color: white;
+                    }
+                }
+            }
+    
+            &.active {
+                background-color: transparent;
+    
+                .nav-link {
+                    color: color('nijmegen-brand', 'base');
+                    @media #{$medium-and-down} {
+                        color: $body-color;
+                    }
+    
+                    &:focus,
+                    &:hover {
+                        color: color('nijmegen-brand', 'darken-2');
+                        @media #{$medium-and-down} {
+                            color: $body-color;
+                        }
+                    }
+    
+                    @media #{$medium-and-down} {
+                        &:active {
+                            color: white;
+                        }
+                    }
+    
+                    &:focus {
+                        @include tab-focus-minimal;
+                    }
+                }
+            }
+        }
     }
 
     .navbar-brand {
@@ -151,84 +246,13 @@
         }
     }
 
-    .nav-item {
-        @media #{$medium-and-down} {
-            border-bottom: 1px solid color('nijmegen-grey', 'base');
-        }
-
-        .nav-link {
-            margin: 0 to-rem(19);
-
-            @media #{$medium-and-down} {
-                margin: 0;
-                padding: 0.75em 1rem;
-            }
-        }
-
-        a {
-            color: color('nijmegen-brand', 'base');
-            transition: none;
-
-            @media #{$medium-and-down} {
-                color: $body-color;
-            }
-
-            &:focus,
-            &:hover {
-                color: color('nijmegen-brand', 'darken-2');
-                @media #{$medium-and-down} {
-                    color: $body-color;
-                }
-            }
-
-            &:focus {
-                @include tab-focus-minimal;
-            }
-
-            @media #{$medium-and-down} {
-                &:active {
-                    background-color: color('nijmegen-grey', 'darken-3');
-                    color: white;
-                }
-            }
-        }
-
-        &.active {
-            background-color: transparent;
-
-            .nav-link {
-                color: color('nijmegen-brand', 'base');
-                @media #{$medium-and-down} {
-                    color: $body-color;
-                }
-
-                &:focus,
-                &:hover {
-                    color: color('nijmegen-brand', 'darken-2');
-                    @media #{$medium-and-down} {
-                        color: $body-color;
-                    }
-                }
-
-                @media #{$medium-and-down} {
-                    &:active {
-                        color: white;
-                    }
-                }
-
-                &:focus {
-                    @include tab-focus-minimal;
-                }
-            }
-        }
-    }
-
     form {
         .form-control {
             @include placeholder {
                 color: color('nijmegen-brand', 'base') !important;
             }
 
+            border: 0;
             border-bottom: 2px solid color('nijmegen-grey', 'darken-1') !important;
 
             &:focus {
@@ -345,7 +369,7 @@
         }
 
         a {
-            color: color('shades', 'white');
+            color: color('white', 'base');
             transition: padding .5s ease-in-out;
 
             &:focus,
@@ -399,27 +423,28 @@
     form {
         .form-control {
             @include placeholder {
-                color: color('shades', 'white') !important;
+                color: color('white', 'base') !important;
             }
 
+            border: 0;
             border-bottom: 2px solid color('nijmegen-grey', 'base') !important;
-            color: color('shades', 'white') !important;
+            color: color('white', 'base') !important;
 
             &:focus {
                 @include placeholder {
-                    color: color('shades', 'white') !important;
+                    color: color('white', 'base') !important;
                 }
 
                 border-bottom: 2px solid color('nijmegen-primary', 'base') !important;
 
                 + .mdi {
-                    color: color('shades', 'white');
+                    color: color('white', 'base');
                 }
             }
         }
 
         .mdi {
-            color: color('shades', 'white');
+            color: color('white', 'base');
         }
     }
 
@@ -488,7 +513,7 @@
 @media #{$medium-and-down} {
     .navbar-light {
         margin: 0 !important;
-        padding-bottom: 0;
+        padding-bottom: 0 !important;
 
         #navbar-collapse > ul {
             width: 100%;
@@ -501,7 +526,7 @@
     
     .navbar-primary {
         margin: 0 !important;
-        padding-bottom: 0;
+        padding-bottom: 0 !important;
         background-color: color('nijmegen-brand', 'darken-1') !important;
 
         &:before {

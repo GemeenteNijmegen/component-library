@@ -38,11 +38,11 @@
     }
 
     .carousel-indicators li {
-        border: 2px solid color('shades', 'white');
+        border: 2px solid color('white', 'base');
         background-color: transparent;
 
         &.carousel-play-pause {
-            color: color('shades', 'white');
+            color: color('white', 'base');
             text-indent: initial;
             height: 10px;
             min-width: initial;
@@ -55,7 +55,7 @@
         }
 
         &.active {
-            background-color: color('shades', 'white');
+            background-color: color('white', 'base');
         }
     }
     

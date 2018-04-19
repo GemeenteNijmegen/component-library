@@ -17,7 +17,7 @@
     }
 }
 
-.card-block {
+.card-body {
     figure {
         margin-left: -1.25rem;
         margin-right: -1.25rem;
@@ -43,16 +43,20 @@
     word-wrap: break-word;
 }
 
-.card-text {
+.card .card-body .card-text {
     color: $body-color;
+    font-size: inherit;
 }
 
 .card-filename {
-    .card-title {
+    .card-title,
+    .card-body h3,
+    .card-body h5 {
         font-size: to-rem(28);
         line-height: 1.5;
         margin-bottom: 1.5rem;
         min-height: 90px;
+        padding: 0;
     }
 
     p:last-of-type {
@@ -61,18 +65,24 @@
 }
 
 .card-news {
-    .card-title {
+    .card-title,
+    .card-body h3,
+    .card-body h5 {
         font-size: to-rem(24);
         line-height: 1.5;
         margin-bottom: 1rem;
+        padding: 0;
     }
 }
 
 .card-services {
-    .card-title {
+    .card-title,
+    .card-body h3,
+    .card-body h5 {
         font-size: to-rem(28);
         line-height: calc(32 / 28);
         margin-bottom: 2rem;
+        padding: 0;
     }
 
     p:last-of-type {

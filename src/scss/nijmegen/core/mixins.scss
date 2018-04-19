@@ -1,6 +1,19 @@
 // Function to convert the pt from zeplin to rem, the by framework used format.
 @function to-rem($pt) {
-    @return ($pt / ($font-size-root / 1px)) + rem;
+    // MDB v4.5 uses 1rem as $font-size-base thus assuming 16px will be the default size
+    @return ($pt / (16px / 1px)) + rem;
+}
+
+@function color($color, $type) {
+    // @debug "Check : #{$color}";
+    @if map-has-key($colors, $color) {
+        $curr_color: map-get($colors, $color);
+        @if map-has-key($curr_color, $type) {
+            @return map-get($curr_color, $type);
+        }
+    }
+    @warn "Unknown `#{name}` in $colors.";
+    @return null;
 }
 
 @mixin mdi($icon) {

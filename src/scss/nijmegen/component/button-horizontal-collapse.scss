@@ -14,7 +14,7 @@
         position: absolute;
         top: 14px;
         background-color: color('nijmegen-primary', 'base');
-        color: color('shades', 'white');
+        color: color('white', 'base');
         margin: 0;
         transform: translateX(150%);
         right: 0;
@@ -30,7 +30,7 @@
             }
 
             .mdi {
-                color: color('shades', 'white');
+                color: color('white', 'base');
                 line-height: inherit;
             }
 

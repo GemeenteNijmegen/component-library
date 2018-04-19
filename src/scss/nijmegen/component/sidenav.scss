@@ -13,29 +13,30 @@ $icon-size: 24;
             position: relative;
 
             .form-control {
-                font-size: to-rem(16);
-                padding-left: 20px;
-                padding-right: 40px;
+                background-color: transparent;
+                border: 0;
                 border-bottom: 2px solid color('nijmegen-grey', 'base') !important;
-                color: color('shades', 'white') !important;
-                margin-left: 0;
-                margin-right: 0;
+                border-radius: 0;
+                color: color('white', 'base') !important;
+                font-size: to-rem(16);
+                margin: 0.2rem 0 1rem;
+                padding: 1rem 40px 0.5rem 20px;
                 width: 100%;
 
                 @include placeholder {
-                    color: color('shades', 'white') !important;
+                    color: color('white', 'base') !important;
                 }
 
                 &:focus {
                     box-shadow: none;
                     @include placeholder {
-                        color: color('shades', 'white') !important;
+                        color: color('white', 'base') !important;
                     }
 
                     border-bottom: 2px solid color('nijmegen-primary', 'base') !important;
 
                     + i  {
-                        color: color('shades', 'white');
+                        color: color('white', 'base');
                     }
                 }
             }
@@ -46,7 +47,7 @@ $icon-size: 24;
                 top: 50%;
                 margin-top: -12px;
                 margin-right: 8px;
-                color: color('shades', 'white');
+                color: color('white', 'base');
 
                 &:hover {
                     cursor: default;
@@ -62,7 +63,7 @@ $icon-size: 24;
 
             &.active i.rotate-icon {
                 transform: rotate(180deg);
-                color: color('shades', 'white');
+                color: color('white', 'base');
             }
 
             a.active {
@@ -81,7 +82,7 @@ $icon-size: 24;
                     background-color: color('nijmegen-backgrounds', 'sidebar-hover');
 
                     i.rotate-icon {
-                        color: color('shades', 'white');
+                        color: color('white', 'base');
                     }
                 }
 

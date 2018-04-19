@@ -100,7 +100,7 @@ h4 {
 }
 
 h5 {
-    color: color('shades', 'white');
+    color: color('white', 'base');
     font-size: to-rem(26);
 
     @media only screen and (min-width: #{$medium-screen-portrait}) {
@@ -115,6 +115,11 @@ h6 {
     @media only screen and (min-width: #{$medium-screen-portrait}) {
         font-size: to-rem(24);
     }
+}
+
+dl, ol, ul {
+    list-style-type: none;
+    padding: 0;
 }
 
 ul:not([class]) {
@@ -134,6 +139,8 @@ ul:not([class]) {
 }
 
 a {
+    color: $link-color;
+
     &:hover {
         color: $link-hover-color;
 
@@ -163,4 +170,8 @@ a {
             color: color('nijmegen-brand', 'darken-3');
         }
     }
+}
+
+b, strong {
+    font-weight: bold;
 }

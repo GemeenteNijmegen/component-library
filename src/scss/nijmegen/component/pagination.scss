@@ -1,0 +1,35 @@
+.pagination {
+    .page-item {
+        .page-link {
+            width: 36px;
+            height: 36px;
+            margin: 0 1px;
+            text-align: center;
+            font-size: 1.125rem;
+            color: color('nijmegen-primary', 'base');
+            padding-left: 0;
+            padding-right: 0;
+
+            &:hover,
+            &:focus {
+                background-color: color('nijmegen-grey', 'lighten-1');
+                box-shadow: none;
+            }
+
+            &:focus {
+                @include tab-focus;
+            }
+        }
+
+        &.disabled .page-link,
+        &:disabled {
+            color: color('nijmegen-forms', 'disabled');
+        }
+
+        &.active .page-link {
+            background-color: color('nijmegen-backgrounds', 'pagination-active');
+            color: color('white', 'base');
+            box-shadow: none;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+.tooltip {
+    .tooltip-inner {
+        font-size: to-rem(18);
+        background-color: $body-color;
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+
+    &.bs-tooltip-top .arrow::before {
+        border-top-color: $body-color;
+    }
+
+    &.bs-tooltip-left .arrow::before {
+        border-left-color: $body-color;
+    }
+
+    &.bs-tooltip-right .arrow::before {
+        border-right-color: $body-color;
+    }
+
+    &.bs-tooltip-bottom .arrow::before {
+        border-bottom-color: $body-color;
+    }
+}

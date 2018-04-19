@@ -201,7 +201,7 @@
 
     .oi-pager-current {
         background-color: color('nijmegen-backgrounds', 'pagination-active');
-        color: color('shades', 'white');
+        color: color('white', 'base');
     }
 }
 
@@ -213,7 +213,7 @@
 }
 
 .oi-suggestion {
-    background: color('shades', 'white');
+    background: color('white', 'base');
     font-size: to-rem(18);
     padding: 1rem;
 
@@ -232,5 +232,5 @@
 
 .oi-suggestion-selected {
     background-color: color('nijmegen-grey', 'darken-2');
-    color: color('shades', 'white');
+    color: color('white', 'base');
 }

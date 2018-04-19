@@ -1,0 +1,56 @@
+/*!
+ * Nijmegen styling
+ * Version: 1.0
+ *
+ */
+
+// Core
+@import "core/mixins";
+@import "core/colors";
+
+// having underneath in a separate scss file results in a segmentation fault
+// dunno why, maybe to many import statements??
+$mdi-font-path: "../font/mdi";
+// Material Design Icons //
+@import "materialdesignicons";
+
+i.mdi {
+    line-height: 1;
+    font-size: 1.5rem;
+    display: inline-block;
+}
+
+$medium-screen-portrait: map-get($grid-breakpoints, 'md');
+
+@import "core/typography";
+
+// Component styling
+@import "component/accordion";
+@import "component/alerts";
+@import "component/button-floating";
+@import "component/button-horizontal-collapse";
+@import "component/buttons";
+@import "component/cards";
+@import "component/carousel";
+@import "component/datepicker";
+@import "component/footer";
+@import "component/hover-effects";
+@import "component/forms";
+@import "component/lightbox";
+@import "component/listgroups";
+@import "component/listing";
+@import "component/modals";
+@import "component/navbars";
+@import "component/pagination";
+@import "component/popovers";
+@import "component/progress";
+@import "component/responsive-table";
+@import "component/3rdparty/openindex"; // Nijmegen search overrides based on OpenIndex implementation //
+@import "component/sidenav";
+@import "component/steppers";
+@import "component/sticky-content";
+@import "component/tabs";
+@import "component/chips"; // tags, labels, badges
+@import "component/labels"; // tags, labels, badges
+@import "component/timepicker";
+@import "component/tooltip";

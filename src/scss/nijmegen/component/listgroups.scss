@@ -1,4 +1,6 @@
 .list-group {
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+
     .list-group-title {
         @extend .list-group-item;
         font-size: to-rem(24);
