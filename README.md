@@ -26,7 +26,14 @@ By issuing above command, `components/icons/icons.hbs` will be populated with HT
 
 **Note**: this command is only needed when an update of the icons dependency has been done.
 
-## Production build
+## Update Material Design for Bootstrap
+
+As of version 4.5.0, separation of the MDB framework Sass files and the custom Nijmegen Sass files has been improved a lot.
+MDB framework now imports by default a `custom` file (in `src/mdbootstrap-pro/v4.5.0/scss/mdb.scss`) and with this addition it's easier to point to the custom Nijmegen styling as defined in: `src/scss/nijmegen/custom.scss`.
+
+**Note**: When updating to a newer version of MDB, it's best to remove the `scss/_custom.scss` file from the MDB library so it can't conflict with the custom Nijmegen styling.
+
+# Production build
 
 Generate a production build in `build/` with:
 
