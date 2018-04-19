@@ -15,7 +15,8 @@
     "gulp-sourcemaps": "^2.6.0",
     "gulp-util": "^3.0.8",
     "gulp-zip": "^4.1.0",
-    "mdi": "^2.2.43"
+    "mdi": "^2.2.43",
+    "through2": "^2.0.3"
   },
   "scripts": {
     "start": "gulp dev",
