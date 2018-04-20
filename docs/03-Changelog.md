@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 - MDBootstrap v4.5.0
 - _Component footer_: added `text-center` to `footer-copyright`
+- _Component navbar (primary and white)_: added class `ml-auto` to `form` element
 
 ### Changed
 - _Component cards_: changed `card-block` to `card-body`

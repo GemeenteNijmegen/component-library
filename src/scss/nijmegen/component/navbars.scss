@@ -7,9 +7,11 @@
 }
 
 .navbar {
-    @media only screen and (max-width: 767px) {
-        padding-top: to-rem(6);
-        padding-bottom: to-rem(6);
+    &.scrolling-navbar {
+        @media only screen and (max-width: 767px) {
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
     }
 
     .container {
@@ -86,10 +88,14 @@
             margin-left: 0;
             margin-right: 0;
             padding: 0.5rem 30px 0.5rem 0;
-            width: 100%;
+            width: calc(100% - 30px);
 
             &:focus {
                 box-shadow: none;
+            }
+
+            &::-ms-clear {
+                display: none;
             }
         }
 
@@ -162,24 +168,22 @@
             @media #{$medium-and-down} {
                 border-bottom: 1px solid color('nijmegen-grey', 'base');
             }
-    
+
             .nav-link {
                 margin: 0 to-rem(19);
-    
+
                 @media #{$medium-and-down} {
                     margin: 0;
                     padding: 0.75em 1rem;
                 }
-            // }
-    
-            // a {
+
                 color: color('nijmegen-brand', 'base');
                 transition: none;
-    
+
                 @media #{$medium-and-down} {
                     color: $body-color;
                 }
-    
+
                 &:focus,
                 &:hover {
                     color: color('nijmegen-brand', 'darken-2');
@@ -187,11 +191,11 @@
                         color: $body-color;
                     }
                 }
-    
+
                 &:focus {
                     @include tab-focus-minimal;
                 }
-    
+
                 @media #{$medium-and-down} {
                     &:active {
                         background-color: color('nijmegen-grey', 'darken-3');
@@ -199,16 +203,16 @@
                     }
                 }
             }
-    
+
             &.active {
                 background-color: transparent;
-    
+
                 .nav-link {
                     color: color('nijmegen-brand', 'base');
                     @media #{$medium-and-down} {
                         color: $body-color;
                     }
-    
+
                     &:focus,
                     &:hover {
                         color: color('nijmegen-brand', 'darken-2');
@@ -216,13 +220,13 @@
                             color: $body-color;
                         }
                     }
-    
+
                     @media #{$medium-and-down} {
                         &:active {
                             color: white;
                         }
                     }
-    
+
                     &:focus {
                         @include tab-focus-minimal;
                     }
@@ -450,7 +454,6 @@
 
     .navbar-collapse {
         margin-top: to-rem(6);
-        justify-content: flex-end;
 
         @media only screen and (min-width: #{$medium-screen-portrait}) and (max-width : #{$medium-screen}) {
             margin-top: to-rem(12);

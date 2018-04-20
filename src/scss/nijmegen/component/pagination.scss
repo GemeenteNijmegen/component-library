@@ -30,6 +30,12 @@
             background-color: color('nijmegen-backgrounds', 'pagination-active');
             color: color('white', 'base');
             box-shadow: none;
+
+            &:hover,
+            &:focus {
+                background-color: color('nijmegen-backgrounds', 'pagination-active');
+                box-shadow: none;
+            }
         }
     }
 }
