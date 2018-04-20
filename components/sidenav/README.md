@@ -10,7 +10,11 @@ Underneath a jQuery example on how to achieve this and should be placed in the `
 
 ```javascript
 <script>
+    // SideNav button initialization
     $(".button-collapse").sideNav();
+    // SideNav scrollbar initialization
+    var sideNavScrollbar = $('.side-nav .custom-scrollbar').get(0);
+    Ps.initialize(sideNavScrollbar);
 </script>
 ```
 

@@ -41,3 +41,7 @@ a:hover {
 .Tree-collectionLabel span::before {
     top: 0.4rem;
 }
+
+.Prose {
+    max-width: 50em;
+}

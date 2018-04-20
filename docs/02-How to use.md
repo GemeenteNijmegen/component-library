@@ -79,7 +79,7 @@ Several components (like: [carousel]({{ componentPath '@carousel' }}), [date pic
 The component library has a few example templates which are listed here:
 
 * [Default template]({{ componentPath '@default-template' }})<br>
-  (*sticky navbar with smooth scroll anchors, responsive 3 column cards grid, horizontal collapse button which shows on tablet and mobile screens, responsive footer*)
+  (*sticky navbar with smooth scroll anchors, responsive 3 column cards grid, horizontal collapse button which shows on mobile screens, responsive footer*)
 * [Form inputs template]({{ componentPath '@forminputs-template' }})<br>
   (*sticky navbar, various form inputs, responsive footer*)
 * [Example search results template]({{ componentPath '@searchresults-template' }})<br>
