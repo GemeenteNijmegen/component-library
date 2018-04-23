@@ -7,8 +7,8 @@
             text-align: center;
             font-size: 1.125rem;
             color: color('nijmegen-primary', 'base');
-            padding-left: 0;
-            padding-right: 0;
+            padding: 0;
+            line-height: 36px;
 
             &:hover,
             &:focus {
@@ -18,6 +18,10 @@
 
             &:focus {
                 @include tab-focus;
+            }
+
+            > [aria-hidden="true"] {
+                line-height: 42px;
             }
         }
 
