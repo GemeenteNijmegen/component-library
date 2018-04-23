@@ -38,7 +38,7 @@ function stripSourceMappingURL() {
 /*
  * Fractal
  */
-gulp.task('fractal:start', function(){
+gulp.task('fractal:start', function() {
   const fractal = require('./fractal.js');
   fractal._config.env = buildMode === 'dev' ? 'development' : 'production';
   const logger = fractal.cli.console;
@@ -52,7 +52,7 @@ gulp.task('fractal:start', function(){
   });
 });
 
-gulp.task('fractal:build', function(){
+gulp.task('fractal:build', function() {
   const fractal = require('./fractal.js');
   const logger = fractal.cli.console;
   const builder = fractal.web.builder();
@@ -64,10 +64,17 @@ gulp.task('fractal:build', function(){
   });
 });
 
+gulp.task('fractal:build-components-listing', function(done) {
+  const fractal = require('./fractal.js');
+  fractal._config.env = buildMode === 'dev' ? 'development' : 'production';
+  fractal.cli.exec('list-components');
+  done();
+});
+
 /*
  * MDB Addons
  */
-gulp.task('mdb-addons:copy', function () {
+gulp.task('mdb-addons:copy', function() {
   return gulp.src(mdbootstrapPath+'/mdb-addons/**/*').pipe(gulp.dest('public/mdb-addons'));
 });
 
@@ -80,7 +87,7 @@ gulp.task('mdb-addons', gulp.series('mdb-addons:clean', 'mdb-addons:copy'));
 /*
  * MDB Images
  */
-gulp.task('mdb-images:copy', function () {
+gulp.task('mdb-images:copy', function() {
   return gulp.src(mdbootstrapPath+'/img/**/*').pipe(gulp.dest('public/img'));
 });
 
@@ -125,7 +132,7 @@ gulp.task('mdb-js:copy', function() {
   );
 });
 
-gulp.task('mdb-js:watch', function () {
+gulp.task('mdb-js:watch', function() {
   gulp.watch([
     mdbootstrapPath+'/js/**/*',
   ], gulp.series('mdb-js'));
@@ -210,7 +217,7 @@ gulp.task('build-icons-listing', gulp.series('extract-icons-from-mdi-svg', funct
  */
 gulp.task('default', gulp.parallel('css', 'fonts', 'mdb-js', 'mdb-addons', 'mdb-images'));
 
-gulp.task('build', gulp.series('default', 'fractal:build', 'build-archive'));
+gulp.task('build', gulp.series('default', 'fractal:build', 'build-archive', 'fractal:build-components-listing'));
 
 gulp.task('watch', gulp.parallel('css:watch'));
 
