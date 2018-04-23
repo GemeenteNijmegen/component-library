@@ -7,13 +7,13 @@ context:
   label-disabled: Button disabled
 default: "info" # http://fractal.build/guide/components/variants#the-default-variant
 variants:
+  - name: info
+    label: "Info"
+    context:
+      modifier: info
   - name: primary
     context:
       modifier: primary
   - name: secondary
     context:
       modifier: secondary
-  - name: info
-    label: "Info"
-    context:
-      modifier: info
