@@ -6,8 +6,9 @@ const del = require('del');
 const sass = require('gulp-sass');
 const sassGlob = require('gulp-sass-glob');
 const sourcemaps = require('gulp-sourcemaps');
+const through = require('through2');
 
-const mdbootstrapPath = 'src/mdbootstrap-pro/v4.3.2';
+const mdbootstrapPath = 'src/mdbootstrap-pro/v4.5.0';
 const materialdesigniconsPath = 'node_modules/mdi';
 const materialdesigniconsFontPath = materialdesigniconsPath + '/fonts';
 
@@ -19,6 +20,19 @@ let fs;
 if (buildMode === 'dev') {
   xmlEdit = require('gulp-edit-xml');
   fs = require('fs');
+}
+
+function stripSourceMappingURL() {
+  return through.obj(function(file, enc, cb) {
+    if (!file.isNull()) {
+      var src = file.contents.toString('utf8');
+      var re = /(^\/\/# sourceMappingURL=.*)/m;
+      src = src.replace(re, "");
+      file.contents = new Buffer(src.trim());
+    }
+    this.push(file);
+    cb();
+  });
 }
 
 /*
@@ -105,7 +119,10 @@ gulp.task('mdb-js:clean', function() {
 });
 
 gulp.task('mdb-js:copy', function() {
-  return gulp.src([mdbootstrapPath+'/js/*.min.js', '!'+mdbootstrapPath+'/js/jquery-2.2.3.min.js']).pipe(gulp.dest('public/js'));
+  return gulp.src([mdbootstrapPath+'/js/*.min.js'])
+    .pipe(stripSourceMappingURL())
+    .pipe(gulp.dest('public/js')
+  );
 });
 
 gulp.task('mdb-js:watch', function () {
@@ -126,7 +143,8 @@ gulp.task('css:process', function() {
     .pipe(sass({
       // set path to MDB sass files so these can be found by 'import' statements
       // while compiling new CSS
-      includePaths: [mdbootstrapPath+'/sass/', materialdesigniconsPath+'/scss/'],
+      // includePaths: [mdbootstrapPath+'/sass/', materialdesigniconsPath+'/scss/'],
+      includePaths: [mdbootstrapPath+'/scss/', materialdesigniconsPath+'/scss/', 'src/scss/nijmegen/'],
       outputStyle: buildMode === 'dev' ? 'nested' : 'compressed'
     }))
     .on('error', err => console.log(err.message))

@@ -1,0 +1,52 @@
+.horizontal-collapse {
+    position: relative;
+    text-align: right;
+    overflow-x: hidden;
+    padding-bottom: 10px;
+
+    .btn-floating-collapse {
+        @extend .z-depth-2;
+        margin-right: 25px;
+    }
+
+    .expand-horizontal {
+        @extend .z-depth-1;
+        position: absolute;
+        top: 14px;
+        background-color: color('nijmegen-primary', 'base');
+        color: color('white', 'base');
+        margin: 0;
+        transform: translateX(150%);
+        right: 0;
+        padding-left: 10px;
+
+        li {
+            display: inline-block;
+            line-height: 44px;
+            margin: 0 6px;
+
+            @media #{$medium-and-up} {
+                margin: 0 10px;
+            }
+
+            .mdi {
+                color: color('white', 'base');
+                line-height: inherit;
+            }
+
+            &.btn-floating-wrapper {
+                width: 70px;
+            }
+        }
+    }
+
+    &.active {
+        .btn-floating-collapse {
+            background-color: color('nijmegen-primary', 'darken-3');
+        }
+
+        .expand-horizontal {
+            transform: translateX(0%);
+        }
+    }
+}

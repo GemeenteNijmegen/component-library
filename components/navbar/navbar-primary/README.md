@@ -1,7 +1,7 @@
 ## Navbar
 
 Based on the fixed top version from MDB:<br>
-https://mdbootstrap.com/legacy/4.3.2/?page=components/navbars#basic-example
+{{ mdbootstrapPath '/components/navbar/#basic-example' }}
 
 ### Using
 
@@ -35,13 +35,20 @@ To handle this use-case, put underneath JavaScript just before the closing "body
     var navbarToggler = $('.navbar-toggler');
     // is the mobile nav active?
     if (navbarToggler.is(':visible')) {
-        // act on in-page anchors
-        window.addEventListener('hashchange', function() {
-            // is the menu open?
-            if (!navbarToggler.hasClass('collapsed')) {
-                navbarToggler.trigger('click');
+        var navbars = $('.navbar-nav.smooth-scroll');
+        if (navbars.length) {
+            for (var i = 0; i < navbars.length; i++) {
+                // act on in-page anchors
+                $.each($(navbars[i]).find('.nav-link'), function(index, navLinkElement) {
+                    $(navLinkElement).click(function() {
+                        // is the menu open?
+                        if (!navbarToggler.hasClass('collapsed')) {
+                            navbarToggler.trigger('click');
+                        }
+                    })
+                });
             }
-        }, false);
+        }
     }
 </script>
 ```

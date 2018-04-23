@@ -1,7 +1,7 @@
 ## Hover Effects
 
 Based on the version from MDB:<br>
-https://mdbootstrap.com/legacy/4.3.2/?page=css/hover-effects#basic-examples
+{{ mdbootstrapPath '/css/hover-effects/#basic-examples' }}
 
 ### Accessibility
 

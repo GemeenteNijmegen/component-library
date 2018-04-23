@@ -3,7 +3,7 @@
 *A list group consisting of links without a group title*
 
 Based on the version from MDB:<br>
-https://mdbootstrap.com/legacy/4.3.2/?page=components/list-group#linked-items
+{{ mdbootstrapPath '/components/list-group/#linked-items' }}
 
 ### Using
 

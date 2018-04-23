@@ -32,6 +32,7 @@ const hbs = require('@frctl/handlebars')({
     helpers: {
         componentPath: require('./helpers/component-path')(fractal),
         assetPath: require('./helpers/asset-path')(fractal),
+        mdbootstrapPath: require('./helpers/mdbootstrap-path')(fractal),
     },
 });
 

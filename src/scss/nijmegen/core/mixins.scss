@@ -1,0 +1,106 @@
+// Function to convert the pt from zeplin to rem, the by framework used format.
+@function to-rem($pt) {
+    // MDB v4.5 uses 1rem as $font-size-base thus assuming 16px will be the default size
+    @return ($pt / (16px / 1px)) + rem;
+}
+
+@function color($color, $type) {
+    @if map-has-key($colors, $color) {
+        $curr_color: map-get($colors, $color);
+        @if map-has-key($curr_color, $type) {
+            @return map-get($curr_color, $type);
+        }
+    }
+    @warn "Unknown `#{name}` in $colors.";
+    @return null;
+}
+
+// MDB v4.5 uses only the &::placeholder pseudo selector, but we need more backwards compatibility
+// so we extend it to our needs
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content
+    }
+    &:-moz-placeholder {
+        @content
+    }
+    &::-moz-placeholder {
+        @content
+    }
+    &::-ms-placeholder {
+        @content
+    }
+    &::placeholder {
+        @content
+    }
+}
+
+@mixin mdi($icon) {
+    @include web-font-rendering-support;
+    content: mdi($icon);
+    font-family: '#{$mdi-font-name}';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    text-rendering: auto; // optimizelegibility throws things off #1094
+    line-height: 1;
+    display: inline-block;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+}
+
+@mixin web-font-rendering-support {
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+@mixin tab-focus() {
+    outline: 3px auto $focus-color !important;
+}
+
+@mixin tab-focus-minimal() {
+    outline: 1px solid $focus-color !important;
+}
+
+@mixin aspect-ratio($width, $height) {
+    position: relative;
+
+    &:before {
+        display: block;
+        content: '';
+        width: 100%;
+        padding-top: ($height / $width) * 100%;
+    }
+
+    > .content {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+@mixin sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+}

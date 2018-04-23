@@ -1,0 +1,15 @@
+.rgba-grey-light {
+    background-color: rgba($body-color, 0.3);
+}
+
+.rgba-grey-strong {
+    background-color: rgba($body-color, 0.7);
+}
+
+.rgba-grey-slight {
+    background-color: rgba($body-color, 0.1);
+}
+
+.mask .white-text {
+    font-weight: $font-weight-semibold;
+}

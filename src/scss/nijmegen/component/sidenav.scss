@@ -1,0 +1,123 @@
+$item-height: 50;
+$icon-size: 24;
+
+.side-nav {
+    background-color: color('nijmegen-backgrounds', 'primary');
+    padding-top: 40px;
+
+    .search-form {
+
+        form {
+            padding: 0 !important;
+            margin: 0 !important;
+            position: relative;
+
+            .form-control {
+                background-color: transparent;
+                border: 0;
+                border-bottom: 2px solid color('nijmegen-grey', 'base') !important;
+                border-radius: 0;
+                color: color('white', 'base') !important;
+                font-size: to-rem(16);
+                margin: 0.2rem 0 1rem;
+                padding: 1rem 40px 0.5rem 20px;
+                width: 100%;
+
+                @include placeholder {
+                    color: color('white', 'base') !important;
+                }
+
+                &:focus {
+                    box-shadow: none;
+                    @include placeholder {
+                        color: color('white', 'base') !important;
+                    }
+
+                    border-bottom: 2px solid color('nijmegen-primary', 'base') !important;
+
+                    + i  {
+                        color: color('white', 'base');
+                    }
+                }
+            }
+
+            i {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                margin-top: -12px;
+                margin-right: 8px;
+                color: color('white', 'base');
+
+                &:hover {
+                    cursor: default;
+                }
+            }
+        }
+    }
+
+    .collapsible.collapsible-accordion {
+        li {
+            padding: 0;
+            border-bottom: 1px solid color('nijmegen-grey', 'darken-2');
+
+            &.active i.rotate-icon {
+                transform: rotate(180deg);
+                color: color('white', 'base');
+            }
+
+            a.active {
+                background-color: color('nijmegen-backgrounds', 'sidebar-title-active');
+
+            }
+
+            a {
+                padding: 0 0 0 20px;
+                margin: 0;
+                font-size: to-rem(16);
+                height: to-rem($item-height);
+                line-height: to-rem($item-height);
+
+                &:hover {
+                    background-color: color('nijmegen-backgrounds', 'sidebar-hover');
+
+                    i.rotate-icon {
+                        color: color('white', 'base');
+                    }
+                }
+
+                i {
+                    vertical-align: middle;
+                    margin-right: 5px;
+                    color: color('nijmegen-grey', 'darken-1');
+
+                    &.rotate-icon {
+                        position: absolute;
+                        right: 0;
+                        top: to-rem(($item-height / 2) - ($icon-size / 2));
+                    }
+                }
+            }
+
+            .collapsible-body {
+                ul {
+                    background-color: $body-color;
+
+                    li a {
+                        padding-left: to-rem(50);
+                        font-size: to-rem(16);
+
+                        &:hover {
+                            color: color('nijmegen-backgrounds', 'dark-background-active');
+                            background-color: $body-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#sidenav-overlay {
+    background-color: rgba(0, 0, 0, 0.2);
+}

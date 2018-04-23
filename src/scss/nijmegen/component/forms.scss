@@ -1,0 +1,188 @@
+$form-control-error-icon-size: 17;
+$select-caret-icon-size: 24;
+
+.md-form {
+    label {
+        font-size: to-rem(16) !important;
+        color: color('nijmegen-forms', 'unfocussed-gray');
+        width: 100%;
+
+        &.active {
+            font-weight: $font-weight-semibold;
+            top: 1rem;
+            transform: translateY(-160%);
+        }
+    }
+
+    input[type=text],
+    input[type=password],
+    input[type=email],
+    input[type=url],
+    input[type=time],
+    input[type=date],
+    input[type=datetime-local],
+    input[type=tel],
+    input[type=number],
+    input[type=search-md],
+    input[type=search],
+    textarea.md-textarea {
+        border-bottom-color: color('nijmegen-forms', 'unfocussed-gray');
+
+        &:focus:not([readonly]) {
+            border-bottom-color: color('nijmegen-forms', 'focus');
+            box-shadow: 0 1px 0 0 color('nijmegen-forms', 'focus');
+
+            + label {
+                color: color('nijmegen-primary', 'base');
+            }
+        }
+
+        &.invalid,
+        &:focus.invalid {
+            border-bottom-color: color('nijmegen-forms', 'error');
+            box-shadow: 0 1px 0 0 color('nijmegen-forms', 'error');
+
+            & + label {
+                &:before,
+                &:after {
+                    color: color('nijmegen-forms', 'error');
+                }
+            }
+        }
+
+        &.valid,
+        &:focus.valid {
+            border-bottom-color: color('nijmegen-forms', 'success');
+            box-shadow: 0 1px 0 0 color('nijmegen-forms', 'success');
+        }
+    }
+
+    .form-control {
+        font-weight: $font-weight-semibold;
+        color: $body-color;
+        font-size: to-rem(16);
+        padding: 0.55rem 0 0.3rem 0;
+
+        @include placeholder {
+            font-weight: $font-weight-normal;
+            color: color('nijmegen-forms', 'placeholder');
+        }
+
+        &:disabled,
+        &:read-only {
+            font-weight: $font-weight-normal;
+            border-bottom: 1px dotted rgba(color('nijmegen-forms', 'disabled-border'), 0.26);
+        }
+
+        &:focus {
+            color: $body-color;
+        }
+
+        &.valid + label:after,
+        &.invalid + label:after {
+            font-size: to-rem(14);
+        }
+
+        &.invalid {
+            & + label {
+                &:before {
+                    @include mdi('alert');
+                    display: block;
+                    position: absolute;
+                    transition: 0.2s opacity ease-out, 0.2s color ease-out;
+                    right: 0;
+                    font-size: to-rem($form-control-error-icon-size);
+                }
+
+                &:before,
+                &:after {
+                    top: 4rem;
+                }
+            }
+        }
+    }
+
+    .md-textarea {
+        font-weight: $font-weight-normal;
+        padding: 0.6rem 0 !important;
+        min-height: to-rem(72) !important;
+    }
+}
+
+.mdb-select {
+    .caret {
+        visibility: hidden;
+        position: relative;
+
+        &:before {
+            @include mdi('chevron-down');
+            position: absolute;
+            visibility: visible;
+            right: 15px;
+            font-size: to-rem($select-caret-icon-size);
+            color: color('nijmegen-primary', 'base');
+        }
+    }
+
+    & + label {
+        font-weight: $font-weight-semibold;
+        top: -1.5rem;
+    }
+
+    &:hover {
+        &:before {
+            color: color('nijmegen-primary', 'darken-2');
+        }
+    }
+}
+
+.dropdown-content {
+    li {
+        border-bottom: 1px solid rgba(0, 0, 0, .125);
+
+        span {
+            color: $body-color;
+            font-size: to-rem(16);
+            padding: 1rem;
+        }
+
+        &.active {
+            background-color: transparent;
+
+            span {
+                color: color('nijmegen-primary', 'base');
+            }
+        }
+
+        &.selected {
+            background-color: transparent;
+            color: color('nijmegen-primary', 'base');
+        }
+
+        &:hover:not(.disabled) {
+            background-color: color('nijmegen-grey', 'darken-2');
+            span {
+                color: color('white', 'base');
+            }
+        }
+
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        &:first-child {
+            position: relative;
+        }
+
+        &:first-child:after {
+            @include mdi('chevron-up');
+            position: absolute;
+            visibility: visible;
+            right: 15px;
+            top: 50%;
+            margin-top: to-rem(-$select-caret-icon-size / 2);
+            font-size: to-rem($select-caret-icon-size);
+            color: color('nijmegen-primary', 'base');
+        }
+    }
+}

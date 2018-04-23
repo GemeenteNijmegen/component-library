@@ -1,7 +1,7 @@
 ## Accordion
 
 Based on the version from MDB:<br>
-https://mdbootstrap.com/legacy/4.3.2/?page=javascript/collapse#accordion
+{{ mdbootstrapPath '/javascript/collapse/#accordion' }}
 
 ### Accessibility
 

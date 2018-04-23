@@ -1,7 +1,7 @@
 ## Cards Services
 
 Based on the version from MDB:<br>
-https://mdbootstrap.com/legacy/4.3.2/?page=components/cards#basic-example
+{{ mdbootstrapPath '/components/cards/#basic-example' }}
 
 ### Accessibility
 

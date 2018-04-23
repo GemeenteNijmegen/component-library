@@ -1,0 +1,54 @@
+.popover {
+    border: 0;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    padding: 0;
+
+    .popover-header {
+        color: $body-color;
+        font-size: to-rem(28);
+        position: relative;
+        padding: 15px 40px 15px 14px;
+        border-bottom: 0;
+        background-color: color('nijmegen-grey', 'lighten-1');
+
+        &:after {
+            @include mdi('close');
+            position: absolute;
+            right: to-rem(20 / 2);
+            bottom: 0;
+            left: 0;
+            top: calc(50% - (20px / 2));
+            color: color('nijmegen-primary', 'base');
+            text-align: right;
+            font-size: to-rem(20);
+        }
+    }
+
+    .popover-body {
+        font-size: to-rem(16);
+        line-height: 26px;
+        padding: 14px 20px;
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+
+    &.bs-popover-top .arrow::before {
+        border-top-color: rgba(0, 0, 0, 0.1);
+    }
+
+    &.bs-popover-left .arrow::before {
+        border-left-color: rgba(0, 0, 0, 0.1);
+    }
+
+    &.bs-popover-right .arrow::before {
+        border-right-color: rgba(0, 0, 0, 0.1);
+    }
+
+    &.bs-popover-bottom .arrow::before {
+        border-bottom-color: rgba(0, 0, 0, 0.1);
+    }
+
+    &.bs-popover-bottom .arrow::after {
+        border-bottom-color: color('nijmegen-grey', 'lighten-1');
+    }
+}

@@ -1,0 +1,55 @@
+.stepper li.active a .circle,
+.stepper li.completed a .circle {
+    background-color: color('nijmegen-primary', 'base') !important;
+}
+
+.stepper-horizontal li {
+    align-items: initial;
+    flex: initial;
+
+    &:hover,
+    &:not(:last-child):after,
+    &:not(:first-child):before {
+        background-color: transparent;
+    }
+
+    a {
+        font-size: to-rem(16);
+
+        .circle {
+            width: 28px;
+            height: 28px;
+            text-align: center;
+
+            &, .mdi {
+                line-height: 28px;
+                font-size: to-rem(14);
+                font-weight: $font-weight-bold;
+            }
+        }
+
+        .label {
+            margin-top: 0;
+            font-weight: $font-weight-normal !important;
+            color: $body-color !important;
+        }
+
+        &:hover {
+            background-color: color('nijmegen-grey', 'lighten-1');
+        }
+    }
+
+    &.active,
+    &.completed {
+        a:hover .circle {
+            background-color: color('nijmegen-primary', 'darken-2') !important;
+        }
+    }
+
+    &:not(.active):not(.completed) {
+        a .circle {
+            color: color('nijmegen-grey', 'darken-2');
+            background-color: color('nijmegen-grey', 'base');
+        }
+    }
+}

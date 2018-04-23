@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-toggleable-md scrolling-navbar navbar-primary">
+<nav class="navbar fixed-top navbar-expand-lg scrolling-navbar navbar-primary">
     <div class="container">
         {{#if hamburgerIcon}}
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +29,7 @@
             </ul>
             {{/if}}
             {{#if searchComponent}}
-            <form action="{{ searchAction }}" class="form-inline">
+            <form action="{{ searchAction }}" class="form-inline ml-auto">
                 <label for="oi-query" class="sr-only">Zoeken</label>
                 <input class="form-control" id="oi-query" type="text" placeholder="Zoeken" autocomplete="off">
                 <button class="btn-search"><i class="mdi mdi-magnify" aria-hidden="true"></i></button>

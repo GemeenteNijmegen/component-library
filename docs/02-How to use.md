@@ -22,7 +22,8 @@ All files (CSS and JavaScript) used in underneath example originate from the MDB
 <html lang="nl">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <!-- Start: Core styling -->
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="{{ assetPath '/css/bootstrap.min.css' }}">
@@ -42,9 +43,9 @@ All files (CSS and JavaScript) used in underneath example originate from the MDB
 
 <!-- Start: Core scripts -->
 <!-- JQuery -->
-<script src="{{ assetPath '/js/jquery-3.1.1.min.js' }}"></script>
+<script src="{{ assetPath '/js/jquery-3.2.1.min.js' }}"></script>
 <!-- Bootstrap tooltips -->
-<script src="{{ assetPath '/js/tether.min.js' }}"></script>
+<script src="{{ assetPath '/js/popper.min.js' }}"></script>
 <!-- Bootstrap core JavaScript -->
 <script src="{{ assetPath '/js/bootstrap.min.js' }}"></script>
 <!-- MDB core JavaScript -->
@@ -62,7 +63,7 @@ All files (CSS and JavaScript) used in underneath example originate from the MDB
 
 When you have above in place, you can start filling the blank spot between the *template component(s)*
 HTML comments.
-If you want to start with a grid for instance, you can have a look here [MDB Grid](https://mdbootstrap.com/legacy/4.3.2/?page=css/layout) and use one of the examples there to use in your own template.
+If you want to start with a grid for instance, you can have a look here [MDB Grid]({{ mdbootstrapPath '/layout/layout-grid/' }}) and use one of the examples there to use in your own template.
 
 By selecting a component you will see a preview window which will show the component's look-and-feel.
 Underneath the component preview you'll see the *HTML tab* in which you can copy the markup needed
@@ -78,7 +79,7 @@ Several components (like: [carousel]({{ componentPath '@carousel' }}), [date pic
 The component library has a few example templates which are listed here:
 
 * [Default template]({{ componentPath '@default-template' }})<br>
-  (*sticky navbar with smooth scroll anchors, responsive 3 column cards grid, horizontal collapse button which shows on tablet and mobile screens, responsive footer*)
+  (*sticky navbar with smooth scroll anchors, responsive 3 column cards grid, horizontal collapse button which shows on mobile screens, responsive footer*)
 * [Form inputs template]({{ componentPath '@forminputs-template' }})<br>
   (*sticky navbar, various form inputs, responsive footer*)
 * [Example search results template]({{ componentPath '@searchresults-template' }})<br>

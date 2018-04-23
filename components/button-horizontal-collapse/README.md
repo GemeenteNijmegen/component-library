@@ -1,4 +1,4 @@
-## Horizontal collapse button
+## Button Horizontal Collapse
 
 A custom component created for Nijmegen.
 

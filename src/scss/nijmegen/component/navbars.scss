@@ -1,0 +1,558 @@
+// Scrolling navbar
+@media #{$large-and-up} {
+    .top-nav-collapse {
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+}
+
+.navbar {
+    &.scrolling-navbar {
+        @media only screen and (max-width: 767px) {
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+    }
+
+    .container {
+        @media #{$medium-and-down} {
+            display: block;
+            margin-left: 0;
+            margin-right: 0;
+            max-width: 100%;
+        }
+    }
+
+    .navbar-brand {
+        padding-top: 0;
+        padding-bottom: 0;
+
+        @media #{$medium-and-down} {
+            margin-right: 0;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .logo {
+            height: 42px;
+            width: 34px;
+
+            @media only screen and (max-width: 767px) {
+                height: 35px;
+            }
+        }
+
+        .logo-labeled {
+            height: 50px;
+
+            @media #{$medium-and-down} {
+                height: 35px;
+            }
+        }
+    }
+
+    a {
+        font-size: to-rem(20);
+    }
+
+
+    form {
+        position: relative;
+
+        @media #{$medium-and-down} {
+            padding-top: 6px;
+        }
+
+        @media #{$medium-and-down} {
+            margin-left: 1rem;
+            margin-right: 1rem;
+            padding-top: 1em;
+            padding-bottom: 0.5em;
+        }
+
+        .waves-input-wrapper {
+            border-radius: 0;
+
+            @media #{$medium-and-down} {
+                width: 100%;
+            }
+        }
+
+        .form-control {
+            background-color: transparent;
+            border-radius: 0;
+            box-sizing: content-box;
+            font-size: to-rem(20);
+            height: 1rem;
+            margin-left: 0;
+            margin-right: 0;
+            padding: 0.5rem 30px 0.5rem 0;
+            width: calc(100% - 30px);
+
+            &:focus {
+                box-shadow: none;
+            }
+
+            &::-ms-clear {
+                display: none;
+            }
+        }
+
+        .btn-search {
+            background-color: transparent;
+            border: 0;
+            font-size: to-rem(24);
+            line-height: 1;
+            padding: 0;
+            position: absolute;
+            right: 0;
+            top: calc(50% - 12px);
+
+            &:hover {
+                cursor: default;
+            }
+        }
+    }
+
+    .navbar-toggler {
+        margin-left: -0.75rem;
+        position: relative;
+
+        & + .navbar-brand {
+            @media #{$medium-and-down} {
+                margin-left: -42px;
+            }
+        }
+    }
+
+    // do we need specific styling when the navbar is animated to a smaller version based on browser scrolling?
+    &.top-nav-collapse {
+        .nav-link {
+            @media #{$large-and-up} {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+        }
+    }
+}
+
+// white version
+.navbar.navbar-light {
+    background-color: rgba(255, 255, 255, 0.97);
+    @media #{$large-and-up} {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(168, 10, 45)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+
+    .navbar-nav {
+        @media #{$large-and-up} {
+            margin-left: to-rem(-27); //27 is the sum of the margin-left and padding-left of the first anchor
+        }
+
+        @media #{$medium-and-down} {
+            &:before {
+                content: '';
+                position: absolute;
+                width: calc(100% + 2rem);
+                height: 10px;
+                box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
+                margin-top: -10px;
+            }
+        }
+
+        .nav-item {
+            @media #{$medium-and-down} {
+                border-bottom: 1px solid color('nijmegen-grey', 'base');
+            }
+
+            .nav-link {
+                margin: 0 to-rem(19);
+
+                @media #{$medium-and-down} {
+                    margin: 0;
+                    padding: 0.75em 1rem;
+                }
+
+                color: color('nijmegen-brand', 'base');
+                transition: none;
+
+                @media #{$medium-and-down} {
+                    color: $body-color;
+                }
+
+                &:focus,
+                &:hover {
+                    color: color('nijmegen-brand', 'darken-2');
+                    @media #{$medium-and-down} {
+                        color: $body-color;
+                    }
+                }
+
+                &:focus {
+                    @include tab-focus-minimal;
+                }
+
+                @media #{$medium-and-down} {
+                    &:active {
+                        background-color: color('nijmegen-grey', 'darken-3');
+                        color: white;
+                    }
+                }
+            }
+
+            &.active {
+                background-color: transparent;
+
+                .nav-link {
+                    color: color('nijmegen-brand', 'base');
+                    @media #{$medium-and-down} {
+                        color: $body-color;
+                    }
+
+                    &:focus,
+                    &:hover {
+                        color: color('nijmegen-brand', 'darken-2');
+                        @media #{$medium-and-down} {
+                            color: $body-color;
+                        }
+                    }
+
+                    @media #{$medium-and-down} {
+                        &:active {
+                            color: white;
+                        }
+                    }
+
+                    &:focus {
+                        @include tab-focus-minimal;
+                    }
+                }
+            }
+        }
+    }
+
+    .navbar-brand {
+        margin-right: 2rem;
+
+        @media #{$large-and-up} {
+            display: none;
+        }
+    }
+
+    .navbar-collapse {
+        @media #{$medium-and-down} {
+            margin-left: -1rem;
+            margin-right: -1rem;
+        }
+    }
+
+    form {
+        .form-control {
+            @include placeholder {
+                color: color('nijmegen-brand', 'base') !important;
+            }
+
+            border: 0;
+            border-bottom: 2px solid color('nijmegen-grey', 'darken-1') !important;
+
+            &:focus {
+                @include placeholder {
+                    color: $body-color !important;
+                }
+
+                border-bottom: 2px solid color('nijmegen-brand', 'darken-2') !important;
+
+                + .mdi {
+                    color: $body-color;
+                }
+            }
+        }
+
+        .mdi {
+            color: color('nijmegen-brand', 'base');
+        }
+    }
+
+    // do we need specific styling when the navbar is animated to a smaller version based on browser scrolling?
+    &.top-nav-collapse {
+        @media #{$large-and-up} {
+            background-color: rgba(255, 255, 255, 0.97);
+        }
+    }
+}
+
+// primary Nijmegen red version
+.navbar.navbar-primary {
+    background-color: color('nijmegen-brand', 'base');
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 50px;
+        width: 100%;
+        transition: height 0.5s ease-in-out;
+        box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
+
+        @media only screen and (min-width: #{$medium-screen-portrait}) and (max-width : #{$medium-screen}) {
+            height: 62px;
+        }
+
+        @media only screen and (min-width: #{$medium-screen}) {
+            content: none;
+        }
+    }
+
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255, 255, 255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+
+    .navbar-brand {
+        position: relative;
+        transition: margin-right .5s ease-in-out;
+
+        @media only screen and (min-width : #{$large-screen}) {
+            margin-right: 6.75rem;
+        }
+    }
+
+    .navbar-brand-container {
+        @media #{$large-and-up} {
+            overflow: hidden;
+            width: 150px;
+            transition: width .5s ease-in-out;
+        }
+    }
+
+    .logo-labeled {
+        position: relative;
+        overflow: hidden;
+        z-index: 2;
+        opacity: 1;
+        transition: height .5s ease-in-out, opacity .5s ease-in-out;
+    }
+
+    .logo {
+        position: absolute;
+        z-index: 1;
+        left: -50px;
+        left: 0;
+        opacity: 0;
+        transition: opacity .5s ease-in-out;
+    }
+
+    .navbar-collapse {
+        @media #{$medium-and-down} {
+            margin-left: -1rem;
+            margin-right: -1rem;
+        }
+    }
+
+    .nav-item {
+
+        @media #{$medium-and-down} {
+            border-bottom: 1px solid color('nijmegen-brand', 'darken-3');
+        }
+
+        .nav-link {
+            margin: 0;
+
+            @media #{$medium-and-down} {
+                padding: 0.75em 1rem;
+            }
+
+            @media #{$large-and-up} {
+                margin: 0 to-rem(19);
+            }
+        }
+
+        a {
+            color: color('white', 'base');
+            transition: padding .5s ease-in-out;
+
+            &:focus,
+            &:hover {
+                color: color('nijmegen-brand', 'lighten-1');
+            }
+
+            &:focus {
+                @include tab-focus-minimal;
+            }
+
+            @media #{$medium-and-down} {
+                &:active {
+                    background-color: color('nijmegen-brand', 'darken-3');
+                }
+            }
+        }
+
+        &.active {
+            background-color: transparent;
+            position: relative;
+
+            @media #{$large-and-up} {
+                &:after {
+                    content: '';
+                    background-color: color('nijmegen-brand', 'darken-3');
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: -12px;
+                    height: 8px;
+                    transition: bottom .5s ease-in-out, height .5s ease-in-out;
+                }
+            }
+
+            .nav-link {
+                color: color('nijmegen-brand', 'lighten-2');
+
+                &:focus,
+                &:hover {
+                    color: color('nijmegen-brand', 'lighten-1');
+                }
+
+                &:focus {
+                    @include tab-focus-minimal;
+                }
+            }
+        }
+    }
+
+    form {
+        .form-control {
+            @include placeholder {
+                color: color('white', 'base') !important;
+            }
+
+            border: 0;
+            border-bottom: 2px solid color('nijmegen-grey', 'base') !important;
+            color: color('white', 'base') !important;
+
+            &:focus {
+                @include placeholder {
+                    color: color('white', 'base') !important;
+                }
+
+                border-bottom: 2px solid color('nijmegen-primary', 'base') !important;
+
+                + .mdi {
+                    color: color('white', 'base');
+                }
+            }
+        }
+
+        .mdi {
+            color: color('white', 'base');
+        }
+    }
+
+    .navbar-collapse {
+        margin-top: to-rem(6);
+
+        @media only screen and (min-width: #{$medium-screen-portrait}) and (max-width : #{$medium-screen}) {
+            margin-top: to-rem(12);
+        }
+
+        @media #{$large-and-up} {
+            margin-top: 0;
+        }
+    }
+
+    // do we need specific styling when the navbar is animated to a smaller version based on browser scrolling?
+    &.top-nav-collapse {
+        &:before {
+            @media only screen and (min-width: #{$medium-screen-portrait}) and (max-width : #{$medium-screen}) {
+                height: 54px;
+            }
+        }
+
+        @media #{$large-and-up} {
+            .navbar-brand {
+                margin-right: 2rem;
+            }
+
+            .navbar-brand-container {
+                width: 35px;
+            }
+
+            .logo-labeled {
+                height: 42px;
+                opacity: 0;
+            }
+
+            .logo {
+                opacity: 1;
+            }
+
+            .nav-item {
+                &.active {
+                    &:after {
+                        content: '';
+                        background-color: color('nijmegen-brand', 'darken-3');
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        bottom: -6px;
+                        height: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.navbar-brand {
+    @media #{$medium-and-down} {
+        display: none;
+    }
+}
+
+@media #{$medium-and-down} {
+    .navbar-light {
+        margin: 0 !important;
+        padding-bottom: 0 !important;
+
+        #navbar-collapse > ul {
+            width: 100%;
+        }
+
+        .navbar-brand {
+            display: inline-block;
+        }
+    }
+    
+    .navbar-primary {
+        margin: 0 !important;
+        padding-bottom: 0 !important;
+        background-color: color('nijmegen-brand', 'darken-1') !important;
+
+        &:before {
+            background-color: color('nijmegen-brand', 'base') !important;
+        }
+
+        &.top-nav-collapse .navbar-brand {
+            .logo {
+                opacity: 1;
+                position: absolute;
+                left: calc(50% - 17px);
+            }
+            .logo-labeled {
+                opacity: 0;
+            }
+        }
+
+        .navbar-brand {
+            display: inline-block;
+
+            img {
+                transition: none !important;
+            }
+        }
+    }
+}

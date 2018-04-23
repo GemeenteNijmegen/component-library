@@ -37,3 +37,11 @@ a:hover {
 .Pen-previewLink svg {
     fill: #444;
 }
+
+.Tree-collectionLabel span::before {
+    top: 0.4rem;
+}
+
+.Prose {
+    max-width: 50em;
+}
