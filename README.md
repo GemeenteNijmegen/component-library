@@ -49,7 +49,7 @@ Generate a production build in `build/` with:
 
 Above command will also generate an HTML file with a full listing of available components within the library with the exception of the `Templates` folder, since these aren't components and merely example templates implementing various components from the library in one layout.
 
-The listing can be seen at: https://componenten.nijmegen.nl/list-components.html
+The listing can be seen at: https://componenten.nijmegen.nl/components-listing.html
 
 # Deployment
 

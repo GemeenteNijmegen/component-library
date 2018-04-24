@@ -70,50 +70,10 @@ fractal.web.set('builder.dest', __dirname + '/build');
 /*
  * Fractal custom commands
  * @see: https://fractal.build/guide/cli/custom-commands
+ *
+ * @return: Array of handles of available components
  */
-const lcOutFile = 'list-components.html';
-
-function listComponents(args, done) {
-    // const fs = require('fs');
-
-    this.log(args);
-    this.log(args.env);
-
-    const documentHeader = `
-        <!doctype html>
-        <html lang="en">
-        <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="robots" content="noindex, nofollow">
-        <meta name="robots" content="noarchive">
-        <meta name="googlebot" content="noindex, nofollow">
-        <meta name="googlebot" content="noarchive">
-        <title>Components listing</title>
-        </head>
-        <body>
-        <main>
-    `;
-
-    const documentFooter = `
-        </main>
-        </body>
-        </html>
-    `;
-
-    // route.path will look like: /components/preview/:handle
-    const route = fractal.web._themes.get('default')._routes.get('preview');
-    let baseUrl = '';
-    let linkExtension = '';
-    if (args.env === 'prod') {
-        baseUrl = '%%HOSTNAME%%'; // nginx will take care of the replacement on .acc and .prod
-        linkExtension = fractal._config.web.builder.ext;
-    }
-    this.log(route.path);
-    this.log(`ENV :: ${args.env}`);
-    this.log((args.env === 'prod' ? 'true': 'false'));
-    this.log(linkExtension);
-
+function listComponents(args) {
     let components = [];
 
     for (let item of fractal.components.flatten()) {
@@ -126,32 +86,22 @@ function listComponents(args, done) {
                 const collection = item.config.variants;
                 for (let i in collection) {
                     if (!collection[i].isHidden) {
-                        const link = `${route.path.replace(':handle', collection[i].handle)}`;
-                        this.log(`${collection[i].handle} - ${link}${linkExtension}`);
-                        components.push('<li><a href="'+baseUrl+''+link+''+linkExtension+'">'+collection[i].handle+'</a></li>');
+                        components.push(collection[i].handle);
                     }
                 }
             } else {
                 // single component
-                const link = `${route.path.replace(':handle', item.handle)}`;
-                this.log(`${item.handle} - ${item.status.label} - ${link}${linkExtension}`);
-                components.push('<li><a href="'+baseUrl+''+link+''+linkExtension+'">'+item.handle+'</a></li>');
+                components.push(item.handle);
             }
         }
     }
 
-    // lcOutFile = `list-components-${Math.random().toString(36).substr(2, 9)}.html`;
-    // this.log(`Writing to file: ${__dirname}/${lcOutFile}`);
-    // fs.writeFileSync(`${__dirname}/${lcOutFile}`, `${documentHeader} <ol>${components.join('\n')}</ol> ${documentFooter}`);
-
-    // this.log(done);
-    return (`${documentHeader} <ol>${components.join('\n')}</ol> ${documentFooter}`);
-    // done();
+    return components;
 };
 
 // register the command
 fractal.cli.command(
-    'list-components <env>',
+    'list-components',
     listComponents,
     { description: 'Lists components in the project and returns an HTML output' }
 );

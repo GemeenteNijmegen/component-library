@@ -63,31 +63,64 @@ gulp.task('fractal:build', function() {
  * Generate an HTML listing of all available components in the library
  */
 gulp.task('fractal:build-components-listing', function(done) {
-  let lcOutFile = 'list-components.html';
-  const path = buildMode === 'dev' ? 'public' : 'build';
+  const lcOutFile = 'components-listing.html';
+
+  const documentHeader = `
+    <!doctype html>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="noarchive">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="googlebot" content="noarchive">
+    <title>Components listing</title>
+    </head>
+    <body>
+    <main>
+  `;
+
+  const documentFooter = `
+    </main>
+    </body>
+    </html>
+  `;
 
   // start with a clean slate
+  const path = buildMode === 'dev' ? 'public' : 'build';
   del([`${path}/${lcOutFile}`]).then(paths => {
-    console.log('Deleted files and folders:\n', paths.join('\n'));
-
     const fractal = require('./fractal.js');
     const logger = fractal.cli.console;
-    fractal.cli.exec(`list-components ${buildMode}`)
-      .then((output) => {
-        logger.success('Fractal component listing completed!');
-        logger.success(output);
+
+    // route.path will look like: /components/preview/:handle
+    const route = fractal.web._themes.get('default')._routes.get('preview');
+    let baseUrl = '';
+    let linkExtension = '';
+    if (buildMode === 'prod') {
+        baseUrl = '%%HOSTNAME%%'; // nginx will take care of the replacement on .acc and .prod
+        linkExtension = fractal._config.web.builder.ext;
+    }
+
+    // call fractal custom cli command: list-components
+    fractal.cli.exec(`list-components`)
+      .then((componentHandles) => {
         const fs = require('fs');
-        if (buildMode === 'prod') {
-          // lcOutFile = `list-components-${Math.random().toString(36).substr(2, 9)}.html`;
-        }
-        logger.success(`Write file: ${path}/${lcOutFile}`);
-        fs.writeFileSync(`${path}/${lcOutFile}`, output);
+
+        const output = componentHandles.map(componentHandle => {
+          const link = baseUrl + `${route.path.replace(':handle', componentHandle)}` + linkExtension;
+          return `<li><a href="${link}">${componentHandle}</a></li>`;
+        });
+
+        fs.writeFileSync(`${path}/${lcOutFile}`, `${documentHeader} <ol>${output.join('\n')}</ol> ${documentFooter}`);
+        logger.success('Fractal components listing generated');
       })
       .catch((err) => {
-        logger.error('Fractal component listing error!');
+        logger.error('Fractal components listing error!');
         logger.error(err);
       });
   });
+
   done();
 });
 
