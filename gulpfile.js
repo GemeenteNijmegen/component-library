@@ -14,14 +14,6 @@ const materialdesigniconsFontPath = materialdesigniconsPath + '/fonts';
 
 const buildMode = gutil.env.env || 'dev'; // dev || prod
 
-let xmlEdit;
-let fs;
-
-if (buildMode === 'dev') {
-  xmlEdit = require('gulp-edit-xml');
-  fs = require('fs');
-}
-
 function stripSourceMappingURL() {
   return through.obj(function(file, enc, cb) {
     if (!file.isNull()) {
@@ -52,6 +44,9 @@ gulp.task('fractal:start', function() {
   });
 });
 
+/*
+ * Generate a static build of the complete component library
+ */
 gulp.task('fractal:build', function() {
   const fractal = require('./fractal.js');
   const logger = fractal.cli.console;
@@ -64,10 +59,35 @@ gulp.task('fractal:build', function() {
   });
 });
 
+/**
+ * Generate an HTML listing of all available components in the library
+ */
 gulp.task('fractal:build-components-listing', function(done) {
-  const fractal = require('./fractal.js');
-  fractal._config.env = buildMode === 'dev' ? 'development' : 'production';
-  fractal.cli.exec('list-components');
+  let lcOutFile = 'list-components.html';
+  const path = buildMode === 'dev' ? 'public' : 'build';
+
+  // start with a clean slate
+  del([`${path}/${lcOutFile}`]).then(paths => {
+    console.log('Deleted files and folders:\n', paths.join('\n'));
+
+    const fractal = require('./fractal.js');
+    const logger = fractal.cli.console;
+    fractal.cli.exec(`list-components ${buildMode}`)
+      .then((output) => {
+        logger.success('Fractal component listing completed!');
+        logger.success(output);
+        const fs = require('fs');
+        if (buildMode === 'prod') {
+          // lcOutFile = `list-components-${Math.random().toString(36).substr(2, 9)}.html`;
+        }
+        logger.success(`Write file: ${path}/${lcOutFile}`);
+        fs.writeFileSync(`${path}/${lcOutFile}`, output);
+      })
+      .catch((err) => {
+        logger.error('Fractal component listing error!');
+        logger.error(err);
+      });
+  });
   done();
 });
 
@@ -188,6 +208,7 @@ gulp.task('build-archive', function() {
 // Generate component view with all icons from icon library
 let icons = [];
 gulp.task('extract-icons-from-mdi-svg', function() {
+  const xmlEdit = require('gulp-edit-xml');
   const stream = gulp
     .src(materialdesigniconsFontPath+'/materialdesignicons-webfont.svg')
     .pipe(
@@ -205,6 +226,7 @@ gulp.task('extract-icons-from-mdi-svg', function() {
 });
 
 gulp.task('build-icons-listing', gulp.series('extract-icons-from-mdi-svg', function(done) {
+  const fs = require('fs');
   if (icons.length) {
     fs.writeFileSync('components/icons/icons.hbs', icons.join('\n'));
   }

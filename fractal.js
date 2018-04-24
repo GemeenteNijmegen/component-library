@@ -74,7 +74,10 @@ fractal.web.set('builder.dest', __dirname + '/build');
 const lcOutFile = 'list-components.html';
 
 function listComponents(args, done) {
-    const fs = require('fs');
+    // const fs = require('fs');
+
+    this.log(args);
+    this.log(args.env);
 
     const documentHeader = `
         <!doctype html>
@@ -102,13 +105,13 @@ function listComponents(args, done) {
     const route = fractal.web._themes.get('default')._routes.get('preview');
     let baseUrl = '';
     let linkExtension = '';
-    if (fractal._config.env === 'production') {
+    if (args.env === 'prod') {
         baseUrl = '%%HOSTNAME%%'; // nginx will take care of the replacement on .acc and .prod
         linkExtension = fractal._config.web.builder.ext;
     }
     this.log(route.path);
-    this.log(`ENV :: ${fractal._config.env}`);
-    this.log((fractal._config.env === 'production' ? 'true': 'false'));
+    this.log(`ENV :: ${args.env}`);
+    this.log((args.env === 'prod' ? 'true': 'false'));
     this.log(linkExtension);
 
     let components = [];
@@ -137,15 +140,20 @@ function listComponents(args, done) {
         }
     }
 
-    fs.writeFileSync(`${__dirname}/public/${lcOutFile}`, `${documentHeader} <ol>${components.join('\n')}</ol> ${documentFooter}`);
+    // lcOutFile = `list-components-${Math.random().toString(36).substr(2, 9)}.html`;
+    // this.log(`Writing to file: ${__dirname}/${lcOutFile}`);
+    // fs.writeFileSync(`${__dirname}/${lcOutFile}`, `${documentHeader} <ol>${components.join('\n')}</ol> ${documentFooter}`);
 
-    done();
+    // this.log(done);
+    return (`${documentHeader} <ol>${components.join('\n')}</ol> ${documentFooter}`);
+    // done();
 };
 
 // register the command
-fractal.cli.command('list-components',
+fractal.cli.command(
+    'list-components <env>',
     listComponents,
-    { description: `Lists components in the project and generates an HTML output (/${lcOutFile})` }
+    { description: 'Lists components in the project and returns an HTML output' }
 );
 
 /*
