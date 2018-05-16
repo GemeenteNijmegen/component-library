@@ -12,17 +12,15 @@ stages:
 
 variables:
   DOCKER_DRIVER: overlay2
-  BASE_VERSION: "1.0."
-  SERVICE_NAME: componentlibrary
+  SERVICE_NAME: componentlibrary-versioned
 
+# ======================
+# Snippets
+# ======================
 
 .prepare-ssh: &prepare-ssh
   before_script:
-    - if [ "$CI_COMMIT_REF_SLUG" = "master" ]; then
-        export DOCKER_TAG="$BASE_VERSION$CI_PIPELINE_ID";
-      else
-        export DOCKER_TAG="$CI_COMMIT_REF_SLUG";
-      fi;
+    - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID";
     - apk --no-cache add openssh
     # Run ssh-agent (inside the build environment)
     - eval $(ssh-agent -s)
@@ -34,22 +32,52 @@ variables:
     # Cleanup old socket
     - rm -f docker-socket-ssh
 
-build:
+# ======================
+# Build stage
+# ======================
+
+build release:
   stage: build
   services:
     - docker:dind
   before_script:
-    - if [ "$CI_COMMIT_REF_SLUG" = "master" ]; then
-        export DOCKER_TAG="$BASE_VERSION$CI_PIPELINE_ID";
-      else
-        export DOCKER_TAG="$CI_COMMIT_REF_SLUG";
-      fi;
     - apk --no-cache add python py-pip
     - pip install --upgrade docker-compose
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID";
   script:
-    - docker-compose -f docker-compose-prod.yml build
-    - docker-compose -f docker-compose-prod.yml push
+    - docker build . -t "$CI_REGISTRY_IMAGE":$DOCKER_TAG -f Dockerfile-prod
+    - docker push "$CI_REGISTRY_IMAGE":$DOCKER_TAG
+    - docker run
+      -w /app
+      -v "$PWD":/app
+      -e GITLAB_TOKEN
+      -e CI_COMMIT_REF_NAME
+      -e CI_REGISTRY_IMAGE
+      -e DOCKER_TAG
+      -e STABLE_RELEASE
+      node:8.11.2-alpine
+      yarn update-releases
+  only:
+    - /^release\/.*$/
+
+build test:
+  stage: build
+  services:
+    - docker:dind
+  before_script:
+    - apk --no-cache add python py-pip
+    - pip install --upgrade docker-compose
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID";
+  script:
+    - docker build . -f Dockerfile-prod
+  except:
+    - /^release\/.*$/
+
+# ======================
+# Deploy stage
+# ======================
 
 deploy acceptance:
   stage: deploy
@@ -64,13 +92,24 @@ deploy acceptance:
     - ssh -o ProxyCommand="ssh -W %h:%p -q enrise@jump01.nijmegen.cobytes.io" -M -S docker-socket-ssh -fnNT -L 50040:127.0.0.1:2375 enrise-docker-deploy@acc01.nijmegen.cobytes.io
     - ssh -S docker-socket-ssh -O check enrise-docker-deploy@acc01.nijmegen.cobytes.io
     # Let Docker authenticate against the GitLab registry
-    - DOCKER_HOST=tcp://127.0.0.1:50040 docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - DOCKER_HOST=tcp://127.0.0.1:50040 docker login -u gitlab+deploy-token-2 -p $DEPLOY_TOKEN $CI_REGISTRY
+    # Generate docker-compose.yml
+    - docker run
+      -w /app
+      -v "$PWD":/app
+      -e GITLAB_TOKEN
+      -e CI_COMMIT_REF_NAME
+      -e CI_REGISTRY_IMAGE
+      -e DOCKER_TAG
+      -e STABLE_RELEASE
+      node:8.11.2-alpine
+      yarn prepare-deployment
     # Deploy the stack
-    - DOCKER_HOST=tcp://127.0.0.1:50040 docker stack deploy --with-registry-auth --compose-file=docker-compose-prod.yml ${SERVICE_NAME}
+    - DOCKER_HOST=tcp://127.0.0.1:50040 docker stack deploy --with-registry-auth --compose-file=docker-compose-stack.yml ${SERVICE_NAME}
     # Exit SSH tunnel
     - ssh -S docker-socket-ssh -O exit enrise-docker-deploy@acc01.nijmegen.cobytes.io
   only:
-    - master
+    - /^release\/.*$/
 
 deploy production:
   stage: deploy
@@ -86,10 +125,21 @@ deploy production:
     - ssh -o ProxyCommand="ssh -W %h:%p -q enrise@jump01.nijmegen.cobytes.io" -M -S docker-socket-ssh -fnNT -L 50040:127.0.0.1:2375 enrise-docker-deploy@containerprod01.nijmegen.cobytes.io
     - ssh -S docker-socket-ssh -O check enrise-docker-deploy@containerprod01.nijmegen.cobytes.io
     # Let Docker authenticate against the GitLab registry
-    - DOCKER_HOST=tcp://127.0.0.1:50040 docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - DOCKER_HOST=tcp://127.0.0.1:50040 docker login -u gitlab+deploy-token-2 -p $DEPLOY_TOKEN $CI_REGISTRY
+    # Generate docker-compose.yml
+    - docker run
+      -w /app
+      -v "$PWD":/app
+      -e GITLAB_TOKEN
+      -e CI_COMMIT_REF_NAME
+      -e CI_REGISTRY_IMAGE
+      -e DOCKER_TAG
+      -e STABLE_RELEASE
+      node:8.11.2-alpine
+      yarn prepare-deployment
     # Deploy the stack
-    - DOCKER_HOST=tcp://127.0.0.1:50040 docker stack deploy --with-registry-auth --compose-file=docker-compose-prod.yml ${SERVICE_NAME}
+    - DOCKER_HOST=tcp://127.0.0.1:50040 docker stack deploy --with-registry-auth --compose-file=docker-compose-stack.yml ${SERVICE_NAME}
     # Exit SSH tunnel
     - ssh -S docker-socket-ssh -O exit enrise-docker-deploy@containerprod01.nijmegen.cobytes.io
   only:
-    - master
+    - /^release\/.*$/
