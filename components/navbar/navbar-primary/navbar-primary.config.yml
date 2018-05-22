@@ -1,0 +1,25 @@
+---
+title: Navbar Primary
+status: ready # prototype, wip, ready
+default: "default" # http://fractal.build/guide/components/variants#the-default-variant
+preview: "@preview-navbar-menu"
+context:
+  menuComponent: true
+  searchComponent: true
+  hamburgerIcon: true
+  searchAction: "https://www.nijmegen.nl"
+  smoothScroll: " smooth-scroll"
+variants:
+  - name: "default"
+  - name: "no-search"
+    context:
+      menuComponent: true
+      searchComponent: false
+  - name: "no-menu"
+    context:
+      menuComponent: false
+  - name: "no-menu-no-search"
+    context:
+      menuComponent: false
+      searchComponent: false
+      hamburgerIcon: false

@@ -68,6 +68,45 @@ fractal.web.set('static.path', path.join(__dirname, 'public'));
 fractal.web.set('builder.dest', __dirname + '/build');
 
 /*
+ * Fractal custom commands
+ * @see: https://fractal.build/guide/cli/custom-commands
+ *
+ * @return: Array of handles of available components
+ */
+function listComponents(args) {
+    let components = [];
+
+    for (let item of fractal.components.flatten()) {
+        // skip
+        // - the hidden versions (marked with an _ in the file or folder)
+        // - the items in the templates folder, since these are just example templates rendering various components together
+        if (!item._isHidden && item._parent.name.toLowerCase() !== 'templates') {
+            // is it a component in different variants?
+            if (typeof item.config.variants !== 'undefined') {
+                const collection = item.config.variants;
+                for (let i in collection) {
+                    if (!collection[i].isHidden) {
+                        components.push(collection[i].handle);
+                    }
+                }
+            } else {
+                // single component
+                components.push(item.handle);
+            }
+        }
+    }
+
+    return components;
+};
+
+// register the command
+fractal.cli.command(
+    'list-components',
+    listComponents,
+    { description: 'Lists components in the project and returns an HTML output' }
+);
+
+/*
  * Other configurations
  * See
  *   http://fractal.build/guide/web/configuration
@@ -79,8 +118,8 @@ fractal.web.set('server.sync', true);
 
 /* Options passed to BrowserSync */
 fractal.web.set('server.syncOptions', {
-  /* Files to watch for changes */
-  files: ['src/**/*.scss'],
-  /* Adding a delay to make sure the sourcefiles are compiled before pushing the refresh to the browser */
-  reloadDelay: 1000
+    /* Files to watch for changes */
+    files: ['src/**/*.scss'],
+    /* Adding a delay to make sure the sourcefiles are compiled before pushing the refresh to the browser */
+    reloadDelay: 1000
 });

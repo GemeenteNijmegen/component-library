@@ -1,8 +1,0 @@
-{
-    "context": {
-        "menuComponent": true,
-        "searchComponent": true,
-        "hamburgerIcon": true,
-        "searchAction": "https://www.nijmegen.nl"
-    }
-}

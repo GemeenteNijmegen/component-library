@@ -5,7 +5,7 @@ Go develop!
 # Development environment
 First make sure you install the node modules:
 
-    docker-compose run --user="$UID" frontend yarn
+    docker-compose run frontend yarn
 
 Then start the development environment:
 
@@ -33,11 +33,23 @@ MDB framework now imports by default a `custom` file (in `src/mdbootstrap-pro/v4
 
 **Note**: When updating to a newer version of MDB, it's best to remove the `scss/_custom.scss` file from the MDB library so it can't conflict with the custom Nijmegen styling.
 
+## Index listing of components
+
+For 3rdparty services it would be nice to have a basic listing of all available components in the library. A custom command has been created to facilitate in this functionality and is automatically run when deployed to acceptance and/or production. The url for this listing can be seen in the `Production build` section.
+
+For debugging and/or testing purpose, it's possible to run this command manually:
+
+    docker-compose exec frontend /app/node_modules/.bin/gulp fractal:build-components-listing
+
 # Production build
 
 Generate a production build in `build/` with:
 
-    docker-compose run --user="$UID" frontend yarn build
+    docker-compose run frontend yarn build
+
+Above command will also generate an HTML file with a full listing of available components within the library with the exception of the `Templates` folder, since these aren't components and merely example templates implementing various components from the library in one layout.
+
+The listing can be seen at: https://componenten.nijmegen.nl/components-listing.html
 
 # Deployment
 
