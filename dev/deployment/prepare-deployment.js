@@ -20,7 +20,7 @@ services:
     for (const release in releases) {
       let virtualPath = `/v${release}`;
       if (release === process.env.STABLE_RELEASE) {
-        virtualPath = `~^/(v${release})?`;
+        virtualPath = `~^/(v${release}|$$)`;
       }
       dockerCompose = dockerCompose +
 `  componentlibrary-${release}:

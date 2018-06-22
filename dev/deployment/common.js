@@ -43,7 +43,6 @@ module.exports.updateReleases = (releases) => {
   const data = JSON.stringify({
     code: JSON.stringify(releases),
   });
-  console.log(data);
   updateRequest.write(data);
   updateRequest.end();
 };

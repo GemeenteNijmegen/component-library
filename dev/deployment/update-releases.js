@@ -6,9 +6,6 @@ const update = () => {
   console.log('Update releases');
   console.log("======================\n");
 
-  console.log('Environment:');
-  console.log(process.env);
-
   getCurrentVersions((currentReleases) => {
     const branch = process.env.CI_COMMIT_REF_NAME === 'master' ?
       'latest' : process.env.CI_COMMIT_REF_NAME.split('/').pop();
@@ -18,10 +15,7 @@ const update = () => {
       ...currentReleases,
       ...newRelease
     };
-
-    console.log(currentReleases);
     updateReleases(currentReleases);
-
   });
 
 };
