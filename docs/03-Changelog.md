@@ -7,7 +7,7 @@ status: ready # draft, ready
 All notable changes to this project will be documented in this file.<br>
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
-## [1.0.0] - 2018-04
+## [2.0.0] - 2018-06
 ### Added
 - MDBootstrap v4.5.0
 - _Component [footer]({{ componentPath '@footer' }})_:
@@ -30,3 +30,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   removed obsolete `data-trigger="focus"` attribute, since this already is specified in the JavaScript initialization
 - _Component [sidenav]({{ componentPath '@sidenav' }})_:
   removed class `sn-bg-1` from `ul` element
+
+## [1.0.0] - 2017-09
+### Added
+- First stable release of the Nijmegen Component Library

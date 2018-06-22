@@ -41,6 +41,18 @@ For debugging and/or testing purpose, it's possible to run this command manually
 
     docker-compose exec frontend /app/node_modules/.bin/gulp fractal:build-components-listing
 
+
+# Versioning
+
+There's versioning implemented for this CL in the infrastructure.
+
+* The versioning setup is only used for new major versions. Minor and patches shouldn't need a new major version
+* We should aways try to avoid creating a new major version because this impacts all users of the CL.
+* Versioning is based on the release branches (e.g. release/1).
+* The version is included in the path (e.g. /v1/..)
+* We use a fork of the jwilder nginx proxy to have the routing based on path (see [this PR](https://github.com/jwilder/nginx-proxy/pull/1083))
+* The [versions landingspage](public/versions.html) is manually updated to have control over which version is stable.
+
 # Production build
 
 Generate a production build in `build/` with:

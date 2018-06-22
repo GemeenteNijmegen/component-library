@@ -21,7 +21,9 @@
   "scripts": {
     "start": "gulp dev",
     "build": "gulp build --env prod",
-    "build-icons-listing": "gulp build-icons-listing"
+    "build-icons-listing": "gulp build-icons-listing",
+    "prepare-deployment": "node dev/deployment/prepare-deployment.js",
+    "update-releases": "node dev/deployment/update-releases.js"
   },
   "devDependencies": {
     "fs": "^0.0.1-security",
