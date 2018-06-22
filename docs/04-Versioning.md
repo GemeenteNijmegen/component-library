@@ -13,7 +13,7 @@ Which comes done to the following;
 > 3. PATCH version when you make backwards-compatible bug fixes.
 
 
-The version information can be found in the [changelog](03-Changelog.md)<br>
+The version information can be found in the [changelog](changelog.html)<br>
 <br>
 Every major versions has a unique url (by adding the version as prefix, for example `/v1/`) to make sure users of this CL can switch to a new major version when they have implemented the backwards-incompatible changes.<br>
 <br>
