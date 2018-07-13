@@ -43,7 +43,7 @@ All files (CSS and JavaScript) used in underneath example originate from the MDB
 
 <!-- Start: Core scripts -->
 <!-- JQuery -->
-<script src="{{ assetPath '/js/jquery-3.2.1.min.js' }}"></script>
+<script src="{{ assetPath '/js/jquery.min.js' }}"></script>
 <!-- Bootstrap tooltips -->
 <script src="{{ assetPath '/js/popper.min.js' }}"></script>
 <!-- Bootstrap core JavaScript -->
