@@ -26,7 +26,7 @@ services:
 `  componentlibrary-${release}:
     image: ${process.env.CI_REGISTRY_IMAGE}:${releases[release]}
     environment:
-      VIRTUAL_HOST: componenten.acc.nijmegen.nl
+      VIRTUAL_HOST: componenten.nijmegen.nl
       VIRTUAL_PATH: ${virtualPath}
     deploy:
       replicas: 2
