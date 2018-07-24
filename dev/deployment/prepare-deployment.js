@@ -26,7 +26,7 @@ services:
 `  componentlibrary-${release}:
     image: ${process.env.CI_REGISTRY_IMAGE}:${releases[release]}
     environment:
-      VIRTUAL_HOST: ${process.env.CI_ENVIRONMENT_URL.replace('~https://~', '')}
+      VIRTUAL_HOST: ${process.env.CI_ENVIRONMENT_URL.replace(/https:\/\//, '')}
       VIRTUAL_PATH: ${virtualPath}
     deploy:
       replicas: 2
