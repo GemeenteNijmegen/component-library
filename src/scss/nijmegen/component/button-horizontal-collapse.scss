@@ -4,6 +4,20 @@
     overflow-x: hidden;
     padding-bottom: 10px;
 
+    .btn-floating {
+        span {
+            display: inline-block;
+            width: inherit;
+            text-align: center;
+            color: color('white', 'base');
+        }
+
+        &.btn-large span {
+            font-size: 1.75rem;
+            line-height: 2;
+        }
+    }
+
     .btn-floating-collapse {
         @extend .z-depth-2;
         margin-right: 25px;
@@ -32,6 +46,13 @@
             .mdi {
                 color: color('white', 'base');
                 line-height: inherit;
+            }
+
+            button {
+                background: none;
+                border: 0;
+                padding: 0;
+                margin: 0;
             }
 
             &.btn-floating-wrapper {
