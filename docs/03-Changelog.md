@@ -7,6 +7,14 @@ status: ready # draft, ready
 All notable changes to this project will be documented in this file.<br>
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [Unreleased]
+### Added
+- Using aria-label on the button and anchors
+
+### Changed
+- Replacing i tags with span with aria-hidden="true"
+- Updated the button notes mentioning the use of anchors or button where appropriate
+
 ## [2.0.0] - 2018-06
 ### Added
 - MDBootstrap v4.5.0
