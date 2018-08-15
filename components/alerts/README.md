@@ -15,7 +15,11 @@ Underneath a jQuery example which reads the `toast-type` and `toast-text` data a
     $('[data-toast-type]').click(function() {
         var toastrType = $(this).data('toast-type');
         var toastrText = $(this).data('toast-text');
-        toastr[toastrType](toastrText);
+        toastr[toastrType](toastrText, '', {
+            closeButton: true,
+            timeOut: 0,
+            extendedTimeOut: 0
+        });
     });
 </script>
 ```
