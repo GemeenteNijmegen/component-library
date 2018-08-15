@@ -7,6 +7,11 @@ status: ready # draft, ready
 All notable changes to this project will be documented in this file.<br>
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [Unreleased]
+### Changed
+- Alerts can now only be closed by clicking a close button
+- Set Alerts status to prototype and updated docs to advise modal use
+
 ## [2.0.0] - 2018-06
 ### Added
 - MDBootstrap v4.5.0
