@@ -7,6 +7,10 @@ status: ready # draft, ready
 All notable changes to this project will be documented in this file.<br>
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [Unreleased]
+### Changed
+- Updated hover effects accessibility guidance for light and super light overlays
+
 ## [2.0.0] - 2018-06
 ### Added
 - MDBootstrap v4.5.0
