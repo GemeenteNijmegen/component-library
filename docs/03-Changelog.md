@@ -7,6 +7,13 @@ status: ready # draft, ready
 All notable changes to this project will be documented in this file.<br>
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [Unreleased]
+### Added
+- Guidance on adding `aria-label` with icons
+
+### Changed
+- Icons changed to span elements
+
 ## [2.0.0] - 2018-06
 ### Added
 - MDBootstrap v4.5.0
