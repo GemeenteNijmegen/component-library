@@ -7,6 +7,14 @@ status: ready # draft, ready
 All notable changes to this project will be documented in this file.<br>
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [Unreleased]
+### Added
+- Allowing the use of header elements in the footer
+- Ensuring the correct aria tags are present on the footer
+
+### Changed
+- Replacing i tags with span
+
 ## [2.0.0] - 2018-06
 ### Added
 - MDBootstrap v4.5.0
