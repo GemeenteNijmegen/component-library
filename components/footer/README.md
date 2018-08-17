@@ -4,7 +4,7 @@ A custom component created for Nijmegen.
 
 ### Accessibility
 
-Where beneficial, `aria-labelledby` text can be added to links to provide a better description to assistive technologies.
+Where beneficial, an `aria-labelledby` and/or `aria-desbribedby` element can be used to provide a better description to assistive technologies.
 
 ### Using
 
