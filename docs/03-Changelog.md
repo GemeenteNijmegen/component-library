@@ -9,7 +9,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [Unreleased]
 ### Changed
-- Set Sidenav status to prototype and updated docs to advise Do not implement!
+- _Component [sidenav]({{ componentPath '@sidenav' }})_:
+Set Sidenav status to prototype and updated docs to advise Do not implement!
 
 ### Removed
 - _Component [carousel]({{ componentPath '@carousel' }})_:
