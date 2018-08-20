@@ -9,11 +9,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [Unreleased]
 ### Added
-- _Component [carousel]({{ componentPath '@carousel' }})_:
+- _Component [icons]({{ componentPath '@icons' }})_:
 Guidance on adding `aria-label` with icons
 
 ### Changed
-- _Component [carousel]({{ componentPath '@carousel' }})_:
+- _Component [icons]({{ componentPath '@icons' }})_:
 Icons changed to span elements
 
 ### Removed
