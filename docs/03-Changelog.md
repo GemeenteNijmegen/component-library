@@ -9,7 +9,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [Unreleased]
 ### Changed
-- Search result header tag changed to h tag
+- _Component [search results]({{ componentPath '@search-results' }})_:
+  Search result header tag changed to h tag
+
+### Removed
+- _Component [carousel]({{ componentPath '@carousel' }})_:
+  Removed `role="listbox"` and `role="option"` to ensure the carousel works with a screen reader
 
 ## [2.0.0] - 2018-06
 ### Added
