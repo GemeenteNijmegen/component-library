@@ -12,8 +12,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - Using aria-label on the button and anchors
 
 ### Changed
-- Replacing i tags with span with aria-hidden="true"
-- Updated the button notes mentioning the use of anchors or button where appropriate
+- _Component [button floating]({{ componentPath '@button-floating' }}), [button horizontal collapse]({{ componentPath '@button-horizontal-collapse' }}) and [button]({{ componentPath '@button' }})_:
+  Replacing i tags with span with aria-hidden="true" and updated the button notes mentioning the use of anchors or button where appropriate
+
+### Removed
+- _Component [carousel]({{ componentPath '@carousel' }})_:
+  Removed `role="listbox"` and `role="option"` to ensure the carousel works with a screen reader
 
 ## [2.0.0] - 2018-06
 ### Added
