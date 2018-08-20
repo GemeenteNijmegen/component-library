@@ -9,10 +9,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [Unreleased]
 ### Changed
-- Stepper updated to use `aria-label` and use span for icons
+- _Component [steppers]({{ componentPath '@steppers' }})_:
+  Stepper updated to use `aria-label` and use span for icons
 
 ### Removed
-- Removed `role="listbox"` and `role="option"` to ensure the carousel works with a screen reader
+- _Component [carousel]({{ componentPath '@carousel' }})_:
+  Removed `role="listbox"` and `role="option"` to ensure the carousel works with a screen reader
 
 ## [2.0.0] - 2018-06
 ### Added
