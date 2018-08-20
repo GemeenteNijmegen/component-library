@@ -9,8 +9,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [Unreleased]
 ### Changed
-- Alerts can now only be closed by clicking a close button
-- Set Alerts status to prototype and updated docs to advise modal use
+- _Component [alerts]({{ componentPath '@alerts' }})_:
+  Alerts can now only be closed by clicking a close button and set Alerts status to prototype and updated docs to advise modal use
+
+### Removed
+- _Component [carousel]({{ componentPath '@carousel' }})_:
+  Removed `role="listbox"` and `role="option"` to ensure the carousel works with a screen reader
 
 ## [2.0.0] - 2018-06
 ### Added
