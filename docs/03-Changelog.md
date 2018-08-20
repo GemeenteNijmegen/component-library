@@ -8,6 +8,9 @@ All notable changes to this project will be documented in this file.<br>
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [Unreleased]
+### Changed
+- Sticky content p title replace with h5
+
 ### Removed
 - Removed `role="listbox"` and `role="option"` to ensure the carousel works with a screen reader
 
