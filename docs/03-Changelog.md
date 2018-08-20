@@ -9,11 +9,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [Unreleased]
 ### Added
-- Allowing the use of header elements in the footer
-- Ensuring the correct aria tags are present on the footer
+- _Component [footer]({{ componentPath '@footer' }})_:
+  Allowing the use of header elements in the footer and ensuring the correct aria tags are present on the footer
 
 ### Changed
-- Replacing i tags with span
+- _Component [footer]({{ componentPath '@footer' }})_:
+  Replacing i tags with span
+
+### Removed
+- _Component [carousel]({{ componentPath '@carousel' }})_:
+  Removed `role="listbox"` and `role="option"` to ensure the carousel works with a screen reader
 
 ## [2.0.0] - 2018-06
 ### Added
