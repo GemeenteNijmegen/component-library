@@ -9,10 +9,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [Unreleased]
 ### Changed
-- Sticky content p title replace with h5
+- _Component [sticky content]({{ componentPath '@sticky-content' }})_:
+  Sticky content p title replace with h5
 
 ### Removed
-- Removed `role="listbox"` and `role="option"` to ensure the carousel works with a screen reader
+- _Component [carousel]({{ componentPath '@carousel' }})_:
+  Removed `role="listbox"` and `role="option"` to ensure the carousel works with a screen reader
 
 ## [2.0.0] - 2018-06
 ### Added
