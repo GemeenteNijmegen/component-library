@@ -9,10 +9,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [Unreleased]
 ### Added
-- Guidance on adding `aria-label` with icons
+- _Component [carousel]({{ componentPath '@carousel' }})_:
+Guidance on adding `aria-label` with icons
 
 ### Changed
-- Icons changed to span elements
+- _Component [carousel]({{ componentPath '@carousel' }})_:
+Icons changed to span elements
+
+### Removed
+- _Component [carousel]({{ componentPath '@carousel' }})_:
+  Removed `role="listbox"` and `role="option"` to ensure the carousel works with a screen reader
 
 ## [2.0.0] - 2018-06
 ### Added
