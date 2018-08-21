@@ -5,7 +5,8 @@ Based on the version from MDB:<br>
 
 ### Accessibility
 
-Regarding the `alt` attribute on the images, please follow the decision tree as can be seen here https://www.w3.org/WAI/tutorials/images/decision-tree/
+Regarding the `alt` attribute on the images, please follow the decision tree as can be seen here https://www.w3.org/WAI/tutorials/images/decision-tree/.
+Also, when using light or super light overlays, please ensure there is enough contrast where there is white text on a light background.
 
 ### Using
 
