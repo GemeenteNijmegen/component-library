@@ -14,7 +14,11 @@ Guidance on adding `aria-label` with icons
 
 ### Changed
 - _Component [icons]({{ componentPath '@icons' }})_:
-Icons changed to span elements
+  Icons changed to span elements
+- _Component [hover effects]({{ componentPath '@hover-effects' }})_:
+  Updated hover effects accessibility guidance for light and super light overlays
+- _Component [alerts]({{ componentPath '@alerts' }})_:
+  Alerts can now only be closed by clicking a close button and set Alerts status to prototype and updated docs to advise modal use
 
 ### Removed
 - _Component [carousel]({{ componentPath '@carousel' }})_:
