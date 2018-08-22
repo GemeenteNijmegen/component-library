@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#BRANCH_NAME=$(git symbolic-ref --short HEAD)
+BRANCH_NAME=release/2
+
+#if [ "release/" == ${BRANCH_NAME:0:8} ] && [ ! -f test.txt ]; then
+if [ "release/" == ${BRANCH_NAME:0:8} ]; then
+    VERSION=${BRANCH_NAME:8:1}
+#    touch test.txt
+    date > test.txt
+#    git add test.txt
+#    git commit -m "$BRANCH_NAME changelog update"
+#    git push
+    echo "   /==============================="
+    echo "   | RELEASE CHANGELOG UPDATED"
+    echo "   | Target branch: $BRANCH_NAME"
+    echo "   | Release version: $VERSION"
+    echo "   \=============================="
+fi
