@@ -7,8 +7,8 @@
     echo "   | TESTING..."
     echo "   \=============================="
     node dev/release/changelogs/update '1.0.0'
-#    touch tester.txt
-#    date > tester.txt
+    touch tester2.txt
+    date > tester2.txt
 #    git add tester.txt
 #    git commit -m "$BRANCH_NAME changelog update"
 #    git push
