@@ -96,9 +96,9 @@ build tester:
     -e CI_REGISTRY_IMAGE
     -e DOCKER_TAG
     -e STABLE_RELEASE
-    yarn install --non-interactive --ignore-optional && yarn cache clean;
     node:8.11.2-alpine
-    node dev/release/changelogs/update "2.0.0"
+  - docker run yarn install --non-interactive --ignore-optional && yarn cache clean;
+  - docker run node dev/release/changelogs/update "2.0.0"
   except:
   - /^release\/.*$/
 
