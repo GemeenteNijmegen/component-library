@@ -1,5 +1,5 @@
 const fs = require('fs');
-// const yaml = require('js-yaml');
+const yaml = require('js-yaml');
 const compareVersions = require('compare-versions');
 
 // make Promise version of fs.readdir()
@@ -22,7 +22,7 @@ fs.readYamlFileAsync = (filename, enc) => {
             if (err) {
                 reject(err);
             } else {
-                resolve(data);
+                resolve(yaml.safeLoad(data));
             }
         });
     });
