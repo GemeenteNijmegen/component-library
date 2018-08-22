@@ -1,0 +1,16 @@
+changes:
+  - type: added #changed, removed, added
+    component: hover-effects
+    description: Added something
+  - type: changed #changed, removed, added
+    component: hover-effects
+    description: Change 1
+  - type: changed #changed, removed, added
+    component: hover-effects
+    description: Change 2
+  - type: removed #changed, removed, added
+    component: hover-effects
+    description: Removed something
+  - type: removed #changed, removed, added
+    component: alerts
+    description: Removed something

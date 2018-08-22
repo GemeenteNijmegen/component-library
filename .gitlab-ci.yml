@@ -98,7 +98,6 @@ build tester:
     -e STABLE_RELEASE
     node:8.11.2-alpine
     yarn install --non-interactive --ignore-optional
-  - ls
   - yarn update-changelog "2.0.0"
   except:
   - /^release\/.*$/
