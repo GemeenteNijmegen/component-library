@@ -98,10 +98,10 @@ build tester:
     -e STABLE_RELEASE
     node:8.11.2-alpine
     ls
-  - ls
   except:
   - /^release\/.*$/
 
+# node dev/release/changelogs/update "2.0.0"
 #  - git fetch origin ${CI_COMMIT_REF_NAME}
 #  - git checkout ${CI_COMMIT_REF_NAME}
 #  - git pull origin ${CI_COMMIT_REF_NAME}

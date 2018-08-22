@@ -6,6 +6,7 @@ COPY package.json yarn.lock /usr/src/app/
 RUN yarn install --non-interactive --ignore-optional && yarn cache clean
 COPY . /usr/src/app
 RUN yarn build
+RUN yarn install --non-interactive --ignore-optional
 
 FROM nginx:1.13.5-alpine
 COPY dev/dockerconfig/nginx.conf /etc/nginx/nginx.conf
