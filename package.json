@@ -25,7 +25,7 @@
     "build": "gulp build --env prod",
     "build-icons-listing": "gulp build-icons-listing",
     "prepare-deployment": "node dev/deployment/prepare-deployment.js",
-    "update-changelog": "dev/release/changelogs/update-changelog",
+    "update-changelog": "node dev/release/changelogs/update",
     "update-releases": "node dev/deployment/update-releases.js"
   },
   "devDependencies": {
