@@ -84,6 +84,8 @@ build tester:
   - pip install --upgrade docker-compose
   - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID";
+  - git config --global user.email "swallis@enrise.com"
+  - git config --global user.name "swallis"
   script:
   - docker build . -f Dockerfile-prod
   - docker run
