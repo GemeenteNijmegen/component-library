@@ -2,7 +2,7 @@ version: '3'
 services:
   frontend:
     build: .
-    command: "yarn start --ignore-engines"
+    command: "yarn start"
     volumes:
       - ./:/app
     environment:

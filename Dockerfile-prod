@@ -3,7 +3,7 @@ ARG NODE_ENV=production
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY package.json yarn.lock /usr/src/app/
-RUN yarn install --non-interactive --ignore-optional && yarn cache clean
+RUN yarn install --non-interactive --ignore-optional --ignore-engines && yarn cache clean
 COPY . /usr/src/app
 RUN yarn build
 
