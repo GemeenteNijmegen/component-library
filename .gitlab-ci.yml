@@ -61,20 +61,19 @@ build release:
   only:
     - /^release\/.*$/
 
-build test:
-  stage: build
-  services:
-    - docker:dind
-  before_script:
-    - apk --no-cache add python py-pip
-    - pip install --upgrade docker-compose
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-    - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID";
-  script:
-    - docker build . -f Dockerfile-prod
-  except:
-    - /^release\/.*$/
-    - tester
+#build test:
+#  stage: build
+#  services:
+#    - docker:dind
+#  before_script:
+#    - apk --no-cache add python py-pip
+#    - pip install --upgrade docker-compose
+#    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+#    - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID";
+#  script:
+#    - docker build . -f Dockerfile-prod
+#  except:
+#    - /^release\/.*$/
 
 build tester:
   stage: build
@@ -87,7 +86,6 @@ build tester:
   - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID";
   script:
   - docker build . -f Dockerfile-prod
-    - docker run yarn test
   - docker run
     -w /app
     -v "$PWD":/app
@@ -98,8 +96,8 @@ build tester:
     -e STABLE_RELEASE
     node:8.11.2-alpine
     yarn tester
-  only:
-  - tester
+  except:
+  - /^release\/.*$/
 
 # ======================
 # Deploy stage
