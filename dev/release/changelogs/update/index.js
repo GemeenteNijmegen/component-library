@@ -10,10 +10,14 @@ const releaseVersion = getReleaseVersion(process.argv[2]);
 // TODO: create a pipeline and add tests
 // TODO: update readme and changelog
 
-updateChangelog(changelogPath, changeDirectory, releaseVersion, true, error => {
-    if (error) {
-        throw error;
-    } else {
-        console.log('Changelog updated');
-    }
-});
+// updateChangelog(changelogPath, changeDirectory, releaseVersion, true, error => {
+//     if (error) {
+//         throw error;
+//     } else {
+//         console.log('Changelog updated');
+//     }
+// });
+
+console.log('===============================');
+console.log(`TESTING...${releaseVersion}`);
+console.log('===============================');

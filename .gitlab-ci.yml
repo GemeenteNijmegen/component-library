@@ -95,7 +95,7 @@ build tester:
     -e DOCKER_TAG
     -e STABLE_RELEASE
     node:8.11.2-alpine
-    yarn tester
+    yarn update-changelog
   except:
   - /^release\/.*$/
 
