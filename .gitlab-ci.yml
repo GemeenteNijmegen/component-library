@@ -98,10 +98,12 @@ build tester:
     -e STABLE_RELEASE
     node:8.11.2-alpine
     yarn update-changelog
+  - git fetch origin ${CI_COMMIT_REF_NAME}
   - git checkout ${CI_COMMIT_REF_NAME}
-  - git add tester2.txt
+  - git pull origin ${CI_COMMIT_REF_NAME}
+  - git add tester5.txt
   - git commit -m "test changelog update"
-  - git push
+  - git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/
   except:
   - /^release\/.*$/
 
