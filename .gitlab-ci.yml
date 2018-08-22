@@ -80,7 +80,7 @@ build tester:
   services:
   - docker:dind
   before_script:
-  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+#  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
 #  - eval $(ssh-agent -s)
 #  - ssh-add <(echo "$GIT_SSH_PRIV_KEY")
 #  - git config --global user.email "swallis@enrise.com"
@@ -90,6 +90,7 @@ build tester:
   - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID";
   - apk --no-cache add openssh
   - eval $(ssh-agent -s)
+  - ssh-add <(echo "$GIT_SSH_PRIV_KEY")
   - echo "$SSH_PRIVATE_KEY" | ssh-add -
   - git config --global user.email "swallis@enrise.com"
   - git config --global user.name "swallis"
