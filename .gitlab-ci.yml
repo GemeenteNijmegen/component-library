@@ -101,6 +101,13 @@ build tester:
   except:
   - /^release\/.*$/
 
+#  - git fetch origin ${CI_COMMIT_REF_NAME}
+#  - git checkout ${CI_COMMIT_REF_NAME}
+#  - git pull origin ${CI_COMMIT_REF_NAME}
+#  - git add docs/03-Changelog.md
+#  - git commit -m "${CI_COMMIT_REF_NAME} changelog update"
+#  - git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/
+
 # ======================
 # Deploy stage
 # ======================
