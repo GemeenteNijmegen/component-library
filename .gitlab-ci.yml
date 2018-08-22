@@ -80,34 +80,10 @@ build tester:
   services:
   - docker:dind
   before_script:
-#  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
-#  - eval $(ssh-agent -s)
-#  - ssh-add <(echo "$GIT_SSH_PRIV_KEY")
-#  - git config --global user.email "swallis@enrise.com"
-#  - git config --global user.name "swallis"
-#  - mkdir -p ~/.ssh
-#  - cat gitlab-known-hosts >> ~/.ssh/known_hosts
+  - apk --no-cache add python py-pip git
+  - pip install --upgrade docker-compose
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID";
-  - apk --no-cache add openssh
-  - eval $(ssh-agent -s)
-  - ssh-add <(echo "$GIT_SSH_PRIV_KEY")
-  - echo "$SSH_PRIVATE_KEY" | ssh-add -
-  - git config --global user.email "swallis@enrise.com"
-  - git config --global user.name "swallis"
-  - mkdir /root/.ssh/
-  - echo "$SSH_SERVER_HOSTKEYS" > ~/.ssh/known_hosts
-  - rm -f docker-socket-ssh
-#  script:
-#  - git clone git@gitlab.dev.terastrm.net:${CI_PROJECT_PATH}.git
-#  - cd ${CI_PROJECT_NAME}
-#  - git checkout ts
-#  - git rebase master
-#  - git push --force origin ts
-#  before_script:
-#  - apk --no-cache add python py-pip
-#  - pip install --upgrade docker-compose
-#  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-#  - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID";
   script:
   - git -v
 #  - docker build . -f Dockerfile-prod
