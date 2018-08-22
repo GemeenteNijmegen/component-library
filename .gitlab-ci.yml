@@ -72,6 +72,7 @@ build test:
     - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID";
   script:
     - docker build . -f Dockerfile-prod
+    - yarn test
   except:
     - /^release\/.*$/
 

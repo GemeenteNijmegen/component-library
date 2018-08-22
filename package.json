@@ -25,6 +25,8 @@
     "build": "gulp build --env prod",
     "build-icons-listing": "gulp build-icons-listing",
     "prepare-deployment": "node dev/deployment/prepare-deployment.js",
+    "tester": "dev/git-hooks/post-receive",
+    "update-changelog": "node dev/releases/changelogs/update",
     "update-releases": "node dev/deployment/update-releases.js"
   },
   "devDependencies": {
