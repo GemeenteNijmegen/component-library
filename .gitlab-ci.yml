@@ -96,7 +96,9 @@ build tester:
     -e CI_REGISTRY_IMAGE
     -e DOCKER_TAG
     -e STABLE_RELEASE
-    node dev/release/changelogs/update "2.0.0"
+    node:8.11.2-alpine
+    ls
+  - ls
   except:
   - /^release\/.*$/
 
