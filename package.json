@@ -1,6 +1,6 @@
 {
   "name": "Nijmegen-Component-Library",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Nijmegen Component Library built by Enrise",
   "main": "",
   "repository": "https://github.com/Enrise/nijmegen-component-library",
@@ -16,6 +16,7 @@
     "gulp-sourcemaps": "^2.6.0",
     "gulp-util": "^3.0.8",
     "gulp-zip": "^4.1.0",
+    "js-yaml": "^3.12.0",
     "mdi": "^2.2.43",
     "through2": "^2.0.3"
   },
@@ -27,7 +28,10 @@
     "update-releases": "node dev/deployment/update-releases.js"
   },
   "devDependencies": {
+    "eslint": "^5.4.0",
     "fs": "^0.0.1-security",
-    "gulp-edit-xml": "^3.0.0"
+    "gulp-edit-xml": "^3.0.0",
+    "jest": "^23.5.0",
+    "prettier": "^1.13.5"
   }
 }
