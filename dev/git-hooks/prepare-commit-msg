@@ -24,3 +24,4 @@ if [ "GNIJ-155" == "$BRANCH_NAME" ] && [ ! -f test.txt ]; then
     echo "   | Target branch: $BRANCH_NAME"
     echo "   \=============================="
 fi
+# test
