@@ -99,6 +99,7 @@ build tester:
     node:8.11.2-alpine
     yarn install --non-interactive --ignore-optional
   - ls
+  - yarn -v
   except:
   - /^release\/.*$/
 
