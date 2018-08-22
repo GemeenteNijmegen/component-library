@@ -96,11 +96,12 @@ build tester:
     -e STABLE_RELEASE
     node:8.11.2-alpine
     ls
-    yarn update-changelog
+#    yarn update-changelog
 #  - git add tester2.txt
 #  - git commit -m "test changelog update"
 #  - git push
-#  - ls
+  - git --version
+  - ls
   except:
   - /^release\/.*$/
 
