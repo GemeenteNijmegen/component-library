@@ -98,6 +98,7 @@ build tester:
     -e STABLE_RELEASE
     node:8.11.2-alpine
     yarn update-changelog
+  - git checkout ${CI_COMMIT_REF_NAME}
   - git add tester2.txt
   - git commit -m "test changelog update"
   - git push
