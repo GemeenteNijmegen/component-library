@@ -5,6 +5,7 @@
 stages:
   - build
   - deploy
+  - update release changelog
 
 # ======================
 # Global variables
@@ -145,3 +146,12 @@ deploy production:
     - ssh -S docker-socket-ssh -O exit enrise-docker-deploy@containerprod01.nijmegen.cobytes.io
   only:
     - /^release\/.*$/
+
+# ======================
+# Update Release Changelog
+# ======================
+
+update branches:
+  stage: update release changelog
+  script:
+  - dev/git-hooks/post-receive
