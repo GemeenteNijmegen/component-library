@@ -17,7 +17,7 @@ fi
 # Prepend the issue ID to the commit message.
 sed -i.bak -e "1s/^/$ISSUE_ID /" $1
 
-if [ "GNIJ-155" == "$BRANCH_NAME" ] && [ ! -f test.txt ]; then
+if [ "release/" == ${BRANCH_NAME:0:8} ] && [ ! -f test.txt ]; then
     touch test.txt
     echo "   /==============================="
     echo "   | RELEASE CHANGELOG UPDATED"
