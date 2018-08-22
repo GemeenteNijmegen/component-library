@@ -88,6 +88,7 @@ build tester:
   - git config --global user.name "swallis"
   script:
   - docker build . -f Dockerfile-prod
+  - docker run --rm frontend yarn install --non-interactive --ignore-optional && yarn cache clean
   - docker run
     -w /app
     -v "$PWD":/app
@@ -97,8 +98,7 @@ build tester:
     -e DOCKER_TAG
     -e STABLE_RELEASE
     node:8.11.2-alpine
-  - docker run yarn install --non-interactive --ignore-optional && yarn cache clean;
-  - docker run node dev/release/changelogs/update "2.0.0"
+    node dev/release/changelogs/update "2.0.0"
   except:
   - /^release\/.*$/
 
