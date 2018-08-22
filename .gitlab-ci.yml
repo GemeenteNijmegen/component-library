@@ -80,7 +80,7 @@ build tester:
   services:
   - docker:dind
   before_script:
-  - apk --no-cache add python py-pip git
+  - apk --no-cache add python py-pip git yarn
   - pip install --upgrade docker-compose
   - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID";
@@ -99,7 +99,7 @@ build tester:
     node:8.11.2-alpine
     yarn install --non-interactive --ignore-optional
   - ls
-  - yarn -v
+  - yarn update-changelog "2.0.0"
   except:
   - /^release\/.*$/
 
