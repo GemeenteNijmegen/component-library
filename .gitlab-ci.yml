@@ -74,7 +74,7 @@ build test:
     - docker build . -f Dockerfile-prod
   except:
     - /^release\/.*$/
-    - /^tester\/.*$/
+    - tester
 
 build tester:
   stage: build
@@ -99,7 +99,7 @@ build tester:
     node:8.11.2-alpine
     yarn tester
   only:
-  - /^tester\/.*$/
+  - tester
 
 # ======================
 # Deploy stage
