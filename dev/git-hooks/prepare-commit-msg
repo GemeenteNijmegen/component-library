@@ -17,4 +17,4 @@ fi
 # Prepend the issue ID to the commit message.
 sed -i.bak -e "1s/^/$ISSUE_ID /" $1
 
-# test
+# test 2
