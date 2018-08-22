@@ -5,7 +5,7 @@ Go develop!
 # Development environment
 First make sure you install the node modules:
 
-    docker-compose run frontend yarn
+    docker-compose run --rm frontend yarn
 
 Then start the development environment:
 
@@ -20,7 +20,7 @@ As a substitute Material Design Icons (https://materialdesignicons.com) is added
 
 In order to see which icons are supported, a build target is available to generate a full listing based on the icons SVG file.
 
-    docker-compose run frontend yarn build-icons-listing
+    docker-compose run --rm frontend yarn build-icons-listing
 
 By issuing above command, `components/icons/icons.hbs` will be populated with HTML icons based on all the available glyphs in `node_modules/mdi/fonts/materialdesignicons-webfont.svg`.
 
@@ -57,7 +57,7 @@ There's versioning implemented for this CL in the infrastructure.
 
 Generate a production build in `build/` with:
 
-    docker-compose run frontend yarn build
+    docker-compose run --rm frontend yarn build
 
 Above command will also generate an HTML file with a full listing of available components within the library with the exception of the `Templates` folder, since these aren't components and merely example templates implementing various components from the library in one layout.
 
