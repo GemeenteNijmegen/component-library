@@ -97,13 +97,7 @@ build tester:
     -e DOCKER_TAG
     -e STABLE_RELEASE
     node:8.11.2-alpine
-    node dev/release/changelogs/update ${"2.0.0"}
-#  - git fetch origin ${CI_COMMIT_REF_NAME}
-#  - git checkout ${CI_COMMIT_REF_NAME}
-#  - git pull origin ${CI_COMMIT_REF_NAME}
-#  - git add docs/03-Changelog.md
-#  - git commit -m "${CI_COMMIT_REF_NAME} changelog update"
-#  - git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/
+    node dev/release/changelogs/update "2.0.0"
   except:
   - /^release\/.*$/
 
