@@ -85,17 +85,18 @@ build tester:
   - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID";
   script:
-  - docker build . -f Dockerfile-prod
-  - docker run
-    -w /app
-    -v "$PWD":/app
-    -e GITLAB_TOKEN
-    -e CI_COMMIT_REF_NAME
-    -e CI_REGISTRY_IMAGE
-    -e DOCKER_TAG
-    -e STABLE_RELEASE
-    node:8.11.2-alpine
-    yarn update-changelog
+  - git -v
+#  - docker build . -f Dockerfile-prod
+#  - docker run
+#    -w /app
+#    -v "$PWD":/app
+#    -e GITLAB_TOKEN
+#    -e CI_COMMIT_REF_NAME
+#    -e CI_REGISTRY_IMAGE
+#    -e DOCKER_TAG
+#    -e STABLE_RELEASE
+#    node:8.11.2-alpine
+#    yarn update-changelog
   except:
   - /^release\/.*$/
 

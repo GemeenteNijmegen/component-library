@@ -6,12 +6,12 @@
     echo "   /==============================="
     echo "   | TESTING..."
     echo "   \=============================="
-#    node dev/release/changelogs/update '1.0.0'
-    touch tester.txt
-    date > tester.txt
-    git add tester.txt
-    git commit -m "$BRANCH_NAME changelog update"
-    git push
+    node dev/release/changelogs/update '1.0.0'
+#    touch tester.txt
+#    date > tester.txt
+#    git add tester.txt
+#    git commit -m "$BRANCH_NAME changelog update"
+#    git push
 #
 ##if [ "release/" == ${BRANCH_NAME:0:8} ] && [ ! -f test.txt ]; then
 #if [ "GNIJ-155" == ${BRANCH_NAME:0:8} ]; then
