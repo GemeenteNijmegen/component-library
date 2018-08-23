@@ -99,6 +99,12 @@ build tester:
     node:8.11.2-alpine
     yarn install --non-interactive --ignore-optional
   - ls
+  - ls changelogs
+  - ls changelogs/
+  - ls changelogs/unreleased
+  - ls changelogs/unreleased/
+  - ls | wc -l
+  - ls changelogs/unreleased/ | wc -l
   - if [[ ls changelogs/unreleased/ | wc -l > 0 ]] ; then git fetch origin ${CI_COMMIT_REF_NAME} ; fi
   - if [[ ls changelogs/unreleased/ | wc -l > 0 ]] ; then git checkout ${CI_COMMIT_REF_NAME} ; fi
   - if [[ ls changelogs/unreleased/ | wc -l > 0 ]] ; then git pull origin ${CI_COMMIT_REF_NAME} ; fi
