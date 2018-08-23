@@ -6,7 +6,6 @@ const changelogPath = path.join(__dirname, '../../../../docs/03-Changelog.md');
 const changeDirectory = path.join(__dirname, '../../../../changelogs/unreleased');
 const releaseVersion = getReleaseVersion(process.argv[2]);
 
-// TODO: add the version dynamically with testers/2 (just support major versions for now?)
 // TODO: add tests to pipeline
 // TODO: tidy up ci putting back commented out and switching to release
 // TODO: merge back into 155
