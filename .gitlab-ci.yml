@@ -99,7 +99,7 @@ build tester:
     node:8.11.2-alpine
     yarn install --non-interactive --ignore-optional
   - ls changelogs/unreleased/ | wc -l
-  - export CHANGELOG_FILE_COUNT = ls changelogs/unreleased/ | wc -l
+  - export CHANGELOG_FILE_COUNT=ls changelogs/unreleased/ | wc -l
   - if [ "$CHANGELOG_FILE_COUNT" -gt 0 ] ; then git fetch origin ${CI_COMMIT_REF_NAME} ; fi
   - if [ "$CHANGELOG_FILE_COUNT" -gt 0 ] ; then git checkout ${CI_COMMIT_REF_NAME} ; fi
   - if [ "$CHANGELOG_FILE_COUNT" -gt 0 ] ; then git pull origin ${CI_COMMIT_REF_NAME} ; fi
