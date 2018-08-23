@@ -80,10 +80,15 @@ build tester:
   services:
   - docker:dind
   before_script:
+  - ls
   - apk --no-cache add python py-pip git yarn
+  - ls
   - pip install --upgrade docker-compose
+  - ls
   - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  - ls
   - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID";
+  - ls
   - git config --global user.email "swallis@enrise.com"
   - git config --global user.name "swallis"
   - export CHANGES_FILE_COUNT=$(ls changelogs/unreleased/ | wc -l)
