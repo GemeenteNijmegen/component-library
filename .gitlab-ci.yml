@@ -80,7 +80,7 @@ build tester:
   services:
   - docker:dind
   before_script:
-  - apk --no-cache add python git yarn
+  - apk --no-cache add python py-pip git yarn
   - export CHANGES_FILE_COUNT=$(ls changelogs/unreleased/ | wc -l)
   - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git config --global user.email "swallis@enrise.com" ; fi
   - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git config --global user.name "swallis" ; fi
