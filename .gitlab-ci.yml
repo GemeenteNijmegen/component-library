@@ -81,12 +81,12 @@ build tester:
   - docker:dind
   before_script:
   - export CHANGES_FILE_COUNT=$(ls changelogs/unreleased/ | wc -l)
-  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then apk --no-cache add git yarn ; fi
+  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then apk --no-cache add python git yarn ; fi
   - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git config --global user.email "swallis@enrise.com" ; fi
   - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git config --global user.name "swallis" ; fi
   - if [ ${CHANGES_FILE_COUNT} -lt 1 ] ; then apk --no-cache add python py-pip ; fi
-  - if [ ${CHANGES_FILE_COUNT} -lt 1 ] ; then pip install --upgrade docker-compose ; fi
-  - if [ ${CHANGES_FILE_COUNT} -lt 1 ] ; then docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY ; fi
+  - if [ ${CHANGES_FILE_COUNT} -lt 0 ] ; then pip install --upgrade docker-compose ; fi
+  - if [ ${CHANGES_FILE_COUNT} -lt 0 ] ; then docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY ; fi
   - if [ ${CHANGES_FILE_COUNT} -lt 1 ] ; then export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID" ; fi
   script:
   - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then yarn install --non-interactive --ignore-optional ; fi
