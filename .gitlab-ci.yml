@@ -77,6 +77,8 @@ build release:
 
 build tester:
   stage: build
+  variables:
+    CHANGES_FILE_COUNT: 0
   services:
   - docker:dind
   before_script:
@@ -88,8 +90,9 @@ build tester:
   - git config --global user.name "swallis"
   script:
   - ls changelogs/unreleased/ | wc -l
+  - CHANGES_FILE_COUNT=$(ls changelogs/unreleased/ | wc -l)
+  - if [ CHANGES_FILE_COUNT -gt 0 ] ; then echo "yes" ; fi
   - docker build . -f Dockerfile-prod
-  - ls changelogs/unreleased/ | wc -l
   - docker run
     -w /app
     -v "$PWD":/app
@@ -100,10 +103,6 @@ build tester:
     -e STABLE_RELEASE
     node:8.11.2-alpine
     yarn install --non-interactive --ignore-optional
-  - ls changelogs/unreleased/ | wc -l
-  - CHANGES_FILE_COUNT=$(ls changelogs/unreleased/ | wc -l)
-  - if [ (ls changelogs/unreleased/ | wc -l) -gt 0 ] ; then echo "yes" ; fi
-  - if [ CHANGES_FILE_COUNT -gt 0 ] ; then echo "yes" ; fi
   except:
   - /^release\/.*$/
 
