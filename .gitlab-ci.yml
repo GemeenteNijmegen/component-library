@@ -81,9 +81,9 @@ build tester:
   services:
   - docker:dind
   script:
-  - echo "${CI_COMMIT_REF_NAME}"
-  - echo "${CI_COMMIT_REF_NAME}" | tail -c 2
-  - ${CI_COMMIT_REF_NAME} | tail -c 2
+  - export MAJOR_VERSION_NUMBER=$(echo "${CI_COMMIT_REF_NAME}" | tail -c 2)
+  - echo "${MAJOR_VERSION_NUMBER}"
+  - echo "${MAJOR_VERSION_NUMBER}.0.0"
   except:
   - /^release\/.*$/
 
