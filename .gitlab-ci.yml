@@ -39,21 +39,33 @@ variables:
 
 jest:
   stage: test
-  image: gitlab.enrise.com:5005/epic/nijmegen-component-library-ci/frontend-builder:latest
+  services:
+    - docker:dind
   cache:
     key: test-and-build-frontend
     untracked: false
     paths:
-    - .cache/
-    - components/frontend/node_modules/
-  after_script:
-  - cache-tool collect yarn:/usr/local/share/.cache/yarn/v1
+      - node_modules/
   before_script:
-  - cache-tool extract yarn:/usr/local/share/.cache/yarn/v1
-  - yarn install
+    - apk --no-cache add python py-pip
+    - pip install --upgrade docker-compose
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID";
   script:
-  - echo "Testing the frontend using Jest"
-  - node_modules/.bin/jest --config jest.config.js
+    - docker build . -t "$CI_REGISTRY_IMAGE":$DOCKER_TAG -f Dockerfile-prod
+    - docker push "$CI_REGISTRY_IMAGE":$DOCKER_TAG
+    - docker run
+      -w /app
+      -v "$PWD":/app
+      -e GITLAB_TOKEN
+      -e CI_COMMIT_REF_NAME
+      -e CI_REGISTRY_IMAGE
+      -e DOCKER_TAG
+      -e STABLE_RELEASE
+      node:8.11.2-alpine
+      yarn install --non-interactive --ignore-optional
+    - echo "Testing the frontend using Jest"
+    - node_modules/.bin/jest --config jest.config.js
 
 # ======================
 # Build stage
