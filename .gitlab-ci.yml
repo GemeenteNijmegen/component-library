@@ -89,7 +89,8 @@ build tester:
   - if [ ${CHANGES_FILE_COUNT} -lt 1 ] ; then docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY ; fi
   - if [ ${CHANGES_FILE_COUNT} -lt 1 ] ; then export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID" ; fi
   script:
-  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then echo "yes" ; fi
+  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then yarn install --non-interactive --ignore-optional ; fi
+  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then yarn update-changelog "2.0.0" ; fi
   except:
   - /^release\/.*$/
 
