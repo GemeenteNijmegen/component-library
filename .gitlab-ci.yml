@@ -41,12 +41,8 @@ jest:
   stage: test
   services:
     - docker:dind
-  cache:
-    key: test-and-build-frontend
-    untracked: false
-    paths:
-      - node_modules/
   before_script:
+    - echo "Testing the frontend using Jest"
     - apk --no-cache add python py-pip
     - pip install --upgrade docker-compose
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
@@ -64,8 +60,7 @@ jest:
       -e STABLE_RELEASE
       node:8.11.2-alpine
       yarn install --non-interactive --ignore-optional
-    - echo "Testing the frontend using Jest"
-    - yarn test
+      yarn test
 
 # ======================
 # Build stage
