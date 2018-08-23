@@ -3,6 +3,7 @@
 # ======================
 
 stages:
+  - test
   - build
   - deploy
 
@@ -33,15 +34,16 @@ variables:
     - rm -f docker-socket-ssh
 
 # ======================
-# Build stage
+# Testing
 # ======================
 
-build release:
-  stage: build
+jest:
+  stage: test
   services:
     - docker:dind
   before_script:
-    - apk --no-cache add python py-pip
+    - echo "Testing the frontend using Jest"
+    - apk --no-cache add python py-pip yarn
     - pip install --upgrade docker-compose
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID";
@@ -57,7 +59,45 @@ build release:
       -e DOCKER_TAG
       -e STABLE_RELEASE
       node:8.11.2-alpine
-      yarn update-releases
+      yarn install --non-interactive --ignore-optional && yarn test
+
+# ======================
+# Build stage
+# ======================
+
+build release:
+  stage: build
+  services:
+  - docker:dind
+  before_script:
+  - export MAJOR_VERSION_NUMBER=$(echo "${CI_COMMIT_REF_NAME}" | tail -c 2)
+  - apk --no-cache add python py-pip git yarn
+  - export CHANGES_FILE_COUNT=$(ls changelogs/unreleased/ | wc -l)
+  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git config --global user.email "swallis@enrise.com" ; fi
+  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git config --global user.name "swallis" ; fi
+  - pip install --upgrade docker-compose
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID"
+  script:
+  - docker build . -t "$CI_REGISTRY_IMAGE":$DOCKER_TAG -f Dockerfile-prod
+  - docker push "$CI_REGISTRY_IMAGE":$DOCKER_TAG
+    -w /app
+    -v "$PWD":/app
+    -e GITLAB_TOKEN
+    -e CI_COMMIT_REF_NAME
+    -e CI_REGISTRY_IMAGE
+    -e DOCKER_TAG
+    -e STABLE_RELEASE
+    node:8.11.2-alpine
+    yarn update-releases
+    yarn install --non-interactive --ignore-optional
+  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git fetch origin ${CI_COMMIT_REF_NAME} ; fi
+  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git checkout ${CI_COMMIT_REF_NAME} ; fi
+  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git pull origin ${CI_COMMIT_REF_NAME} ; fi
+  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then yarn update-changelog "${MAJOR_VERSION_NUMBER}.0.0" ; fi
+  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git add --all ; fi
+  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git commit -m "${CI_COMMIT_REF_NAME} changelog update" ; fi
+  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/ ; fi
   only:
     - /^release\/.*$/
 
