@@ -77,8 +77,6 @@ build release:
 
 build tester:
   stage: build
-  variables:
-    CHANGES_FILE_COUNT: 0
   services:
   - docker:dind
   before_script:
