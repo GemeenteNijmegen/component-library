@@ -6,9 +6,6 @@ const changelogPath = path.join(__dirname, '../../../../docs/03-Changelog.md');
 const changeDirectory = path.join(__dirname, '../../../../changelogs/unreleased');
 const releaseVersion = getReleaseVersion(process.argv[2]);
 
-// TODO: merge back into 155
-// TODO: update readme and changelog
-
 updateChangelog(changelogPath, changeDirectory, releaseVersion, true, error => {
     if (error) {
         throw error;

@@ -53,6 +53,30 @@ There's versioning implemented for this CL in the infrastructure.
 * We use a fork of the jwilder nginx proxy to have the routing based on path (see [this PR](https://github.com/jwilder/nginx-proxy/pull/1083))
 * The [versions landingspage](public/versions.html) is manually updated to have control over which version is stable.
 
+# Changelog
+
+To avoid changelog conflicts, we use a system similar to that used by GitLab:
+https://about.gitlab.com/2018/07/03/solving-gitlabs-changelog-conflict-crisis/
+
+All new changelog entries for component changes should go into yaml files under `changelogs/unreleased/`.
+
+You should use your branch name as the filename, such as `GNIJ-155.yml`.
+
+Each file should start with `changes:`, and then contain a list of changes underneath:
+```yaml
+changes:
+  - type: added #changed, removed, added
+    component: carousel
+    description: Added something...
+  - type: removed #changed, removed, added
+    component: footer
+    description: Removed...
+```
+
+The type must be changed, removed or added. The component must match the component folder/file name, and then a description of the change.
+
+Changelog entries within the unreleased folder will then get compiled into `docs/added.md` when they are merged into a release/x branch.
+
 # Production build
 
 Generate a production build in `build/` with:
