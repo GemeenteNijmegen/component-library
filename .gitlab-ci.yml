@@ -3,6 +3,7 @@
 # ======================
 
 stages:
+  - test
   - build
   - deploy
 
@@ -31,6 +32,28 @@ variables:
     - echo "$SSH_SERVER_HOSTKEYS" > ~/.ssh/known_hosts
     # Cleanup old socket
     - rm -f docker-socket-ssh
+
+# ======================
+# Testing
+# ======================
+
+jest:
+  stage: test
+  image: gitlab.enrise.com:5005/epic/nijmegen-component-library-ci/frontend-builder:latest
+    cache:
+      key: test-and-build-frontend
+      untracked: false
+      paths:
+      - .cache/
+      - components/frontend/node_modules/
+    after_script:
+    - cache-tool collect yarn:/usr/local/share/.cache/yarn/v1
+  before_script:
+  - cache-tool extract yarn:/usr/local/share/.cache/yarn/v1
+  - yarn install
+  script:
+  - echo "Testing the frontend using Jest"
+  - node_modules/.bin/jest --config jest.config.js
 
 # ======================
 # Build stage
