@@ -86,10 +86,8 @@ build tester:
   - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID";
   - git config --global user.email "swallis@enrise.com"
   - git config --global user.name "swallis"
-  script:
-  - ls changelogs/unreleased/ | wc -l
   - export CHANGES_FILE_COUNT=$(ls changelogs/unreleased/ | wc -l)
-  - echo "${CHANGES_FILE_COUNT}"
+  script:
   - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then echo "yes" ; fi
   except:
   - /^release\/.*$/
