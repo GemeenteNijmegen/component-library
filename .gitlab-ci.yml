@@ -98,6 +98,7 @@ build tester:
     -e STABLE_RELEASE
     node:8.11.2-alpine
     yarn install --non-interactive --ignore-optional
+  - ls
   - if [[ ls changelogs/unreleased/ | wc -l > 0 ]] ; then git fetch origin ${CI_COMMIT_REF_NAME} ; fi
   - if [[ ls changelogs/unreleased/ | wc -l > 0 ]] ; then git checkout ${CI_COMMIT_REF_NAME} ; fi
   - if [[ ls changelogs/unreleased/ | wc -l > 0 ]] ; then git pull origin ${CI_COMMIT_REF_NAME} ; fi
