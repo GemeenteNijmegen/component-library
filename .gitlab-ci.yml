@@ -79,6 +79,10 @@ build tester:
   stage: build
   services:
   - docker:dind
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+    - node_modules/
   before_script:
   - apk --no-cache add python py-pip git yarn
   - export CHANGES_FILE_COUNT=$(ls changelogs/unreleased/ | wc -l)
@@ -98,7 +102,6 @@ build tester:
     -e DOCKER_TAG
     -e STABLE_RELEASE
     node:8.11.2-alpine
-    yarn install --non-interactive --ignore-optional
   - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git fetch origin ${CI_COMMIT_REF_NAME} ; fi
   - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git checkout ${CI_COMMIT_REF_NAME} ; fi
   - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git pull origin ${CI_COMMIT_REF_NAME} ; fi
