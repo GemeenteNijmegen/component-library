@@ -7,7 +7,7 @@ const changeDirectory = path.join(__dirname, '../../../../changelogs/unreleased'
 const releaseVersion = getReleaseVersion(process.argv[2]);
 
 // TODO: setup the hook after merging to a release branch
-// TODO: clear up unreleased folder after to prevent loop!
+// TODO: clear up unreleased folder after to prevent loop! - add file check on folder to ci to skip steps
 // TODO: look at caching
 // TODO: add the version dynamically with testers/2 (just support major versions for now?)
 // TODO: tidy up ci putting back commented out and switching to release

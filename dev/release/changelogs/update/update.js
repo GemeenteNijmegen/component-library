@@ -16,7 +16,7 @@ const updateChangelog = (changelogPath, changeDirectory, releaseVersion, writeCh
         const changeFiles = results[1];
         fs.readFile(changelogPath, 'utf8', function(err, changelogData) {
             if (err) throw err;
-            if (changeFiles.length === 0) return done(changelogData);
+            if (changeFiles.length === 0) return done(writeChanges ? null : changelogData);
 
             const changelogDataArray = changelogData.split('\n');
 
