@@ -43,7 +43,7 @@ jest:
     - docker:dind
   before_script:
     - echo "Testing the frontend using Jest"
-    - apk --no-cache add python py-pip
+    - apk --no-cache add python py-pip yarn
     - pip install --upgrade docker-compose
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID";
