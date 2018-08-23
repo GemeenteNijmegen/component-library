@@ -7,6 +7,9 @@ const changeDirectory = path.join(__dirname, '../../../../changelogs/unreleased'
 const releaseVersion = getReleaseVersion(process.argv[2]);
 
 // TODO: setup the hook after merging to a release branch
+// TODO: look at caching
+// TODO: tidy up ci putting back commented out and switching to release
+// TODO: merge back into 155
 // TODO: add tests to pipeline
 // TODO: update readme and changelog
 
