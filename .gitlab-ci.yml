@@ -32,9 +32,6 @@ variables:
     # Cleanup old socket
     - rm -f docker-socket-ssh
 
-.testing: &testing
-  - echo "7"
-
 # ======================
 # Build stage
 # ======================
@@ -83,15 +80,14 @@ build tester:
   services:
   - docker:dind
   before_script:
-    <<: *testing
   - export CHANGES_FILE_COUNT=$(ls changelogs/unreleased/ | wc -l)
-  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then echo "yes!!" ; fi
-  - apk --no-cache add python py-pip git yarn
-  - pip install --upgrade docker-compose
-  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-  - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID";
-  - git config --global user.email "swallis@enrise.com"
-  - git config --global user.name "swallis"
+  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then apk --no-cache add git yarn ; fi
+  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git config --global user.email "swallis@enrise.com" ; fi
+  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git config --global user.name "swallis" ; fi
+  - if [ ${CHANGES_FILE_COUNT} -lt 1 ] ; then apk --no-cache add python py-pip ; fi
+  - if [ ${CHANGES_FILE_COUNT} -lt 1 ] ; then pip install --upgrade docker-compose ; fi
+  - if [ ${CHANGES_FILE_COUNT} -lt 1 ] ; then docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY ; fi
+  - if [ ${CHANGES_FILE_COUNT} -lt 1 ] ; then export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID" ; fi
   script:
   - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then echo "yes" ; fi
   except:
