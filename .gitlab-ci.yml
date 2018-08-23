@@ -82,7 +82,7 @@ build tester:
   - docker:dind
   script:
   - echo "${CI_COMMIT_REF_NAME}"
-  - echo ${CI_COMMIT_REF_NAME} | tail -c 2
+  - echo "${CI_COMMIT_REF_NAME}" | tail -c 2
   - ${CI_COMMIT_REF_NAME} | tail -c 2
   except:
   - /^release\/.*$/
