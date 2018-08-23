@@ -91,7 +91,8 @@ build tester:
   script:
   - ls changelogs/unreleased/ | wc -l
   - export CHANGES_FILE_COUNT=$(ls changelogs/unreleased/ | wc -l)
-  - if [ CHANGES_FILE_COUNT -gt 0 ] ; then echo "yes" ; fi
+  - echo "${CHANGES_FILE_COUNT}"
+  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then echo "yes" ; fi
   except:
   - /^release\/.*$/
 
