@@ -59,8 +59,7 @@ jest:
       -e DOCKER_TAG
       -e STABLE_RELEASE
       node:8.11.2-alpine
-      yarn install --non-interactive --ignore-optional
-      yarn test
+      yarn install --non-interactive --ignore-optional && yarn test
 
 # ======================
 # Build stage
