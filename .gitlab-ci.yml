@@ -80,14 +80,13 @@ build tester:
   services:
   - docker:dind
   before_script:
+  - apk --no-cache add python git yarn
   - export CHANGES_FILE_COUNT=$(ls changelogs/unreleased/ | wc -l)
-  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then apk --no-cache add python git yarn ; fi
   - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git config --global user.email "swallis@enrise.com" ; fi
   - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git config --global user.name "swallis" ; fi
-  - if [ ${CHANGES_FILE_COUNT} -lt 1 ] ; then apk --no-cache add python py-pip ; fi
-  - if [ ${CHANGES_FILE_COUNT} -lt 0 ] ; then pip install --upgrade docker-compose ; fi
-  - if [ ${CHANGES_FILE_COUNT} -lt 0 ] ; then docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY ; fi
-  - if [ ${CHANGES_FILE_COUNT} -lt 1 ] ; then export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID" ; fi
+  - pip install --upgrade docker-compose
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID"
   script:
   - docker build . -f Dockerfile-prod
   - docker run
@@ -100,29 +99,15 @@ build tester:
     -e STABLE_RELEASE
     node:8.11.2-alpine
     yarn install --non-interactive --ignore-optional
+  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git fetch origin ${CI_COMMIT_REF_NAME} ; fi
+  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git checkout ${CI_COMMIT_REF_NAME} ; fi
+  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git pull origin ${CI_COMMIT_REF_NAME} ; fi
   - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then yarn update-changelog "2.0.0" ; fi
+  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git add --all ; fi
+  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git commit -m "${CI_COMMIT_REF_NAME} changelog update" ; fi
+  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/ ; fi
   except:
   - /^release\/.*$/
-
-#  - docker build . -f Dockerfile-prod
-#  - docker run
-#    -w /app
-#    -v "$PWD":/app
-#    -e GITLAB_TOKEN
-#    -e CI_COMMIT_REF_NAME
-#    -e CI_REGISTRY_IMAGE
-#    -e DOCKER_TAG
-#    -e STABLE_RELEASE
-#    node:8.11.2-alpine
-#    yarn install --non-interactive --ignore-optional
-#  - if [ CHANGES_FILE_COUNT -gt 0 ] ; then git fetch origin ${CI_COMMIT_REF_NAME} ; fi
-#  - if [ CHANGES_FILE_COUNT -gt 0 ] ; then git checkout ${CI_COMMIT_REF_NAME} ; fi
-#  - if [ CHANGES_FILE_COUNT -gt 0 ] ; then git pull origin ${CI_COMMIT_REF_NAME} ; fi
-#  - if [ CHANGES_FILE_COUNT -gt 0 ] ; then yarn update-changelog "2.0.0" ; fi
-#  - if [ CHANGES_FILE_COUNT -gt 0 ] ; then git add --all ; fi
-#  - if [ CHANGES_FILE_COUNT -gt 0 ] ; then git commit -m "${CI_COMMIT_REF_NAME} changelog update" ; fi
-#  - if [ CHANGES_FILE_COUNT -gt 0 ] ; then git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/ ; fi
-
 
 # ======================
 # Deploy stage
