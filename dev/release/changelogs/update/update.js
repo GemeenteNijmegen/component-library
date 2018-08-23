@@ -2,12 +2,14 @@ const { fs, analyseChangelog, removeContent, insertContent, buildChanges } = req
 
 const updateChangelog = (changelogPath, changeDirectory, releaseVersion, writeChanges, done) => {
     const statusTypes = ['added', 'changed', 'removed'];
-    const changeFileNames = fs.readdirAsync(changeDirectory);
-    const changeFiles = changeFileNames.then(fileNames => {
-        return Promise.all(fileNames.map(filename => {
-            return fs.readYamlFileAsync(changeDirectory.replace(/\/$/, '') + '/' + filename, 'utf8');
-        }));
-    });
+    const changeFileNames = fs.readdirAsync(changeDirectory).then(fileNames => fileNames.filter(fileName => ['yml', 'yaml'].includes(fileName.split('.').pop())));
+    const changeFiles = changeFileNames.then(fileNames =>
+        Promise.all(
+            fileNames.map(fileName =>
+                fs.readYamlFileAsync(`${changeDirectory.replace(/\/$/, '')}/${fileName}`, 'utf8'),
+            ),
+        ),
+    );
 
     return Promise.all([changeFileNames, changeFiles]).then(results => {
         const changeFileNames = results[0];
@@ -21,11 +23,14 @@ const updateChangelog = (changelogPath, changeDirectory, releaseVersion, writeCh
             const { foundHeader, insertAboveIndex, lastIndex } = analyseChangelog(
                 changelogDataArray,
                 statusTypes,
-                releaseVersion
+                releaseVersion,
             );
 
             // Combine changeDirectory changes
-            const changes = changeFiles.reduce((array, file) => file.changes ? [...array, ...file.changes] : array, []);
+            const changes = changeFiles.reduce(
+                (array, file) => (file && file.changes ? [...array, ...file.changes] : array),
+                [],
+            );
 
             const insertArray = buildChanges(changes, changelogDataArray, foundHeader, statusTypes, releaseVersion);
 
@@ -37,9 +42,7 @@ const updateChangelog = (changelogPath, changeDirectory, releaseVersion, writeCh
             const spaceAdjustedInsertIndex = insertAboveIndex === lastIndex ? lastIndex + 1 : insertAboveIndex;
             const whereToInsert = foundHeader ? foundHeader.index + 1 : spaceAdjustedInsertIndex;
 
-            const newContent = insertContent(insertArray, changelogDataAfterRemovalsArray, whereToInsert).join(
-                '\n'
-            );
+            const newContent = insertContent(insertArray, changelogDataAfterRemovalsArray, whereToInsert).join('\n');
 
             if (writeChanges) {
                 fs.writeFile(changelogPath, newContent, function(err) {
