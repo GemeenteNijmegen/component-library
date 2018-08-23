@@ -25,7 +25,7 @@ const updateChangelog = (changelogPath, changeDirectory, releaseVersion, writeCh
             );
 
             // Combine changeDirectory changes
-            const changes = changeFiles.reduce((array, file) => [...array, ...file.changes], []);
+            const changes = changeFiles.reduce((array, file) => file.changes ? [...array, ...file.changes] : array, []);
 
             const insertArray = buildChanges(changes, changelogDataArray, foundHeader, statusTypes, releaseVersion);
 
