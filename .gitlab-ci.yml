@@ -98,13 +98,13 @@ build tester:
     -e STABLE_RELEASE
     node:8.11.2-alpine
     yarn install --non-interactive --ignore-optional
-  - git fetch origin ${CI_COMMIT_REF_NAME}
-  - git checkout ${CI_COMMIT_REF_NAME}
-  - git pull origin ${CI_COMMIT_REF_NAME}
-  - yarn update-changelog "2.0.0"
-  - git add --all
-  - git commit -m "${CI_COMMIT_REF_NAME} changelog update"
-  - git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/
+  - if [[ ls changelogs/unreleased/ | wc -l > 0 ]] ; then git fetch origin ${CI_COMMIT_REF_NAME} ; fi
+  - if [[ ls changelogs/unreleased/ | wc -l > 0 ]] ; then git checkout ${CI_COMMIT_REF_NAME} ; fi
+  - if [[ ls changelogs/unreleased/ | wc -l > 0 ]] ; then git pull origin ${CI_COMMIT_REF_NAME} ; fi
+  - if [[ ls changelogs/unreleased/ | wc -l > 0 ]] ; then yarn update-changelog "2.0.0" ; fi
+  - if [[ ls changelogs/unreleased/ | wc -l > 0 ]] ; then git add --all ; fi
+  - if [[ ls changelogs/unreleased/ | wc -l > 0 ]] ; then git commit -m "${CI_COMMIT_REF_NAME} changelog update" ; fi
+  - if [[ ls changelogs/unreleased/ | wc -l > 0 ]] ; then git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/ ; fi
   except:
   - /^release\/.*$/
 
