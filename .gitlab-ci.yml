@@ -99,14 +99,14 @@ build tester:
     node:8.11.2-alpine
     yarn install --non-interactive --ignore-optional
   - ls changelogs/unreleased/ | wc -l
-  - export CHANGELOG_FILE_COUNT=ls changelogs/unreleased/ | wc -l
-  - if [ "$CHANGELOG_FILE_COUNT" -gt 0 ] ; then git fetch origin ${CI_COMMIT_REF_NAME} ; fi
-  - if [ "$CHANGELOG_FILE_COUNT" -gt 0 ] ; then git checkout ${CI_COMMIT_REF_NAME} ; fi
-  - if [ "$CHANGELOG_FILE_COUNT" -gt 0 ] ; then git pull origin ${CI_COMMIT_REF_NAME} ; fi
-  - if [ "$CHANGELOG_FILE_COUNT" -gt 0 ] ; then yarn update-changelog "2.0.0" ; fi
-  - if [ "$CHANGELOG_FILE_COUNT" -gt 0 ] ; then git add --all ; fi
-  - if [ "$CHANGELOG_FILE_COUNT" -gt 0 ] ; then git commit -m "${CI_COMMIT_REF_NAME} changelog update" ; fi
-  - if [ "$CHANGELOG_FILE_COUNT" -gt 0 ] ; then git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/ ; fi
+  - CHANGES_FILE_COUNT=$(ls changelogs/unreleased/ | wc -l)
+  - if [ CHANGES_FILE_COUNT -gt 0 ] ; then git fetch origin ${CI_COMMIT_REF_NAME} ; fi
+  - if [ CHANGES_FILE_COUNT -gt 0 ] ; then git checkout ${CI_COMMIT_REF_NAME} ; fi
+  - if [ CHANGES_FILE_COUNT -gt 0 ] ; then git pull origin ${CI_COMMIT_REF_NAME} ; fi
+  - if [ CHANGES_FILE_COUNT -gt 0 ] ; then yarn update-changelog "2.0.0" ; fi
+  - if [ CHANGES_FILE_COUNT -gt 0 ] ; then git add --all ; fi
+  - if [ CHANGES_FILE_COUNT -gt 0 ] ; then git commit -m "${CI_COMMIT_REF_NAME} changelog update" ; fi
+  - if [ CHANGES_FILE_COUNT -gt 0 ] ; then git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/ ; fi
   except:
   - /^release\/.*$/
 
