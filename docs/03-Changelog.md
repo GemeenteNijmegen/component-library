@@ -8,15 +8,8 @@ All notable changes to this project will be documented in this file.<br>
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [Unreleased]
-### Changed
-- _Component [hover effects]({{ componentPath '@hover-effects' }})_:
-  Updated hover effects accessibility guidance for light and super light overlays
-- _Component [alerts]({{ componentPath '@alerts' }})_:
-  Alerts can now only be closed by clicking a close button and set Alerts status to prototype and updated docs to advise modal use
-
 ### Removed
-- _Component [carousel]({{ componentPath '@carousel' }})_:
-  Removed `role="listbox"` and `role="option"` to ensure the carousel works with a screen reader
+- Removed `role="listbox"` and `role="option"` to ensure the carousel works with a screen reader
 
 ## [2.0.0] - 2018-06
 ### Added
@@ -27,18 +20,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   added class `ml-auto` to `form` element
 - _Component [sidenav]({{ componentPath '@sidenav' }})_:
   as of MDB v4.5.0, sidenav relies on a custom scrollbar thus a container element is needed surrounding the original `ul` element
-- _Component [hover effects]({{ componentPath '@hover-effects' }})_:
-  Added something
-- _Component [icons]({{ componentPath '@icons' }})_:
-  Added something
-- _Component [hover effects]({{ componentPath '@hover-effects' }})_:
-  Added something
-- _Component [icons]({{ componentPath '@icons' }})_:
-  Added something
-- _Component [hover effects]({{ componentPath '@hover-effects' }})_:
-  Added something
-- _Component [icons]({{ componentPath '@icons' }})_:
-  Added something
 
 ### Changed
 - _Component cards ([filename]({{ componentPath '@cards-filename' }}), [news]({{ componentPath '@cards-news' }}), [services]({{ componentPath '@cards-services' }}), [services no icon]({{ componentPath '@cards-services-no-icon' }}))_:
@@ -47,18 +28,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   changed `navbar-toggleable-md` to `navbar-expand-lg`
 - _[Template default]({{ componentPath '@default-template' }})_:
   changed `hidden-md-up` to `d-md-none` since the underlying Bootstrap version (as part of the MDB framework as a whole) updated to v4 and uses different display utilities (see: {{ mdbootstrapPath '/utilities/bootstrap-display-property/' }})
-- _Component [hover effects]({{ componentPath '@hover-effects' }})_:
-  Change 1
-- _Component [hover effects]({{ componentPath '@hover-effects' }})_:
-  Change 2
-- _Component [hover effects]({{ componentPath '@hover-effects' }})_:
-  Change 1
-- _Component [hover effects]({{ componentPath '@hover-effects' }})_:
-  Change 2
-- _Component [hover effects]({{ componentPath '@hover-effects' }})_:
-  Change 1
-- _Component [hover effects]({{ componentPath '@hover-effects' }})_:
-  Change 2
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:
@@ -69,15 +38,3 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ## [1.0.0] - 2017-09
 ### Added
 - First stable release of the Nijmegen Component Library
-- _Component [hover effects]({{ componentPath '@hover-effects' }})_:
-  Removed something
-- _Component [alerts]({{ componentPath '@alerts' }})_:
-  Removed something
-- _Component [hover effects]({{ componentPath '@hover-effects' }})_:
-  Removed something
-- _Component [alerts]({{ componentPath '@alerts' }})_:
-  Removed something
-- _Component [hover effects]({{ componentPath '@hover-effects' }})_:
-  Removed something
-- _Component [alerts]({{ componentPath '@alerts' }})_:
-  Removed something

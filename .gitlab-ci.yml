@@ -102,7 +102,7 @@ build tester:
   - git checkout ${CI_COMMIT_REF_NAME}
   - git pull origin ${CI_COMMIT_REF_NAME}
   - yarn update-changelog "2.0.0"
-  - git add docs/03-Changelog.md
+  - git add --all
   - git commit -m "${CI_COMMIT_REF_NAME} changelog update"
   - git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/
   except:
