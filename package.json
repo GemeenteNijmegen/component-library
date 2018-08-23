@@ -24,6 +24,7 @@
     "start": "gulp dev",
     "build": "gulp build --env prod",
     "build-icons-listing": "gulp build-icons-listing",
+    "test": "node_modules/.bin/jest",
     "prepare-deployment": "node dev/deployment/prepare-deployment.js",
     "update-changelog": "node dev/release/changelogs/update",
     "update-releases": "node dev/deployment/update-releases.js"

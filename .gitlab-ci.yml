@@ -65,7 +65,7 @@ jest:
       node:8.11.2-alpine
       yarn install --non-interactive --ignore-optional
     - echo "Testing the frontend using Jest"
-    - node_modules/.bin/jest
+    - yarn test
 
 # ======================
 # Build stage
