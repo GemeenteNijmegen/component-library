@@ -12,8 +12,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - Using aria-label on the button and anchors
 
 ### Changed
+- _Component [hover effects]({{ componentPath '@hover-effects' }})_:
+  Updated hover effects accessibility guidance for light and super light overlays
+- _Component [alerts]({{ componentPath '@alerts' }})_:
+  Alerts can now only be closed by clicking a close button and set Alerts status to prototype and updated docs to advise modal use
 - _Component [button floating]({{ componentPath '@button-floating' }}), [button horizontal collapse]({{ componentPath '@button-horizontal-collapse' }}) and [button]({{ componentPath '@button' }})_:
-  Replacing i tags with span with aria-hidden="true" and updated the button notes mentioning the use of anchors or button where appropriate
+Replacing i tags with span with aria-hidden="true" and updated the button notes mentioning the use of anchors or button where appropriate
 
 ### Removed
 - _Component [carousel]({{ componentPath '@carousel' }})_:
