@@ -1,6 +1,23 @@
 .list-group {
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
 
+    ul:not([list-group]) {
+        margin-left: 0;
+        padding-left: 0;
+        position: relative;
+
+        li:before {
+            content: '';
+        }
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        @extend .list-group-item;
+        padding: 0.75rem 1.25rem;
+        font-family: 'Oranda', sans-serif;
+        line-height: 1.5;
+    }
+
     .list-group-title {
         @extend .list-group-item;
         font-size: to-rem(24);
