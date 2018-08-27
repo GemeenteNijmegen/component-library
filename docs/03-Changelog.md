@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 - _Component [footer]({{ componentPath '@footer' }})_:
   Allowing the use of header elements in the footer and ensuring the correct aria tags are present on the footer
+- Using aria-label on the button and anchors
 
 ### Changed
 - _Component [hover effects]({{ componentPath '@hover-effects' }})_:
@@ -19,6 +20,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Alerts can now only be closed by clicking a close button and set Alerts status to prototype and updated docs to advise modal use
 - _Component [footer]({{ componentPath '@footer' }})_:
   Replacing i tags with span
+- _Component [button floating]({{ componentPath '@button-floating' }}), [button horizontal collapse]({{ componentPath '@button-horizontal-collapse' }}) and [button]({{ componentPath '@button' }})_:
+Replacing i tags with span with aria-hidden="true" and updated the button notes mentioning the use of anchors or button where appropriate
 
 ### Removed
 - _Component [carousel]({{ componentPath '@carousel' }})_:
