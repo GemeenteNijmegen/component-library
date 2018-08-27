@@ -9,11 +9,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [Unreleased]
 ### Added
+- _Component [icons]({{ componentPath '@icons' }})_:
+Guidance on adding `aria-label` with icons
 - _Component [footer]({{ componentPath '@footer' }})_:
   Allowing the use of header elements in the footer and ensuring the correct aria tags are present on the footer
 - Using aria-label on the button and anchors
 
 ### Changed
+- _Component [icons]({{ componentPath '@icons' }})_:
+  Icons changed to span elements
 - _Component [hover effects]({{ componentPath '@hover-effects' }})_:
   Updated hover effects accessibility guidance for light and super light overlays
 - _Component [alerts]({{ componentPath '@alerts' }})_:
