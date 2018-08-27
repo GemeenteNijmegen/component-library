@@ -32,6 +32,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Search result header tag changed to h tag
 - _Component [sidenav]({{ componentPath '@sidenav' }})_:
   Set Sidenav status to prototype and updated docs to advise Do not implement!
+- _Component [steppers]({{ componentPath '@steppers' }})_:
+  Stepper updated to use `aria-label` and use span for icons
 
 ### Removed
 - _Component [carousel]({{ componentPath '@carousel' }})_:
