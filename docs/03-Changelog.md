@@ -32,6 +32,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Removed
 - _Component [carousel]({{ componentPath '@carousel' }})_:
   Removed `role="listbox"` and `role="option"` to ensure the carousel works with a screen reader
+- _Component [listing]({{ componentPath '@listing' }})_:
+  Removed labelledby from the listing item
 
 ## [2.0.0] - 2018-06
 ### Added
