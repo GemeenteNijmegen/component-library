@@ -1,7 +1,7 @@
 ---
 title: Alerts
 notes:
-status: ready # prototype, wip, ready
+status: prototype # prototype, wip, ready
 default: "success" # http://fractal.build/guide/components/variants#the-default-variant
 variants:
   - name: success
