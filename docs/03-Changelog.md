@@ -28,6 +28,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Replacing i tags with span with aria-hidden="true" and updated the button notes mentioning the use of anchors or button where appropriate
 - _Component list groups ([title link]({{ componentPath '@title-link' }}), [title no link]({{ componentPath '@title-no-link' }}))_:
   Paragraph headers on list-group lists replaced with h tags with accessibility in mind
+- _Component [search results]({{ componentPath '@search-results' }})_:
+  Search result header tag changed to h tag
 
 ### Removed
 - _Component [carousel]({{ componentPath '@carousel' }})_:
