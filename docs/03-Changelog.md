@@ -30,6 +30,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Paragraph headers on list-group lists replaced with h tags with accessibility in mind
 - _Component [search results]({{ componentPath '@search-results' }})_:
   Search result header tag changed to h tag
+- _Component [sidenav]({{ componentPath '@sidenav' }})_:
+  Set Sidenav status to prototype and updated docs to advise Do not implement!
 
 ### Removed
 - _Component [carousel]({{ componentPath '@carousel' }})_:

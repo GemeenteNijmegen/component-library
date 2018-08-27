@@ -1,4 +1,4 @@
-## Sidenav
+## Sidenav - Do not implement!
 
 Based on the version from MDB:<br>
 {{ mdbootstrapPath '/javascript/sidenav/' }}
