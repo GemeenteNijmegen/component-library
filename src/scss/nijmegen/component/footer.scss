@@ -10,6 +10,7 @@ footer.page-footer {
         line-height: to-rem(26);
         margin-bottom: 0.5rem;
         text-transform: none;
+        color: color('white', 'base');
     }
 
     .footer-copyright {
@@ -58,7 +59,7 @@ footer.page-footer {
             }
         }
 
-        i {
+        span {
             padding: to-rem(10) to-rem(8);
             font-size: to-rem(19);
             vertical-align: middle;

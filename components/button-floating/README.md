@@ -5,10 +5,9 @@ Based on the version from MDB:<br>
 
 ### Accessibility
 
-Be sure to add textual content to the button so this will be available to assistive technologies. The text can be visually hidden to the user
-by applying a `class="sr-only"` to the child element containing the text.<br>
-When using an icon as part of the button content, be sure to add `aria-hidden="true"` to the icon to hide it for assistive technologies since it's here for decorative reasons.<br>
-(https://www.24a11y.com/2017/svg-icon-fonts-accessibility-case-study/)
+Be sure to add textual content to the button using `aria-label` so this will be available to assistive technologies.
+Icons should be hidden from screen-readers by applying `aria-hidden="true"` to the child span `mdi` element.
+If the button is a link, then use an anchor tag instead `<a class="btn-floating btn-large btn-floating-primary" href="/add" aria-label="Add">...</a>`.
 
 ### Using
 
