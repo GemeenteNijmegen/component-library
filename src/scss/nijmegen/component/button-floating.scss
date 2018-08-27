@@ -1,6 +1,7 @@
 .btn-floating-primary {
     background-color: color('nijmegen-primary', 'base');
     color: color('white', 'base');
+    border: none;
 
     &:hover {
         background-color: color('nijmegen-primary', 'lighten-1');
