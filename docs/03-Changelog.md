@@ -34,6 +34,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Set Sidenav status to prototype and updated docs to advise Do not implement!
 - _Component [steppers]({{ componentPath '@steppers' }})_:
   Stepper updated to use `aria-label` and use span for icons
+- _Component [sticky content]({{ componentPath '@sticky-content' }})_:
+  Sticky content p title replace with h5
 
 ### Removed
 - _Component [carousel]({{ componentPath '@carousel' }})_:
