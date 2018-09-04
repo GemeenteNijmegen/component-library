@@ -73,8 +73,8 @@ build release:
   - export MAJOR_VERSION_NUMBER=$(echo "${CI_COMMIT_REF_NAME}" | tail -c 2)
   - apk --no-cache add python py-pip git yarn
   - export CHANGES_FILE_COUNT=$(ls changelogs/unreleased/ | wc -l)
-  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git config --global user.email "swallis@enrise.com" ; fi
-  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git config --global user.name "swallis" ; fi
+  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git config --global user.email "epic@enrise.com" ; fi
+  - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git config --global user.name "epic" ; fi
   - pip install --upgrade docker-compose
   - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID"
