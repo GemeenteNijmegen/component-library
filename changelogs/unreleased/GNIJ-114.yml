@@ -1,0 +1,19 @@
+changes:
+  - type: added #changed, removed, added
+    component: button
+    description: Using aria-label on the button and anchors
+  - type: added #changed, removed, added
+    component: button-floating
+    description: Using aria-label on the button and anchors
+  - type: added #changed, removed, added
+    component: button-horizontal-collapse
+    description: Using aria-label on the button and anchors
+  - type: changed #changed, removed, added
+    component: button
+    description: Replacing i tags with span with aria-hidden="true" and updated the button notes mentioning the use of anchors or button where appropriate
+  - type: changed #changed, removed, added
+    component: button-floating
+    description: Replacing i tags with span with aria-hidden="true" and updated the button notes mentioning the use of anchors or button where appropriate
+  - type: changed #changed, removed, added
+    component: button-horizontal-collapse
+    description: Replacing i tags with span with aria-hidden="true" and updated the button notes mentioning the use of anchors or button where appropriate

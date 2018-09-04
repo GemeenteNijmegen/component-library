@@ -1,0 +1,4 @@
+changes:
+  - type: changed #changed, removed, added
+    component: hover-effects
+    description: Updated hover effects accessibility guidance for light and super light overlays

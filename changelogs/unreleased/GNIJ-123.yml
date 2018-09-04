@@ -1,0 +1,4 @@
+changes:
+  - type: changed #changed, removed, added
+    component: sidenav
+    description: Set Sidenav status to prototype and updated docs to advise Do not implement!

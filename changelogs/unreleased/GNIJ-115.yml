@@ -1,0 +1,7 @@
+changes:
+  - type: changed #changed, removed, added
+    component: title-link
+    description: Paragraph headers on list-group lists replaced with h tags with accessibility in mind
+  - type: changed #changed, removed, added
+    component: title-no-link
+    description: Paragraph headers on list-group lists replaced with h tags with accessibility in mind

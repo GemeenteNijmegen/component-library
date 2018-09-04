@@ -4,10 +4,8 @@ A custom component created for Nijmegen.
 
 ### Accessibility
 
-Be sure to add textual content to the anchors so this will be available to assistive technologies. The text can be visually hidden to the user
-by applying a `class="sr-only"` to the child element containing the text.<br>
-When using an icon as part of the anchor, be sure to add `aria-hidden="true"` to the icon to hide it for assistive technologies since it's here for decorative reasons.<br>
-(https://www.24a11y.com/2017/svg-icon-fonts-accessibility-case-study/)
+Be sure to add textual content using `aria-label` to the anchors or buttons so this will be available to assistive technologies.
+Icons should be hidden from screen-readers by applying `aria-hidden="true"` to the child span `mdi` element.
 
 ### Using
 
