@@ -81,6 +81,7 @@ build release:
   script:
   - docker build . -t "$CI_REGISTRY_IMAGE":$DOCKER_TAG -f Dockerfile-prod
   - docker push "$CI_REGISTRY_IMAGE":$DOCKER_TAG
+  - docker run
     -w /app
     -v "$PWD":/app
     -e GITLAB_TOKEN
