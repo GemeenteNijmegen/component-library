@@ -1,0 +1,4 @@
+changes:
+  - type: changed #changed, removed, added
+    component: alerts
+    description: Alerts can now only be closed by clicking a close button and set Alerts status to prototype and updated docs to advise modal use

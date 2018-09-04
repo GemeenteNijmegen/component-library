@@ -10,3 +10,4 @@ node_modules
 /public/img/svg/
 /public/mdb-addons/
 /public/components-listing.html
+!changelogs/unreleased/.gitkeep

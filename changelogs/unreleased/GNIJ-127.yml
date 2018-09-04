@@ -1,0 +1,4 @@
+changes:
+  - type: changed #changed, removed, added
+    component: sticky-content
+    description: Sticky content p title replace with h5

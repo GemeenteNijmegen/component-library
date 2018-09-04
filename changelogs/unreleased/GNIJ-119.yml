@@ -1,0 +1,4 @@
+changes:
+  - type: removed #changed, removed, added
+    component: listing
+    description: Removed labelledby from the listing item

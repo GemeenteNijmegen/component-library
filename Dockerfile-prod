@@ -1,4 +1,4 @@
-FROM node:8.4.0-alpine as builder
+FROM node:8.11.2-alpine as builder
 ARG NODE_ENV=production
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app

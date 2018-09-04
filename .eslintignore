@@ -1,0 +1,7 @@
+src/
+public/
+node_modules/
+docs/
+components/
+.next/
+coverage/
