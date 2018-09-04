@@ -16,6 +16,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   added class `ml-auto` to `form` element
 - _Component [sidenav]({{ componentPath '@sidenav' }})_:
   as of MDB v4.5.0, sidenav relies on a custom scrollbar thus a container element is needed surrounding the original `ul` element
+- _Component [button]({{ componentPath '@button' }})_:
+  Using aria-label on the button and anchors
+- _Component [button floating]({{ componentPath '@button-floating' }})_:
+  Using aria-label on the button and anchors
+- _Component [button horizontal-collapse]({{ componentPath '@button-horizontal-collapse' }})_:
+  Using aria-label on the button and anchors
+- _Component [footer]({{ componentPath '@footer' }})_:
+  Allowing the use of header elements in the footer and ensuring the correct aria tags are present on the footer
+- _Component [icons]({{ componentPath '@icons' }})_:
+  Guidance on adding `aria-label` with icons
 
 ### Changed
 - _Component cards ([filename]({{ componentPath '@cards-filename' }}), [news]({{ componentPath '@cards-news' }}), [services]({{ componentPath '@cards-services' }}), [services no icon]({{ componentPath '@cards-services-no-icon' }}))_:
@@ -24,6 +34,32 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   changed `navbar-toggleable-md` to `navbar-expand-lg`
 - _[Template default]({{ componentPath '@default-template' }})_:
   changed `hidden-md-up` to `d-md-none` since the underlying Bootstrap version (as part of the MDB framework as a whole) updated to v4 and uses different display utilities (see: {{ mdbootstrapPath '/utilities/bootstrap-display-property/' }})
+- _Component [alerts]({{ componentPath '@alerts' }})_:
+  Alerts can now only be closed by clicking a close button and set Alerts status to prototype and updated docs to advise modal use
+- _Component [button]({{ componentPath '@button' }})_:
+  Replacing i tags with span with aria-hidden="true" and updated the button notes mentioning the use of anchors or button where appropriate
+- _Component [button floating]({{ componentPath '@button-floating' }})_:
+  Replacing i tags with span with aria-hidden="true" and updated the button notes mentioning the use of anchors or button where appropriate
+- _Component [button horizontal-collapse]({{ componentPath '@button-horizontal-collapse' }})_:
+  Replacing i tags with span with aria-hidden="true" and updated the button notes mentioning the use of anchors or button where appropriate
+- _Component [footer]({{ componentPath '@footer' }})_:
+  Replacing i tags with span
+- _Component [hover effects]({{ componentPath '@hover-effects' }})_:
+  Updated hover effects accessibility guidance for light and super light overlays
+- _Component [icons]({{ componentPath '@icons' }})_:
+  Icons changed to span elements
+- _Component [title link]({{ componentPath '@title-link' }})_:
+  Paragraph headers on list-group lists replaced with h tags with accessibility in mind
+- _Component [title no-link]({{ componentPath '@title-no-link' }})_:
+  Paragraph headers on list-group lists replaced with h tags with accessibility in mind
+- _Component [search results]({{ componentPath '@search-results' }})_:
+  Search result header tag changed to h tag
+- _Component [sidenav]({{ componentPath '@sidenav' }})_:
+  Set Sidenav status to prototype and updated docs to advise Do not implement!
+- _Component [steppers]({{ componentPath '@steppers' }})_:
+  Stepper updated to use `aria-label` and use span for icons
+- _Component [sticky content]({{ componentPath '@sticky-content' }})_:
+  Sticky content p title replace with h5
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:
@@ -34,3 +70,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ## [1.0.0] - 2017-09
 ### Added
 - First stable release of the Nijmegen Component Library
+- _Component [carousel]({{ componentPath '@carousel' }})_:
+  Removed `role="listbox"` and `role="option"` to ensure the carousel works with a screen reader
+- _Component [listing]({{ componentPath '@listing' }})_:
+  Removed labelledby from the listing item

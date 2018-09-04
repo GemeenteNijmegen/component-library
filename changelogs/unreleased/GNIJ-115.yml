@@ -1,7 +1,0 @@
-changes:
-  - type: added #changed, removed, added
-    component: icons
-    description: Guidance on adding `aria-label` with icons
-  - type: changed #changed, removed, added
-    component: icons
-    description: Icons changed to span elements
