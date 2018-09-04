@@ -57,7 +57,7 @@ $nijmegen-forms: (
 
 // add the custom Nijmegen colors to the overall colors mapping so
 // we can easily use a function/mixin to get a specific color
-$colors: map-merge($colors, ('nijmegen-brand': $nijmegen-brand));
+$colors: map-merge($mdb-colors-1, ('nijmegen-brand': $nijmegen-brand));
 $colors: map-merge($colors, ('nijmegen-grey': $nijmegen-grey));
 $colors: map-merge($colors, ('nijmegen-primary': $nijmegen-primary));
 $colors: map-merge($colors, ('nijmegen-backgrounds': $nijmegen-backgrounds));

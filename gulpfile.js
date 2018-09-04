@@ -8,7 +8,7 @@ const sassGlob = require('gulp-sass-glob');
 const sourcemaps = require('gulp-sourcemaps');
 const through = require('through2');
 
-const mdbootstrapPath = 'src/mdbootstrap-pro/v4.5.0';
+const mdbootstrapPath = 'src/mdbootstrap-pro/v4.5.9';
 const materialdesigniconsPath = 'node_modules/mdi';
 const materialdesigniconsFontPath = materialdesigniconsPath + '/fonts';
 

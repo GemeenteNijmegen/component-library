@@ -9,7 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [2.0.0] - 2018-06
 ### Added
-- MDBootstrap v4.5.0
+- MDBootstrap v4.5.9
 - _Component [footer]({{ componentPath '@footer' }})_:
   added `text-center` to `footer-copyright`
 - _Component navbar ([primary]({{ componentPath '@navbar-primary--default' }}) and [white]({{ componentPath '@navbar-white--default' }}))_:
