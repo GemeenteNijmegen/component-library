@@ -1,4 +1,4 @@
 changes:
-  - type: changed #changed, removed, added
-    component: search-results
-    description: Search result header tag changed to h tag
+  - type: removed #changed, removed, added
+    component: listing
+    description: Removed labelledby from the listing item

@@ -1,7 +1,19 @@
 changes:
   - type: added #changed, removed, added
-    component: footer
-    description: Allowing the use of header elements in the footer and ensuring the correct aria tags are present on the footer
+    component: button
+    description: Using aria-label on the button and anchors
+  - type: added #changed, removed, added
+    component: button-floating
+    description: Using aria-label on the button and anchors
+  - type: added #changed, removed, added
+    component: button-horizontal-collapse
+    description: Using aria-label on the button and anchors
   - type: changed #changed, removed, added
-    component: footer
-    description: Replacing i tags with span
+    component: button
+    description: Replacing i tags with span with aria-hidden="true" and updated the button notes mentioning the use of anchors or button where appropriate
+  - type: changed #changed, removed, added
+    component: button-floating
+    description: Replacing i tags with span with aria-hidden="true" and updated the button notes mentioning the use of anchors or button where appropriate
+  - type: changed #changed, removed, added
+    component: button-horizontal-collapse
+    description: Replacing i tags with span with aria-hidden="true" and updated the button notes mentioning the use of anchors or button where appropriate

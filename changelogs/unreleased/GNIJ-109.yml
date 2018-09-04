@@ -1,4 +1,4 @@
 changes:
   - type: changed #changed, removed, added
-    component: hover-effects
-    description: Updated hover effects accessibility guidance for light and super light overlays
+    component: alerts
+    description: Alerts can now only be closed by clicking a close button and set Alerts status to prototype and updated docs to advise modal use

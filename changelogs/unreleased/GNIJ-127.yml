@@ -1,4 +1,4 @@
 changes:
-  - type: removed #changed, removed, added
-    component: carousel
-    description: Removed `role="listbox"` and `role="option"` to ensure the carousel works with a screen reader
+  - type: changed #changed, removed, added
+    component: sticky-content
+    description: Sticky content p title replace with h5
