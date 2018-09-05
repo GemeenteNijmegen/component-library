@@ -17,6 +17,7 @@
 
     function areInputsValid(currentInputs) {
         var isValid = true;
+        $(".form-group").removeClass("has-error");
         for (var i = 0; i< currentInputs.length; i++) {
             if (!currentInputs[i].validity.valid){
                 isValid = false;
@@ -72,25 +73,15 @@
             }
         });
 
-        // todo: check next button changes...
-        // allNextBtn.click(function(){
-        //     var curStep = $(this).closest(".step-content"),
-        //             curStepBtn = curStep.attr("id"),
-        //             nextStepSteps = $('.stepper-steps li a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-        //             curInputs = curStep.find("input[type='text'],input[type='url']"),
-        //             isValid = true;
-        //
-        //     $(".form-group").removeClass("has-error");
-        //     for(var i=0; i< curInputs.length; i++){
-        //         if (!curInputs[i].validity.valid){
-        //             isValid = false;
-        //             $(curInputs[i]).closest(".form-group").addClass("has-error");
-        //         }
-        //     }
-        //
-        //     if (isValid)
-        //         nextStepSteps.removeAttr('disabled').trigger('click');
-        // });
+        allNextBtn.click(function(){
+            var currentStepContent = $(this).closest(".step-content"),
+                    nextStep = $('.stepper-steps li a[href="#' + currentStepContent.attr("id") + '"]').parent().next().children("a"),
+                    currentInputs = currentStepContent.find("input");
+
+            if (areInputsValid(currentInputs)) {
+                nextStep.trigger('click');
+            }
+        });
 
         activeStep.trigger('click');
     });
