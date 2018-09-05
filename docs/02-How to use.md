@@ -84,3 +84,7 @@ The component library has a few example templates which are listed here:
   (*sticky navbar, various form inputs, responsive footer*)
 * [Example search results template]({{ componentPath '@searchresults-template' }})<br>
   (*sticky navbar, search results layout based on predefined example "paspoort" search term, responsive footer*)
+
+## Preview components
+
+The [preview page](../components-listing.html) lists all components so that they can easily be viewed.
