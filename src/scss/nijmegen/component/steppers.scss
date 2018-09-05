@@ -1,3 +1,15 @@
+.step-content {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+
+    @media (max-width: 47.9375rem) {
+        position: unset;
+        top: 0;
+    }
+}
+
 .stepper li.active a .circle,
 .stepper li.completed a .circle {
     background-color: color('nijmegen-primary', 'base') !important;
@@ -6,6 +18,7 @@
 .stepper-horizontal li {
     align-items: initial;
     flex: initial;
+    position: unset;
 
     &:hover,
     &:not(:last-child):after,
@@ -15,6 +28,10 @@
 
     a {
         font-size: to-rem(16);
+
+        @media (max-width: 47.9375rem) {
+            text-align: left;
+        }
 
         .circle {
             width: 28px;

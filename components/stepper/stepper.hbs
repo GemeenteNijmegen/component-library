@@ -1,122 +1,150 @@
-<!-- Steps -->
-<ul class="stepper stepper-horizontal stepper-steps">
-    <li aria-label="active step" class="active" id="step-1">
-        <a href="#step-content-1" data-toggle="tooltip" data-placement="top" title="First tooltip">
-            <span class="circle">1</span>
-            <span class="label">First step</span>
-        </a>
-    </li>
-    <li class="disabled" id="step-2">
-        <a href="#step-content-2" data-toggle="tooltip" data-placement="top" title="Second tooltip">
-            <span class="circle">2</span>
-            <span class="label">Second step</span>
-        </a>
-    </li>
-    <li class="disabled" id="step-3">
-        <a href="#step-content-3" data-toggle="tooltip" data-placement="top" title="Third tooltip">
-            <span class="circle">3</span>
-            <span class="label">Third step</span>
-        </a>
-    </li>
-    <li class="disabled" id="step-4">
-        <a href="#step-content-4" data-toggle="tooltip" data-placement="top" title="Fourth tooltip">
-            <span class="circle">4</span>
-            <span class="label">Fourth step</span>
-        </a>
-    </li>
-    <li class="disabled" id="step-5">
-        <a href="#step-content-5" data-toggle="tooltip" data-placement="top" title="Fifth tooltip">
-            <span class="circle">5</span>
-            <span class="label">Fifth step</span>
-        </a>
-    </li>
-    <li class="disabled" id="step-6">
-        <a href="#step-content-6" data-toggle="tooltip" data-placement="top" title="Sixth tooltip">
-            <span class="circle">6</span>
-            <span class="label">Sixth step</span>
-        </a>
-    </li>
-</ul>
-
+<!-- Stepper Form Content -->
 <form id="stepper-form" role="form" action="" method="post">
-    <!-- First Step -->
-    <div class="row step-content" id="step-content-1">
-        <div class="col-md-12">
-            <h3 class="font-weight-bold pl-0 my-4"><strong>Basic Information</strong></h3>
-            <div class="form-group md-form">
-                <input id="email" type="email" required="required" class="form-control validate">
-                <label for="email" data-error="wrong">Email</label>
-            </div>
-            <div class="form-group md-form">
-                <input id="username" type="text" required="required" class="form-control validate">
-                <label for="username" data-error="wrong">Username</label>
-            </div>
-            <button class="btn disabled btn-mdb-color btn-rounded nextBtn float-right" type="button">Next</button>
-        </div>
-    </div>
 
-    <!-- Second Step -->
-    <div class="row step-content" id="step-content-2">
-        <div class="col-md-12">
-            <h3 class="font-weight-bold pl-0 my-4"><strong>Personal Data</strong></h3>
-            <div class="form-group md-form">
-                <input id="firstName" type="text" required="required" class="form-control validate">
-                <label for="firstName" data-error="wrong">First Name</label>
-            </div>
-            <div class="form-group md-form mt-3">
-                <input id="secondName" type="text" required="required" class="form-control validate">
-                <label for="secondName" data-error="wrong">Second Name</label>
-            </div>
-            <button class="btn disabled btn-mdb-color btn-rounded nextBtn float-right" type="button">Next</button>
-        </div>
-    </div>
+    <!-- Stepper Steps -->
+    <ul class="stepper stepper-horizontal stepper-steps">
 
-    <!-- Third Step -->
-    <div class="row step-content" id="step-content-3">
-        <div class="col-md-12">
-            <h3 class="font-weight-bold pl-0 my-4"><strong>Step 3</strong></h3>
-            <div class="form-group md-form">
-                <input id="step3" type="text" required="required" class="form-control validate">
-                <label for="step3" data-error="wrong">Step 3 Input</label>
-            </div>
-            <button class="btn disabled btn-mdb-color btn-rounded nextBtn float-right" type="button">Next</button>
-        </div>
-    </div>
+        <!-- First Step -->
+        <li aria-label="active step" class="active" id="step-1">
 
-    <!-- Fourth Step -->
-    <div class="row step-content" id="step-content-4">
-        <div class="col-md-12">
-            <h3 class="font-weight-bold pl-0 my-4"><strong>Step 4</strong></h3>
-            <div class="form-group md-form">
-                <input id="step4" type="text" required="required" class="form-control validate">
-                <label for="step4" data-error="wrong">Step 4 Input</label>
-            </div>
-            <button class="btn disabled btn-mdb-color btn-rounded nextBtn float-right" type="button">Next</button>
-        </div>
-    </div>
+            <!-- Step Button -->
+            <a href="#step-content-1">
+                <span class="circle">1</span>
+                <span class="label">First step</span>
+            </a>
 
-    <!-- Fifth Step -->
-    <div class="row step-content" id="step-content-5">
-        <div class="col-md-12">
-            <h3 class="font-weight-bold pl-0 my-4"><strong>Terms and conditions</strong></h3>
-            <div class="form-check">
-                <input type="checkbox" id="checkbox111" class="form-check-input">
-                <label for="checkbox111" class="form-check-label">I agree to the terms and conditions</label>
+            <!-- Step Content -->
+            <div class="step-content" id="step-content-1">
+                <div class="col-md-12">
+                    <h3 class="font-weight-bold pl-0 my-4"><strong>Basic Information</strong></h3>
+                    <div class="form-group md-form">
+                        <input id="email" type="email" required="required" class="form-control validate">
+                        <label for="email" data-error="wrong">Email</label>
+                    </div>
+                    <div class="form-group md-form">
+                        <input id="username" type="text" required="required" class="form-control validate">
+                        <label for="username" data-error="wrong">Username</label>
+                    </div>
+                    <button class="btn disabled btn-primary nextBtn float-right" type="button">Next</button>
+                </div>
             </div>
-            <div class="form-check">
-                <input type="checkbox" id="checkbox112" class="form-check-input">
-                <label for="checkbox112" class="form-check-label">I want to receive newsletter</label>
-            </div>
-            <button class="btn disabled btn-mdb-color btn-rounded nextBtn float-right" type="button">Next</button>
-        </div>
-    </div>
 
-    <!-- Sixth Step -->
-    <div class="row step-content" id="step-content-6">
-        <div class="col-md-12">
-            <h3 class="font-weight-bold pl-0 my-4"><strong>Finish</strong></h3>
-            <h2 class="text-center font-weight-bold my-4">Registration completed!</h2>
-            <button class="btn disabled btn-success btn-rounded float-right" type="submit">Submit</button>
-        </div>
-    </div>
+        </li>
+
+        <!-- Second Step -->
+        <li class="disabled" id="step-2">
+
+            <!-- Step Button -->
+            <a href="#step-content-2">
+                <span class="circle">2</span>
+                <span class="label">Second step</span>
+            </a>
+
+            <!-- Step Content -->
+            <div class="step-content" id="step-content-2">
+                <div class="col-md-12">
+                    <h3 class="font-weight-bold pl-0 my-4"><strong>Personal Data</strong></h3>
+                    <div class="form-group md-form">
+                        <input id="firstName" type="text" required="required" class="form-control validate">
+                        <label for="firstName" data-error="wrong">First Name</label>
+                    </div>
+                    <div class="form-group md-form mt-3">
+                        <input id="secondName" type="text" required="required" class="form-control validate">
+                        <label for="secondName" data-error="wrong">Second Name</label>
+                    </div>
+                    <button class="btn disabled btn-primary nextBtn float-right" type="button">Next</button>
+                </div>
+            </div>
+
+        </li>
+
+        <!-- Third Step -->
+        <li class="disabled" id="step-3">
+
+            <!-- Step Button -->
+            <a href="#step-content-3">
+                <span class="circle">3</span>
+                <span class="label">Third step</span>
+            </a>
+
+            <!-- Step Content -->
+            <div class="step-content" id="step-content-3">
+                <div class="col-md-12">
+                    <h3 class="font-weight-bold pl-0 my-4"><strong>Step 3</strong></h3>
+                    <div class="form-group md-form">
+                        <input id="step3" type="text" required="required" class="form-control validate">
+                        <label for="step3" data-error="wrong">Step 3 Input</label>
+                    </div>
+                    <button class="btn disabled btn-primary nextBtn float-right" type="button">Next</button>
+                </div>
+            </div>
+
+        </li>
+
+        <!-- Fourth Step -->
+        <li class="disabled" id="step-4">
+
+            <!-- Step Button -->
+            <a href="#step-content-4">
+                <span class="circle">4</span>
+                <span class="label">Fourth step</span>
+            </a>
+
+            <!-- Step Content -->
+            <div class="step-content" id="step-content-4">
+                <div class="col-md-12">
+                    <h3 class="font-weight-bold pl-0 my-4"><strong>Step 4</strong></h3>
+                    <div class="form-group md-form">
+                        <input id="step4" type="text" required="required" class="form-control validate">
+                        <label for="step4" data-error="wrong">Step 4 Input</label>
+                    </div>
+                    <button class="btn disabled btn-primary nextBtn float-right" type="button">Next</button>
+                </div>
+            </div>
+
+        </li>
+
+        <!-- Fifth Step -->
+        <li class="disabled" id="step-5">
+
+            <!-- Step Button -->
+            <a href="#step-content-5">
+                <span class="circle">5</span>
+                <span class="label">Fifth step</span>
+            </a>
+
+            <!-- Step Content -->
+            <div class="step-content" id="step-content-5">
+                <div class="col-md-12">
+                    <h3 class="font-weight-bold pl-0 my-4"><strong>Terms and conditions</strong></h3>
+                    <div class="form-check">
+                        <input type="checkbox" id="checkbox111" class="form-check-input">
+                        <label for="checkbox111" class="form-check-label">I agree to the terms and conditions</label>
+                    </div>
+                    <button class="btn disabled btn-primary nextBtn float-right" type="submit">Submit</button>
+                </div>
+            </div>
+
+        </li>
+
+        <!-- Sixth Step -->
+        <li class="disabled" id="step-6">
+
+            <!-- Step Button -->
+            <a href="#step-content-6">
+                <span class="circle">6</span>
+                <span class="label">Sixth step</span>
+            </a>
+
+            <!-- Step Content -->
+            <div class="step-content" id="step-content-6">
+                <div class="col-md-12">
+                    <h3 class="font-weight-bold pl-0 my-4"><strong>Finish</strong></h3>
+                    <h2 class="text-center font-weight-bold my-4">Registration completed!</h2>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+
 </form>

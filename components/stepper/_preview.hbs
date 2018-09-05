@@ -10,11 +10,6 @@
 {{> '@tpl-scripts' }}
 
 <script>
-    // Tooltips Initialization
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-
     function areInputsValid(currentInputs) {
         var isValid = true;
         $(".form-group").removeClass("has-error");
@@ -28,7 +23,7 @@
     }
 
     function updateStepStatus(previousStep, newStep) {
-        previousStep.addClass('completed').removeClass('active').attr('aria-label', 'completed step');
+        previousStep.addClass('disabled').addClass('completed').removeClass('active').attr('aria-label', 'completed step');
         newStep.addClass('active').attr('aria-label', 'active step');
     }
 
@@ -48,14 +43,13 @@
                     nextStep = currentStep.next(),
                     currentInputs = currentStepContent.find("input");
 
+            currentStep.removeClass('disabled');
             if (areInputsValid(currentInputs)) {
                 // If valid enable next step, disable current step
-                currentStep.addClass('disabled');
                 currentStepContent.find('.nextBtn').removeClass('disabled');
                 nextStep.removeClass('disabled');
             } else {
                 nextStep.addClass('disabled');
-                currentStep.removeClass('disabled');
                 currentStepContent.find('.nextBtn').addClass('disabled');
             }
         });
