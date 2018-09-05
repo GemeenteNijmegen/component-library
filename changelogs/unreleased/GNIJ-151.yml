@@ -1,0 +1,4 @@
+changes:
+- type: changed #changed, removed, added
+  component: stepper
+  description: Replaced the previous steppers component with a new responsive stepper form component

@@ -22,9 +22,16 @@
         return isValid;
     }
 
-    function updateStepStatus(previousStep, newStep) {
+    function updateStepStatus(previousStep, newStep, mobileNextBtn, currentStep, stepCount) {
         previousStep.addClass('disabled').addClass('completed').removeClass('active').attr('aria-label', 'completed step');
         newStep.addClass('active').attr('aria-label', 'active step');
+        if (parseInt(currentStep) === parseInt(stepCount)) {
+            mobileNextBtn.remove();
+        } else {
+            mobileNextBtn.addClass('disabled').attr('aria-label', 'disabled');
+        }
+        $('.current-step').text(currentStep);
+        $('.step-count').text(stepCount);
     }
 
     // Stepper Form
@@ -32,12 +39,14 @@
         var navListItems = $('.stepper-steps li a'),
                 allContent = $('.step-content'),
                 allNextBtn = $('.nextBtn'),
+                mobileNextBtn = $('.next-link'),
                 activeStep = $('.stepper-steps li.active a'),
+                stepperForm = $('#stepper-form');
                 stepperFormInputs = $('#stepper-form :input');
 
         allContent.hide();
 
-        stepperFormInputs.change(function(e) {
+        stepperFormInputs.change(function() {
             var currentStepContent = $(this).closest(".step-content"),
                     currentStep = $('.stepper-steps li a[href="#' + currentStepContent.attr("id") + '"]').parent(),
                     nextStep = currentStep.next(),
@@ -48,8 +57,10 @@
                 // If valid enable next step, disable current step
                 currentStepContent.find('.nextBtn').removeClass('disabled');
                 nextStep.removeClass('disabled');
+                mobileNextBtn.removeClass('disabled').attr('aria-label', 'Next');
             } else {
                 nextStep.addClass('disabled');
+                mobileNextBtn.addClass('disabled').attr('aria-label', 'disabled');
                 currentStepContent.find('.nextBtn').addClass('disabled');
             }
         });
@@ -60,15 +71,24 @@
                     $item = $(this);
 
             if (!$item.hasClass('disabled')) {
+                if ($item.parent().prev().find('button[type="submit"]').length) {
+                    stepperForm.submit();
+                }
                 allContent.hide();
                 $target.show();
                 $target.find('input:eq(0)').focus();
-                updateStepStatus($item.parent().prev(), $item.parent());
+                updateStepStatus(
+                    $item.parent().prev(),
+                    $item.parent(),
+                    mobileNextBtn,
+                    $item.attr("href").substring(14),
+                    allContent.length
+                );
             }
         });
 
-        allNextBtn.click(function(){
-            var currentStepContent = $(this).closest(".step-content"),
+        mobileNextBtn.add(allNextBtn).click(function(){
+            var currentStepContent = $('.stepper-steps li.active').children('.step-content'),
                     nextStep = $('.stepper-steps li a[href="#' + currentStepContent.attr("id") + '"]').parent().next().children("a"),
                     currentInputs = currentStepContent.find("input");
 
@@ -78,6 +98,13 @@
         });
 
         activeStep.trigger('click');
+
+        $(window).keydown(function(event){
+            if((event.keyCode == 13) && !$(event.target).is('.next-link, .nextBtn')) {
+                event.preventDefault();
+                return false;
+            }
+        });
     });
 </script>
 
