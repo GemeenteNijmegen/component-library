@@ -19,3 +19,7 @@ The `stopper` is an element which stops the Sticky Content.
         stopper: "#YourStopperId"
     });
 ```
+
+### Notes
+
+The component may be used with every heading (`H1 - H6`) level, so you are free to use which heading level suits your use-case.
