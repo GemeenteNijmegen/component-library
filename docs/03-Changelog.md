@@ -27,6 +27,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Allowing the use of header elements in the footer and ensuring the correct aria tags are present on the footer
 - _Component [icons]({{ componentPath '@icons' }})_:
   Guidance on adding `aria-label` with icons
+- _Component [badges]({{ componentPath '@badges' }})_:
+  Placeholder alt text added
 
 ### Changed
 - _Component cards ([filename]({{ componentPath '@cards-filename' }}), [news]({{ componentPath '@cards-news' }}), [services]({{ componentPath '@cards-services' }}), [services no icon]({{ componentPath '@cards-services-no-icon' }}))_:
@@ -63,6 +65,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Sticky content p title replace with h5
 - _Component [accordion]({{ componentPath '@accordion' }})_:
   Replacing i tags with span
+- _Component [input error]({{ componentPath '@input-error' }})_:
+  Label font now darker to give more contrast against a white background
+- _Component [input normal]({{ componentPath '@input-normal' }})_:
+  Label font now darker to give more contrast against a white background
+- _Component [input read-only]({{ componentPath '@input-read-only' }})_:
+  Label font now darker to give more contrast against a white background
+- _Component [textarea]({{ componentPath '@textarea' }})_:
+  Label font now darker to give more contrast against a white background
+- _Component [tags]({{ componentPath '@tags' }})_:
+  Replacing i tag with a button for removal
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:

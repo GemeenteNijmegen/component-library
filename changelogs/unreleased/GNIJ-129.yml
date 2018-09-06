@@ -1,7 +1,0 @@
-changes:
-  - type: added #changed, removed, added
-    component: badges
-    description: Placeholder alt text added
-  - type: changed #changed, removed, added
-    component: tags
-    description: Replacing i tag with a button for removal
