@@ -17,7 +17,7 @@
 
                 &:not(.collapsed) {
                     h1, h2, h3, h4, h5, h6,
-                    i {
+                    span {
                         color: color('nijmegen-primary', 'darken-3');
                     }
                 }
@@ -27,7 +27,7 @@
                     color: color('nijmegen-primary', 'base');
                 }
 
-                i {
+                span {
                     float: right;
                     font-size: to-rem(36);
                     line-height: to-rem(30);
@@ -35,7 +35,7 @@
                 &:focus,
                 &:hover {
                     h1, h2, h3, h4, h5, h6,
-                    i {
+                    span {
                         color: color('nijmegen-primary', 'darken-2');
                     }
                 }
