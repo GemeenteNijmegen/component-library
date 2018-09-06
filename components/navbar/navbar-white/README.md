@@ -11,7 +11,7 @@ Aside from the markup, some extra actions are needed.
 
 * An extra JavaScript include is needed (**when the search is part of the component**) to have a fully functional component.
 
-By adding underneath `script` tag after the other required `script` tags (as documented in [How to use](.../docs/how-to-use)) and before the closing `body` tag, OpenIndex will connect a real-time autocomplete to the search input field.
+By adding underneath `script` tag after the other required `script` tags (as documented in [How to use]({{ docPath '/docs/how-to-use' }})) and before the closing `body` tag, OpenIndex will connect a real-time autocomplete to the search input field.
 
 ```javascript
 <script src="//www.openindex.io/js/openindex.69694b9315763c81.js"></script>
