@@ -6,7 +6,7 @@ A custom component created for Nijmegen, which relies on a third-party service O
 
 Aside from the markup, an extra JavaScript include and OpenIndex configuration is needed to have a fully functional component.
 
-Adding underneath `script` tag after the other required `script` tags (as documented in [How to use](/docs/how-to-use)) and before the closing `body` tag is needed.
+Adding underneath `script` tag after the other required `script` tags (as documented in [How to use]({{ assetPath '/docs/how-to-use' }})) and before the closing `body` tag is needed.
 
 ```javascript
 <script src="//www.openindex.io/js/openindex.69694b9315763c81.js"></script>
