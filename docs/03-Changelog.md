@@ -60,6 +60,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Stepper updated to use `aria-label` and use span for icons
 - _Component [sticky content]({{ componentPath '@sticky-content' }})_:
   Sticky content p title replace with h5
+- _Component [accordion]({{ componentPath '@accordion' }})_:
+  Replacing i tags with span
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:

@@ -1,4 +1,0 @@
-changes:
-  - type: changed #changed, removed, added
-    component: accordion
-    description: Replacing i tags with span
