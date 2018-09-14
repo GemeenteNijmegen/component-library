@@ -83,6 +83,16 @@ $select-caret-icon-size: 24;
             font-size: to-rem(14);
         }
 
+        &.valid, &.invalid {
+            & + label {
+                &:before,
+                &:after {
+                    top: 4rem !important;
+                    line-height: 1.2rem;
+                }
+            }
+        }
+
         &.invalid {
             & + label {
                 &:before {
@@ -92,11 +102,6 @@ $select-caret-icon-size: 24;
                     transition: 0.2s opacity ease-out, 0.2s color ease-out;
                     right: 0;
                     font-size: to-rem($form-control-error-icon-size);
-                }
-
-                &:before,
-                &:after {
-                    top: 4rem;
                 }
             }
         }

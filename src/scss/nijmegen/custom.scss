@@ -15,6 +15,7 @@ i.mdi, span.mdi {
 }
 
 $medium-screen-portrait: map-get($grid-breakpoints, 'md');
+$small-screen-portrait: map-get($grid-breakpoints, 'sm');
 
 @import "core/typography";
 

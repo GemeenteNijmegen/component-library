@@ -1,0 +1,166 @@
+<!-- Stepper Form Content -->
+<form id="stepper-form" role="form" action="" method="post">
+
+    <!-- Stepper Mobile Step Summary -->
+    <div class="stepper-mobile-summary">
+        Step <span class="current-step">1</span> of <span class="step-count">6</span>
+    </div>
+
+    <!-- Stepper Steps -->
+    <ul class="stepper stepper-horizontal stepper-steps">
+
+        <!-- First Step -->
+        <li aria-label="active step" class="active" id="step-1">
+
+            <!-- Step Button -->
+            <a class="step-link" href="#step-content-1">
+                <span class="circle">1</span>
+                <span class="label">First step</span>
+            </a>
+
+            <!-- Step Content -->
+            <div class="step-content" id="step-content-1">
+                <div class="col-md-12">
+                    <h3 class="font-weight-bold pl-0 my-4"><strong>Basic Information</strong></h3>
+                    <div class="form-group md-form">
+                        <input id="email" type="email" required="required" class="form-control validate">
+                        <label for="email" data-error="wrong">Email</label>
+                    </div>
+                    <div class="form-group md-form">
+                        <input id="username" type="text" required="required" class="form-control validate">
+                        <label for="username" data-error="wrong">Username</label>
+                    </div>
+                    <button class="btn disabled btn-primary nextBtn float-right" type="button">Next</button>
+                </div>
+            </div>
+
+        </li>
+
+        <!-- Second Step -->
+        <li class="disabled" id="step-2">
+
+            <!-- Step Button -->
+            <a class="step-link" href="#step-content-2">
+                <span class="circle">2</span>
+                <span class="label">Second step</span>
+            </a>
+
+            <!-- Step Content -->
+            <div class="step-content" id="step-content-2">
+                <div class="col-md-12">
+                    <h3 class="font-weight-bold pl-0 my-4"><strong>Personal Data</strong></h3>
+                    <div class="form-group md-form">
+                        <input id="firstName" type="text" required="required" class="form-control validate">
+                        <label for="firstName" data-error="wrong">First Name</label>
+                    </div>
+                    <div class="form-group md-form mt-3">
+                        <input id="secondName" type="text" required="required" class="form-control validate">
+                        <label for="secondName" data-error="wrong">Second Name</label>
+                    </div>
+                    <button class="btn disabled btn-primary nextBtn float-right" type="button">Next</button>
+                </div>
+            </div>
+
+        </li>
+
+        <!-- Third Step -->
+        <li class="disabled" id="step-3">
+
+            <!-- Step Button -->
+            <a class="step-link" href="#step-content-3">
+                <span class="circle">3</span>
+                <span class="label">Third step</span>
+            </a>
+
+            <!-- Step Content -->
+            <div class="step-content" id="step-content-3">
+                <div class="col-md-12">
+                    <h3 class="font-weight-bold pl-0 my-4"><strong>Step 3</strong></h3>
+                    <div class="form-group md-form">
+                        <input id="step3" type="text" required="required" class="form-control validate">
+                        <label for="step3" data-error="wrong">Step 3 Input</label>
+                    </div>
+                    <button class="btn disabled btn-primary nextBtn float-right" type="button">Next</button>
+                </div>
+            </div>
+
+        </li>
+
+        <!-- Fourth Step -->
+        <li class="disabled" id="step-4">
+
+            <!-- Step Button -->
+            <a class="step-link" href="#step-content-4">
+                <span class="circle">4</span>
+                <span class="label">Fourth step</span>
+            </a>
+
+            <!-- Step Content -->
+            <div class="step-content" id="step-content-4">
+                <div class="col-md-12">
+                    <h3 class="font-weight-bold pl-0 my-4"><strong>Step 4</strong></h3>
+                    <div class="form-group md-form">
+                        <input id="step4" type="text" required="required" class="form-control validate">
+                        <label for="step4" data-error="wrong">Step 4 Input</label>
+                    </div>
+                    <button class="btn disabled btn-primary nextBtn float-right" type="button">Next</button>
+                </div>
+            </div>
+
+        </li>
+
+        <!-- Fifth Step -->
+        <li class="disabled" id="step-5">
+
+            <!-- Step Button -->
+            <a class="step-link" href="#step-content-5">
+                <span class="circle">5</span>
+                <span class="label">Fifth step</span>
+            </a>
+
+            <!-- Step Content -->
+            <div class="step-content" id="step-content-5">
+                <div class="col-md-12">
+                    <h3 class="font-weight-bold pl-0 my-4"><strong>Step 5</strong></h3>
+                    <div class="form-group md-form">
+                        <input id="step5" type="text" required="required" class="form-control validate">
+                        <label for="step5" data-error="wrong">Step 5 Input</label>
+                    </div>
+                    <button class="btn disabled btn-primary nextBtn float-right" type="button">Next</button>
+
+                    <!-- A submit button could be used at any point and will get triggered on step progression -->
+                    <!-- <button class="btn disabled btn-primary nextBtn float-right" type="submit">Submit</button> -->
+                </div>
+            </div>
+
+        </li>
+
+        <!-- Sixth Step -->
+        <li class="disabled" id="step-6">
+
+            <!-- Step Button -->
+            <a class="step-link" href="#step-content-6">
+                <span class="circle">6</span>
+                <span class="label">Sixth step</span>
+            </a>
+
+            <!-- Step Content -->
+            <div class="step-content" id="step-content-6">
+                <div class="col-md-12">
+                    <h3 class="font-weight-bold pl-0 my-4"><strong>Finish</strong></h3>
+                    <h2 class="text-center font-weight-bold my-4">Registration completed!</h2>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+
+    <!-- Stepper Mobile Navigation -->
+    <div class="stepper-mobile-navigation">
+        <a class="next-link disabled float-right" href="#" aria-label="disabled">
+            <span>Next</span>
+            <span aria-hidden="true" class="mdi mdi-chevron-right"></span>
+        </a>
+    </div>
+
+</form>
