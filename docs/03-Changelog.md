@@ -29,6 +29,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Guidance on adding `aria-label` with icons
 - _Component [badges]({{ componentPath '@badges' }})_:
   Placeholder alt text added
+- _Component [pagination]({{ componentPath '@pagination' }})_:
+  aria-label added to the navigation element
 
 ### Changed
 - _Component cards ([filename]({{ componentPath '@cards-filename' }}), [news]({{ componentPath '@cards-news' }}), [services]({{ componentPath '@cards-services' }}), [services no icon]({{ componentPath '@cards-services-no-icon' }}))_:
@@ -91,3 +93,5 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Removed `role="listbox"` and `role="option"` to ensure the carousel works with a screen reader
 - _Component [listing]({{ componentPath '@listing' }})_:
   Removed labelledby from the listing item
+- _Component [pagination]({{ componentPath '@pagination' }})_:
+  aria-label removed from page links where an sr-only element already exists

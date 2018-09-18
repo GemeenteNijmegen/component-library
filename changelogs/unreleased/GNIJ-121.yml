@@ -1,7 +1,0 @@
-changes:
-- type: added #changed, removed, added
-  component: pagination
-  description: aria-label added to the navigation element
-- type: removed #changed, removed, added
-  component: pagination
-  description: aria-label removed from page links where an sr-only element already exists
