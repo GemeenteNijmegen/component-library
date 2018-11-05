@@ -75,7 +75,7 @@ changes:
 
 The type must be changed, removed or added. The component must match the component folder/file name, and then a description of the change.
 
-Changelog entries within the unreleased folder will then get compiled into `docs/added.md` when they are merged into a release/x branch.
+Changelog entries within the unreleased folder will then get compiled into `docs/03-Changelog.md` when they are merged into a release/x branch.
 
 # Production build
 
