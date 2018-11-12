@@ -20,7 +20,7 @@
         margin-bottom: to-rem(46);
     }
 
-    .nextBtn {
+    .nextBtn, .backBtn {
         @media (max-width: $small-screen-portrait) {
             display: none;
         }

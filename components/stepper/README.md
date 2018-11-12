@@ -10,7 +10,9 @@ https://material.io/archive/guidelines/components/steppers.html#steppers-types-o
 
 The stepper is designed to work with up to six steps and should appear only once per page.
 
-The stepper is linear, allowing only forward progression once each step is valid.
+The stepper allows both forward and backward progression once each step is valid.
+
+Back buttons should only be included on the steps that need it. For instance, not step 1.
 
 The step labels and form input can be changed freely to suit your needs.
 
@@ -54,7 +56,9 @@ The below JavaScript is required to use the Stepper component and should be plac
     $(document).ready(function () {
         var navListItems = $('.stepper-steps li a'),
                 allContent = $('.step-content'),
+                allBackBtn = $('.backBtn'),
                 allNextBtn = $('.nextBtn'),
+                mobileBackBtn = $('.back-link'),
                 mobileNextBtn = $('.next-link'),
                 activeStep = $('.stepper-steps li.active a'),
                 stepperForm = $('#stepper-form');
@@ -102,8 +106,16 @@ The below JavaScript is required to use the Stepper component and should be plac
                 );
             }
         });
+        
+        mobileBackBtn.add(allBackBtn).click(function(){
+            console.log('previous step');
+            var currentStepContent = $('.stepper-steps li.active').children('.step-content'),
+                    previousStep = $('.stepper-steps li a[href="#' + currentStepContent.attr("id") + '"]').parent().prev().children("a");
+            previousStep.trigger('click');
+        });
 
         mobileNextBtn.add(allNextBtn).click(function(){
+            console.log('next step');
             var currentStepContent = $('.stepper-steps li.active').children('.step-content'),
                     nextStep = $('.stepper-steps li a[href="#' + currentStepContent.attr("id") + '"]').parent().next().children("a"),
                     currentInputs = currentStepContent.find("input");
