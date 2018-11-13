@@ -69,12 +69,16 @@
         }
 
         navigationStep.nextAll().removeClass('active');
+        var previousStepValid = true;
         for (var i = currentStepNumber + 1; i <= stepCount; i++) {
-            if (isValidStep(i, validSteps)) {
+            if (isValidStep(i, validSteps) && previousStepValid) {
                 navigationListItems.eq(i - 1).parent().removeClass('disabled').addClass('completed').attr('aria-label', 'completed step');
+            } else if (previousStepValid) {
+                navigationListItems.eq(i - 1).parent().removeClass('disabled').removeClass('completed').removeAttr('aria-label');
             } else {
                 navigationListItems.eq(i - 1).parent().addClass('disabled').removeClass('completed').removeAttr('aria-label');
             }
+            previousStepValid = isValidStep(i, validSteps) && previousStepValid;
         }
         navigationStep.next().removeClass('disabled');
     }
@@ -94,6 +98,7 @@
         stepCount,
         validSteps
     ) {
+        setNavigationItemStatuses(navigationListItems, navigationStep, currentStepNumber, stepCount, validSteps);
         if (navigationStep.find('.nextBtn').length > 0) { // Check if step has a next button
             if (isValidStep(currentStepNumber, validSteps)) {
                 enableStepNextButtons(mobileNextBtn, allNextBtn);
@@ -101,51 +106,13 @@
                 disableStepNextButtons(mobileNextBtn, allNextBtn);
             }
             updateBackButtons(navigationStep, mobileBackBtn, allBackBtn);
-            setNavigationItemStatuses(navigationListItems, navigationStep, currentStepNumber, stepCount, validSteps);
         } else {
             // disable all buttons
             disableStepNextButtons(mobileNextBtn, allNextBtn);
             disableNavigationItems(navigationListItems);
             disableBackButtons(navigationStep, mobileBackBtn, allBackBtn);
+            mobileNextBtn.hide();
         }
-
-        /*
-        todo: get the example working - test me...
-        example
-
-        // todo: step 6 not showing as green
-        // todo: going back causing the active to disappear which is good, but the item should still be clickable
-
-        valid 1, 2, 3, 5
-
-        back on step 1
-        top nav: can click 1, 2, 3, 4
-        these are green: 1, 2, 3
-        can click next button on step and mobile
-
-        then on step 3
-        top nav: can click 3, 4
-        these are green: 1, 2, 3
-        can click next button on step and mobile
-
-        then on step 4
-        top nav: can click 4
-        these are green: 1, 2, 3, 4
-        can NOT click next button on step and mobile
-
-        then on step 4 we make it valid
-        top nav: can click 4, 5, 6
-        these are green: 1, 2, 3, 4, 5
-        can click next button on step and mobile
-
-         */
-
-
-        // todo: use if last step logic?
-        // if (parseInt(currentStep) === parseInt(stepCount)) {
-
-        // todo: paste the completed js code over to the readme with any useful explanations
-        // todo: add a new yaml changelog entry
     }
 
     function updateStepStatus(
@@ -243,14 +210,12 @@
         });
 
         mobileBackBtn.add(allBackBtn).click(function(){
-            console.log('previous step');
             var currentStepContent = $('.stepper-steps li.active').children('.step-content'),
                     previousStep = $('.stepper-steps li a[href="#' + currentStepContent.attr("id") + '"]').parent().prev().children("a");
             previousStep.trigger('click');
         });
 
         mobileNextBtn.add(allNextBtn).click(function(){
-            console.log('next step');
             var currentStepContent = $('.stepper-steps li.active').children('.step-content'),
                     nextStep = $('.stepper-steps li a[href="#' + currentStepContent.attr("id") + '"]').parent().next().children("a"),
                     currentInputs = currentStepContent.find("input");
@@ -263,7 +228,9 @@
         activeStep.trigger('click');
 
         $(window).keydown(function(event){
-            if((event.keyCode == 13) && !$(event.target).is('.next-link, .nextBtn')) {
+            if((event.keyCode == 13) && !$(event.target).is(
+                '.back-link, .backBtn, .next-link, .nextBtn, .step-link'
+            )) {
                 event.preventDefault();
                 return false;
             }
