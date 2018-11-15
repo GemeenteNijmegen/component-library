@@ -79,6 +79,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Replacing i tag with a button for removal
 - _Component [stepper]({{ componentPath '@stepper' }})_:
   Replaced the previous steppers component with a new responsive stepper form component
+- _Component [stepper]({{ componentPath '@stepper' }})_:
+  Added backward navigation to the stepper component
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:
