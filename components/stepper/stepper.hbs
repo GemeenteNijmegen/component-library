@@ -57,6 +57,7 @@
                         <input id="secondName" type="text" required="required" class="form-control validate">
                         <label for="secondName" data-error="wrong">Second Name</label>
                     </div>
+                    <button class="btn btn-primary backBtn float-left" type="button">Back</button>
                     <button class="btn disabled btn-primary nextBtn float-right" type="button">Next</button>
                 </div>
             </div>
@@ -80,6 +81,7 @@
                         <input id="step3" type="text" required="required" class="form-control validate">
                         <label for="step3" data-error="wrong">Step 3 Input</label>
                     </div>
+                    <button class="btn btn-primary backBtn float-left" type="button">Back</button>
                     <button class="btn disabled btn-primary nextBtn float-right" type="button">Next</button>
                 </div>
             </div>
@@ -103,6 +105,7 @@
                         <input id="step4" type="text" required="required" class="form-control validate">
                         <label for="step4" data-error="wrong">Step 4 Input</label>
                     </div>
+                    <button class="btn btn-primary backBtn float-left" type="button">Back</button>
                     <button class="btn disabled btn-primary nextBtn float-right" type="button">Next</button>
                 </div>
             </div>
@@ -126,6 +129,7 @@
                         <input id="step5" type="text" required="required" class="form-control validate">
                         <label for="step5" data-error="wrong">Step 5 Input</label>
                     </div>
+                    <button class="btn btn-primary backBtn float-left" type="button">Back</button>
                     <button class="btn disabled btn-primary nextBtn float-right" type="button">Next</button>
 
                     <!-- A submit button could be used at any point and will get triggered on step progression -->
@@ -157,6 +161,10 @@
 
     <!-- Stepper Mobile Navigation -->
     <div class="stepper-mobile-navigation">
+        <a class="back-link float-left" href="#" aria-label="Back">
+            <span aria-hidden="true" class="mdi mdi-chevron-left"></span>
+            <span>Back</span>
+        </a>
         <a class="next-link disabled float-right" href="#" aria-label="disabled">
             <span>Next</span>
             <span aria-hidden="true" class="mdi mdi-chevron-right"></span>

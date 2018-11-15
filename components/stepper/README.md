@@ -10,7 +10,9 @@ https://material.io/archive/guidelines/components/steppers.html#steppers-types-o
 
 The stepper is designed to work with up to six steps and should appear only once per page.
 
-The stepper is linear, allowing only forward progression once each step is valid.
+The stepper allows both forward and backward progression once each step is valid.
+
+Back buttons should only be included on the steps that need it. For instance, not step 1.
 
 The step labels and form input can be changed freely to suit your needs.
 
@@ -38,50 +40,167 @@ The below JavaScript is required to use the Stepper component and should be plac
         return isValid;
     }
 
-    function updateStepStatus(previousStep, newStep, mobileNextBtn, currentStep, stepCount) {
-        previousStep.addClass('disabled').addClass('completed').removeClass('active').attr('aria-label', 'completed step');
-        newStep.addClass('active').attr('aria-label', 'active step');
-        if (parseInt(currentStep) === parseInt(stepCount)) {
-            mobileNextBtn.remove();
+    function enableBackButtons(navigationStep, mobileBackBtn, allBackBtn) {
+        mobileBackBtn.removeClass('disabled').attr('aria-label', 'Back').show();
+        allBackBtn.removeClass('disabled');
+        navigationStep.prevAll().removeClass('disabled');
+    }
+
+    function disableBackButtons(navigationStep, mobileBackBtn, allBackBtn) {
+        mobileBackBtn.addClass('disabled').attr('aria-label', 'disabled').hide();
+        allBackBtn.addClass('disabled');
+        navigationStep.prevAll().addClass('disabled');
+    }
+
+    function updateBackButtons(navigationStep, mobileBackBtn, allBackBtn) {
+        if (navigationStep.find('.backBtn').length > 0) { // Check if step has back button
+            enableBackButtons(navigationStep, mobileBackBtn, allBackBtn);
         } else {
-            mobileNextBtn.addClass('disabled').attr('aria-label', 'disabled');
+            disableBackButtons(navigationStep, mobileBackBtn, allBackBtn);
         }
-        $('.current-step').text(currentStep);
+    }
+
+    function enableStepNextButtons(mobileNextBtn, allNextBtn) {
+        mobileNextBtn.removeClass('disabled').attr('aria-label', 'Next').show();
+        allNextBtn.removeClass('disabled');
+    }
+
+    function disableStepNextButtons(mobileNextBtn, allNextBtn) {
+        mobileNextBtn.addClass('disabled').attr('aria-label', 'disabled').show();
+        allNextBtn.addClass('disabled');
+    }
+
+    function isValidStep(stepNumber, validSteps) {
+        if ($.inArray(stepNumber, validSteps) > -1) {
+            return true;
+        }
+        return false;
+    }
+
+    function setNavigationItemStatuses(navigationListItems, navigationStep, currentStepNumber, stepCount, validSteps) {
+        navigationStep.prevAll().removeClass('disabled').addClass('completed').removeClass('active').attr('aria-label', 'completed step');
+        navigationStep.removeClass('disabled').removeClass('completed').addClass('active').attr('aria-label', 'active step');
+        var currentStepIsValid = isValidStep(currentStepNumber, validSteps);
+        if (!currentStepIsValid) {
+            navigationStep.nextAll().addClass('disabled').removeClass('active').removeClass('completed').removeAttr('aria-label');
+            return;
+        }
+
+        navigationStep.nextAll().removeClass('active');
+        var previousStepValid = true;
+        for (var i = currentStepNumber + 1; i <= stepCount; i++) {
+            if (isValidStep(i, validSteps) && previousStepValid) {
+                navigationListItems.eq(i - 1).parent().removeClass('disabled').addClass('completed').attr('aria-label', 'completed step');
+            } else if (previousStepValid) {
+                navigationListItems.eq(i - 1).parent().removeClass('disabled').removeClass('completed').removeAttr('aria-label');
+            } else {
+                navigationListItems.eq(i - 1).parent().addClass('disabled').removeClass('completed').removeAttr('aria-label');
+            }
+            previousStepValid = isValidStep(i, validSteps) && previousStepValid;
+        }
+        navigationStep.next().removeClass('disabled');
+    }
+
+    function disableNavigationItems(navigationListItems) {
+        navigationListItems.addClass('disabled');
+    }
+
+    function updateButtons(
+        navigationListItems,
+        navigationStep,
+        allBackBtn,
+        allNextBtn,
+        mobileBackBtn,
+        mobileNextBtn,
+        currentStepNumber,
+        stepCount,
+        validSteps
+    ) {
+        setNavigationItemStatuses(navigationListItems, navigationStep, currentStepNumber, stepCount, validSteps);
+        if (navigationStep.find('.nextBtn').length > 0) { // Check if step has a next button
+            if (isValidStep(currentStepNumber, validSteps)) {
+                enableStepNextButtons(mobileNextBtn, allNextBtn);
+            } else {
+                disableStepNextButtons(mobileNextBtn, allNextBtn);
+            }
+            updateBackButtons(navigationStep, mobileBackBtn, allBackBtn);
+        } else {
+            // disable all buttons
+            disableStepNextButtons(mobileNextBtn, allNextBtn);
+            disableNavigationItems(navigationListItems);
+            disableBackButtons(navigationStep, mobileBackBtn, allBackBtn);
+        }
+    }
+
+    function updateStepStatus(
+        navigationListItems,
+        navigationStep,
+        allBackBtn,
+        allNextBtn,
+        mobileBackBtn,
+        mobileNextBtn,
+        currentStepNumber,
+        stepCount,
+        validSteps
+    ) {
+        updateButtons(
+            navigationListItems,
+            navigationStep,
+            allBackBtn,
+            allNextBtn,
+            mobileBackBtn,
+            mobileNextBtn,
+            currentStepNumber,
+            stepCount,
+            validSteps
+        );
+        $('.current-step').text(currentStepNumber);
         $('.step-count').text(stepCount);
     }
 
     // Stepper Form
     $(document).ready(function () {
-        var navListItems = $('.stepper-steps li a'),
+        var navigationListItems = $('.stepper-steps li a'),
                 allContent = $('.step-content'),
+                allBackBtn = $('.backBtn'),
                 allNextBtn = $('.nextBtn'),
+                mobileBackBtn = $('.back-link'),
                 mobileNextBtn = $('.next-link'),
                 activeStep = $('.stepper-steps li.active a'),
-                stepperForm = $('#stepper-form');
-                stepperFormInputs = $('#stepper-form :input');
+                stepperForm = $('#stepper-form'),
+                stepperFormInputs = $('#stepper-form :input'),
+                validSteps = [];
 
         allContent.hide();
 
         stepperFormInputs.change(function() {
             var currentStepContent = $(this).closest(".step-content"),
                     currentStep = $('.stepper-steps li a[href="#' + currentStepContent.attr("id") + '"]').parent(),
-                    nextStep = currentStep.next(),
+                    currentStepNumber = parseInt(currentStepContent.attr("id").substring(13)),
                     currentInputs = currentStepContent.find("input");
 
             currentStep.removeClass('disabled');
+            var stepPositionInArray = $.inArray(currentStepNumber, validSteps);
+            var stepIsValid = isValidStep(currentStepNumber, validSteps);
             if (areInputsValid(currentInputs)) {
-                // If valid enable next step, disable current step
-                currentStepContent.find('.nextBtn').removeClass('disabled');
-                nextStep.removeClass('disabled');
-                mobileNextBtn.removeClass('disabled').attr('aria-label', 'Next');
+                if (!stepIsValid) validSteps.push(currentStepNumber);
             } else {
-                nextStep.addClass('disabled');
-                mobileNextBtn.addClass('disabled').attr('aria-label', 'disabled');
-                currentStepContent.find('.nextBtn').addClass('disabled');
+                if (stepIsValid) validSteps.splice(stepPositionInArray, 1);
             }
+            updateStepStatus(
+                navigationListItems,
+                currentStep,
+                allBackBtn,
+                allNextBtn,
+                mobileBackBtn,
+                mobileNextBtn,
+                currentStepNumber,
+                allContent.length,
+                validSteps
+            );
         });
 
-        navListItems.click(function (e) {
+        navigationListItems.click(function (e) {
             e.preventDefault();
             var $target = $($(this).attr('href')),
                     $item = $(this);
@@ -94,13 +213,23 @@ The below JavaScript is required to use the Stepper component and should be plac
                 $target.show();
                 $target.find('input:eq(0)').focus();
                 updateStepStatus(
-                    $item.parent().prev(),
+                    navigationListItems,
                     $item.parent(),
+                    allBackBtn,
+                    allNextBtn,
+                    mobileBackBtn,
                     mobileNextBtn,
-                    $item.attr("href").substring(14),
-                    allContent.length
+                    parseInt($item.attr("href").substring(14)),
+                    allContent.length,
+                    validSteps
                 );
             }
+        });
+
+        mobileBackBtn.add(allBackBtn).click(function(){
+            var currentStepContent = $('.stepper-steps li.active').children('.step-content'),
+                    previousStep = $('.stepper-steps li a[href="#' + currentStepContent.attr("id") + '"]').parent().prev().children("a");
+            previousStep.trigger('click');
         });
 
         mobileNextBtn.add(allNextBtn).click(function(){
@@ -116,7 +245,9 @@ The below JavaScript is required to use the Stepper component and should be plac
         activeStep.trigger('click');
 
         $(window).keydown(function(event){
-            if((event.keyCode == 13) && !$(event.target).is('.next-link, .nextBtn')) {
+            if((event.keyCode == 13) && !$(event.target).is(
+                '.back-link, .backBtn, .next-link, .nextBtn, .step-link'
+            )) {
                 event.preventDefault();
                 return false;
             }
