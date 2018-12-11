@@ -42,6 +42,7 @@ $small-screen-portrait: map-get($grid-breakpoints, 'sm');
 @import "component/popovers";
 @import "component/progress";
 @import "component/responsive-table";
+@import "component/select";
 @import "component/sidenav";
 @import "component/steppers";
 @import "component/sticky-content";

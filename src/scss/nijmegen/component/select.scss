@@ -1,0 +1,156 @@
+.annotate {
+    font-style: italic;
+    color: #366ed4;
+}
+
+[role='listbox'] {
+    //min-height: 18em; // todo: not needed?
+    padding: 0;
+    background: white;
+    border: 1px solid #aaa;
+}
+
+[role='option'] {
+    display: block;
+    padding: 0 1em;
+    position: relative;
+    line-height: 1.8em;
+}
+
+[role='option'].focused {
+    background: #bde4ff;
+}
+
+[role='option'][aria-selected] {
+    padding-left: 1.5em;
+}
+
+[role='option'][aria-selected='true']::before {
+    content: 'âœ“';
+    position: absolute;
+    left: 0.5em;
+}
+
+button {
+    font-size: 16px;
+}
+
+button[aria-disabled='true'] {
+    opacity: 0.5;
+}
+
+.move-right-btn {
+    padding-right: 20px;
+    position: relative;
+}
+
+// todo: check linting
+// todo: cursor point over select?
+// todo: make it fit the previous style
+// todo: resolve the contrast issue
+// todo: option must take a separate value to the text
+// todo: enable select on click
+// todo: deal with all the IDs
+// todo: check it doesn't reload page on http://localhost:3000/components/detail/forminputs-template
+
+.move-right-btn::after { // todo: redundant?
+    content: ' ';
+    height: 10px;
+    width: 12px;
+    //background: url('../imgs/Arrows-Right-icon.png') center right; // todo: chevron
+    position: absolute;
+    right: 2px;
+    top: 6px;
+}
+
+.move-left-btn {
+    padding-left: 20px;
+    position: relative;
+}
+
+.move-left-btn::after {
+    content: ' ';
+    height: 10px;
+    width: 12px;
+    //background: url('../imgs/Arrows-Left-icon.png') center left; // todo: chevron
+    position: absolute;
+    left: 2px;
+    top: 6px;
+}
+
+#ss_elem_list {
+    max-height: 18em;
+    overflow-y: auto;
+    position: relative;
+}
+
+#exp_button {
+    border-radius: 0;
+    font-size: 16px;
+    text-align: left;
+    padding: 5px 10px;
+    width: 150px;
+    position: relative;
+}
+
+#exp_button::after {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #aaa;
+    content: ' ';
+    position: absolute;
+    right: 5px;
+    top: 10px;
+}
+
+#exp_button[aria-expanded='true']::after {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 0;
+    border-bottom: 8px solid #aaa;
+    content: ' ';
+    position: absolute;
+    right: 5px;
+    top: 10px;
+}
+
+.aria-select-list {
+    border-top: 0;
+    max-height: 10em;
+    overflow-y: auto;
+    position: absolute;
+    margin: 0;
+    width: 148px;
+}
+
+.hidden {
+    display: none;
+}
+
+.toolbar {
+    font-size: 0;
+}
+
+.toolbar-item {
+    border: 1px solid #aaa;
+    background: #ccc;
+}
+
+.toolbar-item[aria-disabled='false']:focus {
+    background-color: #eee;
+}
+
+.offscreen {
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    font-size: 14px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
