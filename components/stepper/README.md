@@ -20,7 +20,7 @@ The stepper uses a horizontal view on large width screen, vertical view on mediu
 
 As shown (commented out) within step 5 of the example, a submit button could be used at any point and will get triggered on step progression:
 ```html
-<button class="btn disabled btn-primary nextBtn float-right" type="submit">Submit</button>
+<button class="btn btn-primary nextBtn float-right" type="submit">Submit</button>
 ```
 The submit button will post the form inputs, and could appear on any step.
 
