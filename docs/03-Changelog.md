@@ -31,6 +31,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Placeholder alt text added
 - _Component [pagination]({{ componentPath '@pagination' }})_:
   aria-label added to the navigation element
+- _Component [stepper]({{ componentPath '@stepper' }})_:
+  Placeholders added to each input
 
 ### Changed
 - _Component cards ([filename]({{ componentPath '@cards-filename' }}), [news]({{ componentPath '@cards-news' }}), [services]({{ componentPath '@cards-services' }}), [services no icon]({{ componentPath '@cards-services-no-icon' }}))_:
@@ -81,6 +83,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Replaced the previous steppers component with a new responsive stepper form component
 - _Component [stepper]({{ componentPath '@stepper' }})_:
   Added backward navigation to the stepper component
+- _Component [stepper]({{ componentPath '@stepper' }})_:
+  Disabled step contrast increased
+- _Component [stepper]({{ componentPath '@stepper' }})_:
+  Back and next buttons changed to work based on validation messages and not disabling buttons
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:
