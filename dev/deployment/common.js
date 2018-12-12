@@ -4,7 +4,7 @@ module.exports.getCurrentVersions = callback => {
     https.get(
         {
             hostname: 'gitlab.enrise.com',
-            path: '/Epic/nijmegen-component-library/snippets/1/raw',
+            path: '/api/v4/projects/102/snippets/1/raw',
             method: 'GET',
             headers: {
                 'Private-Token': process.env.GITLAB_TOKEN,
