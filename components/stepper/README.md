@@ -60,8 +60,8 @@ The below JavaScript is required to use the Stepper component and should be plac
         }
     
         function setNavigationItemStatuses(navigationListItems, navigationStep, currentStepNumber, stepCount, validSteps) {
-            navigationStep.prevAll().removeClass('disabled').addClass('completed').removeClass('active').attr('aria-label', 'completed step');
-            navigationStep.removeClass('disabled').removeClass('completed').addClass('active').attr('aria-label', 'active step');
+            navigationStep.prevAll().removeClass('disabled').addClass('completed').removeClass('active').attr('aria-label', 'Voltooide stap');
+            navigationStep.removeClass('disabled').removeClass('completed').addClass('active').attr('aria-label', 'Actieve stap');
             var currentStepIsValid = isValidStep(currentStepNumber, validSteps);
             if (!currentStepIsValid) {
                 navigationStep.nextAll().addClass('disabled').removeClass('active').removeClass('completed').removeAttr('aria-label');
@@ -72,7 +72,7 @@ The below JavaScript is required to use the Stepper component and should be plac
             var previousStepValid = true;
             for (var i = currentStepNumber + 1; i <= stepCount; i++) {
                 if (isValidStep(i, validSteps) && previousStepValid) {
-                    navigationListItems.eq(i - 1).parent().removeClass('disabled').addClass('completed').attr('aria-label', 'completed step');
+                    navigationListItems.eq(i - 1).parent().removeClass('disabled').addClass('completed').attr('aria-label', 'Voltooide stap');
                 } else if (previousStepValid) {
                     navigationListItems.eq(i - 1).parent().removeClass('disabled').removeClass('completed').removeAttr('aria-label');
                 } else {
