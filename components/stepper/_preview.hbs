@@ -10,46 +10,28 @@
 {{> '@tpl-scripts' }}
 
 <script>
-    function areInputsValid(currentInputs) {
+    function areInputsValid(currentInputs, targetId, validateAllRequiredFields) {
         var isValid = true;
-        $(".form-group").removeClass("has-error");
-        for (var i = 0; i< currentInputs.length; i++) {
+        for (var i = 0; i < currentInputs.length; i++) {
+            $(currentInputs[i]).addClass("valid");
             if (!currentInputs[i].validity.valid){
                 isValid = false;
-                $(currentInputs[i]).closest(".form-group").addClass("has-error");
+
+                // Only show a required input is invalid for the current input or when validating all required
+                if (validateAllRequiredFields || currentInputs[i].id === targetId) {
+                    $(currentInputs[i]).addClass("invalid");
+                }
             }
         }
         return isValid;
     }
 
-    function enableBackButtons(navigationStep, mobileBackBtn, allBackBtn) {
-        mobileBackBtn.removeClass('disabled').attr('aria-label', 'Back').show();
-        allBackBtn.removeClass('disabled');
-        navigationStep.prevAll().removeClass('disabled');
-    }
-
-    function disableBackButtons(navigationStep, mobileBackBtn, allBackBtn) {
-        mobileBackBtn.addClass('disabled').attr('aria-label', 'disabled').hide();
-        allBackBtn.addClass('disabled');
-        navigationStep.prevAll().addClass('disabled');
-    }
-
-    function updateBackButtons(navigationStep, mobileBackBtn, allBackBtn) {
+    function updateBackButtons(navigationStep, mobileBackBtn) {
         if (navigationStep.find('.backBtn').length > 0) { // Check if step has back button
-            enableBackButtons(navigationStep, mobileBackBtn, allBackBtn);
+            mobileBackBtn.show();
         } else {
-            disableBackButtons(navigationStep, mobileBackBtn, allBackBtn);
+            mobileBackBtn.hide();
         }
-    }
-
-    function enableStepNextButtons(mobileNextBtn, allNextBtn) {
-        mobileNextBtn.removeClass('disabled').attr('aria-label', 'Next').show();
-        allNextBtn.removeClass('disabled');
-    }
-
-    function disableStepNextButtons(mobileNextBtn, allNextBtn) {
-        mobileNextBtn.addClass('disabled').attr('aria-label', 'disabled').show();
-        allNextBtn.addClass('disabled');
     }
 
     function isValidStep(stepNumber, validSteps) {
@@ -83,10 +65,6 @@
         navigationStep.next().removeClass('disabled');
     }
 
-    function disableNavigationItems(navigationListItems) {
-        navigationListItems.addClass('disabled');
-    }
-
     function updateButtons(
         navigationListItems,
         navigationStep,
@@ -99,18 +77,10 @@
         validSteps
     ) {
         setNavigationItemStatuses(navigationListItems, navigationStep, currentStepNumber, stepCount, validSteps);
+        mobileNextBtn.show();
         if (navigationStep.find('.nextBtn').length > 0) { // Check if step has a next button
-            if (isValidStep(currentStepNumber, validSteps)) {
-                enableStepNextButtons(mobileNextBtn, allNextBtn);
-            } else {
-                disableStepNextButtons(mobileNextBtn, allNextBtn);
-            }
-            updateBackButtons(navigationStep, mobileBackBtn, allBackBtn);
+            updateBackButtons(navigationStep, mobileBackBtn);
         } else {
-            // disable all buttons
-            disableStepNextButtons(mobileNextBtn, allNextBtn);
-            disableNavigationItems(navigationListItems);
-            disableBackButtons(navigationStep, mobileBackBtn, allBackBtn);
             mobileNextBtn.hide();
         }
     }
@@ -156,7 +126,7 @@
 
         allContent.hide();
 
-        stepperFormInputs.change(function() {
+        stepperFormInputs.on('change keyup paste', function(event) {
             var currentStepContent = $(this).closest(".step-content"),
                     currentStep = $('.stepper-steps li a[href="#' + currentStepContent.attr("id") + '"]').parent(),
                     currentStepNumber = parseInt(currentStepContent.attr("id").substring(13)),
@@ -165,7 +135,7 @@
             currentStep.removeClass('disabled');
             var stepPositionInArray = $.inArray(currentStepNumber, validSteps);
             var stepIsValid = isValidStep(currentStepNumber, validSteps);
-            if (areInputsValid(currentInputs)) {
+            if (areInputsValid(currentInputs, event.target.id, false)) {
                 if (!stepIsValid) validSteps.push(currentStepNumber);
             } else {
                 if (stepIsValid) validSteps.splice(stepPositionInArray, 1);
@@ -220,7 +190,7 @@
                     nextStep = $('.stepper-steps li a[href="#' + currentStepContent.attr("id") + '"]').parent().next().children("a"),
                     currentInputs = currentStepContent.find("input");
 
-            if (areInputsValid(currentInputs)) {
+            if (areInputsValid(currentInputs, null, true)) {
                 nextStep.trigger('click');
             }
         });
