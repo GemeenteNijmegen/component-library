@@ -19,7 +19,10 @@ variables:
 # Snippets
 # ======================
 
-.prepare-ssh: &prepare-ssh
+.prepare-deploy: &prepare-deploy
+  stage: deploy
+  services:
+    - docker:dind
   before_script:
     - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID";
     - apk --no-cache add openssh
@@ -32,6 +35,13 @@ variables:
     - echo "$SSH_SERVER_HOSTKEYS" > ~/.ssh/known_hosts
     # Cleanup old socket
     - rm -f docker-socket-ssh
+  artifacts:
+    paths:
+      - docker-compose-stack.yml
+    expire_in: 1 week
+    when: always
+  only:
+    - /^release\/.*$/
 
 # ======================
 # Testing
@@ -120,13 +130,10 @@ build test:
 # ======================
 
 deploy acceptance:
-  stage: deploy
-  services:
-    - docker:dind
   environment:
     name: acceptance
     url: https://componenten.acc.nijmegen.nl
-  <<: *prepare-ssh
+  <<: *prepare-deploy
   script:
     # Setup SSH tunnel to Docker Engine
     - ssh -o ProxyCommand="ssh -W %h:%p -q enrise@jump01.nijmegen.cobytes.io" -M -S docker-socket-ssh -fnNT -L 50040:127.0.0.1:2375 enrise-docker-deploy@acc01.nijmegen.cobytes.io
@@ -149,18 +156,13 @@ deploy acceptance:
     - DOCKER_HOST=tcp://127.0.0.1:50040 docker stack deploy --with-registry-auth --compose-file=docker-compose-stack.yml ${SERVICE_NAME}
     # Exit SSH tunnel
     - ssh -S docker-socket-ssh -O exit enrise-docker-deploy@acc01.nijmegen.cobytes.io
-  only:
-    - /^release\/.*$/
 
 deploy production:
-  stage: deploy
-  services:
-    - docker:dind
   environment:
     name: production
     url: https://componenten.nijmegen.nl
   when: manual
-  <<: *prepare-ssh
+  <<: *prepare-deploy
   script:
     # Setup SSH tunnel to Docker Engine
     - ssh -o ProxyCommand="ssh -W %h:%p -q enrise@jump01.nijmegen.cobytes.io" -M -S docker-socket-ssh -fnNT -L 50040:127.0.0.1:2375 enrise-docker-deploy@containerprod01.nijmegen.cobytes.io
@@ -183,5 +185,3 @@ deploy production:
     - DOCKER_HOST=tcp://127.0.0.1:50040 docker stack deploy --with-registry-auth --compose-file=docker-compose-stack.yml ${SERVICE_NAME}
     # Exit SSH tunnel
     - ssh -S docker-socket-ssh -O exit enrise-docker-deploy@containerprod01.nijmegen.cobytes.io
-  only:
-    - /^release\/.*$/
