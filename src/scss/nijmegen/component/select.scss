@@ -1,156 +1,113 @@
-.annotate {
-    font-style: italic;
-    color: #366ed4;
-}
+// Set defaults for vendor variables
+$aria-select-height: 2.9rem !default;
+$aria-select-height: $material-select-wrapper-input-dropdown-height;
+$aria-select-line-height: 2.9rem !default;
+$aria-select-line-height: $material-select-wrapper-input-dropdown-line-height;
+$aria-select-bottom-margin: 0.94rem !default;
+$aria-select-bottom-margin: $material-select-wrapper-input-dropdown-margin;
+$aria-select-list-min-width: 6.25rem !default;
+$aria-select-list-min-width: $material-select-dropdown-content-min-width;
+$aria-select-list-max-height: 40.625rem !default;
+$aria-select-list-max-height: $material-select-dropdown-content-max-height;
+$aria-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !default;
+$aria-box-shadow: $z-depth-1;
 
-[role='listbox'] {
-    //min-height: 18em; // todo: not needed?
-    padding: 0;
-    background: white;
-    border: 1px solid #aaa;
-}
+.aria-select {
+    button {
+        cursor: pointer;
+        display: inline-block;
+        border: none;
+        text-decoration: none;
+        text-align: left;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-color: transparent;
+        border-bottom: 1px solid color('nijmegen-forms', 'unfocussed-gray');
+        outline: none;
+        height: $aria-select-height;
+        line-height: $aria-select-line-height;
+        width: 100%;
+        margin: 0 0 $aria-select-bottom-margin 0;
+        padding: 0 25px 0 0;
+        text-overflow: ellipsis;
 
-[role='option'] {
-    display: block;
-    padding: 0 1em;
-    position: relative;
-    line-height: 1.8em;
-}
+        &::after,
+        &[aria-expanded='true']::after { // chevrons
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-feature-settings: 'liga';
+            position: absolute;
+            visibility: visible;
+            right: 15px;
+            font-size: 1.5rem;
+            color: color('nijmegen-primary', 'base');
+            top: 1rem;
+        }
 
-[role='option'].focused {
-    background: #bde4ff;
-}
+        &::after {
+            @include mdi('chevron-down');
+        }
 
-[role='option'][aria-selected] {
-    padding-left: 1.5em;
-}
+        &[aria-expanded='true']::after {
+            @include mdi('chevron-up');
+        }
+    }
 
-[role='option'][aria-selected='true']::before {
-    content: 'âœ“';
-    position: absolute;
-    left: 0.5em;
-}
+    label {
+        font-weight: $font-weight-semibold;
+        top: $form-label-top-offset;
+    }
 
-button {
-    font-size: 16px;
-}
-
-button[aria-disabled='true'] {
-    opacity: 0.5;
-}
-
-.move-right-btn {
-    padding-right: 20px;
-    position: relative;
-}
-
-// todo: check linting
-// todo: cursor point over select?
-// todo: make it fit the previous style
-// todo: resolve the contrast issue
-// todo: option must take a separate value to the text
-// todo: enable select on click
-// todo: deal with all the IDs
-// todo: check it doesn't reload page on http://localhost:3000/components/detail/forminputs-template
-
-.move-right-btn::after { // todo: redundant?
-    content: ' ';
-    height: 10px;
-    width: 12px;
-    //background: url('../imgs/Arrows-Right-icon.png') center right; // todo: chevron
-    position: absolute;
-    right: 2px;
-    top: 6px;
-}
-
-.move-left-btn {
-    padding-left: 20px;
-    position: relative;
-}
-
-.move-left-btn::after {
-    content: ' ';
-    height: 10px;
-    width: 12px;
-    //background: url('../imgs/Arrows-Left-icon.png') center left; // todo: chevron
-    position: absolute;
-    left: 2px;
-    top: 6px;
-}
-
-#ss_elem_list {
-    max-height: 18em;
-    overflow-y: auto;
-    position: relative;
-}
-
-#exp_button {
-    border-radius: 0;
-    font-size: 16px;
-    text-align: left;
-    padding: 5px 10px;
-    width: 150px;
-    position: relative;
-}
-
-#exp_button::after {
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 8px solid #aaa;
-    content: ' ';
-    position: absolute;
-    right: 5px;
-    top: 10px;
-}
-
-#exp_button[aria-expanded='true']::after {
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 0;
-    border-bottom: 8px solid #aaa;
-    content: ' ';
-    position: absolute;
-    right: 5px;
-    top: 10px;
+    .hidden {
+        display: none;
+    }
 }
 
 .aria-select-list {
-    border-top: 0;
-    max-height: 10em;
+    user-select: none;
+    list-style-type: none;
+    padding-left: 0;
+    box-shadow: $aria-box-shadow;
+    background-color: #fff;
+    margin: 0;
+    min-width: $aria-select-list-min-width;
+    max-height: $aria-select-list-max-height;
     overflow-y: auto;
     position: absolute;
-    margin: 0;
-    width: 148px;
-}
+    z-index: 999;
+    will-change: width, height;
+    width: 100%;
+    opacity: 0;
 
-.hidden {
-    display: none;
-}
+    [role='option'] {
+        clear: both;
+        cursor: pointer;
+        line-height: $material-select-dropdown-content-li-line-height;
+        width: 100%;
+        text-align: left;
+        text-transform: none;
+        display: block;
+        border-bottom: $form-drop-down-bottom-border;
+        color: $body-color;
+        font-size: to-rem(16);
+        padding: 1rem;
 
-.toolbar {
-    font-size: 0;
-}
+        &.active {
+            background-color: transparent;
+            color: color('nijmegen-primary', 'base');
+        }
 
-.toolbar-item {
-    border: 1px solid #aaa;
-    background: #ccc;
-}
+        &.selected {
+            background-color: transparent;
+            color: color('nijmegen-primary', 'base');
+        }
 
-.toolbar-item[aria-disabled='false']:focus {
-    background-color: #eee;
-}
+        &.focused {
+            background: rgba($focus-color, 0.2);
+        }
 
-.offscreen {
-    clip: rect(1px 1px 1px 1px);
-    clip: rect(1px, 1px, 1px, 1px);
-    font-size: 14px;
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
 }

@@ -38,7 +38,7 @@
 @mixin mdi($icon) {
     @include web-font-rendering-support;
     content: mdi($icon);
-    font-family: '#{$mdi-font-name}';
+    font-family: '#{$mdi-font-name}', sans-serif;
     font-weight: normal;
     font-style: normal;
     font-size: 24px;

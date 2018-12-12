@@ -1,5 +1,7 @@
 $form-control-error-icon-size: 17;
 $select-caret-icon-size: 24;
+$form-label-top-offset: -1.5rem;
+$form-drop-down-bottom-border: 1px solid rgba(0, 0, 0, .125);
 
 .md-form {
     label {
@@ -131,7 +133,7 @@ $select-caret-icon-size: 24;
 
     & + label {
         font-weight: $font-weight-semibold;
-        top: -1.5rem;
+        top: $form-label-top-offset;
     }
 
     &:hover {
@@ -143,7 +145,7 @@ $select-caret-icon-size: 24;
 
 .dropdown-content {
     li {
-        border-bottom: 1px solid rgba(0, 0, 0, .125);
+        border-bottom: $form-drop-down-bottom-border;
 
         span {
             color: $body-color;

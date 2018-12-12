@@ -1,35 +1,29 @@
 <div class="md-form">
-    <select class="mdb-select">
-        <option value="" disabled selected>Choose your option</option>
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
-    </select>
-    <label>Example label</label>
-</div>
-
-<div class="md-form">
     <div class="aria-select">
-        <button aria-haspopup="listbox" aria-labelledby="exp_elem exp_button" id="exp_button">
+        <button
+            aria-haspopup="listbox"
+            aria-labelledby="example-select-label example-select-button"
+            id="example-select-button"
+        >
             Choose your option
         </button>
         <ul
             tabindex="-1"
             role="listbox"
-            aria-labelledby="exp_elem"
+            aria-labelledby="example-select-element"
             class="aria-select-list hidden"
         >
-            <li id="exp_elem_1" data-value="1" role="option">
+            <li id="example-select-element_1" data-value="1" role="option">
                 Option 1
             </li>
-            <li id="exp_elem_2" data-value="2" role="option">
+            <li id="example-select-element_2" data-value="2" role="option">
                 Option 2
             </li>
-            <li id="exp_elem_3" data-value="3" role="option">
+            <li id="example-select-element_3" data-value="3" role="option">
                 Option 3
             </li>
         </ul>
-        <input type="hidden" id="exp_elem" name="exp_elem">
-        <label>Example label</label>
+        <input type="hidden" id="example-select-element" name="example-select-element">
+        <label id="example-select-label" for="example-select-element">Example Select Element</label>
     </div>
 </div>
