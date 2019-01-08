@@ -3,7 +3,9 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Schakel navigatie">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="/"><img src="{{ assetPath '/img/beeldmerk.svg' }}" class="logo" alt=""></a>
+        <a class="navbar-brand" href="/">
+            <img src="{{ assetPath '/img/beeldmerk.svg' }}" class="logo" alt="Logo Nijmegen">
+        </a>
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="navbar-nav mr-auto{{ smoothScroll }}">
                 <li class="nav-item">
@@ -22,8 +24,8 @@
             {{#if searchComponent}}
             <form action="{{ searchAction }}" class="form-inline ml-auto">
                 <label for="oi-query" class="sr-only">Zoeken</label>
-                <input class="form-control" id="oi-query" type="text" placeholder="Zoeken" autocomplete="off">
-                <button type="button" class="btn-search"><i class="mdi mdi-magnify" aria-hidden="true"></i></button>
+                <input class="form-control" id="oi-query" type="text" placeholder="Zoeken" tabindex="1" autocomplete="off">
+                <button type="button" class="btn-search" tabindex="2" aria-label="Zoek knop"><i class="mdi mdi-magnify" aria-hidden="true"></i></button>
             </form>
             {{/if}}
         </div>
