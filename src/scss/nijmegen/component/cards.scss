@@ -5,6 +5,11 @@
 
     figure {
         @include aspect-ratio(7, 3);
+        overflow: hidden;
+
+        .content {
+            object-fit: cover;
+        }
 
         .badge {
             font-size: to-rem(12);
