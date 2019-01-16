@@ -13,9 +13,9 @@ intro:
 init: intro do-init do-show-commands
 start: intro do-start
 stop: intro do-stop
-update-project: intro do-run-updates
-gitlab: intro do-checkout-mr do-run-updates
-update-icons: intro do-update-icons
+update-project: intro do-run-updates do-start
+gitlab: intro do-checkout-mr do-run-updates do-start
+update-icons: intro do-update-icons do-start
 component-listing: intro do-component-listing
 
 # ===========================
