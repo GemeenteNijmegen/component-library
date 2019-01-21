@@ -16,7 +16,7 @@ table.responsive-table {
     tbody tr {
         padding-top: 6px;
         padding-bottom: 6px;
-        td {
+        td, th {
             color: $body-color;
             font-size: to-rem(16);
             border-bottom: 2px solid color('nijmegen-grey', 'base');
@@ -76,6 +76,50 @@ table.responsive-table {
                 height: 0;
                 clear: both;
                 visibility: hidden;
+            }
+        }
+    }
+
+    &.complex-table {
+        thead tr {
+            th:first-child {
+                border-right: 2px solid color('nijmegen-grey', 'base');
+            }
+            th:nth-child(2) {
+                padding-left: 5px;
+            }
+        }
+        tbody tr {
+            th {
+                font-weight: bold;
+                border-right: 2px solid color('nijmegen-grey', 'base');
+            }
+            td:first-of-type{
+                padding-left: 5px;
+            }
+        }
+
+        @media only screen and (max-width: 760px), (min-device-width: $medium-screen-portrait) and (max-device-width: 1024px) {
+            tr {
+                border-top: none;
+            }
+
+            thead tr {
+                th:first-child {
+                    border-right: none;
+                }
+                th:nth-child(2) {
+                    padding-left: 1px;
+                }
+            }
+            tbody tr {
+                th {
+                    font-weight: bold;
+                    border-right: none;
+                }
+                td:first-of-type{
+                    padding-left: 1px;
+                }
             }
         }
     }

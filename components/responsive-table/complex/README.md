@@ -9,13 +9,13 @@ Underneath a jQuery example on how to achieve this and should be placed in the `
 
 ```javascript
 <script>
-    $('.responsive-table').each(function() {
-        var headings = $(this).find('thead th').map(function() {
+    $('.responsive-table.complex-table').each(function () {
+        var headings = $(this).find('thead th:not(:first-child)').map(function () {
             return this.textContent;
         }).toArray();
 
         if (headings.length > 0) {
-            $(this).find('tbody td').each(function(tdIdx) {
+            $(this).find('tbody td').each(function (tdIdx) {
                 this.setAttribute('data-title', headings[tdIdx % headings.length]);
             });
         }
