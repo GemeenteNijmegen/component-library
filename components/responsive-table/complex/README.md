@@ -1,4 +1,4 @@
-## Responsive Table
+## Complex Responsive Table
 
 A custom component created for Nijmegen, based on this [CSS-Tricks demo](https://css-tricks.com/examples/ResponsiveTables/responsive.php).
 
