@@ -7,6 +7,7 @@ Go develop!
   - [Sprint process](#sprint-process)
   - [What tooling do I need](#what-tooling-do-i-need)
   - [How do I start developing for the fist time](#how-do-i-start-developing-for-the-fist-time)
+  - [Other Commands](#other-commands)
 - [Update Material Design Icons listing](#update-material-design-icons-listing)
 - [Update Material Design for Bootstrap](#update-material-design-for-bootstrap)
 - [Index listing of components](#index-listing-of-components)
@@ -48,6 +49,14 @@ make start
 ```
 
 The website should now be available on URL <http://localhost:3000>
+
+## Other Commands
+
+Other useful commands can be found by running:
+
+```shell
+make info
+```
 
 # Update Material Design Icons listing
 
