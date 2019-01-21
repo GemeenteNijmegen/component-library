@@ -1,0 +1,15 @@
+{{> '@tpl-head' }}
+</head>
+<body>
+
+<main>
+    {{!-- Underneath will render component output --}}
+    {{{ yield }}}
+</main>
+
+{{> '@tpl-scripts' }}
+
+{{> '@tpl-script-aria-switch' }}
+
+</body>
+</html>
