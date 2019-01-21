@@ -14,7 +14,6 @@ $text-height: to-rem(48 - $border-bottom-size);
         z-index: 2;
         position: relative;
 
-
         &:first-child {
             margin-left: 0;
         }
@@ -28,15 +27,25 @@ $text-height: to-rem(48 - $border-bottom-size);
             bottom: 12px;
         }
 
+        button,
         a {
             height: to-rem(48);
             line-height: $text-height;
             padding-top: 0;
-            padding-bottom: 0;
+            padding-bottom: to-rem($border-bottom-size) solid color('nijmegen-grey', 'base');
             border-radius: 0;
             font-size: to-rem(18);
             color: color('nijmegen-brand', 'base');
             text-transform: none;
+            border: 0;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            text-align: left;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-color: transparent;
+            outline: none;
 
             &.active {
                 border-bottom: to-rem($border-bottom-size) solid $body-color;
@@ -49,8 +58,8 @@ $text-height: to-rem(48 - $border-bottom-size);
             }
 
             &:focus {
-                @include tab-focus;
                 border-radius: 2px;
+                background: rgba($focus-color, 0.2);
             }
         }
     }
