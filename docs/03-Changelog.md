@@ -33,6 +33,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   aria-label added to the navigation element
 - _Component [stepper]({{ componentPath '@stepper' }})_:
   Placeholders added to each input
+- _Component [navbar primary]({{ componentPath '@navbar-primary' }})_:
+  Aria-label added to the search icon along with a tabindex
+- _Component [navbar white]({{ componentPath '@navbar-white' }})_:
+  Alt text added to the icon
+- _Component [navbar white]({{ componentPath '@navbar-white' }})_:
+  Aria-label added to the search icon along with a tabindex
 
 ### Changed
 - _Component cards ([filename]({{ componentPath '@cards-filename' }}), [news]({{ componentPath '@cards-news' }}), [services]({{ componentPath '@cards-services' }}), [services no icon]({{ componentPath '@cards-services-no-icon' }}))_:

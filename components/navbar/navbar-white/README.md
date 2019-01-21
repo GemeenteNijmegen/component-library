@@ -22,7 +22,7 @@ To set an active menu item, underneath HTML markup for a navigation item can be 
 
 ```html
 <li class="nav-item active">
-    <a href="#" class="nav-link">Menu active <span class="sr-only">(current)</span></a>
+    <a href="#" class="nav-link">Menu <span class="sr-only">(huidig)</span></a>
 </li>
 ```
 
