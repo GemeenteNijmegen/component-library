@@ -7,7 +7,16 @@
         @include aspect-ratio(7, 3);
         overflow: hidden;
 
-        .content {
+        &.compatibility-object-fit {
+            background-size: cover;
+            background-position: center center;
+
+            img.content {
+                opacity: 0;
+            }
+        }
+
+        img.content {
             object-fit: cover;
         }
 

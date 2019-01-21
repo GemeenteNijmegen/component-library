@@ -12,10 +12,23 @@ Regarding the `alt` attribute on the image, please follow the decision tree as c
 
 ### Using
 
-No additional actions, aside from the markup, are needed to use this component.
+To start using this component, some JavaScript is needed to ensure that the image is shown correctly on older browsers.
+Only one instance of this script is necessary even when using different types of cards.
+
+```javascript
+<script>
+    if ('objectFit' in document.documentElement.style === false) {
+        $('.card figure img.content').each(function () {
+            var imageUrl = $(this).prop('src');
+            $(this).parent()
+                .css('backgroundImage', 'url(' + imageUrl + ')')
+                .addClass('compatibility-object-fit');
+        });
+    }
+</script>
+```
 
 ### Notes
 
 * The card title in this component is rendered via a paragraph element, since it's unknown in advance what the implementors document heading level structure would be, it's not advisable to define a specific heading element (`H1 - H6`) in this component.<br>
 **However**, the component has been structured to work with every heading (`H1 - H6`) level as card title, so you are free to use which heading level suits your use-case.
-* The view-box of the image in this card has an aspect ratio of `7:3`. On Internet Explorer images with a different aspect ratio will be stretched to fit. It is recommended to use an image with an aspect ratio of exactly `7:3` to give the best experience for all users.
