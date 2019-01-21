@@ -93,6 +93,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Disabled step contrast increased
 - _Component [stepper]({{ componentPath '@stepper' }})_:
   Back and next buttons changed to work based on validation messages and not disabling buttons
+- _Component [tabs]({{ componentPath '@tabs' }})_:
+  Changed tabs to match aria accessibility guidelines
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:
