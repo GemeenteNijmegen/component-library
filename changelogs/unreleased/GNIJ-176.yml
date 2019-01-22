@@ -1,0 +1,4 @@
+changes:
+- type: added #changed, removed, added
+  component: switch
+  description: An accessible version of a material switch component has been added.

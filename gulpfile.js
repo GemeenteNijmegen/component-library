@@ -8,6 +8,7 @@ const sassGlob = require('gulp-sass-glob');
 const sourcemaps = require('gulp-sourcemaps');
 const through = require('through2');
 
+const vendorPath = 'src/vendor';
 const mdbootstrapPath = 'src/mdbootstrap-pro/v4.5.9';
 const materialdesigniconsPath = 'node_modules/mdi';
 const materialdesigniconsFontPath = materialdesigniconsPath + '/fonts';
@@ -172,7 +173,7 @@ gulp.task('fonts:copy', function() {
 gulp.task('fonts', gulp.series('fonts:clean', 'fonts:copy', 'mdb-fonts:copy', 'mdi-fonts:copy'));
 
 /*
- * MDB JavaScript
+ * MDB and external JavaScript
  */
 gulp.task('mdb-js:clean', function() {
   return del(['public/js']);
@@ -185,13 +186,20 @@ gulp.task('mdb-js:copy', function() {
   );
 });
 
+gulp.task('mdb-js:ext', function() {
+  return gulp.src([vendorPath+'/js/*.js'])
+    .pipe(stripSourceMappingURL())
+    .pipe(gulp.dest('public/js')
+  );
+});
+
 gulp.task('mdb-js:watch', function() {
   gulp.watch([
     mdbootstrapPath+'/js/**/*',
   ], gulp.series('mdb-js'));
 });
 
-gulp.task('mdb-js', gulp.series('mdb-js:clean', 'mdb-js:copy'));
+gulp.task('mdb-js', gulp.series('mdb-js:clean', 'mdb-js:copy', 'mdb-js:ext'));
 
 /*
  * CSS
