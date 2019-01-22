@@ -1,7 +1,7 @@
 ## Select
 
-Based on the version from MDB:<br>
-{{ mdbootstrapPath '/javascript/material-select/#basic' }}
+Based on a11y styled form components:<br>
+https://github.com/scottaohara/a11y_styled_form_controls
 
 ### Using
 
@@ -19,7 +19,7 @@ Underneath is an example on how to achieve this and should be placed in the `Add
     };
 </script>
 ```
-todo: yaml file, acc test, add to form elem page, complete readme, all 3 files...
+
 ### Notes
 
-* MDB framework defines that the input element comes prior to the label element
+* The given label text should be descriptive enough for users using screen readers to understand what ticked/unticked (true/false) means.
