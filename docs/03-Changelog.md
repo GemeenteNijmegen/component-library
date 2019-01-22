@@ -39,6 +39,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Alt text added to the icon
 - _Component [navbar white]({{ componentPath '@navbar-white' }})_:
   Aria-label added to the search icon along with a tabindex
+- _Component [switch]({{ componentPath '@switch' }})_:
+  An accessible version of a material switch component has been added.
 
 ### Changed
 - _Component cards ([filename]({{ componentPath '@cards-filename' }}), [news]({{ componentPath '@cards-news' }}), [services]({{ componentPath '@cards-services' }}), [services no icon]({{ componentPath '@cards-services-no-icon' }}))_:
