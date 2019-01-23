@@ -81,7 +81,7 @@
         /* change the position of the knob to indicate it has been checked*/
         &:checked + span.switch-toggle:after {
             right: .25em;
-            background-color: #aa66cc;
+            background-color: #157c68;
         }
 
         /* update the color of the "container" to further visually indicate state */
