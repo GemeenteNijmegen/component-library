@@ -27,7 +27,8 @@ $form-drop-down-bottom-border: 1px solid rgba(0, 0, 0, .125);
     input[type=number],
     input[type=search-md],
     input[type=search],
-    textarea.md-textarea {
+    textarea.md-textarea,
+    .aria-select button {
         border-bottom-color: color('nijmegen-forms', 'unfocussed-gray');
 
         &:focus:not([readonly]) {
