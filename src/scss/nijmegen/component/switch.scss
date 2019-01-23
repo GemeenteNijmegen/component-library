@@ -74,9 +74,10 @@
             pointer-events: none;
         }
 
-        &:focus + span.switch-toggle:before {
-            outline: 2px solid;
-        }
+        // Focus outline removed to favour leaving it to assistive technology solutions
+        //&:focus + span.switch-toggle:before {
+        //    outline: 2px solid;
+        //}
 
         /* change the position of the knob to indicate it has been checked*/
         &:checked + span.switch-toggle:after {
