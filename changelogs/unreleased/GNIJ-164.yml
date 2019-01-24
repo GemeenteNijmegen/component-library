@@ -1,4 +1,0 @@
-changes:
-  - type: changed #changed, removed, added
-    component: cards
-    description: Images on cards will cover the image view-box and will not stretch

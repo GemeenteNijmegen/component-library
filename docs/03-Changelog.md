@@ -41,6 +41,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Aria-label added to the search icon along with a tabindex
 - _Component [switch]({{ componentPath '@switch' }})_:
   An accessible version of a material switch component has been added.
+- _Component [complex table]({{ componentPath '@complex-table' }})_:
+  A new type of responsive table has been added. This component has row and column headings.
 
 ### Changed
 - _Component cards ([filename]({{ componentPath '@cards-filename' }}), [news]({{ componentPath '@cards-news' }}), [services]({{ componentPath '@cards-services' }}), [services no icon]({{ componentPath '@cards-services-no-icon' }}))_:
@@ -97,6 +99,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Back and next buttons changed to work based on validation messages and not disabling buttons
 - _Component [tabs]({{ componentPath '@tabs' }})_:
   Changed tabs to match aria accessibility guidelines
+- _Component [cards]({{ componentPath '@cards' }})_:
+  Images on cards will cover the image view-box and will not stretch
+- _Component [normal table]({{ componentPath '@normal-table' }})_:
+  This is the old responsive table (only renamed due to the complex table)
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:
