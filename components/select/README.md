@@ -50,7 +50,7 @@ aria.ListBoxButton.prototype.checkShow = function (event) {
     switch (key) {
         case aria.KeyCode.UP:
         case aria.KeyCode.DOWN:
-            event.preventDefault();
+            if (event) event.preventDefault();
             this.showListBox();
             this.listBox.checkKeyPress(event);
             break;
@@ -63,7 +63,7 @@ aria.ListBoxButton.prototype.checkHide = function (event) {
     switch (key) {
         case aria.KeyCode.RETURN:
         case aria.KeyCode.ESC:
-            event.preventDefault();
+            if (event) event.preventDefault();
             this.hideListBox();
             this.button.focus();
             break;
@@ -78,7 +78,7 @@ aria.ListBoxButton.prototype.showListBox = function (event) {
         'max-height': '40.625rem'
     }, 800);
     this.listBox.listBoxNode.focus();
-    event.preventDefault();
+    if (event) event.preventDefault();
 };
 
 aria.ListBoxButton.prototype.hideListBox = function (event) {
@@ -88,7 +88,7 @@ aria.ListBoxButton.prototype.hideListBox = function (event) {
         'max-height': '0rem'
     });
     this.button.removeAttribute('aria-expanded');
-    event.preventDefault();
+    if (event) event.preventDefault();
 };
 
 aria.ListBoxButton.prototype.onFocusChange = function (focusedItem) {
@@ -188,7 +188,7 @@ aria.Listbox.prototype.checkKeyPress = function (event) {
         case aria.KeyCode.PAGE_UP:
         case aria.KeyCode.PAGE_DOWN:
             if (this.moveUpDownEnabled) {
-                event.preventDefault();
+                if (event) event.preventDefault();
 
                 if (key === aria.KeyCode.PAGE_UP) {
                     this.moveUpItems();
@@ -201,7 +201,7 @@ aria.Listbox.prototype.checkKeyPress = function (event) {
             break;
         case aria.KeyCode.UP:
         case aria.KeyCode.DOWN:
-            event.preventDefault();
+            if (event) event.preventDefault();
 
             if (this.moveUpDownEnabled && event.altKey) {
                 if (key === aria.KeyCode.UP) {
@@ -226,15 +226,15 @@ aria.Listbox.prototype.checkKeyPress = function (event) {
 
             break;
         case aria.KeyCode.HOME:
-            event.preventDefault();
+            if (event) event.preventDefault();
             this.focusFirstItem();
             break;
         case aria.KeyCode.END:
-            event.preventDefault();
+            if (event) event.preventDefault();
             this.focusLastItem();
             break;
         case aria.KeyCode.SPACE:
-            event.preventDefault();
+            if (event) event.preventDefault();
             this.toggleSelectItem(nextItem);
             break;
         case aria.KeyCode.BACKSPACE:
@@ -255,7 +255,7 @@ aria.Listbox.prototype.checkKeyPress = function (event) {
                 return;
             }
 
-            event.preventDefault();
+            if (event) event.preventDefault();
 
             var nextUnselected = nextItem.nextElementSibling;
             while (nextUnselected) {
