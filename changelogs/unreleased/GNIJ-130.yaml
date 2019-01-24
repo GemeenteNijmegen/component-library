@@ -1,0 +1,4 @@
+changes:
+- type: changed #changed, removed, added
+  component: time-picker
+  description: The time picker has been made inaccessible to screen readers with manual input in it's place.
