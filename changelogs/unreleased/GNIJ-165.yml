@@ -1,0 +1,7 @@
+changes:
+    - type: added #changed, removed, added
+      component: complex-table
+      description: A new type of responsive table has been added. This component has row and column headings.
+    - type: changed #changed, removed, added
+      component: normal-table
+      description: This is the old responsive table (only renamed due to the complex table)
