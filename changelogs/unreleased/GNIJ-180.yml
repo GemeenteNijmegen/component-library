@@ -1,0 +1,4 @@
+changes:
+  - type: changed #changed, removed, added
+    component: lightbox
+    description: Added portrait image example
