@@ -12,7 +12,21 @@ Regarding the `alt` attribute on the image, please follow the decision tree as c
 
 ### Using
 
-No additional actions, aside from the markup, are needed to use this component.
+To start using this component, some JavaScript is needed to ensure that the image is shown correctly on older browsers.
+Only one instance of this script is necessary even when using different types of cards.
+
+```javascript
+<script>
+    if ('objectFit' in document.documentElement.style === false) {
+        $('.card figure img.content').each(function () {
+            var imageUrl = $(this).prop('src');
+            $(this).parent()
+                .css('backgroundImage', 'url(' + imageUrl + ')')
+                .addClass('compatibility-object-fit');
+        });
+    }
+</script>
+```
 
 ### Notes
 
