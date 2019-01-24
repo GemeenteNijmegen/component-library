@@ -103,6 +103,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Images on cards will cover the image view-box and will not stretch
 - _Component [normal table]({{ componentPath '@normal-table' }})_:
   This is the old responsive table (only renamed due to the complex table)
+- _Component [lightbox]({{ componentPath '@lightbox' }})_:
+  Added portrait image example
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:
