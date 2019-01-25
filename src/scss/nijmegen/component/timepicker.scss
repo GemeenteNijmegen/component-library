@@ -1,3 +1,31 @@
+.time-picker {
+    button {
+        position: relative;
+        float: right;
+        top: -42px;
+        border: 0;
+        background: none;
+    }
+
+    input {
+        &:focus:not([readonly]) {
+            ~ label {
+                color: color('nijmegen-primary', 'base');
+            }
+        }
+
+        &.invalid,
+        &:focus.invalid {
+            & ~ label {
+                &:before,
+                &:after {
+                    color: color('nijmegen-forms', 'error');
+                }
+            }
+        }
+    }
+}
+
 .picker {
     .picker__date-display {
         background-color: color('nijmegen-brand', 'base');
