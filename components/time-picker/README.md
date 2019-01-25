@@ -10,15 +10,31 @@ Underneath a jQuery example on how to achieve this and should be placed in the `
 
 ```javascript
 <script>
-    $('.timepicker').pickatime({
+    var timePicker = $('#time-picker-example-input-hidden').pickatime({
         twelvehour: false,
-        donetext: 'Gereed'
+        donetext: 'Gereed',
+        beforeShow: function () {
+            $('#time-picker-example-input-hidden').val(
+                $('#time-picker-example-input').val()
+            );
+        },
+        afterDone: function () {
+            $('#time-picker-example-input').val(
+                $('#time-picker-example-input-hidden').val()
+            );
+        }
+    });
+
+    $('#time-picker-example-button').click( function (event) {
+        event.stopPropagation();
+        timePicker.pickatime('show');
     });
 </script>
 ```
 
 ### Notes
 
-* For demo purpose only, the time picker opens automatically.
+* The hidden input can then be ignored when collecting results
+* For the best accessibility support the label should contain the time format, and not just the placeholder
 * MDB framework defines that the input element comes prior to the label element
 * It's best practice to have an input element accompanied with a label element which are *connected* via the `for` attribute on the label element and the corresponding `id` on the input element

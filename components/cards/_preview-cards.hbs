@@ -1,19 +1,23 @@
 {{> '@tpl-head' }}
 </head>
+
 <body>
 
-<main>
-    <div class="container">
-        <div class="row">
-            <div class="col-4">
-                {{!-- Underneath will render component output --}}
-                {{{ yield }}}
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    {{!-- Underneath will render component output --}}
+                    {{{ yield }}}
+                </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
 
-{{> '@tpl-scripts' }}
+    {{> '@tpl-scripts' }}
+
+    {{> '@tpl-script-card-compatibility' }}
 
 </body>
+
 </html>

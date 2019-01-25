@@ -1,0 +1,100 @@
+.switch-toggle {
+    position: relative;
+    height: 1.75em;
+    width: 3em;
+    margin: 0 10px;
+}
+
+.switch-toggle,
+.switch-false,
+.switch-true {
+    float: right;
+}
+
+/* containing label */
+.check-switch {
+    display: block;
+    overflow: hidden;
+    padding: .5em;
+    position: relative;
+
+    &:hover {
+        box-shadow: 0 0 2px 1px #2196f3;
+    }
+
+    /* using the before/after pseudo elements of the span to create the "switch" */
+    span.switch-toggle:before,
+    span.switch-toggle:after {
+        border: 1px solid #565656;
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    /* styling specific to the knob of the switch */
+    span.switch-toggle:after {
+        right: 1.5em;
+        background-color: #F1F1F1;
+        border-radius: 1.3125rem;
+        box-shadow: 0 0.0625rem 0.1875rem 0.0625rem rgba(0, 0, 0, 0.4);
+        width: 1.3125rem;
+        height: 1.3125rem;
+        transition: right 0.3s ease, background 0.3s ease, box-shadow 1s ease;
+        border: 0;
+    }
+
+    /* styling specific to the knob "container" */
+    span.switch-toggle:before {
+        right: .25em;
+        background-color: #818181;
+        border-radius: 0.9375rem;
+        vertical-align: middle;
+        width: 2.5rem;
+        height: 0.9375rem;
+        transition: background 0.3s ease;
+        border: 0;
+    }
+
+    /* hide the actual checkbox from view, but not from keyboards or ATs.
+       Instead of standard visually hidden styling, instead set opacity to
+       almost 0 (not zero for ChomeVox legacy bug), pointer-events none, and
+       then set to full height/width of container element so that VO focus
+       ring outlines the component, instead of a tiny box within the component
+    */
+    input {
+        height: 100%;
+        left: 0;
+        opacity: .0001;
+        position: absolute;
+        top: 0;
+        width: 100%;
+
+        &:not([role="button"]) {
+            pointer-events: none;
+        }
+
+        &:focus + span.switch-toggle:before {
+            outline: 2px solid;
+        }
+
+        /* change the position of the knob to indicate it has been checked*/
+        &:checked + span.switch-toggle:after {
+            right: .25em;
+            background-color: #157c68;
+        }
+
+        /* update the color of the "container" to further visually indicate state */
+        &:checked + span.switch-toggle:before {
+            background: #dccfe2;
+        }
+    }
+}
+
+/* 'color in' the switch knob in high contrast mode by giving it
+   a large border */
+@media screen and (-ms-high-contrast: active) {
+    .check-switch span.switch-toggle:after {
+        background-color: windowText;
+    }
+}

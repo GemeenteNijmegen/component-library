@@ -1,3 +1,13 @@
+.date-picker {
+    button {
+        position: relative;
+        float: right;
+        top: -42px;
+        border: 0;
+        background: none;
+    }
+}
+
 .picker {
     .picker__header .picker__date-display {
         background-color: color('nijmegen-brand', 'base');
