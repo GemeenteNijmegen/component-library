@@ -31,6 +31,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Placeholder alt text added
 - _Component [pagination]({{ componentPath '@pagination' }})_:
   aria-label added to the navigation element
+- _Component [stepper]({{ componentPath '@stepper' }})_:
+  Placeholders added to each input
+- _Component [navbar primary]({{ componentPath '@navbar-primary' }})_:
+  Aria-label added to the search icon along with a tabindex
+- _Component [navbar white]({{ componentPath '@navbar-white' }})_:
+  Alt text added to the icon
+- _Component [navbar white]({{ componentPath '@navbar-white' }})_:
+  Aria-label added to the search icon along with a tabindex
+- _Component [switch]({{ componentPath '@switch' }})_:
+  An accessible version of a material switch component has been added.
+- _Component [complex table]({{ componentPath '@complex-table' }})_:
+  A new type of responsive table has been added. This component has row and column headings.
 
 ### Changed
 - _Component cards ([filename]({{ componentPath '@cards-filename' }}), [news]({{ componentPath '@cards-news' }}), [services]({{ componentPath '@cards-services' }}), [services no icon]({{ componentPath '@cards-services-no-icon' }}))_:
@@ -81,6 +93,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Replaced the previous steppers component with a new responsive stepper form component
 - _Component [stepper]({{ componentPath '@stepper' }})_:
   Added backward navigation to the stepper component
+- _Component [stepper]({{ componentPath '@stepper' }})_:
+  Disabled step contrast increased
+- _Component [stepper]({{ componentPath '@stepper' }})_:
+  Back and next buttons changed to work based on validation messages and not disabling buttons
+- _Component [tabs]({{ componentPath '@tabs' }})_:
+  Changed tabs to match aria accessibility guidelines
+- _Component [cards]({{ componentPath '@cards' }})_:
+  Images on cards will cover the image view-box and will not stretch
+- _Component [normal table]({{ componentPath '@normal-table' }})_:
+  This is the old responsive table (only renamed due to the complex table)
+- _Component [lightbox]({{ componentPath '@lightbox' }})_:
+  Added portrait image example
+- _Component [time picker]({{ componentPath '@time-picker' }})_:
+  The time picker has been made inaccessible to screen readers with manual input in it's place.
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:

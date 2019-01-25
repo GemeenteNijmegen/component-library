@@ -9,10 +9,10 @@ In above preview panel, all icons available in this framework are displayed.
 When using an icon for decorative reason, be sure to add `aria-hidden="true"` to the icon to hide it for assistive technologies.<br>
 (https://www.24a11y.com/2017/svg-icon-fonts-accessibility-case-study/)
 <br /><br />
-If the icons have a functional meaning, then please use `aria-label="Give a useful description"`.
+If the icons have a functional meaning, then please use `aria-label="Give a useful description in Dutch"`.
 In the case of a link, the label would apply to the parent:
 ```html
-<a href="/account" aria-label="View my account">
+<a href="/account" aria-label="Bekijk mijn account">
     <span class="mdi mdi-account" aria-hidden="true"></span>
 </a>
 ```

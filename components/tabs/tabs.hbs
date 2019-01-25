@@ -1,35 +1,42 @@
 <div class="tabs-wrapper">
-    <ul class="nav {{ modifier }}" role="tablist">
+
+    <!-- Tab List -->
+    <ul class="nav {{ modifier }}" role="tablist" aria-label="Example Label">
         <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#example-panel-1" role="tab">Tab One</a>
+            <button class="nav-link active" role="tab" aria-selected="true" aria-controls="example-1-tab" id="example-1">
+                Tab 1
+            </button>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#example-panel-2" role="tab">Tab Two</a>
+            <button class="nav-link" role="tab" aria-selected="false" aria-controls="example-2-tab" id="example-2" tabindex="-1">
+                Tab 2
+            </button>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#example-panel-3" role="tab">Tab Three</a>
+            <button class="nav-link" role="tab" aria-selected="false" aria-controls="example-3-tab" id="example-3" tabindex="-1">
+                Tab 3
+            </button>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#example-panel-4" role="tab">Tab Four</a>
+            <button class="nav-link" role="tab" aria-selected="false" aria-controls="example-4-tab" id="example-4" tabindex="-1">
+                Tab 4
+            </button>
         </li>
     </ul>
-</div>
 
-<div class="tab-content card">
-    <div class="tab-pane fade" id="example-panel-1" role="tabpanel">
+    <!-- Tab Content -->
+    <div class="tab-content" tabindex="0" role="tabpanel" id="example-1-tab" aria-labelledby="example-1">
+        <p>Example 1 content: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
+    </div>
+    <div class="tab-content" tabindex="0" role="tabpanel" id="example-2-tab" aria-labelledby="example-2" hidden="">
+        <p>Example 2 content: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
     </div>
-
-    <div class="tab-pane fade" id="example-panel-2" role="tabpanel">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
+    <div class="tab-content" tabindex="0" role="tabpanel" id="example-3-tab" aria-labelledby="example-3" hidden="">
+        <p>Example 3 content: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
+    </div>
+    <div class="tab-content" tabindex="0" role="tabpanel" id="example-4-tab" aria-labelledby="example-4" hidden="">
+        <p>Example 4 content: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
     </div>
 
-    <div class="tab-pane fade" id="example-panel-3" role="tabpanel">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
-    </div>
-
-    <div class="tab-pane fade" id="example-panel-4" role="tabpanel">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
-    </div>
 </div>

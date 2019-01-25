@@ -45,6 +45,7 @@ $small-screen-portrait: map-get($grid-breakpoints, 'sm');
 @import "component/select";
 @import "component/sidenav";
 @import "component/steppers";
+@import "component/switch";
 @import "component/sticky-content";
 @import "component/tabs";
 @import "component/timepicker";

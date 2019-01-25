@@ -1,7 +1,7 @@
 <nav class="navbar fixed-top navbar-expand-lg scrolling-navbar navbar-primary">
     <div class="container">
         {{#if hamburgerIcon}}
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Schakel navigatie">
             <span class="navbar-toggler-icon"></span>
         </button>
         {{/if}}
@@ -31,8 +31,8 @@
             {{#if searchComponent}}
             <form action="{{ searchAction }}" class="form-inline ml-auto">
                 <label for="oi-query" class="sr-only">Zoeken</label>
-                <input class="form-control" id="oi-query" type="text" placeholder="Zoeken" autocomplete="off">
-                <button class="btn-search"><i class="mdi mdi-magnify" aria-hidden="true"></i></button>
+                <input class="form-control" id="oi-query" type="text" placeholder="Zoeken" tabindex="1" autocomplete="off">
+                <button class="btn-search" tabindex="2" aria-label="Zoek knop"><i class="mdi mdi-magnify" aria-hidden="true"></i></button>
             </form>
             {{/if}}
         </div>

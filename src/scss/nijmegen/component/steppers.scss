@@ -131,7 +131,7 @@
 
     &:not(.active):not(.completed) {
         a.step-link .circle {
-            color: color('nijmegen-grey', 'darken-2');
+            color: color('nijmegen-grey', 'darken-4');
             background-color: color('nijmegen-grey', 'base');
         }
     }
@@ -162,10 +162,6 @@
 .stepper-mobile-navigation {
     bottom: 0;
     font-size: to-rem(20);
-
-    .disabled {
-        color: color('nijmegen-grey', 'darken-2');
-    }
 
     span {
         vertical-align: middle;

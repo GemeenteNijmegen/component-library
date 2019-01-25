@@ -5,6 +5,20 @@
 
     figure {
         @include aspect-ratio(7, 3);
+        overflow: hidden;
+
+        &.compatibility-object-fit {
+            background-size: cover;
+            background-position: center center;
+
+            img.content {
+                opacity: 0;
+            }
+        }
+
+        img.content {
+            object-fit: cover;
+        }
 
         .badge {
             font-size: to-rem(12);

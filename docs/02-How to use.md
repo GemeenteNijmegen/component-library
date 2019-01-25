@@ -50,6 +50,8 @@ All files (CSS and JavaScript) used in underneath example originate from the MDB
 <script src="{{ assetPath '/js/bootstrap.min.js' }}"></script>
 <!-- MDB core JavaScript -->
 <script src="{{ assetPath '/js/mdb.min.js' }}"></script>
+<!-- ARIA Switch JavaScript -->
+<script src="{{ assetPath '/js/aria.switch.js' }}"></script>
 <!-- End: Core scripts -->
 
 <!-- Start: Additional component(s) script -->
