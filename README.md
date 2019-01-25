@@ -9,7 +9,7 @@ https://enrise.atlassian.net/wiki/spaces/TE/pages/647365322/Sprint+process+2018+
 
 Changes for the component library:
 
--   Before merging a changelog is added (see [Changelog](#changelog))
+-   Before merging an unreleased changelog entry is required for each change (see [Changelog](#changelog))
 -   There are no review environments.
 -   A merge to the latest major release branch can take place after technical review which will deploy to acceptance.
 -   Deployment to production needs a manual action which can be done in GitLab via Environments.
@@ -96,12 +96,12 @@ Each file should start with `changes:`, and then contain a list of changes under
 
 ```yaml
 changes:
-  - type: added #changed, removed, added
-    component: carousel
-    description: Added something...
-  - type: removed #changed, removed, added
-    component: footer
-    description: Removed...
+    - type: added #changed, removed, added
+      component: carousel
+      description: Added something...
+    - type: removed #changed, removed, added
+      component: footer
+      description: Removed...
 ```
 
 The type must be changed, removed or added. The component must match the component folder/file name, and then a description of the change.
