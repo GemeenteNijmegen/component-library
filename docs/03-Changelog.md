@@ -109,6 +109,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   The time picker has been made inaccessible to screen readers with manual input in it's place.
 - _Component [date picker]({{ componentPath '@date-picker' }})_:
   The date picker has been made inaccessible to screen readers with manual input in it's place.
+- _Component [select]({{ componentPath '@select' }})_:
+  Switched to a custom aria select listbox element to improve accessibility
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:

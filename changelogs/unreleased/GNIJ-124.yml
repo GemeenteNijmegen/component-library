@@ -1,4 +1,0 @@
-changes:
-- type: changed #changed, removed, added
-  component: select
-  description: Switched to a custom aria select listbox element to improve accessibility
