@@ -111,6 +111,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   The date picker has been made inaccessible to screen readers with manual input in it's place.
 - _Component [select]({{ componentPath '@select' }})_:
   Switched to a custom aria select listbox element to improve accessibility
+- _Component [popovers]({{ componentPath '@popovers' }})_:
+  The popover will open on click or on focus with the space or enter key. Closing the popup can be done with the 'x' or with the enter, space or escape key.
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:
