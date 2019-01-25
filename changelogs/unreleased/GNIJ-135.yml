@@ -1,4 +1,0 @@
-changes:
-- type: changed #changed, removed, added
-  component: date-picker
-  description: The date picker has been made inaccessible to screen readers with manual input in it's place.

@@ -107,6 +107,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Added portrait image example
 - _Component [time picker]({{ componentPath '@time-picker' }})_:
   The time picker has been made inaccessible to screen readers with manual input in it's place.
+- _Component [date picker]({{ componentPath '@date-picker' }})_:
+  The date picker has been made inaccessible to screen readers with manual input in it's place.
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:
