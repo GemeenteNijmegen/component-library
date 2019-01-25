@@ -15,31 +15,7 @@ To start using this component, some JavaScript is needed to initialize it.<br>
 Underneath a jQuery example with the play/pause addition and should be placed in the `Additional component(s) script` section as documented in [How to use]({{ assetPath '/docs/how-to-use.html' }}).
 
 ```javascript
-<script>
-    // Set the carousel options
-    var carouselElm = $('.carousel');
-    carouselElm.carousel({
-        interval: 2000
-    });
-    
-    // Custom JavaScript for the play/pause functionality
-    $('.carousel-play-pause').on('click', 'button', function() {
-        $(this).hide();
-        if (this.classList.contains('carousel-control-play')) {
-            carouselElm.carousel('cycle');
-            this.setAttribute('aria-hidden', 'true');
-            $(this).parent().find('.carousel-control-pause')
-                .attr('aria-hidden', 'false')
-                .show();
-        } else {
-            carouselElm.carousel('pause');
-            this.setAttribute('aria-hidden', 'true');
-            $(this).parent().find('.carousel-control-play')
-                .attr('aria-hidden', 'false')
-                .show();
-        }
-    });
-</script>
+{{ render '@carousel-scripts' }}
 ```
 
 ### Notes

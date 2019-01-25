@@ -31,26 +31,7 @@ When using the navbar in a one-page application, mobile users will slideout the 
 To handle this use-case, put underneath JavaScript just before the closing "body" tag and the menu will close when navigating to the in-page section.
 
 ```javascript
-<script>
-    var navbarToggler = $('.navbar-toggler');
-    // is the mobile nav active?
-    if (navbarToggler.is(':visible')) {
-        var navbars = $('.navbar-nav.smooth-scroll');
-        if (navbars.length) {
-            for (var i = 0; i < navbars.length; i++) {
-                // act on in-page anchors
-                $.each($(navbars[i]).find('.nav-link'), function(index, navLinkElement) {
-                    $(navLinkElement).click(function() {
-                        // is the menu open?
-                        if (!navbarToggler.hasClass('collapsed')) {
-                            navbarToggler.trigger('click');
-                        }
-                    })
-                });
-            }
-        }
-    }
-</script>
+{{ render '@navbar-scripts' }}
 ```
 
 ### Notes

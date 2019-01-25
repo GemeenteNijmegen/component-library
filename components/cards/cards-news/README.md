@@ -16,16 +16,7 @@ To start using this component, some JavaScript is needed to ensure that the imag
 Only one instance of this script is necessary even when using different types of cards.
 
 ```javascript
-<script>
-    if ('objectFit' in document.documentElement.style === false) {
-        $('.card figure img.content').each(function () {
-            var imageUrl = $(this).prop('src');
-            $(this).parent()
-                .css('backgroundImage', 'url(' + imageUrl + ')')
-                .addClass('compatibility-object-fit');
-        });
-    }
-</script>
+{{ render '@tpl-script-card-compatibility' }}
 ```
 
 ### Notes
