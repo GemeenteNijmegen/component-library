@@ -1,0 +1,4 @@
+changes:
+    - type: changed #changed, removed, added
+      component: popovers
+      description: The popover will open on click or on focus with the space or enter key. Closing the popup can be done with the 'x' or with the enter, space or escape key.

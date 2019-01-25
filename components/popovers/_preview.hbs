@@ -1,24 +1,39 @@
 {{> '@tpl-head' }}
-    <style>
+<style>
     body {
         padding: 150px 0 0;
     }
-    </style>
+</style>
 </head>
+
 <body>
 
-<main>
-    {{!-- Underneath will render component output --}}
-    {{{ yield }}}
-</main>
+    <main>
+        {{!-- Underneath will render component output --}}
+        {{{ yield }}}
+    </main>
 
-{{> '@tpl-scripts' }}
+    {{> '@tpl-scripts' }}
 
-<script>
-    $('[data-toggle="popover"]').popover({
-        trigger: 'focus'
-    });
-</script>
+    <script>
+        $('[data-toggle="popover"]')
+            .popover({
+                trigger: 'click',
+                template: $('.popover-template').html()
+            })
+            .keyup(function (event) {
+                if (event.key == 'Escape') {
+                    $(this).popover('hide');
+                }
+            })
+            .on('inserted.bs.popover', function () {
+                var $popup = $(this);
+                $('.popover:last-child .popover-close').click(function (e) {
+                    $popup.popover('hide');
+                });
+            })
+    </script>
 
 </body>
+
 </html>
