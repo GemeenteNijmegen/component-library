@@ -8,28 +8,8 @@ Based on the version from MDB:<br>
 To start using this component, some JavaScript is needed to initialize it.<br>
 Underneath a jQuery example on how to achieve this and should be placed in the `Additional component(s) script` section as documented in [How to use]({{ assetPath '/docs/how-to-use.html' }}).
 
-```javascript
-<script>
-    var timePicker = $('#time-picker-example-input-hidden').pickatime({
-        twelvehour: false,
-        donetext: 'Gereed',
-        beforeShow: function () {
-            $('#time-picker-example-input-hidden').val(
-                $('#time-picker-example-input').val()
-            );
-        },
-        afterDone: function () {
-            $('#time-picker-example-input').val(
-                $('#time-picker-example-input-hidden').val()
-            );
-        }
-    });
-
-    $('#time-picker-example-button').click( function (event) {
-        event.stopPropagation();
-        timePicker.pickatime('show');
-    });
-</script>
+```html
+{{ render '@timepicker-scripts' }}
 ```
 
 ### Notes

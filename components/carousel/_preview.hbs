@@ -14,27 +14,7 @@
 
 {{> '@tpl-scripts' }}
 
-<script>
-    var carouselElm = $('.carousel');
-    carouselElm.carousel();
-
-    $('.carousel-play-pause').on('click', 'button', function() {
-        $(this).hide();
-        if (this.classList.contains('carousel-control-play')) {
-            carouselElm.carousel('cycle');
-            this.setAttribute('aria-hidden', 'true');
-            $(this).parent().find('.carousel-control-pause')
-                .attr('aria-hidden', 'false')
-                .show();
-        } else {
-            carouselElm.carousel('pause');
-            this.setAttribute('aria-hidden', 'true');
-            $(this).parent().find('.carousel-control-play')
-                .attr('aria-hidden', 'false')
-                .show();
-        }
-    });
-</script>
+{{> '@carousel-scripts' }}
 
 </body>
 </html>

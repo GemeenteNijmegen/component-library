@@ -1,0 +1,20 @@
+<script>
+    var navbarToggler = $('.navbar-toggler');
+    // is the mobile nav active?
+    if (navbarToggler.is(':visible')) {
+        var navbars = $('.navbar-nav.smooth-scroll');
+        if (navbars.length) {
+            for (var i = 0; i < navbars.length; i++) {
+                // act on in-page anchors
+                $.each($(navbars[i]).find('.nav-link'), function(index, navLinkElement) {
+                    $(navLinkElement).click(function() {
+                        // is the menu open?
+                        if (!navbarToggler.hasClass('collapsed')) {
+                            navbarToggler.trigger('click');
+                        }
+                    })
+                });
+            }
+        }
+    }
+</script>

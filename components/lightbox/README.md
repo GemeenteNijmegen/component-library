@@ -15,8 +15,6 @@ This lightbox use-case follows the [Functional Images](https://www.w3.org/WAI/tu
 
 To start using this component, some JavaScript is needed to initialize it.
 
-```javascript
-<script>
-    $("#mdb-lightbox-ui").load("{{ assetPath '/mdb-addons/mdb-lightbox-ui.html' }}");
-</script>
+```html
+{{ render '@lightbox-scripts' }}
 ```

@@ -13,7 +13,7 @@ Aside from the markup, some extra actions are needed.
 
 By adding underneath `script` tag after the other required `script` tags (as documented in [How to use]({{ assetPath '/docs/how-to-use.html' }})) and before the closing `body` tag, OpenIndex will connect a real-time autocomplete to the search input field.
 
-```javascript
+```html
 <script src="//www.openindex.io/js/openindex.69694b9315763c81.js"></script>
 ```
 
@@ -30,27 +30,8 @@ To set an active menu item, underneath HTML markup for a navigation item can be 
 When using the navbar in a one-page application, mobile users will slideout the menu and click on an anchor and navigate to the corresponding section yet leaving the menu open.
 To handle this use-case, put underneath JavaScript just before the closing "body" tag and the menu will close when navigating to the in-page section.
 
-```javascript
-<script>
-    var navbarToggler = $('.navbar-toggler');
-    // is the mobile nav active?
-    if (navbarToggler.is(':visible')) {
-        var navbars = $('.navbar-nav.smooth-scroll');
-        if (navbars.length) {
-            for (var i = 0; i < navbars.length; i++) {
-                // act on in-page anchors
-                $.each($(navbars[i]).find('.nav-link'), function(index, navLinkElement) {
-                    $(navLinkElement).click(function() {
-                        // is the menu open?
-                        if (!navbarToggler.hasClass('collapsed')) {
-                            navbarToggler.trigger('click');
-                        }
-                    })
-                });
-            }
-        }
-    }
-</script>
+```html
+{{ render '@navbar-scripts' }}
 ```
 
 ### Notes
