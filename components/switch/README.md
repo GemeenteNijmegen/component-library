@@ -8,7 +8,7 @@ https://github.com/scottaohara/a11y_styled_form_controls
 To start using this component, some JavaScript is needed to initialize it.<br>
 Underneath is an example on how to achieve this and should be placed in the `Additional component(s) script` section as documented in [How to use]({{ assetPath '/docs/how-to-use.html' }}).
 
-```javascript
+```html
 {{ render '@aria-switch-scripts' }}
 ```
 

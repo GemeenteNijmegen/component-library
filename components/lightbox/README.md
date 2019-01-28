@@ -15,6 +15,6 @@ This lightbox use-case follows the [Functional Images](https://www.w3.org/WAI/tu
 
 To start using this component, some JavaScript is needed to initialize it.
 
-```javascript
+```html
 {{ render '@lightbox-scripts' }}
 ```
