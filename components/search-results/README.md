@@ -9,12 +9,12 @@ Aside from the markup, an extra JavaScript include and OpenIndex configuration i
 Adding underneath `script` tag after the other required `script` tags (as documented in [How to use]({{ assetPath '/docs/how-to-use.html' }})) and before the closing `body` tag is needed.
 
 ```javascript
-{{ render '@tpl-script-openindex' }}
+{{ render '@openindex-scripts' }}
 ```
 To render actual search results based on URL hash parameter `#q`, underneath OpenIndex configuration is needed which can follow above JavaScript include.
 
 ```javascript
-{{ render '@tpl-script-openindex-config' }}
+{{ render '@openindex-config-scripts' }}
 ```
 
 ### Notes

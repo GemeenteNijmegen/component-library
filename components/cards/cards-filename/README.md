@@ -16,7 +16,7 @@ To start using this component, some JavaScript is needed to ensure that the imag
 Only one instance of this script is necessary even when using different types of cards.
 
 ```javascript
-{{ render '@tpl-script-card-compatibility' }}
+{{ render '@cards-scripts' }}
 ```
 
 ### Notes
