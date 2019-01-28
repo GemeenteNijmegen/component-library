@@ -37,6 +37,7 @@ $small-screen-portrait: map-get($grid-breakpoints, 'sm');
 @import "component/listgroups";
 @import "component/listing";
 @import "component/modals";
+@import "component/multiple-upload";
 @import "component/navbars";
 @import "component/pagination";
 @import "component/popovers";

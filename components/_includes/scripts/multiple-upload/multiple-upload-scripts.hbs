@@ -1,0 +1,13 @@
+<script>
+    $("#file-button-1").unbind('click').click(function () {
+        $("#file-upload-1").trigger('click');
+    });
+
+    const inputElement = document.getElementById("file-upload-1");
+    inputElement.addEventListener("change", handleFiles, false);
+    function handleFiles() {
+        console.log('File List:', this.files);
+        var fileNames = $.map(this.files, function(val) { return val.name + '<br />'; });
+        $('.example-output').html(fileNames);
+    }
+</script>
