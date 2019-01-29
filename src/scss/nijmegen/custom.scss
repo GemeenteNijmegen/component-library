@@ -27,6 +27,7 @@ $small-screen-portrait: map-get($grid-breakpoints, 'sm');
 @import "component/buttons";
 @import "component/cards";
 @import "component/carousel";
+@import "component/checkbox";
 @import "component/chips"; // tags, labels, badges
 @import "component/datepicker";
 @import "component/footer";
