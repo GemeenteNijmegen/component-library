@@ -1,4 +1,0 @@
-changes:
-- type: added #changed, removed, added
-  component: checkbox
-  description: Added a material checkbox element
