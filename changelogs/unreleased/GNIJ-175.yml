@@ -1,0 +1,4 @@
+changes:
+- type: added #changed, removed, added
+  component: multiple-upload
+  description: A HTML5 file upload input example has been added
