@@ -1,0 +1,4 @@
+.form-check-input:focus + label {
+    border-bottom-color: color('nijmegen-forms', 'success');
+    box-shadow: 0 2px 0 0 color('nijmegen-forms', 'success');
+}
