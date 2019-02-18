@@ -12,7 +12,8 @@ Changes for the component library:
 -   Before merging an unreleased changelog entry is required for each change (see [Changelog](#changelog))
 -   There are no review environments.
 -   A merge to the latest major release branch can take place after technical review which will deploy to acceptance.
--   Deployment to production needs a manual action which can be done in GitLab via Environments.
+-   Deployment to production needs a manual action which can be done in GitLab via Environments. Current versions needs to be approved, new versions we can deploy directly.
+-   All breaking changes do need a new version (which need a new release branch)
 
 ### What tooling do I need
 
