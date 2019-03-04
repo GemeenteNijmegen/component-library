@@ -1,0 +1,5 @@
+<script>
+    $('.form-check-input').off('change').on('click', function() {
+        $(this).attr('aria-checked', $(this).is(':checked'));
+    });
+</script>
