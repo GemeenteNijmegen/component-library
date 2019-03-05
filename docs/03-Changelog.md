@@ -117,6 +117,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Switched to a custom aria select listbox element to improve accessibility
 - _Component [popovers]({{ componentPath '@popovers' }})_:
   The popover will open on click or on focus with the space or enter key. Closing the popup can be done with the 'x' or with the enter, space or escape key.
+- _Component [checkbox]({{ componentPath '@checkbox' }})_:
+  aria-checked attribute added
+- _Component [switch]({{ componentPath '@switch' }})_:
+  aria-checked attribute added
+- _Component [multiple upload]({{ componentPath '@multiple-upload' }})_:
+  aria-labelledby added to the input element using the button
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:
