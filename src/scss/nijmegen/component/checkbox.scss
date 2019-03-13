@@ -2,3 +2,8 @@
     border-bottom-color: color('nijmegen-forms', 'success');
     box-shadow: 0 2px 0 0 color('nijmegen-forms', 'success');
 }
+
+.form-check-input[type="checkbox"]:checked + label:before {
+    border-right-color: color('nijmegen-primary', 'base');
+    border-bottom-color: color('nijmegen-primary', 'base');
+}

@@ -1,0 +1,7 @@
+changes:
+- type: changed #changed, removed, added
+  component: checkbox
+  description: The tick has been changed to green
+- type: changed #changed, removed, added
+  component: switch
+  description: On hover the shadow will now be green

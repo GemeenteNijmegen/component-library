@@ -175,3 +175,7 @@ a {
 b, strong {
     font-weight: bold;
 }
+
+:focus {
+    outline-color: $focus-color;
+}
