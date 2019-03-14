@@ -197,4 +197,5 @@ $form-drop-down-bottom-border: 1px solid rgba(0, 0, 0, .125);
 
 .form-control:focus {
     border-color: color('nijmegen-forms', 'focus');
+    box-shadow: none;
 }
