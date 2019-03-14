@@ -19,7 +19,7 @@
     position: relative;
 
     &:hover {
-        box-shadow: 0 0 2px 1px #2196f3;
+        box-shadow: 0 0 2px 1px $focus-color;
     }
 
     /* using the before/after pseudo elements of the span to create the "switch" */
