@@ -123,6 +123,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   aria-checked attribute added
 - _Component [multiple upload]({{ componentPath '@multiple-upload' }})_:
   aria-labelledby added to the input element using the button
+- _Component [checkbox]({{ componentPath '@checkbox' }})_:
+  The tick has been changed to green
+- _Component [switch]({{ componentPath '@switch' }})_:
+  On hover the shadow will now be green
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:
