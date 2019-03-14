@@ -79,7 +79,6 @@ $form-drop-down-bottom-border: 1px solid rgba(0, 0, 0, .125);
 
         &:focus {
             color: $body-color;
-            border-color: color('nijmegen-forms', 'focus');
         }
 
         &.valid + label:after,
@@ -194,4 +193,8 @@ $form-drop-down-bottom-border: 1px solid rgba(0, 0, 0, .125);
             color: color('nijmegen-primary', 'base');
         }
     }
+}
+
+.form-control:focus {
+    border-color: color('nijmegen-forms', 'focus');
 }
