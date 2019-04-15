@@ -24,10 +24,7 @@
     }
 
     function isValidStep(stepNumber, validSteps) {
-        if ($.inArray(stepNumber, validSteps) > -1) {
-            return true;
-        }
-        return false;
+        return $.inArray(stepNumber, validSteps) > -1;
     }
 
     function setNavigationItemStatuses(navigationListItems, navigationStep, currentStepNumber, stepCount, validSteps) {
@@ -55,15 +52,15 @@
     }
 
     function updateButtons(
-            navigationListItems,
-            navigationStep,
-            allBackBtn,
-            allNextBtn,
-            mobileBackBtn,
-            mobileNextBtn,
-            currentStepNumber,
-            stepCount,
-            validSteps
+        navigationListItems,
+        navigationStep,
+        allBackBtn,
+        allNextBtn,
+        mobileBackBtn,
+        mobileNextBtn,
+        currentStepNumber,
+        stepCount,
+        validSteps
     ) {
         setNavigationItemStatuses(navigationListItems, navigationStep, currentStepNumber, stepCount, validSteps);
         mobileNextBtn.show();
@@ -75,6 +72,17 @@
     }
 
     function updateStepStatus(
+        navigationListItems,
+        navigationStep,
+        allBackBtn,
+        allNextBtn,
+        mobileBackBtn,
+        mobileNextBtn,
+        currentStepNumber,
+        stepCount,
+        validSteps
+    ) {
+        updateButtons(
             navigationListItems,
             navigationStep,
             allBackBtn,
@@ -84,17 +92,6 @@
             currentStepNumber,
             stepCount,
             validSteps
-    ) {
-        updateButtons(
-                navigationListItems,
-                navigationStep,
-                allBackBtn,
-                allNextBtn,
-                mobileBackBtn,
-                mobileNextBtn,
-                currentStepNumber,
-                stepCount,
-                validSteps
         );
         $('.current-step').text(currentStepNumber);
         $('.step-count').text(stepCount);
@@ -103,23 +100,23 @@
     // Stepper Form
     $(document).ready(function () {
         var navigationListItems = $('.stepper-steps li a'),
-                allContent = $('.step-content'),
-                allBackBtn = $('.backBtn'),
-                allNextBtn = $('.nextBtn'),
-                mobileBackBtn = $('.back-link'),
-                mobileNextBtn = $('.next-link'),
-                activeStep = $('.stepper-steps li.active a'),
-                stepperForm = $('#stepper-form'),
-                stepperFormInputs = $('#stepper-form :input'),
-                validSteps = [];
+            allContent = $('.step-content'),
+            allBackBtn = $('.backBtn'),
+            allNextBtn = $('.nextBtn'),
+            mobileBackBtn = $('.back-link'),
+            mobileNextBtn = $('.next-link'),
+            activeStep = $('.stepper-steps li.active a'),
+            stepperForm = $('#stepper-form'),
+            stepperFormInputs = $('#stepper-form :input'),
+            validSteps = [];
 
         allContent.hide();
 
         stepperFormInputs.on('change keyup paste', function(event) {
             var currentStepContent = $(this).closest(".step-content"),
-                    currentStep = $('.stepper-steps li a[href="#' + currentStepContent.attr("id") + '"]').parent(),
-                    currentStepNumber = parseInt(currentStepContent.attr("id").substring(13)),
-                    currentInputs = currentStepContent.find("input");
+                currentStep = $('.stepper-steps li a[href="#' + currentStepContent.attr("id") + '"]').parent(),
+                currentStepNumber = parseInt(currentStepContent.attr("id").substring(13)),
+                currentInputs = currentStepContent.find("input");
 
             currentStep.removeClass('disabled');
             var stepPositionInArray = $.inArray(currentStepNumber, validSteps);
@@ -130,22 +127,22 @@
                 if (stepIsValid) validSteps.splice(stepPositionInArray, 1);
             }
             updateStepStatus(
-                    navigationListItems,
-                    currentStep,
-                    allBackBtn,
-                    allNextBtn,
-                    mobileBackBtn,
-                    mobileNextBtn,
-                    currentStepNumber,
-                    allContent.length,
-                    validSteps
+                navigationListItems,
+                currentStep,
+                allBackBtn,
+                allNextBtn,
+                mobileBackBtn,
+                mobileNextBtn,
+                currentStepNumber,
+                allContent.length,
+                validSteps
             );
         });
 
-        navigationListItems.click(function (e) {
-            e.preventDefault();
+        navigationListItems.click(function (event) {
+            event.preventDefault();
             var $target = $($(this).attr('href')),
-                    $item = $(this);
+                $item = $(this);
 
             if (!$item.hasClass('disabled')) {
                 if ($item.parent().prev().find('button[type="submit"]').length) {
@@ -155,29 +152,29 @@
                 $target.show();
                 $target.find('input:eq(0)').focus();
                 updateStepStatus(
-                        navigationListItems,
-                        $item.parent(),
-                        allBackBtn,
-                        allNextBtn,
-                        mobileBackBtn,
-                        mobileNextBtn,
-                        parseInt($item.attr("href").substring(14)),
-                        allContent.length,
-                        validSteps
+                    navigationListItems,
+                    $item.parent(),
+                    allBackBtn,
+                    allNextBtn,
+                    mobileBackBtn,
+                    mobileNextBtn,
+                    parseInt($item.attr('href').substring(14)),
+                    allContent.length,
+                    validSteps
                 );
             }
         });
 
         mobileBackBtn.add(allBackBtn).click(function(){
             var currentStepContent = $('.stepper-steps li.active').children('.step-content'),
-                    previousStep = $('.stepper-steps li a[href="#' + currentStepContent.attr("id") + '"]').parent().prev().children("a");
+                previousStep = $('.stepper-steps li a[href="#' + currentStepContent.attr("id") + '"]').parent().prev().children("a");
             previousStep.trigger('click');
         });
 
         mobileNextBtn.add(allNextBtn).click(function(){
             var currentStepContent = $('.stepper-steps li.active').children('.step-content'),
-                    nextStep = $('.stepper-steps li a[href="#' + currentStepContent.attr("id") + '"]').parent().next().children("a"),
-                    currentInputs = currentStepContent.find("input");
+                nextStep = $('.stepper-steps li a[href="#' + currentStepContent.attr("id") + '"]').parent().next().children("a"),
+                currentInputs = currentStepContent.find("input");
 
             if (areInputsValid(currentInputs, null, true)) {
                 nextStep.trigger('click');
@@ -188,7 +185,7 @@
 
         $(window).keydown(function(event){
             if((event.keyCode == 13) && !$(event.target).is(
-                    '.back-link, .backBtn, .next-link, .nextBtn, .step-link'
+                '.back-link, .backBtn, .next-link, .nextBtn, .step-link'
             )) {
                 event.preventDefault();
                 return false;

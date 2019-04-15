@@ -5,7 +5,11 @@ Based on the version from MDB:<br>
 
 ### Accessibility
 
-Be sure to add `aria-expanded` to the control element. This attribute explicitly defines the current state of the collapsible element to screen readers and similar assistive technologies. If the collapsible element is closed by default, it should have a value of `aria-expanded="false"`. If you’ve set the collapsible element to be open by default using the `in` class, set `aria-expanded="true"` on the control instead. The plugin will automatically toggle this attribute based on whether or not the collapsible element has been opened or closed.
+Be sure to add `aria-expanded` to the control element. This attribute explicitly defines the current state of the
+collapsible element to screen readers and similar assistive technologies. If the collapsible element is closed by
+default, it should have a value of `aria-expanded="false"`. If you’ve set the collapsible element to be open by
+default using the `in` class, set `aria-expanded="true"` on the control instead. The plugin will automatically
+toggle this attribute based on whether or not the collapsible element has been opened or closed.
 
 ### Using
 

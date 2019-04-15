@@ -6,6 +6,11 @@ Based on the version from MDB:<br />
 And, Google's Material design:<br />
 https://material.io/archive/guidelines/components/steppers.html#steppers-types-of-steps
 
+### Accessibility
+
+Make sure that the step bar has the right `aria-label` attributes applied to them. For the current step we expect
+the tab to have `aria-label="Actieve stap"`, and when the step is completed `aria-label="Voltooide stap"`.
+
 ### Using
 
 The stepper is designed to work with up to six steps and should appear only once per page.
@@ -30,3 +35,9 @@ The below JavaScript is required to use the Stepper component and should be plac
 {{ render '@stepper-scripts' }}
 ```
 
+### Notes
+
+* When renaming the `id`, `href`, `aria-controls` and/or `aria-labelledby` for your use-case, be sure to rename all occurrences
+* In the list with steps, each step has its own `aria-label` telling the status of the step
+  * For completed steps, there is an `aria-label="Voltooide stap"`
+  * For the current step, there is an `aria-label="Actieve stap"`
