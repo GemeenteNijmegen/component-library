@@ -61,11 +61,11 @@ jest:
 
 build release:
   stage: build
-  image: docker:stable
+  image: node:8.15.1-alpine
   services:
     - docker:dind
   before_script:
-    - apk add --no-cache git
+    - apk add --no-cache git docker
     - export MAJOR_VERSION_NUMBER=$(echo "${CI_COMMIT_REF_NAME}" | tail -c 2)
     - export CHANGES_FILE_COUNT=$(ls changelogs/unreleased/ | wc -l)
     - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git config --global user.email "epic@enrise.com" ; fi
@@ -75,16 +75,8 @@ build release:
   script:
     - docker build . -t "$CI_REGISTRY_IMAGE":$DOCKER_TAG -f Dockerfile-prod
     - docker push "$CI_REGISTRY_IMAGE":$DOCKER_TAG
-    - docker run
-      -w /app
-      -v "$PWD":/app
-      -e GITLAB_TOKEN
-      -e CI_COMMIT_REF_NAME
-      -e CI_REGISTRY_IMAGE
-      -e DOCKER_TAG
-      -e STABLE_RELEASE
-      node:8.15.1-alpine
-      /bin/sh -c "npm ci && npm run update-releases"
+    - npm ci
+    - npm run update-releases
     - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git fetch origin ${CI_COMMIT_REF_NAME} ; fi
     - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git checkout ${CI_COMMIT_REF_NAME} ; fi
     - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git pull origin ${CI_COMMIT_REF_NAME} ; fi
