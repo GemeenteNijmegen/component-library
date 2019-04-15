@@ -5,6 +5,7 @@
 stages:
   - test
   - build
+  - changelog
   - deploy
 
 # ======================
@@ -65,11 +66,6 @@ build release:
   services:
     - docker:dind
   before_script:
-    - apk add --no-cache git docker
-    - export MAJOR_VERSION_NUMBER=$(echo "${CI_COMMIT_REF_NAME}" | tail -c 2)
-    - export CHANGES_FILE_COUNT=$(ls changelogs/unreleased/ | wc -l)
-    - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git config --global user.email "epic@enrise.com" ; fi
-    - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git config --global user.name "epic" ; fi
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID"
   script:
@@ -85,13 +81,6 @@ build release:
       -e STABLE_RELEASE
       node:8.15.1-alpine
       /bin/sh -c "npm ci && npm run update-releases"
-    - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git fetch origin ${CI_COMMIT_REF_NAME} ; fi
-    - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git checkout ${CI_COMMIT_REF_NAME} ; fi
-    - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git pull origin ${CI_COMMIT_REF_NAME} ; fi
-    - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then docker run -w /app -v "$PWD":/app node:8.15.1-alpine npm run update-changelog "${MAJOR_VERSION_NUMBER}.0.0" ; fi
-    - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git add --all ; fi
-    - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git commit -m "${CI_COMMIT_REF_NAME} changelog update" ; fi
-    - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/ ; fi
   only:
     - /^release\/.*$/
 
@@ -106,6 +95,30 @@ build test:
   script:
     - docker build . -f Dockerfile-prod
   except:
+    - /^release\/.*$/
+
+# ======================
+# Changelog stage
+# ======================
+
+update changelogs:
+  stage: changelog
+  image: node:8.15.1-alpine
+  before_script:
+    - apk add --no-cache git
+    - export MAJOR_VERSION_NUMBER=$(echo "${CI_COMMIT_REF_NAME}" | tail -c 2)
+    - export CHANGES_FILE_COUNT=$(ls changelogs/unreleased/ | wc -l)
+    - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git config --global user.email "epic@enrise.com" ; fi
+    - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git config --global user.name "epic" ; fi
+  script:
+    - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git fetch origin ${CI_COMMIT_REF_NAME} ; fi
+    - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git checkout ${CI_COMMIT_REF_NAME} ; fi
+    - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git pull origin ${CI_COMMIT_REF_NAME} ; fi
+    - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then npm run update-changelog "${MAJOR_VERSION_NUMBER}.0.0" ; fi
+    - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git add --all ; fi
+    - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git commit -m "${CI_COMMIT_REF_NAME} changelog update" ; fi
+    - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/ ; fi
+  only:
     - /^release\/.*$/
 
 # ======================
