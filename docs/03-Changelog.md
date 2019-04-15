@@ -127,6 +127,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   The tick has been changed to green
 - _Component [switch]({{ componentPath '@switch' }})_:
   On hover the shadow will now be green
+- _Component [title link]({{ componentPath '@title-link' }})_:
+  Change the example so it uses a paragraph as title like the note suggests
+- _Component [title no-link]({{ componentPath '@title-no-link' }})_:
+  Change the example so it uses a paragraph as title like the note suggests
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:
