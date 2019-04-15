@@ -11,14 +11,13 @@
         }
     }
 
-    h1, h2, h3, h4, h5, h6 {
-        @extend .list-group-item;
-        padding: 0.75rem 1.25rem;
-        font-family: 'Oranda', sans-serif;
-        line-height: 1.5;
-    }
-
-    .list-group-title {
+    .list-group-title,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         @extend .list-group-item;
         font-size: to-rem(24);
         padding: 0.75rem 1.25rem;
@@ -27,7 +26,6 @@
         line-height: 1.5;
     }
 
-    .list-group-title,
     .list-group-item {
         border-left: none;
         border-right: none;

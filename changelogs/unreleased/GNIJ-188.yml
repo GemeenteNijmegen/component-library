@@ -1,0 +1,7 @@
+changes:
+    - type: changed
+      component: title-link
+      description: Change the example so it uses a paragraph as title like the note suggests
+    - type: changed
+      component: title-no-link
+      description: Change the example so it uses a paragraph as title like the note suggests

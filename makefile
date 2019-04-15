@@ -10,7 +10,8 @@ intro:
 # Main commands
 # ===========================
 
-init: intro do-init do-show-commands
+init: intro do-build do-init do-show-commands
+build: intro do-build do-show-commands
 start: intro do-start
 stop: intro do-stop
 update-project: intro do-run-updates do-start
@@ -33,9 +34,13 @@ do-show-commands:
 	@echo "    make update-icons               Update icons (only needed when an update of the icons dependency has been done)."
 	@echo "    make component-listing          Build the components listing locally."
 
+do-build:
+	@echo "\n=== Building container ===\n"
+	docker-compose build
+
 do-init:
 	@echo "\n=== Initialisation ===\n"
-	docker-compose run --rm frontend yarn
+	docker-compose run --rm frontend npm ci
 
 do-start:
 	@echo "\n=== Start container ===\n"
@@ -57,11 +62,11 @@ endif
 
 do-run-updates:
 	@echo "\n=== Updating project ===\n"
-	docker-compose run --rm frontend yarn
+	docker-compose run --rm frontend npm ci
 
 do-update-icons:
 	@echo "\n=== Updating Material Design Icons listing ===\n"
-	docker-compose run --rm frontend yarn build-icons-listing
+	docker-compose run --rm frontend npm run build-icons-listing
 
 do-component-listing:
 	@echo "\n=== Build component listing ===\n"
