@@ -61,7 +61,7 @@ jest:
 
 build release:
   stage: build
-  image: node:8.15.1-alpine
+  image: docker:stable
   services:
     - docker:dind
   before_script:
@@ -75,12 +75,20 @@ build release:
   script:
     - docker build . -t "$CI_REGISTRY_IMAGE":$DOCKER_TAG -f Dockerfile-prod
     - docker push "$CI_REGISTRY_IMAGE":$DOCKER_TAG
-    - npm ci
-    - npm run update-releases
+    - docker run
+      -w /app
+      -v "$PWD":/app
+      -e GITLAB_TOKEN
+      -e CI_COMMIT_REF_NAME
+      -e CI_REGISTRY_IMAGE
+      -e DOCKER_TAG
+      -e STABLE_RELEASE
+      node:8.15.1-alpine
+      /bin/sh -c "npm ci && npm run update-releases"
     - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git fetch origin ${CI_COMMIT_REF_NAME} ; fi
     - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git checkout ${CI_COMMIT_REF_NAME} ; fi
     - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git pull origin ${CI_COMMIT_REF_NAME} ; fi
-    - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then npm run update-changelog "${MAJOR_VERSION_NUMBER}.0.0" ; fi
+    - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then docker run -w /app -v "$PWD":/app node:8.15.1-alpine npm run update-changelog "${MAJOR_VERSION_NUMBER}.0.0" ; fi
     - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git add --all ; fi
     - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git commit -m "${CI_COMMIT_REF_NAME} changelog update" ; fi
     - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/ ; fi
