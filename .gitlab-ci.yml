@@ -60,7 +60,7 @@ jest:
 
 build release:
   stage: build
-  image: tiangolo/docker-with-compose
+  image: tiangolo/docker-with-compose:latest
   services:
   - docker:dind
   before_script:
@@ -95,7 +95,7 @@ build release:
 
 build test:
   stage: build
-  image: tiangolo/docker-with-compose
+  image: tiangolo/docker-with-compose:latest
   services:
     - docker:dind
   before_script:
