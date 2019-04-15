@@ -67,7 +67,7 @@ jest:
       -e CI_REGISTRY_IMAGE
       -e DOCKER_TAG
       -e STABLE_RELEASE
-      node:8.11.2-alpine
+      node:8.15.1-alpine
       npm ci && npm run test
 
 # ======================
@@ -97,7 +97,7 @@ build release:
     -e CI_REGISTRY_IMAGE
     -e DOCKER_TAG
     -e STABLE_RELEASE
-    node:8.11.2-alpine
+    node:8.15.1-alpine
     npm ci && npm run update-releases
   - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git fetch origin ${CI_COMMIT_REF_NAME} ; fi
   - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git checkout ${CI_COMMIT_REF_NAME} ; fi
@@ -147,7 +147,7 @@ deploy acceptance:
       -e CI_ENVIRONMENT_URL
       -e DOCKER_TAG
       -e STABLE_RELEASE
-      node:8.11.2-alpine
+      node:8.15.1-alpine
       npm run prepare-deployment
     # Deploy the stack
     - DOCKER_HOST=tcp://127.0.0.1:50040 docker stack deploy --with-registry-auth --compose-file=docker-compose-stack.yml ${SERVICE_NAME}
@@ -176,7 +176,7 @@ deploy production:
       -e CI_ENVIRONMENT_URL
       -e DOCKER_TAG
       -e STABLE_RELEASE
-      node:8.11.2-alpine
+      node:8.15.1-alpine
       npm run prepare-deployment
     # Deploy the stack
     - DOCKER_HOST=tcp://127.0.0.1:50040 docker stack deploy --with-registry-auth --compose-file=docker-compose-stack.yml ${SERVICE_NAME}
