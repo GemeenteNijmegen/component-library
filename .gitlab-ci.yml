@@ -49,26 +49,10 @@ variables:
 
 jest:
   stage: test
-  image: tiangolo/docker-with-compose
-  services:
-    - docker:dind
-  before_script:
-    - echo "Testing the frontend using Jest"
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-    - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID";
+  image: node:8.15.1-alpine
   script:
-    - docker build . -t "$CI_REGISTRY_IMAGE":$DOCKER_TAG -f Dockerfile-prod
-    - docker push "$CI_REGISTRY_IMAGE":$DOCKER_TAG
-    - docker run
-      -w /app
-      -v "$PWD":/app
-      -e GITLAB_TOKEN
-      -e CI_COMMIT_REF_NAME
-      -e CI_REGISTRY_IMAGE
-      -e DOCKER_TAG
-      -e STABLE_RELEASE
-      node:8.15.1-alpine
-      npm ci && npm run test
+    - npm ci
+    - npm run test
 
 # ======================
 # Build stage
