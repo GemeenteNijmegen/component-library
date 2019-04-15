@@ -84,7 +84,7 @@ build release:
       -e DOCKER_TAG
       -e STABLE_RELEASE
       node:8.15.1-alpine
-      npm ci && npm run update-releases
+      /bin/sh -c "npm ci && npm run update-releases"
     - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git fetch origin ${CI_COMMIT_REF_NAME} ; fi
     - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git checkout ${CI_COMMIT_REF_NAME} ; fi
     - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git pull origin ${CI_COMMIT_REF_NAME} ; fi
