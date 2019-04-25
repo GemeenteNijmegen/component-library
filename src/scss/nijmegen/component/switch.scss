@@ -75,7 +75,7 @@
         }
 
         &:focus + span.switch-toggle:before {
-            outline: 2px solid;
+            box-shadow: 0 0 2px 1px $focus-color;                   
         }
 
         /* change the position of the knob to indicate it has been checked*/
