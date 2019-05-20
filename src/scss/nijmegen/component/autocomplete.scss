@@ -23,7 +23,8 @@
         display: block;
 
         &:hover,
-        &:focus {
+        &:focus,
+        .active {
             cursor: pointer;
             transition: none;
             background-color: color('nijmegen-grey', 'darken-2');

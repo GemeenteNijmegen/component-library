@@ -1,13 +1,29 @@
 <form class="autocomplete__form">
-    <label>Zoeken</label>
-    <input class="form-control" type="text" placeholder="zoeken" id="suggest-search-query" autocomplete="off"></input>
-    <ul id="autocomplete-results" class="autocomplete__result-list">
+    <label for="suggest-search-query">Zoeken</label>
+    <input
+        class="form-control"
+        type="text"
+        placeholder="zoeken"
+        id="suggest-search-query"
+        autocomplete="off"
+        aria-controls="autocomplete-results"
+        aria-autocomplete="both"
+    ></input>
+    <ul
+        id="autocomplete-results"
+        class="autocomplete__result-list"
+        aria-label="Zoekresultaten"
+        role="listbox"
+    >
 
     </ul>
 </form>
 
-<script id="autocomplete-result-template" type="text/template">
-    <li class="autocomplete__result-item">
-        <a href="" class="autocomplete__result-link"></a>
+<script
+    id="autocomplete-result-template"
+    type="text/template"
+>
+    <li class="autocomplete__result-item" role="option" id="">
+        <a href="" class="autocomplete__result-link" ></a>
     </li>
 </script>
