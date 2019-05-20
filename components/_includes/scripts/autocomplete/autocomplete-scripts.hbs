@@ -1,0 +1,36 @@
+<script>
+    $('#suggest-search-query').keyup(function () {
+        var results = createDummyResults(this.value);
+
+        autocomplete(results, '#autocomplete-results');
+    });
+
+    function autocomplete(results, target) {
+        var resultsList = $(target);
+        resultsList.html('');
+
+        for (var key in results) {
+            var resultItem = $.parseHTML($('#autocomplete-result-template').html());
+            var result = results[key];
+            $('.autocomplete__result-link', resultItem).attr('href', result.url);
+            $('.autocomplete__result-link', resultItem).html(result.title);
+            console.log(resultItem);
+            resultsList.append(resultItem);
+        }
+    }
+
+    function createDummyResults(query) {
+        var results = [
+            'Finibus ipsum <b>' + query + '</b>natis lacus',
+            'Mattis <b>' + query + '</b> elementum urna',
+            'Blandit aliquet eget <b>' + query + '</b>piscing',
+            '<b>' + query + '</b>'
+        ];
+        return results
+            .slice(0, query.length)
+            .map(result => ({
+                title: result,
+                url: '/searchResults?q=' + query
+            }));
+    }
+</script>

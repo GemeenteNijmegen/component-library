@@ -1,0 +1,17 @@
+{{> '@tpl-head' }}
+</head>
+
+<body>
+
+    <main>
+        {{!-- Underneath will render component output --}}
+        {{{ yield }}}
+    </main>
+
+    {{> '@tpl-scripts' }}
+
+    {{> '@autocomplete-scripts' }}
+
+</body>
+
+</html>
