@@ -5,6 +5,10 @@
         this.getResults;
         this.currentItem = -1;
         this.numberOfItems = 0;
+        this.searchTimeoutId;
+        this.searchTimeout = 500;
+        this.query;
+        this.searching = false;
 
         this.keyCodes = {
             RETURN: 13,
@@ -21,7 +25,6 @@
 
         var self = this;
         $('#suggest-search-query').keydown(this.inputKeyHandle.bind(this));
-        $(document).keydown(this.documentKeyHandle.bind(this));
     }
 
     Autocomplete.prototype.show = function (results) {
@@ -40,6 +43,8 @@
                 .mouseenter(this.itemMouseHandle.bind(this));
             this.resultsList.append(resultItem);
         }
+
+        this.searching = false;
     }
 
     Autocomplete.prototype.selectItem = function () {
@@ -89,8 +94,19 @@
                 event.preventDefault();
                 break;
             default:
-                var results = this.getResults(event.target.value);
-                this.show(results);
+                this.query = event.target.value;
+                if (this.searching) {
+                    break;
+                }
+                if (this.searchTimeoutId) {
+                    clearTimeout(this.searchTimeoutId);
+                }
+                this.searchTimeoutId = setTimeout(this.search.bind(this), this.searchTimeout);
         }
+    }
+
+    Autocomplete.prototype.search = function () {
+        this.searching = true;
+        this.getResults(this.query, this.show.bind(this));
     }
 </script>
