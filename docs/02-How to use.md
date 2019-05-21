@@ -90,3 +90,7 @@ The component library has a few example templates which are listed here:
 ## Preview components
 
 The [preview page](../components-listing.html) lists all components so that they can easily be viewed.
+
+## Inform us for using the library
+
+Please inform us when you started using the component library by sending an email to [webmaster@irvn.nl](mailto:webmaster@irvn.nl). This way we are able to inform you as implementor about new developments regarding the library. We will not email you frequently and your emailaddress will only be used for the sole purpose of library developments.
