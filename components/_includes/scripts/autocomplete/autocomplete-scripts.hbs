@@ -24,7 +24,7 @@
         this.getResults = getResultsFn;
 
         var self = this;
-        $('#suggest-search-query').keydown(this.inputKeyHandle.bind(this));
+        $('#suggest-search-query').on('keydown keyup', this.inputKeyHandle.bind(this));
     }
 
     Autocomplete.prototype.show = function (results) {
@@ -40,6 +40,7 @@
                 .html(result.title)
                 .attr('href', result.url)
                 .attr('id', 'result-item-' + key)
+                .attr('aria-label', result.titleRaw || result.title)
                 .mouseenter(this.itemMouseHandle.bind(this));
             this.resultsList.append(resultItem);
         }
@@ -55,7 +56,7 @@
         }
         var selectedItem = $('.autocomplete__result-item', this.resultsList)[this.currentItem];
         $('.autocomplete__result-link', selectedItem).addClass('active').attr('aria-selected', 'true');
-        $(this.resultsList).attr('aria-activedescendant', 'result-item-' + this.currentItem);
+        $('#suggest-search-query').attr('aria-activedescendant', 'result-item-' + this.currentItem);
     }
 
     Autocomplete.prototype.itemMouseHandle = function (event) {
@@ -68,6 +69,9 @@
         var key = event.which || event.keyCode;
         switch (key) {
             case this.keyCodes.DOWN:
+                if (event.type === 'keyup') {
+                    break;
+                }
                 if (this.currentItem < this.numberOfItems - 1) {
                     this.currentItem++;
                     this.selectItem();
@@ -75,6 +79,9 @@
                 }
                 break;
             case this.keyCodes.UP:
+                if (event.type === 'keyup') {
+                    break;
+                }
                 if (this.currentItem >= 0) {
                     this.currentItem--;
                     this.selectItem();
