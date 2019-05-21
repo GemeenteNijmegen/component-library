@@ -1,0 +1,29 @@
+.search-results {
+    &__title {
+        font-size: to-rem(20);
+        font-weight: bold;
+        color: $body-color;
+    }
+
+    &__item {
+        padding-bottom: to-rem(20);
+        margin-bottom: to-rem(20);
+        border-bottom: 1px solid color('nijmegen-grey', 'base');
+    }
+
+    &__item-title {
+        font-size: to-rem(28);
+        color: color('nijmegen-brand', 'base');
+
+        b {
+            font-weight: normal;
+        }
+    }
+
+    &__item-body b {
+        background: color('nijmegen-grey', 'base');
+        color: color('nijmegen-primary', 'base');
+        font-weight: normal;
+        padding: 0 to-rem(2);
+    }
+}

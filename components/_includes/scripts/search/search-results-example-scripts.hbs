@@ -1,0 +1,15 @@
+<script>
+    var searchResults = new SearchResults();
+    var mockResults = [
+        { url: '', title: 'Maecenas ipsum <b>testing</b>', body: 'Lorem ipsum <b>testing</b> dolor sit amet Fusce habitant curabitur dis pulvinar. Accumsan dolor amet primis mattis rutrum risus lorem. In quam euismod sem placerat magnis litora curabitur platea. Tempus iaculis vestibulum urna aptent.' },
+        { url: '', title: 'Sagittis est eu lacus <b>testing</b>hac sodales', body: 'Lorem ipsum dolor sit amet fames sit fringilla tempus. Semper aliquam ultrices lacus platea. Consequat imperdiet amet <b>testing</b> faucibus ornare curae. Torquent turpis natoque quam morbi fusce.' },
+        { url: '', title: 'Gravida potenti vitae congue', body: 'Lorem ipsum dolor <b>testing</b> sit amet lacus parturient enim tellus. Tristique fusce vitae vulputate aptent consectetur ante dapibus in scelerisque. Laoreet purus eget et orci ad. Parturient <b>testing</b> pede posuere finibus penatibus.' }
+    ];
+    var searchTerm = 'testing';
+
+    $(document).ready(function () {
+        searchResults.init();
+        searchResults.show(mockResults, searchTerm);
+    });
+
+</script>
