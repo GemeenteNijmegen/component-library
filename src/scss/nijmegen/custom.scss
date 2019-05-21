@@ -22,6 +22,7 @@ $small-screen-portrait: map-get($grid-breakpoints, 'sm');
 // Component styling
 @import "component/accordion";
 @import "component/alerts";
+@import "component/autocomplete";
 @import "component/button-floating";
 @import "component/button-horizontal-collapse";
 @import "component/buttons";
