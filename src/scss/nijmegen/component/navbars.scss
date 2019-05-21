@@ -52,11 +52,6 @@
         }
     }
 
-    a {
-        font-size: to-rem(20);
-    }
-
-
     form {
         position: relative;
 
@@ -75,6 +70,13 @@
             border-radius: 0;
 
             @media #{$medium-and-down} {
+                width: 100%;
+            }
+        }
+
+        .autocomplete {
+            &__result-list {
+                position: absolute;
                 width: 100%;
             }
         }
@@ -133,6 +135,12 @@
                 padding-top: 0;
                 padding-bottom: 0;
             }
+        }
+    }
+
+    .navbar-nav {
+        a {
+            font-size: to-rem(20);
         }
     }
 }

@@ -29,11 +29,17 @@
             </ul>
             {{/if}}
             {{#if searchComponent}}
-            <form action="{{ searchAction }}" class="form-inline ml-auto">
-                <label for="oi-query" class="sr-only">Zoeken</label>
-                <input class="form-control" id="oi-query" type="text" placeholder="Zoeken" tabindex="1" autocomplete="off">
+            <form class="autocomplete__form" action="{{ searchAction }}" role="search">
+                <input class="form-control" type="text" placeholder="Zoeken" id="suggest-search-query" name="q" autocomplete="off" aria-controls="autocomplete-results" aria-autocomplete="both" aria-activedescendant=""></input>
                 <button class="btn-search" tabindex="2" aria-label="Zoek knop"><i class="mdi mdi-magnify" aria-hidden="true"></i></button>
+                <ul id="autocomplete-results" class="autocomplete__result-list" aria-label="Zoekresultaten" role="listbox"></ul>
             </form>
+
+            <script id="autocomplete-result-template" type="text/template">
+                <li class="autocomplete__result-item">
+                    <a href="" class="autocomplete__result-link" role="option" id="" tabindex="-1"></a>
+                </li>
+            </script>
             {{/if}}
         </div>
     </div>
