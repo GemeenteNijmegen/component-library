@@ -23,7 +23,6 @@
         this.resultItemTemplate = $.parseHTML($('#autocomplete-result-template').html());
         this.getResults = getResultsFn;
 
-        var self = this;
         $('#suggest-search-query').on('keydown keyup', this.inputKeyHandle.bind(this));
     }
 
@@ -32,7 +31,6 @@
         this.numberOfItems = results.length;
         this.currentItem = -1;
 
-        var self = this;
         for (var key in results) {
             var resultItem = $(this.resultItemTemplate).clone();
             var result = results[key];
