@@ -1,10 +1,15 @@
-<form class="autocomplete__form">
+<form
+    class="autocomplete__form"
+    method="GET"
+    action="/search"
+>
     <label for="suggest-search-query">Zoeken</label>
     <input
         class="form-control"
         type="text"
         placeholder="zoeken"
         id="suggest-search-query"
+        name="q"
         autocomplete="off"
         aria-controls="autocomplete-results"
         aria-autocomplete="both"
@@ -23,7 +28,7 @@
     id="autocomplete-result-template"
     type="text/template"
 >
-    <li class="autocomplete__result-item" role="option" id="">
-        <a href="" class="autocomplete__result-link" ></a>
+    <li class="autocomplete__result-item">
+        <a href="" class="autocomplete__result-link" role="option" id="" tabindex="-1"></a>
     </li>
 </script>

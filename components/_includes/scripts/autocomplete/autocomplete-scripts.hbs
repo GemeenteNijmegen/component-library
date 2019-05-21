@@ -1,26 +1,4 @@
 <script>
-
-    function getAutocompleteResults(query) {
-        var results = [
-            'Finibus ipsum <b>' + query + '</b>natis lacus',
-            'Mattis <b>' + query + '</b> elementum urna',
-            'Blandit aliquet eget <b>' + query + '</b>piscing',
-            '<b>' + query + '</b>'
-        ];
-        return results
-            .slice(0, query.length)
-            .map(result => ({
-                title: result,
-                url: '/searchResults?q=' + query
-            }));
-    }
-
-    var autocomplete = new Autocomplete();
-
-    $(document).ready(function () {
-        autocomplete.init(getAutocompleteResults)
-    })
-
     function Autocomplete() {
         this.resultsList;
         this.resultItemTemplate;
@@ -42,53 +20,77 @@
         this.getResults = getResultsFn;
 
         var self = this;
-
-        $('#suggest-search-query').keyup(function (event) {
-            var key = event.which || event.keyCode;
-            switch (key) {
-                case self.keyCodes.DOWN:
-                    if (self.currentItem < self.numberOfItems - 1) {
-                        self.currentItem++;
-                        self.selectItem();
-                        event.preventDefault();
-                    }
-                    break;
-                case self.keyCodes.UP:
-                    if (self.currentItem > 0) {
-                        self.currentItem--;
-                        self.selectItem();
-                        event.preventDefault();
-                    }
-                    break;
-                default:
-                    var results = self.getResults(this.value);
-                    self.show(results);
-            }
-
-        })
+        $('#suggest-search-query').keydown(this.inputKeyHandle.bind(this));
+        $(document).keydown(this.documentKeyHandle.bind(this));
     }
 
     Autocomplete.prototype.show = function (results) {
-        console.log('show');
         this.resultsList.html('');
         this.numberOfItems = results.length;
+        this.currentItem = -1;
 
+        var self = this;
         for (var key in results) {
             var resultItem = $(this.resultItemTemplate).clone();
             var result = results[key];
-            $('.autocomplete__result-link', resultItem).attr('href', result.url);
-            $('.autocomplete__result-link', resultItem).html(result.title);
-            $(resultItem).attr('id', 'result-item-' + key);
+            $('.autocomplete__result-link', resultItem)
+                .html(result.title)
+                .attr('href', result.url)
+                .attr('id', 'result-item-' + key)
+                .mouseenter(this.itemMouseHandle.bind(this));
             this.resultsList.append(resultItem);
         }
     }
 
     Autocomplete.prototype.selectItem = function () {
-        console.log(this.currentItem);
         $('.autocomplete__result-link', this.resultsList).removeClass('active').attr('aria-selected', 'false');
+
+        if (this.currentItem < 0) {
+            return;
+        }
         var selectedItem = $('.autocomplete__result-item', this.resultsList)[this.currentItem];
         $('.autocomplete__result-link', selectedItem).addClass('active').attr('aria-selected', 'true');
         $(this.resultsList).attr('aria-activedescendant', 'result-item-' + this.currentItem);
     }
 
+    Autocomplete.prototype.itemMouseHandle = function (event) {
+        var id = event.target.id.replace('result-item-', '');
+        this.currentItem = parseInt(id);
+        this.selectItem();
+    }
+
+    Autocomplete.prototype.inputKeyHandle = function (event) {
+        var key = event.which || event.keyCode;
+        switch (key) {
+            case this.keyCodes.DOWN:
+                if (this.currentItem < this.numberOfItems - 1) {
+                    this.currentItem++;
+                    this.selectItem();
+                    event.preventDefault();
+                }
+                break;
+            case this.keyCodes.UP:
+                if (this.currentItem >= 0) {
+                    this.currentItem--;
+                    this.selectItem();
+                    event.preventDefault();
+                }
+                break;
+            case this.keyCodes.RETURN:
+                if (this.currentItem < 0) {
+                    break;
+                }
+                var link = $('#result-item-' + this.currentItem, this.resultsList).attr('href');
+                window.location = link;
+                event.preventDefault();
+                break;
+            case this.keyCodes.ESC:
+                this.show([]);
+                event.preventDefault();
+                break;
+            default:
+                var results = this.getResults(event.target.value);
+                this.show(results);
+        }
+    }
 </script>

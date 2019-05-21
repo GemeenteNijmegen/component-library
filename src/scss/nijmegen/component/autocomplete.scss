@@ -22,9 +22,8 @@
         padding: 1rem;
         display: block;
 
-        &:hover,
         &:focus,
-        .active {
+        &.active {
             cursor: pointer;
             transition: none;
             background-color: color('nijmegen-grey', 'darken-2');

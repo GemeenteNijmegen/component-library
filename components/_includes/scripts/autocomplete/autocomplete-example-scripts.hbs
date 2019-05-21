@@ -1,0 +1,22 @@
+<script>
+    var autocomplete = new Autocomplete();
+
+    $(document).ready(function () {
+        autocomplete.init(getAutocompleteResults)
+    })
+
+    function getAutocompleteResults(query) {
+        var results = [
+            'Finibus ipsum <b>' + query + '</b>natis lacus',
+            'Mattis <b>' + query + '</b> elementum urna',
+            'Blandit aliquet eget <b>' + query + '</b>piscing',
+            '<b>' + query + '</b>'
+        ];
+        return results
+            .slice(0, query.length)
+            .map(result => ({
+                title: result,
+                url: '/searchResults?q=' + query
+            }));
+    }
+</script>
