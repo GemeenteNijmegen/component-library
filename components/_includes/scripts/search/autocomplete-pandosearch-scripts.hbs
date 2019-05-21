@@ -1,21 +1,32 @@
 <script>
+    var searchUrl = 'https://public.pandosearch.com/nijmegen.nl/suggest?size=5&q=';
+
     var autocomplete = new Autocomplete();
     $(document).ready(function () {
         autocomplete.init(getAutocompleteResults)
     })
 
     function getAutocompleteResults(query, callback) {
-        $.get('https://public.pandosearch.com/nijmegen.nl/suggest?q=' + query, function (rawResults) {
-            var results = rawResults.suggestions
-                .map(result => ({
-                    title: result.text,
-                    url: '/searchResults?q=' + result.text
+        $.get(searchUrl + query, function (rawResults) {
+            // Get suggestions from raw search results
+            var suggestions = rawResults.suggestions
+                .map(suggestion => ({
+                    title: suggestion.text,
+                    url: '/searchResults?q=' + suggestion.text,
+                    class: 'search'
                 }));
-            results.push({
-                title: query,
-                url: '/searchResults?q=' + query
-            });
-            callback(results);
+
+            // Get hits from raw search results
+            var hits = [];
+            if (Array.isArray(rawResults.hits)) {
+                hits = rawResults.hits
+                    .map(hit => ({
+                        title: hit.title,
+                        url: hit.url
+                    }));
+            }
+
+            callback(suggestions.concat(hits));
         });
     }
 </script>
