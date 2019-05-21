@@ -7,10 +7,10 @@
 
     function getAutocompleteResults(query, callback) {
         var rawResults = [
-            'Finibus ipsum <b>' + query + '</b>natis lacus',
-            'Mattis <b>' + query + '</b> elementum urna',
-            'Blandit aliquet eget <b>' + query + '</b>piscing',
-            '<b>' + query + '</b>'
+            'Finibus' + query,
+            query + 'elementum urna',
+            'Blandit aliquet' + query,
+            query
         ];
         var results = rawResults
             .slice(0, query.length)
