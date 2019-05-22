@@ -1,0 +1,26 @@
+<script>
+    function SearchResults() {
+        this.resultItemTemplate;
+        this.searchResultsList;
+    }
+
+    SearchResults.prototype.init = function () {
+        this.searchResultsList = $('#search-results');
+        this.searchTermContainer = $('#search-term');
+        this.resultItemTemplate = $.parseHTML($('#search-results-item-template').html());
+    }
+
+    SearchResults.prototype.show = function (results, searchTerm) {
+        this.searchResultsList.html('');
+        this.searchTermContainer.text(searchTerm);
+
+        for (var key in results) {
+            var resultItem = $(this.resultItemTemplate).clone();
+            var result = results[key];
+            $('.search-results__item-link', resultItem).attr('href', result.url);
+            $('.search-results__item-title', resultItem).html(result.title);
+            $('.search-results__item-body', resultItem).html(result.body);
+            this.searchResultsList.append(resultItem);
+        }
+    }
+</script>
