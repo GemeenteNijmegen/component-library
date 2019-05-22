@@ -15,15 +15,15 @@
         font-size: to-rem(28);
         color: color('nijmegen-brand', 'base');
 
-        b {
-            font-weight: normal;
+        em {
+            font-style: normal;
         }
     }
 
-    &__item-body b {
-        background: color('nijmegen-grey', 'base');
+    &__item-body em {
+        background: color('nijmegen-grey', 'lighten-1');
         color: color('nijmegen-primary', 'base');
-        font-weight: normal;
+        font-style: normal;
         padding: 0 to-rem(2);
     }
 }
