@@ -38,4 +38,18 @@
             line-height: 100%;
         }
     }
+
+    &__form {
+        .btn-search {
+            background-color: transparent;
+            border: 0;
+            position: relative;
+            top: -30px;
+            float: right;
+
+            &:hover {
+                cursor: default;
+            }
+        }
+    }
 }

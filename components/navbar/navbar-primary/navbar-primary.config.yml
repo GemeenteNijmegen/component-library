@@ -7,7 +7,6 @@ context:
   menuComponent: true
   searchComponent: true
   hamburgerIcon: true
-  searchAction: "https://www.nijmegen.nl"
   smoothScroll: " smooth-scroll"
 variants:
   - name: "default"

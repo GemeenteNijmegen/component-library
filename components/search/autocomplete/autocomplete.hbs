@@ -4,11 +4,10 @@
     action="/search"
     role="search"
 >
-    <label for="suggest-search-query">Zoeken</label>
     <input
         class="form-control"
         type="text"
-        placeholder="zoeken"
+        placeholder="Zoeken"
         id="suggest-search-query"
         name="q"
         autocomplete="off"
@@ -16,6 +15,12 @@
         aria-autocomplete="both"
         aria-activedescendant=""
     />
+    <button
+        class="btn-search"
+        aria-label="Zoek knop"
+    >
+        <i class="mdi mdi-magnify" aria-hidden="true"></i>
+    </button>
     <ul
         id="autocomplete-results"
         class="autocomplete__result-list"

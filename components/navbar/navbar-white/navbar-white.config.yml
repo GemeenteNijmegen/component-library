@@ -5,7 +5,6 @@ default: "default" # http://fractal.build/guide/components/variants#the-default-
 preview: "@preview-navbar-menu"
 context:
   searchComponent: true
-  searchAction: "https://www.nijmegen.nl"
   smoothScroll: " smooth-scroll"
 variants:
   - name: "default"
