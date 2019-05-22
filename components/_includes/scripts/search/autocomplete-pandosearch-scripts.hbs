@@ -12,7 +12,7 @@
             var suggestions = rawResults.suggestions
                 .map(suggestion => ({
                     title: suggestion.text,
-                    url: '/searchResults?q=' + suggestion.text,
+                    url: '?q=' + suggestion.text,
                     class: 'search'
                 }));
 
