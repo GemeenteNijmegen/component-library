@@ -79,6 +79,21 @@
                 position: absolute;
                 width: 100%;
             }
+
+            &__search-button {
+                background-color: transparent;
+                border: 0;
+                font-size: to-rem(24);
+                line-height: 1;
+                padding: 0;
+                position: absolute;
+                right: 0;
+                top: calc(50% - 12px);
+
+                &:hover {
+                    cursor: default;
+                }
+            }
         }
 
         .form-control {
@@ -98,21 +113,6 @@
 
             &::-ms-clear {
                 display: none;
-            }
-        }
-
-        .btn-search {
-            background-color: transparent;
-            border: 0;
-            font-size: to-rem(24);
-            line-height: 1;
-            padding: 0;
-            position: absolute;
-            right: 0;
-            top: calc(50% - 12px);
-
-            &:hover {
-                cursor: default;
             }
         }
     }

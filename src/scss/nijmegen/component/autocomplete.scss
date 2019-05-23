@@ -39,17 +39,15 @@
         }
     }
 
-    &__form {
-        .btn-search {
-            background-color: transparent;
-            border: 0;
-            position: relative;
-            top: -30px;
-            float: right;
+    &__search-button {
+        background-color: transparent;
+        border: 0;
+        position: relative;
+        top: -30px;
+        float: right;
 
-            &:hover {
-                cursor: default;
-            }
+        &:hover {
+            cursor: default;
         }
     }
 }
