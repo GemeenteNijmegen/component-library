@@ -1,0 +1,13 @@
+<script>
+    var pagination = new Pagination(10, '#{page}', 5);
+
+    $(document).ready(function () {
+        pagination.init('#paginationExample');
+        pagination.show(1);
+
+        $(window).on('hashchange', function () {
+            page = parseInt(window.location.hash.slice(1));
+            pagination.show(page, 10);
+        })
+    });
+</script>
