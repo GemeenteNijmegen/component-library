@@ -1,3 +1,75 @@
 <script>
+    var searchUrl = 'https://public.pandosearch.com/nijmegen.nl/search';
 
+    function Pandosearch() {
+        this.searchUrl;
+        this.query;
+        this.currentPage = 1;
+        this.itemsPerPage = 5;
+        this.searchResultsComponent = new SearchResults();
+    }
+
+    Pandosearch.prototype.init = function (searchUrl) {
+        this.buildSearchUrl(searchUrl);
+        this.searchResultsComponent.init();
+    }
+
+    Pandosearch.prototype.buildSearchUrl = function (searchUrl) {
+        var url = new URL(window.location.href);
+        this.query = url.searchParams.get('q');
+
+        if (url.searchParams.get('page')) {
+            this.currentPage = url.searchParams.get('page');
+        }
+
+        this.searchUrl = searchUrl + '?size=' + this.itemsPerPage + '&page=' + this.currentPage + '&q=' + this.query;
+    }
+
+    Pandosearch.prototype.show = function () {
+        try {
+            $.get(this.searchUrl, this.showResults.bind(this));
+        } catch (error) {
+            throw new Error(`Pandosearch: failed fetching data with error ${error}`);
+        }
+    }
+
+    Pandosearch.prototype.showResults = function (rawResults) {
+        var hits = this.getHits(rawResults);
+
+        var didYouMeanTerm;
+        if (!hits.length) {
+            didYouMeanTerm = this.getDidYouMeanTerm(rawResults);
+            hits = didYouMeanTerm ? this.getDidYouMeanHits(rawResults) : [];
+        }
+        this.searchResultsComponent.show(hits, this.query, didYouMeanTerm);
+    }
+
+    Pandosearch.prototype.getHits = function (rawResults) {
+        return Array.isArray(rawResults.hits) ?
+                rawResults.hits.map(hit => ({
+                    title: hit.fields.title,
+                    body: hit.fields.body ? hit.fields.body : '---',
+                    url: hit.url
+                })) : [];
+    }
+
+    Pandosearch.prototype.getDidYouMeanTerm = function (rawResults) {
+        return rawResults.suggestions ? rawResults.suggestions.didyoumean.text : null;
+    }
+
+    Pandosearch.prototype.getDidYouMeanHits = function (rawResults) {
+        return rawResults.suggestions.didyoumean.result.hits.map(hit => ({
+            title: hit.fields.title,
+            body: hit.fields.body ? hit.fields.body : '---',
+            url: hit.url
+        }));
+    }
+
+    var pandosearch = new Pandosearch();
+    $(document).ready(function () {
+        pandosearch.init(searchUrl);
+        pandosearch.show();
+
+        $('#suggest-search-query').val(pandosearch.query);
+    });
 </script>
