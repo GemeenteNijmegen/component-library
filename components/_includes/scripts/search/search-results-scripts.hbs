@@ -23,4 +23,8 @@
             this.searchResultsList.append(resultItem);
         }
     }
+
+    SearchResults.prototype.search = function (getResultsFn, searchTerm) {
+        getResultsFn(searchTerm, this.show.bind(this));
+    }
 </script>

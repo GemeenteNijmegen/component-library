@@ -11,14 +11,21 @@
 
 {{> '@tpl-scripts' }}
 
-{{> '@openindex-scripts' }}
-{{> '@openindex-config-scripts' }}
+{{> '@autocomplete-scripts' }}
+
+{{> '@autocomplete-pandosearch-scripts' }}
+
+{{> '@facets-scripts' }}
+
+{{> '@search-results-scripts' }}
+
+{{> '@search-results-pandosearch-scripts' }}
 
 <script>
 // Underneath is just here for testing purpose within the Component library,
 // since the search field moved to the navbar and we want to see the results here
-if (window.location.hash.indexOf('#q=') === -1) {
-    window.location.href = window.location.href + '#q=paspoort';
+if (window.location.search.indexOf('?q=') === -1) {
+    window.location.href = window.location.href + '?q=paspoort';
 }
 </script>
 
