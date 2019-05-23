@@ -17,14 +17,7 @@
                 }));
 
             // Get hits from raw search results
-            var hits = [];
-            if (Array.isArray(rawResults.hits)) {
-                hits = rawResults.hits
-                    .map(hit => ({
-                        title: hit.title,
-                        url: hit.url
-                    }));
-            }
+            var hits = Array.isArray(rawResults.hits) ? rawResults.hits.map(hit => ({title: hit.title, url: hit.url})) : [];
 
             callback(suggestions.concat(hits));
         });
