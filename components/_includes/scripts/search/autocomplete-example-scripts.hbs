@@ -16,8 +16,9 @@
             .slice(0, query.length)
             .map(result => ({
                 title: result,
-                url: '/searchResults?q=' + query
+                url: '?q=' + query
             }));
+        results[0].class = 'search'
         callback(results);
     }
 </script>

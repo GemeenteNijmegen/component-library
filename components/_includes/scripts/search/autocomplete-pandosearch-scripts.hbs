@@ -1,0 +1,32 @@
+<script>
+    var searchUrl = 'https://public.pandosearch.com/nijmegen.nl/suggest?size=5&q=';
+
+    var autocomplete = new Autocomplete();
+    $(document).ready(function () {
+        autocomplete.init(getAutocompleteResults)
+    })
+
+    function getAutocompleteResults(query, callback) {
+        $.get(searchUrl + query, function (rawResults) {
+            // Get suggestions from raw search results
+            var suggestions = rawResults.suggestions
+                .map(suggestion => ({
+                    title: suggestion.text,
+                    url: '?q=' + suggestion.text,
+                    class: 'search'
+                }));
+
+            // Get hits from raw search results
+            var hits = [];
+            if (Array.isArray(rawResults.hits)) {
+                hits = rawResults.hits
+                    .map(hit => ({
+                        title: hit.title,
+                        url: hit.url
+                    }));
+            }
+
+            callback(suggestions.concat(hits));
+        });
+    }
+</script>

@@ -9,14 +9,6 @@ Aside from the markup, some extra actions are needed.
 
 * Since the navbar is fixed top, it's advisable to add some padding (_with a minimum of 74 pixels_) to the `body` element to not risk having content under the navbar which should be visible by default.
 
-* An extra JavaScript include is needed (**when the search is part of the component**) to have a fully functional component.
-
-By adding underneath `script` tag after the other required `script` tags (as documented in [How to use]({{ assetPath '/docs/how-to-use.html' }})) and before the closing `body` tag, OpenIndex will connect a real-time autocomplete to the search input field.
-
-```html
-<script src="//www.openindex.io/js/openindex.69694b9315763c81.js"></script>
-```
-
 #### Active menu item
 To set an active menu item, underneath HTML markup for a navigation item can be used where a class `active` is added to the active menu item and as and extra addition regarding accessibility the "span" can be used.
 
@@ -34,6 +26,21 @@ To handle this use-case, put underneath JavaScript just before the closing "body
 {{ render '@navbar-scripts' }}
 ```
 
+#### Autocomplete search
+For the autocomplete search a real-time feed is provided by Pandosearch. This uses a combination of search suggestions and direct hits. To use this search functionality, JavaScript code is required before the closing "body" tag.
+
+* [Autocomplete component script]({{ componentPath '@autocomplete' }})
+
+```html
+{{ render '@autocomplete-scripts' }}
+```
+
+* Pandosearch integration
+
+```html
+{{ render '@autocomplete-pandosearch-scripts' }}
+```
+
 ### Notes
 
-* Nijmegen has a collaboration with OpenIndex (https://www.openindex.io) for the search and search results implementation, as can be read in the `Using` section here. For an example of the search results, have a look at the [search results template]({{ componentPath '@searchresults-template' }}).
+* Nijmegen has a collaboration with Pandosearch (https://www.pandosearch.com) for the search and search results implementation, as can be read in the `Using` section here. For an example of the search results, have a look at the [search results template]({{ componentPath '@searchresults-template' }}).
