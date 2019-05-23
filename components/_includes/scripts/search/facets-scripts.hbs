@@ -1,0 +1,13 @@
+<script>
+    $('.facets__title').click(function () {
+        var facets = $(this).closest('.facets');
+        if ($(this).hasClass('expanded')) {
+            $(this).removeClass('expanded');
+            $('.facets__facets', facets).removeClass('expanded');
+        } else {
+            $(this).addClass('expanded');
+            $('.facets__facets', facets).addClass('expanded');
+        }
+
+    })
+</script>
