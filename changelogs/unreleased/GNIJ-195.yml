@@ -1,0 +1,7 @@
+changes:
+    - type: changed
+      component: navbar-primary
+      description: Added the new autocomplete component to the navbar and it now uses Pandosearch
+    - type: changed
+      component: navbar-white
+      description: Added the new autocomplete component to the navbar and it now uses Pandosearch

@@ -9,7 +9,8 @@ Underneath a jQuery example on how to initialize the autocomplete and the autoco
 Both scripts be placed in the `Additional component(s) script` section as documented in [How to use]({{ assetPath '/docs/how-to-use.html' }}).
 
 You need to initialize the autocomplete class by passing a function that will fetch the search results.
-The function will get the search query as it's first parameter and a callback as a second parameter. You need to call the callback to show the search results. Pass an array of objects with at least an url and title: `[{url: 'link', title: 'the title'}]`
+The function will get the search query as it's first parameter and a callback as a second parameter. You need to call the callback to show the search results. Pass an array of objects with at least an url and title: `[{url: 'link', title: 'the title'}]`.
+You can also add the `class` property. That class is added to the item.
 
 #### Example on how to implement:
 ```html

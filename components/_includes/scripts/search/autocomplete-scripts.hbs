@@ -40,6 +40,10 @@
                 .attr('id', 'result-item-' + key)
                 .attr('aria-label', result.titleRaw || result.title)
                 .mouseenter(this.itemMouseHandle.bind(this));
+
+            if (result.class) {
+                $('.autocomplete__result-link', resultItem).addClass(result.class);
+            }
             this.resultsList.append(resultItem);
         }
 
