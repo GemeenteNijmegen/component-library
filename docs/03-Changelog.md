@@ -7,6 +7,13 @@ status: ready # draft, ready
 All notable changes to this project will be documented in this file.<br>
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [3.0.0] - 2019-05
+### Changed
+- _Component [navbar primary]({{ componentPath '@navbar-primary' }})_:
+  Added the new autocomplete component to the navbar and it now uses Pandosearch
+- _Component [navbar white]({{ componentPath '@navbar-white' }})_:
+  Added the new autocomplete component to the navbar and it now uses Pandosearch
+
 ## [2.0.0] - 2018-06
 ### Added
 - MDBootstrap v4.5.9
