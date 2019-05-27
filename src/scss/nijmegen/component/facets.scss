@@ -1,0 +1,65 @@
+.facets {
+    &__title{
+        padding: to-rem(20) 0;
+        font-size: to-rem(18);
+        border-bottom: 1px solid color('nijmegen-grey', 'base');
+        cursor: pointer;
+        position: relative;
+
+        &::before{
+            @include mdi('filter');
+            font-size: to-rem(18);
+            padding-right: to-rem(10);
+        }
+
+        &::after{
+            content: '\25BE';
+            color: color('nijmegen-brand', 'base');
+            position: absolute;
+            top: to-rem(20);
+            right: to-rem(10);
+        }
+
+        &.expanded::after {
+            content: '\25B4'
+        }
+
+        @media #{$large-and-up} {
+            display: none;
+        }
+    }
+
+    &__facets {
+        @media #{$medium-and-down} {
+            border-bottom: 1px solid color('nijmegen-grey', 'base');
+            margin-bottom: to-rem(20);
+
+            &:not(.expanded){
+                display: none;
+            }
+        }
+    }
+
+    &__group-title {
+        color: color('nijmegen-brand', 'base');
+        font-size: to-rem(28);
+
+        @media #{$medium-and-down} {
+            font-size: to-rem(20);
+        }
+    }
+
+    &__item {
+        line-height: 1.5rem;
+        position: relative;
+
+        &.active::before{
+            content: '\25B6';
+            color: color('nijmegen-primary', 'base');
+            font-size: to-rem(10);
+            position: absolute;
+            top: 0;
+            left: to-rem(-10);
+        }
+    }
+}

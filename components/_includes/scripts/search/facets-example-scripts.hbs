@@ -1,0 +1,26 @@
+<script>
+    var facets = new Facets();
+
+    $(document).ready(function () {
+        var facetData = [
+            {
+                title: 'Document type',
+                facets: [
+                    { title: 'PDF document (10)', url: '', active: true },
+                    { title: 'Webpage (5)', url: '' }
+                ]
+            },
+            {
+                title: 'Date',
+                facets: [
+                    { title: 'Last week (7)', url: '' },
+                    { title: 'This week (3)', url: '' },
+                    { title: 'Today (5)', url: '' }
+                ]
+            }
+        ];
+
+        facets.init('#facets');
+        facets.show(facetData);
+    })
+</script>
