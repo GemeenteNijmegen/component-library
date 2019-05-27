@@ -1,4 +1,0 @@
-changes:
-    - type: added
-      component: facets
-      description: Added a facets component (for filtering search results)

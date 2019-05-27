@@ -1,4 +1,0 @@
-changes:
-    - type: added
-      component: autocomplete
-      description: Added an autocomplete component

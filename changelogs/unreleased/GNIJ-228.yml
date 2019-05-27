@@ -1,4 +1,0 @@
-changes:
-    - type: changed
-      component: pagination
-      description: Added a script to easily implement the pagination
