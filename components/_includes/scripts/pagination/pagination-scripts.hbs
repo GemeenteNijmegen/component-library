@@ -31,7 +31,10 @@
             $('.page-item-next', this.paginateList).before(paginateItem);
         }
 
-        if (currentPage === 1) {
+        if (this.numberOfPages === 1) {
+            this.hideButton($('.page-item-previous', this.paginateList));
+            this.hideButton($('.page-item-next', this.paginateList));
+        } else if (currentPage === 1) {
             this.showButton($('.page-item-next', this.paginateList), currentPage + 1);
             this.hideButton($('.page-item-previous', this.paginateList));
         } else if (currentPage === this.numberOfPages) {

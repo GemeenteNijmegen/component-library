@@ -8,6 +8,7 @@ context:
   searchComponent: true
   hamburgerIcon: true
   smoothScroll: " smooth-scroll"
+  searchAction: ""
 variants:
   - name: "default"
   - name: "no-search"

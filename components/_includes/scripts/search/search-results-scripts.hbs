@@ -13,7 +13,7 @@
         this.resultItemTemplate = $.parseHTML($('#search-results-item-template').html());
     }
 
-    SearchResults.prototype.show = function (results, searchTerm, didYouMeanTerm) {
+    SearchResults.prototype.show = function (results, searchTerm, didYouMeanTerm = null) {
         this.searchResultsList.html('');
         this.searchTermContainer.text(searchTerm);
 
