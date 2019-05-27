@@ -31,4 +31,9 @@
     &__didyoumean{
         display: none;
     }
+
+    &__pagination {
+        display: flex;
+        justify-content: center;
+    }
 }

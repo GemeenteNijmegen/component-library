@@ -1,36 +1,38 @@
 <script>
     var searchUrl = 'https://public.pandosearch.com/nijmegen.nl/search';
 
-    function Pandosearch() {
+    function Pandosearch(itemsPerPage = 5) {
+        this.baseSearchUrl;
         this.searchUrl;
         this.query;
-        this.currentPage = 1;
-        this.itemsPerPage = 5;
+        this.currentPage;
+        this.itemsPerPage = itemsPerPage;
+        this.totalHits = 0;
         this.searchResultsComponent = new SearchResults();
+        this.paginationContainer = $('#search-results-pagination');
     }
 
-    Pandosearch.prototype.init = function (searchUrl) {
-        this.buildSearchUrl(searchUrl);
+    Pandosearch.prototype.init = function (baseSearchUrl) {
+        this.baseSearchUrl = baseSearchUrl;
         this.searchResultsComponent.init();
     }
 
-    Pandosearch.prototype.buildSearchUrl = function (searchUrl) {
-        var url = new URL(window.location.href);
-        this.query = url.searchParams.get('q');
+    Pandosearch.prototype.show = function (currentPage = 1) {
+        this.currentPage = currentPage;
+        this.buildSearchUrl();
 
-        if (url.searchParams.get('page')) {
-            this.currentPage = url.searchParams.get('page');
-        }
-
-        this.searchUrl = searchUrl + '?size=' + this.itemsPerPage + '&page=' + this.currentPage + '&q=' + this.query;
-    }
-
-    Pandosearch.prototype.show = function () {
         try {
             $.get(this.searchUrl, this.showResults.bind(this));
         } catch (error) {
             throw new Error(`Pandosearch: failed fetching data with error ${error}`);
         }
+    }
+
+    Pandosearch.prototype.buildSearchUrl = function () {
+        var url = new URL(window.location.href);
+        this.query = url.searchParams.get('q');
+
+        this.searchUrl = this.baseSearchUrl + '?size=' + this.itemsPerPage + '&page=' + this.currentPage + '&q=' + this.query;
     }
 
     Pandosearch.prototype.showResults = function (rawResults) {
@@ -42,9 +44,18 @@
             hits = didYouMeanTerm ? this.getDidYouMeanHits(rawResults) : [];
         }
         this.searchResultsComponent.show(hits, this.query, didYouMeanTerm);
+
+        if (hits.length) {
+            var pagination = new Pagination(this.getNumberOfPages(), '#{page}', 5);
+            pagination.init(this.paginationContainer);
+            pagination.show(this.currentPage);
+        } else {
+            this.paginationContainer.hide();
+        }
     }
 
     Pandosearch.prototype.getHits = function (rawResults) {
+        this.totalHits = rawResults.total;
         return Array.isArray(rawResults.hits) ?
                 rawResults.hits.map(hit => ({
                     title: hit.fields.title,
@@ -58,6 +69,7 @@
     }
 
     Pandosearch.prototype.getDidYouMeanHits = function (rawResults) {
+        this.totalHits = rawResults.suggestions.didyoumean.result.total;
         return rawResults.suggestions.didyoumean.result.hits.map(hit => ({
             title: hit.fields.title,
             body: hit.fields.body ? hit.fields.body : '---',
@@ -65,10 +77,19 @@
         }));
     }
 
+    Pandosearch.prototype.getNumberOfPages = function () {
+        return Math.ceil(this.totalHits / this.itemsPerPage);
+    }
+
     var pandosearch = new Pandosearch();
     $(document).ready(function () {
         pandosearch.init(searchUrl);
-        pandosearch.show();
+        pandosearch.show(1);
+
+        $(window).on('hashchange', function () {
+            var page = parseInt(window.location.hash.slice(1));
+            pandosearch.show(page);
+        });
 
         $('#suggest-search-query').val(pandosearch.query);
     });
