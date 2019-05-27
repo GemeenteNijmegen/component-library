@@ -1,0 +1,52 @@
+<script>
+    function Facets() {
+        this.$facets;
+        this.$facetsContainer;
+        this.facetGroupTemplate;
+        this.facetItemTemplate;
+    }
+
+    Facets.prototype.init = function (selector) {
+        this.$facets = $(selector);
+        this.$facetsContainer = $('.facets__facets', this.$facets);
+        this.$facetsContainer.addClass('hide');
+
+        this.facetGroupTemplate = $.parseHTML($('#facets-group-template').html());
+        this.facetItemTemplate = $.parseHTML($('#facets-item-template').html());
+
+        $('.facets__title', this.$facets).click(this.clickHandler.bind(this));
+    }
+
+    Facets.prototype.clickHandler = function () {
+        var $title = $('.facets__title', this.$facets);
+        if ($title.hasClass('expanded')) {
+            $title.removeClass('expanded');
+            this.$facetsContainer.removeClass('expanded');
+        } else {
+            $title.addClass('expanded');
+            this.$facetsContainer.addClass('expanded');
+        }
+    }
+
+    Facets.prototype.show = function (facets) {
+        this.$facetsContainer.html('');
+        for (var groupKey in facets) {
+            var facetGroup = facets[groupKey];
+            var $facetGroup = $(this.facetGroupTemplate).clone();
+            $('.facets__group-title', $facetGroup).html(facetGroup.title);
+
+            for (var itemKey in facetGroup.facets) {
+                var facetItem = facetGroup.facets[itemKey];
+                var $facetItem = $(this.facetItemTemplate).clone();
+                $('.facets__link', $facetItem).attr('href', facetItem.url).html(facetItem.title);
+                if (facetItem.active) {
+                    $facetItem.addClass('active');
+                }
+
+                $('.facets__list', $facetGroup).append($facetItem);
+            }
+
+            this.$facetsContainer.append($facetGroup);
+        }
+    }
+</script>

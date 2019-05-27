@@ -1,0 +1,4 @@
+changes:
+    - type: added
+      component: results
+      description: Added a search results component
