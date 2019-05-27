@@ -1,6 +1,10 @@
-## Autocomplete
+## Facets
 
 This component will show the facets of search results
+
+### Note
+
+In the example the facet is rendered in a column. You should do this yourself when implementing the facets.
 
 ### Using
 
@@ -15,7 +19,7 @@ Look at the example to see how the data needs to be formatted that you can feed 
 {{ render '@facets-example-scripts' }}
 ```
 
-#### Autocomplete script:
+#### Facets script:
 ```html
 {{ render '@facets-scripts' }}
 ```

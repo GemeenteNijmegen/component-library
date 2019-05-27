@@ -4,8 +4,22 @@
 <body>
 
     <main>
-        {{!-- Underneath will render component output --}}
-        {{{ yield }}}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-12">
+
+                    {{!-- Underneath will render component output --}}
+                    {{{ yield }}}
+                </div>
+                <div class="col-lg-9 col-md-12">
+                    <h1>Results</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur ut sed habitant sollicitudin. Maximus eros curae purus
+                        arcu
+                        volutpat nam.</p>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     {{> '@tpl-scripts' }}
