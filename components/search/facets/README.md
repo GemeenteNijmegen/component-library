@@ -1,11 +1,25 @@
-## Search Results
+## Facets
 
-A component to show search result facets
+This component will show the facets of search results
+
+### Note
+
+In the example the facet is rendered in a column. You should do this yourself when implementing the facets.
 
 ### Using
 
-You need to include the following javascript snippet to allow for expanding the facets on a mobile device.
+To start using this component, some JavaScript is needed to initialize it.<br>
+Underneath a jQuery example on how to initialize the facets and the facets script itself.
+Both scripts be placed in the `Additional component(s) script` section as documented in [How to use]({{ assetPath '/docs/how-to-use.html' }}).
 
+Look at the example to see how the data needs to be formatted that you can feed the facets script.
+
+#### Example on how to implement:
+```html
+{{ render '@facets-example-scripts' }}
+```
+
+#### Facets script:
 ```html
 {{ render '@facets-scripts' }}
 ```

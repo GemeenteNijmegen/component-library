@@ -114,7 +114,7 @@ update changelogs:
     - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git fetch origin ${CI_COMMIT_REF_NAME} ; fi
     - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git checkout ${CI_COMMIT_REF_NAME} ; fi
     - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git pull origin ${CI_COMMIT_REF_NAME} ; fi
-    - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then npm run update-changelog "${MAJOR_VERSION_NUMBER}.0.0" ; fi
+    - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then npm ci && npm run update-changelog "${MAJOR_VERSION_NUMBER}.0.0" ; fi
     - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git add --all ; fi
     - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git commit -m "${CI_COMMIT_REF_NAME} changelog update" ; fi
     - if [ ${CHANGES_FILE_COUNT} -gt 0 ] ; then git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/ ; fi

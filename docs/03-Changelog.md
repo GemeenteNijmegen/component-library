@@ -7,6 +7,13 @@ status: ready # draft, ready
 All notable changes to this project will be documented in this file.<br>
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [3.0.0] - 2019-05
+### Changed
+- _Component [navbar primary]({{ componentPath '@navbar-primary' }})_:
+  Added the new autocomplete component to the navbar and it now uses Pandosearch
+- _Component [navbar white]({{ componentPath '@navbar-white' }})_:
+  Added the new autocomplete component to the navbar and it now uses Pandosearch
+
 ## [2.0.0] - 2018-06
 ### Added
 - MDBootstrap v4.5.9
@@ -47,6 +54,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   A HTML5 file upload input example has been added
 - _Component [checkbox]({{ componentPath '@checkbox' }})_:
   Added a material checkbox element
+- _Component [autocomplete]({{ componentPath '@autocomplete' }})_:
+  Added an autocomplete component
+- _Component [facets]({{ componentPath '@facets' }})_:
+  Added a facets component (for filtering search results)
+- _Component [results]({{ componentPath '@results' }})_:
+  Added a search results component
 
 ### Changed
 - _Component cards ([filename]({{ componentPath '@cards-filename' }}), [news]({{ componentPath '@cards-news' }}), [services]({{ componentPath '@cards-services' }}), [services no icon]({{ componentPath '@cards-services-no-icon' }}))_:
@@ -131,6 +144,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Change the example so it uses a paragraph as title like the note suggests
 - _Component [title no-link]({{ componentPath '@title-no-link' }})_:
   Change the example so it uses a paragraph as title like the note suggests
+- _Component [pagination]({{ componentPath '@pagination' }})_:
+  Added a script to easily implement the pagination
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:
