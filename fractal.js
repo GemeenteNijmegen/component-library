@@ -1,14 +1,15 @@
 'use strict';
 
 /*
-* Require the path module
-*/
+ * Require the path module
+ */
 const path = require('path');
+const generateGuid = require('./helpers/guid');
 
 /*
  * Require the Fractal module
  */
-const fractal = module.exports = require('@frctl/fractal').create();
+const fractal = (module.exports = require('@frctl/fractal').create());
 
 /*
  * Require the Fractal theme
@@ -20,6 +21,7 @@ const nijmegenTheme = mandelbrot({
     panels: ['html', 'notes', 'info'],
     styles: ['default', '/_subtheme/css/nijmegen.css'], // link to the default stylesheet followed by a custom one
     favicon: '/_subtheme/img/favicon.ico',
+    version: generateGuid(),
 });
 
 // specify a directory to hold the theme override templates
@@ -97,14 +99,12 @@ function listComponents(args) {
     }
 
     return components;
-};
+}
 
 // register the command
-fractal.cli.command(
-    'list-components',
-    listComponents,
-    { description: 'Lists components in the project and returns an HTML output' }
-);
+fractal.cli.command('list-components', listComponents, {
+    description: 'Lists components in the project and returns an HTML output',
+});
 
 /*
  * Other configurations
@@ -121,5 +121,5 @@ fractal.web.set('server.syncOptions', {
     /* Files to watch for changes */
     files: ['src/**/*.scss'],
     /* Adding a delay to make sure the sourcefiles are compiled before pushing the refresh to the browser */
-    reloadDelay: 1000
+    reloadDelay: 1000,
 });
