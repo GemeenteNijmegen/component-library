@@ -162,3 +162,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Removed labelledby from the listing item
 - _Component [pagination]({{ componentPath '@pagination' }})_:
   aria-label removed from page links where an sr-only element already exists
+- _Component [searchresults template]({{ componentPath '@searchresults-template' }})_:
+  Usage of the new search components (autocomplete, facets, results) and implemented Pandosearch
+- _Component [default template]({{ componentPath '@default-template' }})_:
+  Now makes use of Pandosearch for the autocomplete in the navbar
+- _Component [forminputs template]({{ componentPath '@forminputs-template' }})_:
+  Now makes use of Pandosearch for the autocomplete in the navbar
