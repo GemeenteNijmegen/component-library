@@ -2,4 +2,4 @@ context:
   menuComponent: true
   searchComponent: true
   hamburgerIcon: true
-  searchAction: "searchresults-template"
+  searchAction: "searchresults-template.html"
