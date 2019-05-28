@@ -2,7 +2,7 @@
     var pagination = new Pagination(10, '#{page}', 5);
 
     $(document).ready(function () {
-        pagination.init($('#paginationExample'));
+        pagination.init('#paginationExample');
         pagination.show(1);
 
         $(window).on('hashchange', function () {
