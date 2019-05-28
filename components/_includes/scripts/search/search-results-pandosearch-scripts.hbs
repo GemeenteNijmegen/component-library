@@ -30,12 +30,22 @@
         this.toggleLoadingContainer(true);
     }
 
-    Pandosearch.prototype.show = function () {
+    Pandosearch.prototype.showHits = function () {
         this.searchParams = this.getParamsFromHash();
         this.buildSearchUrl();
 
         try {
-            $.get(this.searchUrl, this.showResults.bind(this));
+            $.get(this.searchUrl, this.showHitsResult.bind(this));
+        } catch (error) {
+            throw new Error(`Pandosearch: failed fetching data with error ${error}`);
+        }
+    }
+
+    Pandosearch.prototype.showFacets = function () {
+        this.buildSearchUrl();
+
+        try {
+            $.get(this.searchUrl, this.showFacetsResult.bind(this));
         } catch (error) {
             throw new Error(`Pandosearch: failed fetching data with error ${error}`);
         }
@@ -54,7 +64,7 @@
                 + '&q=' + this.query;
     }
 
-    Pandosearch.prototype.showResults = function (rawResults) {
+    Pandosearch.prototype.showHitsResult = function (rawResults) {
         this.rawResults = rawResults;
         var hits = this.getHits();
 
@@ -78,13 +88,15 @@
             this.$paginationContainer.hide();
         }
 
-        if (!this.facets) {
-            this.facets = this.getFacets();
-        }
         this.selectCurrentFacet();
-        this.facetsComponent.show(this.facets);
-
         this.toggleLoadingContainer(false);
+    }
+
+    Pandosearch.prototype.showFacetsResult = function (rawResults) {
+        this.rawResults = rawResults;
+
+        this.facets = this.getFacets();
+        this.facetsComponent.show(this.facets);
     }
 
     Pandosearch.prototype.getHits = function () {
@@ -132,6 +144,7 @@
                 facets.push(facetData);
             }
         }
+
         return facets;
     }
 
@@ -156,6 +169,8 @@
                 }
             }
         }
+
+        this.facetsComponent.show(this.facets);
     }
 
     Pandosearch.prototype.translateFacetName = function (facetName) {

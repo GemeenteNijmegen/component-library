@@ -15,10 +15,11 @@
     var pandosearch = new Pandosearch();
     $(document).ready(function () {
         pandosearch.init(facetsTranslations);
-        pandosearch.show();
+        pandosearch.showFacets();
+        pandosearch.showHits();
 
         $(window).on('hashchange', function () {
-            pandosearch.show();
+            pandosearch.showHits();
         });
 
         $('#suggest-search-query').val(pandosearch.query);
