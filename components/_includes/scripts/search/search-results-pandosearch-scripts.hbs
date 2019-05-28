@@ -66,10 +66,11 @@
         this.searchResultsComponent.show(hits, this.query, didYouMeanTerm);
 
         if (hits.length) {
-            var paginationUrl = '?q=' + this.query + '#page={page}';
-            if (this.searchParams.facetName && this.searchParams.facetValue) {
-                paginationUrl += '&facetName=' + this.searchParams.facetName + '&facetValue=' + this.searchParams.facetValue;
-            }
+            var paginationUrl = '?q=' + this.query + this.buildHashUrlQuery(
+                '{page}',
+                this.searchParams.facetName,
+                this.searchParams.facetValue
+            );
             var pagination = new Pagination(this.getNumberOfPages(), paginationUrl, 5);
             pagination.init(this.$paginationContainer);
             pagination.show(parseInt(this.searchParams.page));
@@ -118,7 +119,7 @@
             var facetsByName = this.rawResults.facets[facetName].map(facet => ({
                 key: facet.key,
                 title: this.translateFacetName(facet.display) + ' (' + facet.count + ')',
-                url: '?q=' + this.query + '#page=1&facetName=' + facetName + '&facetValue=' + facet.key,
+                url: '?q=' + this.query + this.buildHashUrlQuery(1, facetName, facet.key),
             }));
 
             if (facetsByName.length) {
@@ -135,16 +136,24 @@
     }
 
     Pandosearch.prototype.selectCurrentFacet = function () {
-        if (!this.searchParams.facetName || !this.searchParams.facetValue) {
-            return;
-        }
-
         for (var groupKey in this.facets) {
             var facetGroup = this.facets[groupKey];
             for (var itemKey in facetGroup.facets) {
                 var facetItem = facetGroup.facets[itemKey];
-                facetItem.active = facetGroup.name === this.searchParams.facetName
-                        && facetItem.key === this.searchParams.facetValue;
+
+                if (
+                    this.searchParams.facetName && this.searchParams.facetValue
+                    && (
+                        facetGroup.name === this.searchParams.facetName
+                            && facetItem.key === this.searchParams.facetValue
+                        )
+                ) {
+                    facetItem.url = '?q=' + this.query + '#page=1';
+                    facetItem.active = true;
+                } else {
+                    facetItem.url = '?q=' + this.query + this.buildHashUrlQuery(1, facetGroup.name, facetItem.key);
+                    facetItem.active = false;
+                }
             }
         }
     }
@@ -164,6 +173,8 @@
         if (!hash) {
             return this.searchParams;
         }
+
+        this.searchParams = {};
         var params = hash.split('&').reduce(function (result, item) {
             var parts = item.split('=');
             result[parts[0]] = parts[1];
@@ -181,5 +192,17 @@
             this.$searchResultsContainer.show();
             this.$loadingContainer.hide();
         }
+    }
+
+    Pandosearch.prototype.buildHashUrlQuery = function (
+        page = 1,
+        facetName = null,
+        facetValue = null
+    ) {
+        var hashQuery = '#page=' + page;
+        if (facetName && facetValue) {
+            hashQuery += '&facetName=' + facetName + '&facetValue=' + facetValue;
+        }
+        return hashQuery;
     }
 </script>
