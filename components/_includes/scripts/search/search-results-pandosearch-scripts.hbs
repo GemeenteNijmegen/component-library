@@ -127,11 +127,13 @@
 
     Pandosearch.prototype.getFacets = function () {
         var facets = [];
+        var params = this.getParamsFromHash();
         for (var facetName in this.rawResults.facets) {
             var facetsByName = this.rawResults.facets[facetName].map(facet => ({
                 key: facet.key,
                 title: this.translateFacetName(facet.display) + ' (' + facet.count + ')',
                 url: '?q=' + this.query + this.buildHashUrlQuery(1, facetName, facet.key),
+                active: params.facetName === facetName && params.facetValue === facet.key
             }));
 
             if (facetsByName.length) {
