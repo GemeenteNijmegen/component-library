@@ -13,7 +13,7 @@
         lastday: 'Laatste dag',
     }
 
-    var pandosearch = new Pandosearch();
+    var pandosearch = new Pandosearch(5);
     $(document).ready(function () {
         pandosearch.init(facetsTranslations);
         pandosearch.showFacets();
