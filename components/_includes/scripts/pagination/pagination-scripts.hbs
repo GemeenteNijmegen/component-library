@@ -1,6 +1,6 @@
 <script>
-    function Pagination(numberOfPages, link, maxNumberOfPages = 9) {
-        this.maxNumberOfPages = maxNumberOfPages;
+    function Pagination(numberOfPages, link, maxNumberOfPages) {
+        this.maxNumberOfPages = maxNumberOfPages ? maxNumberOfPages : 9;
         this.numberOfPages = numberOfPages;
         this.paginateList;
         this.paginateItemTemplate = $.parseHTML($('#pagination-item-template').html());
