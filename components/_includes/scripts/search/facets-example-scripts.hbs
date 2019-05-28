@@ -1,26 +1,39 @@
 <script>
     var facets = new Facets();
 
+    function facetClickHandler(event, $facetItem) {
+        if($facetItem.hasClass('active')){
+            $('#facets .facets__item').removeClass('active');
+            event.preventDefault();
+            return;
+        }
+        $('#facets .facets__item').removeClass('active');
+        $facetItem.addClass('active')
+        event.preventDefault();
+    }
+
     $(document).ready(function () {
         var facetData = [
             {
                 title: 'Document type',
                 facets: [
-                    { title: 'PDF document (10)', url: '', active: true },
-                    { title: 'Webpage (5)', url: '' }
+                    { title: 'PDF document (10)' },
+                    { title: 'Webpage (5)'}
                 ]
             },
             {
                 title: 'Date',
                 facets: [
-                    { title: 'Last week (7)', url: '' },
-                    { title: 'This week (3)', url: '' },
-                    { title: 'Today (5)', url: '' }
+                    { title: 'Last week (7)' },
+                    { title: 'This week (3)' },
+                    { title: 'Today (5)' }
                 ]
             }
         ];
 
-        facets.init('#facets');
+        facets.init('#facets', facetClickHandler);
         facets.show(facetData);
+
+
     })
 </script>

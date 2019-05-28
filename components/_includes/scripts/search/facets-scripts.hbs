@@ -4,13 +4,15 @@
         this.$facetsContainer;
         this.facetGroupTemplate;
         this.facetItemTemplate;
+        this.globalCallback = null;
     }
 
-    Facets.prototype.init = function (selector) {
+    Facets.prototype.init = function (selector, globalCallback) {
         this.$facets = $(selector);
         this.$facetsContainer = $('.facets__facets', this.$facets);
         this.$facetsContainer.addClass('hide');
-
+        
+        this.globalCallback = globalCallback;
         this.facetGroupTemplate = $.parseHTML($('#facets-group-template').html());
         this.facetItemTemplate = $.parseHTML($('#facets-item-template').html());
 
@@ -38,7 +40,21 @@
             for (var itemKey in facetGroup.facets) {
                 var facetItem = facetGroup.facets[itemKey];
                 var $facetItem = $(this.facetItemTemplate).clone();
-                $('.facets__link', $facetItem).attr('href', facetItem.url).html(facetItem.title);
+
+                $('.facets__link', $facetItem).html(facetItem.title);
+                if(facetItem.url){
+                    $('.facets__link', $facetItem).attr('href', facetItem.url)
+                }
+                if(facetItem.callback || this.globalCallback){
+                    var callback = facetItem.callback ? facetItem.callback : this.globalCallback;
+                    $('.facets__link', $facetItem).click(
+                        (function ($facetItem, facetItem) {
+                            return function (event) {
+                                callback(event, $facetItem, facetItem);
+                            }
+                        })($facetItem, facetItem)
+                    )
+                }
                 if (facetItem.active) {
                     $facetItem.addClass('active');
                 }
