@@ -37,7 +37,7 @@
         try {
             $.get(this.searchUrl, this.showHitsResult.bind(this));
         } catch (error) {
-            throw new Error(`Pandosearch: failed fetching data with error ${error}`);
+            throw new Error('Pandosearch: failed fetching data with error ' + error);
         }
     }
 
@@ -47,7 +47,7 @@
         try {
             $.get(this.searchUrl, this.showFacetsResult.bind(this));
         } catch (error) {
-            throw new Error(`Pandosearch: failed fetching data with error ${error}`);
+            throw new Error('Pandosearch: failed fetching data with error ' + error);
         }
     }
 
