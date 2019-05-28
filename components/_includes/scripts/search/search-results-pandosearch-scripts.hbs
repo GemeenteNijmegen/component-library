@@ -12,6 +12,8 @@
         this.itemsPerPage = itemsPerPage;
         this.totalHits = 0;
         this.searchResultsComponent = new SearchResults();
+        this.$searchResultsContainer = $('#searchresults');
+        this.$loadingContainer = $('#loading');
         this.$paginationContainer = $('#pagination');
         this.facets;
         this.facetsComponent = new Facets();
@@ -24,6 +26,8 @@
 
         this.searchResultsComponent.init();
         this.facetsComponent.init(this.$facetsContainer);
+
+        this.toggleLoadingContainer(true);
     }
 
     Pandosearch.prototype.show = function () {
@@ -78,6 +82,8 @@
         }
         this.selectCurrentFacet();
         this.facetsComponent.show(this.facets);
+
+        this.toggleLoadingContainer(false);
     }
 
     Pandosearch.prototype.getHits = function () {
@@ -165,5 +171,15 @@
         }, {});
 
         return Object.assign(this.searchParams, params);
+    }
+
+    Pandosearch.prototype.toggleLoadingContainer = function (loading = true) {
+        if (loading) {
+            this.$searchResultsContainer.hide();
+            this.$loadingContainer.show();
+        } else {
+            this.$searchResultsContainer.show();
+            this.$loadingContainer.hide();
+        }
     }
 </script>

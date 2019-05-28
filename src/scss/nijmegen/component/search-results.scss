@@ -28,7 +28,7 @@
     }
 
     &__noresults,
-    &__didyoumean{
+    &__didyoumean {
         display: none;
     }
 
@@ -36,4 +36,8 @@
         display: flex;
         justify-content: center;
     }
+}
+
+#searchresults {
+    display: none;
 }
