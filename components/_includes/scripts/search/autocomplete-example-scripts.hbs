@@ -14,11 +14,13 @@
         ];
         var results = rawResults
             .slice(0, query.length)
-            .map(result => ({
-                title: result,
-                url: '?q=' + query
-            }));
-        results[0].class = 'search'
+            .map(function (result) {
+                return {
+                    title: result,
+                    url: '?q=' + query
+                }
+            });
+        results[0].class = 'search';
         callback(results);
     }
 </script>
