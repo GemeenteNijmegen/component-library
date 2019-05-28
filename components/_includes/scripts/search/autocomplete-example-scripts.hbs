@@ -14,10 +14,12 @@
         ];
         var results = rawResults
             .slice(0, query.length)
-            .map(result => ({
-                title: result,
-                url: '/searchResults?q=' + query
-            }));
+            .map(function (result) {
+                return {
+                    title: result,
+                    url: '?q=' + query
+                }
+            });
         callback(results);
     }
 </script>
