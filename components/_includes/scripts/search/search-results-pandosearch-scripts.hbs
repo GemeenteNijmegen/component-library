@@ -157,11 +157,10 @@
                 var facetItem = facetGroup.facets[itemKey];
 
                 if (
-                    this.searchParams.facetName && this.searchParams.facetValue
-                    && (
-                        facetGroup.name === this.searchParams.facetName
-                            && facetItem.key === this.searchParams.facetValue
-                        )
+                    this.searchParams.facetName
+                    && this.searchParams.facetValue
+                    && facetGroup.name === this.searchParams.facetName
+                    && facetItem.key === this.searchParams.facetValue
                 ) {
                     facetItem.url = '?q=' + this.query + '#page=1';
                     facetItem.active = true;
