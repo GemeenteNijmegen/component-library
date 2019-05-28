@@ -212,11 +212,7 @@
         }
     }
 
-    Pandosearch.prototype.buildHashUrlQuery = function (
-        page = 1,
-        facetName = null,
-        facetValue = null
-    ) {
+    Pandosearch.prototype.buildHashUrlQuery = function (page, facetName, facetValue) {
         var hashQuery = '#page=' + page;
         if (facetName && facetValue) {
             hashQuery += '&facetName=' + facetName + '&facetValue=' + facetValue;
