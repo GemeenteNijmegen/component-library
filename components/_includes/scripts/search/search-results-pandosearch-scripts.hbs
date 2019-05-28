@@ -44,8 +44,7 @@
     }
 
     Pandosearch.prototype.buildSearchUrl = function () {
-        var url = new URL(window.location.href);
-        this.query = url.searchParams.get('q');
+        this.query = this.getUrlParameterByName('q');
 
         this.searchUrl = this.baseSearchUrl
                 + '?size=' + this.itemsPerPage
@@ -218,5 +217,10 @@
             hashQuery += '&facetName=' + facetName + '&facetValue=' + facetValue;
         }
         return hashQuery;
+    }
+
+    Pandosearch.prototype.getUrlParameterByName = function (name) {
+        var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+        return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
     }
 </script>
