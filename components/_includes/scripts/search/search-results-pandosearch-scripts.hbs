@@ -1,5 +1,5 @@
 <script>
-    function Pandosearch(itemsPerPage = 5) {
+    function Pandosearch(itemsPerPage) {
         this.baseSearchUrl = 'https://public.pandosearch.com/nijmegen.nl/search';
         this.searchUrl;
         this.searchParams = {
@@ -9,7 +9,7 @@
         };
         this.query;
         this.rawResults;
-        this.itemsPerPage = itemsPerPage;
+        this.itemsPerPage = itemsPerPage ? itemsPerPage : 5;
         this.totalHits = 0;
         this.searchResultsComponent = new SearchResults();
         this.$searchResultsContainer = $('#searchresults');
@@ -21,11 +21,11 @@
         this.facetsTranslations;
     }
 
-    Pandosearch.prototype.init = function (facetsTranslations = {}) {
-        this.facetsTranslations = facetsTranslations;
+    Pandosearch.prototype.init = function (facetsTranslations) {
+        this.facetsTranslations = facetsTranslations ? facetsTranslations : {};
 
         this.searchResultsComponent.init();
-        this.facetsComponent.init(this.$facetsContainer);
+        this.facetsComponent.init(this.$facetsContainer, function () { $('.facets__title').click() });
 
         this.toggleLoadingContainer(true);
     }
@@ -102,12 +102,15 @@
     Pandosearch.prototype.getHits = function () {
         this.totalHits = this.rawResults.total;
         return Array.isArray(this.rawResults.hits)
-                ? this.rawResults.hits.map(hit => ({
-                    title: hit.fields.title,
-                    body: hit.fields.body ? hit.fields.body : '---',
-                    url: hit.url
-                }))
-                : [];
+            ? this.rawResults.hits
+                .map(function (hit) {
+                    return {
+                        title: hit.fields.title ? hit.fields.title : '---',
+                        body: hit.fields.body ? hit.fields.body : '---',
+                        url: hit.url
+                    }
+                })
+            : [];
     }
 
     Pandosearch.prototype.getDidYouMeanTerm = function () {
@@ -117,11 +120,14 @@
     Pandosearch.prototype.getDidYouMeanHits = function () {
         this.totalHits = this.rawResults.suggestions.didyoumean.result.total;
         return Array.isArray(this.rawResults.suggestions.didyoumean.result.hits)
-            ? this.rawResults.suggestions.didyoumean.result.hits.map(hit => ({
-                title: hit.fields.title,
-                body: hit.fields.body ? hit.fields.body : '---',
-                url: hit.url
-            }))
+            ? this.rawResults.suggestions.didyoumean.result.hits
+                .map(function (hit) {
+                    return {
+                        title: hit.fields.title ? hit.fields.title : '---',
+                        body: hit.fields.body ? hit.fields.body : '---',
+                        url: hit.url
+                    }
+                })
             : [];
     }
 
@@ -129,12 +135,15 @@
         var facets = [];
         var params = this.getParamsFromHash();
         for (var facetName in this.rawResults.facets) {
-            var facetsByName = this.rawResults.facets[facetName].map(facet => ({
-                key: facet.key,
-                title: this.translateFacetName(facet.display) + ' (' + facet.count + ')',
-                url: '?q=' + this.query + this.buildHashUrlQuery(1, facetName, facet.key),
-                active: params.facetName === facetName && params.facetValue === facet.key
-            }));
+            var facetsByName = this.rawResults.facets[facetName]
+                .map(function (facet) {
+                    return {
+                        key: facet.key,
+                        title: this.translateFacetName(facet.display) + ' (' + facet.count + ')',
+                        url: '?q=' + this.query + this.buildHashUrlQuery(1, facetName, facet.key),
+                        active: params.facetName === facetName && params.facetValue === facet.key,
+                    }
+                }, this);
 
             if (facetsByName.length) {
                 var facetData = {
@@ -200,7 +209,7 @@
         return Object.assign(this.searchParams, params);
     }
 
-    Pandosearch.prototype.toggleLoadingContainer = function (loading = true) {
+    Pandosearch.prototype.toggleLoadingContainer = function (loading) {
         if (loading) {
             this.$searchResultsContainer.hide();
             this.$loadingContainer.show();

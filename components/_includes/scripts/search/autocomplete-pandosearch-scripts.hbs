@@ -10,15 +10,23 @@
         $.get(suggestUrl + query, function (rawResults) {
             // Get suggestions from raw search results
             var suggestions = rawResults.suggestions
-                .map(suggestion => ({
-                    title: suggestion.text,
-                    url: '?q=' + suggestion.text,
-                    class: 'search'
-                }));
+                .map(function (suggestion) {
+                    return {
+                        title: suggestion.text,
+                        url: '?q=' + suggestion.text,
+                        class: 'search'
+                    }
+                });
 
             // Get hits from raw search results
             var hits = Array.isArray(rawResults.hits) 
-                ? rawResults.hits.map(hit => ({title: hit.title, url: hit.url})) 
+                ? rawResults.hits
+                    .map(function (hit) {
+                        return {
+                            title: hit.title,
+                            url: hit.url
+                        }
+                    })
                 : [];
 
             callback(suggestions.concat(hits));
