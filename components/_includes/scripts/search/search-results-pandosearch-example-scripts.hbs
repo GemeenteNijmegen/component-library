@@ -1,0 +1,27 @@
+<script>
+    var facetsTranslations = {
+        docType: 'Document type',
+        page: 'Pagina',
+        pdf: 'PDF bestand',
+        category: 'Categorie',
+        published: 'Publicatiedatum',
+        today: 'Vandaag',
+        older: 'Ouder',
+        lastweek: 'Laatste week',
+        lastmonth: 'Laatste maand',
+        lastyear: 'Laatste jaar',
+    }
+
+    var pandosearch = new Pandosearch();
+    $(document).ready(function () {
+        pandosearch.init(facetsTranslations);
+        pandosearch.showFacets();
+        pandosearch.showHits();
+
+        $(window).on('hashchange', function () {
+            pandosearch.showHits();
+        });
+
+        $('#suggest-search-query').val(pandosearch.query);
+    });
+</script>

@@ -1,5 +1,5 @@
 <script>
-    var searchUrl = 'https://public.pandosearch.com/nijmegen.nl/suggest?size=5&q=';
+    var suggestUrl = 'https://public.pandosearch.com/nijmegen.nl/suggest?size=5&q=';
 
     var autocomplete = new Autocomplete();
     $(document).ready(function () {
@@ -7,7 +7,7 @@
     })
 
     function getAutocompleteResults(query, callback) {
-        $.get(searchUrl + query, function (rawResults) {
+        $.get(suggestUrl + query, function (rawResults) {
             // Get suggestions from raw search results
             var suggestions = rawResults.suggestions
                 .map(suggestion => ({

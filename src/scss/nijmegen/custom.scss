@@ -55,6 +55,3 @@ $small-screen-portrait: map-get($grid-breakpoints, 'sm');
 @import "component/tabs";
 @import "component/timepicker";
 @import "component/tooltip";
-
-// 3rdparty
-@import "component/3rdparty/openindex"; // Nijmegen search overrides based on OpenIndex implementation //

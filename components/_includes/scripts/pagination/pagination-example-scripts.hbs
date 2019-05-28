@@ -7,7 +7,7 @@
 
         $(window).on('hashchange', function () {
             var page = parseInt(window.location.hash.slice(1));
-            pagination.show(page, 10);
-        })
+            pagination.show(page);
+        });
     });
 </script>

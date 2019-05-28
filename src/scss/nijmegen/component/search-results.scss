@@ -26,4 +26,18 @@
         font-style: normal;
         padding: 0 to-rem(2);
     }
+
+    &__noresults,
+    &__didyoumean {
+        display: none;
+    }
+
+    &__pagination {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+#searchresults {
+    display: none;
 }

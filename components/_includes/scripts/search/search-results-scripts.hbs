@@ -7,12 +7,24 @@
     SearchResults.prototype.init = function () {
         this.searchResultsList = $('#search-results');
         this.searchTermContainer = $('#search-term');
+        this.noResultsContainer = $('#search-noresults');
+        this.didYouMeanContainer = $('#search-didyoumean');
+        this.didYouMeanTermContainer = $('#search-term-didyoumean');
         this.resultItemTemplate = $.parseHTML($('#search-results-item-template').html());
     }
 
-    SearchResults.prototype.show = function (results, searchTerm) {
+    SearchResults.prototype.show = function (results, searchTerm, didYouMeanTerm = null) {
         this.searchResultsList.html('');
         this.searchTermContainer.text(searchTerm);
+
+        if (!results.length || didYouMeanTerm) {
+            this.noResultsContainer.show();
+        }
+
+        if (didYouMeanTerm) {
+            this.didYouMeanTermContainer.text(didYouMeanTerm);
+            this.didYouMeanContainer.show();
+        }
 
         for (var key in results) {
             var resultItem = $(this.resultItemTemplate).clone();
