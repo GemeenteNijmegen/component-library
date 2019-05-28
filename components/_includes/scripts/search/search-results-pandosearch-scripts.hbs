@@ -73,6 +73,7 @@
                 this.searchParams.facetName,
                 this.searchParams.facetValue
             );
+
             var pagination = new Pagination(this.getNumberOfPages(), paginationUrl, 5);
             pagination.init(this.$paginationContainer);
             pagination.show(parseInt(this.searchParams.page));
