@@ -191,14 +191,11 @@
             return this.searchParams;
         }
 
-        this.searchParams = {};
-        var params = hash.split('&').reduce(function (result, item) {
+        return hash.split('&').reduce(function (result, item) {
             var parts = item.split('=');
             result[parts[0]] = parts[1];
             return result;
         }, {});
-
-        return Object.assign(this.searchParams, params);
     }
 
     Pandosearch.prototype.toggleLoadingContainer = function (loading) {
