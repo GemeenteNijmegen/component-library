@@ -6,4 +6,6 @@ The custom anchors, as defined in the style guide, can be seen in the preview pa
 
 ### Using
 
-No additional actions, aside from the markup, are needed to use this component.
+Place text that can contain links in a container with the class `text-section`. This ensures that the links will be underlined.
+
+Links that are not placed in the "text-section" container won't be underlined but will change color slightly on focus/active/hover.
