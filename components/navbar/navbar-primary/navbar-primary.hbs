@@ -1,7 +1,8 @@
 <nav class="navbar fixed-top navbar-expand-lg scrolling-navbar navbar-primary">
     <div class="container">
         {{#if hamburgerIcon}}
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Schakel navigatie">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse"
+            aria-controls="navbar-collapse" aria-expanded="false" aria-label="Schakel navigatie">
             <span class="navbar-toggler-icon"></span>
         </button>
         {{/if}}
@@ -28,6 +29,8 @@
                 </li>
             </ul>
             {{/if}}
+        </div>
+        <div class="navbar__search">
             {{#if searchComponent}}
                 {{> '@autocomplete' }}
             {{/if}}
