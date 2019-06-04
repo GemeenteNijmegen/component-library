@@ -139,6 +139,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Change the example so it uses a paragraph as title like the note suggests
 - _Component [pagination]({{ componentPath '@pagination' }})_:
   Added a script to easily implement the pagination
+- _Component [anchors]({{ componentPath '@anchors' }})_:
+  Added a line beneath anchors to make them more visible
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:

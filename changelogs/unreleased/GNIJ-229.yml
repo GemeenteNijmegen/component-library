@@ -1,4 +1,0 @@
-changes:
-    - type: changed #changed, removed, added
-      component: anchors
-      description: Added a line beneath anchors to make them more visible
