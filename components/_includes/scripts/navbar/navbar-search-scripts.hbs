@@ -1,0 +1,12 @@
+<script>
+    $('#navbar-open-search').click(function () {
+        $('.navbar').addClass('search-open');
+        $('.autocomplete__input').focus();
+    });
+    $('.autocomplete').on('close', closeNavbarSearch);
+    $('#navbar-close-search').click(closeNavbarSearch);
+    function closeNavbarSearch() {
+        $('.navbar').removeClass('search-open');
+        $('#navbar-open-search').focus();
+    }
+</script>
