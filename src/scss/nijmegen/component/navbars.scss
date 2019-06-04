@@ -144,6 +144,10 @@
             font-size: to-rem(20);
         }
     }
+
+    &__search-button, &__search-close-button {
+        display: none;
+    }
 }
 
 // white version
@@ -569,38 +573,85 @@
         }
     }
 
-    .navbar .navbar__search {
-        display: none;
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        margin: 0;
-        transition: margin 0.5s ease-in-out;
-        
-        @media only screen and (min-width: #{$medium-screen-portrait}) and (max-width : #{$medium-screen}) {
-            margin: 7px 0;
-        }
-
-        .autocomplete {
-            &__form {
-                margin: 0;
-                padding: 0;
+    .navbar {
+        &__search {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            margin: 0;
+            transition: margin 0.5s ease-in-out;
+            
+            @media only screen and (min-width: #{$medium-screen-portrait}) and (max-width : #{$medium-screen}) {
+                margin: 7px 0;
             }
 
-            &__input {
-                margin: .5rem;
-                width: calc(100% - 1rem);
-                border-bottom: 0;
+            .autocomplete {
+                display: none;
 
-                &:focus {
+                &__form {
+                    margin: 0;
+                    padding: 0;
+                }
+
+                &__input {
+                    margin: .5rem 1rem;
+                    width: calc(100% - 2rem);
                     border-bottom: 0;
+
+                    &:focus {
+                        border-bottom: 0;
+                    }
+                }
+
+                &__search-button {
+                    display: none;
+                    right: 1rem;
+                    top: calc(50% - 10px);
+                }
+
+                &__result-list {
+                    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25), 0 7px 7px rgba(0, 0, 0, 0.15);  
                 }
             }
+        }
 
-            &__search-button {
-                right: 5px;
-                top: calc(50% - 10px);
+        &__search-button, &__search-close-button {
+            color: white;
+            display: block;
+            background-color: transparent;
+            border: 0;
+            position: absolute;
+            right: .5rem;
+            top: 14px;
+            display: block;
+            width: 25px;
+            height: 25px;
+            padding: 0;
+
+            &:focus {
+                outline: 1px solid  $focus-color !important;
+            }
+        }
+
+        &__search-close-button {
+            display: none;
+            width: auto;
+            text-align: right;
+            right: 1rem;
+        }
+
+        &.search-open {
+            .navbar__search-button {
+                display: none;
+            }
+
+            .navbar__search-close-button {
+                display: block;
+            }
+
+            .autocomplete {
+                display: block;
             }
         }
     }

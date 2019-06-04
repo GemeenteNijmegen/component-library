@@ -111,8 +111,16 @@
                 event.preventDefault();
                 break;
             case this.keyCodes.ESC:
-                this.show([]);
-                event.preventDefault();
+                if (event.type === 'keyup') {
+                    break;
+                }
+                event.target.value = '';
+                if(this.searchResults.length > 0){
+                    this.show([]);
+                    event.preventDefault();
+                    break;
+                }
+                $('.autocomplete').trigger('close');
                 break;
             default:
                 this.query = event.target.value;

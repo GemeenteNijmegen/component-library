@@ -46,6 +46,9 @@
         position: relative;
         top: -30px;
         float: right;
+        display: block;
+        width: 25px;
+        height: 25px;
 
         &:hover {
             cursor: default;

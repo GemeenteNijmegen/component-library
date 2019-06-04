@@ -6,8 +6,8 @@
         if (navbars.length) {
             for (var i = 0; i < navbars.length; i++) {
                 // act on in-page anchors
-                $.each($(navbars[i]).find('.nav-link'), function(index, navLinkElement) {
-                    $(navLinkElement).click(function() {
+                $.each($(navbars[i]).find('.nav-link'), function (index, navLinkElement) {
+                    $(navLinkElement).click(function () {
                         // is the menu open?
                         if (!navbarToggler.hasClass('collapsed')) {
                             navbarToggler.trigger('click');
@@ -16,5 +16,16 @@
                 });
             }
         }
+    }
+    
+    $('#navbar-open-search').click(function () {
+        $('.navbar').addClass('search-open');
+        $('.autocomplete__input').focus();
+    });
+    $('.autocomplete').on('close', closeNavbarSearch);
+    $('#navbar-close-search').click(closeNavbarSearch);
+    function closeNavbarSearch() {
+        $('.navbar').removeClass('search-open');
+        $('#navbar-open-search').focus();
     }
 </script>
