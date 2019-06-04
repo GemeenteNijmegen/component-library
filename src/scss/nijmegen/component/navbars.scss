@@ -676,7 +676,13 @@
         }
     }
 
-    .navbar.navbar-white .navbar__search {
-        background-color: white;
+    .navbar.navbar-light {
+        .navbar__search {
+            background-color: white;
+        }
+
+        .navbar__search-button, .navbar__search-close-button {
+            color: color('nijmegen-brand', 'base');;
+        }
     }
 }

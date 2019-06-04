@@ -18,6 +18,7 @@ variants:
   - name: "no-menu"
     context:
       menuComponent: false
+      hamburgerIcon: false
   - name: "no-menu-no-search"
     context:
       menuComponent: false
