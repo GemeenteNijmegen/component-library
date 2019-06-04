@@ -1,11 +1,23 @@
 <script>
-    $('#navbar-open-search').click(function () {
+    var navbarSearch = new NavbarSearch();
+    $(document).ready(function () {
+        navbarSearch.init();
+    });
+
+    function NavbarSearch() {}
+
+    NavbarSearch.prototype.init = function () {
+        $('#navbar-open-search').click(this.openSearch);
+        $('.autocomplete').on('close', this.closeSearch);
+        $('#navbar-close-search').click(this.closeSearch);
+    }
+
+    NavbarSearch.prototype.openSearch = function () {
         $('.navbar').addClass('search-open');
         $('.autocomplete__input').focus();
-    });
-    $('.autocomplete').on('close', closeNavbarSearch);
-    $('#navbar-close-search').click(closeNavbarSearch);
-    function closeNavbarSearch() {
+    }
+
+    NavbarSearch.prototype.closeSearch = function () {
         $('.navbar').removeClass('search-open');
         $('#navbar-open-search').focus();
     }
