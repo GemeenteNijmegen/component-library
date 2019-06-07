@@ -52,7 +52,7 @@
         }
     }
 
-    .autocomplete{
+    .autocomplete {
         &__form {
             position: relative;
 
@@ -439,7 +439,7 @@
         }
     }
 
-    .autocomplete{
+    .autocomplete {
         &__form {
             .mdi {
                 color: color('white', 'base');
@@ -656,7 +656,7 @@
         }
     }
 
-    .navbar.top-nav-collapse .navbar__search{
+    .navbar.top-nav-collapse .navbar__search {
         @media only screen and (min-width: #{$medium-screen-portrait}) and (max-width : #{$medium-screen}) {
             margin: 1px 0;
         }
@@ -665,7 +665,7 @@
     .navbar.navbar-primary .navbar__search {
         background-color: color('nijmegen-brand', 'base');
         
-        .autocomplete{
+        .autocomplete {
             &__result-list {
                 background-color: color('nijmegen-brand', 'base');
             }
