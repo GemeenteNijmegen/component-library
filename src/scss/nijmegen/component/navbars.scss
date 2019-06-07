@@ -598,6 +598,7 @@
                     margin: .5rem 1rem;
                     width: calc(100% - 2rem);
                     border-bottom: 0;
+                    padding-right: to-rem(50);
 
                     &:focus {
                         border-bottom: 0;
