@@ -9,6 +9,7 @@
         this.searchTimeout = 500;
         this.query;
         this.searching = false;
+        this.searchResults = [];
 
         this.keyCodes = {
             RETURN: 13,
@@ -24,9 +25,20 @@
         this.getResults = getResultsFn;
 
         $('#suggest-search-query').on('keydown keyup', this.inputKeyHandle.bind(this));
+        $('#suggest-search-query').blur(this.inputBlurHandle.bind(this));
+        $('#suggest-search-query').focus(this.inputFocusHandle.bind(this));
+    }
+
+    Autocomplete.prototype.inputBlurHandle = function () {
+        this.resultsList.html('');
+    }
+
+    Autocomplete.prototype.inputFocusHandle = function () {
+        this.show(this.searchResults);
     }
 
     Autocomplete.prototype.show = function (results) {
+        this.searchResults = results;
         this.resultsList.html('');
         this.numberOfItems = results.length;
         this.currentItem = -1;
@@ -99,8 +111,16 @@
                 event.preventDefault();
                 break;
             case this.keyCodes.ESC:
-                this.show([]);
-                event.preventDefault();
+                if (event.type === 'keyup') {
+                    break;
+                }
+                event.target.value = '';
+                if (this.searchResults.length > 0){
+                    this.show([]);
+                    event.preventDefault();
+                    break;
+                }
+                $('.autocomplete').trigger('close');
                 break;
             default:
                 this.query = event.target.value;

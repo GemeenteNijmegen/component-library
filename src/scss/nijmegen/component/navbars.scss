@@ -52,60 +52,61 @@
         }
     }
 
-    form {
-        position: relative;
-
-        @media #{$medium-and-down} {
-            padding-top: 6px;
-        }
-
-        @media #{$medium-and-down} {
-            margin-left: 1rem;
-            margin-right: 1rem;
-            padding-top: 1em;
-            padding-bottom: 0.5em;
-        }
-
-        .waves-input-wrapper {
-            border-radius: 0;
+    .autocomplete {
+        &__form {
+            position: relative;
 
             @media #{$medium-and-down} {
-                width: 100%;
-            }
-        }
-
-        .autocomplete {
-            &__result-list {
-                position: absolute;
-                width: 100%;
+                padding-top: 6px;
             }
 
-            &__search-button {
-                background-color: transparent;
-                border: 0;
-                font-size: to-rem(24);
-                line-height: 1;
-                padding: 0;
-                position: absolute;
-                right: 0;
-                top: calc(50% - 12px);
+            @media #{$medium-and-down} {
+                margin-left: 1rem;
+                margin-right: 1rem;
+                padding-top: 1em;
+                padding-bottom: 0.5em;
+            }
 
-                &:hover {
-                    cursor: default;
+            .waves-input-wrapper {
+                border-radius: 0;
+
+                @media #{$medium-and-down} {
+                    width: 100%;
                 }
             }
         }
 
-        .form-control {
+        &__result-list {
+            position: absolute;
+            width: 100%;
+        }
+
+        &__search-button {
+            background-color: transparent;
+            border: 0;
+            font-size: to-rem(24);
+            line-height: 1;
+            padding: 0;
+            position: absolute;
+            right: 0;
+            top: calc(50% - 12px);
+
+            &:hover {
+                cursor: default;
+            }
+        }
+
+        &__input {
             background-color: transparent;
             border-radius: 0;
             box-sizing: content-box;
             font-size: to-rem(20);
-            height: 1rem;
+            height: 2rem;
             margin-left: 0;
             margin-right: 0;
             padding: 0.5rem 30px 0.5rem 0;
-            width: calc(100% - 30px);
+            width: 100%;
+            box-sizing: border-box;
 
             &:focus {
                 box-shadow: none;
@@ -142,6 +143,10 @@
         a {
             font-size: to-rem(20);
         }
+    }
+
+    &__search-button, &__search-close-button {
+        display: none;
     }
 }
 
@@ -258,30 +263,32 @@
         }
     }
 
-    form {
-        .form-control {
+    .autocomplete {
+        &__form {
+            .mdi {
+                color: color('nijmegen-brand', 'base');
+            }
+        }
+
+        &__input {
             @include placeholder {
-                color: color('nijmegen-brand', 'base') !important;
+                color: color('nijmegen-brand', 'base');
             }
 
             border: 0;
-            border-bottom: 2px solid color('nijmegen-grey', 'darken-1') !important;
+            border-bottom: 2px solid color('nijmegen-grey', 'darken-1');
 
             &:focus {
                 @include placeholder {
-                    color: $body-color !important;
+                    color: $body-color;
                 }
 
-                border-bottom: 2px solid color('nijmegen-brand', 'darken-2') !important;
+                border-bottom: 2px solid color('nijmegen-brand', 'darken-2');
 
                 + .mdi {
                     color: $body-color;
                 }
             }
-        }
-
-        .mdi {
-            color: color('nijmegen-brand', 'base');
         }
     }
 
@@ -432,31 +439,33 @@
         }
     }
 
-    form {
-        .form-control {
+    .autocomplete {
+        &__form {
+            .mdi {
+                color: color('white', 'base');
+            }
+        }
+
+        &__input {
             @include placeholder {
-                color: color('white', 'base') !important;
+                color: color('white', 'base');
             }
 
             border: 0;
-            border-bottom: 2px solid color('nijmegen-grey', 'base') !important;
-            color: color('white', 'base') !important;
+            border-bottom: 2px solid color('nijmegen-grey', 'base');
+            color: color('white', 'base');
 
             &:focus {
                 @include placeholder {
-                    color: color('white', 'base') !important;
+                    color: color('white', 'base');
                 }
 
-                border-bottom: 2px solid color('nijmegen-primary', 'base') !important;
+                border-bottom: 2px solid color('nijmegen-primary', 'base');
 
                 + .mdi {
                     color: color('white', 'base');
                 }
             }
-        }
-
-        .mdi {
-            color: color('white', 'base');
         }
     }
 
@@ -561,6 +570,120 @@
             img {
                 transition: none !important;
             }
+        }
+    }
+
+    .navbar {
+        &__search {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            margin: 0;
+            transition: margin 0.5s ease-in-out;
+            
+            @media only screen and (min-width: #{$medium-screen-portrait}) and (max-width : #{$medium-screen}) {
+                margin: 7px 0;
+            }
+
+            .autocomplete {
+                display: none;
+
+                &__form {
+                    margin: 0;
+                    padding: 0;
+                }
+
+                &__input {
+                    margin: .5rem 1rem;
+                    width: calc(100% - 2rem);
+                    border-bottom: 0;
+                    padding-right: to-rem(50);
+
+                    &:focus {
+                        border-bottom: 0;
+                    }
+                }
+
+                &__search-button {
+                    display: none;
+                    right: 1rem;
+                    top: calc(50% - 10px);
+                }
+
+                &__result-list {
+                    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25), 0 7px 7px rgba(0, 0, 0, 0.15);  
+                }
+            }
+        }
+
+        &__search-button, &__search-close-button {
+            color: white;
+            display: block;
+            background-color: transparent;
+            border: 0;
+            position: absolute;
+            right: .5rem;
+            top: 14px;
+            display: block;
+            width: 25px;
+            height: 25px;
+            padding: 0;
+
+            &:focus {
+                outline: 1px solid  $focus-color !important;
+            }
+        }
+
+        &__search-close-button {
+            display: none;
+            width: auto;
+            text-align: right;
+            right: 1rem;
+        }
+
+        &.search-open {
+            .navbar__search-button {
+                display: none;
+            }
+
+            .navbar__search-close-button {
+                display: block;
+            }
+
+            .autocomplete {
+                display: block;
+            }
+        }
+    }
+
+    .navbar.top-nav-collapse .navbar__search {
+        @media only screen and (min-width: #{$medium-screen-portrait}) and (max-width : #{$medium-screen}) {
+            margin: 1px 0;
+        }
+    }
+
+    .navbar.navbar-primary .navbar__search {
+        background-color: color('nijmegen-brand', 'base');
+        
+        .autocomplete {
+            &__result-list {
+                background-color: color('nijmegen-brand', 'base');
+            }
+
+            &__result-link {
+                color: white;
+            }
+        }
+    }
+
+    .navbar.navbar-light {
+        .navbar__search {
+            background-color: white;
+        }
+
+        .navbar__search-button, .navbar__search-close-button {
+            color: color('nijmegen-brand', 'base');;
         }
     }
 }

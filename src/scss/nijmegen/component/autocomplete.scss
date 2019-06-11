@@ -9,6 +9,7 @@
 
     &__result-item {
         font-size: to-rem(18);
+        word-break: break-all;
 
         &:not(:first-of-type) {
             border-top: 1px solid color('nijmegen-grey', 'base');
@@ -45,6 +46,9 @@
         position: relative;
         top: -30px;
         float: right;
+        display: block;
+        width: 25px;
+        height: 25px;
 
         &:hover {
             cursor: default;

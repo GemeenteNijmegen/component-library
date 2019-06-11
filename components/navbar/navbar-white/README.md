@@ -18,6 +18,13 @@ To set an active menu item, underneath HTML markup for a navigation item can be 
 </li>
 ```
 
+#### Mobile search
+For using the search in the navbar on a mobile device you need to include the following script:
+
+```html
+{{ render '@navbar-search-scripts' }}
+```
+
 #### In-page anchors
 When using the navbar in a one-page application, mobile users will slideout the menu and click on an anchor and navigate to the corresponding section yet leaving the menu open.
 To handle this use-case, put underneath JavaScript just before the closing "body" tag and the menu will close when navigating to the in-page section.

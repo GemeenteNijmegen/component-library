@@ -21,9 +21,17 @@
                     <a href="#section-4" class="nav-link">Menu 4</a>
                 </li>
             </ul>
-            {{#if searchComponent}}
-                {{> '@autocomplete' }}
-            {{/if}}
         </div>
+        {{#if searchComponent}}
+        <div class="navbar__search">
+            <button class="navbar__search-button" id="navbar-open-search" aria-label="Open zoekveld">
+                <i class="mdi mdi-magnify" aria-hidden="true"></i>
+            </button>
+            {{> '@autocomplete' }}
+            <button class="navbar__search-close-button" id="navbar-close-search" aria-label="Sluit zoekveld">
+                sluiten
+            </button>
+        </div>
+        {{/if}}
     </div>
 </nav>
