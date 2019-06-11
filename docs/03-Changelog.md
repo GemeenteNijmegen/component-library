@@ -168,3 +168,5 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Now makes use of Pandosearch for the autocomplete in the navbar
 - _Component [forminputs template]({{ componentPath '@forminputs-template' }})_:
   Now makes use of Pandosearch for the autocomplete in the navbar
+- _Component [navbar]({{ componentPath '@navbar' }})_:
+  The mobile navbar is moved from the hamburger menu to the navbar
