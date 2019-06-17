@@ -10,6 +10,8 @@
         this.query;
         this.searching = false;
         this.searchResults = [];
+        this.closeTimeoutId;
+        this.closeTimeout = 100;
 
         this.keyCodes = {
             RETURN: 13,
@@ -30,7 +32,11 @@
     }
 
     Autocomplete.prototype.inputBlurHandle = function () {
-        this.resultsList.html('');
+        clearTimeout(this.closeTimeoutId);
+        this.closeTimeoutId = setTimeout((function () {
+            this.resultsList.html('');
+            $('.autocomplete').trigger('close');
+        }).bind(this), this.closeTimeout);
     }
 
     Autocomplete.prototype.inputFocusHandle = function () {
@@ -38,6 +44,7 @@
     }
 
     Autocomplete.prototype.show = function (results) {
+        clearTimeout(this.closeTimeoutId);
         this.searchResults = results;
         this.resultsList.html('');
         this.numberOfItems = results.length;
@@ -115,7 +122,7 @@
                     break;
                 }
                 event.target.value = '';
-                if (this.searchResults.length > 0){
+                if (this.searchResults.length > 0) {
                     this.show([]);
                     event.preventDefault();
                     break;
