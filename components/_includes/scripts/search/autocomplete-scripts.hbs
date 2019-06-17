@@ -10,7 +10,8 @@
         this.query;
         this.searching = false;
         this.searchResults = [];
-        this.closeTimeout;
+        this.closeTimeoutId;
+        this.closeTimeout = 100;
 
         this.keyCodes = {
             RETURN: 13,
@@ -31,11 +32,11 @@
     }
 
     Autocomplete.prototype.inputBlurHandle = function () {
-        clearTimeout(this.closeTimeout);
-        this.closeTimeout = setTimeout((function () {
+        clearTimeout(this.closeTimeoutId);
+        this.closeTimeoutId = setTimeout((function () {
             this.resultsList.html('');
             $('.autocomplete').trigger('close');
-        }).bind(this), 100);
+        }).bind(this), this.closeTimeout);
     }
 
     Autocomplete.prototype.inputFocusHandle = function () {
@@ -43,7 +44,7 @@
     }
 
     Autocomplete.prototype.show = function (results) {
-        clearTimeout(this.closeTimeout);
+        clearTimeout(this.closeTimeoutId);
         this.searchResults = results;
         this.resultsList.html('');
         this.numberOfItems = results.length;
