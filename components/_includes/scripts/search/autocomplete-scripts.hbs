@@ -73,7 +73,7 @@
     }
 
     Autocomplete.prototype.selectItem = function () {
-        $('.autocomplete__result-link', this.resultsList).removeClass('active').attr('aria-selected', 'false');
+        $('.autocomplete__result-link', this.resultsList).removeClass('active').removeAttr('aria-selected');
 
         if (this.currentItem < 0) {
             return;
