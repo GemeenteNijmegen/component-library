@@ -47,11 +47,19 @@
         @media #{$medium-and-down} {
             font-size: to-rem(20);
         }
+
+        &::first-letter {
+            text-transform: capitalize;
+        }
     }
 
     &__item {
         line-height: 1.5rem;
         position: relative;
+
+        &::first-letter {
+            text-transform: capitalize;
+        }
 
         &.active::before{
             content: '\25B6';

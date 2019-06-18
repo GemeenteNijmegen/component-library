@@ -2,7 +2,7 @@
     var facets = new Facets();
 
     function facetClickHandler(event, $facetItem) {
-        if ($facetItem.hasClass('active')){
+        if ($facetItem.hasClass('active')) {
             $('#facets .facets__item').removeClass('active');
             event.preventDefault();
             return;
@@ -18,7 +18,7 @@
                 title: 'Document type',
                 facets: [
                     { title: 'PDF document (10)' },
-                    { title: 'Webpage (5)'}
+                    { title: 'Webpage (5)' }
                 ]
             },
             {
