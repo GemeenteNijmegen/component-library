@@ -2,61 +2,65 @@
     .card {
         .card-header {
             padding: 0;
-
-            a {
-                padding: to-rem(26) 0;
-                display: block;
-
-                h1, h2, h3, h4, h5, h6 {
-                    font-size: to-rem(26);
-
-                    @media only screen and (min-width: #{$medium-screen-portrait}) {
-                        font-size: to-rem(28);
-                    }
-                }
-
-                &:not(.collapsed) {
-                    h1, h2, h3, h4, h5, h6,
-                    span {
-                        color: color('nijmegen-primary', 'darken-3');
-                    }
-                }
-
-                h1, h2, h3, h4, h5, h6 {
-                    font-family: 'Oranda', sans-serif;
-                    color: color('nijmegen-primary', 'base');
-                }
-
-                span {
-                    float: right;
-                    font-size: to-rem(36);
-                    line-height: to-rem(30);
-                }
-                &:focus,
-                &:hover {
-                    h1, h2, h3, h4, h5, h6,
-                    span {
-                        color: color('nijmegen-primary', 'darken-2');
-                    }
-                }
-
-                &:focus {
-                    @include tab-focus;
-
-                    // typography.scss sets an outline for h2, h4 headings in an anchor, yet we don't want that in this usecase
-                    h2, h4 {
-                        outline: none;
-                    }
-                }
-            }
         }
 
         .card-block {
-            padding: 0 0 to-rem(10) 0;
+            padding: to-rem(10);
         }
 
         &:last-child {
             border-bottom: none;
+        }
+    }
+
+    &__button {
+        border: 0;
+        background: inherit;
+        padding: to-rem(26) to-rem(10);;
+        display: block;
+        width: 100%;
+        text-align: left;
+
+        h1, h2, h3, h4, h5, h6 {
+            font-size: to-rem(26);
+
+            @media only screen and (min-width: #{$medium-screen-portrait}) {
+                font-size: to-rem(28);
+            }
+        }
+
+        &:not(.collapsed) {
+            h1, h2, h3, h4, h5, h6,
+            span {
+                color: color('nijmegen-primary', 'darken-3');
+            }
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Oranda', sans-serif;
+            color: color('nijmegen-primary', 'base');
+        }
+
+        span {
+            float: right;
+            font-size: to-rem(36);
+            line-height: to-rem(30);
+        }
+        &:focus,
+        &:hover {
+            h1, h2, h3, h4, h5, h6,
+            span {
+                color: color('nijmegen-primary', 'darken-2');
+            }
+        }
+
+        &:focus {
+            @include tab-focus;
+
+            // typography.scss sets an outline for h2, h4 headings in an anchor, yet we don't want that in this usecase
+            h2, h4 {
+                outline: none;
+            }
         }
     }
 }
