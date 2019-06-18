@@ -144,8 +144,16 @@ a {
     &:hover {
         color: $link-hover-color;
 
-        h2 {
-            color: color('nijmegen-brand', 'darken-2');
+        h2, h3 {
+            color: color('nijmegen-brand', 'darken-3');
+        }
+
+        h5 {
+            color: color('nijmegen-grey', 'base');
+        }
+
+        h6 {
+            color: color('nijmegen-grey', 'darken-4');
         }
     }
 
@@ -153,22 +161,45 @@ a {
         @include tab-focus-minimal;
         color: $link-focus-color;
 
-        h2 {
-            color: color('nijmegen-brand', 'darken-2');
+        h2, h3 {
+            color: color('nijmegen-brand', 'darken-3');
+        }
+
+        h1, h2, h3, h4, h5, h6 {
             outline: inherit;
         }
 
-        h4 {
-            outline: inherit;
+        h5 {
+            color: color('nijmegen-grey', 'base');
+        }
+
+        h6 {
+            color: color('nijmegen-grey', 'darken-4');
         }
     }
 
     &:active {
         color: $link-active-color;
 
-        h2 {
+        h2, h3 {
             color: color('nijmegen-brand', 'darken-3');
         }
+
+        h5 {
+            color: color('nijmegen-grey', 'base');
+        }
+
+        h6 {
+            color: color('nijmegen-grey', 'darken-4');
+        }
+    }
+}
+
+.text-section a:not(.no-underline) {
+    text-decoration: underline;
+
+    h1, h2, h3, h4, h5, h6 {
+        text-decoration: underline;
     }
 }
 

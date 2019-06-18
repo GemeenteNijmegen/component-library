@@ -20,6 +20,11 @@
                     url: '?q=' + query
                 }
             });
+
+        if (results.length === 0) {
+            callback(results);
+            return;
+        }
         results[0].class = 'search';
         callback(results);
     }

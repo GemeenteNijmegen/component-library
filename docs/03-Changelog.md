@@ -146,6 +146,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Change the example so it uses a paragraph as title like the note suggests
 - _Component [pagination]({{ componentPath '@pagination' }})_:
   Added a script to easily implement the pagination
+- _Component [anchors]({{ componentPath '@anchors' }})_:
+  Added a line beneath anchors to make them more visible
+- _Component [facets]({{ componentPath '@facets' }})_:
+  Changed texts to dutch
+- _Component [results]({{ componentPath '@results' }})_:
+  Change highlight of search result
+- _Component [autocomplete]({{ componentPath '@autocomplete' }})_:
+  Changed behavior of search icon and fix closing of search after tab
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:
