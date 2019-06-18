@@ -1,0 +1,4 @@
+changes:
+    - type: changed #changed, removed, added
+      component: facets
+      description: Changed texts to dutch

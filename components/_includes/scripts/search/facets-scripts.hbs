@@ -11,7 +11,7 @@
         this.$facets = $(selector);
         this.$facetsContainer = $('.facets__facets', this.$facets);
         this.$facetsContainer.addClass('hide');
-        
+
         this.globalCallback = globalCallback;
         this.facetGroupTemplate = $.parseHTML($('#facets-group-template').html());
         this.facetItemTemplate = $.parseHTML($('#facets-item-template').html());
@@ -42,10 +42,10 @@
                 var $facetItem = $(this.facetItemTemplate).clone();
 
                 $('.facets__link', $facetItem).html(facetItem.title);
-                if (facetItem.url){
+                if (facetItem.url) {
                     $('.facets__link', $facetItem).attr('href', facetItem.url)
                 }
-                if (facetItem.callback || this.globalCallback){
+                if (facetItem.callback || this.globalCallback) {
                     var callback = facetItem.callback ? facetItem.callback : this.globalCallback;
                     $('.facets__link', $facetItem).click(
                         (function ($facetItem, facetItem) {
