@@ -1,0 +1,13 @@
+changes:
+    - type: changed #changed, removed, added
+      component: alert--success
+      description: Made close button more accessible
+    - type: changed #changed, removed, added
+      component: alert--info
+      description: Made close button more accessible
+    - type: changed #changed, removed, added
+      component: alert--warning
+      description: Made close button more accessible
+    - type: changed #changed, removed, added
+      component: alert--error
+      description: Made close button more accessible

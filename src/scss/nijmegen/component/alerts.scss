@@ -30,6 +30,19 @@ $icon-size: 24px;
         }
     }
 
+    .toast-close-button {
+        color: $body-color !important;
+        opacity: 1;
+
+        &:hover {
+            text-shadow: 0 0 5px rgba(color('black', 'base'), 0.5);
+        }
+
+        &:focus {
+            @include tab-focus;
+        }
+    }
+
     .toast-success {
         background-color: color('nijmegen-backgrounds', 'success') !important;
 
@@ -57,6 +70,14 @@ $icon-size: 24px;
     .toast-error {
         background-color: color('nijmegen-backgrounds', 'danger') !important;
         color: color('white', 'base') !important;
+
+        .toast-close-button {
+            color: color('white', 'base') !important;
+
+            &:hover {
+                text-shadow: 0 0 5px rgba(color('white', 'base'), 0.5);
+            }
+        }
 
         &:before {
             @include mdi('information');
