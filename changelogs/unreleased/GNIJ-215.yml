@@ -1,0 +1,4 @@
+changes:
+    - type: changed #changed, removed, added
+      component: icons
+      description: Example is better accessible
