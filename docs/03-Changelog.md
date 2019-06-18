@@ -145,6 +145,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Changed texts to dutch
 - _Component [results]({{ componentPath '@results' }})_:
   Change highlight of search result
+- _Component [autocomplete]({{ componentPath '@autocomplete' }})_:
+  Changed behavior of search icon and fix closing of search after tab
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:
