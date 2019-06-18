@@ -1,0 +1,4 @@
+changes:
+    - type: changed #changed, removed, added
+      component: autocomplete
+      description: Changed behavior of search icon and fix closing of search after tab

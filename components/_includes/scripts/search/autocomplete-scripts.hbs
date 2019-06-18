@@ -9,6 +9,9 @@
         this.searchTimeout = 500;
         this.query;
         this.searching = false;
+        this.searchResults = [];
+        this.closeTimeoutId;
+        this.closeTimeout = 100;
 
         this.keyCodes = {
             RETURN: 13,
@@ -24,12 +27,31 @@
         this.getResults = getResultsFn;
 
         $('#suggest-search-query').on('keydown keyup', this.inputKeyHandle.bind(this));
+        $('#suggest-search-query').blur(this.inputBlurHandle.bind(this));
+        $('#suggest-search-query').focus(this.inputFocusHandle.bind(this));
+    }
+
+    Autocomplete.prototype.inputBlurHandle = function () {
+        clearTimeout(this.closeTimeoutId);
+        clearTimeout(this.searchTimeoutId);
+        this.closeTimeoutId = setTimeout((function () {
+            this.resultsList.html('');
+            $('.autocomplete').trigger('close');
+            $('.autocomplete .autocomplete__search-button').show();
+        }).bind(this), this.closeTimeout);
+    }
+
+    Autocomplete.prototype.inputFocusHandle = function () {
+        this.show(this.searchResults);
     }
 
     Autocomplete.prototype.show = function (results) {
+        clearTimeout(this.closeTimeoutId);
+        this.searchResults = results;
         this.resultsList.html('');
         this.numberOfItems = results.length;
         this.currentItem = -1;
+        $('.autocomplete .autocomplete__search-button').hide();
 
         for (var key in results) {
             var resultItem = $(this.resultItemTemplate).clone();
@@ -40,6 +62,10 @@
                 .attr('id', 'result-item-' + key)
                 .attr('aria-label', result.titleRaw || result.title)
                 .mouseenter(this.itemMouseHandle.bind(this));
+
+            if (result.class) {
+                $('.autocomplete__result-link', resultItem).addClass(result.class);
+            }
             this.resultsList.append(resultItem);
         }
 
@@ -95,8 +121,16 @@
                 event.preventDefault();
                 break;
             case this.keyCodes.ESC:
-                this.show([]);
-                event.preventDefault();
+                if (event.type === 'keyup') {
+                    break;
+                }
+                event.target.value = '';
+                if (this.searchResults.length > 0) {
+                    this.show([]);
+                    event.preventDefault();
+                    break;
+                }
+                $('.autocomplete').trigger('close');
                 break;
             default:
                 this.query = event.target.value;
