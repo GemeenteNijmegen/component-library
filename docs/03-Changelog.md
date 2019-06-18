@@ -143,6 +143,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Added a line beneath anchors to make them more visible
 - _Component [facets]({{ componentPath '@facets' }})_:
   Changed texts to dutch
+- _Component [results]({{ componentPath '@results' }})_:
+  Change highlight of search result
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:
