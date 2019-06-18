@@ -1,6 +1,6 @@
 <script>
     function Autocomplete() {
-        this.resultsList;
+        this.$resultsList;
         this.resultItemTemplate;
         this.getResults;
         this.currentItem = -1;
@@ -9,6 +9,9 @@
         this.searchTimeout = 500;
         this.query;
         this.searching = false;
+        this.searchResults = [];
+        this.closeTimeoutId;
+        this.closeTimeout = 100;
 
         this.keyCodes = {
             RETURN: 13,
@@ -19,17 +22,51 @@
     }
 
     Autocomplete.prototype.init = function (getResultsFn) {
-        this.resultsList = $('#autocomplete-results');
+        this.$resultsList = $('#autocomplete-results');
         this.resultItemTemplate = $.parseHTML($('#autocomplete-result-template').html());
         this.getResults = getResultsFn;
 
         $('#suggest-search-query').on('keydown keyup', this.inputKeyHandle.bind(this));
+        $('#suggest-search-query').blur(this.inputBlurHandle.bind(this));
+        $('#suggest-search-query').focus(this.inputFocusHandle.bind(this));
+    }
+
+    Autocomplete.prototype.inputBlurHandle = function () {
+        clearTimeout(this.closeTimeoutId);
+        clearTimeout(this.searchTimeoutId);
+        this.closeTimeoutId = setTimeout((function () {
+            this.closeResults();
+            $('.autocomplete').trigger('close');
+            $('.autocomplete .autocomplete__search-button').show();
+        }).bind(this), this.closeTimeout);
+    }
+
+    Autocomplete.prototype.closeResults = function () {
+        this.$resultsList.html('');
+        this.$resultsList.hide();
+        this.$resultsList.removeAttr('role');
+        this.$resultsList.removeAttr('aria-activedescendant');
+    }
+
+    Autocomplete.prototype.inputFocusHandle = function () {
+        this.show(this.searchResults);
     }
 
     Autocomplete.prototype.show = function (results) {
-        this.resultsList.html('');
+        clearTimeout(this.closeTimeoutId);
+        this.searchResults = results;
+        this.$resultsList.html('');
+        this.$resultsList.show();
+        this.$resultsList.attr('role', 'listbox');
         this.numberOfItems = results.length;
         this.currentItem = -1;
+        $('.autocomplete .autocomplete__search-button').hide();
+
+        if (results.length === 0) {
+            this.closeResults();
+            this.searching = false;
+            return;
+        }
 
         for (var key in results) {
             var resultItem = $(this.resultItemTemplate).clone();
@@ -40,21 +77,25 @@
                 .attr('id', 'result-item-' + key)
                 .attr('aria-label', result.titleRaw || result.title)
                 .mouseenter(this.itemMouseHandle.bind(this));
-            this.resultsList.append(resultItem);
+
+            if (result.class) {
+                $('.autocomplete__result-link', resultItem).addClass(result.class);
+            }
+            this.$resultsList.append(resultItem);
         }
 
         this.searching = false;
     }
 
     Autocomplete.prototype.selectItem = function () {
-        $('.autocomplete__result-link', this.resultsList).removeClass('active').attr('aria-selected', 'false');
+        $('.autocomplete__result-link', this.$resultsList).removeClass('active').removeAttr('aria-selected');
 
         if (this.currentItem < 0) {
             return;
         }
-        var selectedItem = $('.autocomplete__result-item', this.resultsList)[this.currentItem];
+        var selectedItem = $('.autocomplete__result-item', this.$resultsList)[this.currentItem];
         $('.autocomplete__result-link', selectedItem).addClass('active').attr('aria-selected', 'true');
-        $('#suggest-search-query').attr('aria-activedescendant', 'result-item-' + this.currentItem);
+        this.$resultsList.attr('aria-activedescendant', 'result-item-' + this.currentItem);
     }
 
     Autocomplete.prototype.itemMouseHandle = function (event) {
@@ -90,13 +131,21 @@
                 if (this.currentItem < 0) {
                     break;
                 }
-                var link = $('#result-item-' + this.currentItem, this.resultsList).attr('href');
+                var link = $('#result-item-' + this.currentItem, this.$resultsList).attr('href');
                 window.location = link;
                 event.preventDefault();
                 break;
             case this.keyCodes.ESC:
-                this.show([]);
-                event.preventDefault();
+                if (event.type === 'keyup') {
+                    break;
+                }
+                event.target.value = '';
+                if (this.searchResults.length > 0) {
+                    this.show([]);
+                    event.preventDefault();
+                    break;
+                }
+                $('.autocomplete').trigger('close');
                 break;
             default:
                 this.query = event.target.value;
