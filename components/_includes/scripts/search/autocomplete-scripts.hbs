@@ -1,6 +1,6 @@
 <script>
     function Autocomplete() {
-        this.resultsList;
+        this.$resultsList;
         this.resultItemTemplate;
         this.getResults;
         this.currentItem = -1;
@@ -22,7 +22,7 @@
     }
 
     Autocomplete.prototype.init = function (getResultsFn) {
-        this.resultsList = $('#autocomplete-results');
+        this.$resultsList = $('#autocomplete-results');
         this.resultItemTemplate = $.parseHTML($('#autocomplete-result-template').html());
         this.getResults = getResultsFn;
 
@@ -35,7 +35,8 @@
         clearTimeout(this.closeTimeoutId);
         clearTimeout(this.searchTimeoutId);
         this.closeTimeoutId = setTimeout((function () {
-            this.resultsList.html('');
+            this.$resultsList.html('');
+            this.$resultsList.hide();
             $('.autocomplete').trigger('close');
             $('.autocomplete .autocomplete__search-button').show();
         }).bind(this), this.closeTimeout);
@@ -48,7 +49,8 @@
     Autocomplete.prototype.show = function (results) {
         clearTimeout(this.closeTimeoutId);
         this.searchResults = results;
-        this.resultsList.html('');
+        this.$resultsList.html('');
+        this.$resultsList.show();
         this.numberOfItems = results.length;
         this.currentItem = -1;
         $('.autocomplete .autocomplete__search-button').hide();
@@ -66,19 +68,19 @@
             if (result.class) {
                 $('.autocomplete__result-link', resultItem).addClass(result.class);
             }
-            this.resultsList.append(resultItem);
+            this.$resultsList.append(resultItem);
         }
 
         this.searching = false;
     }
 
     Autocomplete.prototype.selectItem = function () {
-        $('.autocomplete__result-link', this.resultsList).removeClass('active').removeAttr('aria-selected');
+        $('.autocomplete__result-link', this.$resultsList).removeClass('active').removeAttr('aria-selected');
 
         if (this.currentItem < 0) {
             return;
         }
-        var selectedItem = $('.autocomplete__result-item', this.resultsList)[this.currentItem];
+        var selectedItem = $('.autocomplete__result-item', this.$resultsList)[this.currentItem];
         $('.autocomplete__result-link', selectedItem).addClass('active').attr('aria-selected', 'true');
         $('#suggest-search-query').attr('aria-activedescendant', 'result-item-' + this.currentItem);
     }
@@ -116,7 +118,7 @@
                 if (this.currentItem < 0) {
                     break;
                 }
-                var link = $('#result-item-' + this.currentItem, this.resultsList).attr('href');
+                var link = $('#result-item-' + this.currentItem, this.$resultsList).attr('href');
                 window.location = link;
                 event.preventDefault();
                 break;
