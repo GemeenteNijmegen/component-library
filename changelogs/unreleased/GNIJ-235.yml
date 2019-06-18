@@ -1,0 +1,4 @@
+changes:
+    - type: changed #changed, removed, added
+      component: results
+      description: Change highlight of search result
