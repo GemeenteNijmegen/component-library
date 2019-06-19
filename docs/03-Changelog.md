@@ -147,6 +147,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Change highlight of search result
 - _Component [autocomplete]({{ componentPath '@autocomplete' }})_:
   Changed behavior of search icon and fix closing of search after tab
+- _Component [button floating]({{ componentPath '@button-floating' }})_:
+  Removed light background on focus to increase contrast
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:
