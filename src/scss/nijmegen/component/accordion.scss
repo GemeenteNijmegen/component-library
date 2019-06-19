@@ -19,7 +19,7 @@
                 span {
                     color: color('nijmegen-primary', 'darken-2');
                 }
-            } 
+            }
         }
 
         .card-block {
@@ -38,11 +38,11 @@
         display: block;
         width: 100%;
         text-align: left;
-        color: inherit;        
+        color: inherit;
 
         &:not(.collapsed) {
             color: color('nijmegen-primary', 'darken-3');
-        }        
+        }
 
         &:focus {
             @include tab-focus;
