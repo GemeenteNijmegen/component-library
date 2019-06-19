@@ -149,6 +149,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Changed behavior of search icon and fix closing of search after tab
 - _Component [button floating]({{ componentPath '@button-floating' }})_:
   Removed light background on focus to increase contrast
+- _Component [icons]({{ componentPath '@icons' }})_:
+  Example is better accessible
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:
