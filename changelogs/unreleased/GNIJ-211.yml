@@ -1,0 +1,4 @@
+changes:
+    - type: changed #changed, removed, added
+      component: button-floating
+      description: Removed light background on focus to increase contrast
