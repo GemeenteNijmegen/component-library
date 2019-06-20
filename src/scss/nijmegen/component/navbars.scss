@@ -122,6 +122,10 @@
         margin-left: -0.75rem;
         position: relative;
 
+        &:focus {
+            @include tab-focus-minimal;
+        }
+
         & + .navbar-brand {
             @media #{$medium-and-down} {
                 margin-left: -42px;
