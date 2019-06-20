@@ -1,0 +1,7 @@
+changes:
+    - type: changed #changed, removed, added
+      component: navbar-primary
+      description: Changed the way menu items look on hover and various small accessibility changes
+    - type: changed #changed, removed, added
+      component: navbar-white
+      description: Changed the way menu items look on hover and various small accessibility changes
