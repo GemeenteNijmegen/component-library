@@ -154,6 +154,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Change highlight of search result
 - _Component [autocomplete]({{ componentPath '@autocomplete' }})_:
   Changed behavior of search icon and fix closing of search after tab
+- _Component [button floating]({{ componentPath '@button-floating' }})_:
+  Removed light background on focus to increase contrast
+- _Component [icons]({{ componentPath '@icons' }})_:
+  Example is better accessible
+- _Component [title link]({{ componentPath '@title-link' }})_:
+  Make the list an actual list and change heading
+- _Component [no title-link]({{ componentPath '@no-title-link' }})_:
+  Make the list an actual list
+- _Component [title no-link]({{ componentPath '@title-no-link' }})_:
+  Change heading to h1 element
+- _Component [pagination]({{ componentPath '@pagination' }})_:
+  Changed contrast for the buttons and changed icon to span
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:

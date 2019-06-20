@@ -8,8 +8,6 @@
     }
 
     &:focus {
-        background-color: color('nijmegen-primary', 'lighten-2');
-
         &:after {
             border: 1px solid $focus-color !important;
         }
