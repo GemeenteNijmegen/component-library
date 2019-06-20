@@ -201,12 +201,10 @@
                     color: $body-color;
                 }
 
-                &:focus,
                 &:hover {
-                    color: color('nijmegen-brand', 'darken-2');
-                    @media #{$medium-and-down} {
-                        color: $body-color;
-                    }
+                    border-bottom: 1px solid color('nijmegen-brand', 'base');
+                    color: color('nijmegen-brand', 'base');
+                    margin-bottom: -1px;
                 }
 
                 &:focus {
@@ -214,9 +212,24 @@
                 }
 
                 @media #{$medium-and-down} {
+                    &::before {
+                        @include mdi('chevron-right');
+                        font-size: 20px;
+                        width: 0px;
+                        opacity: 0;
+                        transition: width .2s ease-in-out, opacity .2s ease-in-out;
+                    }
+
+                    &:hover,
                     &:active {
-                        background-color: color('nijmegen-grey', 'darken-3');
-                        color: white;
+                        color: $body-color;
+                        border-bottom: none;
+                        margin-bottom: 0;
+
+                        &::before {
+                            width: 20px;
+                            opacity: 1;
+                        }
                     }
                 }
             }
@@ -395,9 +408,8 @@
             color: color('white', 'base');
             transition: padding .5s ease-in-out;
 
-            &:focus,
             &:hover {
-                color: color('nijmegen-brand', 'lighten-1');
+                border-bottom: 1px solid white;
             }
 
             &:focus {
@@ -405,8 +417,22 @@
             }
 
             @media #{$medium-and-down} {
+                &::before {
+                    @include mdi('chevron-right');
+                    font-size: 20px;
+                    width: 0px;
+                    opacity: 0;
+                    transition: width .2s ease-in-out, opacity .2s ease-in-out;
+                }
+
+                &:hover,
                 &:active {
-                    background-color: color('nijmegen-brand', 'darken-3');
+                    border-bottom: none;
+
+                    &::before {
+                        width: 20px;
+                        opacity: 1;
+                    }
                 }
             }
         }
