@@ -159,6 +159,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Change heading to h1 element
 - _Component [pagination]({{ componentPath '@pagination' }})_:
   Changed contrast for the buttons and changed icon to span
+- _Component [select]({{ componentPath '@select' }})_:
+  Add more contrasting focus color
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:
