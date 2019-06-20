@@ -182,3 +182,5 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Made the accordion component more accessible
 - _Component [button horizontal-collapse]({{ componentPath '@button-horizontal-collapse' }})_:
   Made horizontal collapsing button more accessible
+- _Component [footer]({{ componentPath '@footer' }})_:
+  Make footer more accessible
