@@ -6,5 +6,5 @@ changes:
       component: no-title-link
       description: Make the list an actual list
     - type: changed #changed, removed, added
-      component: no-title-link
+      component: title-no-link
       description: Change heading to h1 element
