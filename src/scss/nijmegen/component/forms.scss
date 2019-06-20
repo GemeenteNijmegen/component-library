@@ -40,8 +40,8 @@ $form-drop-down-bottom-border: 1px solid rgba(0, 0, 0, .125);
             }
         }
 
-        &.invalid,
-        &:focus.invalid {
+        &.is-invalid,
+        &:focus.is-invalid {
             border-bottom-color: color('nijmegen-forms', 'error');
             box-shadow: 0 1px 0 0 color('nijmegen-forms', 'error');
 
@@ -53,8 +53,8 @@ $form-drop-down-bottom-border: 1px solid rgba(0, 0, 0, .125);
             }
         }
 
-        &.valid,
-        &:focus.valid {
+        &.is-valid,
+        &:focus.is-valid {
             border-bottom-color: color('nijmegen-forms', 'success');
             box-shadow: 0 1px 0 0 color('nijmegen-forms', 'success');
         }
@@ -81,12 +81,12 @@ $form-drop-down-bottom-border: 1px solid rgba(0, 0, 0, .125);
             color: $body-color;
         }
 
-        &.valid + label:after,
-        &.invalid + label:after {
+        &.is-valid + label:after,
+        &.is-invalid + label:after {
             font-size: to-rem(14);
         }
 
-        &.valid, &.invalid {
+        &.is-valid, &.is-invalid {
             & + label {
                 &:before,
                 &:after {
@@ -96,8 +96,8 @@ $form-drop-down-bottom-border: 1px solid rgba(0, 0, 0, .125);
             }
         }
 
-        &.invalid {
-            & + label {
+        &.is-invalid {
+            & + .invalid-feedback {
                 &:before {
                     @include mdi('alert');
                     display: block;
@@ -114,6 +114,14 @@ $form-drop-down-bottom-border: 1px solid rgba(0, 0, 0, .125);
         font-weight: $font-weight-normal;
         padding: 0.6rem 0 !important;
         min-height: to-rem(72) !important;
+    }
+
+    .valid-feedback {
+        color: darken(color('nijmegen-forms', 'success'), 10%);
+    }
+
+    .invalid-feedback {
+        color: color('nijmegen-forms', 'error');
     }
 }
 
