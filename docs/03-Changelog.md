@@ -186,3 +186,5 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Make footer more accessible
 - _Component [alerts]({{ componentPath '@alerts' }})_:
   Made close button more accessible
+- _Component [input]({{ componentPath '@input' }})_:
+  The input element has now screen reader friendly feedback
