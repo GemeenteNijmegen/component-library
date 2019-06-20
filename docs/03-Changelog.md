@@ -151,6 +151,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Removed light background on focus to increase contrast
 - _Component [icons]({{ componentPath '@icons' }})_:
   Example is better accessible
+- _Component [title link]({{ componentPath '@title-link' }})_:
+  Make the list an actual list and change heading
+- _Component [no title-link]({{ componentPath '@no-title-link' }})_:
+  Make the list an actual list
+- _Component [title no-link]({{ componentPath '@title-no-link' }})_:
+  Change heading to h1 element
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:
