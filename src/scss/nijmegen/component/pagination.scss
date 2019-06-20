@@ -10,14 +10,15 @@
             padding: 0;
             line-height: 36px;
 
-            &:hover,
-            &:focus {
+            &:hover      {
                 background-color: color('nijmegen-grey', 'lighten-1');
                 box-shadow: none;
+                color: color('nijmegen-primary', 'darken-1');
             }
 
             &:focus {
                 @include tab-focus;
+                box-shadow: none;
             }
 
             > [aria-hidden="true"] {
