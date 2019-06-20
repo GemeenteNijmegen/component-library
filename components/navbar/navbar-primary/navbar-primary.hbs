@@ -2,14 +2,16 @@
     <div class="container">
         {{#if hamburgerIcon}}
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse"
-            aria-controls="navbar-collapse" aria-expanded="false" aria-label="Schakel navigatie">
-            <span class="navbar-toggler-icon"></span>
+            aria-controls="navbar-collapse" aria-expanded="false">
+            <span class="sr-only">Menu</span>
+            <span class="navbar-toggler-icon" aria-hidden="true"></span>
         </button>
         {{/if}}
         <a class="navbar-brand" href="/">
+            <span class="sr-only">Hoofdpagina</span>
             <div class="navbar-brand-container">
                 <img src="{{ assetPath '/img/beeldmerklabelwit.svg' }}" class="logo-labeled" alt="Logo Nijmegen">
-                <img src="{{ assetPath '/img/beeldmerkwit.svg' }}" class="logo" alt="Logo Nijmegen">
+                <img src="{{ assetPath '/img/beeldmerkwit.svg' }}" class="logo" aria-hidden="true">
             </div>
         </a>
         <div class="collapse navbar-collapse" id="navbar-collapse">
