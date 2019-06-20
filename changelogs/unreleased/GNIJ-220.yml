@@ -1,4 +1,0 @@
-changes:
-    - type: changed #changed, removed, added
-      component: pagination
-      description: Changed contrast for the buttons and changed icon to span

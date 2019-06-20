@@ -157,6 +157,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Make the list an actual list
 - _Component [title no-link]({{ componentPath '@title-no-link' }})_:
   Change heading to h1 element
+- _Component [pagination]({{ componentPath '@pagination' }})_:
+  Changed contrast for the buttons and changed icon to span
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:
