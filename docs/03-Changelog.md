@@ -202,3 +202,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   The input element has now screen reader friendly feedback
 - _Component [select]({{ componentPath '@select' }})_:
   Add more contrasting focus color
+- _Component [navbar primary]({{ componentPath '@navbar-primary' }})_:
+  Changed the way menu items look on hover and various small accessibility changes
+- _Component [navbar white]({{ componentPath '@navbar-white' }})_:
+  Changed the way menu items look on hover and various small accessibility changes
