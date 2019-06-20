@@ -184,3 +184,5 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Made horizontal collapsing button more accessible
 - _Component [footer]({{ componentPath '@footer' }})_:
   Make footer more accessible
+- _Component [alerts]({{ componentPath '@alerts' }})_:
+  Made close button more accessible
