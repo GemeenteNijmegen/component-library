@@ -1,7 +1,7 @@
 .horizontal-collapse {
     position: relative;
     text-align: right;
-    overflow-x: hidden;
+    overflow: hidden;
     padding-bottom: 10px;
 
     .btn-floating {
@@ -53,6 +53,16 @@
                 border: 0;
                 padding: 0;
                 margin: 0;
+            }
+
+            a {
+                display: block;
+            }
+
+            a:focus,
+            button:focus {
+                @include tab-focus;
+                background: color('nijmegen-primary', 'lighten-1');
             }
 
             &.btn-floating-wrapper {
