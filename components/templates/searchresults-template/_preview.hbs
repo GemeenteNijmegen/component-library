@@ -1,37 +1,46 @@
 {{> '@tpl-head' }}
 <style>
-    body { padding: 150px 0 0; }
-    footer.page-footer { margin-top: 50px; }
+    body {
+        padding: 150px 0 0;
+    }
+
+    footer.page-footer {
+        margin-top: 50px;
+    }
 </style>
 </head>
+
 <body>
 
-{{!-- Underneath will render component output --}}
-{{{ yield }}}
+    {{!-- Underneath will render component output --}}
+    {{{ yield }}}
 
-{{> '@tpl-scripts' }}
+    {{> '@tpl-scripts' }}
 
-{{> '@autocomplete-scripts' }}
+    {{> '@navbar-search-scripts' }}
 
-{{> '@autocomplete-pandosearch-scripts' }}
+    {{> '@autocomplete-scripts' }}
 
-{{> '@facets-scripts' }}
+    {{> '@autocomplete-pandosearch-scripts' }}
 
-{{> '@search-results-scripts' }}
+    {{> '@facets-scripts' }}
 
-{{> '@search-results-pandosearch-scripts' }}
+    {{> '@search-results-scripts' }}
 
-{{> '@search-results-pandosearch-example-scripts' }}
+    {{> '@search-results-pandosearch-scripts' }}
 
-{{> '@pagination-scripts' }}
+    {{> '@search-results-pandosearch-example-scripts' }}
 
-<script>
-// Underneath is just here for testing purpose within the Component library,
-// since the search field moved to the navbar and we want to see the results here
-if (window.location.search.indexOf('?q=') === -1) {
-    window.location.href = window.location.href + '?q=paspoort';
-}
-</script>
+    {{> '@pagination-scripts' }}
+
+    <script>
+        // Underneath is just here for testing purpose within the Component library,
+        // since the search field moved to the navbar and we want to see the results here
+        if (window.location.search.indexOf('?q=') === -1) {
+            window.location.href = window.location.href + '?q=paspoort';
+        }
+    </script>
 
 </body>
+
 </html>
