@@ -180,3 +180,5 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   The mobile navbar is moved from the hamburger menu to the navbar
 - _Component [accordion]({{ componentPath '@accordion' }})_:
   Made the accordion component more accessible
+- _Component [button horizontal-collapse]({{ componentPath '@button-horizontal-collapse' }})_:
+  Made horizontal collapsing button more accessible
