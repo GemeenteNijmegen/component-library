@@ -1,0 +1,4 @@
+changes:
+    - type: changed #changed, removed, added
+      component: select
+      description: Add more contrasting focus color
