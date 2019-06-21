@@ -206,3 +206,5 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Changed the way menu items look on hover and various small accessibility changes
 - _Component [navbar white]({{ componentPath '@navbar-white' }})_:
   Changed the way menu items look on hover and various small accessibility changes
+- _Component [carousel]({{ componentPath '@carousel' }})_:
+  Improved accessibility
