@@ -2,7 +2,9 @@ const { fs, analyseChangelog, removeContent, insertContent, buildChanges } = req
 
 const updateChangelog = (changelogPath, changeDirectory, releaseVersion, writeChanges, done) => {
     const statusTypes = ['added', 'changed', 'removed'];
-    const changeFileNames = fs.readdirAsync(changeDirectory).then(fileNames => fileNames.filter(fileName => ['yml', 'yaml'].includes(fileName.split('.').pop())));
+    const changeFileNames = fs
+        .readdirAsync(changeDirectory)
+        .then(fileNames => fileNames.filter(fileName => ['yml', 'yaml'].includes(fileName.split('.').pop())));
     const changeFiles = changeFileNames.then(fileNames =>
         Promise.all(
             fileNames.map(fileName =>
