@@ -7,34 +7,34 @@
         <li data-target="#carousel-example" data-slide-to="2"></li>
         <li class="carousel-play-pause">
             <button type="button" class="carousel-control-pause">
-                <i class="mdi mdi-pause" aria-hidden="true"></i>
+                <span class="mdi mdi-pause" aria-hidden="true"></span>
                 <span class="sr-only">Pauzeer slideshow</span>
             </button>
             <button type="button" class="carousel-control-play" aria-hidden="true" style="display: none;">
-                <i class="mdi mdi-play play" aria-hidden="true"></i>
+                <span class="mdi mdi-play play" aria-hidden="true"></span>
                 <span class="sr-only">Speel slideshow af</span>
             </button>
         </li>
     </ol>
     <!--/.Indicators-->
     <!--Slides-->
-    <div class="carousel-inner">
+    <ul class="carousel-inner">
         <!--First slide-->
-        <div class="carousel-item active">
+        <li class="carousel-item active">
             <img src="{{ mdbootstrapPath '/img/Photos/Slides/img%20(18).jpg' }}" alt="Eerste slide">
-        </div>
+        </li>
         <!--/First slide-->
         <!--Second slide-->
-        <div class="carousel-item">
+        <li class="carousel-item">
             <img src="{{ mdbootstrapPath '/img/Photos/Slides/img%20(19).jpg' }}" alt="Tweede slide">
-        </div>
+        </li>
         <!--/Second slide-->
         <!--Third slide-->
-        <div class="carousel-item">
+        <li class="carousel-item">
             <img src="{{ mdbootstrapPath '/img/Photos/Slides/img%20(20).jpg' }}" alt="Derde slide">
-        </div>
+        </li>
         <!--/Third slide-->
-    </div>
+    </ul>
     <!--/.Slides-->
     <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

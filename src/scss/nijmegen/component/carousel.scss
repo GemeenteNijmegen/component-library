@@ -4,10 +4,23 @@
         background-color: transparent;
         border: 0;
         color: white;
-        padding: 0;
+        padding: 5px;
+        margin: -5px;   
+        border-radius: 100%;
+        text-align: center;
+        
+        span {
+            display: block;
+        }
 
         &:hover {
             cursor: pointer;
+            background-color: rgba(color('nijmegen-primary', 'lighten-1'), 0.5);
+        }
+
+        &:focus {
+            background: rgba(color('nijmegen-primary', 'lighten-1'), 0.5);
+            box-shadow: 0 0 2px white;
         }
     }
 
@@ -29,11 +42,13 @@
 
         &:hover {
             @extend .z-depth-1;
-            background-color: rgba(color('nijmegen-primary', 'lighten-1'), 0.5)
+            background-color: rgba(color('nijmegen-primary', 'lighten-1'), 0.5);
         }
 
         &:focus {
             outline: none !important;
+            background: rgba(color('nijmegen-primary', 'lighten-1'), 0.5);
+            box-shadow: 0 0 2px white;
         }
     }
 
