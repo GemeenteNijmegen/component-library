@@ -161,6 +161,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Changed contrast for the buttons and changed icon to span
 - _Component [select]({{ componentPath '@select' }})_:
   Add more contrasting focus color
+- _Component [listing]({{ componentPath '@listing' }})_:
+  Use h1 element in the example
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:
