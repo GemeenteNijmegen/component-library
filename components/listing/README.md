@@ -13,5 +13,4 @@ No additional actions, aside from the markup, are needed to use this component.
 
 ### Notes
 
-* The listing item title in this component is rendered via a paragraph element, since it's unknown in advance what the implementors document heading level structure would be, it's not advisable to define a specific heading element (`H1 - H6`) in this component.<br>
-**However**, the component has been structured to work with every heading (`H1 - H6`) level as listing item title, so you are free to use which heading level suits your use-case.
+* The listing item title in this component is rendered via a `h1` element but this component works with every heading level (`h1` - `h6`).

@@ -1,0 +1,4 @@
+changes:
+    - type: changed #changed, removed, added
+      component: listing
+      description: Use h1 element in the example
