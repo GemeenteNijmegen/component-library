@@ -208,3 +208,5 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Changed the way menu items look on hover and various small accessibility changes
 - _Component [carousel]({{ componentPath '@carousel' }})_:
   Improved accessibility
+- _Component [autocomplete]({{ componentPath '@autocomplete' }})_:
+  Improved accessibility
