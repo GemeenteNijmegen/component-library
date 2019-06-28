@@ -76,7 +76,6 @@
                 .html(result.title)
                 .attr('href', result.url)
                 .attr('id', 'result-item-' + key)
-                .attr('aria-label', result.titleRaw || result.title)
                 .mouseenter(this.itemMouseHandle.bind(this));
 
             if (result.class) {
