@@ -1,12 +1,17 @@
 <form class="autocomplete autocomplete__form" method="GET" action="{{ searchAction }}" role="search">
     <input class="autocomplete__input form-control" type="text" placeholder="Zoeken" id="suggest-search-query" name="q"
-        autocomplete="off" aria-controls="autocomplete-results" aria-autocomplete="both" aria-label="Zoekveld" />
+        autocomplete="off" aria-controls="autocomplete-results" aria-autocomplete="both" aria-label="Zoekveld"
+        aria-describedby="autocomplete-help-text" />
     <button class="autocomplete__search-button">
         <span class="sr-only">Zoeken</span><span class="mdi mdi-magnify" aria-hidden="true"></span>
     </button>
-    <ul id="autocomplete-results" class="autocomplete__result-list" aria-label="Zoekresultaten">
+    <ul id="autocomplete-results" class="autocomplete__result-list" aria-label="Zoekresultaten" role="listbox">
 
     </ul>
+    <span id="autocomplete-help-text" class="sr-only  ">
+        Als er zoekresultaten gevonden zijn kunt u de pijltjes toetsen omhoog en naar beneden gebruiken om een resultaat
+        te selecteren. Toets enter om te navigeren naar het geselecteerde resultaat.</span>
+    <div id="autocomplete-search-results-announcer" aria-live="assertive" class="sr-only"></div>
 </form>
 
 <script id="autocomplete-result-template" type="text/template">
