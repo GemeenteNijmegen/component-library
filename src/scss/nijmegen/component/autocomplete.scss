@@ -23,6 +23,11 @@
         display: block;
         position: relative;
 
+        em {
+            font-style: normal;
+            font-weight: bold; 
+        }
+
         &:focus,
         &.active {
             cursor: pointer;
