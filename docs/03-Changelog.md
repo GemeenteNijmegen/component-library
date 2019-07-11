@@ -7,12 +7,40 @@ status: ready # draft, ready
 All notable changes to this project will be documented in this file.<br>
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
-## [3.0.0] - 2019-05
+## [3.0.0] - 2019-08
 ### Changed
 - _Component [navbar primary]({{ componentPath '@navbar-primary' }})_:
   Added the new autocomplete component to the navbar and it now uses Pandosearch
 - _Component [navbar white]({{ componentPath '@navbar-white' }})_:
   Added the new autocomplete component to the navbar and it now uses Pandosearch
+- _Component [searchresults template]({{ componentPath '@searchresults-template' }})_:
+  Usage of the new search components (autocomplete, facets, results) and implemented Pandosearch
+- _Component [default template]({{ componentPath '@default-template' }})_:
+  Now makes use of Pandosearch for the autocomplete in the navbar
+- _Component [forminputs template]({{ componentPath '@forminputs-template' }})_:
+  Now makes use of Pandosearch for the autocomplete in the navbar
+- _Component [navbar]({{ componentPath '@navbar' }})_:
+  The mobile navbar is moved from the hamburger menu to the navbar
+- _Component [accordion]({{ componentPath '@accordion' }})_:
+  Made the accordion component more accessible
+- _Component [button horizontal-collapse]({{ componentPath '@button-horizontal-collapse' }})_:
+  Made horizontal collapsing button more accessible
+- _Component [footer]({{ componentPath '@footer' }})_:
+  Make footer more accessible
+- _Component [alerts]({{ componentPath '@alerts' }})_:
+  Made close button more accessible
+- _Component [input]({{ componentPath '@input' }})_:
+  The input element has now screen reader friendly feedback
+- _Component [select]({{ componentPath '@select' }})_:
+  Add more contrasting focus color
+- _Component [navbar primary]({{ componentPath '@navbar-primary' }})_:
+  Changed the way menu items look on hover and various small accessibility changes
+- _Component [navbar white]({{ componentPath '@navbar-white' }})_:
+  Changed the way menu items look on hover and various small accessibility changes
+- _Component [carousel]({{ componentPath '@carousel' }})_:
+  Improved accessibility
+- _Component [autocomplete]({{ componentPath '@autocomplete' }})_:
+  Improved accessibility
 
 ## [2.0.0] - 2018-06
 ### Added
@@ -182,31 +210,3 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Removed labelledby from the listing item
 - _Component [pagination]({{ componentPath '@pagination' }})_:
   aria-label removed from page links where an sr-only element already exists
-- _Component [searchresults template]({{ componentPath '@searchresults-template' }})_:
-  Usage of the new search components (autocomplete, facets, results) and implemented Pandosearch
-- _Component [default template]({{ componentPath '@default-template' }})_:
-  Now makes use of Pandosearch for the autocomplete in the navbar
-- _Component [forminputs template]({{ componentPath '@forminputs-template' }})_:
-  Now makes use of Pandosearch for the autocomplete in the navbar
-- _Component [navbar]({{ componentPath '@navbar' }})_:
-  The mobile navbar is moved from the hamburger menu to the navbar
-- _Component [accordion]({{ componentPath '@accordion' }})_:
-  Made the accordion component more accessible
-- _Component [button horizontal-collapse]({{ componentPath '@button-horizontal-collapse' }})_:
-  Made horizontal collapsing button more accessible
-- _Component [footer]({{ componentPath '@footer' }})_:
-  Make footer more accessible
-- _Component [alerts]({{ componentPath '@alerts' }})_:
-  Made close button more accessible
-- _Component [input]({{ componentPath '@input' }})_:
-  The input element has now screen reader friendly feedback
-- _Component [select]({{ componentPath '@select' }})_:
-  Add more contrasting focus color
-- _Component [navbar primary]({{ componentPath '@navbar-primary' }})_:
-  Changed the way menu items look on hover and various small accessibility changes
-- _Component [navbar white]({{ componentPath '@navbar-white' }})_:
-  Changed the way menu items look on hover and various small accessibility changes
-- _Component [carousel]({{ componentPath '@carousel' }})_:
-  Improved accessibility
-- _Component [autocomplete]({{ componentPath '@autocomplete' }})_:
-  Improved accessibility
