@@ -32,6 +32,7 @@ $small-screen-portrait: map-get($grid-breakpoints, 'sm');
 @import "component/chips"; // tags, labels, badges
 @import "component/datepicker";
 @import "component/facets";
+@import "component/facets-advanced";
 @import "component/footer";
 @import "component/forms";
 @import "component/hover-effects";

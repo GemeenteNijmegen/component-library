@@ -1,0 +1,37 @@
+<script>
+    var facets = new Facets();
+
+    function facetClickHandler(event, $facetItem) {
+        if ($facetItem.hasClass('active')) {
+            $('#facets .facets__item').removeClass('active');
+            event.preventDefault();
+            return;
+        }
+        $('#facets .facets__item').removeClass('active');
+        $facetItem.addClass('active')
+        event.preventDefault();
+    }
+
+    $(document).ready(function () {
+        var facetData = [
+            {
+                title: 'Document type',
+                facets: [
+                    { title: 'Webpagina (5)' },
+                    { title: 'PDF document (10)' }
+                ]
+            },
+            {
+                title: 'Datum',
+                facets: [
+                    { title: 'Vandaag (5)' },
+                    { title: 'Deze week (3)' },
+                    { title: 'Afgelopen week (7)' }
+                ]
+            }
+        ];
+
+        facets.init('#facets', facetClickHandler);
+        facets.show(facetData);
+    })
+</script>
