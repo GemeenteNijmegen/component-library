@@ -386,6 +386,14 @@ aria.Listbox.prototype.defocusItem = function (element) {
     aria.Utils.removeClass(element, 'focused');
 };
 
+aria.Listbox.prototype.deselectItem = function (element) {
+    if (!element) {
+        return;
+    }
+
+    element.setAttribute('aria-selected', false);
+}
+
 /**
  * @desc
  *  Focus on the specified item
@@ -394,6 +402,11 @@ aria.Listbox.prototype.defocusItem = function (element) {
  *  The element to focus
  */
 aria.Listbox.prototype.focusItem = function (element) {
+    if(!this.multiselectable){
+        this.deselectItem(document.getElementById(this.activeDescendant));
+        element.setAttribute('aria-selected', true);
+    }
+
     this.defocusItem(document.getElementById(this.activeDescendant));
     aria.Utils.addClass(element, 'focused');
     this.listBoxNode.setAttribute('aria-activedescendant', element.id);
