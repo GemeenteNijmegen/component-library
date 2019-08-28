@@ -1,4 +1,0 @@
-changes:
-    - type: changed #changed, removed, added
-      component: forminputs-template
-      description: Added the changed input element to this overview

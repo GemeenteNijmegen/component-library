@@ -41,6 +41,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Improved accessibility
 - _Component [autocomplete]({{ componentPath '@autocomplete' }})_:
   Improved accessibility
+- _Component [forminputs template]({{ componentPath '@forminputs-template' }})_:
+  Added the changed input element to this overview
 
 ## [2.0.0] - 2018-06
 ### Added
