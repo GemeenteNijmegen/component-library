@@ -45,7 +45,13 @@ const analyseChangelog = (changelogDataArray, statuses, releaseVersion) => {
         const header = line.match('^## \\[(\\d+.\\d+.\\d+)\\]');
 
         // Return if reaching the end of the found header section
-        if ((foundHeader || insertAboveIndex > 0) && header) return true;
+        if (insertAboveIndex > 0 && header) {
+            return true;
+        }
+        if (foundHeader && header) {
+            insertAboveIndex = index - 1;
+            return true;
+        }
 
         if (header) {
             previousVersion = currentVersion ? currentVersion : '';
@@ -74,6 +80,7 @@ const analyseChangelog = (changelogDataArray, statuses, releaseVersion) => {
                 ...foundHeader,
                 [`${pendingSubHeader}End`]: index,
             };
+            pendingSubHeader = null;
         }
 
         if (currentVersion && previousVersion) {
