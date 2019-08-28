@@ -163,6 +163,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Add more contrasting focus color
 - _Component [listing]({{ componentPath '@listing' }})_:
   Use h1 element in the example
+- _Component [accordion]({{ componentPath '@accordion' }})_:
+  Change the depreciated href to data-target
+- _Component [listing]({{ componentPath '@listing' }})_:
+  Use h1 element in the example
+- _Component [autocomplete]({{ componentPath '@autocomplete' }})_:
+  Change icon from i to span
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:
