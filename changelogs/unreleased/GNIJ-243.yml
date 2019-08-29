@@ -1,0 +1,4 @@
+changes:
+    - type: changed #changed, removed, added
+      component: input
+      description: Change p in example to div
