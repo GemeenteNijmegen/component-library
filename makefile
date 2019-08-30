@@ -27,14 +27,14 @@ generate-changelog: intro do-generate-changelog
 do-show-commands:
 	@echo "\n=== Make commands ===\n"
 	@echo "Project:"
-	@echo "    make init                         Initialise the project for development."
-	@echo "    make start                        Start container."
-	@echo "    make stop                         Stop container."
-	@echo "    make update-project               Update npm packages."
-	@echo "    make gitlab MR=<number>           Check out a PR from GitLab and update the project."
-	@echo "    make update-icons                 Update icons (only needed when an update of the icons dependency has been done)."
-	@echo "    make component-listing            Build the components listing locally."
-	@echo "    make generate-changelog v=x.x.x   Generate the changelog"
+	@echo "    make init                               Initialise the project for development."
+	@echo "    make start                              Start container."
+	@echo "    make stop                               Stop container."
+	@echo "    make update-project                     Update npm packages."
+	@echo "    make gitlab MR=<number>                 Check out a PR from GitLab and update the project."
+	@echo "    make update-icons                       Update icons (only needed when an update of the icons dependency has been done)."
+	@echo "    make component-listing                  Build the components listing locally."
+	@echo "    make generate-changelog version=x.x.x   Generate the changelog"
 
 do-build:
 	@echo "\n=== Building container ===\n"
