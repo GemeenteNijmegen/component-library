@@ -38,22 +38,24 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [0.0.1] - ${today.getFullYear()}-${('0' + (today.getMonth() + 1)).slice(-2)}
 ### Added
-- _Component [hover effects]({{ componentPath '@hover-effects' }})_:
-  Added something
-- _Component [icons]({{ componentPath '@icons' }})_:
-  Added something
+- *Component:* [hover effects]({{ componentPath '@hover-effects' }})  
+  *Description:* Added something
+- *Component:* [icons]({{ componentPath '@icons' }})  
+  *Description:* Added something
 
 ### Changed
-- _Component [hover effects]({{ componentPath '@hover-effects' }})_:
-  Change 1
-- _Component [hover effects]({{ componentPath '@hover-effects' }})_:
-  Change 2
+- *Component:* [hover effects]({{ componentPath '@hover-effects' }})  
+  *Changes:* **CSS**, **JS**  
+  *Description:* Change 1
+- *Component:* [hover effects]({{ componentPath '@hover-effects' }})  
+  *Changes:* **HTML**, **JS**  
+  *Description:* Change 2
 
 ### Removed
-- _Component [hover effects]({{ componentPath '@hover-effects' }})_:
-  Removed something
-- _Component [alerts]({{ componentPath '@alerts' }})_:
-  Removed something
+- *Component:* [hover effects]({{ componentPath '@hover-effects' }})  
+  *Description:* Removed something
+- *Component:* [alerts]({{ componentPath '@alerts' }})  
+  *Description:* Removed something
 `;
 
 module.exports = { result001 };

@@ -97,10 +97,10 @@ Each file should start with `changes:`, and then contain a list of changes under
 
 ```yaml
 changes:
-    - type: added #changed, removed, added
+    - type: changed #changed, removed, added
       component: carousel
       description: Added something...
-      what: [] # [HTML, CSS, JS]
+      what: [] # what has changed 1 or more of: [HTML, CSS, JS]
     - type: removed #changed, removed, added
       component: footer
       description: Removed...
