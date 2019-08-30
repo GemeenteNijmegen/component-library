@@ -1,26 +1,28 @@
 <div class="md-form">
     <div class="aria-select">
         <button
-            aria-haspopup="listbox"
-            aria-labelledby="example-select-label example-select-button"
+            aria-haspopup="true"
+            aria-controls="example-select-list"
+            aria-labelledby="example-select-button example-select-label"
             id="example-select-button"
         >
             Selecteer een optie
         </button>
-        <label id="example-select-label" for="example-select-element">Voorbeeld dropdown</label>
+        <label id="example-select-label" for="example-select-button">Voorbeeld dropdown</label>
         <ul
             tabindex="-1"
             role="listbox"
             aria-labelledby="example-select-element"
             class="aria-select-list hidden"
+            id="example-select-list"
         >
-            <li id="example-select-element_1" data-value="1" role="option">
+            <li id="example-select-element_1" data-value="1" role="option" aria-selected="false">
                 Optie 1
             </li>
-            <li id="example-select-element_2" data-value="2" role="option">
+            <li id="example-select-element_2" data-value="2" role="option" aria-selected="false">
                 Optie 2
             </li>
-            <li id="example-select-element_3" data-value="3" role="option">
+            <li id="example-select-element_3" data-value="3" role="option" aria-selected="false">
                 Optie 3
             </li>
         </ul>
