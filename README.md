@@ -100,6 +100,7 @@ changes:
     - type: added #changed, removed, added
       component: carousel
       description: Added something...
+      what: [] # [HTML, CSS, JS]
     - type: removed #changed, removed, added
       component: footer
       description: Removed...

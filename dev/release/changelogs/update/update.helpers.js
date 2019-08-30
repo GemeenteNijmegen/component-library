@@ -118,10 +118,15 @@ const insertContent = (newContentArray, contentArray, index) => [
     ...contentArray.slice(index),
 ];
 
-const buildChangeItem = change => [
-    `- _Component [${change.component.replace('-', ' ')}]({{ componentPath '@${change.component}' }})_:`,
-    `  ${change.description}`,
-];
+const buildChangeItem = change => {
+    const title = `*Component:* [${change.component.replace('-', ' ')}]({{ componentPath '@${change.component}' }})`;
+    const description = `*Description:* ${change.description}`;
+    if (change.what && change.what.length > 0) {
+        const what = `*Changes:* **${change.what.sort().join('**, **')}**`;
+        return [`- ${title}  `, `  ${what}  `, `  ${description}`];
+    }
+    return [`- ${title}  `, `  ${description}`];
+};
 
 const buildChangeItems = changes =>
     changes.reduce((changeItems, change) => [...changeItems, ...buildChangeItem(change)], []);
