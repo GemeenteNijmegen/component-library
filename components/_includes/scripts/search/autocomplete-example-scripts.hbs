@@ -7,25 +7,19 @@
 
     function getAutocompleteResults(query, callback) {
         var rawResults = [
-            'Finibus<em>' + query + '</em>',
-            '<em>' + query + '</em>elementum urna',
-            'Blandit aliquet<em>' + query + '</em>',
-            query
-        ];
-        var results = rawResults
-            .slice(0, query.length)
-            .map(function (result) {
-                return {
-                    title: result,
-                    url: '?q=' + query
-                }
-            });
-
-        if (results.length === 0) {
-            callback(results);
-            return;
+            { header: 'Zoekresultaten:' },
+            { title: 'Finibus<em>' + query + '</em>', url: '?q=' + query },
+            { title: '<em>' + query + '</em>elementum urna', url: '?q=' + query },
+            { header: 'Zoeksuggesties:' },
+            { title: 'Blandit aliquet<em>' + query + '</em>', url: '?q=' + query, class: 'search' },
+            { title: query, url: '?q=' + query, class: 'search' }
+        ]
+        var length = query.length + 1;
+        if (length == 4) {
+            length++;
         }
-        results[0].class = 'search';
+        var results = rawResults
+            .slice(0, length);
         callback(results);
     }
 </script>
