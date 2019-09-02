@@ -47,6 +47,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Change p in example to div
 - _Component [select]({{ componentPath '@select' }})_:
   Improved accessibility for the select component
+- _Component [progressbar]({{ componentPath '@progressbar' }})_:
+  Added better example
 
 ## [2.0.0] - 2018-06
 ### Added

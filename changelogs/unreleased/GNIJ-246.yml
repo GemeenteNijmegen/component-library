@@ -1,4 +1,0 @@
-changes:
-  - type: changed #changed, removed, added
-    component: progressbar
-    description: Added better example
