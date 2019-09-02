@@ -169,6 +169,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Use h1 element in the example
 - _Component [autocomplete]({{ componentPath '@autocomplete' }})_:
   Change icon from i to span
+- _Component [popovers]({{ componentPath '@popovers' }})_:
+  Set status to prototype
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:
