@@ -29,7 +29,7 @@
         this.getResults = getResultsFn;
 
         $('#suggest-search-query').on('keydown keyup', this.inputKeyHandle.bind(this));
-        //$('#suggest-search-query').blur(this.inputBlurHandle.bind(this));
+        $('#suggest-search-query').blur(this.inputBlurHandle.bind(this));
         $('#suggest-search-query').focus(this.inputFocusHandle.bind(this));
     }
 

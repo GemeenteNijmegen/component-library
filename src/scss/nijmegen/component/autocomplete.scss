@@ -19,7 +19,7 @@
     &__result-link {
         transition: none;
         color: $body-color;
-        padding: .5rem 1rem .5rem calc(2rem + 20px);
+        padding: .5rem 1rem;
         display: block;
         position: relative;
 
@@ -38,16 +38,18 @@
 
         &::before{
             @include mdi('arrow-right');
-            font-size: to-rem(18);
-            position: absolute;
-            top: .6rem;
-            left: 1rem;
-            display:block;
-            line-height: 1.5rem;
+            font-size: to-rem(16);
+            padding-right: .5rem
+            // position: absolute;
+            // top: .6rem;
+            // left: .5rem;
+            // display:block;
+            // line-height: 1.5rem;
         }
 
         &.search::before {
             @include mdi('magnify');
+            font-size: to-rem(16);
         }
     }
 
