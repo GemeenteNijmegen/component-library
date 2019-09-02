@@ -13,13 +13,10 @@
             { header: 'Zoeksuggesties:' },
             { title: 'Blandit aliquet<em>' + query + '</em>', url: '?q=' + query, class: 'search' },
             { title: query, url: '?q=' + query, class: 'search' }
-        ]
-        var length = query.length + 1;
-        if (length == 4) {
-            length++;
-        }
+        ];
+
         var results = rawResults
-            .slice(0, length);
+            .slice(0, Math.ceil(Math.random() * 6));
         callback(results);
     }
 </script>
