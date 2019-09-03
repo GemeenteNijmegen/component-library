@@ -41,6 +41,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Improved accessibility
 - _Component [autocomplete]({{ componentPath '@autocomplete' }})_:
   Improved accessibility
+- _Component [forminputs template]({{ componentPath '@forminputs-template' }})_:
+  Added the changed input element to this overview
+- _Component [input]({{ componentPath '@input' }})_:
+  Change p in example to div
+- _Component [select]({{ componentPath '@select' }})_:
+  Improved accessibility for the select component
+- _Component [progressbar]({{ componentPath '@progressbar' }})_:
+  Added better example
 
 ## [2.0.0] - 2018-06
 ### Added
@@ -194,6 +202,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Change heading to h1 element
 - _Component [pagination]({{ componentPath '@pagination' }})_:
   Changed contrast for the buttons and changed icon to span
+- _Component [select]({{ componentPath '@select' }})_:
+  Add more contrasting focus color
+- _Component [listing]({{ componentPath '@listing' }})_:
+  Use h1 element in the example
+- _Component [accordion]({{ componentPath '@accordion' }})_:
+  Change the depreciated href to data-target
+- _Component [listing]({{ componentPath '@listing' }})_:
+  Use h1 element in the example
+- _Component [autocomplete]({{ componentPath '@autocomplete' }})_:
+  Change icon from i to span
+- _Component [popovers]({{ componentPath '@popovers' }})_:
+  Set status to prototype
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:

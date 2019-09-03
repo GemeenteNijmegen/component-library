@@ -34,6 +34,7 @@ $small-screen-portrait: map-get($grid-breakpoints, 'sm');
 @import "component/facets";
 @import "component/facets-advanced";
 @import "component/footer";
+@import "component/forminputs-template";
 @import "component/forms";
 @import "component/hover-effects";
 @import "component/labels"; // tags, labels, badges

@@ -1,9 +1,8 @@
 <form class="autocomplete autocomplete__form" method="GET" action="{{ searchAction }}" role="search">
     <input class="autocomplete__input form-control" type="text" placeholder="Zoeken" id="suggest-search-query" name="q"
-        autocomplete="off" aria-controls="autocomplete-results" aria-autocomplete="both" aria-label="Zoekveld"
-        aria-describedby="autocomplete-help-text" />
-    <button class="autocomplete__search-button">
-        <span class="sr-only">Zoeken</span><span class="mdi mdi-magnify" aria-hidden="true"></span>
+        autocomplete="off" aria-controls="autocomplete-results" aria-autocomplete="both" aria-label="Zoekveld" />
+    <button class="autocomplete__search-button" aria-label="Zoekknop">
+        <span class="mdi mdi-magnify" aria-hidden="true"></span>
     </button>
     <ul id="autocomplete-results" class="autocomplete__result-list" aria-label="Zoekresultaten" role="listbox">
 
