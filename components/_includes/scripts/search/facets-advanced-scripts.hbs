@@ -1,5 +1,5 @@
 <script>
-    function Facets() {
+    function FacetsAdvanced() {
         this.$facets;
         this.$facetsContainer;
         this.facetGroupTemplate;
@@ -7,7 +7,7 @@
         this.globalCallback = null;
     }
 
-    Facets.prototype.init = function (selector, globalCallback) {
+    FacetsAdvanced.prototype.init = function (selector, globalCallback) {
         this.$facets = $(selector);
         this.$facetsContainer = $('.facets__facets', this.$facets);
         this.$facetsContainer.addClass('hide');
@@ -19,7 +19,7 @@
         $('.facets__title', this.$facets).click(this.clickHandler.bind(this));
     }
 
-    Facets.prototype.clickHandler = function () {
+    FacetsAdvanced.prototype.clickHandler = function () {
         var $title = $('.facets__title', this.$facets);
         if ($title.hasClass('expanded')) {
             $title.removeClass('expanded');
@@ -30,34 +30,63 @@
         }
     }
 
-    Facets.prototype.show = function (facets) {
+    FacetsAdvanced.prototype.createGroup = function (facetGroup, id) {
+        var $facetGroup = $(this.facetGroupTemplate).clone();
+        if (facetGroup.expanded) {
+            $facetGroup.addClass('expanded');
+        }
+        $('.facets__group-title', $facetGroup)
+            .html(facetGroup.title);
+        $('.facets__group-button', $facetGroup)
+            .click(function () {
+                var $facetGroup = $(this).parent();
+                if ($facetGroup.hasClass('expanded')) {
+                    $facetGroup.removeClass('expanded');
+                    $(this).attr('aria-expanded', 'false');
+                } else {
+                    $facetGroup.addClass('expanded');
+                    $(this).attr('aria-expanded', 'true');
+                }
+            })
+            .attr('aria-expanded', facetGroup.expanded ? 'true' : 'false')
+            .attr('aria-controls', 'facet-group-list-' + id)
+
+        $('.facets__list', $facetGroup).attr('id', 'facet-group-list-' + id);
+        return $facetGroup;
+    }
+
+    FacetsAdvanced.prototype.createItem = function (facetItem, id) {
+        var $facetItem = $(this.facetItemTemplate).clone();
+
+        $('.facets__link', $facetItem).html(facetItem.title);
+        if (facetItem.url) {
+            $('.facets__link', $facetItem).attr('href', facetItem.url)
+        }
+        if (facetItem.callback || this.globalCallback) {
+            var callback = facetItem.callback ? facetItem.callback : this.globalCallback;
+            $('.facets__link', $facetItem).click(
+                (function ($facetItem, facetItem) {
+                    return function (event) {
+                        callback(event, $facetItem, facetItem);
+                    }
+                })($facetItem, facetItem)
+            )
+        }
+        if (facetItem.active) {
+            $facetItem.addClass('active');
+        }
+        return $facetItem;
+    }
+
+    FacetsAdvanced.prototype.show = function (facets) {
         this.$facetsContainer.html('');
         for (var groupKey in facets) {
             var facetGroup = facets[groupKey];
-            var $facetGroup = $(this.facetGroupTemplate).clone();
-            $('.facets__group-title', $facetGroup).html(facetGroup.title);
+            var $facetGroup = this.createGroup(facetGroup, groupKey);
 
             for (var itemKey in facetGroup.facets) {
                 var facetItem = facetGroup.facets[itemKey];
-                var $facetItem = $(this.facetItemTemplate).clone();
-
-                $('.facets__link', $facetItem).html(facetItem.title);
-                if (facetItem.url) {
-                    $('.facets__link', $facetItem).attr('href', facetItem.url)
-                }
-                if (facetItem.callback || this.globalCallback) {
-                    var callback = facetItem.callback ? facetItem.callback : this.globalCallback;
-                    $('.facets__link', $facetItem).click(
-                        (function ($facetItem, facetItem) {
-                            return function (event) {
-                                callback(event, $facetItem, facetItem);
-                            }
-                        })($facetItem, facetItem)
-                    )
-                }
-                if (facetItem.active) {
-                    $facetItem.addClass('active');
-                }
+                var $facetItem = this.createItem(facetItem);
 
                 $('.facets__list', $facetGroup).append($facetItem);
             }

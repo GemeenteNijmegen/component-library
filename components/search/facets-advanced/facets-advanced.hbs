@@ -1,4 +1,4 @@
-<section class="facets" id="facets" role="navigation">
+<section class="facets facets-advanced" id="facets" role="navigation">
     <h1 class="facets__title">Filter results</h1>
     <div class="facets__facets">
     </div>
@@ -6,8 +6,10 @@
 
 <script id="facets-group-template" type="text/template">
     <div class="facets__group">
-        <h2 class="facets__group-title"></h2>
-        <ul class="facets__list">
+        <button class="facets__group-button">
+            <h2 class="facets__group-title"></h2>
+        </button>
+        <ul class="facets__list" role="region">
         </ul>
     </div>
 </script>

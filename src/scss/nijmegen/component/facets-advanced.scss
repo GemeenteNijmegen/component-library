@@ -1,2 +1,37 @@
-.facets-advanced {
+.facets-advanced .facets {
+    &__group{
+        &:not(.expanded) {
+
+            .facets__list {
+                display: none;
+            }
+        }
+    }
+
+    &__group-button {
+        border: 0;
+        background: 0;
+        padding: 0;
+        cursor: pointer;
+
+        &[aria-expanded="false"] .facets__group-title::before {
+            @include mdi('chevron-down');
+        }
+
+        &:focus {
+            @include tab-focus;
+        }
+    }
+
+    &__group-title{
+        position: relative;
+
+        &::before {
+            @include mdi('chevron-up');
+            position: absolute;
+            left: -30px;
+            top: 5px;
+            line-height: 100%;
+        }
+    }
 }

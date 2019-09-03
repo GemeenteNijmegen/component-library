@@ -18,6 +18,7 @@ Look at the example to see how the data needs to be formatted that you can feed 
 [
     {
         title: 'Document type',
+        expanded: 'true',
         facets: [
             { title: 'PDF document (10)', url: '#pdf', active: true },
             { title: 'Webpage (5)', callback: callbackFunction}
@@ -36,10 +37,10 @@ Look at the example to see how the data needs to be formatted that you can feed 
 
 #### Example on how to implement:
 ```html
-{{ render '@facets-example-scripts' }}
+{{ render '@facets-advanced-example-scripts' }}
 ```
 
-#### Facets script:
+#### Advanced Facets script:
 ```html
-{{ render '@facets-scripts' }}
+{{ render '@facets-advanced-scripts' }}
 ```

@@ -1,5 +1,5 @@
 <script>
-    var facets = new Facets();
+    var facets = new FacetsAdvanced();
 
     function facetClickHandler(event, $facetItem) {
         if ($facetItem.hasClass('active')) {
@@ -16,6 +16,7 @@
         var facetData = [
             {
                 title: 'Document type',
+                expanded: true,
                 facets: [
                     { title: 'Webpagina (5)' },
                     { title: 'PDF document (10)' }
