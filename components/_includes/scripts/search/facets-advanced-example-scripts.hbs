@@ -1,13 +1,20 @@
 <script>
     var facets = new FacetsAdvanced();
 
-    function facetClickHandler(event, $facetItem) {
+    function facetClickHandler(event, $facetItem, facetItem) {
+        if (facetItem.type == 'checkbox') {
+            var isChecked = $('.facets__checkbox', $facetItem).prop('checked');
+            console.log(facetItem.title + ' is ' + (isChecked ? 'checked' : 'unchecked'));
+            return;
+        }
         if ($facetItem.hasClass('active')) {
             $('#facets .facets__item').removeClass('active');
+            console.log(facetItem.title + ' is deselected');
             event.preventDefault();
             return;
         }
         $('#facets .facets__item').removeClass('active');
+        console.log(facetItem.title + ' is selected');
         $facetItem.addClass('active')
         event.preventDefault();
     }
@@ -18,8 +25,8 @@
                 title: 'Document type',
                 expanded: true,
                 facets: [
-                    { title: 'Webpagina (5)' },
-                    { title: 'PDF document (10)' }
+                    { title: 'Webpagina (5)', type: "checkbox", active: true },
+                    { title: 'PDF document (10)', type: "checkbox" }
                 ]
             },
             {

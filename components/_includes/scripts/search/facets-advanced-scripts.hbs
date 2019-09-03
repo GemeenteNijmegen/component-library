@@ -13,8 +13,9 @@
         this.$facetsContainer.addClass('hide');
 
         this.globalCallback = globalCallback;
-        this.facetGroupTemplate = $.parseHTML($('#facets-group-template').html());
-        this.facetItemTemplate = $.parseHTML($('#facets-item-template').html());
+        this.facetGroupTemplate = $.parseHTML($('#facets-advanced-group-template').html());
+        this.facetItemTemplate = $.parseHTML($('#facets-advanced-item-template').html());
+        this.facetItemCheckboxTemplate = $.parseHTML($('#facets-advanced-item-checkbox-template').html());
 
         $('.facets__title', this.$facets).click(this.clickHandler.bind(this));
     }
@@ -78,6 +79,24 @@
         return $facetItem;
     }
 
+    FacetsAdvanced.prototype.createItemCheckbox = function (facetItem, id) {
+        var $facetItem = $(this.facetItemCheckboxTemplate).clone();
+        var namedId = facetItem.id ? facetItem.id : 'facet-item-checkbox-' + id;
+        var callback = facetItem.callback ? facetItem.callback : this.globalCallback;
+        $('.facets__checkbox', $facetItem)
+            .attr('id', namedId)
+            .change((function ($facetItem, facetItem) {
+                return function (event) {
+                    callback(event, $facetItem, facetItem);
+                }
+            })($facetItem, facetItem));
+        if (facetItem.active) {
+            $('.facets__checkbox', $facetItem).prop('checked', true);
+        }
+        $('.facets__label', $facetItem).html(facetItem.title).attr('for', namedId);
+        return $facetItem;
+    }
+
     FacetsAdvanced.prototype.show = function (facets) {
         this.$facetsContainer.html('');
         for (var groupKey in facets) {
@@ -86,7 +105,12 @@
 
             for (var itemKey in facetGroup.facets) {
                 var facetItem = facetGroup.facets[itemKey];
-                var $facetItem = this.createItem(facetItem);
+                if (facetItem.type == 'checkbox') {
+                    var $facetItem = this.createItemCheckbox(facetItem, itemKey);
+                }
+                else {
+                    var $facetItem = this.createItem(facetItem, itemKey);
+                }
 
                 $('.facets__list', $facetGroup).append($facetItem);
             }

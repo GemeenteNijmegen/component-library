@@ -20,8 +20,8 @@ Look at the example to see how the data needs to be formatted that you can feed 
         title: 'Document type',
         expanded: 'true',
         facets: [
-            { title: 'PDF document (10)', url: '#pdf', active: true },
-            { title: 'Webpage (5)', callback: callbackFunction}
+            { title: 'PDF document (10)', url: '#pdf', active: true, type: checkbox },
+            { title: 'Webpage (5)', callback: callbackFunction, type: checkbox}
         ]
     },
     {
