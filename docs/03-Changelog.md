@@ -8,6 +8,10 @@ All notable changes to this project will be documented in this file.<br>
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [3.0.0] - 2019-08
+### Added
+- _Component [facets advanced]({{ componentPath '@facets-advanced' }})_:
+  Advanced facets with collapsible groups and checkboxes
+
 ### Changed
 - _Component [navbar primary]({{ componentPath '@navbar-primary' }})_:
   Added the new autocomplete component to the navbar and it now uses Pandosearch
@@ -47,6 +51,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Change p in example to div
 - _Component [select]({{ componentPath '@select' }})_:
   Improved accessibility for the select component
+- _Component [progressbar]({{ componentPath '@progressbar' }})_:
+  Added better example
 
 ## [2.0.0] - 2018-06
 ### Added
@@ -210,6 +216,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Use h1 element in the example
 - _Component [autocomplete]({{ componentPath '@autocomplete' }})_:
   Change icon from i to span
+- _Component [popovers]({{ componentPath '@popovers' }})_:
+  Set status to prototype
 
 ### Removed
 - _Component [popovers]({{ componentPath '@popovers' }})_:

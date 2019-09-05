@@ -1,0 +1,12 @@
+<script>
+    $(document).ready(function () {
+        var progress = 0;
+        setInterval(function () {
+            progress += 10;
+            if (progress > 100) {
+                progress = 0;
+            }
+            $('#progress-example .progress-bar').width(progress + '%').attr('aria-valuenow', progress);
+        }, 1000);
+    });
+</script>

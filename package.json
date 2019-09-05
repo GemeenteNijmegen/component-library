@@ -6,8 +6,8 @@
   "repository": "https://github.com/Enrise/nijmegen-component-library",
   "license": "UNLICENSED",
   "dependencies": {
-    "@frctl/fractal": "^1.1.4",
-    "@frctl/mandelbrot": "^1.1.0",
+    "@frctl/fractal": "^1.2.0",
+    "@frctl/mandelbrot": "^1.2.1",
     "compare-versions": "^3.3.1",
     "del": "^3.0.0",
     "gulp": "^4.0.0",
@@ -32,8 +32,10 @@
   "devDependencies": {
     "eslint": "^5.4.0",
     "fs": "^0.0.1-security",
+    "glob": "^7.1.4",
     "gulp-edit-xml": "^3.0.0",
-    "jest": "^23.5.0",
+    "html-validator": "^4.1.1",
+    "jest": "^24.9.0",
     "prettier": "^1.13.5"
   }
 }
