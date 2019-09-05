@@ -14,6 +14,7 @@ init: intro do-build do-init do-show-commands
 build: intro do-build do-show-commands
 start: intro do-start
 stop: intro do-stop
+test: intro do-test
 update-project: intro do-run-updates do-start
 gitlab: intro do-checkout-mr do-run-updates do-start
 update-icons: intro do-update-icons do-start
@@ -30,6 +31,7 @@ do-show-commands:
 	@echo "    make init                         Initialise the project for development."
 	@echo "    make start                        Start container."
 	@echo "    make stop                         Stop container."
+	@echo "    make test                         Run jest tests."
 	@echo "    make update-project               Update npm packages."
 	@echo "    make gitlab MR=<number>           Check out a PR from GitLab and update the project."
 	@echo "    make update-icons                 Update icons (only needed when an update of the icons dependency has been done)."
@@ -52,6 +54,10 @@ do-start:
 do-stop:
 	@echo "\n=== Stop container ===\n"
 	docker-compose down
+
+do-test:
+	@echo "\n=== Run jest tests ===\n"
+	docker-compose run --rm frontend npm test
 
 do-checkout-mr:
 ifndef MR
