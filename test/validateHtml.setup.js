@@ -1,6 +1,6 @@
 const handlebars = require('handlebars');
 
-const mockPartials = ['@tpl-popover'];
+const mockPartials = ['@tpl-popover', '@progressbar-example-scripts'];
 const mockHelpers = [
     { name: 'render', return: '' },
     { name: 'mdbootstrapPath', return: 'http://mock/' },
