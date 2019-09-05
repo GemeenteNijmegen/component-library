@@ -1,4 +1,0 @@
-changes:
-  - type: added #changed, removed, added
-    component: facets-advanced
-    description: Advanced facets with collapsible groups and checkboxes

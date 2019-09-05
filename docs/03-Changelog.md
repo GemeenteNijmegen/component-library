@@ -8,6 +8,10 @@ All notable changes to this project will be documented in this file.<br>
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [3.0.0] - 2019-08
+### Added
+- _Component [facets advanced]({{ componentPath '@facets-advanced' }})_:
+  Advanced facets with collapsible groups and checkboxes
+
 ### Changed
 - _Component [navbar primary]({{ componentPath '@navbar-primary' }})_:
   Added the new autocomplete component to the navbar and it now uses Pandosearch
