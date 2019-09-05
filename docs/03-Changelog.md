@@ -53,6 +53,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   Improved accessibility for the select component
 - _Component [progressbar]({{ componentPath '@progressbar' }})_:
   Added better example
+- *Component:* [navbar primary]({{ componentPath '@navbar-primary' }})  
+  *Description:* Added missing alt attribute
+- *Component:* [sidenav]({{ componentPath '@sidenav' }})  
+  *Description:* Moved div outside of ul
+- *Component:* [stepper]({{ componentPath '@stepper' }})  
+  *Description:* Removed `role="form"` and added action to form
+- *Component:* [timepicker]({{ componentPath '@timepicker' }})  
+  *Description:* Made inputs self-closing
 
 ## [2.0.0] - 2018-06
 ### Added
