@@ -61,6 +61,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   *Description:* Removed `role="form"` and added action to form
 - *Component:* [timepicker]({{ componentPath '@timepicker' }})  
   *Description:* Made inputs self-closing
+- *Component:* [autocomplete]({{ componentPath '@autocomplete' }})  
+  *Changes:* **CSS**, **HTML**, **JS**  
+  *Description:* Added option to show section headers
+- *Component:* [navbar primary--default]({{ componentPath '@navbar-primary--default' }})  
+  *Changes:* **HTML**, **JS**  
+  *Description:* Added section headers to the pandosearch autocomplete results
 
 ## [2.0.0] - 2018-06
 ### Added

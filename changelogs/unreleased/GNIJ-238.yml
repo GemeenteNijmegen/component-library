@@ -1,9 +1,0 @@
-changes:
-  - type: changed #changed, removed, added
-    component: autocomplete
-    description: Added option to show section headers
-    what: [JS, HTML, CSS]
-  - type: changed #changed, removed, added
-    component: navbar-primary--default
-    description: Added section headers to the pandosearch autocomplete results
-    what: [JS, HTML]
