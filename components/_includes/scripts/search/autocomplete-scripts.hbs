@@ -2,6 +2,7 @@
     function Autocomplete() {
         this.$resultsList;
         this.resultItemTemplate;
+        this.resultHeaderTemplate;
         this.getResults;
         this.currentItem = -1;
         this.numberOfItems = 0;
@@ -24,6 +25,7 @@
     Autocomplete.prototype.init = function (getResultsFn) {
         this.$resultsList = $('#autocomplete-results');
         this.resultItemTemplate = $.parseHTML($('#autocomplete-result-template').html());
+        this.resultHeaderTemplate = $.parseHTML($('#autocomplete-section-header-template').html());
         this.getResults = getResultsFn;
 
         $('#suggest-search-query').on('keydown keyup', this.inputKeyHandle.bind(this));
@@ -58,7 +60,7 @@
         this.$resultsList.html('');
         this.$resultsList.show();
         this.$resultsList.attr('role', 'listbox');
-        this.numberOfItems = results.length;
+        this.numberOfItems = results.filter(result => !result.header).length;
         this.currentItem = -1;
         $('.autocomplete .autocomplete__search-button').hide();
         $('#autocomplete-search-results-announcer').text(this.query ? `Er zijn ${results.length} zoekresultaten gevonden voor de zoekterm: ${this.query}` : '');
@@ -69,15 +71,22 @@
             return;
         }
 
+        var itemNr = 0;
         for (var key in results) {
-            var resultItem = $(this.resultItemTemplate).clone();
             var result = results[key];
+            if (result.header) {
+                var resultHeader = $(this.resultHeaderTemplate).clone();
+                resultHeader.text(result.header);
+                this.$resultsList.append(resultHeader);
+                continue;
+            }
+            var resultItem = $(this.resultItemTemplate).clone();
             $('.autocomplete__result-link', resultItem)
                 .html(result.title)
                 .attr('href', result.url)
-                .attr('id', 'result-item-' + key)
+                .attr('id', 'result-item-' + itemNr)
                 .mouseenter(this.itemMouseHandle.bind(this));
-
+            itemNr++;
             if (result.class) {
                 $('.autocomplete__result-link', resultItem).addClass(result.class);
             }
@@ -87,14 +96,17 @@
         this.searching = false;
     }
 
-    Autocomplete.prototype.selectItem = function () {
+    Autocomplete.prototype.selectItem = function (scrollToElement = false) {
         $('.autocomplete__result-link', this.$resultsList).removeClass('active').removeAttr('aria-selected');
 
         if (this.currentItem < 0) {
             return;
         }
-        var selectedItem = $('.autocomplete__result-item', this.$resultsList)[this.currentItem];
-        $('.autocomplete__result-link', selectedItem).addClass('active').attr('aria-selected', 'true');
+        var selectedItem = $('#result-item-' + this.currentItem);
+        selectedItem.addClass('active').attr('aria-selected', 'true');
+        if (scrollToElement) {
+            $(selectedItem)[0].scrollIntoView();
+        }
         $('#suggest-search-query').attr('aria-activedescendant', 'result-item-' + this.currentItem);
     }
 
@@ -113,7 +125,7 @@
                 }
                 if (this.currentItem < this.numberOfItems - 1) {
                     this.currentItem++;
-                    this.selectItem();
+                    this.selectItem(true);
                     event.preventDefault();
                 }
                 break;
@@ -121,9 +133,9 @@
                 if (event.type === 'keyup') {
                     break;
                 }
-                if (this.currentItem >= 0) {
+                if (this.currentItem > 0) {
                     this.currentItem--;
-                    this.selectItem();
+                    this.selectItem(true);
                     event.preventDefault();
                 }
                 break;

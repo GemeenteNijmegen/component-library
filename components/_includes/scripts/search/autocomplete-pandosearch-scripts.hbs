@@ -19,7 +19,7 @@
                 });
 
             // Get hits from raw search results
-            var hits = Array.isArray(rawResults.hits) 
+            var hits = Array.isArray(rawResults.hits)
                 ? rawResults.hits
                     .map(function (hit) {
                         return {
@@ -28,8 +28,14 @@
                         }
                     })
                 : [];
-
-            callback(suggestions.concat(hits));
+            var result = [];
+            if (hits.length) {
+                result = result.concat({ header: 'Zoekresultaten:' }, hits);
+            }
+            if (suggestions.length) {
+                result = result.concat({ header: 'Zoeksuggesties:' }, suggestions);
+            }
+            callback(result);
         });
     }
 </script>
