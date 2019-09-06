@@ -17,6 +17,9 @@
 
         var results = rawResults
             .slice(0, Math.ceil(Math.random() * 6));
+        if (results[results.length - 1].header) {
+            results.pop();
+        }
         callback(results);
     }
 </script>
