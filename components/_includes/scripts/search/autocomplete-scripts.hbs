@@ -60,10 +60,14 @@
         this.$resultsList.html('');
         this.$resultsList.show();
         this.$resultsList.attr('role', 'listbox');
-        this.numberOfItems = results.filter(result => !result.header).length;
+        this.numberOfItems = results.filter(function (result) { return !result.header; }).length;
         this.currentItem = -1;
         $('.autocomplete .autocomplete__search-button').hide();
-        $('#autocomplete-search-results-announcer').text(this.query ? `Er zijn ${results.length} zoekresultaten gevonden voor de zoekterm: ${this.query}` : '');
+        $('#autocomplete-search-results-announcer').text(
+            this.query
+                ? 'Er zijn ' + results.length + ' zoekresultaten gevonden voor de zoekterm: ' + this.query
+                : ''
+        );
 
         if (results.length === 0) {
             this.closeResults();
@@ -96,7 +100,7 @@
         this.searching = false;
     }
 
-    Autocomplete.prototype.selectItem = function (scrollToElement = false) {
+    Autocomplete.prototype.selectItem = function (scrollToElement) {
         $('.autocomplete__result-link', this.$resultsList).removeClass('active').removeAttr('aria-selected');
 
         if (this.currentItem < 0) {
