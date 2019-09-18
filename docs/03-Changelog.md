@@ -67,6 +67,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - *Component:* [navbar primary--default]({{ componentPath '@navbar-primary--default' }})  
   *Changes:* **HTML**, **JS**  
   *Description:* Added section headers to the pandosearch autocomplete results
+- *Component:* [searchresults template]({{ componentPath '@searchresults-template' }})  
+  *Description:* Added reference to the pagination component
 
 ## [2.0.0] - 2018-06
 ### Added
