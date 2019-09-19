@@ -1,0 +1,20 @@
+version: "3"
+services:
+  frontend:
+    image: node:8-alpine
+    command: ""
+    volumes:
+      - ./:/app
+    working_dir: /app
+    environment:
+      NODE_ENV: development
+      HTML_VALIDATOR_URL: http://html-validator:8888
+    networks:
+      - nijmegen
+  html-validator:
+    image: validator/validator:latest
+    networks:
+      - nijmegen
+
+networks:
+  nijmegen:
