@@ -1,4 +1,0 @@
-changes:
-  - type: changed #changed, removed, added
-    component: facets
-    description: Fixed active-icon in edge

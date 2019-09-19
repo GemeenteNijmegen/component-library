@@ -75,6 +75,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - *Component(s):* [no title-link]({{ componentPath '@no-title-link' }}), [title link]({{ componentPath '@title-link' }})  
   *Changes:* **CSS**, **HTML**  
   *Description:* Added underline to links
+- *Component(s):* [facets]({{ componentPath '@facets' }})  
+  *Description:* Fixed active-icon in edge
 
 ## [2.0.0] - 2018-06
 ### Added
