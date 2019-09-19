@@ -83,7 +83,7 @@
             overflow: auto;
         }
 
-        &__search-button {
+        &__search-button, &__clear-button {
             background-color: transparent;
             border: 0;
             font-size: to-rem(24);
@@ -92,7 +92,9 @@
             position: absolute;
             right: 0;
             top: calc(50% - 12px);
+        }
 
+        &__search-button {
             &:hover {
                 cursor: default;
             }
@@ -106,7 +108,7 @@
             height: 2rem;
             margin-left: 0;
             margin-right: 0;
-            padding: 0.5rem 30px 0.5rem 0;
+            padding: 0.5rem to-rem(30) 0.5rem 0;
             width: 100%;
             box-sizing: border-box;
 
@@ -630,7 +632,7 @@
                     margin: .5rem 1rem;
                     width: calc(100% - 2rem);
                     border-bottom: 0;
-                    padding-right: to-rem(50);
+                    padding-right: to-rem(75);
 
                     &:focus {
                         border-bottom: 0;
@@ -641,6 +643,11 @@
                     display: none;
                     right: 1rem;
                     top: calc(50% - 10px);
+                }
+
+                &__clear-button {
+                    position: absolute;
+                    right: 4rem;
                 }
 
                 &__result-list {
@@ -672,6 +679,8 @@
             width: auto;
             text-align: right;
             right: 1rem;
+            padding-bottom: 5px;
+            line-height: 20px;
         }
 
         &.search-open {
@@ -703,15 +712,15 @@
                 background-color: color('nijmegen-brand', 'base');
             }
 
-            &__result-link {
-                color: white;
+            &__result-link, &__section-header {
+                color: color('white', 'base');
             }
         }
     }
 
     .navbar.navbar-light {
         .navbar__search {
-            background-color: white;
+            background-color: color('white', 'base');;
         }
 
         .navbar__search-button, .navbar__search-close-button {

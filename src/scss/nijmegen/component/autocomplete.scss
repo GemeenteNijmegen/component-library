@@ -16,6 +16,10 @@
         }
     }
 
+    &__input {
+        padding-right: to-rem(30);
+    }
+
     &__result-link {
         transition: none;
         color: $body-color;
@@ -40,11 +44,6 @@
             @include mdi('arrow-right');
             font-size: to-rem(16);
             padding-right: .5rem
-            // position: absolute;
-            // top: .6rem;
-            // left: .5rem;
-            // display:block;
-            // line-height: 1.5rem;
         }
 
         &.search::before {
@@ -60,7 +59,7 @@
         font-size: to-rem(22);
     }
 
-    &__search-button {
+    &__search-button, &__clear-button {
         background-color: transparent;
         border: 0;
         position: relative;
@@ -71,6 +70,12 @@
         height: 25px;
         box-sizing: content-box;
 
+        &.--hide {
+            display: none;
+        }
+    }
+
+    &__search-button {
         &:hover {
             cursor: default;
         }
