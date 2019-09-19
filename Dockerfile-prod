@@ -1,4 +1,4 @@
-FROM node:8.15.1-alpine as builder
+FROM node:10-alpine as builder
 ARG NODE_ENV=production
 
 RUN apk add --no-cache git
