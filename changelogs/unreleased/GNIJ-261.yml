@@ -1,7 +1,7 @@
 changes:
   - type: changed #changed, removed, added
     component:
-      [cards-filename, card-services, cards-services-no-icon, cards-news]
+      [cards-filename, cards-services, cards-services-no-icon, cards-news]
     description: Added underline to read-more link
     what: [HTML, CSS]
   - type: changed #changed, removed, added
