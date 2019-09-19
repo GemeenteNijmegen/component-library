@@ -67,7 +67,6 @@
     };
 
     Autocomplete.prototype.show = function (results) {
-        console.log(results);
         clearTimeout(this.closeTimeoutId);
         this.searchResults = results;
         this.$resultsList.html('');
