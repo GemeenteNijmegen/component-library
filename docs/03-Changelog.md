@@ -77,6 +77,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   *Description:* Added underline to links
 - *Component(s):* [facets]({{ componentPath '@facets' }})  
   *Description:* Fixed active-icon in edge
+- *Component(s):* [autocomplete]({{ componentPath '@autocomplete' }})  
+  *Changes:* **JS**  
+  *Description:* Fixed issues with IE11
 
 ## [2.0.0] - 2018-06
 ### Added
