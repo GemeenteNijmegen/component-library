@@ -36,6 +36,8 @@
     "gulp-edit-xml": "^3.0.0",
     "html-validator": "^4.1.1",
     "jest": "^24.9.0",
+    "jquery": "^3.4.1",
+    "jshint": "^2.10.2",
     "prettier": "^1.13.5"
   }
 }
