@@ -1,9 +1,0 @@
-changes:
-  - type: changed #changed, removed, added
-    component: navbar-primary
-    description: Some styling changes for the clear input button
-    what: [CSS] # what has changed 1 or more of: [HTML, CSS, JS]
-  - type: changed #changed, removed, added
-    component: autocomplete
-    description: Added a clear input button and fixed some small issues with the headers
-    what: [HTML, JS, CSS] # what has changed 1 or more of: [HTML, CSS, JS]

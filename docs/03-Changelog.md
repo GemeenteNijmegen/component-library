@@ -80,6 +80,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - *Component(s):* [autocomplete]({{ componentPath '@autocomplete' }})  
   *Changes:* **JS**  
   *Description:* Fixed issues with IE11
+- *Component(s):* [navbar primary]({{ componentPath '@navbar-primary' }})  
+  *Changes:* **CSS**  
+  *Description:* Some styling changes for the clear input button
+- *Component(s):* [autocomplete]({{ componentPath '@autocomplete' }})  
+  *Changes:* **CSS**, **HTML**, **JS**  
+  *Description:* Added a clear input button and fixed some small issues with the headers
 
 ## [2.0.0] - 2018-06
 ### Added
