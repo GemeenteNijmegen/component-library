@@ -31,6 +31,19 @@
         $('#suggest-search-query').on('keydown keyup', this.inputKeyHandle.bind(this));
         $('#suggest-search-query').blur(this.inputBlurHandle.bind(this));
         $('#suggest-search-query').focus(this.inputFocusHandle.bind(this));
+        $('.autocomplete .autocomplete__clear-button').click((function (event) {
+            event.preventDefault();
+            this.searchResults = [];
+            this.query = null;
+            $('#suggest-search-query').val("");
+            $('#suggest-search-query').focus();
+            $('.autocomplete .autocomplete__search-button').removeClass('--hide');
+            $('.autocomplete .autocomplete__clear-button').addClass('--hide');
+        }).bind(this));
+        $('.autocomplete .autocomplete__search-button').click((function (event) {
+            event.preventDefault();
+            $('#suggest-search-query').focus();
+        }).bind(this))
     }
 
     Autocomplete.prototype.inputBlurHandle = function () {
@@ -39,7 +52,6 @@
         this.closeTimeoutId = setTimeout((function () {
             this.closeResults();
             $('.autocomplete').trigger('close');
-            $('.autocomplete .autocomplete__search-button').show();
         }).bind(this), this.closeTimeout);
     }
 
@@ -55,6 +67,7 @@
     }
 
     Autocomplete.prototype.show = function (results) {
+        console.log(results);
         clearTimeout(this.closeTimeoutId);
         this.searchResults = results;
         this.$resultsList.html('');
@@ -62,8 +75,10 @@
         this.$resultsList.attr('role', 'listbox');
         this.numberOfItems = results.filter(result => !result.header).length;
         this.currentItem = -1;
-        $('.autocomplete .autocomplete__search-button').hide();
-        $('#autocomplete-search-results-announcer').text(this.query ? `Er zijn ${results.length} zoekresultaten gevonden voor de zoekterm: ${this.query}` : '');
+        var resultsCount = results.filter(function (result) {
+            return !result.header;
+        }).length
+        $('#autocomplete-search-results-announcer').text(this.query ? `Er zijn ${resultsCount} zoekresultaten gevonden voor de zoekterm: ${this.query}` : '');
 
         if (results.length === 0) {
             this.closeResults();
@@ -72,20 +87,24 @@
         }
 
         var itemNr = 0;
+        var currentHeader = '';
         for (var key in results) {
             var result = results[key];
             if (result.header) {
                 var resultHeader = $(this.resultHeaderTemplate).clone();
                 resultHeader.text(result.header);
                 this.$resultsList.append(resultHeader);
+                currentHeader = result.header + ': ';
                 continue;
             }
             var resultItem = $(this.resultItemTemplate).clone();
+            $('.autocomplete__result-item-header', resultItem).text(currentHeader);
             $('.autocomplete__result-link', resultItem)
                 .html(result.title)
                 .attr('href', result.url)
                 .attr('id', 'result-item-' + itemNr)
-                .mouseenter(this.itemMouseHandle.bind(this));
+                .mouseenter(this.itemMouseHandle.bind(this))
+                .prepend('<span class="sr-only">' + currentHeader + '</span>');
             itemNr++;
             if (result.class) {
                 $('.autocomplete__result-link', resultItem).addClass(result.class);
@@ -118,6 +137,13 @@
 
     Autocomplete.prototype.inputKeyHandle = function (event) {
         var key = event.which || event.keyCode;
+        if (event.target.value == '') {
+            $('.autocomplete .autocomplete__search-button').removeClass('--hide');
+            $('.autocomplete .autocomplete__clear-button').addClass('--hide');
+        } else {
+            $('.autocomplete .autocomplete__search-button').addClass('--hide');
+            $('.autocomplete .autocomplete__clear-button').removeClass('--hide');
+        }
         switch (key) {
             case this.keyCodes.DOWN:
                 if (event.type === 'keyup') {
