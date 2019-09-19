@@ -56,7 +56,6 @@ jest:
     - docker:dind
   script:
     - docker-compose up -d
-    - docker-compose run --rm frontend npm ci
     - docker-compose run --rm frontend npm test
 
 # ======================
