@@ -52,9 +52,12 @@ variables:
 jest:
   stage: test
   image: node:8.15.1-alpine
+  services:
+    - docker:dind
   script:
+    - docker run --rm -d -p 80:8888 validator/validator:latest
     - npm ci
-    - npm run test
+    - HTML_VALIDATOR_URL="http://localhost" npm run test
 
 # ======================
 # Build stage

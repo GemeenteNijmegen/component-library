@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   frontend:
     build: .
@@ -7,14 +7,20 @@ services:
       - ./:/app
     environment:
       NODE_ENV: development
+      HTML_VALIDATOR_URL: http://html-validator:8888
     ports:
       - 3000:3000
     networks:
       - nijmegen
+  html-validator:
+    image: validator/validator:latest
+    networks:
+      - nijmegen
+
 networks:
   nijmegen:
     driver: bridge
     ipam:
       driver: default
       config:
-      - subnet: 192.168.84.0/24
+        - subnet: 192.168.84.0/24
