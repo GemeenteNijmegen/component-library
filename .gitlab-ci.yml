@@ -82,7 +82,7 @@ build release:
       -e CI_REGISTRY_IMAGE
       -e DOCKER_TAG
       -e STABLE_RELEASE
-      node:8.15.1-alpine
+      node:10-alpine
       /bin/sh -c "npm ci && npm run update-releases"
   only:
     - /^release\/.*$/
@@ -106,7 +106,7 @@ build test:
 
 update changelogs:
   stage: changelog
-  image: node:8.15.1-alpine
+  image: node:10-alpine
   before_script:
     - apk add --no-cache git
     - export MAJOR_VERSION_NUMBER=$(echo "${CI_COMMIT_REF_NAME}" | tail -c 2)
@@ -149,7 +149,7 @@ deploy acceptance:
       -e CI_ENVIRONMENT_URL
       -e DOCKER_TAG
       -e STABLE_RELEASE
-      node:8.15.1-alpine
+      node:10-alpine
       npm run prepare-deployment
     # Deploy the stack
     - DOCKER_HOST=tcp://127.0.0.1:50040 docker stack deploy --with-registry-auth --compose-file=docker-compose-stack.yml ${SERVICE_NAME}
@@ -178,7 +178,7 @@ deploy production:
       -e CI_ENVIRONMENT_URL
       -e DOCKER_TAG
       -e STABLE_RELEASE
-      node:8.15.1-alpine
+      node:10-alpine
       npm run prepare-deployment
     # Deploy the stack
     - DOCKER_HOST=tcp://127.0.0.1:50040 docker stack deploy --with-registry-auth --compose-file=docker-compose-stack.yml ${SERVICE_NAME}
