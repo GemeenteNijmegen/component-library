@@ -8,8 +8,8 @@ https://material.io/archive/guidelines/components/steppers.html#steppers-types-o
 
 ### Accessibility
 
-Make sure that the step bar has the right `aria-label` attributes applied to them. For the current step we expect
-the tab to have `aria-label="Actieve stap"`, and when the step is completed `aria-label="Voltooide stap"`.
+Make sure that the step bar has the right text in the span identified by by the class `step-status`. This helps screenreader users to hear on which step they are.
+For the current step we expect the tab to have the text "Actieve stap", and when the step is completed "Voltooide stap".
 
 ### Using
 
@@ -38,6 +38,6 @@ The below JavaScript is required to use the Stepper component and should be plac
 ### Notes
 
 * When renaming the `id`, `href`, `aria-controls` and/or `aria-labelledby` for your use-case, be sure to rename all occurrences
-* In the list with steps, each step has its own `aria-label` telling the status of the step
-  * For completed steps, there is an `aria-label="Voltooide stap"`
-  * For the current step, there is an `aria-label="Actieve stap"`
+* In the list with steps, each step has its own span indentified by the class `step-status` telling the status of the step
+  * For completed steps, we use the text "Voltooide stap"
+  * For the current step, we use the text "Actieve stap"
