@@ -1,4 +1,4 @@
 changes:
   - type: added #changed, removed, added
-    component: icons
+    component: [cards-filename, cards-news]
     description: Added something
