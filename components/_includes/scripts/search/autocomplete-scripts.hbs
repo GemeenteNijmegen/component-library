@@ -1,17 +1,17 @@
 <script>
     function Autocomplete() {
-        this.$resultsList;
-        this.resultItemTemplate;
-        this.resultHeaderTemplate;
-        this.getResults;
+        this.$resultsList = null;
+        this.resultItemTemplate = null;
+        this.resultHeaderTemplate = null;
+        this.getResults = null;
         this.currentItem = -1;
         this.numberOfItems = 0;
-        this.searchTimeoutId;
+        this.searchTimeoutId = null;
         this.searchTimeout = 500;
-        this.query;
+        this.query = null;
         this.searching = false;
         this.searchResults = [];
-        this.closeTimeoutId;
+        this.closeTimeoutId = null;
         this.closeTimeout = 100;
 
         this.keyCodes = {
@@ -19,7 +19,7 @@
             ESC: 27,
             UP: 38,
             DOWN: 40,
-        }
+        };
     }
 
     Autocomplete.prototype.init = function (getResultsFn) {
@@ -43,8 +43,8 @@
         $('.autocomplete .autocomplete__search-button').click((function (event) {
             event.preventDefault();
             $('#suggest-search-query').focus();
-        }).bind(this))
-    }
+        }).bind(this));
+    };
 
     Autocomplete.prototype.inputBlurHandle = function () {
         clearTimeout(this.closeTimeoutId);
@@ -53,18 +53,18 @@
             this.closeResults();
             $('.autocomplete').trigger('close');
         }).bind(this), this.closeTimeout);
-    }
+    };
 
     Autocomplete.prototype.closeResults = function () {
         this.$resultsList.html('');
         this.$resultsList.hide();
         this.$resultsList.removeAttr('role');
         $('#suggest-search-query').removeAttr('aria-activedescendant');
-    }
+    };
 
     Autocomplete.prototype.inputFocusHandle = function () {
         this.show(this.searchResults);
-    }
+    };
 
     Autocomplete.prototype.show = function (results) {
         console.log(results);
@@ -73,12 +73,17 @@
         this.$resultsList.html('');
         this.$resultsList.show();
         this.$resultsList.attr('role', 'listbox');
-        this.numberOfItems = results.filter(result => !result.header).length;
+        this.numberOfItems = results.filter(function (result) { return !result.header; }).length;
         this.currentItem = -1;
+
         var resultsCount = results.filter(function (result) {
             return !result.header;
-        }).length
-        $('#autocomplete-search-results-announcer').text(this.query ? `Er zijn ${resultsCount} zoekresultaten gevonden voor de zoekterm: ${this.query}` : '');
+        }).length;
+        $('#autocomplete-search-results-announcer').text(
+            this.query
+                ? 'Er zijn ' + resultsCount + ' zoekresultaten gevonden voor de zoekterm: ' + this.query
+                : ''
+        );
 
         if (results.length === 0) {
             this.closeResults();
@@ -113,9 +118,9 @@
         }
 
         this.searching = false;
-    }
+    };
 
-    Autocomplete.prototype.selectItem = function (scrollToElement = false) {
+    Autocomplete.prototype.selectItem = function (scrollToElement) {
         $('.autocomplete__result-link', this.$resultsList).removeClass('active').removeAttr('aria-selected');
 
         if (this.currentItem < 0) {
@@ -127,13 +132,13 @@
             $(selectedItem)[0].scrollIntoView();
         }
         $('#suggest-search-query').attr('aria-activedescendant', 'result-item-' + this.currentItem);
-    }
+    };
 
     Autocomplete.prototype.itemMouseHandle = function (event) {
         var id = event.target.id.replace('result-item-', '');
         this.currentItem = parseInt(id);
         this.selectItem();
-    }
+    };
 
     Autocomplete.prototype.inputKeyHandle = function (event) {
         var key = event.which || event.keyCode;
@@ -195,10 +200,10 @@
                 }
                 this.searchTimeoutId = setTimeout(this.search.bind(this), this.searchTimeout);
         }
-    }
+    };
 
     Autocomplete.prototype.search = function () {
         this.searching = true;
         this.getResults(this.query, this.show.bind(this));
-    }
+    };
 </script>
