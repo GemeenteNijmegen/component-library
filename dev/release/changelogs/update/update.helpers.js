@@ -119,7 +119,10 @@ const insertContent = (newContentArray, contentArray, index) => [
 ];
 
 const buildChangeItem = change => {
-    const title = `*Component:* [${change.component.replace('-', ' ')}]({{ componentPath '@${change.component}' }})`;
+    const components = (Array.isArray(change.component) ? change.component : change.component.split(','))
+        .map(component => `[${component.replace('-', ' ')}]({{ componentPath '@${component}' }})`)
+        .join(', ');
+    const title = `*Component(s):* ${components}`;
     const description = `*Description:* ${change.description}`;
     if (change.what && change.what.length > 0) {
         const what = `*Changes:* **${change.what.sort().join('**, **')}**`;

@@ -34,23 +34,23 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ## [1.0.0] - 2017-09
 ### Added
 - First stable release of the Nijmegen Component Library
-- *Component:* [hover effects]({{ componentPath '@hover-effects' }})  
+- *Component(s):* [hover effects]({{ componentPath '@hover-effects' }})  
   *Description:* Added something
-- *Component:* [icons]({{ componentPath '@icons' }})  
+- *Component(s):* [cards filename]({{ componentPath '@cards-filename' }}), [cards news]({{ componentPath '@cards-news' }})  
   *Description:* Added something
 
 ### Changed
-- *Component:* [hover effects]({{ componentPath '@hover-effects' }})  
+- *Component(s):* [hover effects]({{ componentPath '@hover-effects' }})  
   *Changes:* **CSS**, **JS**  
   *Description:* Change 1
-- *Component:* [hover effects]({{ componentPath '@hover-effects' }})  
+- *Component(s):* [hover effects]({{ componentPath '@hover-effects' }})  
   *Changes:* **HTML**, **JS**  
   *Description:* Change 2
 
 ### Removed
-- *Component:* [hover effects]({{ componentPath '@hover-effects' }})  
+- *Component(s):* [hover effects]({{ componentPath '@hover-effects' }})  
   *Description:* Removed something
-- *Component:* [alerts]({{ componentPath '@alerts' }})  
+- *Component(s):* [alerts]({{ componentPath '@alerts' }})  
   *Description:* Removed something
 `;
 

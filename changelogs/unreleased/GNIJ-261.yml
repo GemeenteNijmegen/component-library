@@ -1,0 +1,10 @@
+changes:
+  - type: changed #changed, removed, added
+    component:
+      [cards-filename, cards-services, cards-services-no-icon, cards-news]
+    description: Added underline to read-more link
+    what: [HTML, CSS]
+  - type: changed #changed, removed, added
+    component: [no-title-link, title-link]
+    description: Added underline to links
+    what: [HTML, CSS]
