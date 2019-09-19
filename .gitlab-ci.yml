@@ -51,13 +51,13 @@ variables:
 
 jest:
   stage: test
-  image: node:8.15.1-alpine
+  image: tiangolo/docker-with-compose
   services:
     - docker:dind
   script:
-    - docker run --rm -d -p 80:8888 validator/validator:latest
-    - npm ci
-    - HTML_VALIDATOR_URL="http://localhost" npm run test
+    - docker-compose up -d
+    - docker-compose run --rm frontend npm ci
+    - docker-compose run --rm frontend npm test
 
 # ======================
 # Build stage
