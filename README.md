@@ -102,7 +102,7 @@ changes:
       description: Added something...
       what: [] # what has changed 1 or more of: [HTML, CSS, JS]
     - type: removed #changed, removed, added
-      component: footer
+      component: [footer, header]
       description: Removed...
 ```
 

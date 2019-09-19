@@ -1,7 +1,7 @@
 <script>
     function SearchResults() {
-        this.resultItemTemplate;
-        this.searchResultsList;
+        this.resultItemTemplate = null;
+        this.searchResultsList = null;
     }
 
     SearchResults.prototype.init = function () {
@@ -11,7 +11,7 @@
         this.didYouMeanContainer = $('#search-didyoumean');
         this.didYouMeanTermContainer = $('#search-term-didyoumean');
         this.resultItemTemplate = $.parseHTML($('#search-results-item-template').html());
-    }
+    };
 
     SearchResults.prototype.show = function (results, searchTerm, didYouMeanTerm) {
         this.searchResultsList.html('');
@@ -34,5 +34,5 @@
             $('.search-results__item-body', resultItem).html(result.body);
             this.searchResultsList.append(resultItem);
         }
-    }
+    };
 </script>

@@ -57,6 +57,10 @@
     word-wrap: break-word;
 }
 
+.card-read-more a {
+    text-decoration: underline;
+}
+
 .card .card-body .card-text {
     color: $body-color;
     font-size: inherit;

@@ -37,6 +37,8 @@
     }
 
     a.list-group-item {
+        text-decoration: underline;
+        
         &.active {
             background-color: color('nijmegen-grey', 'lighten-1');
             color: color('nijmegen-primary', 'darken-2');

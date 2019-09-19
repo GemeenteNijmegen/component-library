@@ -3,8 +3,8 @@
 
     var autocomplete = new Autocomplete();
     $(document).ready(function () {
-        autocomplete.init(getAutocompleteResults)
-    })
+        autocomplete.init(getAutocompleteResults);
+    });
 
     function getAutocompleteResults(query, callback) {
         $.get(suggestUrl + query, function (rawResults) {
@@ -15,7 +15,7 @@
                         title: suggestion.text,
                         url: '?q=' + suggestion.text,
                         class: 'search'
-                    }
+                    };
                 });
 
             // Get hits from raw search results
@@ -25,7 +25,7 @@
                         return {
                             title: hit.title,
                             url: hit.url
-                        }
+                        };
                     })
                 : [];
             var result = [];

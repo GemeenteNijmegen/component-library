@@ -69,6 +69,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   *Description:* Added section headers to the pandosearch autocomplete results
 - *Component:* [searchresults template]({{ componentPath '@searchresults-template' }})  
   *Description:* Added reference to the pagination component
+- *Component(s):* [cards filename]({{ componentPath '@cards-filename' }}), [cards services]({{ componentPath '@cards-services' }}), [cards services-no-icon]({{ componentPath '@cards-services-no-icon' }}), [cards news]({{ componentPath '@cards-news' }})  
+  *Changes:* **CSS**, **HTML**  
+  *Description:* Added underline to read-more link
+- *Component(s):* [no title-link]({{ componentPath '@no-title-link' }}), [title link]({{ componentPath '@title-link' }})  
+  *Changes:* **CSS**, **HTML**  
+  *Description:* Added underline to links
+- *Component(s):* [facets]({{ componentPath '@facets' }})  
+  *Description:* Fixed active-icon in edge
+- *Component(s):* [autocomplete]({{ componentPath '@autocomplete' }})  
+  *Changes:* **JS**  
+  *Description:* Fixed issues with IE11
 
 ## [2.0.0] - 2018-06
 ### Added

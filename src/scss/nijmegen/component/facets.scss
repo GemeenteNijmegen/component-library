@@ -66,12 +66,11 @@
         }
 
         &.active::before{
-            content: '\25B6';
+            @include mdi('menu-right');
             color: color('nijmegen-primary', 'base');
-            font-size: to-rem(10);
             position: absolute;
             top: 0;
-            left: to-rem(-10);
+            left: -24px;
         }
     }
 }

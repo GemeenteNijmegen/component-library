@@ -15,7 +15,7 @@
         }
         $('#facets .facets__item').removeClass('active');
         console.log(facetItem.title + ' is selected');
-        $facetItem.addClass('active')
+        $facetItem.addClass('active');
         event.preventDefault();
     }
 
@@ -41,5 +41,5 @@
 
         facets.init('#facets', facetClickHandler);
         facets.show(facetData);
-    })
+    });
 </script>
