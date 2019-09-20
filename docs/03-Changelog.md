@@ -86,6 +86,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - *Component(s):* [autocomplete]({{ componentPath '@autocomplete' }})  
   *Changes:* **CSS**, **HTML**, **JS**  
   *Description:* Added a clear input button and fixed some small issues with the headers
+- *Component(s):* [facets]({{ componentPath '@facets' }}), [facets advanced]({{ componentPath '@facets-advanced' }})  
+  *Changes:* **CSS**, **JS**  
+  *Description:* Hide "filter results" bar when there are no facets
 
 ## [2.0.0] - 2018-06
 ### Added
