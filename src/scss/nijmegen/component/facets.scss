@@ -1,4 +1,8 @@
 .facets {
+    &.--hide {
+        display: none;
+    }
+
     &__title{
         padding: to-rem(20) 0;
         font-size: to-rem(18);

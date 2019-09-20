@@ -10,7 +10,6 @@
     Facets.prototype.init = function (selector, globalCallback) {
         this.$facets = $(selector);
         this.$facetsContainer = $('.facets__facets', this.$facets);
-        this.$facetsContainer.addClass('hide');
 
         this.globalCallback = globalCallback;
         this.facetGroupTemplate = $.parseHTML($('#facets-group-template').html());
@@ -32,6 +31,11 @@
 
     Facets.prototype.show = function (facets) {
         this.$facetsContainer.html('');
+        if (facets && facets.length) {
+            this.$facets.removeClass('--hide');
+        } else {
+            this.$facets.addClass('--hide');
+        }
         for (var groupKey in facets) {
             var facetGroup = facets[groupKey];
             var $facetGroup = $(this.facetGroupTemplate).clone();

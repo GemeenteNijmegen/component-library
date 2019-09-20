@@ -99,6 +99,11 @@
 
     FacetsAdvanced.prototype.show = function (facets) {
         this.$facetsContainer.html('');
+        if (facets && facets.length) {
+            this.$facets.removeClass('--hide');
+        } else {
+            this.$facets.addClass('--hide');
+        }
         for (var groupKey in facets) {
             var facetGroup = facets[groupKey];
             var $facetGroup = this.createGroup(facetGroup, groupKey);
