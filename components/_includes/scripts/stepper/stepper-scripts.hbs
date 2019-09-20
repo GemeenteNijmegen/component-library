@@ -3,7 +3,7 @@
         var isValid = true;
         for (var i = 0; i < currentInputs.length; i++) {
             $(currentInputs[i]).addClass("valid");
-            if (!currentInputs[i].validity.valid){
+            if (!currentInputs[i].validity.valid) {
                 isValid = false;
 
                 // Only show a required input is invalid for the current input or when validating all required
@@ -28,11 +28,14 @@
     }
 
     function setNavigationItemStatuses(navigationListItems, navigationStep, currentStepNumber, stepCount, validSteps) {
-        navigationStep.prevAll().removeClass('disabled').addClass('completed').removeClass('active').attr('aria-label', 'Voltooide stap');
-        navigationStep.removeClass('disabled').removeClass('completed').addClass('active').attr('aria-label', 'Actieve stap');
+        navigationStep.prevAll().removeClass('disabled').addClass('completed').removeClass('active');
+        $('.step-status', navigationStep.prevAll()).text('Voltooide stap');
+        navigationStep.removeClass('disabled').removeClass('completed').addClass('active');
+        $('.step-status', navigationStep).text('Actieve stap');
         var currentStepIsValid = isValidStep(currentStepNumber, validSteps);
         if (!currentStepIsValid) {
-            navigationStep.nextAll().addClass('disabled').removeClass('active').removeClass('completed').removeAttr('aria-label');
+            navigationStep.nextAll().addClass('disabled').removeClass('active').removeClass('completed');
+            $('.step-status', navigationStep.nextAll()).text('');
             return;
         }
 
@@ -40,11 +43,14 @@
         var previousStepValid = true;
         for (var i = currentStepNumber + 1; i <= stepCount; i++) {
             if (isValidStep(i, validSteps) && previousStepValid) {
-                navigationListItems.eq(i - 1).parent().removeClass('disabled').addClass('completed').attr('aria-label', 'Voltooide stap');
+                navigationListItems.eq(i - 1).parent().removeClass('disabled').addClass('completed');
+                $('.step-status', navigationListItems.eq(i - 1).parent()).text('Voltooide stap');
             } else if (previousStepValid) {
-                navigationListItems.eq(i - 1).parent().removeClass('disabled').removeClass('completed').removeAttr('aria-label');
+                navigationListItems.eq(i - 1).parent().removeClass('disabled').removeClass('completed');
+                $('.step-status', navigationListItems.eq(i - 1).parent()).text('');
             } else {
-                navigationListItems.eq(i - 1).parent().addClass('disabled').removeClass('completed').removeAttr('aria-label');
+                navigationListItems.eq(i - 1).parent().addClass('disabled').removeClass('completed');
+                $('.step-status', navigationListItems.eq(i - 1).parent()).text('');
             }
             previousStepValid = isValidStep(i, validSteps) && previousStepValid;
         }
@@ -112,7 +118,7 @@
 
         allContent.hide();
 
-        stepperFormInputs.on('change keyup paste', function(event) {
+        stepperFormInputs.on('change keyup paste', function (event) {
             var currentStepContent = $(this).closest(".step-content"),
                 currentStep = $('.stepper-steps li a[href="#' + currentStepContent.attr("id") + '"]').parent(),
                 currentStepNumber = parseInt(currentStepContent.attr("id").substring(13)),
@@ -165,13 +171,13 @@
             }
         });
 
-        mobileBackBtn.add(allBackBtn).click(function(){
+        mobileBackBtn.add(allBackBtn).click(function () {
             var currentStepContent = $('.stepper-steps li.active').children('.step-content'),
                 previousStep = $('.stepper-steps li a[href="#' + currentStepContent.attr("id") + '"]').parent().prev().children("a");
             previousStep.trigger('click');
         });
 
-        mobileNextBtn.add(allNextBtn).click(function(){
+        mobileNextBtn.add(allNextBtn).click(function () {
             var currentStepContent = $('.stepper-steps li.active').children('.step-content'),
                 nextStep = $('.stepper-steps li a[href="#' + currentStepContent.attr("id") + '"]').parent().next().children("a"),
                 currentInputs = currentStepContent.find("input");
@@ -183,8 +189,8 @@
 
         activeStep.trigger('click');
 
-        $(window).keydown(function(event){
-            if((event.keyCode == 13) && !$(event.target).is(
+        $(window).keydown(function (event) {
+            if ((event.keyCode == 13) && !$(event.target).is(
                 '.back-link, .backBtn, .next-link, .nextBtn, .step-link'
             )) {
                 event.preventDefault();

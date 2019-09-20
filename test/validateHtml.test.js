@@ -17,7 +17,7 @@ describe('Validate html for every component', () => {
             await validator({
                 isFragment: true,
                 data: html,
-                validator: 'http://html5.validator.nu',
+                validator: process.env.HTML_VALIDATOR_URL,
             }),
         );
         expect(result.messages).toHaveLength(0);

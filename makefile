@@ -48,7 +48,7 @@ do-init:
 
 do-start:
 	@echo "\n=== Start container ===\n"
-	docker-compose up -d
+	docker-compose up -d frontend
 	@echo "\n-> Your container is running on http://localhost:3000\n"
 
 do-stop:
@@ -56,6 +56,8 @@ do-stop:
 	docker-compose down
 
 do-test:
+	@echo "\n=== Start the validator service ===\n"
+	docker-compose up -d html-validator
 	@echo "\n=== Run jest tests ===\n"
 	docker-compose run --rm frontend npm test
 
