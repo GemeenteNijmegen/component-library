@@ -89,6 +89,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - *Component(s):* [facets]({{ componentPath '@facets' }}), [facets advanced]({{ componentPath '@facets-advanced' }})  
   *Changes:* **CSS**, **JS**  
   *Description:* Hide "filter results" bar when there are no facets
+- *Component(s):* [stepper]({{ componentPath '@stepper' }})  
+  *Changes:* **HTML**, **JS**  
+  *Description:* Use correct step status labels (aria-label was preventing the screenreader to read the rest of the step contents)
 
 ## [2.0.0] - 2018-06
 ### Added
