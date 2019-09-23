@@ -181,7 +181,7 @@
                 }
                 var link = this.defaultSearchUrl.replace('{query}', this.query);
                 if (this.currentItem >= 0) {
-                    var link = $('#result-item-' + this.currentItem, this.$resultsList).attr('href');
+                    link = $('#result-item-' + this.currentItem, this.$resultsList).attr('href');
                 }
                 window.location = link;
                 event.preventDefault();
