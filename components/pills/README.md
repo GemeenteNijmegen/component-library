@@ -13,3 +13,7 @@ In this example we defined it as a menu, see the [tabs component](tabs--pills) f
 You can mark the active element by adding the attribute `aria-current="true"`. If you have a specific use for the buttons (like page, location, date) you can use different values for `aria-current`. See [this page](http://design-patterns.tink.uk/aria-current/) for more examples.
 
 When you are using the pills as tabs you can use `aria-selected="true"` to mark the currently selected tab.
+
+### Note
+
+This component is rendered here with a example script so that you can select an item and see how it looks.
