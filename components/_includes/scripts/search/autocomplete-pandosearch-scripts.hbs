@@ -3,7 +3,7 @@
 
     var autocomplete = new Autocomplete();
     $(document).ready(function () {
-        autocomplete.init(getAutocompleteResults);
+        autocomplete.init(getAutocompleteResults, '?q={query}');
     });
 
     function getAutocompleteResults(query, callback) {
