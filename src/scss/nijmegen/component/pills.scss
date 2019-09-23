@@ -1,0 +1,62 @@
+.pills {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+
+    &__item {
+        padding: .6rem;
+    }
+
+    &__link,
+    &__button
+    {
+        padding: .5rem 1rem;
+        border-radius: 2px;
+        display: inline-block;
+        color: color('nijmegen-primary', 'base');
+        background: none;
+
+        &:hover,
+        &:focus
+        {
+            outline: none !important;   
+            background: color('nijmegen-grey', 'base');
+            
+        }
+
+        &:focus {
+            outline: 1px 
+        }
+
+        &[aria-current],
+        &[aria-selected]
+        {
+            background: color('nijmegen-primary', 'base');
+            color: color('white', 'base');
+
+            &:hover,
+            &:focus {
+                @include tab-focus-minimal;
+                outline-offset: 2px;
+                outline-width: 2px !important;
+            }
+        }
+    }
+
+    &__button {
+        border: none;
+    }
+
+    &.--secondary &__link,
+    &.--secondary &__button
+    {
+        color: color('nijmegen-brand', 'base');
+
+        &[aria-current],
+        &[aria-selected]
+        {
+            background: color('nijmegen-brand', 'base');
+            color: color('white', 'base');
+        }
+    }
+}
