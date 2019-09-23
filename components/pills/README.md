@@ -6,7 +6,7 @@ This component is for showing a set of buttons in a row. It can be used as menu 
 
 Make sure you use the right [role attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#Roles) based on the usecase.
 
-In this example we defined it as a menu, see the [tabs component](tabs) for an example where it is used as a tab.
+In this example we defined it as a menu, see the [tabs component](tabs--pills) for an example where it is used as a tab.
 
 ### Defining the active element
 

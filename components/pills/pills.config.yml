@@ -1,0 +1,9 @@
+---
+title: Pills
+notes:
+status: ready # prototype, wip, ready
+default: "primary" # http://fractal.build/guide/components/variants#the-default-variant
+variants:
+  - name: secondary
+    context:
+      modifier: --secondary
