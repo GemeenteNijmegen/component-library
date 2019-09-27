@@ -45,6 +45,7 @@ $small-screen-portrait: map-get($grid-breakpoints, 'sm');
 @import "component/multiple-upload";
 @import "component/navbars";
 @import "component/pagination";
+@import "component/pills";
 @import "component/popovers";
 @import "component/progress";
 @import "component/responsive-table";

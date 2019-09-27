@@ -1,0 +1,7 @@
+<script>
+    $('.pills__link, .pills__button').click(function (element) {
+        $('.pills__link, .pills__button').removeAttr('aria-current');
+        $(this).attr('aria-current', 'true');
+        element.preventDefault();
+    });
+</script>
