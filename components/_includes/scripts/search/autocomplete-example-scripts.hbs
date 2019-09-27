@@ -2,17 +2,17 @@
     var autocomplete = new Autocomplete();
 
     $(document).ready(function () {
-        autocomplete.init(getAutocompleteResults);
+        autocomplete.init(getAutocompleteResults, '?q={query}');
     });
 
     function getAutocompleteResults(query, callback) {
         var rawResults = [
             { header: 'Zoekresultaten:' },
-            { title: 'Finibus<em>' + query + '</em>', url: '?q=' + query },
-            { title: '<em>' + query + '</em>elementum urna', url: '?q=' + query },
+            { title: 'Finibus<em>' + query + '</em>', url: '?q=1_' + query },
+            { title: '<em>' + query + '</em>elementum urna', url: '?q=2_' + query },
             { header: 'Zoeksuggesties:' },
-            { title: 'Blandit aliquet<em>' + query + '</em>', url: '?q=' + query, class: 'search' },
-            { title: query, url: '?q=' + query, class: 'search' }
+            { title: 'Blandit aliquet<em>' + query + '</em>', url: '?q=3_' + query, class: 'search' },
+            { title: query, url: '?q=4_' + query, class: 'search' }
         ];
 
         var results = rawResults
