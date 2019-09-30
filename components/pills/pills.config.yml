@@ -6,4 +6,4 @@ default: "primary" # http://fractal.build/guide/components/variants#the-default-
 variants:
   - name: secondary
     context:
-      modifier: --secondary
+      modifier: pills--secondary

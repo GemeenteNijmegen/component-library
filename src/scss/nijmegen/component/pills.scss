@@ -48,8 +48,8 @@
         border: none;
     }
 
-    &.--secondary &__link,
-    &.--secondary &__button
+    &.pills--secondary &__link,
+    &.pills--secondary &__button
     {
         color: color('nijmegen-brand', 'base');
 
