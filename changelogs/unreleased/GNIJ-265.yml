@@ -1,0 +1,7 @@
+changes:
+  - type: added #changed, removed, added
+    component: pills
+    description: Added the pills component
+  - type: added #changed, removed, added
+    component: tabs--pills
+    description: Added an example to the tabs with the pills component

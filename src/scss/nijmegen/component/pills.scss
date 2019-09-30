@@ -22,7 +22,7 @@
         {
             outline: none !important;   
             background: color('nijmegen-grey', 'base');
-            
+            color: color('nijmegen-primary', 'darken-1');
         }
 
         &:focus {
@@ -52,6 +52,12 @@
     &.--secondary &__button
     {
         color: color('nijmegen-brand', 'base');
+
+        &:hover,
+        &:focus
+        {
+            color: color('nijmegen-brand', 'base');
+        }
 
         &[aria-current],
         &[aria-selected=true]
