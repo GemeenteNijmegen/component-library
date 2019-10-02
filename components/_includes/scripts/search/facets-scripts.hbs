@@ -32,9 +32,9 @@
     Facets.prototype.show = function (facets) {
         this.$facetsContainer.html('');
         if (facets && facets.length) {
-            this.$facets.removeClass('--hide');
+            this.$facets.removeClass('facets--hide');
         } else {
-            this.$facets.addClass('--hide');
+            this.$facets.addClass('facets--hide');
         }
         for (var groupKey in facets) {
             var facetGroup = facets[groupKey];
