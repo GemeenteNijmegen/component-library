@@ -11,6 +11,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 - _Component [facets advanced]({{ componentPath '@facets-advanced' }})_:
   Advanced facets with collapsible groups and checkboxes
+- *Component(s):* [pills]({{ componentPath '@pills' }})  
+  *Description:* Added the pills component
+- *Component(s):* [tabs -pills]({{ componentPath '@tabs--pills' }})  
+  *Description:* Added an example to the tabs with the pills component
 
 ### Changed
 - _Component [navbar primary]({{ componentPath '@navbar-primary' }})_:
