@@ -96,6 +96,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - *Component(s):* [stepper]({{ componentPath '@stepper' }})  
   *Changes:* **HTML**, **JS**  
   *Description:* Use correct step status labels (aria-label was preventing the screenreader to read the rest of the step contents)
+- *Component(s):* [listing]({{ componentPath '@listing' }})  
+  *Changes:* **CSS**  
+  *Description:* Removed extra focus border on title
 
 ## [2.0.0] - 2018-06
 ### Added
