@@ -18,6 +18,9 @@
 
     &__input {
         padding-right: to-rem(30);
+        &::-ms-clear {
+            display: none;
+        }
     }
 
     &__result-link {
@@ -69,10 +72,10 @@
         width: 25px;
         height: 25px;
         box-sizing: content-box;
+    }
 
-        &.--hide {
-            display: none;
-        }
+    &__button--hide {
+        display: none;
     }
 
     &__search-button {
