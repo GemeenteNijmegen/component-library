@@ -98,7 +98,7 @@
                 .map(function (hit) {
                     return {
                         title: hit.fields.title ? hit.fields.title : '---',
-                        body: hit.fields.body ? hit.fields.body : '---',
+                        body: hit.fields.description ? hit.fields.description : '---',
                         url: hit.url
                     };
                 })
