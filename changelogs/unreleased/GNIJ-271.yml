@@ -1,0 +1,5 @@
+changes:
+  - type: changed #changed, removed, added
+    component: autocomplete
+    description: Increase timeout so the click event will fire before closing the dropdown
+    what: [JS] # what has changed 1 or more of: [HTML, CSS, JS]
