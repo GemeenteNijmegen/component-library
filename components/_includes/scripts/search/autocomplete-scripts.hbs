@@ -12,7 +12,7 @@
         this.searching = false;
         this.searchResults = [];
         this.closeTimeoutId = null;
-        this.closeTimeout = 100;
+        this.closeTimeout = 200;
         this.defaultSearchUrl = '';
 
         this.keyCodes = {
@@ -112,8 +112,7 @@
                 .attr('href', result.url)
                 .attr('id', 'result-item-' + itemNr)
                 .mouseenter(this.itemMouseHandle.bind(this))
-                .prepend('<span class="sr-only">' + currentHeader + '</span>')
-                .click(this.navigateToItem.bind(this));
+                .prepend('<span class="sr-only">' + currentHeader + '</span>');
             itemNr++;
             if (result.class) {
                 $('.autocomplete__result-link', resultItem).addClass(result.class);
@@ -154,7 +153,6 @@
             $('.autocomplete .autocomplete__search-button').addClass('autocomplete__button--hide');
             $('.autocomplete .autocomplete__clear-button').removeClass('autocomplete__button--hide');
         }
-        console.log('Pressed key:', key); // intentionally left here to check with client
         switch (key) {
             case this.keyCodes.DOWN:
                 if (event.type === 'keyup') {
@@ -181,7 +179,12 @@
                     event.preventDefault();
                     break;
                 }
-                this.navigateToItem(event);
+                var link = this.defaultSearchUrl.replace('{query}', this.query);
+                if (this.currentItem >= 0) {
+                    link = $('#result-item-' + this.currentItem, this.$resultsList).attr('href');
+                }
+                window.location = link;
+                event.preventDefault();
                 break;
             case this.keyCodes.ESC:
                 if (event.type === 'keyup') {
@@ -210,16 +213,5 @@
     Autocomplete.prototype.search = function () {
         this.searching = true;
         this.getResults(this.query, this.show.bind(this));
-    };
-
-    Autocomplete.prototype.navigateToItem = function (event) {
-        console.log('start navigation'); // intentionally left here to check with client
-        var link = this.defaultSearchUrl.replace('{query}', this.query);
-        if (this.currentItem >= 0) {
-            link = $('#result-item-' + this.currentItem, this.$resultsList).attr('href');
-        }
-        console.log('navigate to', link); // intentionally left here to check with client
-        window.location = link;
-        event.preventDefault();
     };
 </script>
