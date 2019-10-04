@@ -1,0 +1,9 @@
+changes:
+  - type: changed #changed, removed, added
+    component: searchresults-template
+    description: It is possible to sort facets
+    what: [JS] # what has changed 1 or more of: [HTML, CSS, JS]
+  - type: changed #changed, removed, added
+    component: searchresults-template
+    description: The search results will show the description instead of the body
+    what: [JS] # what has changed 1 or more of: [HTML, CSS, JS]

@@ -21,8 +21,9 @@
         this.facetsTranslations = null;
     }
 
-    Pandosearch.prototype.init = function (facetsTranslations) {
+    Pandosearch.prototype.init = function (facetsTranslations, facetsSortingOrder) {
         this.facetsTranslations = facetsTranslations ? facetsTranslations : {};
+        this.facetsSortingOrder = facetsSortingOrder ? facetsSortingOrder : {};
 
         this.searchResultsComponent.init();
         this.facetsComponent.init(this.$facetsContainer, function () { $('.facets__title').click(); });
@@ -98,7 +99,7 @@
                 .map(function (hit) {
                     return {
                         title: hit.fields.title ? hit.fields.title : '---',
-                        body: hit.fields.body ? hit.fields.body : '---',
+                        body: hit.fields.description ? hit.fields.description : '---',
                         url: hit.url
                     };
                 })
@@ -134,9 +135,15 @@
                         title: this.translateFacetName(facet.display) + ' (' + facet.count + ')',
                         url: '?q=' + this.query + this.buildHashUrlQuery(1, facetName, facet.key),
                         active: params.facetName === facetName && params.facetValue === facet.key,
+                        sort:
+                            this.facetsSortingOrder[facet.display] != undefined
+                                ? this.facetsSortingOrder[facet.display]
+                                : 0
                     };
-                }, this);
-
+                }, this)
+                .sort(function (facet_1, facet_2) {
+                    return facet_1.sort - facet_2.sort;
+                });
             if (facetsByName.length) {
                 var facetData = {
                     name: facetName,

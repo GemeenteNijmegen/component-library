@@ -13,9 +13,18 @@
         lastday: 'Laatste dag',
     };
 
+    var facetSortingOrder = {
+        today: 1,
+        lastday: 2,
+        lastweek: 3,
+        lastmonth: 4,
+        lastyear: 5,
+        older: 6,
+    };
+
     var pandosearch = new Pandosearch(5);
     $(document).ready(function () {
-        pandosearch.init(facetsTranslations);
+        pandosearch.init(facetsTranslations, facetSortingOrder);
         pandosearch.showFacets();
         pandosearch.showHits();
 
