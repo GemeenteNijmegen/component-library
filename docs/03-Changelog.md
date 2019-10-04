@@ -99,6 +99,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - *Component(s):* [listing]({{ componentPath '@listing' }})  
   *Changes:* **CSS**  
   *Description:* Removed extra focus border on title
+- *Component(s):* [searchresults template]({{ componentPath '@searchresults-template' }})  
+  *Changes:* **JS**  
+  *Description:* It is possible to sort facets
+- *Component(s):* [searchresults template]({{ componentPath '@searchresults-template' }})  
+  *Changes:* **JS**  
+  *Description:* The search results will show the description instead of the body
 
 ## [2.0.0] - 2018-06
 ### Added
