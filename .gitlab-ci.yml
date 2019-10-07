@@ -117,8 +117,8 @@ regression:
   stage: regression
   <<: *docker-compose-login
   script:
-    - docker-compose -f docker-compose-ci.yml pull -q
-    - docker-compose -f docker-compose-ci.yml up -d frontend
+    - docker-compose -f docker-compose.ci.yml pull -q
+    - docker-compose -f docker-compose.ci.yml up -d frontend
     - docker-compose -f docker-compose.ci.yml run -T regression
   artifacts:
     paths:
