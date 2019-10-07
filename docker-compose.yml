@@ -16,6 +16,17 @@ services:
     image: validator/validator:latest
     networks:
       - nijmegen
+  regression:
+    image: enrise/puppeteer-cucumber:2.1
+    volumes:
+      - ./test/regression/features:/home/node/app/features
+      - ./test/regression/results:/home/node/app/test
+      - ./test/regression/node_modules:/home/node/app/node_modules
+    user: ${USERID:-1000}:${GROUPID:-1000}
+    networks:
+      - nijmegen
+    environment:
+      - ROOT_URL=http://frontend:3000
 
 networks:
   nijmegen:

@@ -20,6 +20,25 @@ gitlab: intro do-checkout-mr do-run-updates do-start
 update-icons: intro do-update-icons do-start
 component-listing: intro do-component-listing
 generate-changelog: intro do-generate-changelog
+test-regression: intro do-start do-regression-build do-regression-tests
+
+# ===========================
+# Snippets
+# ===========================
+
+set-ids = USERID=$$(id -u) GROUPID=$$(id -g)
+
+ifdef fail-fast
+REGRESSION_FAIL_FAST = --fail-fast
+else
+REGRESSION_FAIL_FAST = 
+endif
+
+ifdef focus
+REGRESSION_FOCUS = --tags "@focus"
+else
+REGRESSION_FOCUS = 
+endif
 
 # ===========================
 # Recipes
@@ -37,6 +56,10 @@ do-show-commands:
 	@echo "    make update-icons                       Update icons (only needed when an update of the icons dependency has been done)."
 	@echo "    make component-listing                  Build the components listing locally."
 	@echo "    make generate-changelog version=x.x.x   Generate the changelog"
+	@echo "    make generate-changelog version=x.x.x   Generate the changelog"
+	@echo "    make test-regression                    Run the regression test"
+	@echo "    make test-regression fail-fast=1        Stop on the first failure"
+	@echo "    make test-regression focus=1            Only run tests tagged with '@focus'"
 
 do-build:
 	@echo "\n=== Building container ===\n"
@@ -85,3 +108,12 @@ do-component-listing:
 do-generate-changelog:
 	@echo "\n=== Build component listing ===\n"
 	docker-compose exec frontend npm run update-changelog ${version}
+
+do-regression-build:
+	@echo "\n=== Updating node modules for testing ===\n"
+	mkdir test/regression/node_modules || true
+	${set-ids} docker-compose run --rm --entrypoint "npm install" regression
+
+do-regression-tests:
+	@echo "\n=== Running regression tests ===\n"
+	${set-ids} docker-compose run --rm regression --world-parameters "`cat test/regression/defaults.json`" ${REGRESSION_FAIL_FAST} ${REGRESSION_FOCUS} || echo "\nTests failed"

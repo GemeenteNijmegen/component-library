@@ -2,6 +2,12 @@
 
 ## Getting Started
 
+Make sure you read the following:
+- [Sprint proces](#sprint-process)
+- [Tooling](#what-tooling-do-i-need)
+- [How to start developing](#how-do-i-start-developing-for-the-fist-time)
+- [Visual regression testing](#visual-regression-testing)
+
 ### Sprint process
 
 Our default process can be found out:
@@ -32,6 +38,28 @@ make start
 ```
 
 The website should now be available on URL <http://localhost:3000>
+
+### Visual regression testing
+
+Next to the normal regression tests we use visual regression testing.
+When you change the looks of a component the tests **will propably fail***!
+
+#### how to update the reference image
+
+1. Run the regression test with: `make test-regression` or `make test-regression fail-fast=1`
+2. Check if the change is valid: `test/regression/results/screenshots/compare/<screenshotname>.png` and `test/regression/results/screenshots/diff/<screenshotname>.png`
+3. Put the file from the `screenshot/compare` folder in the `screenshot/ref` overwriting the 'wrong' reference image
+4. Run test again to see if it passes
+
+#### Only test scenario's tagged with '@focus'
+
+Tag the scenario with `@focus` and run `make test-regression focus=1`
+
+```gherkin
+    @focus
+    Scenario: test
+        When I open the component "test"
+```
 
 ### Other Commands
 
