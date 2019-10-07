@@ -14,7 +14,7 @@ services:
     image: enrise/puppeteer-cucumber:2.1
     volumes:
       - ./test/regression/features:/home/node/app/features
-      - ./screenshots:/home/node/app/test/screenshots
+      - ./test/regression/results:/home/node/app/test
     user: ${USERID:-1000}:${GROUPID:-1000}
     networks:
       - nijmegen

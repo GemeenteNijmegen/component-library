@@ -69,8 +69,8 @@ jest:
     - docker:dind
   script:
     - docker-compose -f docker-compose.test.yml up -d
-    - docker-compose -f docker-compose.test.yml run --rm frontend-test npm ci
-    - docker-compose -f docker-compose.test.yml run --rm frontend-test npm test
+    - docker-compose -f docker-compose.test.yml run --rm frontend npm ci
+    - docker-compose -f docker-compose.test.yml run --rm frontend npm test
 
 # ======================
 # Build stage
@@ -119,12 +119,10 @@ regression:
   script:
     - docker-compose -f docker-compose-ci.yml pull -q
     - docker-compose -f docker-compose-ci.yml up -d front-end
-    - mkdir screenshots
-    - chown $CURRENT_UID:$CURRENT_GID screenshots
     - docker-compose -f docker-compose.ci.yml run -T regression
   artifacts:
     paths:
-      - screenshots/
+      - test/regression/results/screenshots/
     expire_in: 1 week
 
 # ======================
