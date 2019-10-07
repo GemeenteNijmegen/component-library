@@ -124,6 +124,7 @@ regression:
     paths:
       - test/regression/results/screenshots/
     expire_in: 1 week
+    when: on_failure
 
 # ======================
 # Push stage
