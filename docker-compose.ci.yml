@@ -3,7 +3,6 @@ services:
   frontend:
     build:
       context: .
-      dockerfile: ./Dockerfile-prod
       cache_from:
         - ${FRONTEND_IMAGE}:${IMAGE_TAG}
         - ${FRONTEND_IMAGE}:latest
@@ -19,8 +18,7 @@ services:
     networks:
       - nijmegen
     environment:
-      - ROOT_URL=http://frontend
-      - COMPONENT_EXT=.html
+      - ROOT_URL=http://frontend:3000
 
 networks:
   nijmegen:
