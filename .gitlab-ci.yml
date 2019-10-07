@@ -17,7 +17,7 @@ stages:
 variables:
   DOCKER_DRIVER: overlay2
   SERVICE_NAME: componentlibrary-versioned
-  FRONTEND_IMAGE: $CI_REGISTRY_IMAGE/front-end
+  FRONTEND_IMAGE: $CI_REGISTRY_IMAGE/frontend
   IMAGE_TAG: $CI_COMMIT_REF_SLUG
   CURRENT_UID: 1000
   CURRENT_GID: 1000
@@ -62,15 +62,15 @@ variables:
 # Testing
 # ======================
 
-jest:
-  stage: test
-  image: tiangolo/docker-with-compose
-  services:
-    - docker:dind
-  script:
-    - docker-compose -f docker-compose.test.yml up -d
-    - docker-compose -f docker-compose.test.yml run --rm frontend npm ci
-    - docker-compose -f docker-compose.test.yml run --rm frontend npm test
+# jest:
+#   stage: test
+#   image: tiangolo/docker-with-compose
+#   services:
+#     - docker:dind
+#   script:
+#     - docker-compose -f docker-compose.test.yml up -d
+#     - docker-compose -f docker-compose.test.yml run --rm frontend npm ci
+#     - docker-compose -f docker-compose.test.yml run --rm frontend npm test
 
 # ======================
 # Build stage
@@ -105,9 +105,9 @@ build test:
   <<: *docker-compose-login
   script:
     - docker pull $FRONTEND_IMAGE:latest || true
-    - docker-compose -f docker-compose.ci.yml pull -q front-end || true
-    - docker-compose -f docker-compose.ci.yml build front-end
-    - docker-compose -f docker-compose.ci.yml push front-end
+    - docker-compose -f docker-compose.ci.yml pull -q frontend || true
+    - docker-compose -f docker-compose.ci.yml build frontend
+    - docker-compose -f docker-compose.ci.yml push frontend
 
 # ======================
 # Regression stage
@@ -118,7 +118,7 @@ regression:
   <<: *docker-compose-login
   script:
     - docker-compose -f docker-compose-ci.yml pull -q
-    - docker-compose -f docker-compose-ci.yml up -d front-end
+    - docker-compose -f docker-compose-ci.yml up -d frontend
     - docker-compose -f docker-compose.ci.yml run -T regression
   artifacts:
     paths:
@@ -129,7 +129,7 @@ regression:
 # Push stage
 # ======================
 
-push-front-end:
+push-frontend:
   stage: push
   <<: *docker-compose-login
   script:
