@@ -19,6 +19,11 @@ services:
       - nijmegen
     environment:
       - ROOT_URL=http://frontend:3000
-
+  wait-for-frontend:
+    image: appropriate/curl
+    networks:
+      - nijmegen
+    entrypoint: ""
+    command: timeout -t 300 sh -c -- 'until curl -f -s http://frontend:3000 > /dev/null; do sleep 1; done' || ( echo "\n\nBuild timed out" && exit 1 )
 networks:
   nijmegen:

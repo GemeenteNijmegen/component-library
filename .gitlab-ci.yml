@@ -62,15 +62,15 @@ variables:
 # Testing
 # ======================
 
-# jest:
-#   stage: test
-#   image: tiangolo/docker-with-compose
-#   services:
-#     - docker:dind
-#   script:
-#     - docker-compose -f docker-compose.jest.yml up -d
-#     - docker-compose -f docker-compose.jest.yml run --rm frontend npm ci
-#     - docker-compose -f docker-compose.jest.yml run --rm frontend npm test
+jest:
+  stage: test
+  image: tiangolo/docker-with-compose
+  services:
+    - docker:dind
+  script:
+    - docker-compose -f docker-compose.jest.yml up -d
+    - docker-compose -f docker-compose.jest.yml run --rm frontend npm ci
+    - docker-compose -f docker-compose.jest.yml run --rm frontend npm test
 
 # ======================
 # Build stage
@@ -119,6 +119,7 @@ regression:
   script:
     - docker-compose -f docker-compose.ci.yml pull -q
     - docker-compose -f docker-compose.ci.yml up -d frontend
+    - docker-compose -f docker-compose.ci.yml run -T wait-for-frontend
     - docker-compose -f docker-compose.ci.yml run -T regression --world-parameters "`cat test/regression/defaults.json`"
   artifacts:
     paths:
