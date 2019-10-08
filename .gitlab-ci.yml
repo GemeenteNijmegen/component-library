@@ -68,9 +68,9 @@ variables:
 #   services:
 #     - docker:dind
 #   script:
-#     - docker-compose -f docker-compose.test.yml up -d
-#     - docker-compose -f docker-compose.test.yml run --rm frontend npm ci
-#     - docker-compose -f docker-compose.test.yml run --rm frontend npm test
+#     - docker-compose -f docker-compose.jest.yml up -d
+#     - docker-compose -f docker-compose.jest.yml run --rm frontend npm ci
+#     - docker-compose -f docker-compose.jest.yml run --rm frontend npm test
 
 # ======================
 # Build stage
@@ -100,7 +100,7 @@ build release:
   only:
     - /^release\/.*$/
 
-build test:
+build ci:
   stage: build
   <<: *docker-compose-login
   script:
@@ -119,7 +119,7 @@ regression:
   script:
     - docker-compose -f docker-compose.ci.yml pull -q
     - docker-compose -f docker-compose.ci.yml up -d frontend
-    - docker-compose -f docker-compose.ci.yml run -T regression
+    - docker-compose -f docker-compose.ci.yml run -T regression --world-parameters "`cat test/regression/defaults.json`"
   artifacts:
     paths:
       - test/regression/results/screenshots/
