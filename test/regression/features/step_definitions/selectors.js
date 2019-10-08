@@ -5,6 +5,9 @@ const selectors = {
     'lightbox overlay': '.pswp__bg',
     button: '.btn',
     modal: '.modal',
+    'input field': 'input[type=text]',
+    'clear icon': '.autocomplete__clear-button',
+    'search icon': '.autocomplete__search-button',
 };
 
 module.exports = selectors;
