@@ -105,6 +105,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - *Component(s):* [searchresults template]({{ componentPath '@searchresults-template' }})  
   *Changes:* **JS**  
   *Description:* The search results will show the description instead of the body
+- *Component(s):* [autocomplete]({{ componentPath '@autocomplete' }})  
+  *Changes:* **JS**  
+  *Description:* Increase timeout so the click event will fire before closing the dropdown
 
 ## [2.0.0] - 2018-06
 ### Added
