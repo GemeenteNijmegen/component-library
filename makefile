@@ -116,4 +116,4 @@ do-regression-build:
 
 do-regression-tests:
 	@echo "\n=== Running regression tests ===\n"
-	${set-ids} docker-compose run --rm regression --world-parameters "`cat test/regression/defaults.json`" ${REGRESSION_FAIL_FAST} ${REGRESSION_FOCUS} || echo "\nTests failed"
+	${set-ids} docker-compose run --rm regression --parallel 10 --world-parameters "`cat test/regression/defaults.json`" ${REGRESSION_FAIL_FAST} ${REGRESSION_FOCUS} || echo "\nTests failed"
