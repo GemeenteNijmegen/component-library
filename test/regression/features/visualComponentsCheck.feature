@@ -17,7 +17,7 @@ Feature: Visual component check
             | button--info |
             | button--primary |
             | button--secondary |
-            | button-fl oating |
+            | button-floating |
             | button-horizontal-collapse |
             | cards-filename |
             | cards-news |
