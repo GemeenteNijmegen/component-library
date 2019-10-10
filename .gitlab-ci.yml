@@ -5,6 +5,8 @@
 stages:
   - test
   - build
+  - regression
+  - push
   - changelog
   - deploy
 
@@ -15,6 +17,10 @@ stages:
 variables:
   DOCKER_DRIVER: overlay2
   SERVICE_NAME: componentlibrary-versioned
+  FRONTEND_IMAGE: $CI_REGISTRY_IMAGE/frontend
+  IMAGE_TAG: $CI_COMMIT_REF_SLUG
+  CURRENT_UID: 1000
+  CURRENT_GID: 1000
 
 # ======================
 # Snippets
@@ -45,6 +51,13 @@ variables:
   only:
     - /^release\/.*$/
 
+.docker-compose-login: &docker-compose-login
+  image: tiangolo/docker-with-compose
+  services:
+    - docker:18-dind
+  before_script:
+    - echo $CI_JOB_TOKEN | docker login -u gitlab-ci-token --password-stdin $CI_REGISTRY
+
 # ======================
 # Testing
 # ======================
@@ -55,9 +68,9 @@ jest:
   services:
     - docker:dind
   script:
-    - docker-compose -f docker-compose-test.yml up -d
-    - docker-compose -f docker-compose-test.yml run --rm frontend npm ci
-    - docker-compose -f docker-compose-test.yml run --rm frontend npm test
+    - docker-compose -f docker-compose.jest.yml up -d
+    - docker-compose -f docker-compose.jest.yml run --rm frontend npm ci
+    - docker-compose -f docker-compose.jest.yml run --rm frontend npm test
 
 # ======================
 # Build stage
@@ -87,17 +100,45 @@ build release:
   only:
     - /^release\/.*$/
 
-build test:
+build ci:
   stage: build
-  image: tiangolo/docker-with-compose:latest
-  services:
-    - docker:dind
-  before_script:
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-    - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID";
+  <<: *docker-compose-login
   script:
-    - docker build . -f Dockerfile-prod
-  except:
+    - docker pull $FRONTEND_IMAGE:latest || true
+    - docker-compose -f docker-compose.ci.yml pull -q frontend || true
+    - docker-compose -f docker-compose.ci.yml build frontend
+    - docker-compose -f docker-compose.ci.yml push frontend
+
+# ======================
+# Regression stage
+# ======================
+
+regression:
+  stage: regression
+  <<: *docker-compose-login
+  script:
+    - docker-compose -f docker-compose.ci.yml pull -q
+    - docker-compose -f docker-compose.ci.yml up -d frontend
+    - docker-compose -f docker-compose.ci.yml run -T wait-for-frontend
+    - docker-compose -f docker-compose.ci.yml run -T regression --parallel 10 --world-parameters "`cat test/regression/defaults.json`"
+  artifacts:
+    paths:
+      - test/regression/results/screenshots/
+    expire_in: 1 week
+    when: on_failure
+
+# ======================
+# Push stage
+# ======================
+
+push-frontend:
+  stage: push
+  <<: *docker-compose-login
+  script:
+    - docker pull $FRONTEND_IMAGE:$IMAGE_TAG
+    - docker tag $FRONTEND_IMAGE:$IMAGE_TAG $FRONTEND_IMAGE:latest
+    - docker push $FRONTEND_IMAGE:latest
+  only:
     - /^release\/.*$/
 
 # ======================

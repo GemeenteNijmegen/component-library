@@ -1,0 +1,29 @@
+version: "3.4"
+services:
+  frontend:
+    build:
+      context: .
+      cache_from:
+        - ${FRONTEND_IMAGE}:${IMAGE_TAG}
+        - ${FRONTEND_IMAGE}:latest
+    image: ${FRONTEND_IMAGE}:${IMAGE_TAG}
+    networks:
+      - nijmegen
+  regression:
+    image: enrise/puppeteer-cucumber:2.2
+    volumes:
+      - ./test/regression/features:/home/node/app/features
+      - ./test/regression/results:/home/node/app/test
+    user: ${USERID:-1000}:${GROUPID:-1000}
+    networks:
+      - nijmegen
+    environment:
+      - ROOT_URL=http://frontend:3000
+  wait-for-frontend:
+    image: appropriate/curl
+    networks:
+      - nijmegen
+    entrypoint: ""
+    command: timeout -t 300 sh -c -- 'until curl -f -s http://frontend:3000 > /dev/null; do sleep 1; done' || ( echo "\n\nBuild timed out" && exit 1 )
+networks:
+  nijmegen:

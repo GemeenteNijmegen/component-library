@@ -9,6 +9,8 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 
+COPY . .
+
 # Expose port
 EXPOSE 3000
 

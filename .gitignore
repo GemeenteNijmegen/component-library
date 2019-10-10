@@ -11,3 +11,9 @@ node_modules
 /public/mdb-addons/
 /public/components-listing.html
 !changelogs/unreleased/.gitkeep
+
+# Regression testing
+/test/regression/results/reports
+/test/regression/results/screenshots/compare
+/test/regression/results/screenshots/diff
+/test/regression/results/screenshots/error
