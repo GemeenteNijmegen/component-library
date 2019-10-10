@@ -11,8 +11,6 @@
         this.query = null;
         this.searching = false;
         this.searchResults = [];
-        this.closeTimeoutId = null;
-        this.closeTimeout = 200;
         this.defaultSearchUrl = '';
 
         this.keyCodes = {
@@ -20,6 +18,7 @@
             ESC: 27,
             UP: 38,
             DOWN: 40,
+            TAB: 9,
         };
     }
 
@@ -32,31 +31,25 @@
             this.defaultSearchUrl = defaultSearchUrl;
         }
 
+        $(window).click(this.closeResults.bind(this));
+        $('#suggest-search-query, #autocomplete-results').click(
+            function (event) {
+                event.stopPropagation();
+            }
+        );
+
         $('#suggest-search-query').on('keydown keyup', this.inputKeyHandle.bind(this));
-        $('#suggest-search-query').blur(this.inputBlurHandle.bind(this));
         $('#suggest-search-query').focus(this.inputFocusHandle.bind(this));
+
         $('.autocomplete .autocomplete__clear-button').click((function (event) {
             event.preventDefault();
-            this.searchResults = [];
-            this.query = null;
-            $('#suggest-search-query').val("");
-            $('#suggest-search-query').focus();
-            $('.autocomplete .autocomplete__search-button').removeClass('autocomplete__button--hide');
-            $('.autocomplete .autocomplete__clear-button').addClass('autocomplete__button--hide');
+            this.clearSearchField();
         }).bind(this));
+
         $('.autocomplete .autocomplete__search-button').click((function (event) {
             event.preventDefault();
             $('#suggest-search-query').focus();
         }).bind(this));
-    };
-
-    Autocomplete.prototype.inputBlurHandle = function () {
-        clearTimeout(this.closeTimeoutId);
-        clearTimeout(this.searchTimeoutId);
-        this.closeTimeoutId = setTimeout((function () {
-            this.closeResults();
-            $('.autocomplete').trigger('close');
-        }).bind(this), this.closeTimeout);
     };
 
     Autocomplete.prototype.closeResults = function () {
@@ -66,12 +59,24 @@
         $('#suggest-search-query').removeAttr('aria-activedescendant');
     };
 
+    Autocomplete.prototype.clearSearchField = function () {
+        this.searchResults = [];
+        this.query = null;
+        $('#suggest-search-query').val("");
+        $('#suggest-search-query').focus();
+        $('.autocomplete .autocomplete__search-button').removeClass('autocomplete__button--hide');
+        $('.autocomplete .autocomplete__clear-button').addClass('autocomplete__button--hide');
+        $('#autocomplete-search-results-announcer').text('');
+        this.closeResults();
+    };
+
     Autocomplete.prototype.inputFocusHandle = function () {
-        this.show(this.searchResults);
+        if ($('#suggest-search-query').val() != '') {
+            this.autocompleteSearch();
+        }
     };
 
     Autocomplete.prototype.show = function (results) {
-        clearTimeout(this.closeTimeoutId);
         this.searchResults = results;
         this.$resultsList.html('');
         this.$resultsList.show();
@@ -82,17 +87,18 @@
         var resultsCount = results.filter(function (result) {
             return !result.header;
         }).length;
+
+        if (resultsCount === 0) {
+            this.closeResults();
+            this.searching = false;
+            return;
+        }
+
         $('#autocomplete-search-results-announcer').text(
             this.query
                 ? 'Er zijn ' + resultsCount + ' zoekresultaten gevonden voor de zoekterm: ' + this.query
                 : ''
         );
-
-        if (results.length === 0) {
-            this.closeResults();
-            this.searching = false;
-            return;
-        }
 
         var itemNr = 0;
         var currentHeader = '';
@@ -147,8 +153,7 @@
     Autocomplete.prototype.inputKeyHandle = function (event) {
         var key = event.which || event.keyCode;
         if (event.target.value == '') {
-            $('.autocomplete .autocomplete__search-button').removeClass('autocomplete__button--hide');
-            $('.autocomplete .autocomplete__clear-button').addClass('autocomplete__button--hide');
+            this.clearSearchField();
         } else {
             $('.autocomplete .autocomplete__search-button').addClass('autocomplete__button--hide');
             $('.autocomplete .autocomplete__clear-button').removeClass('autocomplete__button--hide');
@@ -190,13 +195,7 @@
                 if (event.type === 'keyup') {
                     break;
                 }
-                event.target.value = '';
-                if (this.searchResults.length > 0) {
-                    this.show([]);
-                    event.preventDefault();
-                    break;
-                }
-                $('.autocomplete').trigger('close');
+                this.clearSearchField();
                 break;
             default:
                 this.query = event.target.value;
@@ -206,11 +205,11 @@
                 if (this.searchTimeoutId) {
                     clearTimeout(this.searchTimeoutId);
                 }
-                this.searchTimeoutId = setTimeout(this.search.bind(this), this.searchTimeout);
+                this.searchTimeoutId = setTimeout(this.autocompleteSearch.bind(this), this.searchTimeout);
         }
     };
 
-    Autocomplete.prototype.search = function () {
+    Autocomplete.prototype.autocompleteSearch = function () {
         this.searching = true;
         this.getResults(this.query, this.show.bind(this));
     };
