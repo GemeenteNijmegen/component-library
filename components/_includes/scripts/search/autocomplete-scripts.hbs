@@ -32,7 +32,11 @@
         }
 
         $(window).click(this.closeResults.bind(this));
-        $('#suggest-search-query, #autocomplete-results').click(function (event) { event.stopPropagation(); })
+        $('#suggest-search-query, #autocomplete-results').click(
+            function (event) {
+                event.stopPropagation();
+            }
+        );
 
         $('#suggest-search-query').on('keydown keyup', this.inputKeyHandle.bind(this));
         $('#suggest-search-query').focus(this.inputFocusHandle.bind(this));
@@ -64,7 +68,7 @@
         $('.autocomplete .autocomplete__clear-button').addClass('autocomplete__button--hide');
         $('#autocomplete-search-results-announcer').text('');
         this.closeResults();
-    }
+    };
 
     Autocomplete.prototype.inputFocusHandle = function () {
         if ($('#suggest-search-query').val() != '') {
