@@ -108,6 +108,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - *Component(s):* [autocomplete]({{ componentPath '@autocomplete' }})  
   *Changes:* **JS**  
   *Description:* Increase timeout so the click event will fire before closing the dropdown
+- *Component(s):* [autocomplete]({{ componentPath '@autocomplete' }})  
+  *Changes:* **HTML**, **JS**  
+  *Description:* Opening and closing the autocomplete is now more robust
 
 ## [2.0.0] - 2018-06
 ### Added
