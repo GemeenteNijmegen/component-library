@@ -72,7 +72,7 @@
 
     Autocomplete.prototype.inputFocusHandle = function () {
         if ($('#suggest-search-query').val() != '') {
-            this.search();
+            this.autocompleteSearch();
         }
     };
 
@@ -205,11 +205,11 @@
                 if (this.searchTimeoutId) {
                     clearTimeout(this.searchTimeoutId);
                 }
-                this.searchTimeoutId = setTimeout(this.search.bind(this), this.searchTimeout);
+                this.searchTimeoutId = setTimeout(this.autocompleteSearch.bind(this), this.searchTimeout);
         }
     };
 
-    Autocomplete.prototype.search = function () {
+    Autocomplete.prototype.autocompleteSearch = function () {
         this.searching = true;
         this.getResults(this.query, this.show.bind(this));
     };
