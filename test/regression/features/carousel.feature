@@ -2,7 +2,6 @@ Feature: Carousel
 
     Check the visual appearance of the Carousel
 
-    @focus
     Scenario: Check the carousel
 
         Given I open the component "carousel"
