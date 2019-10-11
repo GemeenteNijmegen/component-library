@@ -1,4 +1,4 @@
-.stepper {
+.stepper-horizontal {
     &:before {
         top: 38px;
         position: absolute;
@@ -44,9 +44,10 @@
     }
 }
 
-.stepper li.active a.step-link .circle,
-.stepper li.completed a.step-link .circle {
-    background-color: color('nijmegen-primary', 'base') !important;
+.stepper-horizontal li.active a.step-link .circle,
+.stepper-horizontal li.completed a.step-link .circle {
+    color: color('white', 'base');
+    background-color: color('nijmegen-primary', 'base');
 }
 
 .stepper-horizontal li {
@@ -90,6 +91,7 @@
         padding: .6rem;
         margin: .9rem;
         position: relative;
+        text-align: center;
 
         @media (max-width: $medium-screen-portrait) {
             text-align: left;
@@ -103,6 +105,9 @@
             width: 28px;
             height: 28px;
             text-align: center;
+            display: inline-block;
+            border-radius: 50%;
+            margin-right: .5rem;
 
             &, .mdi {
                 line-height: 28px;
@@ -115,6 +120,7 @@
             margin-top: 0;
             font-weight: $font-weight-normal !important;
             color: $body-color !important;
+            white-space: nowrap;
         }
 
         &:hover {
