@@ -23,7 +23,6 @@ Feature: Visual component check
             | cards-news |
             | cards-services |
             | cards-services-no-icon |
-            | carousel |
             | checkbox |
             | date-picker |
             | footer |
