@@ -2,7 +2,6 @@ Feature: Modal
 
     The modal should open when you click the button
 
-@focus
     Scenario Outline: Click the button
 
         Given I open the component "modals--<version>"
