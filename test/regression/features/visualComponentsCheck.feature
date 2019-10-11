@@ -36,9 +36,6 @@ Feature: Visual component check
             | title-link |
             | title-no-link |
             | listing |
-            | modals--small |
-            | modals--medium |
-            | modals--large |
             | multiple-upload |
             | navbar-primary--default |
             | navbar-primary--no-search |
