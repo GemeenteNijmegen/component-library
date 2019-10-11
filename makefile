@@ -32,6 +32,8 @@ generate-changelog: intro do-generate-changelog
 
 test-regression: intro do-start do-regression-build do-regression-tests
 
+pre-commit: intro do-lint-staged do-commit-intro
+
 # ===========================
 # Snippets
 # ===========================
@@ -140,3 +142,10 @@ do-regression-build:
 do-regression-tests:
 	@echo "\n=== Running regression tests ===\n"
 	${set-ids} docker-compose run --rm regression --world-parameters "`cat test/regression/defaults.json`" ${REGRESSION_FAIL_FAST} ${REGRESSION_FOCUS} || echo "\nTests failed"
+
+do-lint-staged:
+	@echo "\n=== Checking codestyle and fixing where possible ===\n"
+	@docker-compose exec -T frontend node_modules/.bin/lint-staged
+
+do-commit-intro:
+	@echo "\n=== Committing ===\n"
