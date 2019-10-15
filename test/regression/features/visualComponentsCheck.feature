@@ -23,7 +23,6 @@ Feature: Visual component check
             | cards-news |
             | cards-services |
             | cards-services-no-icon |
-            | carousel |
             | checkbox |
             | date-picker |
             | footer |
@@ -37,9 +36,6 @@ Feature: Visual component check
             | title-link |
             | title-no-link |
             | listing |
-            | modals--small |
-            | modals--medium |
-            | modals--large |
             | multiple-upload |
             | navbar-primary--default |
             | navbar-primary--no-search |

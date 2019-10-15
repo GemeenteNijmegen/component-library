@@ -2,8 +2,15 @@ Feature: Modal
 
     The modal should open when you click the button
 
-    Scenario: Click the button
+    Scenario Outline: Click the button
 
-        Given I open the component "modals"
+        Given I open the component "modals--<version>"
         When I click on the "button"
-        Then I expect the "modal" to be visible
+        And I wait for 1 second
+        Then I expect the screenshot of "modals--<version>" matches the web page
+
+        Scenarios:
+            | version |
+            | small   |
+            | medium  |
+            | large   |
