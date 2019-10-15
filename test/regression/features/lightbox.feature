@@ -2,7 +2,6 @@ Feature: Lightbox
 
     The lightbox will show a big image
     
-    @focus
     Scenario: Show the big image
         Given I open the component "lightbox"
         When I click on the "fifth image"
