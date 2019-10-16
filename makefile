@@ -145,7 +145,7 @@ do-regression-tests:
 
 do-lint-staged:
 	@echo "\n=== Checking codestyle and fixing where possible ===\n"
-	@docker-compose exec -T frontend node_modules/.bin/lint-staged
+	@node_modules/.bin/lint-staged
 
 do-commit-intro:
 	@echo "\n=== Committing ===\n"

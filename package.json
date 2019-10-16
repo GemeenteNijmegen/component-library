@@ -27,7 +27,7 @@
     }
   },
   "lint-staged": {
-    "*.js": ["jest", "eslint --fix", "git add"]
+    "*.js": ["make test", "eslint --fix", "git add"]
   },
   "scripts": {
     "start": "gulp dev",
