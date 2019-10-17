@@ -99,7 +99,9 @@
                 .map(function (hit) {
                     return {
                         title: hit.fields.title ? hit.fields.title : '---',
-                        body: hit.fields.description ? hit.fields.description : '---',
+                        body: hit.fields.description
+                                ? hit.fields.description
+                                : (hit.fields.body ? hit.fields.body : '---'),
                         url: hit.url
                     };
                 })
