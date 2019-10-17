@@ -49,9 +49,9 @@
 
     Autocomplete.prototype.clickOutside = function (event) {
         if (!$(event.target).closest('.autocomplete').length) {
-            this.closeResults()
+            this.closeResults();
         }
-    }
+    };
 
     Autocomplete.prototype.closeResults = function () {
         this.$resultsList.html('');
