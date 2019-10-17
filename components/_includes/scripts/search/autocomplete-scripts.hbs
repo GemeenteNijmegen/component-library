@@ -31,12 +31,7 @@
             this.defaultSearchUrl = defaultSearchUrl;
         }
 
-        $(window).click(this.closeResults.bind(this));
-        $('#suggest-search-query, #autocomplete-results').click(
-            function (event) {
-                event.stopPropagation();
-            }
-        );
+        $(document).on('click', this.clickOutside.bind(this));
 
         $('#suggest-search-query').on('keydown keyup', this.inputKeyHandle.bind(this));
         $('#suggest-search-query').focus(this.inputFocusHandle.bind(this));
@@ -51,6 +46,12 @@
             $('#suggest-search-query').focus();
         }).bind(this));
     };
+
+    Autocomplete.prototype.clickOutside = function (event) {
+        if (!$(event.target).closest('.autocomplete').length) {
+            this.closeResults()
+        }
+    }
 
     Autocomplete.prototype.closeResults = function () {
         this.$resultsList.html('');
