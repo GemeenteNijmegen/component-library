@@ -9,7 +9,6 @@
 
     &__result-item {
         font-size: to-rem(18);
-        word-break: break-all;
 
         &:not(:last-of-type) {
             border-bottom: 1px solid color('nijmegen-grey', 'base');
@@ -26,7 +25,7 @@
     &__result-link {
         transition: none;
         color: $body-color;
-        padding: .5rem 1rem;
+        padding: .5rem 1rem .5rem 2rem;
         display: block;
         position: relative;
 
@@ -43,15 +42,21 @@
             color: color('white', 'base');
         }
 
-        &::before{
+        &::before {
             @include mdi('arrow-right');
-            font-size: to-rem(16);
-            padding-right: .5rem
         }
 
         &.search::before {
             @include mdi('magnify');
+        }
+
+        &::before, &.search::before{
             font-size: to-rem(16);
+            line-height: to-rem(18*1.5);
+            display: block;
+            position: absolute;
+            top: .5rem;
+            left: .5rem;
         }
     }
 
