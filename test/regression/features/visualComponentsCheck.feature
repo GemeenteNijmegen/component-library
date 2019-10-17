@@ -30,7 +30,7 @@ Feature: Visual component check
             | icons |
             | input |
             | textarea |
-            | light-box |
+            | lightbox |
             | no-title-link |
             | no-title-no-link |
             | title-link |

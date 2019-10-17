@@ -9,64 +9,64 @@ const sourcemaps = require('gulp-sourcemaps');
 const through = require('through2');
 
 const vendorPath = 'src/vendor';
-const mdbootstrapPath = 'src/mdbootstrap-pro/v4.5.9';
+const mdbootstrapPath = 'src/mdbootstrap-pro/v4.8.10';
 const materialdesigniconsPath = 'node_modules/mdi';
 const materialdesigniconsFontPath = materialdesigniconsPath + '/fonts';
 
 const buildMode = gutil.env.env || 'dev'; // dev || prod
 
 function stripSourceMappingURL() {
-  return through.obj(function(file, enc, cb) {
-    if (!file.isNull()) {
-      var src = file.contents.toString('utf8');
-      var re = /(^\/\/# sourceMappingURL=.*)/m;
-      src = src.replace(re, "");
-      file.contents = new Buffer(src.trim());
-    }
-    this.push(file);
-    cb();
-  });
+    return through.obj(function(file, enc, cb) {
+        if (!file.isNull()) {
+            var src = file.contents.toString('utf8');
+            var re = /(^\/\/# sourceMappingURL=.*)/m;
+            src = src.replace(re, '');
+            file.contents = new Buffer(src.trim());
+        }
+        this.push(file);
+        cb();
+    });
 }
 
 /*
  * Fractal
  */
 gulp.task('fractal:start', function() {
-  const fractal = require('./fractal.js');
-  fractal._config.env = buildMode === 'dev' ? 'development' : 'production';
-  const logger = fractal.cli.console;
-  const server = fractal.web.server({
-    sync: true
-  });
+    const fractal = require('./fractal.js');
+    fractal._config.env = buildMode === 'dev' ? 'development' : 'production';
+    const logger = fractal.cli.console;
+    const server = fractal.web.server({
+        sync: true,
+    });
 
-  server.on('error', err => logger.error(err.message));
-  return server.start().then(() => {
-    logger.success(`Fractal server is now running at ${server.url}`);
-  });
+    server.on('error', err => logger.error(err.message));
+    return server.start().then(() => {
+        logger.success(`Fractal server is now running at ${server.url}`);
+    });
 });
 
 /*
  * Generate a static build of the complete component library
  */
 gulp.task('fractal:build', function() {
-  const fractal = require('./fractal.js');
-  const logger = fractal.cli.console;
-  const builder = fractal.web.builder();
+    const fractal = require('./fractal.js');
+    const logger = fractal.cli.console;
+    const builder = fractal.web.builder();
 
-  builder.on('progress', (completed, total) => logger.update(`Exported ${completed} of ${total} items`, 'info'));
-  builder.on('error', err => logger.error(err.message));
-  return builder.build().then(() => {
-    logger.success('Fractal build completed!');
-  });
+    builder.on('progress', (completed, total) => logger.update(`Exported ${completed} of ${total} items`, 'info'));
+    builder.on('error', err => logger.error(err.message));
+    return builder.build().then(() => {
+        logger.success('Fractal build completed!');
+    });
 });
 
 /**
  * Generate an HTML listing of all available components in the library
  */
 gulp.task('fractal:build-components-listing', function(done) {
-  const lcOutFile = 'components-listing.html';
+    const lcOutFile = 'components-listing.html';
 
-  const documentHeader = `
+    const documentHeader = `
     <!doctype html>
     <html lang="en">
     <head>
@@ -82,58 +82,62 @@ gulp.task('fractal:build-components-listing', function(done) {
     <main>
   `;
 
-  const documentFooter = `
+    const documentFooter = `
     </main>
     </body>
     </html>
   `;
 
-  // start with a clean slate
-  const path = buildMode === 'dev' ? 'public' : 'build';
-  del([`${path}/${lcOutFile}`]).then(paths => {
-    const fractal = require('./fractal.js');
-    const logger = fractal.cli.console;
+    // start with a clean slate
+    const path = buildMode === 'dev' ? 'public' : 'build';
+    del([`${path}/${lcOutFile}`]).then(paths => {
+        const fractal = require('./fractal.js');
+        const logger = fractal.cli.console;
 
-    // route.path will look like: /components/preview/:handle
-    const route = fractal.web._themes.get('default')._routes.get('preview');
-    let baseUrl = '';
-    let linkExtension = '';
-    if (buildMode === 'prod') {
-        baseUrl = '%%HOSTNAME%%'; // nginx will take care of the replacement on .acc and .prod
-        linkExtension = fractal._config.web.builder.ext;
-    }
+        // route.path will look like: /components/preview/:handle
+        const route = fractal.web._themes.get('default')._routes.get('preview');
+        let baseUrl = '';
+        let linkExtension = '';
+        if (buildMode === 'prod') {
+            baseUrl = '%%HOSTNAME%%'; // nginx will take care of the replacement on .acc and .prod
+            linkExtension = fractal._config.web.builder.ext;
+        }
 
-    // call fractal custom cli command: list-components
-    fractal.cli.exec(`list-components`)
-      .then((componentHandles) => {
-        const fs = require('fs');
+        // call fractal custom cli command: list-components
+        fractal.cli
+            .exec(`list-components`)
+            .then(componentHandles => {
+                const fs = require('fs');
 
-        const output = componentHandles.map(componentHandle => {
-          const link = baseUrl + `${route.path.replace(':handle', componentHandle)}` + linkExtension;
-          return `<li><a href="${link}">${componentHandle}</a></li>`;
-        });
+                const output = componentHandles.map(componentHandle => {
+                    const link = baseUrl + `${route.path.replace(':handle', componentHandle)}` + linkExtension;
+                    return `<li><a href="${link}">${componentHandle}</a></li>`;
+                });
 
-        fs.writeFileSync(`${path}/${lcOutFile}`, `${documentHeader} <ol>${output.join('\n')}</ol> ${documentFooter}`);
-        logger.success('Fractal components listing generated');
-      })
-      .catch((err) => {
-        logger.error('Fractal components listing error!');
-        logger.error(err);
-      });
-  });
+                fs.writeFileSync(
+                    `${path}/${lcOutFile}`,
+                    `${documentHeader} <ol>${output.join('\n')}</ol> ${documentFooter}`,
+                );
+                logger.success('Fractal components listing generated');
+            })
+            .catch(err => {
+                logger.error('Fractal components listing error!');
+                logger.error(err);
+            });
+    });
 
-  done();
+    done();
 });
 
 /*
  * MDB Addons
  */
 gulp.task('mdb-addons:copy', function() {
-  return gulp.src(mdbootstrapPath+'/mdb-addons/**/*').pipe(gulp.dest('public/mdb-addons'));
+    return gulp.src(mdbootstrapPath + '/mdb-addons/**/*').pipe(gulp.dest('public/mdb-addons'));
 });
 
 gulp.task('mdb-addons:clean', function() {
-  return del(['public/mdb-addons']);
+    return del(['public/mdb-addons']);
 });
 
 gulp.task('mdb-addons', gulp.series('mdb-addons:clean', 'mdb-addons:copy'));
@@ -142,11 +146,11 @@ gulp.task('mdb-addons', gulp.series('mdb-addons:clean', 'mdb-addons:copy'));
  * MDB Images
  */
 gulp.task('mdb-images:copy', function() {
-  return gulp.src(mdbootstrapPath+'/img/**/*').pipe(gulp.dest('public/img'));
+    return gulp.src(mdbootstrapPath + '/img/**/*').pipe(gulp.dest('public/img'));
 });
 
 gulp.task('mdb-images:clean', function() {
-  return del(['public/img/lightbox', 'public/img/overlays', 'public/img/svg']);
+    return del(['public/img/lightbox', 'public/img/overlays', 'public/img/svg']);
 });
 
 gulp.task('mdb-images', gulp.series('mdb-images:clean', 'mdb-images:copy'));
@@ -155,19 +159,19 @@ gulp.task('mdb-images', gulp.series('mdb-images:clean', 'mdb-images:copy'));
  * Fonts
  */
 gulp.task('fonts:clean', function() {
-  return del(['public/font']);
+    return del(['public/font']);
 });
 
 gulp.task('mdb-fonts:copy', function() {
-  return gulp.src(mdbootstrapPath+'/font/**/*').pipe(gulp.dest('public/font'));
+    return gulp.src(mdbootstrapPath + '/font/**/*').pipe(gulp.dest('public/font'));
 });
 
 gulp.task('mdi-fonts:copy', function() {
-  return gulp.src('node_modules/mdi/fonts/*.{eot,svg,ttf,woff,woff2}').pipe(gulp.dest('public/font/mdi'));
+    return gulp.src('node_modules/mdi/fonts/*.{eot,svg,ttf,woff,woff2}').pipe(gulp.dest('public/font/mdi'));
 });
 
 gulp.task('fonts:copy', function() {
-  return gulp.src('./src/font/**/*').pipe(gulp.dest('public/font'));
+    return gulp.src('./src/font/**/*').pipe(gulp.dest('public/font'));
 });
 
 gulp.task('fonts', gulp.series('fonts:clean', 'fonts:copy', 'mdb-fonts:copy', 'mdi-fonts:copy'));
@@ -176,27 +180,25 @@ gulp.task('fonts', gulp.series('fonts:clean', 'fonts:copy', 'mdb-fonts:copy', 'm
  * MDB and external JavaScript
  */
 gulp.task('mdb-js:clean', function() {
-  return del(['public/js']);
+    return del(['public/js']);
 });
 
 gulp.task('mdb-js:copy', function() {
-  return gulp.src([mdbootstrapPath+'/js/*.min.js'])
-    .pipe(stripSourceMappingURL())
-    .pipe(gulp.dest('public/js')
-  );
+    return gulp
+        .src([mdbootstrapPath + '/js/*.min.js'])
+        .pipe(stripSourceMappingURL())
+        .pipe(gulp.dest('public/js'));
 });
 
 gulp.task('mdb-js:ext', function() {
-  return gulp.src([vendorPath+'/js/*.js'])
-    .pipe(stripSourceMappingURL())
-    .pipe(gulp.dest('public/js')
-  );
+    return gulp
+        .src([vendorPath + '/js/*.js'])
+        .pipe(stripSourceMappingURL())
+        .pipe(gulp.dest('public/js'));
 });
 
 gulp.task('mdb-js:watch', function() {
-  gulp.watch([
-    mdbootstrapPath+'/js/**/*',
-  ], gulp.series('mdb-js'));
+    gulp.watch([mdbootstrapPath + '/js/**/*'], gulp.series('mdb-js'));
 });
 
 gulp.task('mdb-js', gulp.series('mdb-js:clean', 'mdb-js:copy', 'mdb-js:ext'));
@@ -205,75 +207,76 @@ gulp.task('mdb-js', gulp.series('mdb-js:clean', 'mdb-js:copy', 'mdb-js:ext'));
  * CSS
  */
 gulp.task('css:process', function() {
-  return gulp.src('src/scss/*.scss')
-    .pipe(sourcemaps.init())
-    .pipe(sassGlob())
-    .pipe(sass({
-      // set path to MDB sass files so these can be found by 'import' statements
-      // while compiling new CSS
-      // includePaths: [mdbootstrapPath+'/sass/', materialdesigniconsPath+'/scss/'],
-      includePaths: [mdbootstrapPath+'/scss/', materialdesigniconsPath+'/scss/', 'src/scss/nijmegen/'],
-      outputStyle: buildMode === 'dev' ? 'nested' : 'compressed'
-    }))
-    .on('error', err => console.log(err.message))
-    .pipe(buildMode === 'dev' ? sourcemaps.write('maps') : gutil.noop())
-    .pipe(gulp.dest('public/css'));
+    return gulp
+        .src('src/scss/*.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sassGlob())
+        .pipe(
+            sass({
+                // set path to MDB sass files so these can be found by 'import' statements
+                // while compiling new CSS
+                // includePaths: [mdbootstrapPath+'/sass/', materialdesigniconsPath+'/scss/'],
+                includePaths: [mdbootstrapPath + '/scss/', materialdesigniconsPath + '/scss/', 'src/scss/nijmegen/'],
+                outputStyle: buildMode === 'dev' ? 'nested' : 'compressed',
+            }),
+        )
+        .on('error', err => console.log(err.message))
+        .pipe(buildMode === 'dev' ? sourcemaps.write('maps') : gutil.noop())
+        .pipe(gulp.dest('public/css'));
 });
 
 gulp.task('css:clean', function() {
-  return del(['public/css']);
+    return del(['public/css']);
 });
 
 // Copy MDB style file
 gulp.task('mdb-css:copy', function() {
-  return gulp.src(mdbootstrapPath+'/css/bootstrap.min.css').pipe(gulp.dest('public/css'));
+    return gulp.src(mdbootstrapPath + '/css/bootstrap.min.css').pipe(gulp.dest('public/css'));
 });
 
 gulp.task('css:watch', function() {
-  gulp.watch([
-    'src/scss/**/*.scss',
-  ], gulp.series('css'));
+    gulp.watch(['src/scss/**/*.scss'], gulp.series('css'));
 });
 
 gulp.task('css', gulp.series('css:clean', 'mdb-css:copy', 'css:process'));
 
-
 // Build archive of public files
 const zip = require('gulp-zip');
 gulp.task('build-archive', function() {
-  return gulp.src(['build/{css,font,img,js,mdb-addons}/**'], {base: 'build/'})
-    .pipe(zip('archive.zip'))
-    .pipe(gulp.dest('build/'));
+    return gulp
+        .src(['build/{css,font,img,js,mdb-addons}/**'], { base: 'build/' })
+        .pipe(zip('archive.zip'))
+        .pipe(gulp.dest('build/'));
 });
 
 // Generate component view with all icons from icon library
 let icons = [];
 gulp.task('extract-icons-from-mdi-svg', function() {
-  const xmlEdit = require('gulp-edit-xml');
-  const stream = gulp
-    .src(materialdesigniconsFontPath+'/materialdesignicons-webfont.svg')
-    .pipe(
-      xmlEdit(function(xml) {
-        const nodes = xml.svg.defs[0].font[0].glyph;
-        const nodesLen = nodes.length;
-        for (let i = 0; i < nodesLen; i++) {
-          const cn = nodes[i].$;
-          icons.push('<i class="mdi mdi-' + cn['glyph-name'] + '" aria-hidden="true"></i>');
-        }
-        return xml;
-      })
+    const xmlEdit = require('gulp-edit-xml');
+    const stream = gulp.src(materialdesigniconsFontPath + '/materialdesignicons-webfont.svg').pipe(
+        xmlEdit(function(xml) {
+            const nodes = xml.svg.defs[0].font[0].glyph;
+            const nodesLen = nodes.length;
+            for (let i = 0; i < nodesLen; i++) {
+                const cn = nodes[i].$;
+                icons.push('<i class="mdi mdi-' + cn['glyph-name'] + '" aria-hidden="true"></i>');
+            }
+            return xml;
+        }),
     );
-  return stream;
+    return stream;
 });
 
-gulp.task('build-icons-listing', gulp.series('extract-icons-from-mdi-svg', function(done) {
-  const fs = require('fs');
-  if (icons.length) {
-    fs.writeFileSync('components/icons/icons.hbs', icons.join('\n'));
-  }
-  done();
-}));
-
+gulp.task(
+    'build-icons-listing',
+    gulp.series('extract-icons-from-mdi-svg', function(done) {
+        const fs = require('fs');
+        if (icons.length) {
+            fs.writeFileSync('components/icons/icons.hbs', icons.join('\n'));
+        }
+        done();
+    }),
+);
 
 /*
  * Combinations

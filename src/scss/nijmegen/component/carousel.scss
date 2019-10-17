@@ -52,25 +52,32 @@
         }
     }
 
-    .carousel-indicators li {
-        border: 2px solid color('white', 'base');
-        background-color: transparent;
+    .carousel-indicators {
+        bottom: 10px;
 
-        &.carousel-play-pause {
-            color: color('white', 'base');
-            text-indent: initial;
-            height: 10px;
-            min-width: initial;
-            min-height: 24px;
-            margin-left: 30px;
-            margin-top: -7px;
-            border: none;
-            display: block;
-            text-indent: 0;
-        }
+        li {
+            border: 2px solid color('white', 'base');
+            background-color: transparent;
+            width: 6px;
+            height: 6px;
+            opacity: 1;
 
-        &.active {
-            background-color: color('white', 'base');
+            &.carousel-play-pause {
+                color: color('white', 'base');
+                text-indent: initial;
+                height: 10px;
+                min-width: initial;
+                min-height: 24px;
+                margin-left: 30px;
+                margin-top: -7px;
+                border: none;
+                display: block;
+                text-indent: 0;
+            }
+
+            &.active {
+                background-color: color('white', 'base');
+            }
         }
     }
     
