@@ -114,6 +114,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - *Component(s):* [stepper]({{ componentPath '@stepper' }})  
   *Changes:* **HTML**  
   *Description:* Changed classes so it works with the new mdbootstrap version
+- *Component(s):* [autocomplete]({{ componentPath '@autocomplete' }})  
+  *Changes:* **CSS**  
+  *Description:* Break long items on word
 
 ## [2.0.0] - 2018-06
 ### Added

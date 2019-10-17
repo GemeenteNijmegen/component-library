@@ -1,5 +1,0 @@
-changes:
-  - type: changed #changed, removed, added
-    component: autocomplete
-    description: Break long items on word
-    what: [CSS] # what has changed 1 or more of: [HTML, CSS, JS]
