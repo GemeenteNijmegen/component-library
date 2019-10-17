@@ -111,6 +111,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - *Component(s):* [autocomplete]({{ componentPath '@autocomplete' }})  
   *Changes:* **HTML**, **JS**  
   *Description:* Opening and closing the autocomplete is now more robust
+- *Component(s):* [stepper]({{ componentPath '@stepper' }})  
+  *Changes:* **HTML**  
+  *Description:* Changed classes so it works with the new mdbootstrap version
 
 ## [2.0.0] - 2018-06
 ### Added
