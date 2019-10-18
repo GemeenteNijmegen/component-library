@@ -7,3 +7,7 @@ changes:
     component: pagination
     description: Improved accessibility changing the aria-labels for page landmarks
     what: [HTML] # what has changed 1 or more of: [HTML, CSS, JS]
+  - type: changed #changed, removed, added
+    component: facets-advanced
+    description: Improved accessibility by removing the region role
+    what: [HTML] # what has changed 1 or more of: [HTML, CSS, JS]
