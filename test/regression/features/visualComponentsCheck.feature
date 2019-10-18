@@ -2,10 +2,15 @@ Feature: Visual component check
 
     As a developer I want to make sure I don't unexpectetly change components visually.
 
+    Background: Disable accessibility rule
+        Given I disable the accessibility rule "page-has-heading-one"
+
+
     Scenario Outline: Visually check the components
 
         When I open the component "<component>"
         Then I expect the screenshot of "<component>" matches the web page
+        And the page should be accessible
 
         Scenarios:
             | component |
