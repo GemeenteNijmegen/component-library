@@ -16,20 +16,26 @@ $form-drop-down-bottom-border: 1px solid rgba(0, 0, 0, .125);
         }
     }
 
-    input[type=text],
-    input[type=password],
-    input[type=email],
-    input[type=url],
-    input[type=time],
-    input[type=date],
-    input[type=datetime-local],
-    input[type=tel],
-    input[type=number],
-    input[type=search-md],
-    input[type=search],
-    textarea.md-textarea,
+    input[type=text]:not(.browser-default),
+    input[type=password]:not(.browser-default),
+    input[type=email]:not(.browser-default),
+    input[type=url]:not(.browser-default),
+    input[type=time]:not(.browser-default),
+    input[type=date]:not(.browser-default),
+    input[type=datetime-local]:not(.browser-default),
+    input[type=tel]:not(.browser-default),
+    input[type=number]:not(.browser-default),
+    input[type=search-md]:not(.browser-default),
+    input[type=search]:not(.browser-default),
+    textarea.md-textarea:not(.browser-default),
     .aria-select button {
-        border-bottom-color: color('nijmegen-forms', 'unfocussed-gray');
+        &:not([disabled]){
+            border-bottom-color: color('nijmegen-forms', 'unfocussed-gray');
+        }
+
+        &[disabled]{
+            border-bottom-style: dotted;
+        }
 
         &:focus:not([readonly]) {
             border-bottom-color: color('nijmegen-forms', 'focus');
@@ -42,6 +48,7 @@ $form-drop-down-bottom-border: 1px solid rgba(0, 0, 0, .125);
 
         &.is-invalid,
         &:focus.is-invalid {
+            background-image: none;
             border-bottom-color: color('nijmegen-forms', 'error');
             box-shadow: 0 1px 0 0 color('nijmegen-forms', 'error');
 
@@ -55,6 +62,7 @@ $form-drop-down-bottom-border: 1px solid rgba(0, 0, 0, .125);
 
         &.is-valid,
         &:focus.is-valid {
+            background-image: none;
             border-bottom-color: color('nijmegen-forms', 'success');
             box-shadow: 0 1px 0 0 color('nijmegen-forms', 'success');
         }

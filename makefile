@@ -32,7 +32,7 @@ generate-changelog: intro do-generate-changelog
 
 test-regression: intro do-start do-regression-build do-regression-tests
 
-pre-commit: intro do-lint-staged do-commit-intro
+pre-commit: intro do-commit-intro
 
 # ===========================
 # Snippets
@@ -40,16 +40,22 @@ pre-commit: intro do-lint-staged do-commit-intro
 
 set-ids = USERID=$$(id -u) GROUPID=$$(id -g)
 
+REGRESSION_FAIL_FAST =
+REGRESSION_FOCUS =
+REGRESSION_PARALLEL =
+
 ifdef fail-fast
 REGRESSION_FAIL_FAST = --fail-fast
-else
-REGRESSION_FAIL_FAST =
 endif
 
 ifdef focus
 REGRESSION_FOCUS = --tags "@focus"
-else
-REGRESSION_FOCUS = --parallel 10
+endif
+
+ifndef focus
+ifndef fail-fast
+REGRESSION_PARALLEL = --parallel 10
+endif
 endif
 
 # ===========================
@@ -141,11 +147,7 @@ do-regression-build:
 
 do-regression-tests:
 	@echo "\n=== Running regression tests ===\n"
-	${set-ids} docker-compose run --rm regression --world-parameters "`cat test/regression/defaults.json`" ${REGRESSION_FAIL_FAST} ${REGRESSION_FOCUS} || echo "\nTests failed"
-
-do-lint-staged:
-	@echo "\n=== Checking codestyle and fixing where possible ===\n"
-	@node_modules/.bin/lint-staged
+	${set-ids} docker-compose run --rm regression --world-parameters "`cat test/regression/defaults.json`" ${REGRESSION_FAIL_FAST} ${REGRESSION_FOCUS} ${REGRESSION_PARALLEL} || echo "\nTests failed"
 
 do-commit-intro:
 	@echo "\n=== Committing ===\n"

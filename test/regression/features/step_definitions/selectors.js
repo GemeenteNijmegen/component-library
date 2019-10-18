@@ -1,7 +1,7 @@
 const selectors = {
     'collapse button': '.horizontal-collapse > button',
     'button row': '.horizontal-collapse .expand-horizontal',
-    'first image': '.mdb-lightbox figure:first-child > a',
+    'fifth image': '.mdb-lightbox figure:nth-child(5) > a',
     'lightbox overlay': '.pswp__bg',
     button: '.btn',
     modal: '.modal',
