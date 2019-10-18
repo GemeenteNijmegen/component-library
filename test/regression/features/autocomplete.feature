@@ -18,6 +18,7 @@ Feature: Autocomplete
 
         Given I open the component "autocomplete"
         When I type "something" in the "input field"
+        And I wait for 0.5 seconds
         Then I expect the "clear icon" to be visible
         And I expect the "search icon" to be not visible
         And the page should be accessible
@@ -26,6 +27,7 @@ Feature: Autocomplete
 
         Given I open the component "autocomplete"
         When I type "something" in the "input field"
+        And I wait for 0.5 seconds
         And I click on the "clear icon"
         Then I expect the "clear icon" to be not visible
         And I expect the "search icon" to be visible
