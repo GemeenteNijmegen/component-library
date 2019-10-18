@@ -15,3 +15,7 @@ changes:
     component: tabs
     description: Improved accessibility by changing from the list to just divs
     what: [HTML, CSS] # what has changed 1 or more of: [HTML, CSS, JS]
+  - type: changed #changed, removed, added
+    component: tags
+    description: Improved accessibility by adding a label to the button
+    what: [HTML] # what has changed 1 or more of: [HTML, CSS, JS]
