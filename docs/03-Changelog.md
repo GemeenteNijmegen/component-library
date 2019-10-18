@@ -117,6 +117,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - *Component(s):* [autocomplete]({{ componentPath '@autocomplete' }})  
   *Changes:* **CSS**  
   *Description:* Break long items on word
+- *Component(s):* [navbar primary]({{ componentPath '@navbar-primary' }})  
+  *Changes:* **JS**  
+  *Description:* Close the mobile menu when clicked outside or when smooth scroll is enabled and clicked on an item
+- *Component(s):* [autocomplete]({{ componentPath '@autocomplete' }})  
+  *Changes:* **JS**  
+  *Description:* Improved the way the autocomplete results are closed when clicked outside
 
 ## [2.0.0] - 2018-06
 ### Added
