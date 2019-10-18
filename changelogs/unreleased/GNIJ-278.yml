@@ -1,0 +1,9 @@
+changes:
+  - type: changed #changed, removed, added
+    component: navbar-primary
+    description: Close the mobile menu when clicked outside or when smooth scroll is enabled and clicked on an item
+    what: [JS] # what has changed 1 or more of: [HTML, CSS, JS]
+  - type: changed #changed, removed, added
+    component: autocomplete
+    description: Improved the way the autocomplete results are closed when clicked outside
+    what: [JS] # what has changed 1 or more of: [HTML, CSS, JS]
