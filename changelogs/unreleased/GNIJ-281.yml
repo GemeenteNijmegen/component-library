@@ -3,3 +3,7 @@ changes:
     component: date-picker
     description: Improved accessibility by removing buttons from the picker from the tabindex
     what: [JS] # what has changed 1 or more of: [HTML, CSS, JS]
+  - type: changed #changed, removed, added
+    component: pagination
+    description: Improved accessibility changing the aria-labels for page landmarks
+    what: [HTML] # what has changed 1 or more of: [HTML, CSS, JS]
