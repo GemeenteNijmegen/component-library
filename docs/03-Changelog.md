@@ -123,6 +123,24 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - *Component(s):* [autocomplete]({{ componentPath '@autocomplete' }})  
   *Changes:* **JS**  
   *Description:* Improved the way the autocomplete results are closed when clicked outside
+- *Component(s):* [date picker]({{ componentPath '@date-picker' }})  
+  *Changes:* **JS**  
+  *Description:* Improved accessibility by removing buttons from the picker from the tabindex
+- *Component(s):* [pagination]({{ componentPath '@pagination' }})  
+  *Changes:* **HTML**  
+  *Description:* Improved accessibility changing the aria-labels for page landmarks
+- *Component(s):* [facets advanced]({{ componentPath '@facets-advanced' }})  
+  *Changes:* **HTML**  
+  *Description:* Improved accessibility by removing the region role
+- *Component(s):* [tabs]({{ componentPath '@tabs' }})  
+  *Changes:* **CSS**, **HTML**  
+  *Description:* Improved accessibility by changing from the list to just divs
+- *Component(s):* [tags]({{ componentPath '@tags' }})  
+  *Changes:* **HTML**  
+  *Description:* Improved accessibility by adding a label to the button
+- *Component(s):* [autocomplete]({{ componentPath '@autocomplete' }})  
+  *Changes:* **HTML**  
+  *Description:* Improved accessibility by adding role and aria-hidden
 
 ## [2.0.0] - 2018-06
 ### Added
