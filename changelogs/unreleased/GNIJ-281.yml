@@ -1,0 +1,25 @@
+changes:
+  - type: changed #changed, removed, added
+    component: date-picker
+    description: Improved accessibility by removing buttons from the picker from the tabindex
+    what: [JS] # what has changed 1 or more of: [HTML, CSS, JS]
+  - type: changed #changed, removed, added
+    component: pagination
+    description: Improved accessibility changing the aria-labels for page landmarks
+    what: [HTML] # what has changed 1 or more of: [HTML, CSS, JS]
+  - type: changed #changed, removed, added
+    component: facets-advanced
+    description: Improved accessibility by removing the region role
+    what: [HTML] # what has changed 1 or more of: [HTML, CSS, JS]
+  - type: changed #changed, removed, added
+    component: tabs
+    description: Improved accessibility by changing from the list to just divs
+    what: [HTML, CSS] # what has changed 1 or more of: [HTML, CSS, JS]
+  - type: changed #changed, removed, added
+    component: tags
+    description: Improved accessibility by adding a label to the button
+    what: [HTML] # what has changed 1 or more of: [HTML, CSS, JS]
+  - type: changed #changed, removed, added
+    component: autocomplete
+    description: Improved accessibility by adding role and aria-hidden
+    what: [HTML] # what has changed 1 or more of: [HTML, CSS, JS]
