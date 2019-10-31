@@ -9,7 +9,8 @@
 
     &__result-item {
         font-size: to-rem(18);
-
+        word-break: break-word;
+        
         &:not(:last-of-type) {
             border-bottom: 1px solid color('nijmegen-grey', 'base');
         }
