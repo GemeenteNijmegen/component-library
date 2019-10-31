@@ -18,22 +18,29 @@ To set an active menu item, underneath HTML markup for a navigation item can be 
 </li>
 ```
 
+#### Close mobile menu when clicking outside or when navigate on the same page
+
+Include the script below to enable automatic closing of the menu on a mobile when:
+
+- A user clicks somewhere outside the menu
+- A user clicks on a link in the menu that scrolls to content on the same page
+
+When using the navbar to scroll to content on the same page make sure to add the class `smooth-scroll` to the `navbar-nav` element.
+
+```html
+{{ render '@navbar-scripts' }}
+```
+
 #### Mobile search
+
 For using the search in the navbar on a mobile device you need to include the following script:
 
 ```html
 {{ render '@navbar-search-scripts' }}
 ```
 
-#### In-page anchors
-When using the navbar in a one-page application, mobile users will slideout the menu and click on an anchor and navigate to the corresponding section yet leaving the menu open.
-To handle this use-case, put underneath JavaScript just before the closing "body" tag and the menu will close when navigating to the in-page section.
-
-```html
-{{ render '@navbar-scripts' }}
-```
-
 #### Autocomplete search
+
 For the autocomplete search a real-time feed is provided by Pandosearch. This uses a combination of search suggestions and direct hits. To use this search functionality, JavaScript code is required before the closing "body" tag.
 
 * [Autocomplete component script]({{ componentPath '@autocomplete' }})
