@@ -141,6 +141,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - *Component(s):* [autocomplete]({{ componentPath '@autocomplete' }})  
   *Changes:* **HTML**  
   *Description:* Improved accessibility by adding role and aria-hidden
+- *Component(s):* [carousel]({{ componentPath '@carousel' }})  
+  *Changes:* **JS**  
+  *Description:* Improved readability of script and change native DOM manipulation for jQuery
 
 ## [2.0.0] - 2018-06
 ### Added
