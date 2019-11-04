@@ -210,3 +210,9 @@ b, strong {
 :focus {
     outline-color: $focus-color;
 }
+
+.text {
+    &__underline {
+        text-decoration: underline;
+    }
+}

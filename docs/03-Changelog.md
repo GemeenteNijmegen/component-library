@@ -147,6 +147,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - *Component(s):* [date picker]({{ componentPath '@date-picker' }})  
   *Changes:* **CSS**, **HTML**, **JS**  
   *Description:* Improved screen-reader support
+- *Component(s):* [autocomplete]({{ componentPath '@autocomplete' }})  
+  *Changes:* **CSS**  
+  *Description:* Add highlight on focus and hover
 
 ## [2.0.0] - 2018-06
 ### Added
