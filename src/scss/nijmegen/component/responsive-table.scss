@@ -2,6 +2,15 @@ table.responsive-table {
     width: 100%;
     border: none;
 
+    caption {
+        caption-side: top;
+        font-size: to-rem(18);
+
+        .summary {
+            font-size: to-rem(14);
+        }
+    }
+
     tbody tr td:before,
     thead tr th {
         color: color('nijmegen-grey', 'darken-2');
@@ -33,6 +42,10 @@ table.responsive-table {
         & th,
         & td,
         & tr {
+            display: block;
+        }
+
+        caption {
             display: block;
         }
 
