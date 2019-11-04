@@ -1,6 +1,5 @@
 const { When } = require('cucumber');
 const clickElement = require('cucumber-puppeteer/features/support/action/clickElement');
-const keyBoardPress = require('cucumber-puppeteer/features/support/action/keyboardPress');
 const selectors = require('./selectors');
 
 When('I click on the {string}', async function(element) {

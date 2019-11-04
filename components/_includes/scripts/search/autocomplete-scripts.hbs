@@ -181,7 +181,7 @@
                 }
                 break;
             case this.keyCodes.RETURN:
-                if (!this.defaultSearchUrl && this.currentItem < 0) {
+                if (this.currentItem < 0 && (!this.defaultSearchUrl || !this.query)) {
                     event.preventDefault();
                     break;
                 }
