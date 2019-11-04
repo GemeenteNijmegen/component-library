@@ -150,6 +150,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - *Component(s):* [autocomplete]({{ componentPath '@autocomplete' }})  
   *Changes:* **CSS**  
   *Description:* Add highlight on focus and hover
+- *Component(s):* [inline text-elements]({{ componentPath '@inline-text-elements' }})  
+  *Changes:* **CSS**, **HTML**  
+  *Description:* Removed <u> element and used styling for underline
 
 ## [2.0.0] - 2018-06
 ### Added
