@@ -11,4 +11,4 @@ No additional actions, aside from the markup, are needed to use this component.
 
 ### Notes
 
-* The group title in this component is rendered via a `h1` element, choose your own heading according the structure of the page this element is in
+* The group title in this component is rendered via a `h1` element, every heading (`h1 - h6`) will work so choose your own heading according the structure of the page

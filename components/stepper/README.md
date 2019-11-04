@@ -41,3 +41,4 @@ The below JavaScript is required to use the Stepper component and should be plac
 * In the list with steps, each step has its own span indentified by the class `step-status` telling the status of the step
   * For completed steps, we use the text "Voltooide stap"
   * For the current step, we use the text "Actieve stap"
+* The titles in this component are rendered via `h3` elements, choose your own heading according the structure of the page.

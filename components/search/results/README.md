@@ -2,6 +2,10 @@
 
 This component will show the search results
 
+### Notes
+
+- The titles in this component are rendered via `h1` and `h2` elements, every heading (`h1 - h6`) will work so choose your own heading according the structure of the page.
+
 ### Using
 
 To start using this component, some JavaScript is needed to initialize it.<br>

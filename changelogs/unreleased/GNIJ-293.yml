@@ -1,0 +1,9 @@
+changes:
+  - type: changed #changed, removed, added
+    component: popover
+    description: Use h1 element in the example
+    what: [HTML] # what has changed 1 or more of: [HTML, CSS, JS]
+  - type: changed #changed, removed, added
+    component: facets
+    description: Add default color so every heading can be used
+    what: [CSS] # what has changed 1 or more of: [HTML, CSS, JS]

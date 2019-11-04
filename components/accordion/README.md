@@ -18,7 +18,7 @@ No additional actions, aside from the markup, are needed to use this component.
 ### Notes
 
 * When renaming the `id`, `href`, `aria-controls` and/or `aria-labelledby` for your use-case, be sure to rename all occurrences.
-* For every heading (`H1 - H6`) level a group item is available, so you are free to use which heading level suits your use-case.
+* The titles in this component are rendered via a `h1` element, every heading (`h1 - h6`) will work so choose your own heading according the structure of the page.
 * As an example, the first item is open by default which is accomplished by
   * Omitting `class="collapsed"` on the anchor
   * Defining `aria-expanded="true"` on the anchor
