@@ -45,6 +45,10 @@ table.responsive-table {
             display: block;
         }
 
+        caption {
+            display: block;
+        }
+
         /* Hide table headers (but not display: none;, for accessibility) */
         & thead tr {
             position: absolute;
