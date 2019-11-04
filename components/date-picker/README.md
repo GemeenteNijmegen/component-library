@@ -21,4 +21,4 @@ The datepicker icon can not be used with a keyboard because the mdb datepicker i
 - 30 05 2015
 - 30052015
 
-Make sure that you link a description with `aria-describedby` to the input element of the date picker. Screenreaders will anounce the text in the linked element when the input element gets focus.
+Make sure that you link a description with `aria-describedby` to the input element of the date picker. Screenreaders will announce the text in the linked element when the input element gets focus.
