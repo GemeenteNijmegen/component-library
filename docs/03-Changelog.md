@@ -162,6 +162,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - *Component(s):* [facets]({{ componentPath '@facets' }})  
   *Changes:* **CSS**  
   *Description:* Add default color so every heading can be used
+- *Component(s):* [complex table]({{ componentPath '@complex-table' }}), [normal table]({{ componentPath '@normal-table' }})  
+  *Changes:* **CSS**, **HTML**  
+  *Description:* Added caption to improve accessibility
 
 ## [2.0.0] - 2018-06
 ### Added

@@ -1,5 +1,0 @@
-changes:
-  - type: changed #changed, removed, added
-    component: [complex-table, normal-table]
-    description: Added caption to improve accessibility
-    what: [HTML, CSS] # what has changed 1 or more of: [HTML, CSS, JS]
