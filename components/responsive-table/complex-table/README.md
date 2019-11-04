@@ -10,3 +10,8 @@ Underneath a jQuery example on how to achieve this and should be placed in the `
 ```html
 {{ render '@complex-table-scripts' }}
 ```
+
+### Notes
+
+- The caption element functions as a heading for the table. Captions help (screen-reader) users to find a table and understand what it's about.
+- If the caption is not wanted visually you can hide this by applying the class `sr-only`
