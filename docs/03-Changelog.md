@@ -144,6 +144,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - *Component(s):* [carousel]({{ componentPath '@carousel' }})  
   *Changes:* **JS**  
   *Description:* Improved readability of script and change native DOM manipulation for jQuery
+- *Component(s):* [date picker]({{ componentPath '@date-picker' }})  
+  *Changes:* **CSS**, **HTML**, **JS**  
+  *Description:* Improved screen-reader support
 
 ## [2.0.0] - 2018-06
 ### Added

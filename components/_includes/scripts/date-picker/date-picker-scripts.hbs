@@ -15,7 +15,7 @@
         onSet: function (context) {
             var date = new Date(context.select);
             $('#date-picker-example-input').val(
-                date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear()
+                this.get('value')
             );
         },
         onStart: function () {
@@ -33,20 +33,14 @@
     });
 
     function parseDateInput(dateInput) {
-        var dateSplitSlashes = dateInput.split("/");
+        var dateSplitSlashes = dateInput.split(/[- /.]+/);
         if (dateSplitSlashes.length === 3) {
             return new Date(dateSplitSlashes[2], dateSplitSlashes[1] - 1, dateSplitSlashes[0]);
         }
-
-        var dateSplitDashes = dateInput.split("-");
-        if (dateSplitDashes.length === 3) {
-            return new Date(dateSplitDashes[2], dateSplitDashes[1] - 1, dateSplitDashes[0]);
-        }
-
-        return new Date();
+        return new Date(dateInput.substr(4, 4), dateInput.substr(2, 2) - 1, dateInput.substr(0, 2));
     }
 
     function dateIsValid(dateInput) {
-        return /(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d/.test(dateInput);
+        return /(0?[1-9]|[12][0-9]|3[01])[- /.]?(0?[1-9]|1[012])[- /.]?(19|20)\d\d/.test(dateInput);
     }
 </script>

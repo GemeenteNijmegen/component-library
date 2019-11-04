@@ -1,5 +1,5 @@
 .date-picker {
-    button {
+    > button {
         position: relative;
         float: right;
         top: -42px;
@@ -13,28 +13,14 @@
         background-color: color('nijmegen-brand', 'base');
         padding-bottom: 15px;
 
-        .picker__weekday-display {
-            text-transform: capitalize;
-            background-color: color('nijmegen-brand', 'darken-1');
-        }
-
-        > div:not(.picker__weekday-display) {
+        .picker__year-display {
             color: color('white', 'base');
-            font-size: to-rem(38);
-
-            &.picker__month-display,
-            &.picker__year-display {
-                font-size: to-rem(18);
-            }
-
-            &.picker__day-display {
-                font-family: 'Oranda', sans-serif;
-            }
         }
     }
 
     .picker__header .picker__nav--next,
     .picker__header .picker__nav--prev {
+        width: auto;
         &:hover {
             background: none;
         }
@@ -50,6 +36,7 @@
 
     .picker__header .picker__nav--prev {
         left: -0.5em;
+        text-align: left;
 
         &:before {
             @include mdi('arrow-left');
@@ -59,6 +46,7 @@
 
     .picker__header .picker__nav--next {
         right: -0.5em;
+        text-align: right;
 
         &:before {
             @include mdi('arrow-right');
