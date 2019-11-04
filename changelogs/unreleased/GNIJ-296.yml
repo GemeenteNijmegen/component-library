@@ -1,0 +1,5 @@
+changes:
+  - type: changed #changed, removed, added
+    component: inline-text-elements
+    description: Removed <u> element and used styling for underline
+    what: [HTML, CSS] # what has changed 1 or more of: [HTML, CSS, JS]
