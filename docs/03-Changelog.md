@@ -156,6 +156,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - *Component(s):* [hover effects]({{ componentPath '@hover-effects' }})  
   *Changes:* **HTML**  
   *Description:* Add dummy alt tag
+- *Component(s):* [popover]({{ componentPath '@popover' }})  
+  *Changes:* **HTML**  
+  *Description:* Use h1 element in the example
+- *Component(s):* [facets]({{ componentPath '@facets' }})  
+  *Changes:* **CSS**  
+  *Description:* Add default color so every heading can be used
 
 ## [2.0.0] - 2018-06
 ### Added
