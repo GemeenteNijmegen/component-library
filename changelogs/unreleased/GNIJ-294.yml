@@ -1,0 +1,5 @@
+changes:
+  - type: changed #changed, removed, added
+    component: hover-effects
+    description: Add dummy alt tag
+    what: [HTML] # what has changed 1 or more of: [HTML, CSS, JS]
