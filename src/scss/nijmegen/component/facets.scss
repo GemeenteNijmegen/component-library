@@ -9,6 +9,7 @@
         border-bottom: 1px solid color('nijmegen-grey', 'base');
         cursor: pointer;
         position: relative;
+        color: $body-color;
 
         &::before{
             @include mdi('filter');

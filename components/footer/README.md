@@ -12,4 +12,4 @@ No additional actions, aside from the markup, are needed to use this component.
 
 ### Notes
 
-The component may be used with every heading (`H1 - H6`) level, so you are free to use which heading level suits your use-case.
+The titles in this component are rendered via `h2` elements, every heading (`h1 - h6`) will work so choose your own heading according the structure of the page.

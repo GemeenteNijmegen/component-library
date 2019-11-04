@@ -13,4 +13,4 @@ No additional actions, aside from the markup, are needed to use this component.
 
 ### Notes
 
-* The listing item title in this component is rendered via a `h1` element but this component works with every heading level (`h1` - `h6`).
+* The title in this component is rendered via a `h1` element, every heading (`h1 - h6`) will work so choose your own heading according the structure of the page.

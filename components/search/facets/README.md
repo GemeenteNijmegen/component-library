@@ -4,7 +4,8 @@ This component will show the facets of search results
 
 ### Note
 
-In the example the facet is rendered in a column. You should do this yourself when implementing the facets.
+- In the example the facet is rendered in a column. You should do this yourself when implementing the facets.
+- The titles in this component are rendered via `h1` and `h2` elements, every heading (`h1 - h6`) will work so choose your own heading according the structure of the page.
 
 ### Using
 
