@@ -7,7 +7,6 @@ Feature: Autocomplete
     Background: Disable accessibility rule
         Given I disable the accessibility rule "page-has-heading-one"
     
-    @no-parallel
     Scenario: Initially the clear button is hidden
 
         Given I open the component "autocomplete"
@@ -15,7 +14,6 @@ Feature: Autocomplete
         And I expect the "search icon" to be visible
         And the page should be accessible
 
-    @no-parallel
     Scenario: Search button will dissapear and the search button will show when I type
 
         Given I open the component "autocomplete"
@@ -25,7 +23,6 @@ Feature: Autocomplete
         And I expect the "search icon" to be not visible
         And the page should be accessible
 
-    @no-parallel
     Scenario: Search button will show again when the field is cleared
 
         Given I open the component "autocomplete"

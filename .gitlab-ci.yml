@@ -120,8 +120,7 @@ regression:
     - docker-compose -f docker-compose.ci.yml pull -q
     - docker-compose -f docker-compose.ci.yml up -d frontend
     - docker-compose -f docker-compose.ci.yml run -T wait-for-frontend
-    - docker-compose -f docker-compose.ci.yml run -T regression --parallel 10 --tags ~@no-parallel --world-parameters "`cat test/regression/defaults.json`"
-    - docker-compose -f docker-compose.ci.yml run -T regression --tags @no-parallel --world-parameters "`cat test/regression/defaults.json`"
+    - docker-compose -f docker-compose.ci.yml run -T regression --parallel 10 --world-parameters "`cat test/regression/defaults.json`"
   artifacts:
     paths:
       - test/regression/results/screenshots/
