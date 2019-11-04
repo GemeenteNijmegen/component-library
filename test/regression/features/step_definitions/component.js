@@ -6,7 +6,7 @@ const globalStyle = { content: '* { caret-color: transparent !important; transit
 
 When('I open the component {string}', async function(componentName) {
     const url = `/components/preview/${componentName}`;
-    await openUrl.call(this, url);
+    await Promise.all([this.page.waitForNavigation({ waitUntil: 'domcontentloaded' }), openUrl.call(this, url)]);
     await this.page.addStyleTag(globalStyle);
-    await waitFor.call(this, 0.5);
+    await waitFor(0.5);
 });
