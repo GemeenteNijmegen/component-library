@@ -2,7 +2,6 @@ const path = require('path');
 const fs = require('fs');
 const yaml = require('js-yaml');
 const compareVersions = require('compare-versions');
-const paths = require('../getChangelogPath');
 
 const parseFilesInDir = dir => {
     const unreleasedFiles = fs.readdirSync(dir).filter(fileName => ['.yml', '.yaml'].includes(path.extname(fileName)));
