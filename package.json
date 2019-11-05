@@ -1,50 +1,52 @@
 {
-  "name": "nijmegen-component-library",
-  "version": "3.1.1",
-  "description": "Nijmegen Component Library built by Enrise",
-  "main": "",
-  "repository": "https://github.com/Enrise/nijmegen-component-library",
-  "license": "UNLICENSED",
-  "dependencies": {
-    "@frctl/fractal": "^1.2.0",
-    "@frctl/mandelbrot": "^1.2.1",
-    "compare-versions": "^3.5.1",
-    "del": "^3.0.0",
-    "gulp": "^4.0.2",
-    "gulp-sass": "^3.1.0",
-    "gulp-sass-glob": "^1.1.0",
-    "gulp-sourcemaps": "^2.6.0",
-    "gulp-util": "^3.0.8",
-    "gulp-zip": "^4.1.0",
-    "js-yaml": "^3.12.0",
-    "mdi": "^2.2.43",
-    "through2": "^2.0.3"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "make pre-commit",
-      "prepare-commit-msg": "dev/commit-append-issue-number.sh"
+    "name": "nijmegen-component-library",
+    "version": "3.0.0",
+    "description": "Nijmegen Component Library built by Enrise",
+    "main": "",
+    "repository": "https://github.com/Enrise/nijmegen-component-library",
+    "license": "UNLICENSED",
+    "scripts": {
+        "start": "gulp dev",
+        "build": "gulp build --env prod",
+        "build-icons-listing": "gulp build-icons-listing",
+        "test": "node_modules/.bin/jest",
+        "prepare-deployment": "node dev/deployment/prepare-deployment.js",
+        "update-changelog": "node dev/release/changelogs/update",
+        "update-releases": "node dev/deployment/update-releases.js",
+        "release": "node dev/release/changelog/release",
+        "finish-wip": "node dev/release/changelog/finishWip"
+    },
+    "dependencies": {
+        "@frctl/fractal": "^1.2.0",
+        "@frctl/mandelbrot": "^1.2.1",
+        "compare-versions": "^3.5.1",
+        "del": "^3.0.0",
+        "gulp": "^4.0.2",
+        "gulp-sass": "^3.1.0",
+        "gulp-sass-glob": "^1.1.0",
+        "gulp-sourcemaps": "^2.6.0",
+        "gulp-util": "^3.0.8",
+        "gulp-zip": "^4.1.0",
+        "js-yaml": "^3.12.0",
+        "mdi": "^2.2.43",
+        "through2": "^2.0.3"
+    },
+    "devDependencies": {
+        "eslint": "^5.4.0",
+        "fs": "^0.0.1-security",
+        "glob": "^7.1.4",
+        "gulp-edit-xml": "^3.0.0",
+        "html-validator": "^4.1.1",
+        "husky": "^3.0.8",
+        "jest": "^24.9.0",
+        "jquery": "^3.4.1",
+        "jshint": "^2.10.2",
+        "prettier": "^1.18.2"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "make pre-commit",
+            "prepare-commit-msg": "dev/commit-append-issue-number.sh"
+        }
     }
-  },
-  "scripts": {
-    "start": "gulp dev",
-    "build": "gulp build --env prod",
-    "build-icons-listing": "gulp build-icons-listing",
-    "test": "node_modules/.bin/jest",
-    "prepare-deployment": "node dev/deployment/prepare-deployment.js",
-    "update-changelog": "node dev/release/changelogs/update",
-    "update-releases": "node dev/deployment/update-releases.js"
-  },
-  "devDependencies": {
-    "eslint": "^5.4.0",
-    "fs": "^0.0.1-security",
-    "glob": "^7.1.4",
-    "gulp-edit-xml": "^3.0.0",
-    "html-validator": "^4.1.1",
-    "husky": "^3.0.8",
-    "jest": "^24.9.0",
-    "jquery": "^3.4.1",
-    "jshint": "^2.10.2",
-    "prettier": "^1.18.2"
-  }
 }
