@@ -62,88 +62,106 @@ variables:
 # Testing
 # ======================
 
-jest:
-  stage: test
-  image: tiangolo/docker-with-compose
-  services:
-    - docker:dind
-  script:
-    - docker-compose -f docker-compose.jest.yml up -d
-    - docker-compose -f docker-compose.jest.yml run --rm frontend npm ci
-    - docker-compose -f docker-compose.jest.yml run --rm frontend npm test
+# jest:
+#   stage: test
+#   image: tiangolo/docker-with-compose
+#   services:
+#     - docker:dind
+#   script:
+#     - docker-compose -f docker-compose.jest.yml up -d
+#     - docker-compose -f docker-compose.jest.yml run --rm frontend npm ci
+#     - docker-compose -f docker-compose.jest.yml run --rm frontend npm test
 
-# ======================
-# Build stage
-# ======================
+# # ======================
+# # Build stage
+# # ======================
 
-build release:
-  stage: build
-  image: docker:stable
-  services:
-    - docker:dind
-  before_script:
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-    - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID"
-  script:
-    - docker build . -t "$CI_REGISTRY_IMAGE":$DOCKER_TAG -f Dockerfile-prod
-    - docker push "$CI_REGISTRY_IMAGE":$DOCKER_TAG
-    - docker run
-      -w /app
-      -v "$PWD":/app
-      -e GITLAB_TOKEN
-      -e CI_COMMIT_REF_NAME
-      -e CI_REGISTRY_IMAGE
-      -e DOCKER_TAG
-      -e STABLE_RELEASE
-      node:10-alpine
-      /bin/sh -c "npm ci && npm run update-releases"
-  only:
-    - /^release\/.*$/
+# build release:
+#   stage: build
+#   image: docker:stable
+#   services:
+#     - docker:dind
+#   before_script:
+#     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+#     - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID"
+#   script:
+#     - docker build . -t "$CI_REGISTRY_IMAGE":$DOCKER_TAG -f Dockerfile-prod
+#     - docker push "$CI_REGISTRY_IMAGE":$DOCKER_TAG
+#     - docker run
+#       -w /app
+#       -v "$PWD":/app
+#       -e GITLAB_TOKEN
+#       -e CI_COMMIT_REF_NAME
+#       -e CI_REGISTRY_IMAGE
+#       -e DOCKER_TAG
+#       -e STABLE_RELEASE
+#       node:10-alpine
+#       /bin/sh -c "npm ci && npm run update-releases"
+#   only:
+#     - /^release\/.*$/
 
-build ci:
-  stage: build
-  <<: *docker-compose-login
-  script:
-    - docker pull $FRONTEND_IMAGE:latest || true
-    - docker-compose -f docker-compose.ci.yml pull -q frontend || true
-    - docker-compose -f docker-compose.ci.yml build frontend
-    - docker-compose -f docker-compose.ci.yml push frontend
+# build ci:
+#   stage: build
+#   <<: *docker-compose-login
+#   script:
+#     - docker pull $FRONTEND_IMAGE:latest || true
+#     - docker-compose -f docker-compose.ci.yml pull -q frontend || true
+#     - docker-compose -f docker-compose.ci.yml build frontend
+#     - docker-compose -f docker-compose.ci.yml push frontend
 
-# ======================
-# Regression stage
-# ======================
+# # ======================
+# # Regression stage
+# # ======================
 
-regression:
-  stage: regression
-  <<: *docker-compose-login
-  script:
-    - docker-compose -f docker-compose.ci.yml pull -q
-    - docker-compose -f docker-compose.ci.yml up -d frontend
-    - docker-compose -f docker-compose.ci.yml run -T wait-for-frontend
-    - docker-compose -f docker-compose.ci.yml run -T regression --parallel 10 --world-parameters "`cat test/regression/defaults.json`"
-  artifacts:
-    paths:
-      - test/regression/results/screenshots/
-    expire_in: 1 week
-    when: on_failure
+# regression:
+#   stage: regression
+#   <<: *docker-compose-login
+#   script:
+#     - docker-compose -f docker-compose.ci.yml pull -q
+#     - docker-compose -f docker-compose.ci.yml up -d frontend
+#     - docker-compose -f docker-compose.ci.yml run -T wait-for-frontend
+#     - docker-compose -f docker-compose.ci.yml run -T regression --parallel 10 --world-parameters "`cat test/regression/defaults.json`"
+#   artifacts:
+#     paths:
+#       - test/regression/results/screenshots/
+#     expire_in: 1 week
+#     when: on_failure
 
-# ======================
-# Push stage
-# ======================
+# # ======================
+# # Push stage
+# # ======================
 
-push-frontend:
-  stage: push
-  <<: *docker-compose-login
-  script:
-    - docker pull $FRONTEND_IMAGE:$IMAGE_TAG
-    - docker tag $FRONTEND_IMAGE:$IMAGE_TAG $FRONTEND_IMAGE:latest
-    - docker push $FRONTEND_IMAGE:latest
-  only:
-    - /^release\/.*$/
+# push-frontend:
+#   stage: push
+#   <<: *docker-compose-login
+#   script:
+#     - docker pull $FRONTEND_IMAGE:$IMAGE_TAG
+#     - docker tag $FRONTEND_IMAGE:$IMAGE_TAG $FRONTEND_IMAGE:latest
+#     - docker push $FRONTEND_IMAGE:latest
+#   only:
+#     - /^release\/.*$/
 
 # ======================
 # Changelog stage
 # ======================
+
+finish wip:
+  stage: changelog
+  image: node:10-alpine
+  before_script:
+    - apk add --no-cache git
+    - git config --global user.email "epic@enrise.com"
+    - git config --global user.name "epic"
+  script:
+    - git fetch origin ${CI_COMMIT_REF_NAME}
+    - git checkout ${CI_COMMIT_REF_NAME}
+    - npm ci
+    - npm run finish-wip
+    - git add --all
+    - git commit -m "[ci skip] ${CI_COMMIT_REF_NAME} changelog update"
+    - git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/
+  # only:
+  #   - /^release\/.*$/
 
 update changelogs:
   stage: changelog

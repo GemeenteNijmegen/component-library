@@ -17,3 +17,6 @@ trim_trailing_whitespace = false
 # Makefiles must have tabs
 [Makefile]
 indent_style = tab
+
+[.gitlab-ci.yml]
+indent_size = 2
