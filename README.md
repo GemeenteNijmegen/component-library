@@ -125,13 +125,13 @@ Each file should start with `changes:`, and then contain a list of changes under
 
 ```yaml
 changes:
-    - type: changed #changed, removed, added
-      component: carousel
-      description: Added something...
-      what: [] # what has changed 1 or more of: [HTML, CSS, JS]
-    - type: removed #changed, removed, added
-      component: [footer, header]
-      description: Removed...
+  - type: changed #changed, removed, added
+    component: carousel
+    description: Added something...
+    what: [] # what has changed 1 or more of: [HTML, CSS, JS]
+  - type: removed #changed, removed, added
+    component: [footer, header]
+    description: Removed...
 ```
 
 The type must be changed, removed or added. The component must match the component folder/file name, and then a description of the change.
