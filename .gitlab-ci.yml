@@ -77,12 +77,18 @@ finish wip:
     - git add --all
     - git commit -m "[ci skip] ${CI_COMMIT_REF_NAME} changelog update"
     - git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/
-  only:
-    - /^release\/.*$/
+  # only:
+  #   - /^release\/.*$/
 
 # ======================
 # Testing
 # ======================
+
+changelog:
+  stage: test
+  script:
+    - ls changelogs/unreleased
+    - ls changelogs/wip
 
 jest:
   stage: test
