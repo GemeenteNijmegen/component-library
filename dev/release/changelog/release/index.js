@@ -3,8 +3,8 @@ const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
 
-const getVersion = require('../helpers/getVersion');
-const paths = require('../helpers/getChangelogPath.js');
+const getVersion = require('../../../../helpers/getVersion');
+const paths = require('../../../../helpers/getChangelogPath.js/index.js');
 
 const release = () => {
     const version = getVersion();

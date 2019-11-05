@@ -4,7 +4,6 @@
  * Require the path module
  */
 const path = require('path');
-const generateGuid = require('./helpers/guid');
 
 /*
  * Require the Fractal module
@@ -16,12 +15,14 @@ const fractal = (module.exports = require('@frctl/fractal').create());
  */
 const mandelbrot = require('@frctl/mandelbrot');
 
+const version = require('./helpers/getVersion')();
+
 const nijmegenTheme = mandelbrot({
     nav: ['docs', 'components'],
     panels: ['html', 'notes', 'info'],
     styles: ['default', '/_subtheme/css/nijmegen.css'], // link to the default stylesheet followed by a custom one
     favicon: '/_subtheme/img/favicon.ico',
-    version: generateGuid(),
+    version: version,
 });
 
 // specify a directory to hold the theme override templates
@@ -30,12 +31,21 @@ nijmegenTheme.addLoadPath(__dirname + '/src/theme-overrides/views');
 // Add Nijmegen subtheme to fractal instance
 fractal.web.theme(nijmegenTheme);
 
+const { getReleased, getUnreleased, getWip } = require('./helpers/fractal/changelog');
+const getPartials = require('./helpers/fractal/getPartials');
 const hbs = require('@frctl/handlebars')({
     helpers: {
-        componentPath: require('./helpers/component-path')(fractal),
-        assetPath: require('./helpers/asset-path')(fractal),
-        mdbootstrapPath: require('./helpers/mdbootstrap-path')(fractal),
+        componentPath: require('./helpers/fractal/component-path')(fractal),
+        assetPath: require('./helpers/fractal/asset-path')(fractal),
+        mdbootstrapPath: require('./helpers/fractal/mdbootstrap-path')(fractal),
+        changelogReleased: getReleased,
+        changelogUnreleased: getUnreleased,
+        changelogWip: getWip,
+        formatDate: require('./helpers/fractal/formatDate'),
+        concat: (...strs) => strs.filter(str => typeof str === 'string').join(''),
+        objectLength: obj => Object.keys(obj).length,
     },
+    partials: getPartials(path.join(__dirname, './docs/partials')),
 });
 
 // Make components use the slightly modified Handlebars engine

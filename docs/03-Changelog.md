@@ -7,6 +7,14 @@ status: ready # draft, ready
 All notable changes to this project will be documented in this file.<br>
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+{{> changes changelog=(changelogWip) title="Work in progress"}}
+
+{{> changes changelog=(changelogUnreleased) title="Unreleased"}}
+
+{{#each (changelogReleased) as |item|}}
+{{> changes changelog=item.changelog title=(concat "[" item.version "] - " (formatDate item.date)) }}
+{{/each}}
+
 ## [3.0.0] - 2019-08
 ### Added
 - _Component [facets advanced]({{ componentPath '@facets-advanced' }})_:

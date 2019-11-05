@@ -1,0 +1,27 @@
+{{#if (objectLength changelog)}}
+<h2>{{title}}</h2>
+{{#each changelog as |changes type|}}
+<h3>{{type}}</h3>
+<ul>
+    {{#each changes as |change|}}
+    <li>
+        <em>Component(s):</em>
+        {{#each change.component as |component|}}
+        <a href="{{ componentPath '@{{component}}' }}">{{component}}</a>{{#unless @last}},{{/unless}}
+        {{/each}}
+        {{#if change.what}}
+        <br />
+        <em>Change(s):</em>
+        {{#each change.what as |what|}}
+        <strong>{{what}}</strong>{{#unless @last}},{{/unless}}
+        {{/each}}
+        {{/if}}
+        {{#if change.description}}
+        <br />
+        <em>Description:</em> {{change.description}}
+        {{/if}}
+    </li>
+    {{/each}}
+</ul>
+{{/each}}
+{{/if}}

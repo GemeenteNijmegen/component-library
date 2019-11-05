@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const util = require('util');
-const paths = require('../helpers/getChangelogPath.js');
+const paths = require('../../../../helpers/getChangelogPath.js/index.js');
 
 const moveFile = util.promisify(fs.rename);
 
