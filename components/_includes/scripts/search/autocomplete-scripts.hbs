@@ -48,16 +48,21 @@
     };
 
     Autocomplete.prototype.clickOutside = function (event) {
-        if (!$(event.target).closest('.autocomplete').length) {
-            this.closeResults();
+        console.log(this.$resultsList.filter(':visible'));
+        if (this.$resultsList.is(':visible') && !$(event.target).closest('.autocomplete').length && !$(event.target).closest('#navbar-open-search').length) {
+            this.closeResults(true);
         }
     };
 
-    Autocomplete.prototype.closeResults = function () {
+    Autocomplete.prototype.closeResults = function (triggerClose) {
+        console.log('close');
         this.$resultsList.html('');
         this.$resultsList.hide();
         this.$resultsList.removeAttr('role');
         $('#suggest-search-query').removeAttr('aria-activedescendant');
+        if (triggerClose) {
+            $('.autocomplete').trigger('close');
+        }
     };
 
     Autocomplete.prototype.clearSearchField = function () {
