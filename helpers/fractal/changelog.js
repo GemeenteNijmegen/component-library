@@ -37,8 +37,8 @@ const getReleased = () => {
     return changelog;
 };
 
-const getBranchChanges = dir => {
-    const unreleased = parseFilesInDir(dir);
+const getUnreleased = () => {
+    const unreleased = parseFilesInDir(path.join(__dirname, '../../changelogs/unreleased'));
     const changes = groupChangelogItems(
         unreleased.reduce((changes, file) => {
             return changes.concat(file.changes);
@@ -47,8 +47,4 @@ const getBranchChanges = dir => {
     return changes;
 };
 
-const getUnreleased = () => getBranchChanges(path.join(__dirname, '../../changelogs/unreleased'));
-
-const getWip = () => getBranchChanges(path.join(__dirname, '../../changelogs/wip'));
-
-module.exports = { getReleased, getUnreleased, getWip };
+module.exports = { getReleased, getUnreleased };
