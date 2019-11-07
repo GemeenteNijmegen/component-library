@@ -173,6 +173,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - *Component(s):* [autocomplete]({{ componentPath '@autocomplete' }})  
   *Changes:* **JS**  
   *Description:* Also close the searchbar on mobile when clicked outside
+- *Component(s):* [autocomplete]({{ componentPath '@autocomplete' }})  
+  *Changes:* **JS**  
+  *Description:* Added method to change the icon of the autocomplete based on whether the input field is empty or not
+- *Component(s):* [searchresults template]({{ componentPath '@searchresults-template' }})  
+  *Changes:* **JS**  
+  *Description:* Changed pandosearch example script so it will change the icon of the autocomplete
 
 ## [2.0.0] - 2018-06
 ### Added

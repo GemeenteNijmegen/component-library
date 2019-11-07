@@ -1,9 +1,0 @@
-changes:
-  - type: changed #changed, removed, added
-    component: autocomplete
-    description: Added method to change the icon of the autocomplete based on whether the input field is empty or not
-    what: [JS] # what has changed 1 or more of: [HTML, CSS, JS]
-  - type: changed #changed, removed, added
-    component: searchresults-template
-    description: Changed pandosearch example script so it will change the icon of the autocomplete
-    what: [JS] # what has changed 1 or more of: [HTML, CSS, JS]
