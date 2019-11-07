@@ -1,0 +1,13 @@
+changes:
+  - type: changed #changed, removed, added
+    component: [default-template, searchresults-template]
+    description: Added navbar scripts on the CL
+    what: [] # what has changed 1 or more of: [HTML, CSS, JS]
+  - type: changed #changed, removed, added
+    component: navbar-primary
+    description: Added some extra scripts to make closing the autocomplete results possible
+    what: [HTML, JS] # what has changed 1 or more of: [HTML, CSS, JS]
+  - type: changed #changed, removed, added
+    component: autocomplete
+    description: Also close the searchbar on mobile when clicked outside
+    what: [JS] # what has changed 1 or more of: [HTML, CSS, JS]
