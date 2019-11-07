@@ -1,16 +1,19 @@
 ---
-title: Navbar Primary
+title: Navbar
 status: ready # prototype, wip, ready
 default: "default" # http://fractal.build/guide/components/variants#the-default-variant
-preview: "@preview-navbar-menu"
 context:
   menuComponent: true
   searchComponent: true
   hamburgerIcon: true
   smoothScroll: " smooth-scroll"
   searchAction: ""
+  variant: navbar-primary
 variants:
   - name: "default"
+  - name: "default-white"
+    context:
+      variant: navbar-light
   - name: "no-search"
     context:
       menuComponent: true
