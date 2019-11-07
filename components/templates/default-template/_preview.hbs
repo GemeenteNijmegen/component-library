@@ -1,32 +1,46 @@
 {{> '@tpl-head' }}
 <style>
-    body { padding: 150px 0 0; }
-    main .row { padding: 50px 0; }
-    footer.page-footer { margin-top: 50px; }
+    body {
+        padding: 150px 0 0;
+    }
+
+    main .row {
+        padding: 50px 0;
+    }
+
+    footer.page-footer {
+        margin-top: 50px;
+    }
 </style>
 </head>
+
 <body>
 
-{{!-- Underneath will render component output --}}
-{{{ yield }}}
+    {{!-- Underneath will render component output --}}
+    {{{ yield }}}
 
-{{> '@tpl-scripts' }}
+    {{> '@tpl-scripts' }}
 
-{{> '@autocomplete-scripts' }}
+    {{> '@navbar-scripts' }}
 
-{{> '@autocomplete-pandosearch-scripts' }}
+    {{> '@navbar-search-scripts' }}
 
-<script>
-$('.horizontal-collapse').on('click', '.btn-floating-collapse', function () {
-    if ($(this).parent().hasClass('active')) {
-        $(this).parent().removeClass('active');
-        $(this).parent().find('.expand-horizontal').removeClass('slideInRight').addClass('slideOutRight');
-    } else {
-        $(this).parent().addClass('active');
-        $(this).parent().find('.expand-horizontal').removeClass('slideOutRight').addClass('slideInRight');
-    }
-});
-</script>
+    {{> '@autocomplete-scripts' }}
+
+    {{> '@autocomplete-pandosearch-scripts' }}
+
+    <script>
+        $('.horizontal-collapse').on('click', '.btn-floating-collapse', function () {
+            if ($(this).parent().hasClass('active')) {
+                $(this).parent().removeClass('active');
+                $(this).parent().find('.expand-horizontal').removeClass('slideInRight').addClass('slideOutRight');
+            } else {
+                $(this).parent().addClass('active');
+                $(this).parent().find('.expand-horizontal').removeClass('slideOutRight').addClass('slideInRight');
+            }
+        });
+    </script>
 
 </body>
+
 </html>
