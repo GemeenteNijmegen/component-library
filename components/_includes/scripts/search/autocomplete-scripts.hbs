@@ -65,10 +65,19 @@
         this.query = null;
         $('#suggest-search-query').val("");
         $('#suggest-search-query').focus();
-        $('.autocomplete .autocomplete__search-button').removeClass('autocomplete__button--hide');
-        $('.autocomplete .autocomplete__clear-button').addClass('autocomplete__button--hide');
         $('#autocomplete-search-results-announcer').text('');
+        this.setSearchIcon();
         this.closeResults();
+    };
+
+    Autocomplete.prototype.setSearchIcon = function () {
+        if ($('#suggest-search-query').val() != '') {
+            $('.autocomplete .autocomplete__search-button').addClass('autocomplete__button--hide');
+            $('.autocomplete .autocomplete__clear-button').removeClass('autocomplete__button--hide');
+        } else {
+            $('.autocomplete .autocomplete__search-button').removeClass('autocomplete__button--hide');
+            $('.autocomplete .autocomplete__clear-button').addClass('autocomplete__button--hide');
+        }
     };
 
     Autocomplete.prototype.inputFocusHandle = function () {
@@ -156,8 +165,7 @@
         if (event.target.value == '') {
             this.clearSearchField();
         } else {
-            $('.autocomplete .autocomplete__search-button').addClass('autocomplete__button--hide');
-            $('.autocomplete .autocomplete__clear-button').removeClass('autocomplete__button--hide');
+            this.setSearchIcon();
         }
         switch (key) {
             case this.keyCodes.DOWN:
