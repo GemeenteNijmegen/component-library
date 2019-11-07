@@ -152,7 +152,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
   *Description:* Add highlight on focus and hover
 - *Component(s):* [inline text-elements]({{ componentPath '@inline-text-elements' }})  
   *Changes:* **CSS**, **HTML**  
-  *Description:* Removed <u> element and used styling for underline
+  *Description:* Removed underline element and used styling instead
 - *Component(s):* [hover effects]({{ componentPath '@hover-effects' }})  
   *Changes:* **HTML**  
   *Description:* Add dummy alt tag
