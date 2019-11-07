@@ -10,8 +10,13 @@
         <a class="navbar-brand" href="/">
             <span class="sr-only">Hoofdpagina</span>
             <div class="navbar-brand-container">
+                {{#if light}}
+                <img src="{{ assetPath '/img/beeldmerklabel.svg' }}" class="logo-labeled" alt="Logo Nijmegen">
+                <img src="{{ assetPath '/img/beeldmerk.svg' }}" class="logo" aria-hidden="true" alt="">
+                {{else}}
                 <img src="{{ assetPath '/img/beeldmerklabelwit.svg' }}" class="logo-labeled" alt="Logo Nijmegen">
                 <img src="{{ assetPath '/img/beeldmerkwit.svg' }}" class="logo" aria-hidden="true" alt="">
+                {{/if}}
             </div>
         </a>
         <div class="collapse navbar-collapse" id="navbar-collapse">
