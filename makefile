@@ -30,7 +30,7 @@ component-listing: intro do-component-listing
 
 generate-changelog: intro do-generate-changelog
 
-test-regression: intro do-start do-regression-build do-regression-tests
+test-regression: intro do-start do-regression-build do-regression-clear-screenshots do-regression-tests
 
 pre-commit: intro do-commit-intro
 
@@ -144,6 +144,10 @@ do-regression-build:
 	@echo "\n=== Updating node modules for testing ===\n"
 	mkdir test/regression/node_modules || true
 	${set-ids} docker-compose run --rm --entrypoint "npm install" regression
+
+do-regression-clear-screenshots:
+	@echo "\n=== Clear old screenshots ===\n"
+	bash -c "rm -rf test/regression/results/screenshots/{diff,compare,error}/*" && echo "Screenshots cleared"
 
 do-regression-tests:
 	@echo "\n=== Running regression tests ===\n"
