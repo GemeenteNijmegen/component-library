@@ -12,9 +12,11 @@
         $('#navbar-close-search').click(this.closeSearch);
     };
 
-    NavbarSearch.prototype.openSearch = function () {
+    NavbarSearch.prototype.openSearch = function (event) {
         $('.navbar').addClass('search-open');
         $('.autocomplete__input').focus();
+        event.stopPropagation();
+        event.preventDefault();
     };
 
     NavbarSearch.prototype.closeSearch = function () {

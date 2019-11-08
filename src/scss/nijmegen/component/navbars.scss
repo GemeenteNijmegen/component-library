@@ -1,16 +1,35 @@
-// Scrolling navbar
-@media #{$large-and-up} {
-    .top-nav-collapse {
-        padding-top: 3px;
-        padding-bottom: 3px;
-    }
-}
+$mobile-and-down: "only screen and (max-width: 767px)";
+$tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-width : #{$medium-screen})";
 
 .navbar {
-    &.scrolling-navbar {
-        @media only screen and (max-width: 767px) {
-            padding-top: 5px;
-            padding-bottom: 5px;
+    background-color: color('nijmegen-brand', 'base');
+
+    @media #{$medium-and-down} {
+        margin: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 50px;
+        width: 100%;
+        transition: height 0.5s ease-in-out;
+        box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
+
+        @media #{$tablet-only}{
+            height: 62px;
+        }
+
+        @media #{$large-and-up} {
+            content: none;
+        }
+
+        @media #{$medium-and-down} {
+            background-color: inherit;
         }
     }
 
@@ -23,27 +42,58 @@
         }
     }
 
-    .navbar-brand {
+    &-brand-container {
+        @media #{$large-and-up} {
+            overflow: hidden;
+            width: 150px;
+            transition: width .5s ease-in-out;
+        }
+    }
+
+    &-brand {
         padding-top: 0;
         padding-bottom: 0;
+        position: relative;
+        transition: margin-right .5s ease-in-out;
 
         @media #{$medium-and-down} {
             margin-right: 0;
             position: relative;
             left: 50%;
             transform: translateX(-50%);
+            display: inline-block;
         }
 
-        .logo {
+        img {
+            @media #{$medium-and-down} {
+                transition: none !important;
+            }
+        }
+
+        @media only screen and (min-width : #{$large-screen}) {
+            margin-right: 6.75rem;
+        }
+
+        .logo{
             height: 42px;
             width: 34px;
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            opacity: 0;
+            transition: opacity .5s ease-in-out;
 
-            @media only screen and (max-width: 767px) {
+            @media #{$mobile-and-down} {
                 height: 35px;
             }
         }
 
         .logo-labeled {
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+            opacity: 1;
+            transition: height .5s ease-in-out, opacity .5s ease-in-out;
             height: 50px;
 
             @media #{$medium-and-down} {
@@ -52,77 +102,7 @@
         }
     }
 
-    .autocomplete {
-        &__form {
-            position: relative;
-
-            @media #{$medium-and-down} {
-                padding-top: 6px;
-            }
-
-            @media #{$medium-and-down} {
-                margin-left: 1rem;
-                margin-right: 1rem;
-                padding-top: 1em;
-                padding-bottom: 0.5em;
-            }
-
-            .waves-input-wrapper {
-                border-radius: 0;
-
-                @media #{$medium-and-down} {
-                    width: 100%;
-                }
-            }
-        }
-
-        &__result-list {
-            position: absolute;
-            width: 100%;
-            max-height: calc(100vh - 74px);
-            overflow: auto;
-        }
-
-        &__search-button, &__clear-button {
-            background-color: transparent;
-            border: 0;
-            font-size: to-rem(24);
-            line-height: 1;
-            padding: 0;
-            position: absolute;
-            right: 0;
-            top: calc(50% - 12px);
-        }
-
-        &__search-button {
-            &:hover {
-                cursor: default;
-            }
-        }
-
-        &__input {
-            background-color: transparent;
-            border-radius: 0;
-            box-sizing: content-box;
-            font-size: to-rem(20);
-            height: 2rem;
-            margin-left: 0;
-            margin-right: 0;
-            padding: 0.5rem to-rem(30) 0.5rem 0;
-            width: 100%;
-            box-sizing: border-box;
-
-            &:focus {
-                box-shadow: none;
-            }
-
-            &::-ms-clear {
-                display: none;
-            }
-        }
-    }
-
-    .navbar-toggler {
+    &-toggler {
         margin-left: -0.75rem;
         position: relative;
 
@@ -135,102 +115,274 @@
                 margin-left: -42px;
             }
         }
-    }
 
-    // do we need specific styling when the navbar is animated to a smaller version based on browser scrolling?
-    &.top-nav-collapse {
-        .nav-link {
-            @media #{$large-and-up} {
-                padding-top: 0;
-                padding-bottom: 0;
-            }
+        &-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255, 255, 255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
         }
     }
 
-    .navbar-nav {
+    &-nav {
         a {
             font-size: to-rem(20);
         }
     }
 
-    &__search-button, &__search-close-button {
-        display: none;
-    }
-}
-
-// white version
-.navbar.navbar-light {
-    background-color: rgba(255, 255, 255, 0.97);
-    @media #{$large-and-up} {
-        background-color: rgba(255, 255, 255, 0.5);
-    }
-
-    .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(168, 10, 45)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-    }
-
-    .navbar-nav {
-        @media #{$large-and-up} {
-            margin-left: to-rem(-27); //27 is the sum of the margin-left and padding-left of the first anchor
-        }
-
+    &__search {
         @media #{$medium-and-down} {
-            &:before {
-                content: '';
-                position: absolute;
-                width: calc(100% + 2rem);
-                height: 10px;
-                box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
-                margin-top: -10px;
-            }
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            margin: 0;
+            transition: margin 0.5s ease-in-out;
         }
 
-        .nav-item {
+        @media #{$tablet-only} {
+            margin: 7px 0;
+        }
+
+        .autocomplete {
             @media #{$medium-and-down} {
-                border-bottom: 1px solid color('nijmegen-grey', 'base');
+                display: none;
             }
 
-            .nav-link {
-                margin: 0 to-rem(19);
+            &__form {
+                position: relative;
 
                 @media #{$medium-and-down} {
+                    padding: 0;
                     margin: 0;
-                    padding: 0.75em 1rem;
                 }
 
-                color: color('nijmegen-brand', 'base');
-                transition: none;
+                .waves-input-wrapper {
+                    border-radius: 0;
+
+                    @media #{$medium-and-down} {
+                        width: 100%;
+                    }
+                }
+
+                .mdi {
+                    color: inherit;
+                }
+            }
+
+            &__result-list {
+                position: absolute;
+                width: 100%;
+                max-height: calc(100vh - 74px);
+                overflow: auto;
 
                 @media #{$medium-and-down} {
-                    color: $body-color;
+                    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25), 0 7px 7px rgba(0, 0, 0, 0.15);
+                }
+            }
+
+            &__search-button, &__clear-button {
+                background-color: transparent;
+                border: 0;
+                font-size: to-rem(24);
+                line-height: 1;
+                padding: 0;
+                position: absolute;
+                right: 0;
+                top: calc(50% - 12px);
+
+                @media #{$medium-and-down} {
+                    color: white;
+                    display: block;
+                    background-color: transparent;
+                    border: 0;
+                    position: absolute;
+                    right: .5rem;
+                    display: block;
+                    width: 25px;
+                    height: 25px;
+                    padding: 0;
+                }
+
+                &:focus {
+                    @media #{$medium-and-down} {
+                        outline: 1px solid  $focus-color !important;
+                    }
+                }
+            }
+
+            &__search-button {
+                @media #{$medium-and-down} {
+                    display: none;
+                    right: 1rem;
+                    top: calc(50% - 10px);
                 }
 
                 &:hover {
-                    border-bottom: 1px solid color('nijmegen-brand', 'base');
-                    color: color('nijmegen-brand', 'base');
-                    margin-bottom: -1px;
+                    cursor: default;
+                }
+
+                &:focus {
+                    @media #{$medium-and-down} {
+                        border-bottom: 0;
+                    }
+                }
+            }
+
+            &__clear-button {
+                @media #{$medium-and-down} {
+                    position: absolute;
+                    right: 4rem;
+                }
+            }
+
+            &__search-close-button {
+                @media #{$medium-and-down} {
+                    display: none;
+                    width: auto;
+                    text-align: right;
+                    right: 1rem;
+                    padding-bottom: 5px;
+                    line-height: 20px;
+                }
+            }
+
+            &__input {
+                background-color: transparent;
+                border-radius: 0;
+                box-sizing: content-box;
+                font-size: to-rem(20);
+                height: 2rem;
+                margin-left: 0;
+                margin-right: 0;
+                padding: 0.5rem to-rem(30) 0.5rem 0;
+                width: 100%;
+                box-sizing: border-box;
+                border: 0;
+                border-bottom: 2px solid color('nijmegen-grey', 'base');
+
+                @media #{$medium-and-down} {
+                    margin: .5rem 1rem;
+                    width: calc(100% - 2rem);
+                    border-bottom: 0;
+                    padding-right: to-rem(75);
+                }
+
+                &:focus {
+                    @include placeholder {
+                        color: color('white', 'base');
+                    }
+                    box-shadow: none;
+                    border-bottom: 2px solid color('nijmegen-primary', 'base');
+
+                    @media #{$medium-and-down} {
+                        //border-bottom: 0;
+                    }
+
+                    + .mdi {
+                        color: color('white', 'base');
+                    }
+                }
+
+                &::-ms-clear {
+                    display: none;
+                }
+            }
+        }
+    }
+    
+    &__search-button, &__search-close-button {
+        display: none;
+        color: white;
+        background-color: transparent;
+        border: 0;
+        position: absolute;
+        right: .5rem;
+        top: 14px;
+        width: 25px;
+        height: 25px;
+        padding: 0;
+
+        @media #{$medium-and-down} {
+            display: block;
+        }
+
+        &:focus {
+            outline: 1px solid  $focus-color !important;
+        }
+    }
+
+    &__search-close-button {
+        display: none;
+        width: auto;
+        text-align: right;
+        right: 1rem;
+        padding-bottom: 5px;
+        line-height: 20px;
+    }
+
+    &-collapse {
+        margin-top: to-rem(6);
+
+        @media #{$tablet-only}{
+            margin-top: to-rem(12);
+        }
+
+        @media #{$large-and-up} {
+            margin-top: 0;
+        }
+
+        @media #{$medium-and-down} {
+            margin-left: -1rem;
+            margin-right: -1rem;
+        }
+    }
+
+    &-nav {
+        .nav-item {
+            @media #{$medium-and-down} {
+                border-bottom: 1px solid color('nijmegen-brand', 'darken-3');
+            }
+
+            .nav-link {
+                margin: 0;
+
+                @media #{$medium-and-down} {
+                    padding: 0.75em 1rem;
+                }
+
+                @media #{$large-and-up} {
+                    margin: 0 to-rem(19);
+                }
+            }
+
+            a {
+                color: color('white', 'base');
+                transition: padding .5s ease-in-out;
+
+                &:hover {
+                    border-bottom: 1px solid white;
                 }
 
                 &:focus {
                     @include tab-focus-minimal;
                 }
 
-                @media #{$medium-and-down} {
-                    &::before {
+                &::before {
+                    @media #{$medium-and-down} {
                         @include mdi('chevron-right');
                         font-size: 20px;
                         width: 0px;
                         opacity: 0;
                         transition: width .2s ease-in-out, opacity .2s ease-in-out;
                     }
+                }
 
-                    &:hover,
-                    &:active {
-                        color: $body-color;
+                &:hover,
+                &:active {
+                    @media #{$medium-and-down} {
                         border-bottom: none;
-                        margin-bottom: 0;
+                    }
 
-                        &::before {
+                    &::before {
+                        @media #{$medium-and-down} {
                             width: 20px;
                             opacity: 1;
                         }
@@ -240,25 +392,27 @@
 
             &.active {
                 background-color: transparent;
+                position: relative;
+
+                &::after {
+                    @media #{$large-and-up} {
+                        content: '';
+                        background-color: color('nijmegen-brand', 'darken-3');
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        bottom: -12px;
+                        height: 8px;
+                        transition: bottom .5s ease-in-out, height .5s ease-in-out;
+                    }
+                }
 
                 .nav-link {
-                    color: color('nijmegen-brand', 'base');
-                    @media #{$medium-and-down} {
-                        color: $body-color;
-                    }
+                    color: color('nijmegen-brand', 'lighten-2');
 
                     &:focus,
                     &:hover {
-                        color: color('nijmegen-brand', 'darken-2');
-                        @media #{$medium-and-down} {
-                            color: $body-color;
-                        }
-                    }
-
-                    @media #{$medium-and-down} {
-                        &:active {
-                            color: white;
-                        }
+                        color: color('nijmegen-brand', 'lighten-1');
                     }
 
                     &:focus {
@@ -269,462 +423,190 @@
         }
     }
 
-    .navbar-brand {
-        margin-right: 2rem;
-
-        @media #{$large-and-up} {
-            display: none;
-        }
-    }
-
-    .navbar-collapse {
-        @media #{$medium-and-down} {
-            margin-left: -1rem;
-            margin-right: -1rem;
-        }
-    }
-
-    .autocomplete {
-        &__form {
-            .mdi {
-                color: color('nijmegen-brand', 'base');
-            }
-        }
-
-        &__input {
-            @include placeholder {
-                color: color('nijmegen-brand', 'base');
-            }
-
-            border: 0;
-            border-bottom: 2px solid color('nijmegen-grey', 'darken-1');
-
-            &:focus {
-                @include placeholder {
-                    color: $body-color;
-                }
-
-                border-bottom: 2px solid color('nijmegen-brand', 'darken-2');
-
-                + .mdi {
-                    color: $body-color;
-                }
-            }
-        }
-    }
-
-    // do we need specific styling when the navbar is animated to a smaller version based on browser scrolling?
     &.top-nav-collapse {
         @media #{$large-and-up} {
-            background-color: rgba(255, 255, 255, 0.97);
-        }
-    }
-}
-
-// primary Nijmegen red version
-.navbar.navbar-primary {
-    background-color: color('nijmegen-brand', 'base');
-
-    &:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        height: 50px;
-        width: 100%;
-        transition: height 0.5s ease-in-out;
-        box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
-
-        @media only screen and (min-width: #{$medium-screen-portrait}) and (max-width : #{$medium-screen}) {
-            height: 62px;
+            padding-top: 3px;
+            padding-bottom: 3px;
         }
 
-        @media only screen and (min-width: #{$medium-screen}) {
-            content: none;
-        }
-    }
-
-    .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255, 255, 255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-    }
-
-    .navbar-brand {
-        position: relative;
-        transition: margin-right .5s ease-in-out;
-
-        @media only screen and (min-width : #{$large-screen}) {
-            margin-right: 6.75rem;
-        }
-    }
-
-    .navbar-brand-container {
-        @media #{$large-and-up} {
-            overflow: hidden;
-            width: 150px;
-            transition: width .5s ease-in-out;
-        }
-    }
-
-    .logo-labeled {
-        position: relative;
-        overflow: hidden;
-        z-index: 2;
-        opacity: 1;
-        transition: height .5s ease-in-out, opacity .5s ease-in-out;
-    }
-
-    .logo {
-        position: absolute;
-        z-index: 1;
-        left: -50px;
-        left: 0;
-        opacity: 0;
-        transition: opacity .5s ease-in-out;
-    }
-
-    .navbar-collapse {
-        @media #{$medium-and-down} {
-            margin-left: -1rem;
-            margin-right: -1rem;
-        }
-    }
-
-    .nav-item {
-
-        @media #{$medium-and-down} {
-            border-bottom: 1px solid color('nijmegen-brand', 'darken-3');
-        }
-
-        .nav-link {
-            margin: 0;
-
-            @media #{$medium-and-down} {
-                padding: 0.75em 1rem;
-            }
-
-            @media #{$large-and-up} {
-                margin: 0 to-rem(19);
-            }
-        }
-
-        a {
-            color: color('white', 'base');
-            transition: padding .5s ease-in-out;
-
-            &:hover {
-                border-bottom: 1px solid white;
-            }
-
-            &:focus {
-                @include tab-focus-minimal;
-            }
-
-            @media #{$medium-and-down} {
-                &::before {
-                    @include mdi('chevron-right');
-                    font-size: 20px;
-                    width: 0px;
-                    opacity: 0;
-                    transition: width .2s ease-in-out, opacity .2s ease-in-out;
-                }
-
-                &:hover,
-                &:active {
-                    border-bottom: none;
-
-                    &::before {
-                        width: 20px;
-                        opacity: 1;
-                    }
-                }
-            }
-        }
-
-        &.active {
-            background-color: transparent;
-            position: relative;
-
-            @media #{$large-and-up} {
-                &:after {
-                    content: '';
-                    background-color: color('nijmegen-brand', 'darken-3');
-                    position: absolute;
-                    left: 0;
-                    right: 0;
-                    bottom: -12px;
-                    height: 8px;
-                    transition: bottom .5s ease-in-out, height .5s ease-in-out;
-                }
-            }
-
-            .nav-link {
-                color: color('nijmegen-brand', 'lighten-2');
-
-                &:focus,
-                &:hover {
-                    color: color('nijmegen-brand', 'lighten-1');
-                }
-
-                &:focus {
-                    @include tab-focus-minimal;
-                }
-            }
-        }
-    }
-
-    .autocomplete {
-        &__form {
-            .mdi {
-                color: color('white', 'base');
-            }
-        }
-
-        &__input {
-            @include placeholder {
-                color: color('white', 'base');
-            }
-
-            border: 0;
-            border-bottom: 2px solid color('nijmegen-grey', 'base');
-            color: color('white', 'base');
-
-            &:focus {
-                @include placeholder {
-                    color: color('white', 'base');
-                }
-
-                border-bottom: 2px solid color('nijmegen-primary', 'base');
-
-                + .mdi {
-                    color: color('white', 'base');
-                }
-            }
-        }
-    }
-
-    .navbar-collapse {
-        margin-top: to-rem(6);
-
-        @media only screen and (min-width: #{$medium-screen-portrait}) and (max-width : #{$medium-screen}) {
-            margin-top: to-rem(12);
-        }
-
-        @media #{$large-and-up} {
-            margin-top: 0;
-        }
-    }
-
-    // do we need specific styling when the navbar is animated to a smaller version based on browser scrolling?
-    &.top-nav-collapse {
-        &:before {
-            @media only screen and (min-width: #{$medium-screen-portrait}) and (max-width : #{$medium-screen}) {
+        &::before {
+            @media #{$tablet-only}{
                 height: 54px;
             }
         }
 
-        @media #{$large-and-up} {
-            .navbar-brand {
-                margin-right: 2rem;
+        .nav-link {
+            @media #{$large-and-up} {
+                padding-top: 0;
+                padding-bottom: 0;
             }
-
-            .navbar-brand-container {
-                width: 35px;
-            }
-
-            .logo-labeled {
-                height: 42px;
-                opacity: 0;
-            }
-
-            .logo {
-                opacity: 1;
-            }
-
-            .nav-item {
-                &.active {
-                    &:after {
-                        content: '';
-                        background-color: color('nijmegen-brand', 'darken-3');
-                        position: absolute;
-                        left: 0;
-                        right: 0;
-                        bottom: -6px;
-                        height: 5px;
-                    }
-                }
-            }
-        }
-    }
-}
-
-.navbar-brand {
-    @media #{$medium-and-down} {
-        display: none;
-    }
-}
-
-@media #{$medium-and-down} {
-    .navbar-light {
-        margin: 0 !important;
-        padding-bottom: 0 !important;
-
-        #navbar-collapse > ul {
-            width: 100%;
         }
 
         .navbar-brand {
-            display: inline-block;
-        }
-    }
-    
-    .navbar-primary {
-        margin: 0 !important;
-        padding-bottom: 0 !important;
-        background-color: color('nijmegen-brand', 'darken-1') !important;
-
-        &:before {
-            background-color: color('nijmegen-brand', 'base') !important;
+            @media #{$large-and-up} {
+                margin-right: 2rem;
+            }
         }
 
-        &.top-nav-collapse .navbar-brand {
-            .logo {
+        .navbar-brand-container {
+            @media #{$large-and-up} {
+                width: 35px;
+            }
+        }
+
+        .logo-labeled{
+            @media #{$large-and-up} {
+                height: 42px;
+                opacity: 0;
+            }
+            @media #{$medium-and-down} {
+                opacity: 0;
+            }
+        }
+
+        .logo {
+            @media #{$large-and-up} {
+                opacity: 1;
+            }
+            @media #{$medium-and-down} {
                 opacity: 1;
                 position: absolute;
                 left: calc(50% - 17px);
             }
-            .logo-labeled {
-                opacity: 0;
-            }
         }
 
-        .navbar-brand {
-            display: inline-block;
-
-            img {
-                transition: none !important;
+        .nav-item.active::after{
+            @media #{$large-and-up} {
+                content: '';
+                background-color: color('nijmegen-brand', 'darken-3');
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: -6px;
+                height: 5px;
             }
         }
     }
 
-    .navbar {
-        &__search {
-            position: absolute;
-            top: 0;
-            right: 0;
-            left: 0;
-            margin: 0;
-            transition: margin 0.5s ease-in-out;
-            
-            @media only screen and (min-width: #{$medium-screen-portrait}) and (max-width : #{$medium-screen}) {
-                margin: 7px 0;
-            }
-
-            .autocomplete {
-                display: none;
-
-                &__form {
-                    margin: 0;
-                    padding: 0;
-                }
-
-                &__input {
-                    margin: .5rem 1rem;
-                    width: calc(100% - 2rem);
-                    border-bottom: 0;
-                    padding-right: to-rem(75);
-
-                    &:focus {
-                        border-bottom: 0;
-                    }
-                }
-
-                &__search-button {
-                    display: none;
-                    right: 1rem;
-                    top: calc(50% - 10px);
-                }
-
-                &__clear-button {
-                    position: absolute;
-                    right: 4rem;
-                }
-
-                &__result-list {
-                    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25), 0 7px 7px rgba(0, 0, 0, 0.15);  
-                }
-            }
-        }
-
-        &__search-button, &__search-close-button {
-            color: white;
-            display: block;
-            background-color: transparent;
-            border: 0;
-            position: absolute;
-            right: .5rem;
-            top: 14px;
-            display: block;
-            width: 25px;
-            height: 25px;
-            padding: 0;
-
-            &:focus {
-                outline: 1px solid  $focus-color !important;
-            }
-        }
-
-        &__search-close-button {
-            display: none;
-            width: auto;
-            text-align: right;
-            right: 1rem;
+    &.scrolling-navbar {
+        @media #{$mobile-and-down} {
+            padding-top: 5px;
             padding-bottom: 5px;
-            line-height: 20px;
         }
+    }
 
-        &.search-open {
-            .navbar__search-button {
+    &.search-open {
+        .navbar__search-button {
+            @media #{$medium-and-down} {
                 display: none;
             }
+        }
 
-            .navbar__search-close-button {
-                display: block;
-            }
-
-            .autocomplete {
+        .navbar__search-close-button {
+            @media #{$medium-and-down} {
                 display: block;
             }
         }
-    }
 
-    .navbar.top-nav-collapse .navbar__search {
-        @media only screen and (min-width: #{$medium-screen-portrait}) and (max-width : #{$medium-screen}) {
-            margin: 1px 0;
-        }
-    }
-
-    .navbar.navbar-primary .navbar__search {
-        background-color: color('nijmegen-brand', 'base');
-        
         .autocomplete {
-            &__result-list {
+            @media #{$medium-and-down} {
+                display: block;
+            }
+        }
+    }
+
+    &.navbar-primary {
+        .navbar__search {
+            @media #{$medium-and-down} {
                 background-color: color('nijmegen-brand', 'base');
             }
 
-            &__result-link, &__section-header {
-                color: color('white', 'base');
+            .autocomplete {
+                &__search-button, &__clear-button {
+                    color: color('white', 'base');
+                }
+                &__input {
+                    @include placeholder {
+                        color: color('white', 'base');
+                    }
+                    color: color('white', 'base');
+                }
+
+                &__result-list {
+                    @media #{$medium-and-down} {
+                        background-color: color('nijmegen-brand', 'base');
+                    }
+                }
+
+                &__result-link, &__section-header {
+                    @media #{$medium-and-down} {
+                        color: color('white', 'base');
+                    }
+                }
             }
         }
     }
 
-    .navbar.navbar-light {
-        .navbar__search {
-            background-color: color('white', 'base');;
+    &.navbar-light {
+        background-color: rgba(255, 255, 255, 0.97);
+
+        @media #{$large-and-up} {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        &.top-nav-collapse {
+            @media #{$large-and-up} {
+                background-color: rgba(255, 255, 255, 0.97);
+            }
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(168, 10, 45)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
         }
 
         .navbar__search-button, .navbar__search-close-button {
-            color: color('nijmegen-brand', 'base');;
+            color: color('nijmegen-brand', 'base');
+        }
+
+        .navbar__search {
+            @media #{$medium-and-down} {
+                background-color: color('white', 'base');
+            }
+        }
+
+        .autocomplete {
+            &__search-button, &__clear-button {
+                color: color('nijmegen-brand', 'base');
+            }
+
+            &__input {
+                @include placeholder {
+                    color: color('nijmegen-brand', 'base');
+                }
+                color: $body-color;
+
+                &:focus {
+                    @include placeholder {
+                        color: inherit;
+                    }
+                }
+            }
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            color: color('nijmegen-brand', 'base');
+            border-bottom: none;
+
+            @media #{$medium-and-down} {
+                color: $body-color
+            }
+
+            &:hover {
+                color: color('nijmegen-brand', 'darken-3');
+                @media #{$medium-and-down} {
+                    color: $body-color
+                }
+            }
         }
     }
 }

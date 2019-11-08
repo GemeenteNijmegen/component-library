@@ -42,12 +42,12 @@ Feature: Visual component check
             | title-no-link |
             | listing |
             | multiple-upload |
-            | navbar-primary--default |
-            | navbar-primary--no-search |
-            | navbar-primary--no-menu |
-            | navbar-primary--no-menu-no-search |
-            | navbar-white--default |
-            | navbar-white--no-search |
+            | navbar--default |
+            | navbar--default-white |
+            | navbar--no-search |
+            | navbar--no-menu |
+            | navbar--no-menu-no-search |
+            | navbar--no-logo |
             | pagination |
             | pills--primary |
             | pills--secondary |

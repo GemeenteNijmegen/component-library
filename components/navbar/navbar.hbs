@@ -1,19 +1,26 @@
-<nav class="navbar fixed-top navbar-expand-lg scrolling-navbar navbar-primary">
+<nav class="navbar fixed-top navbar-expand-lg scrolling-navbar {{variant}}">
     <div class="container">
         {{#if hamburgerIcon}}
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse"
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar-collapse"
             aria-controls="navbar-collapse" aria-expanded="false">
             <span class="sr-only">Menu</span>
             <span class="navbar-toggler-icon" aria-hidden="true"></span>
         </button>
         {{/if}}
+        {{#if logo}}
         <a class="navbar-brand" href="/">
             <span class="sr-only">Hoofdpagina</span>
             <div class="navbar-brand-container">
+                {{#if light}}
+                <img src="{{ assetPath '/img/beeldmerklabel.svg' }}" class="logo-labeled" alt="Logo Nijmegen">
+                <img src="{{ assetPath '/img/beeldmerk.svg' }}" class="logo" aria-hidden="true" alt="">
+                {{else}}
                 <img src="{{ assetPath '/img/beeldmerklabelwit.svg' }}" class="logo-labeled" alt="Logo Nijmegen">
                 <img src="{{ assetPath '/img/beeldmerkwit.svg' }}" class="logo" aria-hidden="true" alt="">
+                {{/if}}
             </div>
         </a>
+        {{/if}}
         <div class="collapse navbar-collapse" id="navbar-collapse">
             {{#if menuComponent}}
             <ul class="navbar-nav mr-auto{{ smoothScroll }}">
