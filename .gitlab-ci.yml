@@ -78,12 +78,12 @@ update changelog:
     - git commit -m "[changelog] ${CI_COMMIT_REF_NAME} changelog update"
     - git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/
     - git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/ --tags
-  except:
-    - tags
   rules:
     - tag: yes
       when: never
-    - exists: [changelogs/unreleased/*.yml]
+    - exists:
+        - changelogs/unreleased/*.yml
+      when: on_success
 
 # ======================
 # Testing
@@ -101,7 +101,8 @@ jest:
   rules:
     - tag: yes
       when: never
-    - exists: [changelogs/unreleased/*.yml]
+    - exists:
+        - changelogs/unreleased/*.yml
       when: never
     - when: on_success
 # ======================
