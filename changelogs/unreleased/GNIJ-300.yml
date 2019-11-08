@@ -1,5 +1,0 @@
-changes:
-  - type: changed #changed, removed, added
-    component: navbar
-    description: The HTML and CSS for the primary and white navbar is now the same (except colors)
-    what: [HTML, CSS] # what has changed 1 or more of: [HTML, CSS, JS]
