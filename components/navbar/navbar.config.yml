@@ -6,6 +6,7 @@ context:
   menuComponent: true
   searchComponent: true
   hamburgerIcon: true
+  logo: true
   smoothScroll: " smooth-scroll"
   searchAction: ""
   variant: navbar-primary
@@ -29,3 +30,6 @@ variants:
       menuComponent: false
       searchComponent: false
       hamburgerIcon: false
+  - name: no-logo
+    context:
+      logo: false
