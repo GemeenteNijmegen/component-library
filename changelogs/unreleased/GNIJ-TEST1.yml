@@ -1,0 +1,5 @@
+versionBump: patch
+changes:
+    - type: added #changed, removed, added
+      component: [cards-filename, cards-news]
+      description: Added something

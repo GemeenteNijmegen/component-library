@@ -1,0 +1,19 @@
+versionBump: patch
+changes:
+    - type: added #changed, removed, added
+      component: hover-effects
+      description: Added something
+    - type: changed #changed, removed, added
+      component: hover-effects
+      description: Change 1
+      what: [CSS, JS]
+    - type: changed #changed, removed, added
+      component: hover-effects
+      description: Change 2
+      what: [JS, HTML]
+    - type: removed #changed, removed, added
+      component: hover-effects
+      description: Removed something
+    - type: removed #changed, removed, added
+      component: alerts
+      description: Removed something
