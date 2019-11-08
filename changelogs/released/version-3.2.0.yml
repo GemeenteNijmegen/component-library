@@ -1,0 +1,33 @@
+version: 3.2.0
+versionBump: minor
+date: 2019-11-08T10:29:19.458Z
+files:
+  - GNIJ-TEST1.yml
+  - GNIJ-TEST2.yml
+changes:
+  - type: added
+    component:
+      - cards-filename
+      - cards-news
+    description: Added something
+  - type: added
+    component: hover-effects
+    description: Added something
+  - type: changed
+    component: hover-effects
+    description: Change 1
+    what:
+      - CSS
+      - JS
+  - type: changed
+    component: hover-effects
+    description: Change 2
+    what:
+      - JS
+      - HTML
+  - type: removed
+    component: hover-effects
+    description: Removed something
+  - type: removed
+    component: alerts
+    description: Removed something
