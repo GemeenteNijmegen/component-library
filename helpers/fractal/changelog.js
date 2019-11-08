@@ -28,7 +28,7 @@ const groupChangelogItems = items => {
 
 const getReleased = () => {
     const versions = parseFilesInDir(path.join(__dirname, '../../changelogs/released'));
-    versions.sort((versionA, versionB) => compareVersions(versionA.version, versionB.version));
+    versions.sort((versionA, versionB) => compareVersions(versionA.version, versionB.version)).reverse();
     const changelog = versions.map(version => {
         version.changelog = groupChangelogItems(version.changes);
         return version;
