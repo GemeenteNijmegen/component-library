@@ -78,11 +78,11 @@ update changelog:
     - git commit -m "[changelog] ${CI_COMMIT_REF_NAME} changelog update"
     - git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/
     - git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/ --tags
+  except:
+    - tags
   rules:
     - exists:
         - changelogs/unreleased/*.yml
-  except:
-    - tags
 
 # ======================
 # Testing
@@ -97,13 +97,13 @@ jest:
     - docker-compose -f docker-compose.jest.yml up -d
     - docker-compose -f docker-compose.jest.yml run --rm frontend npm ci
     - docker-compose -f docker-compose.jest.yml run --rm frontend npm test
+  except:
+    - tags
   rules:
     - exists:
         - changelogs/unreleased/*.yml
       when: never
     - when: on_success
-  except:
-    - tags
 # ======================
 # Build stage
 # ======================
