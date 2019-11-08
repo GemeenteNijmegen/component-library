@@ -83,9 +83,7 @@ update changelog:
   rules:
     - tag: yes
       when: never
-    - exists:
-        - changelogs/unreleased/*.yml
-      when: on_success
+    - exists: [changelogs/unreleased/*.yml]
 
 # ======================
 # Testing
@@ -103,8 +101,7 @@ jest:
   rules:
     - tag: yes
       when: never
-    - exists:
-        - changelogs/unreleased/*.yml
+    - exists: [changelogs/unreleased/*.yml]
       when: never
     - when: on_success
 # ======================
