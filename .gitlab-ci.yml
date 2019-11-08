@@ -81,6 +81,8 @@ update changelog:
   rules:
     - exists:
         - changelogs/unreleased/*.yml
+  except:
+    - tags
 
 # ======================
 # Testing
@@ -100,6 +102,8 @@ jest:
         - changelogs/unreleased/*.yml
       when: never
     - when: on_success
+  except:
+    - tags
 # ======================
 # Build stage
 # ======================
