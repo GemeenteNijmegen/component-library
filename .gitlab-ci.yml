@@ -81,6 +81,8 @@ update changelog:
   except:
     - tags
   rules:
+    - tag: yes
+      when: never
     - exists:
         - changelogs/unreleased/*.yml
       when: on_success
@@ -98,9 +100,9 @@ jest:
     - docker-compose -f docker-compose.jest.yml up -d
     - docker-compose -f docker-compose.jest.yml run --rm frontend npm ci
     - docker-compose -f docker-compose.jest.yml run --rm frontend npm test
-  except:
-    - tags
   rules:
+    - tag: yes
+      when: never
     - exists:
         - changelogs/unreleased/*.yml
       when: never
