@@ -454,14 +454,6 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
             }
         }
 
-        .navbar__search {
-            @media #{$medium-and-down} {
-                @media #{$tablet-only} {
-                    margin: 1px 0;
-                }
-            }
-        }
-
         .logo-labeled{
             @media #{$large-and-up} {
                 height: 42px;
@@ -530,6 +522,9 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
             }
 
             .autocomplete {
+                &__search-button, &__clear-button {
+                    color: color('white', 'base');
+                }
                 &__input {
                     @include placeholder {
                         color: color('white', 'base');
@@ -559,6 +554,12 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
             background-color: rgba(255, 255, 255, 0.5);
         }
 
+        &.top-nav-collapse {
+            @media #{$large-and-up} {
+                background-color: rgba(255, 255, 255, 0.97);
+            }
+        }
+
         .navbar-toggler-icon {
             background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(168, 10, 45)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
         }
@@ -576,6 +577,35 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
         .autocomplete {
             &__search-button, &__clear-button {
                 color: color('nijmegen-brand', 'base');
+            }
+
+            &__input {
+                @include placeholder {
+                    color: color('nijmegen-brand', 'base');
+                }
+                color: $body-color;
+
+                &:focus {
+                    @include placeholder {
+                        color: inherit;
+                    }
+                }
+            }
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            color: color('nijmegen-brand', 'base');
+            border-bottom: none;
+
+            @media #{$medium-and-down} {
+                color: $body-color
+            }
+
+            &:hover {
+                color: color('nijmegen-brand', 'darken-3');
+                @media #{$medium-and-down} {
+                    color: $body-color
+                }
             }
         }
     }
