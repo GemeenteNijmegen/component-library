@@ -100,7 +100,7 @@ update changelog:
     - npm ci
     - npm run release
     - git add --all
-    - git commit -m "[changelog] ${CI_COMMIT_REF_NAME} changelog update"
+    - git commit -m "Update changelog on ${CI_COMMIT_REF_NAME}"
     - git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/
     - git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/ --tags
   rules:
