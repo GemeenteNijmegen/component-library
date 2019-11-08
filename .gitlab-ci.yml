@@ -48,8 +48,6 @@ variables:
       - docker-compose-stack.yml
     expire_in: 1 week
     when: always
-  only:
-    - /^release\/.*$/
 
 .docker-compose-login: &docker-compose-login
   image: tiangolo/docker-with-compose
@@ -62,9 +60,8 @@ variables:
   rules:
     - if: $CI_COMMIT_TAG
       when: never # Do not run for tags
-    - if: $CI_COMMIT_REF_NAME =~ /^(?!release\/).*/
-      when: on_success # Always run when not release branch
-    - exists: [changelogs/unreleased/*.yml]
+    - if: $CI_COMMIT_REF_NAME =~ /^release\/.*$/
+      exists: [changelogs/unreleased/*.yml]
       when: never # On release branch do not run when there are unreleased changelog items
     - when: on_success # Run on release without unreleased changelog items
 
@@ -153,8 +150,6 @@ build release:
       -e STABLE_RELEASE
       node:10-alpine
       /bin/sh -c "npm ci && npm run update-releases"
-  only:
-    - /^release\/.*$/
   <<: *runOnRelease
 
 build ci:
@@ -197,8 +192,6 @@ push-frontend:
     - docker pull $FRONTEND_IMAGE:$IMAGE_TAG
     - docker tag $FRONTEND_IMAGE:$IMAGE_TAG $FRONTEND_IMAGE:latest
     - docker push $FRONTEND_IMAGE:latest
-  only:
-    - /^release\/.*$/
   <<: *runOnBranch
 
 # ======================
