@@ -23,6 +23,31 @@ variables:
   CURRENT_GID: 1000
 
 # ======================
+# Changelog stage
+# ======================
+
+finish wip:
+  stage: changelog
+  image: node:10-alpine
+  before_script:
+    - apk add --no-cache git
+    - git config --global user.email "epic@enrise.com"
+    - git config --global user.name "epic"
+  script:
+    - git fetch origin ${CI_COMMIT_REF_NAME}
+    - git checkout ${CI_COMMIT_REF_NAME}
+    - npm ci
+    - npm run release
+    - git add --all
+    - git commit -m "${CI_COMMIT_REF_NAME} changelog update"
+    - git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/
+    - git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/ --tags
+  only:
+    changes:
+      - changelogs/unreleased/*.yml
+  #   - /^release\/.*$/
+
+# ======================
 # Snippets
 # ======================
 
@@ -59,36 +84,8 @@ variables:
     - echo $CI_JOB_TOKEN | docker login -u gitlab-ci-token --password-stdin $CI_REGISTRY
 
 # ======================
-# Changelog stage
-# ======================
-
-finish wip:
-  stage: changelog
-  image: node:10-alpine
-  before_script:
-    - apk add --no-cache git
-    - git config --global user.email "epic@enrise.com"
-    - git config --global user.name "epic"
-  script:
-    - git fetch origin ${CI_COMMIT_REF_NAME}
-    - git checkout ${CI_COMMIT_REF_NAME}
-    - npm ci
-    - npm run finish-wip
-    - git add --all
-    - git commit -m "[ci skip] ${CI_COMMIT_REF_NAME} changelog update"
-    - git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/
-  # only:
-  #   - /^release\/.*$/
-
-# ======================
 # Testing
 # ======================
-
-changelog:
-  stage: test
-  script:
-    - ls changelogs/unreleased
-    - ls changelogs/wip
 
 jest:
   stage: test
@@ -99,6 +96,9 @@ jest:
     - docker-compose -f docker-compose.jest.yml up -d
     - docker-compose -f docker-compose.jest.yml run --rm frontend npm ci
     - docker-compose -f docker-compose.jest.yml run --rm frontend npm test
+  except:
+    changes:
+      - changelogs/unreleased/*.yml
 
 # ======================
 # Build stage
@@ -127,6 +127,9 @@ build release:
       /bin/sh -c "npm ci && npm run update-releases"
   only:
     - /^release\/.*$/
+  except:
+    changes:
+      - changelogs/unreleased/*.yml
 
 build ci:
   stage: build
@@ -136,6 +139,9 @@ build ci:
     - docker-compose -f docker-compose.ci.yml pull -q frontend || true
     - docker-compose -f docker-compose.ci.yml build frontend
     - docker-compose -f docker-compose.ci.yml push frontend
+  except:
+    changes:
+      - changelogs/unreleased/*.yml
 
 # ======================
 # Regression stage
@@ -154,6 +160,9 @@ regression:
       - test/regression/results/screenshots/
     expire_in: 1 week
     when: on_failure
+  except:
+    changes:
+      - changelogs/unreleased/*.yml
 
 # ======================
 # Push stage
@@ -168,6 +177,9 @@ push-frontend:
     - docker push $FRONTEND_IMAGE:latest
   only:
     - /^release\/.*$/
+  except:
+    changes:
+      - changelogs/unreleased/*.yml
 
 # ======================
 # Deploy stage
@@ -200,6 +212,9 @@ deploy acceptance:
     - DOCKER_HOST=tcp://127.0.0.1:50040 docker stack deploy --with-registry-auth --compose-file=docker-compose-stack.yml ${SERVICE_NAME}
     # Exit SSH tunnel
     - ssh -S docker-socket-ssh -O exit enrise-docker-deploy@acc01.nijmegen.cobytes.io
+  except:
+    changes:
+      - changelogs/unreleased/*.yml
 
 deploy production:
   environment:
@@ -229,3 +244,6 @@ deploy production:
     - DOCKER_HOST=tcp://127.0.0.1:50040 docker stack deploy --with-registry-auth --compose-file=docker-compose-stack.yml ${SERVICE_NAME}
     # Exit SSH tunnel
     - ssh -S docker-socket-ssh -O exit enrise-docker-deploy@containerprod01.nijmegen.cobytes.io
+  except:
+    changes:
+      - changelogs/unreleased/*.yml
