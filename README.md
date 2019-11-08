@@ -114,16 +114,18 @@ There's versioning implemented for this CL in the infrastructure.
 
 ## Changelog
 
-To avoid changelog conflicts, we use a system similar to that used by GitLab:
-https://about.gitlab.com/2018/07/03/solving-gitlabs-changelog-conflict-crisis/
-
 All new changelog entries for component changes should go into yaml files under `changelogs/unreleased/`.
 
 You should use your branch name as the filename, such as `GNIJ-155.yml`.
 
-Each file should start with `changes:`, and then contain a list of changes underneath:
+Each file should have the `versionBump` and `changes` key. See example below:
+
+With the `versionBump` key you can define if the change should be a minor or a patch version. When using multiple files the highest bump is being used.
+
+When merged into a release branch the version number is automatically bumped.
 
 ```yaml
+versionBump: patch # patch, minor
 changes:
   - type: changed #changed, removed, added
     component: carousel
@@ -135,8 +137,6 @@ changes:
 ```
 
 The type must be changed, removed or added. The component must match the component folder/file name, and then a description of the change.
-
-Changelog entries within the unreleased folder will then get compiled into `docs/03-Changelog.md` when they are merged into a release/x branch.
 
 ## Production build
 
