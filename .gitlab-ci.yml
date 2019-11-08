@@ -83,6 +83,7 @@ update changelog:
   rules:
     - exists:
         - changelogs/unreleased/*.yml
+      when: on_success
 
 # ======================
 # Testing
