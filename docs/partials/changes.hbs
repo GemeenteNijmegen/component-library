@@ -7,7 +7,7 @@
     <li>
         <em>Component(s):</em>
         {{#each change.component as |component|}}
-        <a href="{{ componentPath '@{{component}}' }}">{{component}}</a>{{#unless @last}},{{/unless}}
+        <a href="{{ componentPath component }}">{{component}}</a>{{#unless @last}},{{/unless}}
         {{/each}}
         {{#if change.what}}
         <br />
