@@ -2,14 +2,7 @@
 .DS_Store
 node_modules
 /build
-/public/css/
-/public/font/
-/public/js/
-/public/img/overlays/
-/public/img/lightbox/
-/public/img/svg/
-/public/mdb-addons/
-/public/components-listing.html
+/public
 !changelogs/unreleased/.gitkeep
 
 # Regression testing
@@ -17,3 +10,5 @@ node_modules
 /test/regression/results/screenshots/compare
 /test/regression/results/screenshots/diff
 /test/regression/results/screenshots/error
+
+.cache

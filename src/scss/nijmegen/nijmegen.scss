@@ -3,10 +3,11 @@
 @import "core/colors";
 
 // having underneath in a separate scss file results in a segmentation fault
-// dunno why, maybe to many import statements??
-$mdi-font-path: "../font/mdi";
-// Material Design Icons //
-@import "materialdesignicons";
+// // dunno why, maybe to many import statements??
+$mdi-font-path: "../../node_modules/@mdi/font/fonts";
+// // Material Design Icons //
+@import "~@mdi/font/scss/materialdesignicons.scss";
+// // @import "materialdesignicons";
 
 i.mdi, span.mdi {
     line-height: 1;
