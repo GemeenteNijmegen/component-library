@@ -63,6 +63,10 @@
             {
                 "staticPath": "src/mdbootstrap-pro/v4.8.10/js",
                 "staticOutDir": "js"
+            },
+            {
+                "staticPath": "src/mdbootstrap-pro/v4.8.10/mdb-addons",
+                "staticOutDir": "mdb-addons"
             }
         ],
         "watcherGlob": "**"
