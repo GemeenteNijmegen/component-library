@@ -48,6 +48,23 @@
         "jest": "^24.9.0",
         "jshint": "^2.10.2",
         "parcel-bundler": "^1.12.4",
+        "parcel-plugin-static-files-copy": "^2.2.1",
         "prettier": "^1.18.2"
+    },
+    "staticFiles": {
+        "staticPath": [
+            {
+                "staticPath": "static"
+            },
+            {
+                "staticPath": "src/mdbootstrap-pro/v4.8.10/css",
+                "staticOutDir": "css"
+            },
+            {
+                "staticPath": "src/mdbootstrap-pro/v4.8.10/js",
+                "staticOutDir": "js"
+            }
+        ],
+        "watcherGlob": "**"
     }
 }
