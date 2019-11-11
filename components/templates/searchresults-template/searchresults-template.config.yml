@@ -1,5 +1,9 @@
 context:
+  searchAction: "searchresults-template.html"
   menuComponent: true
   searchComponent: true
   hamburgerIcon: true
-  searchAction: "searchresults-template.html"
+  logo: true
+  smoothScroll: " smooth-scroll"
+  variant: navbar-primary
+  light: false
