@@ -38,7 +38,7 @@
         }
     },
     "scripts": {
-        "start": "node parcel.js",
+        "start": "NODE_ENV=development node parcel.js",
         "build": "NODE_ENV=production node parcel.js",
         "create-components-listing": "node ./dev/deployment/createComponentsListing.js",
         "test": "node_modules/.bin/jest",
