@@ -24,8 +24,3 @@ Then call the `show` method with the current page as a parameter to show the res
 ```html
 {{ render '@pagination-example-scripts' }}
 ```
-
-#### Pagination script:
-```html
-{{ render '@pagination-scripts' }}
-```
