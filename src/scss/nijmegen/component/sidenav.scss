@@ -23,13 +23,13 @@ $icon-size: 24;
                 padding: 1rem 40px 0.5rem 20px;
                 width: 100%;
 
-                @include placeholder {
+                &::placeholder {
                     color: color('white', 'base') !important;
                 }
 
                 &:focus {
                     box-shadow: none;
-                    @include placeholder {
+                    &::placeholder {
                         color: color('white', 'base') !important;
                     }
 

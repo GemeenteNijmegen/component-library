@@ -140,13 +140,6 @@
   }
 }
 
-// Placeholder
-@mixin placeholder {
-  &::placeholder {
-    @content;
-  }
-}
-
 /// Grid system
 //
 // Generate semantic grid columns with these mixins.
@@ -539,7 +532,7 @@ $opacity: .9;
       .form-control {
         color: $color;
 
-        @include placeholder {
+        &::placeholder {
           color: $color;
           font-weight: $navbar-font-weight;
         }

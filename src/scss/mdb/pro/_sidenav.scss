@@ -202,7 +202,7 @@
         border-bottom-color: $sidenav-light-border-bottom-color;
         color: $sidenav-light-color !important;
 
-        @include placeholder {
+        &::placeholder {
           color: $sidenav-light-color !important;
         }
       }
@@ -487,7 +487,7 @@
       font-weight: 300;
       padding-left: $sidenav-search-form-input-padding-left;
 
-      @include placeholder {
+      &::placeholder {
         color: #fff;
       }
     }

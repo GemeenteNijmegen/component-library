@@ -6,7 +6,7 @@ function Carousel() {
 
 Carousel.prototype.init = function (element, options) {
     this.$carousel = $(element);
-    var currentOptions = options ? options : { interval: 2000, pause: false };
+    const currentOptions = options ? options : { interval: 2000, pause: false };
     this.$carousel.carousel(currentOptions);
 
     $('.carousel-control-play', this.$carousel).click(this.play.bind(this));

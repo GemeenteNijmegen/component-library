@@ -15,26 +15,6 @@
     @return null;
 }
 
-// MDB v4.5 uses only the &::placeholder pseudo selector, but we need more backwards compatibility
-// so we extend it to our needs
-@mixin placeholder {
-    &::-webkit-input-placeholder {
-        @content
-    }
-    &:-moz-placeholder {
-        @content
-    }
-    &::-moz-placeholder {
-        @content
-    }
-    &::-ms-placeholder {
-        @content
-    }
-    &::placeholder {
-        @content
-    }
-}
-
 @mixin mdi($icon) {
     @include web-font-rendering-support;
     content: mdi($icon);

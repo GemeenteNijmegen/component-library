@@ -118,7 +118,7 @@ $data in $skins {
           color: map-get($data, skin-text) !important;
           border-bottom: $skins-white-search-border-bottom solid $skins-border-color;
 
-          @include placeholder {
+          &::placeholder {
             color: rgba(map-get($data, skin-text), .5) !important;
           }
         }

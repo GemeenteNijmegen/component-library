@@ -74,7 +74,7 @@ $form-drop-down-bottom-border: 1px solid rgba(0, 0, 0, .125);
         font-size: to-rem(16);
         padding: 0.55rem 0 0.3rem 0;
 
-        @include placeholder {
+        &::placeholder{
             font-weight: $font-weight-normal;
             color: color('nijmegen-forms', 'placeholder');
         }

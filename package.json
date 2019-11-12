@@ -5,6 +5,14 @@
     "main": "",
     "repository": "https://github.com/Enrise/nijmegen-component-library",
     "license": "UNLICENSED",
+    "browserslist": [
+        "> .1% in NL"
+    ],
+    "postcss": {
+        "plugins": {
+            "autoprefixer": true
+        }
+    },
     "dependencies": {
         "@frctl/fractal": "^1.2.0",
         "@frctl/mandelbrot": "^1.2.1",
@@ -31,14 +39,15 @@
     },
     "scripts": {
         "start": "node parcel.js",
-        "build": "gulp build --env prod",
-        "build-icons-listing": "gulp build-icons-listing",
+        "build": "NODE_ENV=production node parcel.js",
+        "create-components-listing": "node ./dev/deployment/createComponentsListing.js",
         "test": "node_modules/.bin/jest",
         "prepare-deployment": "node dev/deployment/prepare-deployment.js",
         "update-changelog": "node dev/release/changelogs/update",
         "update-releases": "node dev/deployment/update-releases.js"
     },
     "devDependencies": {
+        "autoprefixer": "^9.7.1",
         "eslint": "^5.4.0",
         "fs": "^0.0.1-security",
         "glob": "^7.1.4",

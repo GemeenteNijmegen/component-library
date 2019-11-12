@@ -266,7 +266,7 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
                 }
 
                 &:focus {
-                    @include placeholder {
+                    &::placeholder {
                         color: color('white', 'base');
                     }
                     box-shadow: none;
@@ -526,7 +526,7 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
                     color: color('white', 'base');
                 }
                 &__input {
-                    @include placeholder {
+                    &::placeholder {
                         color: color('white', 'base');
                     }
                     color: color('white', 'base');
@@ -580,13 +580,13 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
             }
 
             &__input {
-                @include placeholder {
+                &::placeholder {
                     color: color('nijmegen-brand', 'base');
                 }
                 color: $body-color;
 
                 &:focus {
-                    @include placeholder {
+                    &::placeholder {
                         color: inherit;
                     }
                 }
