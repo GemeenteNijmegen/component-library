@@ -28,7 +28,7 @@ All files (CSS and JavaScript) used in underneath example originate from the MDB
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="{{ assetPath '/css/bootstrap.min.css' }}">
     <!-- Material Design Bootstrap combined with custom Nijmegen styles -->
-    <link rel="stylesheet" href="{{ assetPath '/css/main.css' }}">
+    <link rel="stylesheet" href="{{ assetPath '/nijmegen.css' }}">
     <!-- End: Core styling -->
 
     <title>Titel van de pagina</title>
@@ -50,7 +50,8 @@ All files (CSS and JavaScript) used in underneath example originate from the MDB
 <script src="{{ assetPath '/js/bootstrap.min.js' }}"></script>
 <!-- MDB core JavaScript -->
 <script src="{{ assetPath '/js/mdb.min.js' }}"></script>
-<!-- End: Core scripts -->
+<!-- Nijmegen specific script -->
+<script src="{{ assetPath '/nijmegen.js' }}"></script>
 
 <!-- Start: Additional component(s) script -->
 <!-- ... -->

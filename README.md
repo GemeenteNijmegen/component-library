@@ -3,10 +3,11 @@
 ## Getting Started
 
 Make sure you read the following:
-- [Sprint proces](#sprint-process)
-- [Tooling](#what-tooling-do-i-need)
-- [How to start developing](#how-do-i-start-developing-for-the-fist-time)
-- [Visual regression testing](#visual-regression-testing)
+
+-   [Sprint proces](#sprint-process)
+-   [Tooling](#what-tooling-do-i-need)
+-   [How to start developing](#how-do-i-start-developing-for-the-fist-time)
+-   [Visual regression testing](#visual-regression-testing)
 
 ### Sprint process
 
@@ -42,7 +43,7 @@ The website should now be available on URL <http://localhost:3000>
 ### Visual regression testing
 
 Next to the normal regression tests we use visual regression testing.
-When you change the looks of a component the tests **will propably fail***!
+When you change the looks of a component the tests **will propably fail\***!
 
 #### how to update the reference image
 
@@ -69,27 +70,20 @@ Other useful commands can be found by running:
 make info
 ```
 
-## Update Material Design Icons listing
-
-Nijmegen isn't using the icons that come with the MDBootstrap framework.
-As a substitute Material Design Icons (https://materialdesignicons.com) is added as a dependency to this framework.
-
-In order to see which icons are supported, a build target is available to generate a full listing based on the icons SVG file.
-
-```shell
-make update-icons
-```
-
-By issuing above command, `components/icons/icons.hbs` will be populated with HTML icons based on all the available glyphs in `node_modules/mdi/fonts/materialdesignicons-webfont.svg`.
-
-**Note**: this command is only needed when an update of the icons dependency has been done.
-
 ## Update Material Design for Bootstrap
 
-As of version 4.5.0, separation of the MDB framework Sass files and the custom Nijmegen Sass files has been improved a lot.
-MDB framework now imports by default a `custom` file (in `src/mdbootstrap-pro/v4.5.0/scss/mdb.scss`) and with this addition it's easier to point to the custom Nijmegen styling as defined in: `src/scss/nijmegen/custom.scss`.
+We want the scss to be packaged alongside our nijmegen styling so we can use mdb variables.
+The whole `scss` folder of mdb can be placed in `src/scss/mdb`. Mdb tries to import custom styles so you need to remove this line from `mdb.scss`: `@import "custom-styles";`.
 
-**Note**: When updating to a newer version of MDB, it's best to remove the `scss/_custom.scss` file from the MDB library so it can't conflict with the custom Nijmegen styling.
+Some assets need to be placed in the static folder since we don't package those ourselves but just use the variant provided by mdb:
+
+-   `js/bootstrap.min.js` -> `static/js`
+-   `js/jquery.min.js` -> `static/js`
+-   `js/mdb.min.js` -> `static/js`
+-   `js/popper.min.js` -> `static/js`
+-   `mdb-addons/mdb-lightbox-ui.html` -> `static/mdb-addons/mdb-lightbox-ui.html`
+-   `mdb-addons/preloader.html` -> `static/mdb-addons/preloader.html`
+-   `css/bootstrap.min.css` -> `static/css/bootstrap.min.css`
 
 ## Index listing of components
 
@@ -142,7 +136,7 @@ Changelog entries within the unreleased folder will then get compiled into `docs
 
 Generate a production build in `build/` with:
 
-    docker-compose run --rm frontend yarn build
+    docker-compose run --rm frontend npm run build
 
 Above command will also generate an HTML file with a full listing of available components within the library with the exception of the `Templates` folder, since these aren't components and merely example templates implementing various components from the library in one layout.
 
