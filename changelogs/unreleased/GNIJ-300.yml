@@ -1,5 +1,0 @@
-changes:
-  - type: changed #changed, removed, added
-    component: navbar
-    description: Added script to detect scrolling on the navbar with ie11
-    what: [JS] # what has changed 1 or more of: [HTML, CSS, JS]
