@@ -54,7 +54,7 @@ FacetsAdvanced.prototype.createGroup = function(facetGroup, id) {
     return $facetGroup;
 };
 
-FacetsAdvanced.prototype.createItem = function(facetItem, id) {
+FacetsAdvanced.prototype.createItem = function(facetItem) {
     var $facetItem = $(this.facetItemTemplate).clone();
 
     $('.facets__link', $facetItem).html(facetItem.title);
@@ -68,7 +68,7 @@ FacetsAdvanced.prototype.createItem = function(facetItem, id) {
                 return function(event) {
                     callback(event, $facetItem, facetItem);
                 };
-            })($facetItem, facetItem),
+            })($facetItem, facetItem)
         );
     }
     if (facetItem.active) {
@@ -88,7 +88,7 @@ FacetsAdvanced.prototype.createItemCheckbox = function(facetItem, id) {
                 return function(event) {
                     callback(event, $facetItem, facetItem);
                 };
-            })($facetItem, facetItem),
+            })($facetItem, facetItem)
         );
     if (facetItem.active) {
         $('.facets__checkbox', $facetItem).prop('checked', true);

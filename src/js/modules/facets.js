@@ -55,7 +55,7 @@ Facets.prototype.show = function(facets) {
                         return function(event) {
                             callback(event, $facetItem, facetItem);
                         };
-                    })($facetItem, facetItem),
+                    })($facetItem, facetItem)
                 );
             }
             if (facetItem.active) {

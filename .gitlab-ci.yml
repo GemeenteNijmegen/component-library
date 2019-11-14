@@ -62,6 +62,16 @@ variables:
 # Testing
 # ======================
 
+lint js:
+  stage: test
+  image: tiangolo/docker-with-compose
+  services:
+    - docker:dind
+  script:
+    - docker-compose -f docker-compose.jest.yml up -d frontend
+    - docker-compose -f docker-compose.jest.yml run --rm frontend npm ci
+    - docker-compose -f docker-compose.jest.yml run --rm frontend npm run lint-js
+
 jest:
   stage: test
   image: tiangolo/docker-with-compose

@@ -39,14 +39,14 @@ Autocomplete.prototype.init = function(getResultsFn, defaultSearchUrl) {
         function(event) {
             event.preventDefault();
             this.clearSearchField();
-        }.bind(this),
+        }.bind(this)
     );
 
     $('.autocomplete .autocomplete__search-button').click(
         function(event) {
             event.preventDefault();
             $('#suggest-search-query').focus();
-        }.bind(this),
+        }.bind(this)
     );
 };
 
@@ -117,7 +117,7 @@ Autocomplete.prototype.show = function(results) {
     }
 
     $('#autocomplete-search-results-announcer').text(
-        this.query ? 'Er zijn ' + resultsCount + ' zoekresultaten gevonden voor de zoekterm: ' + this.query : '',
+        this.query ? 'Er zijn ' + resultsCount + ' zoekresultaten gevonden voor de zoekterm: ' + this.query : ''
     );
 
     var itemNr = 0;

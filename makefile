@@ -21,7 +21,7 @@ init: intro do-build do-init do-show-commands
 build: intro do-build do-show-commands
 start: intro do-start
 stop: intro do-stop
-test: intro do-test
+test: intro do-lint do-test
 update: intro do-switch-branch do-run-updates do-start
 mr: intro do-checkout-mr do-run-updates do-start
 
@@ -99,6 +99,10 @@ do-start:
 do-stop:
 	@echo "\n=== Stop container ===\n"
 	docker-compose down
+
+do-lint:
+	@echo "\n=== Lint js ===\n"
+	docker-compose run --rm frontend npm run lint-js && echo "> All files are formatted correctly"
 
 do-test:
 	@echo "\n=== Start the validator service ===\n"
