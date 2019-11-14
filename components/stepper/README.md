@@ -29,12 +29,6 @@ As shown (commented out) within step 5 of the example, a submit button could be 
 ```
 The submit button will post the form inputs, and could appear on any step.
 
-The below JavaScript is required to use the Stepper component and should be placed in the `Additional component(s) script` section as documented in [How to use]({{ assetPath '/docs/how-to-use' }}).
-
-```html
-{{ render '@stepper-scripts' }}
-```
-
 ### Notes
 
 * When renaming the `id`, `href`, `aria-controls` and/or `aria-labelledby` for your use-case, be sure to rename all occurrences

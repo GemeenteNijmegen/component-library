@@ -1,5 +1,3 @@
-const $ = window.$;
-
 $('.horizontal-collapse').on('click', '.btn-floating-collapse', function() {
     if (
         $(this)

@@ -1,8 +1,7 @@
-<script>
 /*
-*   This solution is based upon https://www.w3.org/TR/wai-aria-practices-1.1/examples/tabs/tabs-2/tabs.html
-*/
-(function () {
+ *   This solution is based upon https://www.w3.org/TR/wai-aria-practices-1.1/examples/tabs/tabs-2/tabs.html
+ */
+(function() {
     var tabList = document.querySelectorAll('[role="tablist"]')[0];
     var tabs = document.querySelectorAll('[role="tab"]');
     var panels = document.querySelectorAll('[role="tabpanel"]');
@@ -16,7 +15,7 @@
         right: 39,
         down: 40,
         enter: 13,
-        space: 32
+        space: 32,
     };
 
     // Add or subtract depending on key pressed
@@ -24,7 +23,7 @@
         37: -1,
         38: -1,
         39: 1,
-        40: 1
+        40: 1,
     };
 
     // Bind listeners
@@ -32,7 +31,7 @@
         addListeners(i);
     }
 
-    function addListeners (index) {
+    function addListeners(index) {
         tabs[index].addEventListener('click', clickEventListener);
         tabs[index].addEventListener('keydown', keydownEventListener);
         tabs[index].addEventListener('keyup', keyupEventListener);
@@ -42,7 +41,7 @@
     }
 
     // When a tab is clicked, activateTab is fired to activate it
-    function clickEventListener (event) {
+    function clickEventListener(event) {
         var tab = event.target;
         $(tabs).removeClass('active');
         $(tab).addClass('active');
@@ -50,7 +49,7 @@
     }
 
     // Handle keydown on tabs
-    function keydownEventListener (event) {
+    function keydownEventListener(event) {
         var key = event.keyCode;
 
         switch (key) {
@@ -65,8 +64,8 @@
                 focusFirstTab();
                 break;
 
-                // Up and down are in keydown
-                // because we need to prevent page scroll >:)
+            // Up and down are in keydown
+            // because we need to prevent page scroll >:)
             case keys.up:
             case keys.down:
                 determineOrientation(event);
@@ -75,7 +74,7 @@
     }
 
     // Handle keyup on tabs
-    function keyupEventListener (event) {
+    function keyupEventListener(event) {
         var key = event.keyCode;
 
         switch (key) {
@@ -93,7 +92,7 @@
     // When tab list aria-orientation is set to vertical,
     // only up and down arrow should function.
     // In all other cases only left and right arrow function.
-    function determineOrientation (event) {
+    function determineOrientation(event) {
         var key = event.keyCode;
         var vertical = tabList.getAttribute('aria-orientation') === 'vertical';
         var proceed = false;
@@ -103,8 +102,7 @@
                 event.preventDefault();
                 proceed = true;
             }
-        }
-        else {
+        } else {
             if (key === keys.left || key === keys.right) {
                 proceed = true;
             }
@@ -117,7 +115,7 @@
 
     // Either focus the next, previous, first, or last tab
     // depending on key pressed
-    function switchTabOnArrowPress (event) {
+    function switchTabOnArrowPress(event) {
         var pressed = event.keyCode;
 
         if (direction[pressed]) {
@@ -125,11 +123,9 @@
             if (target.index !== undefined) {
                 if (tabs[target.index + direction[pressed]]) {
                     tabs[target.index + direction[pressed]].focus();
-                }
-                else if (pressed === keys.left || pressed === keys.up) {
+                } else if (pressed === keys.left || pressed === keys.up) {
                     focusLastTab();
-                }
-                else if (pressed === keys.right || pressed === keys.down) {
+                } else if (pressed === keys.right || pressed === keys.down) {
                     focusFirstTab();
                 }
             }
@@ -137,7 +133,7 @@
     }
 
     // Activates any given tab panel
-    function activateTab (tab, setFocus) {
+    function activateTab(tab, setFocus) {
         setFocus = setFocus || true;
         // Deactivate all other tabs
         deactivateTabs();
@@ -161,7 +157,7 @@
     }
 
     // Deactivate all tabs and tab panels
-    function deactivateTabs () {
+    function deactivateTabs() {
         for (var t = 0; t < tabs.length; t++) {
             tabs[t].setAttribute('tabindex', '-1');
             tabs[t].setAttribute('aria-selected', 'false');
@@ -173,13 +169,12 @@
     }
 
     // Make a guess
-    function focusFirstTab () {
+    function focusFirstTab() {
         tabs[0].focus();
     }
 
     // Make a guess
-    function focusLastTab () {
+    function focusLastTab() {
         tabs[tabs.length - 1].focus();
     }
-}());
-</script>
+})();

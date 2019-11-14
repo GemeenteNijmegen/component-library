@@ -1,5 +1,3 @@
-const $ = window.$;
-
 $('.form-check-input')
     .off('click')
     .on('click', function() {

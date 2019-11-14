@@ -1,5 +1,3 @@
-const $ = window.$;
-
 var self = this;
 var $datePicker = $('#date-picker-example-button').pickadate({
     monthsFull: [

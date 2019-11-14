@@ -1,5 +1,3 @@
-const $ = window.$;
-
 var navbarToggler = $('.navbar-toggler');
 
 // close if clicked outside the navbar

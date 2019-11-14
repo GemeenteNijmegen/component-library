@@ -10,6 +10,13 @@ import './js/datePicker';
 import './js/lightbox';
 import './js/navbar';
 import './js/popover';
+import './js/responsiveTable';
+import './js/select';
+import './js/stepper';
+import './js/switch';
+import './js/tabs';
+import './js/timePicker';
+import './js/tooltips';
 
 // These scripts will be exposed in the 'nijmegen' namespace
 import Carousel from './js/modules/carousel';
