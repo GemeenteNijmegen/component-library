@@ -1,5 +1,9 @@
 context:
+  searchAction: "https://www.nijmegen.nl"
   menuComponent: true
   searchComponent: true
   hamburgerIcon: true
-  searchAction: "https://www.nijmegen.nl"
+  logo: true
+  smoothScroll: " smooth-scroll"
+  variant: navbar-primary
+  light: false

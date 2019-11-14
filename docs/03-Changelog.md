@@ -179,6 +179,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - *Component(s):* [searchresults template]({{ componentPath '@searchresults-template' }})  
   *Changes:* **JS**  
   *Description:* Changed pandosearch example script so it will change the icon of the autocomplete
+- *Component(s):* [navbar]({{ componentPath '@navbar' }})  
+  *Changes:* **CSS**, **HTML**  
+  *Description:* The HTML and CSS for the primary and white navbar is now the same (except colors)
+- *Component(s):* [carousel]({{ componentPath '@carousel' }})  
+  *Changes:* **JS**  
+  *Description:* Removed pause on hover because it interfered with the pause button
 
 ## [2.0.0] - 2018-06
 ### Added
