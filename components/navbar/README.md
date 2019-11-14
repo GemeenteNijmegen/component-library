@@ -31,12 +31,6 @@ When using the navbar to scroll to content on the same page make sure to add the
 
 For the autocomplete search a real-time feed is provided by Pandosearch. This uses a combination of search suggestions and direct hits. To use this search functionality, JavaScript code is required before the closing "body" tag.
 
-* [Autocomplete component script]({{ componentPath '@autocomplete' }})
-
-```html
-{{ render '@autocomplete-scripts' }}
-```
-
 * Pandosearch integration
 
 ```html

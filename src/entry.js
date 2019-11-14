@@ -19,7 +19,12 @@ import './js/timePicker';
 import './js/tooltips';
 
 // These scripts will be exposed in the 'nijmegen' namespace
+import Autocomplete from './js/modules/autocomplete';
 import Carousel from './js/modules/carousel';
+import Facets from './js/modules/facets';
+import FacetsAdvanced from './js/modules/facetsAdvanced';
 import Pagination from './js/modules/pagination';
+import Pandosearch from './js/modules/pandosearch';
+import SearchResults from './js/modules/searchResults';
 
-export { Carousel, Pagination };
+export { Autocomplete, Carousel, Facets, FacetsAdvanced, Pagination, Pandosearch, SearchResults };

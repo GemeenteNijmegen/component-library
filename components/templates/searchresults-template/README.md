@@ -15,11 +15,6 @@ For the search a real-time feed is provided by Pandosearch.
 {{ render '@search-results-pandosearch-example-scripts' }}
 ```
 
-#### Pandosearch script:
-```html
-{{ render '@search-results-pandosearch-scripts' }}
-```
-
 ### Notes
 
 * Used components: see the "References" in the component library info tab
