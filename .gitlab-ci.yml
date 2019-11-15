@@ -69,7 +69,7 @@ lint js:
     - npm ci
     - npm run lint-js
 
-lint js:
+lint sass:
   stage: test
   image: node:10-alpine
   script:
