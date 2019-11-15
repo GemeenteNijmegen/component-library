@@ -6,7 +6,7 @@ RUN apk add --no-cache git
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY package.json package-lock.json /usr/src/app/
-RUN npm ci
+RUN NODE_ENV=development npm ci
 COPY . /usr/src/app
 RUN npm run create-components-listing
 RUN npm run build
