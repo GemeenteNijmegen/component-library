@@ -185,6 +185,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - *Component(s):* [carousel]({{ componentPath '@carousel' }})  
   *Changes:* **JS**  
   *Description:* Removed pause on hover because it interfered with the pause button
+- *Component(s):* [navbar]({{ componentPath '@navbar' }})  
+  *Changes:* **JS**  
+  *Description:* Added script to detect scrolling on the navbar with ie11
 
 ## [2.0.0] - 2018-06
 ### Added
