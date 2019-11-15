@@ -3,49 +3,49 @@ $text-height: to-rem(48 - $border-bottom-size);
 
 .classic-tabs-no-line,
 .classic-tabs {
-    position: relative;
     display: flex;
-    white-space: nowrap;
     overflow-x: auto;
+    position: relative;
+    white-space: nowrap;
 
     .nav-item, .pills__item {
         flex: inherit;
         height: to-rem(48);
-        z-index: 2;
         position: relative;
+        z-index: 2;
 
         &:first-child {
             margin-left: 0;
         }
 
         &:not(:last-child):after {
-            content: '';
             border-right: to-rem(1) solid color('nijmegen-grey', 'base');
+            bottom: 12px;
+            content: '';
             position: absolute;
             right: 0;
             top: 12px;
-            bottom: 12px;
         }
 
         button,
         a {
-            height: to-rem(48);
-            line-height: $text-height;
-            padding-top: 0;
-            padding-bottom: to-rem($border-bottom-size) solid color('nijmegen-grey', 'base');
-            border-radius: 0;
-            font-size: to-rem(18);
-            color: color('nijmegen-brand', 'base');
-            text-transform: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            background-color: transparent;
             border: 0;
+            border-radius: 0;
+            color: color('nijmegen-brand', 'base');
             cursor: pointer;
             display: inline-block;
-            text-decoration: none;
-            text-align: left;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            background-color: transparent;
+            font-size: to-rem(18);
+            height: to-rem(48);
+            line-height: $text-height;
             outline: none;
+            padding-bottom: to-rem($border-bottom-size) solid color('nijmegen-grey', 'base');
+            padding-top: 0;
+            text-align: left;
+            text-decoration: none;
+            text-transform: none;
 
             &.active {
                 border-bottom: to-rem($border-bottom-size) solid $body-color;
@@ -58,27 +58,27 @@ $text-height: to-rem(48 - $border-bottom-size);
             }
 
             &:focus {
+                background: rgba($focus-color, .2);
                 border-radius: 2px;
-                background: rgba($focus-color, 0.2);
             }
         }
     }
 }
 
 .classic-tabs {
-    border-top: to-rem(1) solid color('nijmegen-grey', 'base');
-    border-right: to-rem(1) solid color('nijmegen-grey', 'base');
-    border-left: to-rem(1) solid color('nijmegen-grey', 'base');
     background: linear-gradient(color('nijmegen-grey', 'base'), color('nijmegen-grey', 'base'));
-    background-size: 100% 5px;
-    background-repeat: no-repeat;
     background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 5px;
+    border-left: to-rem(1) solid color('nijmegen-grey', 'base');
+    border-right: to-rem(1) solid color('nijmegen-grey', 'base');
+    border-top: to-rem(1) solid color('nijmegen-grey', 'base');
 
     li {
         background: linear-gradient(color('nijmegen-grey', 'base'), color('nijmegen-grey', 'base'));
-        background-size: 100% 5px;
-        background-repeat: no-repeat;
         background-position: 0 100%;
+        background-repeat: no-repeat;
+        background-size: 100% 5px;
     }
 }
 

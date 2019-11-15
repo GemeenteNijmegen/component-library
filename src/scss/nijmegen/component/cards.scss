@@ -8,8 +8,8 @@
         overflow: hidden;
 
         &.compatibility-object-fit {
-            background-size: cover;
             background-position: center center;
+            background-size: cover;
 
             img.content {
                 opacity: 0;
@@ -21,12 +21,12 @@
         }
 
         .badge {
+            bottom: 0;
             font-size: to-rem(12);
+            left: 0;
             padding: to-rem(6) to-rem(20);
             position: absolute;
             z-index: 2;
-            left: 0;
-            bottom: 0;
         }
     }
 }
@@ -51,9 +51,9 @@
 }
 
 .card-title {
+    color: color('nijmegen-brand', 'base');
     font-family: 'Oranda', sans-serif;
     font-weight: $font-weight-normal;
-    color: color('nijmegen-brand', 'base');
     word-wrap: break-word;
 }
 

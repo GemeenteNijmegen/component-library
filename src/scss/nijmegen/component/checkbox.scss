@@ -3,7 +3,7 @@
     box-shadow: 0 2px 0 0 color('nijmegen-forms', 'success');
 }
 
-.form-check-input[type="checkbox"]:checked + label:before {
-    border-right-color: color('nijmegen-primary', 'base');
+.form-check-input[type='checkbox']:checked + label:before {
     border-bottom-color: color('nijmegen-primary', 'base');
+    border-right-color: color('nijmegen-primary', 'base');
 }

@@ -1,8 +1,8 @@
 .tooltip {
     .tooltip-inner {
-        font-size: to-rem(18);
         background-color: $body-color;
         font-family: 'Source Sans Pro', sans-serif;
+        font-size: to-rem(18);
     }
 
     &.bs-tooltip-top .arrow::before {

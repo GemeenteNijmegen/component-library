@@ -4,21 +4,21 @@ footer.page-footer {
     padding-top: 30px;
 
     .title {
-        font-family: 'Source Sans Pro', sans-serif;
-        font-weight: normal;
-        font-size: to-rem(20);
-        line-height: to-rem(26);
-        margin-bottom: 0.5rem;
-        text-transform: none;
         color: color('white', 'base');
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: to-rem(20);
+        font-weight: normal;
+        line-height: to-rem(26);
+        margin-bottom: .5rem;
+        text-transform: none;
     }
 
     .footer-copyright {
         background-color: color('nijmegen-backgrounds', 'default');
         color: color('white', 'base');
+        font-size: to-rem(16);
         height: to-rem(78);
         line-height: to-rem(78);
-        font-size: to-rem(16);
 
         img {
             margin-right: 10px;
@@ -37,10 +37,10 @@ footer.page-footer {
 
     table tbody tr td,
     .link-list li a {
-        padding-top: to-rem(4);
-        padding-bottom: to-rem(4);
         font-size: to-rem(14);
-        letter-spacing: to-rem(0.1);
+        letter-spacing: to-rem(.1);
+        padding-bottom: to-rem(4);
+        padding-top: to-rem(4);
     }
 
     .contact-list li a {
@@ -48,8 +48,8 @@ footer.page-footer {
     }
 
     .link-list li {
-        padding: to-rem(4) 0 to-rem(4) to-rem(8);
         line-height: to-rem(20);
+        padding: to-rem(4) 0 to-rem(4) to-rem(8);
 
         a {
             line-height: to-rem(35);
@@ -60,22 +60,22 @@ footer.page-footer {
         }
 
         span {
-            padding: to-rem(10) to-rem(8);
             font-size: to-rem(19);
+            padding: to-rem(10) to-rem(8);
             vertical-align: middle;
         }
     }
 
     table {
-        width: 100%;
         margin-bottom: 1rem;
+        width: 100%;
 
         thead th {
             line-height: 0;
 
             .badge {
-                padding: 0.25rem;
                 font-size: to-rem(12);
+                padding: .25rem;
             }
         }
 

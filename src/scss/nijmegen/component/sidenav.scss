@@ -8,8 +8,8 @@ $icon-size: 24;
     .search-form {
 
         form {
-            padding: 0 !important;
             margin: 0 !important;
+            padding: 0 !important;
             position: relative;
 
             .form-control {
@@ -19,8 +19,8 @@ $icon-size: 24;
                 border-radius: 0;
                 color: color('white', 'base') !important;
                 font-size: to-rem(16);
-                margin: 0.2rem 0 1rem;
-                padding: 1rem 40px 0.5rem 20px;
+                margin: .2rem 0 1rem;
+                padding: 1rem 40px .5rem 20px;
                 width: 100%;
 
                 &::placeholder {
@@ -28,12 +28,12 @@ $icon-size: 24;
                 }
 
                 &:focus {
+                    border-bottom: 2px solid color('nijmegen-primary', 'base') !important;
                     box-shadow: none;
+
                     &::placeholder {
                         color: color('white', 'base') !important;
                     }
-
-                    border-bottom: 2px solid color('nijmegen-primary', 'base') !important;
 
                     + i  {
                         color: color('white', 'base');
@@ -42,12 +42,12 @@ $icon-size: 24;
             }
 
             i {
+                color: color('white', 'base');
+                margin-right: 8px;
+                margin-top: -12px;
                 position: absolute;
                 right: 0;
                 top: 50%;
-                margin-top: -12px;
-                margin-right: 8px;
-                color: color('white', 'base');
 
                 &:hover {
                     cursor: default;
@@ -58,12 +58,12 @@ $icon-size: 24;
 
     .collapsible.collapsible-accordion {
         li {
-            padding: 0;
             border-bottom: 1px solid color('nijmegen-grey', 'darken-2');
+            padding: 0;
 
             &.active i.rotate-icon {
-                transform: rotate(180deg);
                 color: color('white', 'base');
+                transform: rotate(180deg);
             }
 
             a.active {
@@ -72,11 +72,11 @@ $icon-size: 24;
             }
 
             a {
-                padding: 0 0 0 20px;
-                margin: 0;
                 font-size: to-rem(16);
                 height: to-rem($item-height);
                 line-height: to-rem($item-height);
+                margin: 0;
+                padding: 0 0 0 20px;
 
                 &:hover {
                     background-color: color('nijmegen-backgrounds', 'sidebar-hover');
@@ -87,9 +87,9 @@ $icon-size: 24;
                 }
 
                 i {
-                    vertical-align: middle;
-                    margin-right: 5px;
                     color: color('nijmegen-grey', 'darken-1');
+                    margin-right: 5px;
+                    vertical-align: middle;
 
                     &.rotate-icon {
                         position: absolute;
@@ -104,12 +104,12 @@ $icon-size: 24;
                     background-color: $body-color;
 
                     li a {
-                        padding-left: to-rem(50);
                         font-size: to-rem(16);
+                        padding-left: to-rem(50);
 
                         &:hover {
-                            color: color('nijmegen-backgrounds', 'dark-background-active');
                             background-color: $body-color;
+                            color: color('nijmegen-backgrounds', 'dark-background-active');
                         }
                     }
                 }
@@ -119,5 +119,5 @@ $icon-size: 24;
 }
 
 #sidenav-overlay {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, .2);
 }

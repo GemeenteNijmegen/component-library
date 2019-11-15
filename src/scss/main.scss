@@ -1,6 +1,6 @@
 // import MDBootstrap v4.5.9
-@import "./mdb/mdb.scss";
-@import "./nijmegen/nijmegen.scss"
+@import './mdb/mdb';
+@import './nijmegen/nijmegen'
 
 // NOTE: be sure to remove the _custom.scss file from the MDB scss folder
 //       this way above import will eventually import our custom.scss file

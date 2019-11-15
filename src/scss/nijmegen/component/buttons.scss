@@ -6,7 +6,7 @@ button {
     display: block;
     font-size: to-rem(18);
     font-weight: $font-weight-semibold;
-    letter-spacing: 0.7px;
+    letter-spacing: .7px;
     width: calc(100% - 6px - 6px); // MDB sets left and right margins of 6px each
 
     @media #{$medium-and-up} {
@@ -16,8 +16,6 @@ button {
 }
 
 .btn-primary {
-    @extend .btn-primary;
-
     background-color: color('nijmegen-primary', 'base') !important;
 
     &:hover {
@@ -25,8 +23,8 @@ button {
     }
 
     &:focus {
-        background-color: color('nijmegen-primary', 'darken-1') !important;
         @include tab-focus;
+        background-color: color('nijmegen-primary', 'darken-1') !important;
     }
 
     &:active,
@@ -45,8 +43,6 @@ button {
 }
 
 .btn-secondary {
-    @extend .btn-secondary;
-
     background-color: color('white', 'base') !important;
     border: 1px solid color('nijmegen-grey', 'darken-1');
     color: color('nijmegen-primary', 'base') !important;
@@ -81,8 +77,6 @@ button {
 }
 
 .btn-info {
-    @extend .btn-info;
-
     background-color: color('white', 'base') !important;
     border: 1px solid transparent;
     box-shadow: none;
@@ -97,9 +91,9 @@ button {
     }
 
     &:focus {
+        @include tab-focus;
         background-color: color('white', 'base') !important;
         border-color: color('nijmegen-grey', 'base');
-        @include tab-focus;
     }
 
     &:active,

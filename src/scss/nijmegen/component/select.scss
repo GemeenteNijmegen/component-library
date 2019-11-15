@@ -3,45 +3,45 @@ $aria-select-height: 2.9rem !default;
 $aria-select-height: $material-select-wrapper-input-dropdown-height;
 $aria-select-line-height: 2.9rem !default;
 $aria-select-line-height: $material-select-wrapper-input-dropdown-line-height;
-$aria-select-bottom-margin: 0.94rem !default;
+$aria-select-bottom-margin: .94rem !default;
 $aria-select-bottom-margin: $material-select-wrapper-input-dropdown-margin;
 $aria-select-list-min-width: 6.25rem !default;
 $aria-select-list-min-width: $material-select-dropdown-content-min-width;
-$aria-select-list-max-height: 40.625rem !default;
+$aria-select-list-max-height: 4.625rem !default;
 $aria-select-list-max-height: $material-select-dropdown-content-max-height;
-$aria-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !default;
+$aria-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12) !default;
 $aria-box-shadow: $z-depth-1;
 
 .aria-select {
     button {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        background-color: transparent;
+        border: 0;
+        border-bottom: 1px solid color('nijmegen-forms', 'unfocussed-gray');
         cursor: pointer;
         display: inline-block;
-        border: none;
-        text-decoration: none;
-        text-align: left;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        background-color: transparent;
-        border-bottom: 1px solid color('nijmegen-forms', 'unfocussed-gray');
-        outline: none;
         height: $aria-select-height;
         line-height: $aria-select-line-height;
-        width: 100%;
-        margin: 0 0 $aria-select-bottom-margin 0;
+        margin: 0 0 $aria-select-bottom-margin;
+        outline: none;
         padding: 0 25px 0 0;
+        text-align: left;
+        text-decoration: none;
         text-overflow: ellipsis;
+        width: 100%;
 
         &::after,
         &[aria-expanded='true']::after { // chevrons
-            -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            font-feature-settings: 'liga';
-            position: absolute;
-            visibility: visible;
-            right: 15px;
-            font-size: 1.5rem;
+            -webkit-font-smoothing: antialiased;
             color: color('nijmegen-primary', 'base');
+            font-feature-settings: 'liga';
+            font-size: 1.5rem;
+            position: absolute;
+            right: 15px;
             top: 1rem;
+            visibility: visible;
         }
 
         &::after {
@@ -65,33 +65,33 @@ $aria-box-shadow: $z-depth-1;
 }
 
 .aria-select-list {
-    user-select: none;
-    list-style-type: none;
-    padding-left: 0;
-    box-shadow: $aria-box-shadow;
     background-color: #fff;
+    box-shadow: $aria-box-shadow;
+    list-style-type: none;
     margin: 0;
-    min-width: $aria-select-list-min-width;
     max-height: $aria-select-list-max-height;
-    overflow-y: auto;
-    position: absolute;
-    z-index: 999;
-    will-change: width, height;
-    width: 100%;
+    min-width: $aria-select-list-min-width;
     opacity: 0;
+    overflow-y: auto;
+    padding-left: 0;
+    position: absolute;
+    user-select: none;
+    width: 100%;
+    will-change: width, height;
+    z-index: 999;
 
     [role='option'] {
+        border-bottom: $form-drop-down-bottom-border;
         clear: both;
+        color: $body-color;
         cursor: pointer;
+        display: block;
+        font-size: to-rem(16);
         line-height: $material-select-dropdown-content-li-line-height;
-        width: 100%;
+        padding: 1rem;
         text-align: left;
         text-transform: none;
-        display: block;
-        border-bottom: $form-drop-down-bottom-border;
-        color: $body-color;
-        font-size: to-rem(16);
-        padding: 1rem;
+        width: 100%;
 
         &.active {
             background-color: transparent;
@@ -104,7 +104,7 @@ $aria-box-shadow: $z-depth-1;
         }
 
         &.focused {
-            background: rgba($focus-color, 0.2);
+            background: rgba($focus-color, .2);
         }
 
         &:last-child {

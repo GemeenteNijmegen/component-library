@@ -3,13 +3,13 @@ $icon-size: 24px;
 
 #toast-container {
     > .toast {
+        background-image: none !important;
         box-shadow: none !important;
+        color: $body-color !important;
+        margin: 15px 0;
         opacity: 1;
         padding-left: $icon-spacing !important;
         position: relative;
-        background-image: none !important;
-        margin: 15px 0;
-        color: $body-color !important;
 
         .toast-message {
             line-height: 30px;
@@ -20,13 +20,13 @@ $icon-size: 24px;
         }
 
         &:before {
-            position: absolute;
+            color: color('black', 'base');
+            font-size: $icon-size;
             left: 0;
+            position: absolute;
+            text-align: center;
             top: calc(50% - #{$icon-size / 2});
             width: $icon-spacing;
-            font-size: $icon-size;
-            text-align: center;
-            color: color('black', 'base');
         }
     }
 
@@ -35,7 +35,7 @@ $icon-size: 24px;
         opacity: 1;
 
         &:hover {
-            text-shadow: 0 0 5px rgba(color('black', 'base'), 0.5);
+            text-shadow: 0 0 5px rgba(color('black', 'base'), .5);
         }
 
         &:focus {
@@ -75,7 +75,7 @@ $icon-size: 24px;
             color: color('white', 'base') !important;
 
             &:hover {
-                text-shadow: 0 0 5px rgba(color('white', 'base'), 0.5);
+                text-shadow: 0 0 5px rgba(color('white', 'base'), .5);
             }
         }
 

@@ -9,26 +9,30 @@ $font-weight-bold:     700;
 
 @font-face {
     font-family: 'Oranda';
-    src: local(Oranda BT Bold), url('#{$oranda-font-path}oranda_bold_bt.eot');
-    src: url('#{$oranda-font-path}oranda_bold_bt.eot?#iefix') format('embedded-opentype'),
-         url('#{$oranda-font-path}oranda_bold_bt.woff2') format('woff2'),
-         url('#{$oranda-font-path}oranda_bold_bt.woff') format('woff'),
-         url('#{$oranda-font-path}oranda_bold_bt.ttf') format('truetype'),
-         url('#{$oranda-font-path}oranda_bold_bt.svg#oranda_btbold') format('svg');
-    font-weight: $font-weight-bold;
     font-style: normal;
+    font-weight: $font-weight-bold;
+    src:
+    local(Oranda BT Bold),
+    url('#{$oranda-font-path}oranda_bold_bt.eot'),
+    url('#{$oranda-font-path}oranda_bold_bt.eot?#iefix') format('embedded-opentype'),
+    url('#{$oranda-font-path}oranda_bold_bt.woff2') format('woff2'),
+    url('#{$oranda-font-path}oranda_bold_bt.woff') format('woff'),
+    url('#{$oranda-font-path}oranda_bold_bt.ttf') format('truetype'),
+    url('#{$oranda-font-path}oranda_bold_bt.svg#oranda_btbold') format('svg');
 }
 
 @font-face {
     font-family: 'Oranda';
-    src: local(Oranda BT Roman), url('#{$oranda-font-path}oranda_bt.eot');
-    src: url('#{$oranda-font-path}oranda_bt.eot?#iefix') format('embedded-opentype'),
-         url('#{$oranda-font-path}oranda_bt.woff2') format('woff2'),
-         url('#{$oranda-font-path}oranda_bt.woff') format('woff'),
-         url('#{$oranda-font-path}oranda_bt.ttf') format('truetype'),
-         url('#{$oranda-font-path}oranda_bt.svg#oranda_btroman') format('svg');
-    font-weight: $font-weight-normal;
     font-style: normal;
+    font-weight: $font-weight-normal;
+    src:
+    local(Oranda BT Roman),
+    url('#{$oranda-font-path}oranda_bt.eot'),
+    url('#{$oranda-font-path}oranda_bt.eot?#iefix') format('embedded-opentype'),
+    url('#{$oranda-font-path}oranda_bt.woff2') format('woff2'),
+    url('#{$oranda-font-path}oranda_bt.woff') format('woff'),
+    url('#{$oranda-font-path}oranda_bt.ttf') format('truetype'),
+    url('#{$oranda-font-path}oranda_bt.svg#oranda_btroman') format('svg');
 
 }
 
@@ -49,9 +53,9 @@ input,
 button,
 textarea,
 select {
+    @include web-font-rendering-support;
     color: $body-color;
     font-family: 'Source Sans Pro', sans-serif;
-    @include web-font-rendering-support;
 }
 
 h1,
@@ -60,9 +64,9 @@ h3,
 h4,
 h5,
 h6 {
+    @include web-font-rendering-support;
     font-family: 'Oranda', sans-serif;
     font-weight: $font-weight-normal;
-    @include web-font-rendering-support;
 }
 
 h1 {
@@ -131,9 +135,9 @@ ul:not([class]) {
         &:before {
             content: '●';
             font-size: to-rem(8);
-            position: absolute;
             left: 0;
-            margin-top: 0.75em;
+            margin-top: .75em;
+            position: absolute;
         }
     }
 }

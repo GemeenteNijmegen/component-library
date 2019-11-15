@@ -1,5 +1,5 @@
-$mobile-and-down: "only screen and (max-width: 767px)";
-$tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-width : #{$medium-screen})";
+$mobile-and-down: 'only screen and (max-width: 767px)';
+$tablet-only: 'only screen and (min-width: #{$medium-screen-portrait}) and (max-width : #{$medium-screen})';
 
 .navbar {
     background-color: color('nijmegen-brand', 'base');
@@ -10,15 +10,15 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
     }
 
     &::before {
+        box-shadow: 0 3px 3px rgba(0, 0, 0, .25);
         content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
         height: 50px;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: height .5s ease-in-out;
         width: 100%;
-        transition: height 0.5s ease-in-out;
-        box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
 
         @media #{$tablet-only}{
             height: 62px;
@@ -45,23 +45,23 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
     &-brand-container {
         @media #{$large-and-up} {
             overflow: hidden;
-            width: 150px;
             transition: width .5s ease-in-out;
+            width: 150px;
         }
     }
 
     &-brand {
-        padding-top: 0;
         padding-bottom: 0;
+        padding-top: 0;
         position: relative;
         transition: margin-right .5s ease-in-out;
 
         @media #{$medium-and-down} {
+            display: inline-block;
+            left: 50%;
             margin-right: 0;
             position: relative;
-            left: 50%;
             transform: translateX(-50%);
-            display: inline-block;
         }
 
         img {
@@ -70,18 +70,18 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
             }
         }
 
-        @media only screen and (min-width : #{$large-screen}) {
+        @media only screen and (min-width: #{$large-screen}) {
             margin-right: 6.75rem;
         }
 
         .logo{
             height: 42px;
-            width: 34px;
-            position: absolute;
-            z-index: 1;
             left: 0;
             opacity: 0;
+            position: absolute;
             transition: opacity .5s ease-in-out;
+            width: 34px;
+            z-index: 1;
 
             @media #{$mobile-and-down} {
                 height: 35px;
@@ -89,12 +89,12 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
         }
 
         .logo-labeled {
-            position: relative;
-            overflow: hidden;
-            z-index: 2;
-            opacity: 1;
-            transition: height .5s ease-in-out, opacity .5s ease-in-out;
             height: 50px;
+            opacity: 1;
+            overflow: hidden;
+            position: relative;
+            transition: height .5s ease-in-out, opacity .5s ease-in-out;
+            z-index: 2;
 
             @media #{$medium-and-down} {
                 height: 35px;
@@ -103,7 +103,7 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
     }
 
     &-toggler {
-        margin-left: -0.75rem;
+        margin-left: -.75rem;
         position: relative;
 
         &:focus {
@@ -117,7 +117,7 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
         }
 
         &-icon {
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255, 255, 255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+            background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgb(255, 255, 255)" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 8h24M4 16h24M4 24h24"/%3E%3C/svg%3E');
         }
     }
 
@@ -129,12 +129,12 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
 
     &__search {
         @media #{$medium-and-down} {
-            position: absolute;
-            top: 0;
-            right: 0;
             left: 0;
             margin: 0;
-            transition: margin 0.5s ease-in-out;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: margin .5s ease-in-out;
         }
 
         @media #{$tablet-only} {
@@ -150,8 +150,8 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
                 position: relative;
 
                 @media #{$medium-and-down} {
-                    padding: 0;
                     margin: 0;
+                    padding: 0;
                 }
 
                 .waves-input-wrapper {
@@ -168,13 +168,13 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
             }
 
             &__result-list {
-                position: absolute;
-                width: 100%;
                 max-height: calc(100vh - 74px);
                 overflow: auto;
+                position: absolute;
+                width: 100%;
 
                 @media #{$medium-and-down} {
-                    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25), 0 7px 7px rgba(0, 0, 0, 0.15);
+                    box-shadow: 0 3px 3px rgba(0, 0, 0, .25), 0 7px 7px rgba(0, 0, 0, .15);
                 }
             }
 
@@ -189,16 +189,15 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
                 top: calc(50% - 12px);
 
                 @media #{$medium-and-down} {
-                    color: white;
-                    display: block;
                     background-color: transparent;
                     border: 0;
-                    position: absolute;
-                    right: .5rem;
+                    color: #fff;
                     display: block;
-                    width: 25px;
                     height: 25px;
                     padding: 0;
+                    position: absolute;
+                    right: .5rem;
+                    width: 25px;
                 }
 
                 &:focus {
@@ -236,44 +235,40 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
             &__search-close-button {
                 @media #{$medium-and-down} {
                     display: none;
-                    width: auto;
-                    text-align: right;
-                    right: 1rem;
-                    padding-bottom: 5px;
                     line-height: 20px;
+                    padding-bottom: 5px;
+                    right: 1rem;
+                    text-align: right;
+                    width: auto;
                 }
             }
 
             &__input {
                 background-color: transparent;
+                border: 0;
+                border-bottom: 2px solid color('nijmegen-grey', 'base');
                 border-radius: 0;
-                box-sizing: content-box;
+                box-sizing: border-box;
                 font-size: to-rem(20);
                 height: 2rem;
                 margin-left: 0;
                 margin-right: 0;
-                padding: 0.5rem to-rem(30) 0.5rem 0;
+                padding: .5rem to-rem(30) .5rem 0;
                 width: 100%;
-                box-sizing: border-box;
-                border: 0;
-                border-bottom: 2px solid color('nijmegen-grey', 'base');
 
                 @media #{$medium-and-down} {
-                    margin: .5rem 1rem;
-                    width: calc(100% - 2rem);
                     border-bottom: 0;
+                    margin: .5rem 1rem;
                     padding-right: to-rem(75);
+                    width: calc(100% - 2rem);
                 }
 
                 &:focus {
+                    border-bottom: 2px solid color('nijmegen-primary', 'base');
+                    box-shadow: none;
+
                     &::placeholder {
                         color: color('white', 'base');
-                    }
-                    box-shadow: none;
-                    border-bottom: 2px solid color('nijmegen-primary', 'base');
-
-                    @media #{$medium-and-down} {
-                        //border-bottom: 0;
                     }
 
                     + .mdi {
@@ -287,18 +282,18 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
             }
         }
     }
-    
+
     &__search-button, &__search-close-button {
-        display: none;
-        color: white;
         background-color: transparent;
         border: 0;
+        color: #fff;
+        display: none;
+        height: 25px;
+        padding: 0;
         position: absolute;
         right: .5rem;
         top: 14px;
         width: 25px;
-        height: 25px;
-        padding: 0;
 
         @media #{$medium-and-down} {
             display: block;
@@ -311,11 +306,11 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
 
     &__search-close-button {
         display: none;
-        width: auto;
-        text-align: right;
-        right: 1rem;
-        padding-bottom: 5px;
         line-height: 20px;
+        padding-bottom: 5px;
+        right: 1rem;
+        text-align: right;
+        width: auto;
     }
 
     &-collapse {
@@ -345,7 +340,7 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
                 margin: 0;
 
                 @media #{$medium-and-down} {
-                    padding: 0.75em 1rem;
+                    padding: .75em 1rem;
                 }
 
                 @media #{$large-and-up} {
@@ -358,7 +353,7 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
                 transition: padding .5s ease-in-out;
 
                 &:hover {
-                    border-bottom: 1px solid white;
+                    border-bottom: 1px solid #fff;
                 }
 
                 &:focus {
@@ -369,22 +364,22 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
                     @media #{$medium-and-down} {
                         @include mdi('chevron-right');
                         font-size: 20px;
-                        width: 0px;
                         opacity: 0;
                         transition: width .2s ease-in-out, opacity .2s ease-in-out;
+                        width: 0;
                     }
                 }
 
                 &:hover,
                 &:active {
                     @media #{$medium-and-down} {
-                        border-bottom: none;
+                        border-bottom: 0;
                     }
 
                     &::before {
                         @media #{$medium-and-down} {
-                            width: 20px;
                             opacity: 1;
+                            width: 20px;
                         }
                     }
                 }
@@ -396,13 +391,13 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
 
                 &::after {
                     @media #{$large-and-up} {
-                        content: '';
                         background-color: color('nijmegen-brand', 'darken-3');
-                        position: absolute;
-                        left: 0;
-                        right: 0;
                         bottom: -12px;
+                        content: '';
                         height: 8px;
+                        left: 0;
+                        position: absolute;
+                        right: 0;
                         transition: bottom .5s ease-in-out, height .5s ease-in-out;
                     }
                 }
@@ -425,8 +420,8 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
 
     &.top-nav-collapse {
         @media #{$large-and-up} {
-            padding-top: 3px;
             padding-bottom: 3px;
+            padding-top: 3px;
         }
 
         &::before {
@@ -437,8 +432,8 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
 
         .nav-link {
             @media #{$large-and-up} {
-                padding-top: 0;
                 padding-bottom: 0;
+                padding-top: 0;
             }
         }
 
@@ -469,29 +464,29 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
                 opacity: 1;
             }
             @media #{$medium-and-down} {
+                left: calc(50% - 17px);
                 opacity: 1;
                 position: absolute;
-                left: calc(50% - 17px);
             }
         }
 
         .nav-item.active::after{
             @media #{$large-and-up} {
-                content: '';
                 background-color: color('nijmegen-brand', 'darken-3');
-                position: absolute;
-                left: 0;
-                right: 0;
                 bottom: -6px;
+                content: '';
                 height: 5px;
+                left: 0;
+                position: absolute;
+                right: 0;
             }
         }
     }
 
     &.scrolling-navbar {
         @media #{$mobile-and-down} {
-            padding-top: 5px;
             padding-bottom: 5px;
+            padding-top: 5px;
         }
     }
 
@@ -526,10 +521,10 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
                     color: color('white', 'base');
                 }
                 &__input {
+                    color: color('white', 'base');
                     &::placeholder {
                         color: color('white', 'base');
                     }
-                    color: color('white', 'base');
                 }
 
                 &__result-list {
@@ -548,20 +543,20 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
     }
 
     &.navbar-light {
-        background-color: rgba(255, 255, 255, 0.97);
+        background-color: rgba(255, 255, 255, .97);
 
         @media #{$large-and-up} {
-            background-color: rgba(255, 255, 255, 0.5);
+            background-color: rgba(255, 255, 255, .5);
         }
 
         &.top-nav-collapse {
             @media #{$large-and-up} {
-                background-color: rgba(255, 255, 255, 0.97);
+                background-color: rgba(255, 255, 255, .97);
             }
         }
 
         .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(168, 10, 45)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+            background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgb(168, 10, 45)" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 8h24M4 16h24M4 24h24"/%3E%3C/svg%3E');
         }
 
         .navbar__search-button, .navbar__search-close-button {
@@ -580,10 +575,11 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
             }
 
             &__input {
+                color: $body-color;
+
                 &::placeholder {
                     color: color('nijmegen-brand', 'base');
                 }
-                color: $body-color;
 
                 &:focus {
                     &::placeholder {
@@ -594,8 +590,8 @@ $tablet-only: "only screen and (min-width: #{$medium-screen-portrait}) and (max-
         }
 
         .navbar-nav .nav-item .nav-link {
+            border-bottom: 0;
             color: color('nijmegen-brand', 'base');
-            border-bottom: none;
 
             @media #{$medium-and-down} {
                 color: $body-color

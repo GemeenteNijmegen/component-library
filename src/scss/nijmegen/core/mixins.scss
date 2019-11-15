@@ -6,41 +6,37 @@
 
 @function color($color, $type) {
     @if map-has-key($colors, $color) {
-        $curr_color: map-get($colors, $color);
-        @if map-has-key($curr_color, $type) {
-            @return map-get($curr_color, $type);
+        $curr-color: map-get($colors, $color);
+        @if map-has-key($curr-color, $type) {
+            @return map-get($curr-color, $type);
         }
     }
-    @warn "Unknown `#{name}` in $colors.";
+    @warn 'Unknown `#{name}` in $colors.';
     @return null;
 }
 
 @mixin mdi($icon) {
     @include web-font-rendering-support;
     content: mdi($icon);
-    font-family: '#{$mdi-font-name}', sans-serif;
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    text-rendering: auto; // optimizelegibility throws things off #1094
-    line-height: 1;
-    display: inline-block;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
     direction: ltr;
+    display: inline-block;
+    font-family: '#{$mdi-font-name}', sans-serif;
+    font-size: 24px;
+    font-style: normal; // optimizelegibility throws things off #1094
+    font-weight: normal;
+    letter-spacing: normal;
+    line-height: 1;
+    text-rendering: auto;
+    text-transform: none;
+    white-space: nowrap;
+    word-wrap: normal;
 }
 
 @mixin web-font-rendering-support {
-    /* Support for all WebKit browsers. */
-    -webkit-font-smoothing: antialiased;
-    /* Support for Safari and Chrome. */
-    text-rendering: optimizeLegibility;
-    /* Support for Firefox. */
     -moz-osx-font-smoothing: grayscale;
-    /* Support for IE. */
+    -webkit-font-smoothing: antialiased;
     font-feature-settings: 'liga';
+    text-rendering: optimizeLegibility;
 }
 
 @mixin tab-focus() {
@@ -55,32 +51,32 @@
     position: relative;
 
     &:before {
-        display: block;
         content: '';
-        width: 100%;
+        display: block;
         padding-top: ($height / $width) * 100%;
+        width: 100%;
     }
 
     > .content {
-        position: absolute;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        right: 0;
         bottom: 0;
         height: 100%;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
         width: 100%;
+        z-index: 1;
     }
 }
 
 @mixin sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    white-space: nowrap;
-    clip-path: inset(50%);
     border: 0;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
 }

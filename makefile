@@ -103,6 +103,8 @@ do-stop:
 do-lint:
 	@echo "\n=== Lint js ===\n"
 	docker-compose run --rm frontend npm run lint-js && echo "> All files are formatted correctly"
+	@echo "\n=== Lint sass ===\n"
+	docker-compose run --rm frontend npm run lint-sass && echo "> All files are formatted correctly"
 
 do-test:
 	@echo "\n=== Start the validator service ===\n"
