@@ -8,7 +8,12 @@ const paths = require('../helpers/getChangelogPath');
 
 const versionBumpTypes = ['patch', 'minor', 'major'];
 
-const getVersionBump = filePaths => {
+/**
+ * Loops through all unreleased files
+ * Gets the version bump for every file (patch, minor or major)
+ * Returns the greatest version bump major > minor > patch
+ */
+const getGreatestVersionBumpType = filePaths => {
     const versionBumpIndex = filePaths.reduce((versionBumpIndex, filePath) => {
         const fileChanges = yaml.safeLoad(fs.readFileSync(filePath));
         if (!fileChanges.versionBump) {
@@ -27,6 +32,11 @@ const getVersionBump = filePaths => {
     return versionBumpTypes[versionBumpIndex];
 };
 
+/**
+ * Bump version with npm
+ * Npm will update the version in package.json and lockfile and commit those files
+ * Npm tags the current branch with the new version number
+ */
 const bumpVersion = versionBump => {
     try {
         return execSync(`npm version ${versionBump}`)
@@ -39,6 +49,11 @@ const bumpVersion = versionBump => {
     }
 };
 
+/**
+ * Bumps the version
+ * Put all changelog items in a file `version-x.x.x.yml` the release folder
+ * Remove all unreleased files
+ */
 const release = () => {
     const unreleasedFiles = fs
         .readdirSync(paths.unreleasedDirectory)
@@ -51,7 +66,7 @@ const release = () => {
 
     const unreleasedFilePaths = unreleasedFiles.map(fileName => path.join(paths.unreleasedDirectory, fileName));
 
-    const versionBump = getVersionBump(unreleasedFilePaths);
+    const versionBump = getGreatestVersionBumpType(unreleasedFilePaths);
 
     const version = bumpVersion(versionBump);
 
