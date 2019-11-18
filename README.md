@@ -181,3 +181,23 @@ ssh -o ProxyCommand="ssh -W %h:%p -q enrise@jump01.nijmegen.cobytes.io" enrise-d
 ```shell
 ssh -o ProxyCommand="ssh -W %h:%p -q enrise@jump01.nijmegen.cobytes.io" enrise-docker-deploy@containerprod01.nijmegen.cobytes.io
 ```
+
+## Pipeline
+
+This is how the pipeline behaves:
+
+### On all feature branches:
+
+The pipeline runs all jobs defined by the `runOnBranch` snippet.
+
+### On the release branch when there are unreleased changelog items:
+
+When there are unreleased changelog items the pipeline will only run the update changelog job.
+
+**Note:** This job will commit some changes and starts a **new pipeline**.
+
+### On the release branch when there are NO unreleased changelog items:
+
+The pipeline runs all jobs defined by the `runOnBranch` and `runOnRelease` snippets.
+
+On the release branch the jobs with the `runManualOnRelease` snippet can be started manually
