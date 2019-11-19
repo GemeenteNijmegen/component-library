@@ -1,0 +1,6 @@
+versionBump: minor # patch, minor
+changes:
+    - type: changed #changed, removed, added
+      component:
+      description: Every deploy to release will create a new version on the changelog page
+      what: [] # what has changed 1 or more of: [HTML, CSS, JS]

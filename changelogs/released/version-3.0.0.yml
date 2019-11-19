@@ -1,0 +1,263 @@
+version: 3.0.0
+versionBump: major
+date: 2019-08-01T10:29:19.458Z
+files: []
+changes:
+    - type: added
+      component: [facets-advanced]
+      description: Advanced facets with collapsible groups and checkboxes
+    - type: added
+      component: [pills]
+      description: Added the pills component
+    - type: added
+      component: [tabs--pills]
+      description: Added an example to the tabs with the pills component
+    - type: changed
+      component: [navbar-primary, navbar-white]
+      description: Added the new autocomplete component to the navbar and it now uses Pandosearch
+      what: []
+    - type: changed
+      component: [searchresults-template]
+      description: Usage of the new search components (autocomplete, facets, results) and implemented Pandosearch
+      what: []
+    - type: changed
+      component: [default-template, forminputs-template]
+      description: Now makes use of Pandosearch for the autocomplete in the navbar
+      what: []
+    - type: changed
+      component: [navbar]
+      description: The mobile navbar is moved from the hamburger menu to the navbar
+      what: []
+    - type: changed
+      component: [accordion]
+      description: Made the accordion component more accessible
+      what: []
+    - type: changed
+      component: [button-horizontal-collapse]
+      description: Made horizontal collapsing button more accessible
+      what: []
+    - type: changed
+      component: [footer]
+      description: Make footer more accessible
+      what: []
+    - type: changed
+      component: [alerts]
+      description: Made close button more accessible
+      what: []
+    - type: changed
+      component: [input]
+      description: The input element has now screen reader friendly feedback
+      what: []
+    - type: changed
+      component: [select]
+      description: Add more contrasting focus color
+      what: []
+    - type: changed
+      component: [navbar-primary, navbar-white]
+      description: Changed the way menu items look on hover and various small accessibility changes
+      what: []
+    - type: changed
+      component: [autocomplete]
+      description: Improved accessibility
+      what: []
+    - type: changed
+      component: [carousel]
+      description: Improved accessibility
+      what: []
+    - type: changed
+      component: [forminputs-template]
+      description: Added the changed input element to this overview
+      what: []
+    - type: changed
+      component: [input]
+      description: Change p in example to div
+      what: []
+    - type: changed
+      component: [select]
+      description: Improved accessibility for the select component
+      what: []
+    - type: changed
+      component: [progressbar]
+      description: Added better example
+      what: []
+    - type: changed
+      component: [navbar-primary]
+      description: Added missing alt attribute
+      what: []
+    - type: changed
+      component: [sidenav]
+      description: Moved div outside of ul
+      what: []
+    - type: changed
+      component: [timepicker]
+      description: Made inputs self-closing
+      what: []
+    - type: changed
+      component: [autocomplete]
+      description: Added option to show section headers
+      what: [JS, CSS, HTML]
+    - type: changed
+      component: [navbar-primary]
+      description: Added section headers to the pandosearch autocomplete results
+      what: [HTML, JS]
+    - type: changed
+      component: [searchresults-template]
+      description: Added reference to the pagination component
+      what: []
+    - type: changed
+      component:
+          [cards-filename, cards-services, cards-services-no-icon, cards-news]
+      description: Added underline to read-more link
+      what: [CSS, HTML]
+    - type: changed
+      component: [no-title-link, title-link]
+      description: Added underline to links
+      what: [CSS, HTML]
+    - type: changed
+      component: [facets]
+      description: Fixed active-icon in edge
+      what: []
+    - type: changed
+      component: [autocomplete]
+      description: Fixed issues with IE11
+      what: [JS]
+    - type: changed
+      component: [navbar-primary]
+      description: Some styling changes for the clear input button
+      what: [CSS]
+    - type: changed
+      component: [autocomplete]
+      description: Added a clear input button and fixed some small issues with the headers
+      what: [CSS, HTML, JS]
+    - type: changed
+      component: [facets, facets-advanced]
+      description: Hide “filter results” bar when there are no facets
+      what: [CSS, JS]
+    - type: changed
+      component: [stepper]
+      description: Use correct step status labels (aria-label was preventing the screenreader to read the rest of the step contents)
+      what: [HTML, JS]
+    - type: changed
+      component: [listing]
+      description: Removed extra focus border on title
+      what: [CSS]
+    - type: changed
+      component: [searchresults-template]
+      description: It is possible to sort facets
+      what: [JS]
+    - type: changed
+      component: [searchresults-template]
+      description: The search results will show the description instead of the body
+      what: [JS]
+    - type: changed
+      component: [autocomplete]
+      description: Increase timeout so the click event will fire before closing the dropdown
+      what: [JS]
+    - type: changed
+      component: [autocomplete]
+      description: Opening and closing the autocomplete is now more robust
+      what: [HTML, JS]
+    - type: changed
+      component: [stepper]
+      description: Changed classes so it works with the new mdbootstrap version
+      what: [HTML]
+    - type: changed
+      component: [autocomplete]
+      description: Break long items on word
+      what: [CSS]
+    - type: changed
+      component: [navbar-primary]
+      description: Close the mobile menu when clicked outside or when smooth scroll is enabled and clicked on an item
+      what: [JS]
+    - type: changed
+      component: [autocomplete]
+      description: Improved the way the autocomplete results are closed when clicked outside
+      what: JS[]
+    - type: changed
+      component: [date-picker]
+      description: Improved accessibility by removing buttons from the picker from the tabindex
+      what: [JS]
+    - type: changed
+      component: [pagination]
+      description: Improved accessibility changing the aria-labels for page landmarks
+      what: [HTML]
+    - type: changed
+      component: [facets-advanced]
+      description: Improved accessibility by removing the region role
+      what: [HTML]
+    - type: changed
+      component: [tabs]
+      description: Improved accessibility by changing from the list to just divs
+      what: [CSS, HTML]
+    - type: changed
+      component: [tags]
+      description: Improved accessibility by adding a label to the button
+      what: [HTML]
+    - type: changed
+      component: [autocomplete]
+      description: Improved accessibility by adding role and aria-hidden
+      what: [HTML]
+    - type: changed
+      component: [carousel]
+      description: Improved readability of script and change native DOM manipulation for jQuery
+      what: [JS]
+    - type: changed
+      component: [date-picker]
+      description: Improved screen-reader support
+      what: [HTML, CSS, JS]
+    - type: changed
+      component: [autocomplete]
+      description: Add highlight on focus and hover
+      what: [CSS]
+    - type: changed
+      component: [inline-text-elements]
+      description: Removed underline element and used styling instead
+      what: [CSS, HTML]
+    - type: changed
+      component: [hover-effects]
+      description: Add dummy alt tag
+      what: [HTML]
+    - type: changed
+      component: [popover]
+      description: Use h1 element in the example
+      what: [HTML]
+    - type: changed
+      component: [facets]
+      description: Add default color so every heading can be used
+      what: [CSS]
+    - type: changed
+      component: [complex-table, normal-table]
+      description: Added caption to improve accessibility
+      what: [CSS, HTML]
+    - type: changed
+      component: [default-template, searchresults-template]
+      description: Added navbar scripts on the CL
+      what: []
+    - type: changed
+      component: [navbar-primary]
+      description: Added some extra scripts to make closing the autocomplete results possible
+      what: [HTML, JS]
+    - type: changed
+      component: [autocomplete]
+      description: Also close the searchbar on mobile when clicked outside
+      what: [JS]
+    - type: changed
+      component: [autocomplete]
+      description: Added method to change the icon of the autocomplete based on whether the input field is empty or not
+      what: [JS]
+    - type: changed
+      component: [searchresults-template]
+      description: Changed pandosearch example script so it will change the icon of the autocomplete
+      what: [JS]
+    - type: changed
+      component: [navbar]
+      description: The HTML and CSS for the primary and white navbar is now the same (except colors)
+      what: [CSS, HTML]
+    - type: changed
+      component: [carousel]
+      description: Removed pause on hover because it interfered with the pause button
+      what: [JS]
+    - type: changed
+      component: [navbar]
+      description: Added script to detect scrolling on the navbar with ie11
+      what: [JS]
