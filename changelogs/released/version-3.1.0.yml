@@ -1,0 +1,10 @@
+version: 3.1.0
+versionBump: minor
+date: 2019-11-19T12:31:16.267Z
+files:
+  - GNIJ-288.yml
+changes:
+  - type: changed
+    component: null
+    description: Every deploy to release will create a new version on the changelog page
+    what: []
