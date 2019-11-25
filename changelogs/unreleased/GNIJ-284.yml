@@ -1,0 +1,6 @@
+versionBump: minor # patch, minor
+changes:
+  - type: changed #changed, removed, added
+    component:
+    description: All common scripts are now bundled in a file `nijmegen.js`. From now on you only need to initialize some components, all general functionality is already included.
+    what: [JS] # what has changed 1 or more of: [HTML, CSS, JS]
