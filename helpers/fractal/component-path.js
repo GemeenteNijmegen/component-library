@@ -1,22 +1,22 @@
 // Get's the route for a component
-const getRouteComponent = (fractal) => {
+const getRouteComponent = fractal => {
     const route = fractal.web._themes.get('default')._routes.get('component');
 
     return route.path;
 };
 
-module.exports = (fractal) => {
+module.exports = fractal => {
     let routeComponent;
 
     // This get's called for every `{{ componentPath '@handle' }}`
-    return (handle) => {
+    return handle => {
         // Check whether given handle is indeed a handle
-        if (typeof handle !== 'string' || !handle.match(/^@/)) {
+        if (typeof handle !== 'string') {
             return handle;
         }
 
         // Get rid of the handle prefix
-        const path = handle.substr(1);
+        const path = handle.match(/^@/) ? handle.substr(1) : handle;
 
         // Memoize the route for components
         if (!routeComponent) {
@@ -27,7 +27,7 @@ module.exports = (fractal) => {
         let retval = `${routeComponent.replace(':handle', path)}`;
 
         if (fractal._config.env === 'production') {
-          // This placeholder will be replaced by Nginx
+            // This placeholder will be replaced by Nginx
             retval = '%%HOSTNAME%%' + retval;
         }
 

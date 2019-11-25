@@ -29,12 +29,20 @@ nijmegenTheme.addLoadPath(__dirname + '/src/theme-overrides/views');
 // Add Nijmegen subtheme to fractal instance
 fractal.web.theme(nijmegenTheme);
 
+const { getReleased, getUnreleased } = require('./helpers/fractal/changelog');
+const getPartials = require('./helpers/fractal/getPartials');
 const hbs = require('@frctl/handlebars')({
     helpers: {
-        componentPath: require('./helpers/component-path')(fractal),
-        assetPath: require('./helpers/asset-path')(fractal),
-        mdbootstrapPath: require('./helpers/mdbootstrap-path')(fractal),
+        componentPath: require('./helpers/fractal/component-path')(fractal),
+        assetPath: require('./helpers/fractal/asset-path')(fractal),
+        mdbootstrapPath: require('./helpers/fractal/mdbootstrap-path')(fractal),
+        changelogReleased: getReleased,
+        changelogUnreleased: getUnreleased,
+        formatDate: require('./helpers/fractal/formatDate'),
+        concat: (...strs) => strs.filter(str => typeof str === 'string').join(''),
+        objectLength: obj => Object.keys(obj).length,
     },
+    partials: getPartials(path.join(__dirname, './docs/partials')),
 });
 
 // Make components use the slightly modified Handlebars engine
