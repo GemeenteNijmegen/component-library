@@ -115,18 +115,20 @@ update changelog:
 # ======================
 
 lint js:
-  stage: test
-  image: node:10-alpine
-  script:
-    - npm ci
-    - npm run lint-js
+    stage: test
+    image: node:10-alpine
+    script:
+        - npm ci
+        - npm run lint-js
+    <<: *runOnBranch
 
 lint sass:
-  stage: test
-  image: node:10-alpine
-  script:
-    - npm ci
-    - npm run lint-sass
+    stage: test
+    image: node:10-alpine
+    script:
+        - npm ci
+        - npm run lint-sass
+    <<: *runOnBranch
 
 jest:
     stage: test
