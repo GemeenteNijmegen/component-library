@@ -4,7 +4,7 @@
 
 Make sure you read the following:
 
--   [Sprint proces](#sprint-process)
+-   [Sprint process](#sprint-process)
 -   [Tooling](#what-tooling-do-i-need)
 -   [How to start developing](#how-do-i-start-developing-for-the-fist-time)
 -   [Visual regression testing](#visual-regression-testing)
@@ -43,7 +43,7 @@ The website should now be available on URL <http://localhost:3000>
 ### Visual regression testing
 
 Next to the normal regression tests we use visual regression testing.
-When you change the looks of a component the tests **will propably fail\***!
+When you change the looks of a component the tests **will probably fail**!
 
 #### how to update the reference image
 
@@ -87,7 +87,7 @@ Some assets need to be placed in the static folder since we don't package those 
 
 ## Index listing of components
 
-For 3rdparty services it would be nice to have a basic listing of all available components in the library. A custom command has been created to facilitate in this functionality and is automatically run when deployed to acceptance and/or production. The url for this listing can be seen in the `Production build` section.
+For 3rd party services it would be nice to have a basic listing of all available components in the library. A custom command has been created to facilitate in this functionality and is automatically run when deployed to acceptance and/or production. The url for this listing can be seen in the `Production build` section.
 
 For debugging and/or testing purpose, it's possible to run this command manually:
 
@@ -100,11 +100,11 @@ make component-listing
 There's versioning implemented for this CL in the infrastructure.
 
 -   The versioning setup is only used for new major versions. Minor and patches shouldn't need a new major version
--   We should aways try to avoid creating a new major version because this impacts all users of the CL.
+-   We should always try to avoid creating a new major version because this impacts all users of the CL.
 -   Versioning is based on the release branches (e.g. release/1).
 -   The version is included in the path (e.g. /v1/..)
 -   We use a fork of the jwilder nginx proxy to have the routing based on path (see [this PR](https://github.com/jwilder/nginx-proxy/pull/1083))
--   The [versions landingspage](public/versions.html) is manually updated to have control over which version is stable.
+-   The [versions landing page](public/versions.html) is manually updated to have control over which version is stable.
 
 ## Changelog
 
