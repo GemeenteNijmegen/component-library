@@ -2,14 +2,12 @@
 @import 'core/mixins';
 @import 'core/colors';
 
-// having underneath in a separate scss file results in a segmentation fault
-// // dunno why, maybe to many import statements??
+// Material design icons
 $mdi-font-path: '../../node_modules/@mdi/font/fonts';
-// // Material Design Icons //
 @import '~@mdi/font/scss/materialdesignicons';
-// // @import 'materialdesignicons';
 
-i.mdi, span.mdi {
+i.mdi,
+span.mdi {
     display: inline-block;
     font-size: 1.5rem;
     line-height: 1;
