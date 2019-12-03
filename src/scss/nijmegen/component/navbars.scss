@@ -481,6 +481,10 @@ $tablet-only: 'only screen and (min-width: #{$medium-screen-portrait}) and (max-
                 right: 0;
             }
         }
+
+        .navbar__search{
+            margin: 0;
+        }
     }
 
     &.scrolling-navbar {
