@@ -1,15 +1,18 @@
-var timePicker = $('#time-picker-example-input-hidden').pickatime({
-    twelvehour: false,
-    donetext: 'Gereed',
-    beforeShow: function() {
-        $('#time-picker-example-input-hidden').val($('#time-picker-example-input').val());
-    },
-    afterDone: function() {
-        $('#time-picker-example-input').val($('#time-picker-example-input-hidden').val());
-    },
-});
+$('.time-picker').each(function() {
+    const $picker = this;
+    const timePicker = $('.time-picker-input-hidden', $picker).pickatime({
+        twelvehour: false,
+        donetext: 'Gereed',
+        beforeShow: function() {
+            $('.time-picker-input-hidden').val($('.time-picker-input').val());
+        },
+        afterDone: function() {
+            $('.time-picker-input').val($('.time-picker-input-hidden').val());
+        },
+    });
 
-$('#time-picker-example-button').click(function(event) {
-    event.stopPropagation();
-    timePicker.pickatime('show');
+    $('.time-picker-button', $picker).click(function(event) {
+        event.stopPropagation();
+        timePicker.pickatime('show');
+    });
 });

@@ -1,45 +1,46 @@
-var self = this;
-var $datePicker = $('#date-picker-example-button').pickadate({
-    monthsFull: [
-        'januari',
-        'februari',
-        'maart',
-        'april',
-        'mei',
-        'juni',
-        'juli',
-        'augustus',
-        'september',
-        'oktober',
-        'november',
-        'december',
-    ],
-    monthsShort: ['jan', 'feb', 'maa', 'apr', 'mei', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'],
-    weekdaysFull: ['zondag', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag'],
-    weekdaysShort: ['zo', 'ma', 'di', 'wo', 'do', 'vr', 'za'],
-    today: 'vandaag',
-    clear: 'verwijderen',
-    close: 'sluiten',
-    firstDay: 1,
-    format: 'dd/mm/yyyy',
-    formatSubmit: 'yyyy/mm/dd',
-    buttonClear: 'none',
-    onSet: function(context) {
-        var date = new Date(context.select);
-        $('#date-picker-example-input').val(this.get('value'));
-    },
-    onStart: function() {
-        $('.picker__nav--prev, .picker__nav--next').attr('tabindex', '-1');
-    },
-});
-self.picker = $datePicker.pickadate('picker');
+$('.date-picker').each(function() {
+    const $picker = this;
+    const $datePicker = $('.date-picker-button', $picker).pickadate({
+        monthsFull: [
+            'januari',
+            'februari',
+            'maart',
+            'april',
+            'mei',
+            'juni',
+            'juli',
+            'augustus',
+            'september',
+            'oktober',
+            'november',
+            'december',
+        ],
+        monthsShort: ['jan', 'feb', 'maa', 'apr', 'mei', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'],
+        weekdaysFull: ['zondag', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag'],
+        weekdaysShort: ['zo', 'ma', 'di', 'wo', 'do', 'vr', 'za'],
+        today: 'vandaag',
+        clear: 'verwijderen',
+        close: 'sluiten',
+        firstDay: 1,
+        format: 'dd/mm/yyyy',
+        formatSubmit: 'yyyy/mm/dd',
+        buttonClear: 'none',
+        onSet: function() {
+            $('.date-picker-input', $picker).val(this.get('value'));
+        },
+        onStart: function() {
+            $('.picker__nav--prev, .picker__nav--next').attr('tabindex', '-1');
+        },
+    });
+    const picker = $datePicker.pickadate('picker');
 
-$('#date-picker-example-input').on('change', function() {
-    if (dateIsValid(this.value)) {
-        self.picker.set('select', parseDateInput(this.value));
-    } else {
-        $(this).val('');
-    }
+    $('.date-picker-input', $picker).on('change', function() {
+        if (dateIsValid(this.value)) {
+            picker.set('select', parseDateInput(this.value));
+        } else {
+            $(this).val('');
+        }
+    });
 });
 
 function parseDateInput(dateInput) {
