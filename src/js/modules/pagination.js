@@ -1,5 +1,3 @@
-const $ = window.$;
-
 function Pagination(numberOfPages, link, maxNumberOfPages) {
     this.maxNumberOfPages = maxNumberOfPages ? maxNumberOfPages : 9;
     this.numberOfPages = numberOfPages;
