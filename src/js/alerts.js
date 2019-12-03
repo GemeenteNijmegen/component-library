@@ -8,5 +8,3 @@ $('[data-toast-type]').click(function() {
         extendedTimeOut: 0,
     });
 });
-
-console.log(process.env.NODE_ENV);
