@@ -4,3 +4,4 @@ docs
 components
 .next
 coverage
+src/scss
