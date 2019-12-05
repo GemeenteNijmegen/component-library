@@ -15,14 +15,12 @@ const fractal = (module.exports = require('@frctl/fractal').create());
  */
 const mandelbrot = require('@frctl/mandelbrot');
 
-const version = require('./helpers/getVersion')();
-
 const nijmegenTheme = mandelbrot({
     nav: ['docs', 'components'],
     panels: ['html', 'notes', 'info'],
     styles: ['default', '/_subtheme/css/nijmegen.css'], // link to the default stylesheet followed by a custom one
     favicon: '/_subtheme/img/favicon.ico',
-    version: version,
+    version: process.env.npm_package_version,
 });
 
 // specify a directory to hold the theme override templates
@@ -115,20 +113,4 @@ fractal.cli.command('list-components', listComponents, {
     description: 'Lists components in the project and returns an HTML output',
 });
 
-/*
- * Other configurations
- * See
- *   http://fractal.build/guide/web/configuration
- *   https://www.browsersync.io/docs/options#option-reloadDelay
- * Omdat ik een watch instel op de source bestanden moet BrowserSync even wachten voordat de browser een refresh krijgt gepushed want in de tussentijd zal Gulp de CSS bestanden genereren.
- * Ik had liever een watch ingesteld op de gegenereerde CSS bestanden, maar die werd niet altijd opgepakt gek genoeg.
- */
 fractal.web.set('server.sync', true);
-
-/* Options passed to BrowserSync */
-fractal.web.set('server.syncOptions', {
-    /* Files to watch for changes */
-    files: ['src/**/*.scss'],
-    /* Adding a delay to make sure the sourcefiles are compiled before pushing the refresh to the browser */
-    reloadDelay: 1000,
-});

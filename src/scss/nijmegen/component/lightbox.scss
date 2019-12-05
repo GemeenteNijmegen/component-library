@@ -7,13 +7,13 @@
             display: block;
 
             &:before {
+                background-color: rgba($focus-color, .2);
+                bottom: .5rem;
+                content: '';
+                left: .5rem;
                 position: absolute;
-                content: "";
-                background-color: rgba($focus-color, 0.2);
-                left: 0.5rem;
-                right: 0.5rem;
-                bottom: 0.5rem;
-                top: 0.5rem;
+                right: .5rem;
+                top: .5rem;
             }
         }
 
@@ -21,13 +21,13 @@
             outline: none !important;
 
             &:after {
-                content: "";
-                position: absolute;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                top: 0;
                 border: 3px solid $focus-color;
+                bottom: 0;
+                content: '';
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
             }
         }
 

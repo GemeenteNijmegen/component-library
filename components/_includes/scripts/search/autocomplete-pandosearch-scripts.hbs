@@ -1,7 +1,7 @@
 <script>
     var suggestUrl = 'https://public.pandosearch.com/nijmegen.nl/suggest?size=5&q=';
 
-    var autocomplete = new Autocomplete();
+    var autocomplete = new nijmegen.Autocomplete();
     $(document).ready(function () {
         autocomplete.init(getAutocompleteResults, '?q={query}');
     });

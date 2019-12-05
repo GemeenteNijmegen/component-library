@@ -1,22 +1,23 @@
 .modal-footer,
 .modal-header {
-    border: none;
+    border: 0;
 }
 
 .modal-header {
     .close {
-        opacity: 1;
         color: color('nijmegen-primary', 'base');
-        margin-top: -0.5rem;
+        margin-top: -.5rem;
+        opacity: 1;
     }
 }
 
 .modal-title {
-    font-family: 'Oranda', sans-serif;
-    font-weight: $font-weight-normal;
     @include web-font-rendering-support;
-    font-size: to-rem(26);
+
     color: $body-color;
+    font-family: 'Oranda', sans-serif;
+    font-size: to-rem(26);
+    font-weight: $font-weight-normal;
 
     @media only screen and (min-width: #{$medium-screen-portrait}) {
         font-size: to-rem(28);
@@ -24,6 +25,6 @@
 }
 
 .modal-body {
-    padding-top: 0;
     padding-bottom: 0;
+    padding-top: 0;
 }

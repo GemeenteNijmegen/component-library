@@ -3,10 +3,11 @@
 ## Getting Started
 
 Make sure you read the following:
-- [Sprint proces](#sprint-process)
-- [Tooling](#what-tooling-do-i-need)
-- [How to start developing](#how-do-i-start-developing-for-the-fist-time)
-- [Visual regression testing](#visual-regression-testing)
+
+-   [Sprint process](#sprint-process)
+-   [Tooling](#what-tooling-do-i-need)
+-   [How to start developing](#how-do-i-start-developing-for-the-fist-time)
+-   [Visual regression testing](#visual-regression-testing)
 
 ### Sprint process
 
@@ -42,7 +43,7 @@ The website should now be available on URL <http://localhost:3000>
 ### Visual regression testing
 
 Next to the normal regression tests we use visual regression testing.
-When you change the looks of a component the tests **will propably fail***!
+When you change the looks of a component the tests **will probably fail**!
 
 #### how to update the reference image
 
@@ -69,31 +70,24 @@ Other useful commands can be found by running:
 make info
 ```
 
-## Update Material Design Icons listing
-
-Nijmegen isn't using the icons that come with the MDBootstrap framework.
-As a substitute Material Design Icons (https://materialdesignicons.com) is added as a dependency to this framework.
-
-In order to see which icons are supported, a build target is available to generate a full listing based on the icons SVG file.
-
-```shell
-make update-icons
-```
-
-By issuing above command, `components/icons/icons.hbs` will be populated with HTML icons based on all the available glyphs in `node_modules/mdi/fonts/materialdesignicons-webfont.svg`.
-
-**Note**: this command is only needed when an update of the icons dependency has been done.
-
 ## Update Material Design for Bootstrap
 
-As of version 4.5.0, separation of the MDB framework Sass files and the custom Nijmegen Sass files has been improved a lot.
-MDB framework now imports by default a `custom` file (in `src/mdbootstrap-pro/v4.5.0/scss/mdb.scss`) and with this addition it's easier to point to the custom Nijmegen styling as defined in: `src/scss/nijmegen/custom.scss`.
+We want the scss to be packaged alongside our nijmegen styling so we can use mdb variables.
+The whole `scss` folder of mdb can be placed in `src/scss/mdb`. Mdb tries to import custom styles so you need to remove this line from `mdb.scss`: `@import "custom-styles";`.
 
-**Note**: When updating to a newer version of MDB, it's best to remove the `scss/_custom.scss` file from the MDB library so it can't conflict with the custom Nijmegen styling.
+Some assets need to be placed in the static folder since we don't package those ourselves but just use the variant provided by mdb:
+
+-   `js/bootstrap.min.js` -> `static/js`
+-   `js/jquery.min.js` -> `static/js`
+-   `js/mdb.min.js` -> `static/js`
+-   `js/popper.min.js` -> `static/js`
+-   `mdb-addons/mdb-lightbox-ui.html` -> `static/mdb-addons/mdb-lightbox-ui.html`
+-   `mdb-addons/preloader.html` -> `static/mdb-addons/preloader.html`
+-   `css/bootstrap.min.css` -> `static/css/bootstrap.min.css`
 
 ## Index listing of components
 
-For 3rdparty services it would be nice to have a basic listing of all available components in the library. A custom command has been created to facilitate in this functionality and is automatically run when deployed to acceptance and/or production. The url for this listing can be seen in the `Production build` section.
+For 3rd party services it would be nice to have a basic listing of all available components in the library. A custom command has been created to facilitate in this functionality and is automatically run when deployed to acceptance and/or production. The url for this listing can be seen in the `Production build` section.
 
 For debugging and/or testing purpose, it's possible to run this command manually:
 
@@ -106,11 +100,11 @@ make component-listing
 There's versioning implemented for this CL in the infrastructure.
 
 -   The versioning setup is only used for new major versions. Minor and patches shouldn't need a new major version
--   We should aways try to avoid creating a new major version because this impacts all users of the CL.
+-   We should always try to avoid creating a new major version because this impacts all users of the CL.
 -   Versioning is based on the release branches (e.g. release/1).
 -   The version is included in the path (e.g. /v1/..)
 -   We use a fork of the jwilder nginx proxy to have the routing based on path (see [this PR](https://github.com/jwilder/nginx-proxy/pull/1083))
--   The [versions landingspage](public/versions.html) is manually updated to have control over which version is stable.
+-   The [versions landing page](public/versions.html) is manually updated to have control over which version is stable.
 
 ## Changelog
 
@@ -142,7 +136,7 @@ The type must be changed, removed or added. The component must match the compone
 
 Generate a production build in `build/` with:
 
-    docker-compose run --rm frontend yarn build
+    docker-compose run --rm frontend npm run build
 
 Above command will also generate an HTML file with a full listing of available components within the library with the exception of the `Templates` folder, since these aren't components and merely example templates implementing various components from the library in one layout.
 

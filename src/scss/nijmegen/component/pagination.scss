@@ -1,14 +1,14 @@
 .pagination {
     .page-item {
         .page-link {
-            width: 36px;
-            height: 36px;
-            margin: 0 1px;
-            text-align: center;
-            font-size: 1.125rem;
             color: color('nijmegen-primary', 'base');
-            padding: 0;
+            font-size: 1.125rem;
+            height: 36px;
             line-height: 36px;
+            margin: 0 1px;
+            padding: 0;
+            text-align: center;
+            width: 36px;
 
             &:hover      {
                 background-color: color('nijmegen-grey', 'lighten-1');
@@ -21,7 +21,7 @@
                 box-shadow: none;
             }
 
-            > [aria-hidden="true"] {
+            > [aria-hidden='true'] {
                 line-height: 42px;
             }
         }
@@ -33,8 +33,8 @@
 
         &.active .page-link {
             background-color: color('nijmegen-backgrounds', 'pagination-active');
-            color: color('white', 'base');
             box-shadow: none;
+            color: color('white', 'base');
 
             &:hover,
             &:focus {

@@ -1,6 +1,6 @@
 table.responsive-table {
+    border: 0;
     width: 100%;
-    border: none;
 
     caption {
         caption-side: top;
@@ -13,28 +13,30 @@ table.responsive-table {
 
     tbody tr td:before,
     thead tr th {
-        color: color('nijmegen-grey', 'darken-2');
-        font-weight: $font-weight-normal;
-        font-size: to-rem(14);
-        letter-spacing: 0.1px;
         border-bottom: 2px solid color('nijmegen-grey', 'base');
-        padding-top: 6px;
+        color: color('nijmegen-grey', 'darken-2');
+        font-size: to-rem(14);
+        font-weight: $font-weight-normal;
+        letter-spacing: .1px;
         padding-bottom: 6px;
+        padding-top: 6px;
     }
 
     tbody tr {
-        padding-top: 6px;
         padding-bottom: 6px;
+        padding-top: 6px;
         td, th {
+            border-bottom: 2px solid color('nijmegen-grey', 'base');
             color: $body-color;
             font-size: to-rem(16);
-            border-bottom: 2px solid color('nijmegen-grey', 'base');
-            padding-top: 5px;
             padding-bottom: 5px;
+            padding-top: 5px;
         }
     }
 
-    @media only screen and (max-width: 760px), (min-device-width: $medium-screen-portrait) and (max-device-width: 1024px) {
+    @media only screen
+    and (max-width: 760px), (min-device-width: $medium-screen-portrait)
+    and (max-device-width: 1024px) {
 
         &,
         & thead,
@@ -49,11 +51,10 @@ table.responsive-table {
             display: block;
         }
 
-        /* Hide table headers (but not display: none;, for accessibility) */
         & thead tr {
+            left: -9999px;
             position: absolute;
             top: -9999px;
-            left: -9999px;
         }
 
         tr {
@@ -64,30 +65,30 @@ table.responsive-table {
         }
 
         td {
-            border: none !important;
+            border: 0 !important;
+            margin-left: 50%;
+            padding-bottom: 6px;
+            padding-top: 6px;
             position: relative;
             width: 50%;
-            margin-left: 50%;
-            padding-top: 6px;
-            padding-bottom: 6px;
 
             &:before {
-                padding-top: 3px !important;
-                padding-bottom: 0 !important;
+                border-bottom: 0 !important;
                 content: attr(data-title);
-                margin-left: -100%;
-                width: 100%;
                 display: inline-block;
-                white-space: normal;
-                border-bottom: none !important;
                 float: left;
+                margin-left: -100%;
+                padding-bottom: 0 !important;
+                padding-top: 3px !important;
+                white-space: normal;
+                width: 100%;
             }
 
             &:after {
-                content: "";
+                clear: both;
+                content: '';
                 display: block;
                 height: 0;
-                clear: both;
                 visibility: hidden;
             }
         }
@@ -104,22 +105,24 @@ table.responsive-table {
         }
         tbody tr {
             th {
-                font-weight: bold;
                 border-right: 2px solid color('nijmegen-grey', 'base');
+                font-weight: bold;
             }
             td:first-of-type{
                 padding-left: 5px;
             }
         }
 
-        @media only screen and (max-width: 760px), (min-device-width: $medium-screen-portrait) and (max-device-width: 1024px) {
+        @media only screen
+        and (max-width: 760px), (min-device-width: $medium-screen-portrait)
+        and (max-device-width: 1024px) {
             tr {
-                border-top: none;
+                border-top: 0;
             }
 
             thead tr {
                 th:first-child {
-                    border-right: none;
+                    border-right: 0;
                 }
                 th:nth-child(2) {
                     padding-left: 1px;
@@ -127,8 +130,8 @@ table.responsive-table {
             }
             tbody tr {
                 th {
+                    border-right: 0;
                     font-weight: bold;
-                    border-right: none;
                 }
                 td:first-of-type{
                     padding-left: 1px;

@@ -1,18 +1,19 @@
 {{> '@tpl-head' }}
-    <style type="text/css">
-    body {padding: 150px 0 0;}
-    </style>
+<style type="text/css">
+    body {
+        padding: 150px 0 0;
+    }
+</style>
 </head>
+
 <body>
 
-<main>
-    {{!-- Underneath will render component output --}}
-    {{{ yield }}}
-</main>
+    <main>
+        {{!-- Underneath will render component output --}}
+        {{{ yield }}}
+    </main>
 
-{{> '@tpl-scripts' }}
-
-{{> '@tooltip-scripts' }}
-
+    {{> '@tpl-scripts' }}
 </body>
+
 </html>

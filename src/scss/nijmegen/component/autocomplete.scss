@@ -1,16 +1,16 @@
 .autocomplete {
     &__result-list {
+        background: color('white', 'base');
+        box-shadow: 3px 3px 6px rgba(0, 0, 0, .25), 0 0 15px rgba(0, 0, 0, .15);
         list-style: none;
         margin: 0;
         padding: 0;
-        background: color('white', 'base');
-        box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.25), 0 0 15px rgba(0, 0, 0, 0.15);    
     }
 
     &__result-item {
         font-size: to-rem(18);
         word-break: break-word;
-        
+
         &:not(:last-of-type) {
             border-bottom: 1px solid color('nijmegen-grey', 'base');
         }
@@ -24,23 +24,23 @@
     }
 
     &__result-link {
-        transition: none;
         color: $body-color;
-        padding: .5rem 1rem .5rem 2rem;
         display: block;
+        padding: .5rem 1rem .5rem 2rem;
         position: relative;
+        transition: none;
 
         em {
             font-style: normal;
-            font-weight: bold; 
+            font-weight: bold;
         }
 
         &:focus,
         &.active {
-            cursor: pointer;
-            transition: none;
             background-color: color('nijmegen-grey', 'darken-2');
             color: color('white', 'base');
+            cursor: pointer;
+            transition: none;
         }
 
         &::before {
@@ -52,33 +52,33 @@
         }
 
         &::before, &.search::before{
-            font-size: to-rem(16);
-            line-height: to-rem(18*1.5);
             display: block;
+            font-size: to-rem(16);
+            left: .5rem;
+            line-height: to-rem(18*1.5);
             position: absolute;
             top: .5rem;
-            left: .5rem;
         }
     }
 
     &__section-header {
-        padding: .5rem .5rem 0;
         display: block;
-        position: relative;
         font-size: to-rem(22);
+        padding: .5rem .5rem 0;
+        position: relative;
     }
 
     &__search-button, &__clear-button {
         background-color: transparent;
         border: 0;
+        box-sizing: content-box;
+        display: block;
+        float: right;
+        height: 30px;
+        padding-top: 3px;
         position: relative;
         top: -35px;
-        padding-top: 3px;
-        float: right;
-        display: block;
         width: 30px;
-        height: 30px;
-        box-sizing: content-box;
 
         &:hover,
         &:focus {

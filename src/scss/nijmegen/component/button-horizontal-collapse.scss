@@ -1,15 +1,15 @@
 .horizontal-collapse {
-    position: relative;
-    text-align: right;
     overflow: hidden;
     padding-bottom: 10px;
+    position: relative;
+    text-align: right;
 
     .btn-floating {
         span {
-            display: inline-block;
-            width: inherit;
-            text-align: center;
             color: color('white', 'base');
+            display: inline-block;
+            text-align: center;
+            width: inherit;
         }
 
         &.btn-large span {
@@ -25,14 +25,14 @@
 
     .expand-horizontal {
         @extend .z-depth-1;
-        position: absolute;
-        top: 14px;
         background-color: color('nijmegen-primary', 'base');
         color: color('white', 'base');
         margin: 0;
-        transform: translateX(150%);
-        right: 0;
         padding-left: 10px;
+        position: absolute;
+        right: 0;
+        top: 14px;
+        transform: translateX(150%);
 
         li {
             display: inline-block;
@@ -51,8 +51,8 @@
             button {
                 background: none;
                 border: 0;
-                padding: 0;
                 margin: 0;
+                padding: 0;
             }
 
             a {

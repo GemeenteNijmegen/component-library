@@ -1,19 +1,19 @@
 .search-results {
     &__title {
+        color: $body-color;
         font-size: to-rem(20);
         font-weight: bold;
-        color: $body-color;
     }
 
     &__item {
-        padding-bottom: to-rem(20);
-        margin-bottom: to-rem(20);
         border-bottom: 1px solid color('nijmegen-grey', 'base');
+        margin-bottom: to-rem(20);
+        padding-bottom: to-rem(20);
     }
 
     &__item-title {
-        font-size: to-rem(28);
         color: color('nijmegen-brand', 'base');
+        font-size: to-rem(28);
 
         em {
             font-style: normal;

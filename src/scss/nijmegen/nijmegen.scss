@@ -1,0 +1,59 @@
+// Core
+@import 'core/mixins';
+@import 'core/colors';
+
+// Material design icons
+$mdi-font-path: '../../node_modules/@mdi/font/fonts';
+@import '~@mdi/font/scss/materialdesignicons';
+
+i.mdi,
+span.mdi {
+    display: inline-block;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+$medium-screen-portrait: map-get($grid-breakpoints, 'md');
+$small-screen-portrait: map-get($grid-breakpoints, 'sm');
+
+@import 'core/typography';
+
+// Component styling
+@import 'component/accordion';
+@import 'component/alerts';
+@import 'component/autocomplete';
+@import 'component/button-floating';
+@import 'component/button-horizontal-collapse';
+@import 'component/buttons';
+@import 'component/cards';
+@import 'component/carousel';
+@import 'component/checkbox';
+@import 'component/chips'; // tags, labels, badges
+@import 'component/datepicker';
+@import 'component/facets';
+@import 'component/facets-advanced';
+@import 'component/footer';
+@import 'component/forminputs-template';
+@import 'component/forms';
+@import 'component/hover-effects';
+@import 'component/labels'; // tags, labels, badges
+@import 'component/lightbox';
+@import 'component/listgroups';
+@import 'component/listing';
+@import 'component/modals';
+@import 'component/multiple-upload';
+@import 'component/navbars';
+@import 'component/pagination';
+@import 'component/pills';
+@import 'component/popovers';
+@import 'component/progress';
+@import 'component/responsive-table';
+@import 'component/search-results';
+@import 'component/select';
+@import 'component/sidenav';
+@import 'component/steppers';
+@import 'component/switch';
+@import 'component/sticky-content';
+@import 'component/tabs';
+@import 'component/timepicker';
+@import 'component/tooltip';

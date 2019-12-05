@@ -1,19 +1,19 @@
 .chip {
-    color: $body-color !important;
     background-color: color('white', 'base');
-    font-weight: $font-weight-semibold;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+    color: $body-color !important;
     font-size: to-rem(13);
-    padding-right: 16px;
+    font-weight: $font-weight-semibold;
 
     // in MDB v4.3.2 we had a shadow, yet in v4.5.0 it's removed but design in Zeplin defines a shadow
     // thus restore it here
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    padding-right: 16px;
 
     .close {
         color: color('nijmegen-primary', 'base');
-        margin-right: -8px;
         font-size: to-rem(16);
         font-weight: $font-weight-semibold;
+        margin-right: -8px;
 
         &:focus,
         &:hover {

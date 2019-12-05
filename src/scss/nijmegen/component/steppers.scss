@@ -1,23 +1,23 @@
 .stepper-horizontal {
     &:before {
-        top: 38px;
-        position: absolute;
-        content: "";
-        width: 100%;
-        height: 1px;
         background-color: color('nijmegen-grey', 'lighten-1');
+        content: '';
+        height: 1px;
+        position: absolute;
+        top: 38px;
+        width: 100%;
 
         @media (max-width: $medium-screen-portrait) {
-            top: 3.75rem;
-            left: 2.4rem;
-            width: 1px;
             height: calc(100% - 40px);
+            left: 2.4rem;
+            top: 3.75rem;
+            width: 1px;
         }
     }
 
     @media (max-width: $small-screen-portrait) {
-        margin-top: to-rem(46);
         margin-bottom: to-rem(46);
+        margin-top: to-rem(46);
     }
 
     .nextBtn, .backBtn {
@@ -28,9 +28,9 @@
 }
 
 .step-content {
+    left: 0;
     position: absolute;
     top: 80px;
-    left: 0;
     width: 100%;
 
     @media (max-width: $medium-screen-portrait) {
@@ -38,7 +38,7 @@
         top: 0;
     }
 
-    @media (min-width: #{$small-screen-portrait}) and (max-width : #{$medium-screen-portrait}) {
+    @media (min-width: #{$small-screen-portrait}) and (max-width: #{$medium-screen-portrait}) {
         margin-left: 4rem;
         width: calc(100% - 6rem);
     }
@@ -46,8 +46,8 @@
 
 .stepper-horizontal li.active a.step-link .circle,
 .stepper-horizontal li.completed a.step-link .circle {
-    color: color('white', 'base');
     background-color: color('nijmegen-primary', 'base');
+    color: color('white', 'base');
 }
 
 .stepper-horizontal li {
@@ -63,12 +63,12 @@
 
     &:first-child a.step-link:before,
     &:last-child a.step-link:after {
-        top: 0;
-        position: absolute;
-        content: "";
-        width: 50%;
-        height: 100%;
         background-color: color('white', 'base');
+        content: '';
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 50%;
     }
 
     &:first-child a.step-link:before {
@@ -85,13 +85,13 @@
     }
 
     a.step-link {
-        font-size: to-rem(16);
-        z-index: 10;
         background: color('white', 'base');
-        padding: .6rem;
+        font-size: to-rem(16);
         margin: .9rem;
+        padding: .6rem;
         position: relative;
         text-align: center;
+        z-index: 10;
 
         @media (max-width: $medium-screen-portrait) {
             text-align: left;
@@ -102,24 +102,24 @@
         }
 
         .circle {
-            width: 28px;
-            height: 28px;
-            text-align: center;
-            display: inline-block;
             border-radius: 50%;
+            display: inline-block;
+            height: 28px;
             margin-right: .5rem;
+            text-align: center;
+            width: 28px;
 
             &, .mdi {
-                line-height: 28px;
                 font-size: to-rem(14);
                 font-weight: $font-weight-bold;
+                line-height: 28px;
             }
         }
 
         .label {
-            margin-top: 0;
-            font-weight: $font-weight-normal !important;
             color: $body-color !important;
+            font-weight: $font-weight-normal !important;
+            margin-top: 0;
             white-space: nowrap;
         }
 
@@ -137,22 +137,22 @@
 
     &:not(.active):not(.completed) {
         a.step-link .circle {
-            color: color('nijmegen-grey', 'darken-4');
             background-color: color('nijmegen-grey', 'base');
+            color: color('nijmegen-grey', 'darken-4');
         }
     }
 }
 
 .stepper-mobile-summary,
 .stepper-mobile-navigation {
+    background: color('nijmegen-grey', 'lighten-1');
     height: to-rem(46);
+    left: 0;
     line-height: to-rem(46);
     padding: 0 to-rem(16);
-    width: 100%;
     position: fixed;
-    left: 0;
+    width: 100%;
     z-index: 20;
-    background: color('nijmegen-grey', 'lighten-1');
 
     @media (min-width: $small-screen-portrait) {
         display: none;
@@ -160,9 +160,9 @@
 }
 
 .stepper-mobile-summary {
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .16), 0 1px 4px 0 rgba(0, 0, 0, .12);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .16), 0 1px 4px 0 rgba(0, 0, 0, .12);
     top: 0;
-    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.16), 0 1px 4px 0 rgba(0, 0, 0, 0.12);
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.16), 0 1px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
 .stepper-mobile-navigation {

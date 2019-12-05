@@ -4,12 +4,12 @@
     }
 
     &__title{
-        padding: to-rem(20) 0;
-        font-size: to-rem(18);
         border-bottom: 1px solid color('nijmegen-grey', 'base');
-        cursor: pointer;
-        position: relative;
         color: $body-color;
+        cursor: pointer;
+        font-size: to-rem(18);
+        padding: to-rem(20) 0;
+        position: relative;
 
         &::before{
             @include mdi('filter');
@@ -18,11 +18,11 @@
         }
 
         &::after{
-            content: '\25BE';
             color: color('nijmegen-brand', 'base');
+            content: '\25BE';
             position: absolute;
-            top: to-rem(20);
             right: to-rem(10);
+            top: to-rem(20);
         }
 
         &.expanded::after {
@@ -69,9 +69,9 @@
         &.active::before{
             @include mdi('menu-right');
             color: color('nijmegen-primary', 'base');
+            left: -24px;
             position: absolute;
             top: 0;
-            left: -24px;
         }
     }
 }

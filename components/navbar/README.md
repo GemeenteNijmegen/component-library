@@ -27,27 +27,9 @@ Include the script below to enable automatic closing of the menu on a mobile whe
 
 When using the navbar to scroll to content on the same page make sure to add the class `smooth-scroll` to the `navbar-nav` element.
 
-```html
-{{ render '@navbar-scripts' }}
-```
-
-#### Mobile search
-
-For using the search in the navbar on a mobile device you need to include the following script:
-
-```html
-{{ render '@navbar-search-scripts' }}
-```
-
 #### Autocomplete search
 
 For the autocomplete search a real-time feed is provided by Pandosearch. This uses a combination of search suggestions and direct hits. To use this search functionality, JavaScript code is required before the closing "body" tag.
-
-* [Autocomplete component script]({{ componentPath '@autocomplete' }})
-
-```html
-{{ render '@autocomplete-scripts' }}
-```
 
 * Pandosearch integration
 

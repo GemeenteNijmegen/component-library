@@ -1,10 +1,10 @@
 .time-picker {
     button {
-        position: relative;
-        float: right;
-        top: -42px;
-        border: 0;
         background: none;
+        border: 0;
+        float: right;
+        position: relative;
+        top: -42px;
     }
 
     input {
@@ -33,11 +33,11 @@
     }
 
     .clockpicker-display {
+        color: color('white', 'base');
+        font-family: 'Oranda', sans-serif;
+        font-size: to-rem(38);
         height: auto;
         padding-bottom: 10px;
-        font-family: 'Oranda', sans-serif;
-        color: color('white', 'base');
-        font-size: to-rem(38);
     }
 
     // .picker__date-display .clockpicker-display
@@ -49,7 +49,7 @@
 
     .clockpicker-plate {
         background-color: transparent;
-        border: 2px solid color("nijmegen-grey", "base");
+        border: 2px solid color('nijmegen-grey', 'base');
     }
 
     .clockpicker-dial {
@@ -57,7 +57,7 @@
     }
 
     .picker__footer {
-        padding: 10px 10px;
+        padding: 10px;
 
         .clockpicker-button {
             color: color('nijmegen-primary', 'base') !important;
@@ -75,10 +75,10 @@
 
 .clockpicker-svg {
     line {
-        stroke: rgba(color('nijmegen-forms', 'picker-focus'), 0.9);
+        stroke: rgba(color('nijmegen-forms', 'picker-focus'), .9);
     }
     .clockpicker-canvas-bg {
-        fill: rgba(color('nijmegen-forms', 'picker-focus'), 0.9);
+        fill: rgba(color('nijmegen-forms', 'picker-focus'), .9);
     }
 
     .clockpicker-canvas-fg {

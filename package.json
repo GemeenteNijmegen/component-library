@@ -5,46 +5,67 @@
     "main": "",
     "repository": "https://github.com/Enrise/nijmegen-component-library",
     "license": "UNLICENSED",
-    "scripts": {
-        "start": "gulp dev",
-        "build": "gulp build --env prod",
-        "build-icons-listing": "gulp build-icons-listing",
-        "test": "node_modules/.bin/jest",
-        "prepare-deployment": "node dev/deployment/prepare-deployment.js",
-        "update-releases": "node dev/deployment/update-releases.js",
-        "update-changelog": "node dev/release/changelog/release"
-    },
-    "dependencies": {
-        "@frctl/fractal": "^1.2.0",
-        "@frctl/mandelbrot": "^1.2.1",
-        "compare-versions": "^3.5.1",
-        "del": "^3.0.0",
-        "gulp": "^4.0.2",
-        "gulp-sass": "^3.1.0",
-        "gulp-sass-glob": "^1.1.0",
-        "gulp-sourcemaps": "^2.6.0",
-        "gulp-util": "^3.0.8",
-        "gulp-zip": "^4.1.0",
-        "js-yaml": "^3.12.0",
-        "mdi": "^2.2.43",
-        "through2": "^2.0.3"
-    },
-    "devDependencies": {
-        "eslint": "^5.4.0",
-        "fs": "^0.0.1-security",
-        "glob": "^7.1.4",
-        "gulp-edit-xml": "^3.0.0",
-        "html-validator": "^4.1.1",
-        "husky": "^3.0.8",
-        "jest": "^24.9.0",
-        "jquery": "^3.4.1",
-        "jshint": "^2.10.2",
-        "prettier": "^1.18.2"
+    "browserslist": [
+        "> .1% in NL"
+    ],
+    "postcss": {
+        "plugins": {
+            "autoprefixer": true
+        }
     },
     "husky": {
         "hooks": {
             "pre-commit": "make pre-commit",
             "prepare-commit-msg": "dev/commit-append-issue-number.sh"
         }
+    },
+    "scripts": {
+        "start": "NODE_ENV=development node parcel.js",
+        "build": "NODE_ENV=production node parcel.js",
+        "create-components-listing": "node ./dev/deployment/createComponentsListing.js",
+        "test": "node_modules/.bin/jest",
+        "lint-js": "eslint src/js/**/*.js",
+        "lint-sass": "node node_modules/sass-lint/bin/sass-lint.js -v",
+        "fix-sass": "node node_modules/sass-lint-fix/bin/sass-lint.js --fix",
+        "prepare-deployment": "node dev/deployment/prepare-deployment.js",
+        "update-changelog": "node dev/release/changelog/release",
+        "update-releases": "node dev/deployment/update-releases.js"
+    },
+    "staticFiles": {
+        "staticPath": [
+            {
+                "staticPath": "static"
+            }
+        ],
+        "watcherGlob": "**"
+    },
+    "dependencies": {
+        "@frctl/fractal": "^1.2.0",
+        "@frctl/mandelbrot": "^1.2.1",
+        "@mdi/font": "^4.5.95",
+        "compare-versions": "^3.5.1",
+        "del": "^3.0.0",
+        "js-yaml": "^3.12.0",
+        "mdi": "^2.2.43",
+        "picker.js": "^0.1.11",
+        "popper.js": "^1.16.0",
+        "through2": "^2.0.3"
+    },
+    "devDependencies": {
+        "autoprefixer": "^9.7.1",
+        "eslint": "^5.4.0",
+        "fs": "^0.0.1-security",
+        "glob": "^7.1.4",
+        "html-validator": "^4.1.1",
+        "husky": "^3.0.8",
+        "jest": "^24.9.0",
+        "jquery": "^3.4.1",
+        "jshint": "^2.10.2",
+        "parcel-bundler": "^1.12.4",
+        "parcel-plugin-static-files-copy": "^2.2.1",
+        "prettier": "^1.18.2",
+        "sass": "^1.23.3",
+        "sass-lint": "^1.13.1",
+        "sass-lint-fix": "^1.12.1"
     }
 }

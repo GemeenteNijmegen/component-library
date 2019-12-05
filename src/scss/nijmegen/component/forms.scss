@@ -5,8 +5,8 @@ $form-drop-down-bottom-border: 1px solid rgba(0, 0, 0, .125);
 
 .md-form {
     label {
-        font-size: to-rem(16) !important;
         color: color('nijmegen-forms', 'unfocussed-gray');
+        font-size: to-rem(16) !important;
         width: 100%;
 
         &.active {
@@ -16,17 +16,17 @@ $form-drop-down-bottom-border: 1px solid rgba(0, 0, 0, .125);
         }
     }
 
-    input[type=text]:not(.browser-default),
-    input[type=password]:not(.browser-default),
-    input[type=email]:not(.browser-default),
-    input[type=url]:not(.browser-default),
-    input[type=time]:not(.browser-default),
-    input[type=date]:not(.browser-default),
-    input[type=datetime-local]:not(.browser-default),
-    input[type=tel]:not(.browser-default),
-    input[type=number]:not(.browser-default),
-    input[type=search-md]:not(.browser-default),
-    input[type=search]:not(.browser-default),
+    input[type='text']:not(.browser-default),
+    input[type='password']:not(.browser-default),
+    input[type='email']:not(.browser-default),
+    input[type='url']:not(.browser-default),
+    input[type='time']:not(.browser-default),
+    input[type='date']:not(.browser-default),
+    input[type='datetime-local']:not(.browser-default),
+    input[type='tel']:not(.browser-default),
+    input[type='number']:not(.browser-default),
+    input[type='search-md']:not(.browser-default),
+    input[type='search']:not(.browser-default),
     textarea.md-textarea:not(.browser-default),
     .aria-select button {
         &:not([disabled]){
@@ -69,20 +69,20 @@ $form-drop-down-bottom-border: 1px solid rgba(0, 0, 0, .125);
     }
 
     .form-control {
-        font-weight: $font-weight-semibold;
         color: $body-color;
         font-size: to-rem(16);
-        padding: 0.55rem 0 0.3rem 0;
+        font-weight: $font-weight-semibold;
+        padding: .55rem 0 .3rem;
 
-        @include placeholder {
-            font-weight: $font-weight-normal;
+        &::placeholder{
             color: color('nijmegen-forms', 'placeholder');
+            font-weight: $font-weight-normal;
         }
 
         &:disabled,
         &:read-only {
+            border-bottom: 1px dotted rgba(color('nijmegen-forms', 'disabled-border'), .26);
             font-weight: $font-weight-normal;
-            border-bottom: 1px dotted rgba(color('nijmegen-forms', 'disabled-border'), 0.26);
         }
 
         &:focus {
@@ -98,8 +98,8 @@ $form-drop-down-bottom-border: 1px solid rgba(0, 0, 0, .125);
             & + label {
                 &:before,
                 &:after {
-                    top: 4rem !important;
                     line-height: 1.2rem;
+                    top: 4rem !important;
                 }
             }
         }
@@ -109,10 +109,10 @@ $form-drop-down-bottom-border: 1px solid rgba(0, 0, 0, .125);
                 &:before {
                     @include mdi('alert');
                     display: block;
-                    position: absolute;
-                    transition: 0.2s opacity ease-out, 0.2s color ease-out;
-                    right: 0;
                     font-size: to-rem($form-control-error-icon-size);
+                    position: absolute;
+                    right: 0;
+                    transition: .2s opacity ease-out, .2s color ease-out;
                 }
             }
         }
@@ -120,8 +120,8 @@ $form-drop-down-bottom-border: 1px solid rgba(0, 0, 0, .125);
 
     .md-textarea {
         font-weight: $font-weight-normal;
-        padding: 0.6rem 0 !important;
         min-height: to-rem(72) !important;
+        padding: .6rem 0 !important;
     }
 
     .valid-feedback {
@@ -135,16 +135,16 @@ $form-drop-down-bottom-border: 1px solid rgba(0, 0, 0, .125);
 
 .mdb-select {
     .caret {
-        visibility: hidden;
         position: relative;
+        visibility: hidden;
 
         &:before {
             @include mdi('chevron-down');
-            position: absolute;
-            visibility: visible;
-            right: 15px;
-            font-size: to-rem($select-caret-icon-size);
             color: color('nijmegen-primary', 'base');
+            font-size: to-rem($select-caret-icon-size);
+            position: absolute;
+            right: 15px;
+            visibility: visible;
         }
     }
 
@@ -200,13 +200,13 @@ $form-drop-down-bottom-border: 1px solid rgba(0, 0, 0, .125);
 
         &:first-child:after {
             @include mdi('chevron-up');
+            color: color('nijmegen-primary', 'base');
+            font-size: to-rem($select-caret-icon-size);
+            margin-top: to-rem(-$select-caret-icon-size / 2);
             position: absolute;
-            visibility: visible;
             right: 15px;
             top: 50%;
-            margin-top: to-rem(-$select-caret-icon-size / 2);
-            font-size: to-rem($select-caret-icon-size);
-            color: color('nijmegen-primary', 'base');
+            visibility: visible;
         }
     }
 }
