@@ -118,6 +118,7 @@ lint js:
     stage: test
     image: node:10-alpine
     script:
+        - apk add git
         - npm ci
         - npm run lint-js
     <<: *runOnBranch
@@ -126,6 +127,7 @@ lint sass:
     stage: test
     image: node:10-alpine
     script:
+        - apk add git
         - npm ci
         - npm run lint-sass
     <<: *runOnBranch
@@ -137,8 +139,8 @@ jest:
         - docker:dind
     script:
         - docker-compose -f docker-compose.jest.yml up -d
-        - docker-compose -f docker-compose.jest.yml run --rm frontend npm ci
-        - docker-compose -f docker-compose.jest.yml run --rm frontend npm test
+        - docker-compose -f docker-compose.jest.yml run frontend sh -c 'apk add git && npm ci'
+        - docker-compose -f docker-compose.jest.yml run frontend npm test
     <<: *runOnBranch
 
 # ======================

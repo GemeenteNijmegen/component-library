@@ -62,7 +62,7 @@
         "jquery": "^3.4.1",
         "jshint": "^2.10.2",
         "parcel-bundler": "^1.12.4",
-        "parcel-plugin-static-files-copy": "^2.2.1",
+        "parcel-plugin-static-files-copy": "git+https://github.com/trafex/parcel-plugin-static-files-copy.git#filesystem-synchronous",
         "prettier": "^1.18.2",
         "sass": "^1.23.3",
         "sass-lint": "^1.13.1",
