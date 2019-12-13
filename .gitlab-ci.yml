@@ -167,7 +167,7 @@ build release:
           -e DOCKER_TAG
           -e STABLE_RELEASE
           node:10-alpine
-          /bin/sh -c "npm ci && npm run update-releases"
+          /bin/sh -c "apk add git && npm ci && npm run update-releases"
     <<: *runOnRelease
 
 build ci:
