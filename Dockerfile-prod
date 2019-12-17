@@ -1,5 +1,6 @@
 FROM node:10-alpine as builder
 ARG NODE_ENV=production
+ARG PUBLIC_URL=/
 
 RUN apk add --no-cache git
 
