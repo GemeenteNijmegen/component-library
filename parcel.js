@@ -23,10 +23,12 @@ const runDev = async function() {
 };
 
 const build = async function() {
+    options.publicUrl = process.env.PUBLIC_URL ? process.env.PUBLIC_URL : '/';
     const logger = fractal.cli.console;
     const builder = fractal.web.builder();
 
     const bundler = new Bundler(entryFiles, options);
+
     logger.success('Start bundling assets');
     await bundler.bundle();
     logger.success('Assets bundled');

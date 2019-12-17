@@ -156,7 +156,7 @@ build release:
         - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
         - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID"
     script:
-        - docker build . -t "$CI_REGISTRY_IMAGE":$DOCKER_TAG -f Dockerfile-prod
+        - docker build . -t "$CI_REGISTRY_IMAGE":$DOCKER_TAG -f Dockerfile-prod --build-arg PUBLIC_URL=/v$STABLE_RELEASE/
         - docker push "$CI_REGISTRY_IMAGE":$DOCKER_TAG
         - docker run
           -w /app
