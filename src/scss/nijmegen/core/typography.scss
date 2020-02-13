@@ -121,12 +121,13 @@ h6 {
     }
 }
 
-ul, ol {
+dl, ul, ol {
     list-style: none;
+    padding: 0;
 }
 
-ul:not(.list-inline),
-ol:not(.list-inline) {
+ul:not([class]),
+ol:not([class]) {
     margin-left: 1rem;
     padding-left: 1.5rem;
     position: relative;
@@ -142,8 +143,7 @@ ol:not(.list-inline) {
     }
 }
 
-ol,
-ol:not(.list-inline) {
+ol:not([class]) {
     counter-reset: list-item;
 
     li {
