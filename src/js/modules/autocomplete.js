@@ -92,6 +92,7 @@ Autocomplete.prototype.setSearchIcon = function() {
 
 Autocomplete.prototype.inputFocusHandle = function() {
     if ($('#suggest-search-query').val() != '') {
+        this.query = $('#suggest-search-query').val();
         this.autocompleteSearch();
     }
 };
