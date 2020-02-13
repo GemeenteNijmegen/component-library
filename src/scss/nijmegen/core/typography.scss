@@ -121,12 +121,12 @@ h6 {
     }
 }
 
-dl, ol, ul {
-    list-style-type: none;
-    padding: 0;
+ul, ol {
+    list-style: none;
 }
 
-ul:not([class]) {
+ul:not(.list-inline),
+ol:not(.list-inline) {
     margin-left: 1rem;
     padding-left: 1.5rem;
     position: relative;
@@ -141,6 +141,23 @@ ul:not([class]) {
         }
     }
 }
+
+ol,
+ol:not(.list-inline) {
+    counter-reset: list-item;
+
+    li {
+        counter-increment: list-item;
+        &:before {
+            content: counter(list-item) ".";
+            font-size: 1em;
+            margin: 0;
+            padding-right: .5em;
+        }
+    }
+}
+
+
 
 a {
     color: $link-color;
