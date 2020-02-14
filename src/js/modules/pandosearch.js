@@ -57,7 +57,9 @@ Pandosearch.prototype.buildSearchUrl = function() {
 Pandosearch.prototype.showHitsResult = function(rawResults) {
     this.rawResults = rawResults;
 
-    this.showFacetsResult();
+    if (!this.searchParams.facetName || !this.searchParams.facetValue || !this.facets) {
+        this.showFacetsResult();
+    }
     var hits = this.getHits();
 
     var didYouMeanTerm;
