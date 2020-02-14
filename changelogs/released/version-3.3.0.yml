@@ -1,0 +1,19 @@
+version: 3.3.0
+versionBump: minor
+date: 2020-02-14T15:13:45.837Z
+files:
+  - GNIJ-303.yml
+changes:
+  - type: changed
+    component: searchresults-template
+    description: >-
+      Removed the `pandosearch.showFacets()` to fix duplicate calls to
+      pandosearch
+    what:
+      - JS
+      - HTML
+  - type: changed
+    component: autocomplete
+    description: Fixed a bug that send empty autocomplete search requests
+    what:
+      - JS
