@@ -1,6 +1,0 @@
-versionBump: patch # patch, minor
-changes:
-    - type: changed #changed, removed, added
-      component: navbar
-      description: Fixed wrong position of placeholder in IE11
-      what: [CSS] # what has changed 1 or more of: [HTML, CSS, JS]

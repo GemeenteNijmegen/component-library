@@ -1,0 +1,11 @@
+version: 3.2.1
+versionBump: patch
+date: 2020-02-14T10:52:50.606Z
+files:
+  - GNIJ-302.yml
+changes:
+  - type: changed
+    component: navbar
+    description: Fixed wrong position of placeholder in IE11
+    what:
+      - CSS
