@@ -253,7 +253,7 @@ $tablet-only: 'only screen and (min-width: #{$medium-screen-portrait}) and (max-
                 height: 2rem;
                 margin-left: 0;
                 margin-right: 0;
-                padding: .5rem to-rem(30) .5rem 0;
+                padding: 0 to-rem(30) 0 0;
                 width: 100%;
 
                 @media #{$medium-and-down} {
