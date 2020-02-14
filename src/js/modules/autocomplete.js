@@ -91,9 +91,8 @@ Autocomplete.prototype.setSearchIcon = function() {
 };
 
 Autocomplete.prototype.inputFocusHandle = function() {
-    if ($('#suggest-search-query').val() != '') {
-        this.autocompleteSearch();
-    }
+    this.query = $('#suggest-search-query').val();
+    this.autocompleteSearch();
 };
 
 Autocomplete.prototype.show = function(results) {
@@ -231,6 +230,10 @@ Autocomplete.prototype.inputKeyHandle = function(event) {
 };
 
 Autocomplete.prototype.autocompleteSearch = function() {
+    if (this.query.length < 2) {
+        this.show([]);
+        return;
+    }
     this.searching = true;
     this.getResults(this.query, this.show.bind(this));
 };

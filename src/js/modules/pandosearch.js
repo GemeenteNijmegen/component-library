@@ -35,14 +35,7 @@ Pandosearch.prototype.init = function(facetsTranslations, facetsSortingOrder) {
 Pandosearch.prototype.showHits = function() {
     this.searchParams = this.getParamsFromHash();
     this.buildSearchUrl();
-
     $.get(this.searchUrl, this.showHitsResult.bind(this));
-};
-
-Pandosearch.prototype.showFacets = function() {
-    this.buildSearchUrl();
-
-    $.get(this.searchUrl, this.showFacetsResult.bind(this));
 };
 
 Pandosearch.prototype.buildSearchUrl = function() {
@@ -63,6 +56,10 @@ Pandosearch.prototype.buildSearchUrl = function() {
 
 Pandosearch.prototype.showHitsResult = function(rawResults) {
     this.rawResults = rawResults;
+
+    if (!this.searchParams.facetName || !this.searchParams.facetValue || !this.facets) {
+        this.showFacetsResult();
+    }
     var hits = this.getHits();
 
     var didYouMeanTerm;
@@ -89,9 +86,7 @@ Pandosearch.prototype.showHitsResult = function(rawResults) {
     this.toggleLoadingContainer(false);
 };
 
-Pandosearch.prototype.showFacetsResult = function(rawResults) {
-    this.rawResults = rawResults;
-
+Pandosearch.prototype.showFacetsResult = function() {
     this.facets = this.getFacets();
     this.facetsComponent.show(this.facets);
 };
