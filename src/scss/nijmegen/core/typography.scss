@@ -121,12 +121,13 @@ h6 {
     }
 }
 
-dl, ol, ul {
-    list-style-type: none;
+dl, ul, ol {
+    list-style: none;
     padding: 0;
 }
 
-ul:not([class]) {
+ul:not([class]),
+ol:not([class]) {
     margin-left: 1rem;
     padding-left: 1.5rem;
     position: relative;
@@ -138,6 +139,20 @@ ul:not([class]) {
             left: 0;
             margin-top: .75em;
             position: absolute;
+        }
+    }
+}
+
+ol:not([class]) {
+    counter-reset: list-item;
+
+    li {
+        counter-increment: list-item;
+        &:before {
+            content: counter(list-item) '.';
+            font-size: 1em;
+            margin: 0;
+            padding-right: .5em;
         }
     }
 }
