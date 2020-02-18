@@ -1,0 +1,11 @@
+version: 3.3.1
+versionBump: patch
+date: 2020-02-18T18:36:04.139Z
+files:
+  - GNIJ-305.yml
+changes:
+  - type: changed
+    component: lists
+    description: (Re)added the styling for the ordered list
+    what:
+      - css

@@ -1,6 +1,0 @@
-versionBump: patch # patch, minor
-changes:
-    - type: changed #changed, removed, added
-      component: lists
-      description: (Re)added the styling for the ordered list
-      what: [css] # what has changed 1 or more of: [HTML, CSS, JS]
