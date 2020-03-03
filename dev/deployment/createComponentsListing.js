@@ -1,6 +1,7 @@
 const path = require('path');
 const fractal = require('../../fractal');
 const fs = require('fs');
+const getVersion = require('../../helpers/getVersion');
 
 const documentHeader = `
     <!doctype html>
@@ -33,7 +34,7 @@ const route = fractal.web._themes.get('default')._routes.get('preview');
 let baseUrl = '';
 let linkExtension = '';
 if (process.env.NODE_ENV === 'production') {
-    baseUrl = '/' + process.env.npm_package_version; // nginx will take care of the replacement on .acc and .prod
+    baseUrl = '/' + getVersion();
     linkExtension = fractal._config.web.builder.ext;
 }
 
