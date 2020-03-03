@@ -158,7 +158,7 @@ do-component-listing:
 
 do-generate-changelog:
 	@echo "\n=== Build component listing ===\n"
-	docker-compose exec frontend npm run update-changelog
+	docker-compose exec -e SKIP_GIT_TAG=true frontend npm run update-changelog
 
 do-regression-build:
 	@echo "\n=== Updating node modules for testing ===\n"

@@ -39,7 +39,8 @@ const getGreatestVersionBumpType = filePaths => {
  */
 const bumpVersion = versionBump => {
     try {
-        return execSync(`npm version --no-commit-hooks ${versionBump}`)
+        const gitTag = process.env.SKIP_GIT_TAG ? '--no-git-tag-version' : '';
+        return execSync(`npm version --no-commit-hooks ${gitTag} ${versionBump}`)
             .toString()
             .replace('v', '')
             .trim();
