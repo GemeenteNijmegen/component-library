@@ -20,7 +20,7 @@ const getGreatestVersionBumpType = filePaths => {
             return versionBumpIndex;
         }
         const fileVersionBumpIndex = versionBumpTypes.findIndex(
-            bumpName => fileChanges.versionBump.toLowerCase() === bumpName,
+            bumpName => fileChanges.versionBump.toLowerCase() === bumpName
         );
 
         if (fileVersionBumpIndex > versionBumpIndex) {
@@ -47,6 +47,12 @@ const bumpVersion = versionBump => {
         console.error('Failed to bump version');
         process.exit(1);
     }
+};
+
+const updateLatestVersion = version => {
+    const versionFileContents = JSON.parse(fs.readFileSync(paths.versionFile));
+    versionFileContents.latest = version;
+    fs.writeFileSync(paths.versionFile, JSON.stringify(versionFileContents, null, 4));
 };
 
 /**
@@ -91,6 +97,7 @@ const release = () => {
     };
 
     fs.writeFileSync(releaseFile, yaml.safeDump(release));
+    updateLatestVersion(version);
 
     unreleasedFilePaths.map(filePath => fs.unlinkSync(filePath));
 };

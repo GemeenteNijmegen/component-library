@@ -78,8 +78,7 @@ do-show-commands:
 	@echo "    make update-icons                       Update icons (only needed when an update of the icons dependency has been done)."
 	@echo "    make component-listing                  Build the components listing locally."
 	@echo "Change log:"
-	@echo "    make generate-changelog version=x.x.x   Generate the changelog"
-	@echo "    make generate-changelog version=x.x.x   Generate the changelog"
+	@echo "    make generate-changelog                 Generate the changelog"
 	@echo "Regression:"
 	@echo "    make test-regression                    Run the regression test"
 	@echo "    make test-regression fail-fast=1        Stop on the first failure"
@@ -159,7 +158,7 @@ do-component-listing:
 
 do-generate-changelog:
 	@echo "\n=== Build component listing ===\n"
-	docker-compose exec frontend npm run update-changelog ${version}
+	docker-compose exec frontend npm run update-changelog
 
 do-regression-build:
 	@echo "\n=== Updating node modules for testing ===\n"
