@@ -154,7 +154,7 @@ do-update-icons:
 
 do-component-listing:
 	@echo "\n=== Build component listing ===\n"
-	docker-compose exec frontend /app/node_modules/.bin/gulp fractal:build-components-listing
+	docker-compose exec frontend npm run create-components-listing
 
 do-generate-changelog:
 	@echo "\n=== Build component listing ===\n"
