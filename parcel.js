@@ -1,6 +1,7 @@
 const Bundler = require('parcel-bundler');
 const fractal = require('./fractal.js');
 const path = require('path');
+const createComponentListing = require('./dev/deployment/createComponentsListing');
 
 const entryFiles = path.join(__dirname, 'src/entry.js');
 const options = {
@@ -29,10 +30,12 @@ const build = async function() {
 
     const bundler = new Bundler(entryFiles, options);
 
-    logger.success('Start bundling assets');
+    logger.log('\nStart creating component listing ...\n');
+    await createComponentListing();
+    logger.log('\nStart bundling assets ...\n');
     await bundler.bundle();
     logger.success('Assets bundled');
-    logger.success('Start building fractal');
+    logger.log('\nStart building fractal ...\n');
     await builder.build();
     logger.success('Fractal build completed!');
 };

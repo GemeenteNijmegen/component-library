@@ -38,22 +38,22 @@ if (process.env.NODE_ENV === 'production') {
     linkExtension = fractal._config.web.builder.ext;
 }
 
-// call fractal custom cli command: list-components
-fractal.cli
-    .exec(`list-components`)
-    .then(componentHandles => {
-        const output = componentHandles.map(componentHandle => {
-            const link = baseUrl + `${route.path.replace(':handle', componentHandle)}` + linkExtension;
-            return `<li><a href="${link}">${componentHandle}</a></li>`;
-        });
-
-        fs.writeFileSync(
-            path.join(outputPath, outputFile),
-            `${documentHeader} <ol>${output.join('\n')}</ol> ${documentFooter}`
-        );
-        logger.success('Fractal components listing generated');
-    })
-    .catch(err => {
+const createListing = async () => {
+    // call fractal custom cli command: list-components
+    const componentHandles = await fractal.cli.exec(`list-components`).catch(err => {
         logger.error('Fractal components listing error!');
         logger.error(err);
     });
+    const output = componentHandles.map(componentHandle => {
+        const link = baseUrl + `${route.path.replace(':handle', componentHandle)}` + linkExtension;
+        return `<li><a href="${link}">${componentHandle}</a></li>`;
+    });
+
+    fs.writeFileSync(
+        path.join(outputPath, outputFile),
+        `${documentHeader} <ol>${output.join('\n')}</ol> ${documentFooter}`
+    );
+    logger.success('Fractal components listing generated');
+};
+
+module.exports = createListing;

@@ -26,9 +26,6 @@ test: intro do-lint do-test
 update: intro do-switch-branch do-run-updates do-start
 mr: intro do-checkout-mr do-run-updates do-start
 
-update-icons: intro do-update-icons do-start
-component-listing: intro do-component-listing
-
 generate-changelog: intro do-generate-changelog
 
 test-regression: intro do-start do-regression-build do-regression-clear-screenshots do-regression-tests
@@ -74,9 +71,6 @@ do-show-commands:
 	@echo "    make update                             Update npm packages."
 	@echo "    make update BRANCH=master               Switch branch and update npm packages."
 	@echo "    make mr                                 Check out a MR from GitLab and update the project."
-	@echo "Build:"
-	@echo "    make update-icons                       Update icons (only needed when an update of the icons dependency has been done)."
-	@echo "    make component-listing                  Build the components listing locally."
 	@echo "Change log:"
 	@echo "    make generate-changelog                 Generate the changelog"
 	@echo "Regression:"
@@ -147,14 +141,6 @@ do-checkout-mr:
 do-run-updates:
 	@echo "\n=== Updating project ===\n"
 	docker-compose run --rm frontend npm ci
-
-do-update-icons:
-	@echo "\n=== Updating Material Design Icons listing ===\n"
-	docker-compose run --rm frontend npm run build-icons-listing
-
-do-component-listing:
-	@echo "\n=== Build component listing ===\n"
-	docker-compose exec frontend npm run create-components-listing
 
 do-generate-changelog:
 	@echo "\n=== Build component listing ===\n"
