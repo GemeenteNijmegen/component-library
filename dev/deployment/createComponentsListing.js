@@ -33,7 +33,7 @@ const route = fractal.web._themes.get('default')._routes.get('preview');
 let baseUrl = '';
 let linkExtension = '';
 if (process.env.NODE_ENV === 'production') {
-    baseUrl = '%%HOSTNAME%%'; // nginx will take care of the replacement on .acc and .prod
+    baseUrl = '/' + process.env.npm_package_version; // nginx will take care of the replacement on .acc and .prod
     linkExtension = fractal._config.web.builder.ext;
 }
 
@@ -48,7 +48,7 @@ fractal.cli
 
         fs.writeFileSync(
             path.join(outputPath, outputFile),
-            `${documentHeader} <ol>${output.join('\n')}</ol> ${documentFooter}`,
+            `${documentHeader} <ol>${output.join('\n')}</ol> ${documentFooter}`
         );
         logger.success('Fractal components listing generated');
     })

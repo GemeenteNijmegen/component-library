@@ -1,10 +1,9 @@
-module.exports = (fractal) => {
+module.exports = fractal => {
     // This get's called for every `{{ assetPath '/a-path-to-a-file' }}`
-    return (path) => {
-
+    return path => {
         if (fractal._config.env === 'production') {
             // This placeholder will be replaced by Nginx
-            path = '%%HOSTNAME%%' + path;
+            return '/' + process.env.npm_package_version + path;
         }
 
         return path;

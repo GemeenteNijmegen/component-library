@@ -20,6 +20,7 @@ intro:
 init: intro do-build do-init do-show-commands
 build: intro do-build do-show-commands
 start: intro do-start
+start-static: intro do-static-stop do-static-build do-static-start
 stop: intro do-stop
 test: intro do-lint do-test
 update: intro do-switch-branch do-run-updates do-start
@@ -67,6 +68,7 @@ do-show-commands:
 	@echo "Project:"
 	@echo "    make init                               Initialise the project for development."
 	@echo "    make start                              Start container."
+	@echo "    make start-static                       Start static container."
 	@echo "    make stop                               Stop container."
 	@echo "    make test                               Run jest tests."
 	@echo "    make update                             Update npm packages."
@@ -95,6 +97,19 @@ do-start:
 	@echo "\n=== Start container ===\n"
 	docker-compose up -d frontend
 	@echo "\n-> Your container is running on http://localhost:3000\n"
+
+do-static-stop:
+	@echo "\n=== Stop static container ===\n"
+	docker-compose stop static
+
+do-static-start:
+	@echo "\n=== Start static container ===\n"
+	docker-compose up -d static
+	@echo "\n-> Your static container is running on http://localhost:3001\n"
+
+do-static-build:
+	@echo "\n=== Building static assets ===\n"
+	docker-compose run --rm -e PUBLIC_URL=/dev/ frontend npm run build
 
 do-stop:
 	@echo "\n=== Stop container ===\n"

@@ -12,10 +12,12 @@ services:
       - 3000:3000
     networks:
       - nijmegen
+
   html-validator:
     image: validator/validator:latest
     networks:
       - nijmegen
+
   regression:
     image: enrise/puppeteer-cucumber:2.2
     volumes:
@@ -27,6 +29,17 @@ services:
       - nijmegen
     environment:
       - ROOT_URL=http://frontend:3000
+
+  static:
+    image: nginx:1.17-alpine
+    volumes:
+      - ./root:/var/www/root:ro
+      - ./build:/var/www/dev:ro
+      - ./dev/dockerconfig/nginx.dev.conf:/etc/nginx/nginx.conf
+    networks:
+      - nijmegen
+    ports:
+      - 3001:3001
 
 networks:
   nijmegen:

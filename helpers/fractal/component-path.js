@@ -28,12 +28,9 @@ module.exports = fractal => {
 
         if (fractal._config.env === 'production') {
             // This placeholder will be replaced by Nginx
-            retval = '%%HOSTNAME%%' + retval;
+            return '/' + process.env.npm_package_version + retval + fractal._config.web.builder.ext;
         }
 
-        if (fractal._config.env === 'production') {
-            retval += fractal._config.web.builder.ext;
-        }
         return retval;
     };
 };
