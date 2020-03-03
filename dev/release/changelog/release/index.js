@@ -39,7 +39,7 @@ const getGreatestVersionBumpType = filePaths => {
  */
 const bumpVersion = versionBump => {
     try {
-        return execSync(`npm version ${versionBump}`)
+        return execSync(`npm version --no-commit-hooks ${versionBump}`)
             .toString()
             .replace('v', '')
             .trim();
