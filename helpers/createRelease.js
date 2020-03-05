@@ -3,6 +3,9 @@ const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
 const { execSync } = require('child_process');
+const {
+    cli: { console: logger },
+} = require('../fractal');
 
 const paths = require('./paths');
 
@@ -45,7 +48,7 @@ const bumpVersion = versionBump => {
             .replace('v', '')
             .trim();
     } catch (error) {
-        console.error('Failed to bump version');
+        logger.error('Failed to bump version');
         process.exit(1);
     }
 };
@@ -61,13 +64,15 @@ const updateLatestVersion = version => {
  * Put all changelog items in a file `version-x.x.x.yml` the release folder
  * Remove all unreleased files
  */
-const release = () => {
+const createRelease = () => {
+    logger.log('Start creating a new release ...\n');
+
     const unreleasedFiles = fs
         .readdirSync(paths.unreleasedDirectory)
         .filter(fileName => ['.yml', '.yaml'].includes(path.extname(fileName)));
 
     if (!unreleasedFiles.length) {
-        console.log('No changes');
+        logger.warn('No changelog entry found\n');
         process.exit(0);
     }
 
@@ -80,7 +85,7 @@ const release = () => {
     const releaseFile = path.join(paths.releasedDirectory, `version-${version}.yml`);
 
     if (fs.existsSync(releaseFile)) {
-        console.error(`Release file already exists for version ${version}`);
+        logger.error(`Release file already exists for version ${version}\n`);
         process.exit(1);
     }
 
@@ -101,5 +106,8 @@ const release = () => {
     updateLatestVersion(version);
 
     unreleasedFilePaths.map(filePath => fs.unlinkSync(filePath));
+
+    logger.success(`Created a new release with version ${version}\n`);
 };
-release();
+
+createRelease();

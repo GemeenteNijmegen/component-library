@@ -26,7 +26,7 @@ test: intro do-lint do-test
 update: intro do-switch-branch do-run-updates do-start
 mr: intro do-checkout-mr do-run-updates do-start
 
-generate-changelog: intro do-generate-changelog
+create-release: intro do-create-release
 
 test-regression: intro do-start do-regression-build do-regression-clear-screenshots do-regression-tests
 
@@ -72,7 +72,7 @@ do-show-commands:
 	@echo "    make update BRANCH=master               Switch branch and update npm packages."
 	@echo "    make mr                                 Check out a MR from GitLab and update the project."
 	@echo "Change log:"
-	@echo "    make generate-changelog                 Generate the changelog"
+	@echo "    make create-release                     Create a new release based on the changelog entries"
 	@echo "Regression:"
 	@echo "    make test-regression                    Run the regression test"
 	@echo "    make test-regression fail-fast=1        Stop on the first failure"
@@ -142,9 +142,9 @@ do-run-updates:
 	@echo "\n=== Updating project ===\n"
 	docker-compose run --rm frontend npm ci
 
-do-generate-changelog:
+do-create-release:
 	@echo "\n=== Build component listing ===\n"
-	docker-compose exec -e SKIP_GIT_TAG=true frontend npm run update-changelog
+	docker-compose exec -e SKIP_GIT_TAG=true frontend npm run create-release
 
 do-regression-build:
 	@echo "\n=== Updating node modules for testing ===\n"

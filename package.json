@@ -26,9 +26,7 @@
         "lint-js": "eslint src/js/**/*.js",
         "lint-sass": "node node_modules/sass-lint/bin/sass-lint.js -v",
         "fix-sass": "node node_modules/sass-lint-fix/bin/sass-lint.js --fix",
-        "prepare-deployment": "node dev/deployment/prepare-deployment.js",
-        "update-changelog": "node helpers/createChangelog.js",
-        "update-releases": "node dev/deployment/update-releases.js"
+        "create-release": "node helpers/createRelease.js"
     },
     "staticFiles": {
         "staticPath": [
