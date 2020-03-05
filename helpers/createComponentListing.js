@@ -31,7 +31,7 @@ const route = fractal.web._themes.get('default')._routes.get('preview');
 let baseUrl = '';
 let linkExtension = '';
 if (process.env.NODE_ENV === 'production') {
-    baseUrl = '/' + getVersion();
+    baseUrl = '/v' + getVersion();
     linkExtension = fractal._config.web.builder.ext;
 }
 

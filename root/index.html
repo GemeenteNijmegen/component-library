@@ -7,7 +7,7 @@
         <script>
             fetch('/version.json').then(function(response) {
                 response.json().then(function(version) {
-                    location.href = '/' + version.latest;
+                    location.href = '/v' + version.latest + '/';
                 });
             });
         </script>
