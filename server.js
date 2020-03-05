@@ -9,6 +9,7 @@ const options = {
     outFile: 'nijmegen.js',
     global: 'nijmegen',
     contentHash: false,
+    hmr: false
 };
 
 const runDev = async function() {
