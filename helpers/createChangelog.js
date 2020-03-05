@@ -4,7 +4,7 @@ const path = require('path');
 const yaml = require('js-yaml');
 const { execSync } = require('child_process');
 
-const paths = require('../helpers/getChangelogPath');
+const paths = require('./paths');
 
 const versionBumpTypes = ['patch', 'minor', 'major'];
 

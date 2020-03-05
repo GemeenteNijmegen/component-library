@@ -1,7 +1,7 @@
 const Bundler = require('parcel-bundler');
 const fractal = require('./fractal.js');
 const path = require('path');
-const createComponentListing = require('./dev/deployment/createComponentsListing');
+const createComponentListing = require('./helpers/createComponentListing');
 
 const entryFiles = path.join(__dirname, 'src/entry.js');
 const options = {

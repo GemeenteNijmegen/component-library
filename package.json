@@ -22,13 +22,12 @@
     "scripts": {
         "start": "NODE_ENV=development node server.js",
         "build": "NODE_ENV=production node server.js",
-        "create-components-listing": "node ./dev/deployment/createComponentsListing.js",
         "test": "node_modules/.bin/jest",
         "lint-js": "eslint src/js/**/*.js",
         "lint-sass": "node node_modules/sass-lint/bin/sass-lint.js -v",
         "fix-sass": "node node_modules/sass-lint-fix/bin/sass-lint.js --fix",
         "prepare-deployment": "node dev/deployment/prepare-deployment.js",
-        "update-changelog": "node dev/release/changelog/release",
+        "update-changelog": "node helpers/createChangelog.js",
         "update-releases": "node dev/deployment/update-releases.js"
     },
     "staticFiles": {
