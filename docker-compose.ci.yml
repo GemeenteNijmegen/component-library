@@ -3,6 +3,9 @@ services:
   frontend:
     build:
       context: .
+      dockerfile: Dockerfile-prod
+      args:
+        VERSION: ${VERSION}
       cache_from:
         - ${FRONTEND_IMAGE}:${IMAGE_TAG}
         - ${FRONTEND_IMAGE}:latest
@@ -18,7 +21,7 @@ services:
     networks:
       - nijmegen
     environment:
-      - ROOT_URL=http://frontend:3000
+      - ROOT_URL=http://frontend/${VERSION}
   wait-for-frontend:
     image: appropriate/curl
     networks:
