@@ -34,7 +34,6 @@ stages:
       when: never # Don't run a pipeline for a merge request, it's already testing the branch of the mr
     - when: on_success # Run on master without unreleased changelog items
 
-
 # ======================
 # Changelog stage
 # ======================
@@ -109,20 +108,20 @@ build image:
 # Regression stage
 # ======================
 
-#regression:
-#  stage: regression
-#  <<: *docker-compose
-#  script:
-#    - docker-compose -f docker-compose.ci.yml pull -q
-#    - docker-compose -f docker-compose.ci.yml up -d frontend
-#    - docker-compose -f docker-compose.ci.yml run -T wait-for-frontend
-#    - docker-compose -f docker-compose.ci.yml run -T regression --parallel 10 --world-parameters "`cat test/regression/defaults.json`"
-#  artifacts:
-#    paths:
-#      - test/regression/results/screenshots/
-#    expire_in: 1 week
-#    when: on_failure
-#  <<: *preventDoublePipelineTrigger
+regression:
+  stage: regression
+  <<: *docker-compose
+  script:
+    - docker-compose -f docker-compose.ci.yml pull -q
+    - docker-compose -f docker-compose.ci.yml up -d frontend
+    - docker-compose -f docker-compose.ci.yml run -T wait-for-frontend
+    - docker-compose -f docker-compose.ci.yml run -T regression --parallel 10 --world-parameters "`cat test/regression/defaults.json`"
+  artifacts:
+    paths:
+      - test/regression/results/screenshots/
+    expire_in: 1 week
+    when: on_failure
+  <<: *preventDoublePipelineTrigger
 
 # ======================
 # Push stage
@@ -160,4 +159,3 @@ deploy acceptance:
     - aws s3 sync release/ s3://nijmegen-cl-acc/ --exclude "*" --include "index.html" --include "version.json" --cache-control max-age=0,no-cache,no-store,must-revalidate
 #  only:
 #    - tags
-
