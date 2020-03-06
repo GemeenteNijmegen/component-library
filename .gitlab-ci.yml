@@ -148,7 +148,7 @@ push-frontend:
 
 deploy acceptance:
   stage: deploy
-  image: enrise/kubetoolbox:amazon
+  image: enrise/kube-toolbox:amazon
   environment:
     name: acceptance
     url: https://componenten.acc.nijmegen.nl
