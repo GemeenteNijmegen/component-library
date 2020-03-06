@@ -6,7 +6,7 @@ const { expect } = require('chai');
 const globalStyle = { content: '* { caret-color: transparent !important; transition: none !important }' };
 
 When('I open the component {string}', async function(componentName) {
-    const url = `/components/preview/${componentName}`;
+    const url = `/components/preview/${componentName}.html`;
     const [, response] = await Promise.all([
         this.page.waitForNavigation({ waitUntil: 'domcontentloaded' }),
         openUrl.call(this, url),
