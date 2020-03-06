@@ -153,8 +153,9 @@ deploy acceptance:
   environment:
     name: acceptance
     url: https://componenten.acc.nijmegen.nl
+  before_script:
+    - echo $CI_JOB_TOKEN | docker login -u gitlab-ci-token --password-stdin $CI_REGISTRY
   script:
-    - docker pull $FRONTEND_IMAGE:$IMAGE_TAG
     - docker cp $(docker create $FRONTEND_IMAGE:$IMAGE_TAG):/usr/share/nginx/html release/
     - aws s3 sync release/ s3://nijmegen-cl-acc/ --exclude "index.html" --exclude "version.json" --cache-control=31536000,public
     - aws s3 sync release/ s3://nijmegen-cl-acc/ --exclude "*" --include "index.html" --include "version.json" --cache-control max-age=0,no-cache,no-store,must-revalidate
