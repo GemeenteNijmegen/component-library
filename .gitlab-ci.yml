@@ -64,32 +64,32 @@ update changelog:
 # Testing
 # ======================
 
-lint js:
-  stage: test
-  image: node:12.14-alpine
-  script:
-    - apk add git
-    - npm ci
-    - npm run lint-js
-  <<: *preventDoublePipelineTrigger
-
-lint sass:
-  stage: test
-  image: node:12.14-alpine
-  script:
-    - apk add git
-    - npm ci
-    - npm run lint-sass
-  <<: *preventDoublePipelineTrigger
-
-jest:
-  stage: test
-  <<: *docker-compose
-  script:
-    - docker-compose -f docker-compose.jest.yml up -d
-    - docker-compose -f docker-compose.jest.yml run frontend sh -c 'apk add git && npm ci'
-    - docker-compose -f docker-compose.jest.yml run frontend npm test
-  <<: *preventDoublePipelineTrigger
+#lint js:
+#  stage: test
+#  image: node:12.14-alpine
+#  script:
+#    - apk add git
+#    - npm ci
+#    - npm run lint-js
+#  <<: *preventDoublePipelineTrigger
+#
+#lint sass:
+#  stage: test
+#  image: node:12.14-alpine
+#  script:
+#    - apk add git
+#    - npm ci
+#    - npm run lint-sass
+#  <<: *preventDoublePipelineTrigger
+#
+#jest:
+#  stage: test
+#  <<: *docker-compose
+#  script:
+#    - docker-compose -f docker-compose.jest.yml up -d
+#    - docker-compose -f docker-compose.jest.yml run frontend sh -c 'apk add git && npm ci'
+#    - docker-compose -f docker-compose.jest.yml run frontend npm test
+#  <<: *preventDoublePipelineTrigger
 
 # ======================
 # Build stage
