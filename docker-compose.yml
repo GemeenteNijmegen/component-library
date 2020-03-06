@@ -32,15 +32,15 @@ services:
       - LOCAL=true
 
   static:
-    image: nginx:1.17-alpine
-    volumes:
-      - ./root:/var/www/root:ro
-      - ./build:/var/www/dev:ro
-      - ./dev/dockerconfig/nginx.dev.conf:/etc/nginx/nginx.conf
+    build:
+      context: .
+      dockerfile: Dockerfile-prod
+      args:
+        VERSION: ${VERSION}
     networks:
       - nijmegen
     ports:
-      - 3001:3001
+      - 3001:80
 
 networks:
   nijmegen:

@@ -95,14 +95,14 @@ do-static-stop:
 	@echo "\n=== Stop static container ===\n"
 	docker-compose stop static
 
+do-static-build:
+	@echo "\n=== Building static container ===\n"
+	VERSION=v`helpers/getVersion.sh` docker-compose build static
+
 do-static-start:
 	@echo "\n=== Start static container ===\n"
 	docker-compose up -d static
 	@echo "\n-> Your static container is running on http://localhost:3001\n"
-
-do-static-build:
-	@echo "\n=== Building static assets ===\n"
-	docker-compose run --rm -e PUBLIC_URL=/dev/ frontend npm run build
 
 do-stop:
 	@echo "\n=== Stop container ===\n"
