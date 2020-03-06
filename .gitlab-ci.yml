@@ -30,6 +30,8 @@ stages:
     - if: $CI_COMMIT_REF_NAME == "master"
       exists: [changelogs/unreleased/*.yml]
       when: never # On master do not run when there are unreleased changelog items (to avoid running the pipeline twice)
+    - if: $CI_MERGE_REQUEST_ID
+      when: never # Don't run a pipeline for a merge request, it's already testing the branch of the mr
     - when: on_success # Run on master without unreleased changelog items
 
 
