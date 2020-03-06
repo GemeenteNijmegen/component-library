@@ -109,20 +109,20 @@ build image:
 # Regression stage
 # ======================
 
-regression:
-  stage: regression
-  <<: *docker-compose
-  script:
-    - docker-compose -f docker-compose.ci.yml pull -q
-    - docker-compose -f docker-compose.ci.yml up -d frontend
-    - docker-compose -f docker-compose.ci.yml run -T wait-for-frontend
-    - docker-compose -f docker-compose.ci.yml run -T regression --parallel 10 --world-parameters "`cat test/regression/defaults.json`"
-  artifacts:
-    paths:
-      - test/regression/results/screenshots/
-    expire_in: 1 week
-    when: on_failure
-  <<: *preventDoublePipelineTrigger
+#regression:
+#  stage: regression
+#  <<: *docker-compose
+#  script:
+#    - docker-compose -f docker-compose.ci.yml pull -q
+#    - docker-compose -f docker-compose.ci.yml up -d frontend
+#    - docker-compose -f docker-compose.ci.yml run -T wait-for-frontend
+#    - docker-compose -f docker-compose.ci.yml run -T regression --parallel 10 --world-parameters "`cat test/regression/defaults.json`"
+#  artifacts:
+#    paths:
+#      - test/regression/results/screenshots/
+#    expire_in: 1 week
+#    when: on_failure
+#  <<: *preventDoublePipelineTrigger
 
 # ======================
 # Push stage
