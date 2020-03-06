@@ -18,7 +18,7 @@ stages:
 # ======================
 
 .docker-compose: &docker-compose
-  image: docker/compose
+  image: docker/compose:alpine-1.25.4
   services:
     - docker:19-dind
   before_script:
@@ -99,7 +99,7 @@ build image:
   stage: build
   <<: *docker-compose
   script:
-    - docker pull -q $FRONTEND_IMAGE:latest || true
+    - docker pull $FRONTEND_IMAGE:latest || true
     - docker-compose -f docker-compose.ci.yml pull -q frontend || true
     - docker-compose -f docker-compose.ci.yml build frontend
     - docker-compose -f docker-compose.ci.yml push frontend

@@ -27,6 +27,6 @@ services:
     networks:
       - nijmegen
     entrypoint: ""
-    command: timeout -t 300 sh -c -- 'until curl -f -s http://frontend > /dev/null; do sleep 1; done' || ( echo "\n\nBuild timed out" && exit 1 )
+    command: timeout -t 120 sh -c -- 'until curl -f -s http://frontend > /dev/null; do sleep 1; done' || ( echo "\n\nBuild timed out" && exit 1 )
 networks:
   nijmegen:

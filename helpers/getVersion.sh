@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 CURRENT_FOLDER=$(dirname "$0")
 PACKAGE_VERSION=$(
