@@ -149,6 +149,8 @@ push-frontend:
 deploy acceptance:
   stage: deploy
   image: enrise/kube-toolbox:amazon
+  services:
+    - docker:19-dind
   environment:
     name: acceptance
     url: https://componenten.acc.nijmegen.nl
