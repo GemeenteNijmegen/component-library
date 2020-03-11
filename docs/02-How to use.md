@@ -9,7 +9,6 @@ To maintain a consistent look-and-feel of the implementation, it's needed to lin
 It's the library's responsibility to provide these files and the implementors responsibility to use them.<br>
 In the next section you can see an example of the minimum setup to get your started.
 
-
 ## Start your implementation
 
 You can start with the following HTML output as a template which gives you the 
@@ -26,9 +25,9 @@ All files (CSS and JavaScript) used in underneath example originate from the MDB
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <!-- Start: Core styling -->
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="{{ assetPath '/css/bootstrap.min.css' }}">
+    <link rel="stylesheet" href="%HOST%{{ assetPath '/css/bootstrap.min.css' }}">
     <!-- Material Design Bootstrap combined with custom Nijmegen styles -->
-    <link rel="stylesheet" href="{{ assetPath '/nijmegen.css' }}">
+    <link rel="stylesheet" href="%HOST%{{ assetPath '/nijmegen.css' }}">
     <!-- End: Core styling -->
 
     <title>Titel van de pagina</title>
@@ -43,15 +42,15 @@ All files (CSS and JavaScript) used in underneath example originate from the MDB
 
 <!-- Start: Core scripts -->
 <!-- JQuery -->
-<script src="{{ assetPath '/js/jquery.min.js' }}"></script>
+<script src="%HOST%{{ assetPath '/js/jquery.min.js' }}"></script>
 <!-- Bootstrap tooltips -->
-<script src="{{ assetPath '/js/popper.min.js' }}"></script>
+<script src="%HOST%{{ assetPath '/js/popper.min.js' }}"></script>
 <!-- Bootstrap core JavaScript -->
-<script src="{{ assetPath '/js/bootstrap.min.js' }}"></script>
+<script src="%HOST%{{ assetPath '/js/bootstrap.min.js' }}"></script>
 <!-- MDB core JavaScript -->
-<script src="{{ assetPath '/js/mdb.min.js' }}"></script>
+<script src="%HOST%{{ assetPath '/js/mdb.min.js' }}"></script>
 <!-- Nijmegen specific script -->
-<script src="{{ assetPath '/nijmegen.js' }}"></script>
+<script src="%HOST%{{ assetPath '/nijmegen.js' }}"></script>
 
 <!-- Start: Additional component(s) script -->
 <!-- ... -->
@@ -93,3 +92,7 @@ The [preview page](../components-listing.html) lists all components so that they
 ## Inform us for using the library
 
 Please inform us when you started using the component library by sending an email to [webmaster@irvn.nl](mailto:webmaster@irvn.nl). This way we are able to inform you as implementor about new developments regarding the library. We will not email you frequently and your emailaddress will only be used for the sole purpose of library developments.
+
+<script>
+    document.body.innerHTML = document.body.innerHTML.replace(/%HOST%/g, window.location.origin);
+</script>
