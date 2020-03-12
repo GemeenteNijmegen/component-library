@@ -1,275 +1,164 @@
+variables:
+  FRONTEND_IMAGE: $CI_REGISTRY_IMAGE/frontend
+  IMAGE_TAG: $CI_COMMIT_REF_SLUG
+
 # ======================
 # CI Stages
 # ======================
 
 stages:
-    - changelog
-    - test
-    - build
-    - regression
-    - push
-    - deploy
-
-# ======================
-# Global variables
-# ======================
-
-variables:
-    DOCKER_DRIVER: overlay2
-    SERVICE_NAME: componentlibrary-versioned
-    FRONTEND_IMAGE: $CI_REGISTRY_IMAGE/frontend
-    IMAGE_TAG: $CI_COMMIT_REF_SLUG
-    CURRENT_UID: 1000
-    CURRENT_GID: 1000
+  - changelog
+  - test
+  - build
+  - regression
+  - deploy
 
 # ======================
 # Snippets
 # ======================
 
-.prepare-deploy: &prepare-deploy
-    stage: deploy
-    image: docker:stable
-    services:
-        - docker:dind
-    before_script:
-        - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID";
-        - apk --no-cache add openssh
-        # Run ssh-agent (inside the build environment)
-        - eval $(ssh-agent -s)
-        # Add private key
-        - echo "$SSH_PRIVATE_KEY" | ssh-add -
-        # Add host keys
-        - mkdir /root/.ssh/
-        - echo "$SSH_SERVER_HOSTKEYS" > ~/.ssh/known_hosts
-        # Cleanup old socket
-        - rm -f docker-socket-ssh
-    artifacts:
-        paths:
-            - docker-compose-stack.yml
-        expire_in: 1 week
-        when: always
+.docker-compose: &docker-compose
+  image: docker/compose:alpine-1.25.4
+  services:
+    - docker:19-dind
+  before_script:
+    - echo $CI_JOB_TOKEN | docker login -u gitlab-ci-token --password-stdin $CI_REGISTRY
+    - export VERSION=v`helpers/getVersion.sh`
 
-.docker-compose-login: &docker-compose-login
-    image: tiangolo/docker-with-compose
-    services:
-        - docker:18-dind
-    before_script:
-        - echo $CI_JOB_TOKEN | docker login -u gitlab-ci-token --password-stdin $CI_REGISTRY
-
-.runOnBranch: &runOnBranch
-    rules:
-        - if: $CI_COMMIT_TAG
-          when: never # Do not run for tags
-        - if: $CI_COMMIT_REF_NAME =~ /^release\/.*$/
-          exists: [changelogs/unreleased/*.yml]
-          when: never # On release branch do not run when there are unreleased changelog items
-        - when: on_success # Run on release without unreleased changelog items
-
-.runOnRelease: &runOnRelease
-    rules:
-        - if: $CI_COMMIT_TAG
-          when: never # Do not run for tags
-        - exists: [changelogs/unreleased/*.yml]
-          when: never # Don't run when there are unreleased changelog items
-        - if: $CI_COMMIT_REF_NAME =~ /^release\/.*$/
-          when: on_success # Run on release
-
-.runManualOnRelease: &runManualOnRelease
-    rules:
-        - if: $CI_COMMIT_TAG
-          when: never # Do not run for tags
-        - exists: [changelogs/unreleased/*.yml]
-          when: never # Don't run when there are unreleased changelog items
-        - if: $CI_COMMIT_REF_NAME =~ /^release\/.*$/ # Don't run on non-release branches
-          when: manual # Manual on release
+.preventDoublePipelineTrigger: &preventDoublePipelineTrigger
+  rules:
+    - if: $CI_COMMIT_REF_NAME == "master"
+      exists: [changelogs/unreleased/*.yml]
+      when: never # On master do not run when there are unreleased changelog items (to avoid running the pipeline twice)
+    - if: $CI_MERGE_REQUEST_ID
+      when: never # Don't run a pipeline for a merge request, it's already testing the branch of the mr
+    - when: on_success # Run on master without unreleased changelog items
 
 # ======================
 # Changelog stage
 # ======================
 
 update changelog:
-    stage: changelog
-    image: node:10-alpine
-    before_script:
-        - apk add --no-cache git
-        - git config --global user.email "epic@enrise.com"
-        - git config --global user.name "epic"
-    script:
-        - git fetch origin ${CI_COMMIT_REF_NAME}
-        - git checkout ${CI_COMMIT_REF_NAME}
-        - npm ci
-        - npm run update-changelog
-        - git add --all
-        - git commit -m "Update changelog on ${CI_COMMIT_REF_NAME}"
-        - git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/
-        - git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/ --tags
-    rules:
-        - if: $CI_COMMIT_TAG # Dont run on tags
-          when: never
-        - if: $CI_COMMIT_REF_NAME =~ /^release\/.*$/
-          exists: [changelogs/unreleased/*.yml]
-          when: on_success # Run only when we are on a release branch and there are unreleased changelog items
+  stage: changelog
+  image: node:12.14-alpine
+  before_script:
+    - apk add --no-cache git
+    - git config --global user.email "epic@enrise.com"
+    - git config --global user.name "EPIC"
+  script:
+    - git fetch origin ${CI_COMMIT_REF_NAME}
+    - git checkout ${CI_COMMIT_REF_NAME}
+    - npm ci
+    - npm run create-release
+    - git add --all
+    - git commit -m "Update changelog on ${CI_COMMIT_REF_NAME}"
+    - git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/
+    - git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/ --tags
+  rules:
+    - if: $CI_COMMIT_REF_NAME == "master"
+      exists: [changelogs/unreleased/*.yml]
+      when: on_success # Run only when we are on the master branch and there are unreleased changelog items
 
 # ======================
 # Testing
 # ======================
 
 lint js:
-    stage: test
-    image: node:10-alpine
-    script:
-        - apk add git
-        - npm ci
-        - npm run lint-js
-    <<: *runOnBranch
+  stage: test
+  image: node:12.14-alpine
+  script:
+    - apk add git
+    - npm ci
+    - npm run lint-js
+  <<: *preventDoublePipelineTrigger
 
 lint sass:
-    stage: test
-    image: node:10-alpine
-    script:
-        - apk add git
-        - npm ci
-        - npm run lint-sass
-    <<: *runOnBranch
+  stage: test
+  image: node:12.14-alpine
+  script:
+    - apk add git
+    - npm ci
+    - npm run lint-sass
+  <<: *preventDoublePipelineTrigger
 
 jest:
-    stage: test
-    image: tiangolo/docker-with-compose
-    services:
-        - docker:dind
-    script:
-        - docker-compose -f docker-compose.jest.yml up -d
-        - docker-compose -f docker-compose.jest.yml run frontend sh -c 'apk add git && npm ci'
-        - docker-compose -f docker-compose.jest.yml run frontend npm test
-    <<: *runOnBranch
+  stage: test
+  <<: *docker-compose
+  script:
+    - docker-compose -f docker-compose.jest.yml up -d
+    - docker-compose -f docker-compose.jest.yml run frontend sh -c 'apk add git && npm ci'
+    - docker-compose -f docker-compose.jest.yml run frontend npm test
+  <<: *preventDoublePipelineTrigger
 
 # ======================
 # Build stage
 # ======================
 
-build release:
-    stage: build
-    image: docker:stable
-    services:
-        - docker:dind
-    before_script:
-        - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-        - export DOCKER_TAG="$CI_COMMIT_REF_SLUG.$CI_PIPELINE_ID"
-    script:
-        - docker build . -t "$CI_REGISTRY_IMAGE":$DOCKER_TAG -f Dockerfile-prod --build-arg PUBLIC_URL=/v$STABLE_RELEASE/
-        - docker push "$CI_REGISTRY_IMAGE":$DOCKER_TAG
-        - docker run
-          -w /app
-          -v "$PWD":/app
-          -e GITLAB_TOKEN
-          -e CI_COMMIT_REF_NAME
-          -e CI_REGISTRY_IMAGE
-          -e DOCKER_TAG
-          -e STABLE_RELEASE
-          node:10-alpine
-          /bin/sh -c "apk add git && npm ci && npm run update-releases"
-    <<: *runOnRelease
-
-build ci:
-    stage: build
-    <<: *docker-compose-login
-    script:
-        - docker pull $FRONTEND_IMAGE:latest || true
-        - docker-compose -f docker-compose.ci.yml pull -q frontend || true
-        - docker-compose -f docker-compose.ci.yml build frontend
-        - docker-compose -f docker-compose.ci.yml push frontend
-    <<: *runOnBranch
+build image:
+  stage: build
+  <<: *docker-compose
+  script:
+    - docker pull $FRONTEND_IMAGE:latest || true
+    - docker-compose -f docker-compose.ci.yml pull -q frontend || true
+    - docker-compose -f docker-compose.ci.yml build frontend
+    - docker-compose -f docker-compose.ci.yml push frontend
+  <<: *preventDoublePipelineTrigger
 
 # ======================
 # Regression stage
 # ======================
 
 regression:
-    stage: regression
-    <<: *docker-compose-login
-    script:
-        - docker-compose -f docker-compose.ci.yml pull -q
-        - docker-compose -f docker-compose.ci.yml up -d frontend
-        - docker-compose -f docker-compose.ci.yml run -T wait-for-frontend
-        - docker-compose -f docker-compose.ci.yml run -T regression --parallel 10 --world-parameters "`cat test/regression/defaults.json`"
-    artifacts:
-        paths:
-            - test/regression/results/screenshots/
-        expire_in: 1 week
-        when: on_failure
-    <<: *runOnBranch
+  stage: regression
+  <<: *docker-compose
+  script:
+    - docker-compose -f docker-compose.ci.yml pull -q
+    - docker-compose -f docker-compose.ci.yml up -d frontend
+    - docker-compose -f docker-compose.ci.yml run -T wait-for-frontend
+    - docker-compose -f docker-compose.ci.yml run -T regression --parallel 10 --world-parameters "`cat test/regression/defaults.json`"
+  artifacts:
+    paths:
+      - test/regression/results/screenshots/
+    expire_in: 1 week
+    when: on_failure
+  <<: *preventDoublePipelineTrigger
 
 # ======================
 # Push stage
 # ======================
 
 push-frontend:
-    stage: push
-    <<: *docker-compose-login
-    script:
-        - docker pull $FRONTEND_IMAGE:$IMAGE_TAG
-        - docker tag $FRONTEND_IMAGE:$IMAGE_TAG $FRONTEND_IMAGE:latest
-        - docker push $FRONTEND_IMAGE:latest
-    <<: *runOnBranch
+  stage: deploy
+  <<: *docker-compose
+  script:
+    - docker pull $FRONTEND_IMAGE:$IMAGE_TAG
+    - docker tag $FRONTEND_IMAGE:$IMAGE_TAG $FRONTEND_IMAGE:latest
+    - docker push $FRONTEND_IMAGE:latest
+  rules:
+    - if: $CI_COMMIT_REF_NAME == "master"
+      exists: [changelogs/unreleased/*.yml]
+      when: never # On master do not run when there are unreleased changelog items (to avoid running the pipeline twice)
+    - if: $CI_COMMIT_REF_NAME == "master"
+      when: on_success
 
 # ======================
 # Deploy stage
 # ======================
 
 deploy acceptance:
-    environment:
-        name: acceptance
-        url: https://componenten.acc.nijmegen.nl
-    <<: *prepare-deploy
-    script:
-        # Setup SSH tunnel to Docker Engine
-        - ssh -o ProxyCommand="ssh -W %h:%p -q enrise@jump01.nijmegen.cobytes.io" -M -S docker-socket-ssh -fnNT -L 50040:127.0.0.1:2375 enrise-docker-deploy@acc01.nijmegen.cobytes.io
-        - ssh -S docker-socket-ssh -O check enrise-docker-deploy@acc01.nijmegen.cobytes.io
-        # Let Docker authenticate against the GitLab registry
-        - DOCKER_HOST=tcp://127.0.0.1:50040 docker login -u gitlab+deploy-token-2 -p $DEPLOY_TOKEN $CI_REGISTRY
-        # Generate docker-compose.yml
-        - docker run
-          -w /app
-          -v "$PWD":/app
-          -e GITLAB_TOKEN
-          -e CI_COMMIT_REF_NAME
-          -e CI_REGISTRY_IMAGE
-          -e CI_ENVIRONMENT_URL
-          -e DOCKER_TAG
-          -e STABLE_RELEASE
-          node:10-alpine
-          npm run prepare-deployment
-        # Deploy the stack
-        - DOCKER_HOST=tcp://127.0.0.1:50040 docker stack deploy --with-registry-auth --compose-file=docker-compose-stack.yml ${SERVICE_NAME}
-        # Exit SSH tunnel
-        - ssh -S docker-socket-ssh -O exit enrise-docker-deploy@acc01.nijmegen.cobytes.io
-    <<: *runOnRelease
-
-deploy production:
-    environment:
-        name: production
-        url: https://componenten.nijmegen.nl
-    <<: *prepare-deploy
-    script:
-        # Setup SSH tunnel to Docker Engine
-        - ssh -o ProxyCommand="ssh -W %h:%p -q enrise@jump01.nijmegen.cobytes.io" -M -S docker-socket-ssh -fnNT -L 50040:127.0.0.1:2375 enrise-docker-deploy@containerprod01.nijmegen.cobytes.io
-        - ssh -S docker-socket-ssh -O check enrise-docker-deploy@containerprod01.nijmegen.cobytes.io
-        # Let Docker authenticate against the GitLab registry
-        - DOCKER_HOST=tcp://127.0.0.1:50040 docker login -u gitlab+deploy-token-2 -p $DEPLOY_TOKEN $CI_REGISTRY
-        # Generate docker-compose.yml
-        - docker run
-          -w /app
-          -v "$PWD":/app
-          -e GITLAB_TOKEN
-          -e CI_COMMIT_REF_NAME
-          -e CI_REGISTRY_IMAGE
-          -e CI_ENVIRONMENT_URL
-          -e DOCKER_TAG
-          -e STABLE_RELEASE
-          node:10-alpine
-          npm run prepare-deployment
-        # Deploy the stack
-        - DOCKER_HOST=tcp://127.0.0.1:50040 docker stack deploy --with-registry-auth --compose-file=docker-compose-stack.yml ${SERVICE_NAME}
-        # Exit SSH tunnel
-        - ssh -S docker-socket-ssh -O exit enrise-docker-deploy@containerprod01.nijmegen.cobytes.io
-    <<: *runManualOnRelease
+  stage: deploy
+  image: enrise/kube-toolbox:amazon
+  services:
+    - docker:19-dind
+  environment:
+    name: acceptance
+    url: https://componenten.acc.nijmegen.nl
+  before_script:
+    - echo $CI_JOB_TOKEN | docker login -u gitlab-ci-token --password-stdin $CI_REGISTRY
+  script:
+    - mkdir release
+    - docker cp $(docker create $FRONTEND_IMAGE:$IMAGE_TAG):/usr/share/nginx/html release/
+    - aws s3 sync release/html s3://nijmegen-cl-acc/ --acl public-read --exclude "index.html" --exclude "version.json" --cache-control=public,max-age=31536000
+    - aws s3 sync release/html s3://nijmegen-cl-acc/ --acl public-read --exclude "*" --include "index.html" --include "version.json" --cache-control max-age=0,no-cache,no-store,must-revalidate
+  only:
+    - master

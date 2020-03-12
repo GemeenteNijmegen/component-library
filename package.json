@@ -20,16 +20,13 @@
         }
     },
     "scripts": {
-        "start": "NODE_ENV=development node parcel.js",
-        "build": "NODE_ENV=production node parcel.js",
-        "create-components-listing": "node ./dev/deployment/createComponentsListing.js",
+        "start": "NODE_ENV=development node server.js",
+        "build": "NODE_ENV=production node server.js",
         "test": "node_modules/.bin/jest",
         "lint-js": "eslint src/js/**/*.js",
         "lint-sass": "node node_modules/sass-lint/bin/sass-lint.js -v",
         "fix-sass": "node node_modules/sass-lint-fix/bin/sass-lint.js --fix",
-        "prepare-deployment": "node dev/deployment/prepare-deployment.js",
-        "update-changelog": "node dev/release/changelog/release",
-        "update-releases": "node dev/deployment/update-releases.js"
+        "create-release": "node helpers/createRelease.js"
     },
     "staticFiles": {
         "staticPath": [
@@ -62,7 +59,7 @@
         "jquery": "^3.4.1",
         "jshint": "^2.10.2",
         "parcel-bundler": "^1.12.4",
-        "parcel-plugin-static-files-copy": "git+https://github.com/trafex/parcel-plugin-static-files-copy.git#filesystem-synchronous",
+        "parcel-plugin-static-files-copy": "^2.3.1",
         "prettier": "^1.18.2",
         "sass": "^1.23.3",
         "sass-lint": "^1.13.1",

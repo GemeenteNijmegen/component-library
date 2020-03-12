@@ -18,9 +18,9 @@ Changes for the component library:
 
 -   Before merging an unreleased changelog entry is required for each change (see [Changelog](#changelog))
 -   There are no review environments.
--   A merge to the latest major release branch can take place after technical review which will deploy to acceptance.
--   Deployment to production needs a manual action which can be done in GitLab via Environments. Current versions needs to be approved, new versions we can deploy directly.
--   All breaking changes do need a new version (which need a new release branch)
+-   A merge to master will result in a new version based on the highest version bump in the unreleased changelog files
+-   Every new version that is created in master is deployed to acceptance and is available on the unique version url (.../vx.x.x)
+-   Deployment to production needs a manual action which can be done in GitLab via Environments.
 
 ### What tooling do I need
 
@@ -87,24 +87,12 @@ Some assets need to be placed in the static folder since we don't package those 
 
 ## Index listing of components
 
-For 3rd party services it would be nice to have a basic listing of all available components in the library. A custom command has been created to facilitate in this functionality and is automatically run when deployed to acceptance and/or production. The url for this listing can be seen in the `Production build` section.
-
-For debugging and/or testing purpose, it's possible to run this command manually:
+For 3rd party services there is a basic listing of all available components in the library. The listing is created when the component library is build.
+You can test this by starting the static website and navigating to /vx.x.x/components-listing.html on that static environment
 
 ```shell
-make component-listing
+make start-static
 ```
-
-## Versioning
-
-There's versioning implemented for this CL in the infrastructure.
-
--   The versioning setup is only used for new major versions. Minor and patches shouldn't need a new major version
--   We should always try to avoid creating a new major version because this impacts all users of the CL.
--   Versioning is based on the release branches (e.g. release/1).
--   The version is included in the path (e.g. /v1/..)
--   We use a fork of the jwilder nginx proxy to have the routing based on path (see [this PR](https://github.com/jwilder/nginx-proxy/pull/1083))
--   The [versions landing page](public/versions.html) is manually updated to have control over which version is stable.
 
 ## Changelog
 
@@ -121,32 +109,16 @@ When merged into a release branch the version number is automatically bumped.
 ```yaml
 versionBump: patch # patch, minor
 changes:
-  - type: changed #changed, removed, added
-    component: carousel
-    description: Added something...
-    what: [] # what has changed 1 or more of: [HTML, CSS, JS]
-  - type: removed #changed, removed, added
-    component: [footer, header]
-    description: Removed...
+    - type: changed #changed, removed, added
+      component: carousel
+      description: Added something...
+      what: [] # what has changed 1 or more of: [HTML, CSS, JS]
+    - type: removed #changed, removed, added
+      component: [footer, header]
+      description: Removed...
 ```
 
 The type must be changed, removed or added. The component must match the component folder/file name, and then a description of the change.
-
-## Production build
-
-Generate a production build in `build/` with:
-
-    docker-compose run --rm frontend npm run build
-
-Above command will also generate an HTML file with a full listing of available components within the library with the exception of the `Templates` folder, since these aren't components and merely example templates implementing various components from the library in one layout.
-
-The listing can be seen at: https://componenten.nijmegen.nl/components-listing.html
-
-## Docker Swarm
-
--   The Docker engine is setup as Swarm (with `docker swarm init`).
--   With `docker stack deploy` we rollout our container.
--   `docker service ls` shows the currently running services (containers).
 
 ## Hosting
 
@@ -182,16 +154,14 @@ This is how the pipeline behaves:
 
 ### On all feature branches:
 
-The pipeline runs all jobs defined by the `runOnBranch` snippet.
+The pipeline runs all jobs defined by the `preventDoublePipelineTrigger` snippet.
 
-### On the release branch when there are unreleased changelog items:
+### On the master branch when there are unreleased changelog items:
 
 When there are unreleased changelog items the pipeline will only run the update changelog job.
 
-**Note:** This job will commit some changes and starts a **new pipeline**.
+**Note:** This job will commit changes and starts a **new pipeline**.
 
-### On the release branch when there are NO unreleased changelog items:
+### On the master branch when there are NO unreleased changelog items:
 
-The pipeline runs all jobs defined by the `runOnBranch` and `runOnRelease` snippets.
-
-On the release branch the jobs with the `runManualOnRelease` snippet can be started manually
+The pipeline runs all jobs defined by the `preventDoublePipelineTrigger` and the `push` and `deploy` stage

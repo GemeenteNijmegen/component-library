@@ -15,12 +15,14 @@ const fractal = (module.exports = require('@frctl/fractal').create());
  */
 const mandelbrot = require('@frctl/mandelbrot');
 
+const getVersion = require('./helpers/getVersion');
+
 const nijmegenTheme = mandelbrot({
     nav: ['docs', 'components'],
     panels: ['html', 'notes', 'info'],
     styles: ['default', '/_subtheme/css/nijmegen.css'], // link to the default stylesheet followed by a custom one
     favicon: '/_subtheme/img/favicon.ico',
-    version: process.env.npm_package_version,
+    version: getVersion(),
 });
 
 // specify a directory to hold the theme override templates

@@ -17,3 +17,7 @@ trim_trailing_whitespace = false
 # Makefiles must have tabs
 [Makefile]
 indent_style = tab
+
+# Yaml should have 2 spaces due to its weird array structure
+[{*.yml,*.yaml}]
+indent_size = 2

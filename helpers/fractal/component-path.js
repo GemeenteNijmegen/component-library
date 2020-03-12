@@ -1,3 +1,5 @@
+const getVersion = require('../getVersion');
+
 // Get's the route for a component
 const getRouteComponent = fractal => {
     const route = fractal.web._themes.get('default')._routes.get('component');
@@ -28,12 +30,9 @@ module.exports = fractal => {
 
         if (fractal._config.env === 'production') {
             // This placeholder will be replaced by Nginx
-            retval = '%%HOSTNAME%%' + retval;
+            return '/v' + getVersion() + retval + fractal._config.web.builder.ext;
         }
 
-        if (fractal._config.env === 'production') {
-            retval += fractal._config.web.builder.ext;
-        }
         return retval;
     };
 };

@@ -20,15 +20,13 @@ intro:
 init: intro do-build do-init do-show-commands
 build: intro do-build do-show-commands
 start: intro do-start
+start-static: intro do-static-stop do-static-build do-static-start
 stop: intro do-stop
 test: intro do-lint do-test
 update: intro do-switch-branch do-run-updates do-start
 mr: intro do-checkout-mr do-run-updates do-start
 
-update-icons: intro do-update-icons do-start
-component-listing: intro do-component-listing
-
-generate-changelog: intro do-generate-changelog
+create-release: intro do-create-release
 
 test-regression: intro do-start do-regression-build do-regression-clear-screenshots do-regression-tests
 
@@ -67,17 +65,14 @@ do-show-commands:
 	@echo "Project:"
 	@echo "    make init                               Initialise the project for development."
 	@echo "    make start                              Start container."
+	@echo "    make start-static                       Start static container."
 	@echo "    make stop                               Stop container."
 	@echo "    make test                               Run jest tests."
 	@echo "    make update                             Update npm packages."
 	@echo "    make update BRANCH=master               Switch branch and update npm packages."
 	@echo "    make mr                                 Check out a MR from GitLab and update the project."
-	@echo "Build:"
-	@echo "    make update-icons                       Update icons (only needed when an update of the icons dependency has been done)."
-	@echo "    make component-listing                  Build the components listing locally."
 	@echo "Change log:"
-	@echo "    make generate-changelog version=x.x.x   Generate the changelog"
-	@echo "    make generate-changelog version=x.x.x   Generate the changelog"
+	@echo "    make create-release                     Create a new release based on the changelog entries"
 	@echo "Regression:"
 	@echo "    make test-regression                    Run the regression test"
 	@echo "    make test-regression fail-fast=1        Stop on the first failure"
@@ -95,6 +90,19 @@ do-start:
 	@echo "\n=== Start container ===\n"
 	docker-compose up -d frontend
 	@echo "\n-> Your container is running on http://localhost:3000\n"
+
+do-static-stop:
+	@echo "\n=== Stop static container ===\n"
+	docker-compose stop static
+
+do-static-build:
+	@echo "\n=== Building static container ===\n"
+	VERSION=v`helpers/getVersion.sh` docker-compose build static
+
+do-static-start:
+	@echo "\n=== Start static container ===\n"
+	docker-compose up -d static
+	@echo "\n-> Your static container is running on http://localhost:3001\n"
 
 do-stop:
 	@echo "\n=== Stop container ===\n"
@@ -134,17 +142,9 @@ do-run-updates:
 	@echo "\n=== Updating project ===\n"
 	docker-compose run --rm frontend npm ci
 
-do-update-icons:
-	@echo "\n=== Updating Material Design Icons listing ===\n"
-	docker-compose run --rm frontend npm run build-icons-listing
-
-do-component-listing:
+do-create-release:
 	@echo "\n=== Build component listing ===\n"
-	docker-compose exec frontend /app/node_modules/.bin/gulp fractal:build-components-listing
-
-do-generate-changelog:
-	@echo "\n=== Build component listing ===\n"
-	docker-compose exec frontend npm run update-changelog ${version}
+	docker-compose exec -e SKIP_GIT_TAG=true frontend npm run create-release
 
 do-regression-build:
 	@echo "\n=== Updating node modules for testing ===\n"

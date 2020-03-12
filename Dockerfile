@@ -1,15 +1,6 @@
-FROM node:10-alpine
+FROM node:12.14-alpine
 
-RUN apk add --no-cache git
-
-# Create workdir
-RUN mkdir -p /app
 WORKDIR /app
-
-COPY package.json package-lock.json ./
-RUN npm ci
-
-COPY . .
 
 # Expose port
 EXPOSE 3000
