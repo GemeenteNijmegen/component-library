@@ -4,12 +4,12 @@ Feature: Modal
 
     Background: Disable accessibility rule
         Given I disable the accessibility rule "page-has-heading-one"
-        
+
     Scenario Outline: Click the button
 
         Given I open the component "modals--<version>"
         When I click on the "button"
-        And I wait for 0.5 second
+        And I wait for 1 second
         Then I expect the screenshot of "modals--<version>" matches the web page
         And the page should be accessible
 

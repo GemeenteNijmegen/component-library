@@ -5,7 +5,6 @@ Feature: Visual component check
     Background: Disable accessibility rule
         Given I disable the accessibility rule "page-has-heading-one"
 
-
     Scenario Outline: Visually check the components
 
         When I open the component "<component>"

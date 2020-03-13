@@ -4,7 +4,7 @@ Feature: Carousel
 
     Background: Disable accessibility rule
         Given I disable the accessibility rule "page-has-heading-one"
-        
+
     Scenario: Check the carousel
 
         Given I open the component "carousel"
