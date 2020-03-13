@@ -1,6 +1,0 @@
-versionBump: major # patch, minor
-changes:
-  - type: changed #changed, removed, added
-    component:
-    description: Changed the file structure to give more control to the user. Check the "How to use" for instructions how to implement
-    what: [JS, CSS] # what has changed 1 or more of: [HTML, CSS, JS]
