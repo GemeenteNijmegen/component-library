@@ -1,0 +1,9 @@
+.Header-version {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid gray;
+}
+
+.Header-version--latest {
+    display: none;
+}
