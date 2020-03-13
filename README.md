@@ -107,7 +107,7 @@ With the `versionBump` key you can define if the change should be a minor or a p
 When merged into a release branch the version number is automatically bumped.
 
 ```yaml
-versionBump: patch # patch, minor
+versionBump: patch # patch, minor, major
 changes:
     - type: changed #changed, removed, added
       component: carousel
