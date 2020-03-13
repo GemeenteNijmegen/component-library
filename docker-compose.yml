@@ -36,7 +36,7 @@ services:
       context: .
       dockerfile: Dockerfile-prod
       args:
-        VERSION: ${VERSION}
+        VERSION: ${VERSION:-dev}
     networks:
       - nijmegen
     ports:

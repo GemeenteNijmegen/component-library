@@ -27,6 +27,7 @@ update: intro do-switch-branch do-run-updates do-start
 mr: intro do-checkout-mr do-run-updates do-start
 
 create-release: intro do-create-release
+create-changelog-file: intro do-create-changelog-file
 
 test-regression: intro do-start do-regression-build do-regression-clear-screenshots do-regression-tests
 
@@ -73,6 +74,7 @@ do-show-commands:
 	@echo "    make mr                                 Check out a MR from GitLab and update the project."
 	@echo "Change log:"
 	@echo "    make create-release                     Create a new release based on the changelog entries"
+	@echo "    make create-changelog-file              Create a new changelog file in the unreleased folder"
 	@echo "Regression:"
 	@echo "    make test-regression                    Run the regression test"
 	@echo "    make test-regression fail-fast=1        Stop on the first failure"
@@ -161,3 +163,8 @@ do-regression-tests:
 
 do-commit-intro:
 	@echo "\n=== Committing ===\n"
+
+do-create-changelog-file:
+	@echo "\n=== Creating an unreleased changelog file ===\n"
+	@cp dev/unreleased-changelog.template.yml changelogs/unreleased/`git rev-parse --abbrev-ref HEAD`.yml \
+		&& echo 'Created a new unreleased changelog file'
