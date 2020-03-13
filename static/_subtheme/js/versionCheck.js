@@ -3,6 +3,8 @@
         var element = document.querySelector('.Header-version');
         element.classList.remove('Header-version--latest');
         element.querySelector('.Header-latest-version').innerHTML = latest;
+
+        document.querySelector('.Header').classList.add('Header--not-latest');
     }
 
     var httpRequest = new XMLHttpRequest();
