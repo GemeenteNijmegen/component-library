@@ -32,14 +32,15 @@ nijmegenTheme.addLoadPath(__dirname + '/src/theme-overrides/views');
 // Add Nijmegen subtheme to fractal instance
 fractal.web.theme(nijmegenTheme);
 
-const { getReleased, getUnreleased } = require('./helpers/fractal/changelog');
+const { getOldVersions, getNewVersions, getUnreleased } = require('./helpers/fractal/changelog');
 const getPartials = require('./helpers/fractal/getPartials');
 const hbs = require('@frctl/handlebars')({
     helpers: {
         componentPath: require('./helpers/fractal/component-path')(fractal),
         assetPath: require('./helpers/fractal/asset-path')(fractal),
         mdbootstrapPath: require('./helpers/fractal/mdbootstrap-path')(fractal),
-        changelogReleased: getReleased,
+        changelogReleasedOld: getOldVersions,
+        changelogReleasedNew: getNewVersions,
         changelogUnreleased: getUnreleased,
         formatDate: require('./helpers/fractal/formatDate'),
         concat: (...strs) => strs.filter(str => typeof str === 'string').join(''),

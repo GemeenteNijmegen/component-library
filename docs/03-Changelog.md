@@ -9,6 +9,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 {{> changes changelog=(changelogUnreleased) title="Unreleased"}}
 
-{{#each (changelogReleased) as |item|}}
-{{> changes changelog=item.changelog title=(concat "[" item.version "] - " (formatDate item.date)) }}
+{{#each (changelogReleasedNew) as |item|}}
+{{> changes changelog=item.changelog title=(concat "<a href=\"/v" item.version "/\">" item.version "</a> | " (formatDate item.date)) }}
+{{/each}}
+
+{{#each (changelogReleasedOld) as |item|}}
+{{> changes changelog=item.changelog title=(concat "<a href=\"/v3/\">" item.version "</a> | " (formatDate item.date)) }}
 {{/each}}
