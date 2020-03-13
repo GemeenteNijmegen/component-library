@@ -11,6 +11,7 @@ stages:
   - test
   - build
   - regression
+  - push
   - deploy
 
 # ======================
@@ -50,8 +51,6 @@ update changelog:
     - git checkout ${CI_COMMIT_REF_NAME}
     - npm ci
     - npm run create-release
-    - git add --all
-    - git commit -m "Update changelog on ${CI_COMMIT_REF_NAME}"
     - git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/
     - git push https://gitlab-ci-token:${GNIJ_ACCESS_TOKEN}@gitlab.enrise.com/Epic/nijmegen-component-library.git/ --tags
   rules:
@@ -127,8 +126,8 @@ regression:
 # Push stage
 # ======================
 
-push-frontend:
-  stage: deploy
+push latest image:
+  stage: push
   <<: *docker-compose
   script:
     - docker pull $FRONTEND_IMAGE:$IMAGE_TAG
@@ -161,4 +160,4 @@ deploy acceptance:
     - aws s3 sync release/html s3://nijmegen-cl-acc/ --acl public-read --exclude "index.html" --exclude "version.json" --cache-control=public,max-age=31536000
     - aws s3 sync release/html s3://nijmegen-cl-acc/ --acl public-read --exclude "*" --include "index.html" --include "version.json" --cache-control max-age=0,no-cache,no-store,must-revalidate
   only:
-    - master
+    - tags

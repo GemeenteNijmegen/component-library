@@ -1,0 +1,10 @@
+version: 4.0.1
+versionBump: patch
+date: 2020-03-13T10:37:00.125Z
+files:
+  - GNIJ-308.yml
+changes:
+  - type: changed
+    component: null
+    description: Create tag after release is created
+    what: []

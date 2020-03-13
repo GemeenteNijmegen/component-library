@@ -4,7 +4,7 @@ Feature: Button horizontal collapse
 
     Background: Disable accessibility rule
         Given I disable the accessibility rule "page-has-heading-one"
-        
+
     Scenario: Expand the buttons
         When I open the component "button-horizontal-collapse"
         And I click on the "collapse button"

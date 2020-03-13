@@ -4,7 +4,7 @@ Feature: Responsive table
 
     Background: Disable accessibility rule
         Given I disable the accessibility rule "page-has-heading-one"
-        
+
     Scenario: Mobile view - normal table
 
         Given I open the component "normal-table"

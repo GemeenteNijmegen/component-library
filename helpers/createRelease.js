@@ -42,8 +42,7 @@ const getGreatestVersionBumpType = filePaths => {
  */
 const bumpVersion = versionBump => {
     try {
-        const gitTag = process.env.SKIP_GIT_TAG ? '--no-git-tag-version' : '';
-        return execSync(`npm version --no-commit-hooks ${gitTag} ${versionBump}`)
+        return execSync(`npm version --no-commit-hooks --no-git-tag-version ${versionBump}`)
             .toString()
             .replace('v', '')
             .trim();
@@ -106,6 +105,12 @@ const createRelease = () => {
     updateLatestVersion(version);
 
     unreleasedFilePaths.map(filePath => fs.unlinkSync(filePath));
+
+    if (!process.env.SKIP_GIT_TAG) {
+        const gitMessage = `Release version ${version}`;
+        execSync(`git add --all && git commit -m "${gitMessage}" && git tag -a v${version} -m "${gitMessage}"`);
+        logger.success(`Created a new tag: v${version}\n`);
+    }
 
     logger.success(`Created a new release with version ${version}\n`);
 };
