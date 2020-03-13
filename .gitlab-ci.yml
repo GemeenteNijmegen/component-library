@@ -11,6 +11,7 @@ stages:
   - test
   - build
   - regression
+  - push
   - deploy
 
 # ======================
@@ -127,8 +128,8 @@ regression:
 # Push stage
 # ======================
 
-push-frontend:
-  stage: deploy
+push latest image:
+  stage: push
   <<: *docker-compose
   script:
     - docker pull $FRONTEND_IMAGE:$IMAGE_TAG
