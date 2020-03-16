@@ -9,3 +9,6 @@ if (!('from' in Array)) {
     document.write("<script src='//cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js' crossorigin='anonymous'><\/script>");
 }
 </script>
+<script>
+    window.frctl.version = "{{ frctl.get('project.version') }}";
+</script>

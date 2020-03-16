@@ -1,0 +1,10 @@
+versionBump: patch # patch, minor, major
+changes:
+  - type: added #changed, removed, added
+    component:
+    description: Added a message when viewing an older version
+    what: [] # what has changed 1 or more of: [HTML, CSS, JS]
+  - type: added #changed, removed, added
+    component:
+    description: Added links to the older versions in the changelog
+    what: [] # what has changed 1 or more of: [HTML, CSS, JS]

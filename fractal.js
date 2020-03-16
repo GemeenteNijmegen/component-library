@@ -15,14 +15,15 @@ const fractal = (module.exports = require('@frctl/fractal').create());
  */
 const mandelbrot = require('@frctl/mandelbrot');
 
-const getVersion = require('./helpers/getVersion');
+const version = require('./helpers/getVersion')();
 
 const nijmegenTheme = mandelbrot({
     nav: ['docs', 'components'],
     panels: ['html', 'notes', 'info'],
-    styles: ['default', '/_subtheme/css/nijmegen.css'], // link to the default stylesheet followed by a custom one
+    styles: ['default', '/_subtheme/css/nijmegen.css', '/_subtheme/css/versionCheck.css'], // link to the default stylesheet followed by a custom one
+    scripts: ['default', '/_subtheme/js/versionCheck.js'],
     favicon: '/_subtheme/img/favicon.ico',
-    version: getVersion(),
+    version: version,
 });
 
 // specify a directory to hold the theme override templates
@@ -31,14 +32,15 @@ nijmegenTheme.addLoadPath(__dirname + '/src/theme-overrides/views');
 // Add Nijmegen subtheme to fractal instance
 fractal.web.theme(nijmegenTheme);
 
-const { getReleased, getUnreleased } = require('./helpers/fractal/changelog');
+const { getOldVersions, getNewVersions, getUnreleased } = require('./helpers/fractal/changelog');
 const getPartials = require('./helpers/fractal/getPartials');
 const hbs = require('@frctl/handlebars')({
     helpers: {
         componentPath: require('./helpers/fractal/component-path')(fractal),
         assetPath: require('./helpers/fractal/asset-path')(fractal),
         mdbootstrapPath: require('./helpers/fractal/mdbootstrap-path')(fractal),
-        changelogReleased: getReleased,
+        changelogReleasedOld: getOldVersions,
+        changelogReleasedNew: getNewVersions,
         changelogUnreleased: getUnreleased,
         formatDate: require('./helpers/fractal/formatDate'),
         concat: (...strs) => strs.filter(str => typeof str === 'string').join(''),
@@ -57,6 +59,7 @@ fractal.docs.engine(hbs);
  * Give your project a title.
  */
 fractal.set('project.title', 'Nijmegen Component Library');
+fractal.set('project.version', version);
 
 /*
  * Tell Fractal where to look for components.

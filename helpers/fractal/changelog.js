@@ -26,8 +26,7 @@ const groupChangelogItems = items => {
     }, {});
 };
 
-const getReleased = () => {
-    const versions = parseFilesInDir(path.join(__dirname, '../../changelogs/released'));
+const getReleased = versions => {
     versions.sort((versionA, versionB) => compareVersions(versionA.version, versionB.version)).reverse();
     const changelog = versions.map(version => {
         version.changelog = groupChangelogItems(version.changes);
@@ -37,14 +36,24 @@ const getReleased = () => {
     return changelog;
 };
 
+const getOldVersions = () => {
+    const versions = parseFilesInDir(path.join(__dirname, '../../changelogs/released'));
+    return getReleased(versions.filter(version => compareVersions(version.version, '4.0.0') < 0));
+};
+
+const getNewVersions = () => {
+    const versions = parseFilesInDir(path.join(__dirname, '../../changelogs/released'));
+    return getReleased(versions.filter(version => compareVersions(version.version, '4.0.0') >= 0));
+};
+
 const getUnreleased = () => {
     const unreleased = parseFilesInDir(path.join(__dirname, '../../changelogs/unreleased'));
     const changes = groupChangelogItems(
         unreleased.reduce((changes, file) => {
             return changes.concat(file.changes);
-        }, []),
+        }, [])
     );
     return changes;
 };
 
-module.exports = { getReleased, getUnreleased };
+module.exports = { getUnreleased, getOldVersions, getNewVersions };
