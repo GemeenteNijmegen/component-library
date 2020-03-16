@@ -1,6 +1,7 @@
 const Bundler = require('parcel-bundler');
 const fractal = require('./fractal.js');
 const path = require('path');
+const { copyFileSync } = require('fs');
 const createComponentListing = require('./helpers/createComponentListing');
 
 const entryFiles = path.join(__dirname, 'src/entry.js');
@@ -9,7 +10,7 @@ const options = {
     outFile: 'nijmegen.js',
     global: 'nijmegen',
     contentHash: false,
-    hmr: false
+    hmr: false,
 };
 
 const runDev = async function() {
@@ -21,6 +22,7 @@ const runDev = async function() {
     const bundler = new Bundler(entryFiles, options);
     await bundler.bundle();
     await server.start();
+    copyFileSync(path.join(__dirname, 'root/version.json'), path.join(__dirname, 'public/version.json'));
     logger.success(`Fractal server is now running at ${server.url}`);
 };
 
