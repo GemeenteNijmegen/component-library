@@ -157,7 +157,7 @@ deploy acceptance:
   script:
     - mkdir release
     - docker cp $(docker create $FRONTEND_IMAGE:$IMAGE_TAG):/usr/share/nginx/html release/
-    - aws s3 sync release/html s3://nijmegen-cl-acc/ --acl public-read --exclude "index.html" --exclude "version.json" --cache-control=public,max-age=31536000
-    - aws s3 sync release/html s3://nijmegen-cl-acc/ --acl public-read --exclude "*" --include "index.html" --include "version.json" --cache-control max-age=0,no-cache,no-store,must-revalidate
+    - aws s3 sync release/html s3://gemeentenijmegen-public-acceptance-componenten-nijmegen-nl/ --acl public-read --exclude "index.html" --exclude "version.json" --cache-control=public,max-age=31536000
+    - aws s3 sync release/html s3://gemeentenijmegen-public-acceptance-componenten-nijmegen-nl/ --acl public-read --exclude "*" --include "index.html" --include "version.json" --cache-control max-age=0,no-cache,no-store,must-revalidate
   only:
     - tags
