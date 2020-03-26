@@ -1,0 +1,10 @@
+versionBump: patch # patch, minor
+changes:
+    - type: changed #changed, removed, added
+      component:
+      description: Put old fonts in the `/fonts/` folder for backwards compatibility
+      what: [] # what has changed 1 or more of: [HTML, CSS, JS]
+    - type: changed #changed, removed, added
+      component:
+      description: Put `aria.switch.js` script in the `/js/` folder for backwards compatibility
+      what: [] # what has changed 1 or more of: [HTML, CSS, JS]
