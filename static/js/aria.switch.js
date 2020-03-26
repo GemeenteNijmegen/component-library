@@ -1,8 +1,8 @@
-(function ( w, doc, undefined ) {
+(function(w) {
     'use strict';
     var A11YswitchCheck;
 
-    A11YswitchCheck = function ( ) {
+    A11YswitchCheck = function() {
         /**
          * Author: Scott O'Hara
          * Version: 0.1.0
@@ -14,10 +14,10 @@
          * Initialize the instance, run all setup functions
          * and attach the necessary events.
          */
-        this.init = function ( elm ) {
+        this.init = function(elm) {
             el = elm;
-            setRole ( el );
-            attachEvents ( el );
+            setRole(el);
+            attachEvents(el);
         };
 
         /**
@@ -26,22 +26,21 @@
          * so ideally such a button would be set to hidden or disabled, if JS wasn't
          * around to make it function.
          */
-        var setRole = function ( el ) {
-            if ( el.getAttribute('type') === 'checkbox' ) {
+        var setRole = function(el) {
+            if (el.getAttribute('type') === 'checkbox') {
                 el.setAttribute('role', 'switch');
-            }
-            else {
-                console.error(el.id + ' is not a checkbox...')
+            } else {
+                console.error(el.id + ' is not a checkbox...'); // eslint-disable-line
             }
         };
 
         /**
          * Attach keyEvents to toggle buttons
          */
-        var keyEvents = function ( e ) {
+        var keyEvents = function(e) {
             var keyCode = e.keyCode || e.which;
 
-            switch ( keyCode ) {
+            switch (keyCode) {
                 case 13:
                     e.preventDefault();
                     e.target.click();
@@ -52,7 +51,7 @@
         /**
          * Events for toggle buttons
          */
-        var attachEvents = function ( el ) {
+        var attachEvents = function(el) {
             el.addEventListener('keypress', keyEvents, false);
         };
 
@@ -60,4 +59,4 @@
     }; // A11YswitchCheck()
 
     w.A11YswitchCheck = A11YswitchCheck;
-})( window, document );
+})(window);
