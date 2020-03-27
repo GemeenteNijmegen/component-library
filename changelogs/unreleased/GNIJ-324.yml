@@ -1,0 +1,5 @@
+versionBump: patch # patch, minor, major
+changes:
+  - type: changed #changed, removed, added
+    component:
+    description: Deploy to production
