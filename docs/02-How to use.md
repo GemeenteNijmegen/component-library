@@ -94,5 +94,6 @@ The [preview page](../components-listing.html) lists all components so that they
 Please inform us when you started using the component library by sending an email to [webmaster@irvn.nl](mailto:webmaster@irvn.nl). This way we are able to inform you as implementor about new developments regarding the library. We will not email you frequently and your emailaddress will only be used for the sole purpose of library developments.
 
 <script>
-    document.body.innerHTML = document.body.innerHTML.replace(/%HOST%/g, window.location.origin);
+    var docElement = document.querySelector('.Document');
+    docElement.innerHTML = docElement.innerHTML.replace(/%HOST%/g, window.location.origin);
 </script>
