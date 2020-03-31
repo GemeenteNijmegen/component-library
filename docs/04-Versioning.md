@@ -3,18 +3,24 @@ title: Versioning
 status: ready # draft, ready
 ---
 
-This component library uses [Semantic Versioning](https://semver.org/).<br>
-Which comes done to the following;
+This component library uses [Semantic Versioning](https://semver.org/).
 
-> Given a version number MAJOR.MINOR.PATCH, increment the:
-> 
-> 1. MAJOR version when you make incompatible API changes,
-> 2. MINOR version when you add functionality in a backwards-compatible manner, and
-> 3. PATCH version when you make backwards-compatible bug fixes.
+## Version numbers
 
+Every new release has a version number that has 3 parts: [major].[minor].[patch]
 
-The version information can be found in the [changelog](changelog.html)<br>
-<br>
-Every major versions has a unique url (by adding the version as prefix, for example `/v1/`) to make sure users of this CL can switch to a new major version when they have implemented the backwards-incompatible changes.<br>
-<br>
-The latest major version is specified on the [landingspage](https://componenten.nijmegen.nl/), please make sure you keep using the stable version.
+This is the meaning when one of those versions is upgraded:
+ 
+1. **MAJOR** (**A**.b.c): This release has incompatible changes, please read the changelog carefully
+2. **MINOR** (a.**B**.c): This release adds new functionality but in a backwards-compatible manner, you can upgrade to this version without consequences
+3. **PATCH** (a.b.**C**):This release has small backwards-compatible (bug) fixes.
+
+## Version information
+
+The version information can be found in the [changelog](changelog.html)
+
+You can click to an older version of the componentlibrary. It is also possible to use an older version in your application but it is recommended to upgrade to the latest version when possible.
+
+## Updating scripts and stylesheets
+
+When implementing a newer version you should always update the url of all the scripts and stylesheets mentioned in the [How To Use](how-to-use.html) docs. The url always contains the version number.
