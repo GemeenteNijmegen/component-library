@@ -1,9 +1,0 @@
-version: 4.0.3
-versionBump: patch
-date: 2020-03-27T13:22:44.386Z
-files:
-  - GNIJ-324.yml
-changes:
-  - type: changed
-    component: null
-    description: Deploy to production
