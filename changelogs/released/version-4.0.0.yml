@@ -1,0 +1,19 @@
+version: 4.0.0
+versionBump: major
+date: 2020-04-29T09:13:20.220Z
+files:
+  - GNIJ-316.yml
+changes:
+  - type: changed
+    component: null
+    description: >-
+      From this version every new version gets its own URL.
+
+      That means that a consumer of the library can decide when to switch to a
+      new version.
+
+
+      Please read the "How to use" and "Versioning" sections in the
+      documentation for more details.
+    what:
+      - IMPLEMENTATION
