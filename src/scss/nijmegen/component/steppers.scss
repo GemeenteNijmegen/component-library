@@ -34,7 +34,7 @@
     width: 100%;
 
     @media (max-width: $medium-screen-portrait) {
-        position: unset;
+        position: static;
         top: 0;
     }
 
@@ -52,8 +52,8 @@
 
 .stepper-horizontal li {
     align-items: initial;
-    flex: initial;
-    position: unset;
+    flex: 0 1 auto;
+    position: static;
 
     &:hover,
     &:not(:last-child):after,
