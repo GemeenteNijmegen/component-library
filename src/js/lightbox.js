@@ -1,4 +1,1 @@
-(async () => {
-    const lightboxUi = await import('../../static/mdb-addons/mdb-lightbox-ui.html');
-    $('#mdb-lightbox-ui').html(lightboxUi);
-})();
+import('../../static/mdb-addons/mdb-lightbox-ui.html').then(lightboxUi => $('#mdb-lightbox-ui').html(lightboxUi));
