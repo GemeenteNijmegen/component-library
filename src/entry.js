@@ -1,6 +1,10 @@
 // Include the scss so it will be transformed to css
 import './scss/main.scss';
 
+// Promise polyfill for IE11
+import 'promise-polyfill/src/polyfill';
+import 'whatwg-fetch';
+
 // These scripts don't need to be exposed (they will initialize themselves)
 import './js/alerts';
 import './js/buttonHorizontalCollapse';
