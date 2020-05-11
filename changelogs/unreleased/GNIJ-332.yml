@@ -1,6 +1,0 @@
-versionBump: patch # patch, minor, major
-changes:
-  - type: changed #changed, removed, added
-    component: lightbox
-    description: Fixed the way the lightbox-ui is fetched
-    what: [JS] # what has changed 1 or more of: [HTML, CSS, JS]
