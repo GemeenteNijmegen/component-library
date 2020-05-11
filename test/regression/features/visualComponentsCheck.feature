@@ -14,10 +14,6 @@ Feature: Visual component check
         Scenarios:
             | component |
             | accordion |
-            | alerts--success |
-            | alerts--info |
-            | alerts--warning |
-            | alerts--error |
             | button--info |
             | button--primary |
             | button--secondary |
@@ -50,7 +46,6 @@ Feature: Visual component check
             | pagination |
             | pills--primary |
             | pills--secondary |
-            | popovers |
             | complex-table |
             | normal-table |
             | autocomplete |
@@ -58,7 +53,6 @@ Feature: Visual component check
             | facets-advanced |
             | results |
             | select |
-            | sidenav |
             | stepper |
             | sticky-content |
             | switch |
