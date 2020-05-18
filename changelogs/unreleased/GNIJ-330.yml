@@ -7,4 +7,4 @@ changes:
       - cards-news
       - cards-services-no-icon
     description: The example is made responsive
-    what: [HTML, README] # what has changed 1 or more of: [HTML, CSS, JS]
+    what: [HTML, NOTES] # what has changed 1 or more of: [HTML, CSS, JS]
