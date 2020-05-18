@@ -1,0 +1,10 @@
+versionBump: patch # patch, minor, major
+changes:
+  - type: changed #changed, removed, added
+    component:
+      - cards-filename
+      - cards-services
+      - cards-news
+      - cards-services-no-icon
+    description: The example is made responsive
+    what: [HTML, README] # what has changed 1 or more of: [HTML, CSS, JS]
