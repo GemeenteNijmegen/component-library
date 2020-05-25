@@ -1,7 +1,7 @@
 const fractal = require('../fractal');
 const fs = require('fs');
 const getVersion = require('./getVersion');
-const { componentListingFile } = require('./paths');
+const { componentListingFile, componentListingRootFile } = require('./paths');
 
 const documentHeader = `
     <!doctype html>
@@ -47,6 +47,7 @@ const createListing = async () => {
     });
 
     fs.writeFileSync(componentListingFile, `${documentHeader} <ol>${output.join('\n')}</ol> ${documentFooter}`);
+    fs.writeFileSync(componentListingRootFile, `${documentHeader} <ol>${output.join('\n')}</ol> ${documentFooter}`);
     logger.success('Fractal components listing generated');
 };
 
