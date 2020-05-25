@@ -1,0 +1,23 @@
+version: 4.0.2
+versionBump: patch
+date: 2020-05-25T10:07:47.067Z
+files:
+  - GNIJ-330.yml
+  - GNIJ-334.yml
+changes:
+  - type: changed
+    component:
+      - cards-filename
+      - cards-services
+      - cards-news
+      - cards-services-no-icon
+    description: The example is made responsive
+    what:
+      - HTML
+      - NOTES
+  - type: changed
+    component: null
+    description: >-
+      The components-listing.html in the root of the CL will be updated with the
+      latest version.
+    what: []
