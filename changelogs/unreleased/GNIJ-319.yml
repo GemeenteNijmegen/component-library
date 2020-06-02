@@ -1,0 +1,6 @@
+versionBump: patch # patch, minor, major
+changes:
+  - type: changed #changed, removed, added
+    component: button
+    description: Fixed the contrast ratio of a link styled as a button when focussed
+    what: [CSS] # what has changed 1 or more of: [HTML, CSS, JS]

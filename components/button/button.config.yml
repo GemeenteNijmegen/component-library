@@ -1,10 +1,11 @@
 ---
 title: Button
-notes: 
+notes:
 status: ready # prototype, wip, ready
 context:
   label: Button label
   label-disabled: Button disabled
+  label-link: Button link
 default: "info" # http://fractal.build/guide/components/variants#the-default-variant
 variants:
   - name: info
