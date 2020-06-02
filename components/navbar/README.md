@@ -40,3 +40,4 @@ For the autocomplete search a real-time feed is provided by Pandosearch. This us
 ### Notes
 
 * Nijmegen has a collaboration with Pandosearch (https://www.pandosearch.com) for the search and search results implementation, as can be read in the `Using` section here. For an example of the search results, have a look at the [search results template]({{ componentPath '@searchresults-template' }}).
+* All url's that starts with a `#` will scroll smoothly to the corresponding anchor
