@@ -23,6 +23,14 @@ if (navbarToggler.is(':visible')) {
     });
 }
 
+// fix navigating to external url
+$('.smooth-scroll').on('click', 'a', function() {
+    const url = $(this).attr('href');
+    if (url.indexOf('#') !== 0) {
+        location.href = url;
+    }
+});
+
 var SCROLLING_NAVBAR_OFFSET_TOP = 50;
 $(window)
     .off('scroll')
