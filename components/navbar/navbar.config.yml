@@ -7,7 +7,6 @@ context:
   searchComponent: true
   hamburgerIcon: true
   logo: true
-  smoothScroll: " smooth-scroll"
   searchAction: ""
   variant: navbar-primary
   light: false

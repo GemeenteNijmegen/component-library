@@ -2,5 +2,5 @@ versionBump: patch # patch, minor, major
 changes:
   - type: changed #changed, removed, added
     component: navbar
-    description: Fix external urls in a navbar with "smooth-scroll"
-    what: [JS] # what has changed 1 or more of: [HTML, CSS, JS]
+    description: Replaced the native mdb smooth-scroll with a custom nijmegen-smooth-scroll
+    what: [JS, HTML] # what has changed 1 or more of: [HTML, CSS, JS]
