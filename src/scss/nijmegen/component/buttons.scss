@@ -25,6 +25,7 @@ button {
     &:focus {
         @include tab-focus;
         background-color: color('nijmegen-primary', 'darken-1') !important;
+        color: white;
     }
 
     &:active,
