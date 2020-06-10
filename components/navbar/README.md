@@ -36,6 +36,16 @@ For the autocomplete search a real-time feed is provided by Pandosearch. This us
 ```html
 {{ render '@autocomplete-pandosearch-scripts' }}
 ```
+#### Smooth scroll
+
+When the container of the menu has the class `nijmegen-smooth-scroll` the page will scroll smoothly to the corresponding section.
+
+For this to work you need to add a hash to the url, smooth scrolling will take place when:
+* The url starts with a hash, or
+* The url is the same as the current page  
+  For example when you are on https://nijmegen.nl/demo and you have a link to https://nijmegen.nl/demo#section-1
+* An element on the page has the same id as the url hash  
+  For example a link to `#section-1` will scroll smoothly to a element with the id: `section-1`
 
 ### Notes
 
