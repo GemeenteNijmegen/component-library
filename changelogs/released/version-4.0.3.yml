@@ -1,0 +1,24 @@
+version: 4.0.3
+versionBump: patch
+date: 2020-06-11T10:59:14.904Z
+files:
+  - GNIJ-319.yml
+  - GNIJ-336.yml
+  - GNIJ-337.yml
+changes:
+  - type: changed
+    component: button--primary
+    description: Fixed the contrast ratio of a link styled as a button when focussed
+    what:
+      - CSS
+  - type: changed
+    component: lists
+    description: Fixed the numbering for ordered lists on safari
+    what:
+      - CSS
+  - type: changed
+    component: navbar
+    description: Replaced the native mdb smooth-scroll with a custom nijmegen-smooth-scroll
+    what:
+      - JS
+      - HTML

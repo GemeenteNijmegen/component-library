@@ -1,6 +1,0 @@
-versionBump: patch # patch, minor, major
-changes:
-  - type: changed #changed, removed, added
-    component: lists
-    description: Fixed the numbering for ordered lists on safari
-    what: [CSS] # what has changed 1 or more of: [HTML, CSS, JS]

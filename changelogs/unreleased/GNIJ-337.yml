@@ -1,6 +1,0 @@
-versionBump: patch # patch, minor, major
-changes:
-  - type: changed #changed, removed, added
-    component: navbar
-    description: Replaced the native mdb smooth-scroll with a custom nijmegen-smooth-scroll
-    what: [JS, HTML] # what has changed 1 or more of: [HTML, CSS, JS]
