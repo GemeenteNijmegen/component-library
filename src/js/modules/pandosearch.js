@@ -35,6 +35,11 @@ Pandosearch.prototype.init = function(facetsTranslations, facetsSortingOrder) {
 Pandosearch.prototype.showHits = function() {
     this.searchParams = this.getParamsFromHash();
     this.buildSearchUrl();
+
+    if (!this.query) {
+        this.showHitsResult([]);
+        return;
+    }
     $.get(this.searchUrl, this.showHitsResult.bind(this));
 };
 
