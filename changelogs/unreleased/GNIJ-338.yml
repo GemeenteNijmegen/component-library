@@ -2,5 +2,5 @@ versionBump: patch # patch, minor, major
 changes:
   - type: changed #changed, removed, added
     component: searchresults-template
-    description: Fixed a bug where empty search queries where send to pandosearch
+    description: Fixed a bug where empty search queries were send to Pandosearch
     what: [JS] # what has changed 1 or more of: [HTML, CSS, JS]
