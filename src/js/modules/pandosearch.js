@@ -18,6 +18,7 @@ function Pandosearch(itemsPerPage) {
     this.facetsComponent = new nijmegen.Facets();
     this.$facetsContainer = $('#facets');
     this.facetsTranslations = null;
+    this.doNotTrack = false;
 }
 
 Pandosearch.prototype.init = function(facetsTranslations, facetsSortingOrder) {
@@ -46,17 +47,15 @@ Pandosearch.prototype.showHits = function() {
 Pandosearch.prototype.buildSearchUrl = function() {
     this.query = this.getUrlParameterByName('q').trim();
 
-    this.searchUrl =
-        this.baseSearchUrl +
-        '?size=' +
-        this.itemsPerPage +
-        '&page=' +
-        this.searchParams.page +
-        (this.searchParams.facetName && this.searchParams.facetValue
-            ? '&facets[' + this.searchParams.facetName + ']=' + this.searchParams.facetValue
-            : '') +
-        '&q=' +
-        this.query;
+    const queryParams = [`size=${this.itemsPerPage}`, `page=${this.searchParams.page}`, `q=${this.query}`];
+
+    if (this.searchParams.facetName && this.searchParams.facetValue) {
+        queryParams.push(`facets[${this.searchParams.facetName}]=${this.searchParams.facetValue}`);
+    }
+    if (this.doNotTrack) {
+        queryParams.push('track=false');
+    }
+    this.searchUrl = `${this.baseSearchUrl}?${queryParams.join('&')}`;
 };
 
 Pandosearch.prototype.showHitsResult = function(rawResults) {
