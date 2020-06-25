@@ -44,7 +44,7 @@ Pandosearch.prototype.showHits = function() {
 };
 
 Pandosearch.prototype.buildSearchUrl = function() {
-    this.query = this.getUrlParameterByName('q');
+    this.query = this.getUrlParameterByName('q').trim();
 
     this.searchUrl =
         this.baseSearchUrl +
