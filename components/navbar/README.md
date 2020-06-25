@@ -33,6 +33,8 @@ For the autocomplete search a real-time feed is provided by Pandosearch. This us
 
 * Pandosearch integration
 
+**Please note:** The `track=false` query parameter in the `suggestUrl` should be removed for production
+
 ```html
 {{ render '@autocomplete-pandosearch-scripts' }}
 ```

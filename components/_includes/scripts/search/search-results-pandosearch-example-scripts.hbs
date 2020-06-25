@@ -25,6 +25,8 @@
     var pandosearch = new nijmegen.Pandosearch(5);
     $(document).ready(function () {
         pandosearch.init(facetsTranslations, facetSortingOrder);
+        // Remove the following line on production!
+        pandosearch.doNotTrack = true;
         pandosearch.showHits();
 
         $(window).on('hashchange', function () {

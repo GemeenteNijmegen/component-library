@@ -4,3 +4,10 @@ changes:
     component: searchresults-template
     description: Fixed a bug where empty search queries were send to Pandosearch
     what: [JS] # what has changed 1 or more of: [HTML, CSS, JS]
+  - type: changed
+    component: [searchresults-template, navbar]
+    description:
+      Added the "track=false" query parameter to the pandosearch implementation
+      to prevent searches in the component library to show up in the
+      pandosearch metrics.
+    what: [JS]
