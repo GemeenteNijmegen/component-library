@@ -91,7 +91,9 @@ Autocomplete.prototype.setSearchIcon = function() {
 };
 
 Autocomplete.prototype.inputFocusHandle = function() {
-    this.query = $('#suggest-search-query').val();
+    this.query = $('#suggest-search-query')
+        .val()
+        .trim();
     this.autocompleteSearch();
 };
 
@@ -218,7 +220,7 @@ Autocomplete.prototype.inputKeyHandle = function(event) {
             this.clearSearchField();
             break;
         default:
-            this.query = event.target.value;
+            this.query = event.target.value.trim();
             if (this.searching) {
                 break;
             }
