@@ -1,0 +1,21 @@
+version: 4.0.4
+versionBump: patch
+date: 2020-06-29T11:53:57.968Z
+files:
+  - GNIJ-338.yml
+changes:
+  - type: changed
+    component: searchresults-template
+    description: Fixed a bug where empty search queries were send to Pandosearch
+    what:
+      - JS
+  - type: changed
+    component:
+      - searchresults-template
+      - navbar
+    description: >-
+      Added the "track=false" query parameter to the pandosearch implementation
+      to prevent searches in the component library to show up in the pandosearch
+      metrics.
+    what:
+      - JS
