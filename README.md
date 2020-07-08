@@ -98,7 +98,7 @@ make start-static
 
 All new changelog entries for component changes should go into yaml files under `changelogs/unreleased/`.
 
-You should use your branch name as the filename, such as `GNIJ-155.yml`.
+If you run `make create-changelog-file` a new changelog entry is created from our template (see code snippet below).
 
 Each file should have the `versionBump` and `changes` key. See example below:
 
@@ -122,46 +122,24 @@ The type must be changed, removed or added. The component must match the compone
 
 ## Hosting
 
--   Cobytes is responsible for the hosting environment.
--   We (Enrise) have SSH access and access to the Docker daemon.
--   SSH access is only available via a jumphost and required your public key to be present on the server.
+The componentlibrary is hosted as a static site in AWS S3
 
 ### Acceptance
 
 -   URL: <https://componenten.acc.nijmegen.nl/>
--   Server: acc01.nijmegen.cobytes.io
--   SSH User: enrise-docker-deploy
--   SSH into the server:
-
-```shell
-ssh -o ProxyCommand="ssh -W %h:%p -q enrise@jump01.nijmegen.cobytes.io" enrise-docker-deploy@acc01.nijmegen.cobytes.io
-```
 
 ### Production
 
 -   URL: <https://componenten.nijmegen.nl/>
--   Server: containerprod01.nijmegen.cobytes.io
--   SSH User: enrise-docker-deploy
--   SSH into the server:
-
-```shell
-ssh -o ProxyCommand="ssh -W %h:%p -q enrise@jump01.nijmegen.cobytes.io" enrise-docker-deploy@containerprod01.nijmegen.cobytes.io
-```
 
 ## Pipeline
 
 This is how the pipeline behaves:
 
-### On all feature branches:
-
-The pipeline runs all jobs defined by the `preventDoublePipelineTrigger` snippet.
-
-### On the master branch when there are unreleased changelog items:
-
-When there are unreleased changelog items the pipeline will only run the update changelog job.
-
-**Note:** This job will commit changes and starts a **new pipeline**.
-
-### On the master branch when there are NO unreleased changelog items:
-
-The pipeline runs all jobs defined by the `preventDoublePipelineTrigger` and the `push` and `deploy` stage
+1. For every MR all code checks are performed
+2. When merged into master a deploy to acceptance is automatically performed. The version is NOT bumped. All new changelog entries can be found in the `Unreleased` section on the [changelog page](https://componenten.acc.nijmegen.nl/v4.0.4/docs/changelog.html)
+3. To deploy to production you need to trigger a manual action in the gitlab master pipeline (note: this can only be done when there is at least one unreleased changelog entry)
+When you release to production the following happens:
+   1. The pipeline updates te version and puts all unreleased changelog entries below that version, this change will be pushed to master and is tagged
+   2. The master pipeline will run again
+   3. A new pipeline will run on the tag, that pipeline will perform all tests again and when everything succeeds will deploy to production
