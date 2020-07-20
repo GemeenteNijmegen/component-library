@@ -224,7 +224,7 @@ Pandosearch.prototype.buildHashUrlQuery = function(page, facetName, facetValue) 
 
 Pandosearch.prototype.getUrlParameterByName = function(name) {
     var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
-    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+    return match && match.length > 1 ? decodeURIComponent(match[1].replace(/\+/g, ' ')) : '';
 };
 
 export default Pandosearch;
