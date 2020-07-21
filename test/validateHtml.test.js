@@ -1,4 +1,5 @@
 /* eslint-env jest */
+require('regenerator-runtime/runtime');
 const validator = require('html-validator');
 const glob = require('glob');
 const { readFileSync } = require('fs');
@@ -18,7 +19,7 @@ describe('Validate html for every component', () => {
                 isFragment: true,
                 data: html,
                 validator: process.env.HTML_VALIDATOR_URL,
-            }),
+            })
         );
         expect(result.messages).toHaveLength(0);
     });
