@@ -1,0 +1,13 @@
+version: 4.0.5
+versionBump: patch
+date: 2020-07-24T05:42:22.664Z
+files:
+  - GNIJ-341.yml
+changes:
+  - type: searchresults-template
+    component: carousel
+    description: >-
+      Fixed bug where 'trim' was used on an empty result, resulting in a console
+      error
+    what:
+      - JS

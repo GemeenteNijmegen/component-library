@@ -1,6 +1,0 @@
-versionBump: patch # patch, minor, major
-changes:
-  - type: searchresults-template #changed, removed, added
-    component: carousel
-    description: Fixed bug where 'trim' was used on an empty result, resulting in a console error
-    what: [JS] # what has changed 1 or more of: [HTML, CSS, JS]
