@@ -1,5 +1,7 @@
 var navbarToggler = $('.navbar-toggler');
 const SMOOTH_SCROLL_DURATION = 700;
+const KEY_ENTER = 13;
+const KEY_SPACE = 32;
 
 // close if clicked outside the navbar
 $(document).on('click', function(event) {
@@ -38,19 +40,25 @@ const smoothScrollTo = (hash, offset = 0) => {
 };
 
 // fix navigating to external url
-$('.nijmegen-smooth-scroll').on('click', 'a', function(element) {
+$('.nijmegen-smooth-scroll').on('click keydown', 'a', function(event) {
+    if (event.type === 'keydown' && ![KEY_ENTER, KEY_SPACE].includes(event.which)) {
+        return;
+    }
     const [path, hash] = $(this)
         .attr('href')
         .split('#');
 
     if (!hash) {
+        if (event.type === 'keydown') {
+            window.location = path;
+        }
         return;
     }
     if (path !== '' && path !== location.pathname) {
         return;
     }
 
-    element.preventDefault();
+    event.preventDefault();
 
     const offset = $(this).attr('data-offset') || 0;
     smoothScrollTo(hash, offset);

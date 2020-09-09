@@ -1,6 +1,6 @@
 const { When, Then } = require('cucumber');
 const pressKey = require('cucumber-puppeteer/features/support/action/keyboardPress');
-const checkUrl = require('cucumber-puppeteer/features/support/check/checkUrl');
+const checkUrlContains = require('cucumber-puppeteer/features/support/check/checkUrlContains');
 const { expect } = require('chai');
 
 When('I press enter on an internal link', async function() {
@@ -15,6 +15,7 @@ Then('I scroll to the correct item on the page', async function() {
     const hash = await this.page.evaluate(() => window.location.hash);
     expect(hash).to.contain('#section-4');
 
+    await this.page.waitFor(700);
     const isVisible = await this.page.$eval('#section-4', e => {
         const top = e.getBoundingClientRect().top;
         return top >= 0 && top <= window.innerHeight;
@@ -24,5 +25,6 @@ Then('I scroll to the correct item on the page', async function() {
 });
 
 Then('I navigate to the external page', async function() {
-    await checkUrl.call(this, false, 'https://nijmegen.nl');
+    await this.page.waitForNavigation({ waitUntil: 'networkidle0' });
+    await checkUrlContains.call(this, false, 'nijmegen.nl');
 });
