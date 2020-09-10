@@ -22,7 +22,10 @@ const globalStyle = {
 When('I open the component {string}', async function(componentName) {
     const ext = process.env.LOCAL ? '' : '.html';
     const url = `/components/preview/${componentName}${ext}`;
-    const [, response] = await Promise.all([this.page.waitForNavigation({ waitUntil: 'networkidle0' }), openUrl.call(this, url)]);
+    const [, response] = await Promise.all([
+        this.page.waitForNavigation({ waitUntil: 'networkidle0' }),
+        openUrl.call(this, url),
+    ]);
     await this.page.addStyleTag(globalStyle);
     await waitFor.call(this, 0.5);
     expect(response.status(), `Loading url: ${url} failed`).to.be.within(200, 299);
