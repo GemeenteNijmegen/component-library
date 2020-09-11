@@ -1,6 +1,0 @@
-versionBump: patch # patch, minor, major
-changes:
-  - type: changed #changed, removed, added
-    component: accordion
-    description: Added missing "data-parent" property to the tab content panels
-    what: [HTML] # what has changed 1 or more of: [HTML, CSS, JS]
