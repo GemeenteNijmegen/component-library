@@ -1,49 +1,49 @@
 // Sidenav background variants
 .sn-bg-1 {
-  background-image: url(https://mdbootstrap.com/img/Photos/Others/sidenav1.jpg);
+  background-image: url("https://mdbootstrap.com/img/Photos/Others/sidenav1.jpg");
 }
 
 .sn-bg-2 {
-  background-image: url(https://mdbootstrap.com/img/Photos/Others/sidenav2.jpg);
+  background-image: url("https://mdbootstrap.com/img/Photos/Others/sidenav2.jpg");
 }
 
 .sn-bg-3 {
-  background-image: url(https://mdbootstrap.com/img/Photos/Others/sidenav3.jpg);
+  background-image: url("https://mdbootstrap.com/img/Photos/Others/sidenav3.jpg");
 }
 
 .sn-bg-4 {
-  background-image: url(https://mdbootstrap.com/img/Photos/Others/sidenav4.jpg);
+  background-image: url("https://mdbootstrap.com/img/Photos/Others/sidenav4.jpg");
 }
 
 // Sidenav
 .side-nav {
   position: fixed;
-  width: $sidenav-width;
-  left: 0;
   top: 0;
-  margin: 0;
-  transform: translateX(-100%);
+  left: 0;
+  z-index: 1040;
+  width: $sidenav-width;
   height: 100%;
+  padding: 0;
   padding-bottom: $sidenav-padding-bottom;
+  margin: 0;
+  overflow: hidden;
+  list-style-type: none;
   background-color: $sidenav-background-color;
-  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  z-index: 1040;
-  backface-visibility: hidden;
-  overflow: hidden;
-  will-change: transform;
-  backface-visibility: hidden;
-  list-style-type: none;
-  padding: 0;
-  @extend .white-text;
+  background-size: cover;
   box-shadow: $z-depth-1;
+  transform: translateX(-100%);
+  backface-visibility: hidden;
+  will-change: transform;
+  // color: #fff !important;
+  @extend .white-text !optional;
 
   &.wide {
     width: $sidenav-width;
-    transition-property: top, bottom, width;
-    transition-duration: .2s, .2s, .35s;
     transition-timing-function: linear, linear, ease;
+    transition-duration: .5s, .5s, .55s;
+    transition-property: top, bottom, width;
 
     .logo-wrapper {
       &.sn-ad-avatar-wrapper {
@@ -79,18 +79,18 @@
         }
 
         .sv-slim {
-          opacity: 0;
           display: none;
+          opacity: 0;
           transition: all .1s linear;
         }
       }
 
       .sv-slim-icon {
-        padding-left: 0;
         width: 30px;
         height: 36px;
-        text-align: left;
+        padding-left: 0;
         margin-right: 0;
+        text-align: left;
       }
     }
 
@@ -100,17 +100,17 @@
 
     .fa-angle-down {
       &.rotate-icon {
-        opacity: 1;
         display: block;
+        opacity: 1;
       }
     }
 
     &.slim {
-      width: 3.75rem;
-      transition-property: top, bottom, width;
-      transition-duration: .2s, .2s, .35s;
-      transition-timing-function: linear, linear, ease;
       right: 3.75rem;
+      width: 3.75rem !important;
+      transition-timing-function: linear, linear, ease;
+      transition-duration: .5s, .5s, .55s;
+      transition-property: top, bottom, width;
 
       .collapsible {
         a {
@@ -130,31 +130,31 @@
         }
 
         .sv-slim-icon {
-          padding-left: 0;
           width: 30px;
           height: 36px;
-          text-align: left;
+          padding-left: 0;
           margin-right: 0;
+          text-align: left;
         }
       }
 
       .fa-angle-down {
         &.rotate-icon {
-          opacity: 0;
           display: none;
+          opacity: 0;
         }
       }
     }
   }
 
-  >ul {
+  > ul {
     max-height: 100vh;
   }
 
   ul {
-    list-style-type: none;
-    list-style: none;
     padding-left: 0;
+    list-style: none;
+    list-style-type: none;
 
     li {
       padding: 0;
@@ -198,11 +198,11 @@
     }
 
     .search-form {
-      input[type=text] {
-        border-bottom-color: $sidenav-light-border-bottom-color;
+      input[type="text"] {
         color: $sidenav-light-color !important;
+        border-bottom-color: $sidenav-light-border-bottom-color;
 
-        &::placeholder {
+        @include placeholder {
           color: $sidenav-light-color !important;
         }
       }
@@ -234,9 +234,9 @@
 
   // Fixed side-nav shown
   &.fixed {
+    position: fixed; // Right Align
     left: 0;
     transform: translateX(0);
-    position: fixed; // Right Align
 
     &.right-aligned {
       right: 0;
@@ -257,8 +257,8 @@
 
   // Collapsible menu
   .collapsible {
-    margin: 0;
     padding: 0;
+    margin: 0;
     margin-top: $sidenav-collapsible-mt;
 
     li {
@@ -269,7 +269,7 @@
       }
     }
 
-    >li {
+    > li {
       border-radius: $collapsible-li-border-radius;
 
       a.collapsible-header {
@@ -289,11 +289,11 @@
     }
 
     a {
-      color: $white-base;
-      font-weight: 300;
-      font-size: $sidenav-collapsible-a-font-size;
       height: $sidenav-collapsible-a-height;
+      font-size: $sidenav-collapsible-a-font-size;
+      font-weight: 300;
       line-height: $sidenav-collapsible-a-line-height;
+      color: $white-base;
 
       &.active,
       &:hover {
@@ -304,32 +304,32 @@
     .fas,
     .fab,
     .far {
-      font-size: $sidenav-collapsible-a-font-size;
       margin-right: $sidenav-fa-margin-right;
+      font-size: $sidenav-collapsible-a-font-size;
     }
   }
 
   .collapsible-body a {
-    padding-left: $sidenav-collapsible-body-a-pl;
     height: $sidenav-collapsible-a-height;
+    padding-left: $sidenav-collapsible-body-a-pl;
     line-height: $sidenav-collapsible-a-height;
     background-color: $sidenav-collapsible-body-a-bgc;
   }
 
   a {
     display: block;
-    font-size: $sidenav-a-font-size;
     height: $sidenav-a-height;
-    line-height: $sidenav-a-line-height;
     padding-left: $sidenav-padding-left;
+    font-size: $sidenav-a-font-size;
+    line-height: $sidenav-a-line-height;
   }
 
   // Manu icon
   .fa-angle-down {
     &.rotate-icon {
       position: absolute;
-      right: 0;
       top: $sidenav-rotate-icon-top;
+      right: 0;
       margin-right: $sidenav-rotate-icon-mr;
     }
   }
@@ -337,45 +337,45 @@
   // Mask and image
   .sidenav-bg {
     top: 0;
+    right: 0;
     bottom: 0;
     left: 0;
-    right: 0;
-    width: $sidenav-bg-width;
     z-index: -1;
+    width: $sidenav-bg-width;
     background-attachment: fixed;
 
     &:after {
-      width: 100%;
-      display: block;
-      content: "";
       position: absolute;
-      height: 100%;
       top: 0;
-      left: 0;
       bottom: 0;
+      left: 0;
       z-index: -1;
-      margin-bottom: -99999px;
+      display: block;
+      width: 100%;
+      height: 100%;
       padding-bottom: 99999px;
+      margin-bottom: -99999px;
+      content: "";
     }
   }
 
   // SideNav logo
   .logo-wrapper {
-    border-bottom: 1px solid $sidenav-light-border-bottom-color;
     height: $sidenav-logo-wrapper-height;
+    border-bottom: 1px solid $sidenav-light-border-bottom-color;
 
     a {
-      height: $sidenav-logo-wrapper-height;
       width: $sidenav-logo-wrapper-width;
+      height: $sidenav-logo-wrapper-height;
       padding: 0;
     }
 
     img {
-      padding-left: $sidenav-logo-wrapper-img-px;
-      padding-right: $sidenav-logo-wrapper-img-px;
-      padding-top: $sidenav-logo-wrapper-img-py;
-      padding-bottom: $sidenav-logo-wrapper-img-py;
       height: auto;
+      padding-top: $sidenav-logo-wrapper-img-py;
+      padding-right: $sidenav-logo-wrapper-img-px;
+      padding-bottom: $sidenav-logo-wrapper-img-py;
+      padding-left: $sidenav-logo-wrapper-img-px;
     }
 
     @media (max-height: $medium-screen) {
@@ -392,21 +392,21 @@
     }
 
     &.sn-avatar-wrapper {
-      padding-left: $sidenav-sn-avatar-wrapper-px;
-      padding-right: $sidenav-sn-avatar-wrapper-px;
       padding-top: $sidenav-sn-avatar-wrapper-py;
+      padding-right: $sidenav-sn-avatar-wrapper-px;
       padding-bottom: $sidenav-sn-avatar-wrapper-py;
+      padding-left: $sidenav-sn-avatar-wrapper-px;
 
       img {
-        box-shadow: $z-depth-1;
-        margin: 0;
-        padding: 0;
         max-width: $sidenav-sn-avatar-wrapper-max-width;
+        padding: 0;
+        margin: 0;
+        box-shadow: $z-depth-1;
       }
 
       @media only screen and (max-height: $medium-screen) {
-        padding-left: $sidenav-sn-avatar-wrapper-medium-px;
         padding-right: $sidenav-sn-avatar-wrapper-medium-px;
+        padding-left: $sidenav-sn-avatar-wrapper-medium-px;
 
         img {
           max-width: $sidenav-sn-avatar-wrapper-medium-max-width;
@@ -419,16 +419,16 @@
       margin-bottom: 0;
 
       img {
+        float: left;
         max-width: $sidenav-ad-avatar-wrapper-img-max-width;
         padding: $sidenav-ad-avatar-wrapper-img-padding;
-        float: left;
       }
 
       p {
-        font-size: $sidenav-ad-avatar-wrapper-p-font-size;
         padding-top: $sidenav-ad-avatar-wrapper-p-padding;
         padding-bottom: $sidenav-ad-avatar-wrapper-p-padding;
         margin: 0;
+        font-size: $sidenav-ad-avatar-wrapper-p-font-size;
       }
     }
   }
@@ -458,16 +458,16 @@
     }
 
     a {
-      margin: 0;
       padding: 0;
+      margin: 0;
     }
 
     .fas,
     .fab,
     .far {
-      font-size: $sidenav-social-fa-font-size;
       padding-right: $sidenav-social-li-padding;
       padding-left: $sidenav-social-li-padding;
+      font-size: $sidenav-social-fa-font-size;
       color: $sidenav-social-fa-color;
       transition: $sidenav-social-fa-transition;
 
@@ -482,18 +482,19 @@
   .search-form {
     padding: 0;
 
-    input[type=text] {
-      border-bottom: 1px solid $sidenav-logo-wrapper-border-bottom-color;
-      font-weight: 300;
+    input[type="text"] {
       padding-left: $sidenav-search-form-input-padding-left;
+      font-weight: 300;
+      border-bottom: 1px solid $sidenav-logo-wrapper-border-bottom-color;
 
-      &::placeholder {
+      @include placeholder {
         color: #fff;
       }
     }
 
     .form-control {
-      @extend .white-text;
+      // color: #fff !important;
+      @extend .white-text !optional;
       margin-bottom: 0;
     }
   }
@@ -501,21 +502,21 @@
 
 // Touch interaction
 .drag-target {
-  height: 100%;
-  width: $drag-target-width;
   position: fixed;
   top: 0;
   z-index: 998;
+  width: $drag-target-width;
+  height: 100%;
 }
 
 #sidenav-overlay {
   position: fixed;
   top: 0;
-  left: 0;
   right: 0;
+  left: 0;
+  z-index: 997;
   height: 120vh;
   background-color: $sidenav-overlay;
-  z-index: 997;
   will-change: opacity;
 }
 

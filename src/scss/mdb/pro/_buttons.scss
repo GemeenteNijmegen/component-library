@@ -13,23 +13,23 @@
 
 // Floating button
 .btn-floating {
-  box-shadow: $z-depth-1-half;
   position: relative;
   z-index: 1;
-  vertical-align: middle;
   display: inline-block;
-  overflow: hidden;
-  transition: $btn-floating-transtion;
-  margin: $btn-floating-margin;
-  border-radius: $btn-floating-border-radius;
   padding: 0;
+  margin: $btn-floating-margin;
+  overflow: hidden;
+  vertical-align: middle;
   cursor: pointer;
+  border-radius: $btn-floating-border-radius;
+  box-shadow: $z-depth-1-half;
+  transition: $btn-floating-transtion;
   @include make-btn-floating($btn-floating-width, $btn-floating-height, $btn-floating-icon-size, $btn-floating-line-height);
   i {
     display: inline-block;
     width: inherit;
-    text-align: center;
     color: $white-base;
+    text-align: center;
   }
   &:hover {
     box-shadow: $z-depth-2;
@@ -48,44 +48,55 @@
 // Fixed action button
 .fixed-action-btn {
   position: fixed;
-  z-index: 998;
   right: $fixed-action-btn-right;
   bottom: $fixed-action-btn-bottom;
+  z-index: 998;
   margin-bottom: 0;
-  padding-top: $fixed-action-btn-padding-top;
+  overflow: hidden;
+  height: 500px;
+  display: flex;
+  align-items: flex-end;
+  padding: $fixed-action-btn-padding-top 15px 15px 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
   ul {
+    position: absolute;
+    right: 0;
+    bottom: $fixed-action-btn-ul-bottom;
+    left: 0;
     display: flex;
     flex-direction: column;
-    transition: 400ms height;
-    position: absolute;
-    bottom: $fixed-action-btn-ul-bottom;
-    height: $fixed-action-btn-ul-bottom;
-    left: 0;
-    right: 0;
-    margin: 0 0 15px;
+    height: 0;
     padding: 0;
+    margin: 0 0 15px;
     text-align: center;
+    transition: 400ms all;
+    opacity: 0;
+    margin-bottom: 0;
     li {
-      display:flex;
-      margin-bottom: $fixed-action-btn-li-margin-bottom;
-      margin-left:auto;
-      margin-right:auto;
       z-index: 0;
+      display: flex;
+      margin-right: auto;
+      margin-bottom: $fixed-action-btn-li-margin-bottom;
+      margin-left: auto;
     }
     a {
       &.btn-floating {
         opacity: 0;
-        transition-duration: 0.4s;
-        transform: scale(0.4) translate(0);
+        transition-duration: .4s;
+        transform: scale(.4) translate(0);
         &.shown {
-          transform: scale(1) translate(0);
           opacity: 1;
+          transform: scale(1) translate(0);
         }
       }
     }
   }
   &.active ul {
-    height:300px;
+    height: 300px;
+    margin-bottom: 40px;
+    opacity: 1;
   }
 }
 

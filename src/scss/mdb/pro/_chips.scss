@@ -2,26 +2,26 @@
 .chip {
   display: inline-block;
   height: $chip-height;
+  padding: 0 $chip-padding-right;
+  margin-right: $chip-margin-right;
+  margin-bottom: $chip-margin-bottom;
   font-size: $chip-font-size;
   font-weight: $chip-font-weight;
-  color: $chip-font-color;
   line-height: $chip-line-height;
-  padding: 0 $chip-padding-right;
-  border-radius: $chip-br;
-  background-color: $chip-background-color;
-  margin-bottom: $chip-margin-bottom;
-  margin-right: $chip-margin-right;
+  color: $chip-font-color;
   cursor: pointer;
+  background-color: $chip-background-color;
+  border-radius: $chip-br;
   transition: $pagination-page-link-transition;
 
   &:hover {
-    transition: $pagination-page-link-transition;
     background-color: $grey-lighten-2;
+    transition: $pagination-page-link-transition;
   }
 
   &:focus {
-    transition: $pagination-page-link-transition;
     background-color: $grey-lighten-1;
+    transition: $pagination-page-link-transition;
   }
 
   &:active {
@@ -31,30 +31,30 @@
 
   img {
     float: left;
-    margin: 0 $chip-img-margin-right 0 $chip-img-margin-left;
-    height: $chip-img-height;
     width: $chip-img-width;
+    height: $chip-img-height;
+    margin: 0 $chip-img-margin-right 0 $chip-img-margin-left;
     border-radius: 50%;
   }
 
   .close {
-    cursor: pointer;
     float: right;
+    padding-left: $chip-close-padding-left;
     font-size: $chip-close-font-size;
     line-height: $chip-close-line-height;
-    padding-left: $chip-close-padding-left;
-    transition: all 0.1s linear;
+    cursor: pointer;
+    transition: all .1s linear;
   }
 }
 
 .chips {
-  outline: none;
-  box-shadow: none;
-  border: none;
-  border-bottom: 1px solid $input-border-color;
-  margin-bottom: $chips-margin-bottom;
   min-height: $chips-min-height;
   padding-bottom: $chips-padding-bottom;
+  margin-bottom: $chips-margin-bottom;
+  border: none;
+  border-bottom: 1px solid $input-border-color;
+  outline: none;
+  box-shadow: none;
   transition: all .3s;
 
   &.focus {
@@ -67,23 +67,23 @@
   }
 
   .tag.selected {
-    border-bottom: 1px solid $input-md-focus-color;
     color: $white-base;
+    border-bottom: 1px solid $input-md-focus-color;
   }
 
   .input {
     display: inline-block;
+    width: $chips-input-width !important;
+    height: $chips-input-height;
+    padding: 0 !important;
+    margin-right: $chips-input-margin-right;
+    font-size: $chips-input-font-size;
+    font-weight: $chips-input-font-weight;
+    line-height: $chips-input-line-height;
+    color: $chips-input-font-color;
     background: none;
     border: 0;
     outline: 0;
-    padding: 0 !important;
-    width: $chips-input-width !important;
-    color: $chips-input-font-color;
-    font-size: $chips-input-font-size;
-    font-weight: $chips-input-font-weight;
-    height: $chips-input-height;
-    margin-right: $chips-input-margin-right;
-    line-height: $chips-input-line-height;
 
     &:focus {
       border: 0 !important;
@@ -95,7 +95,7 @@
 .chips-autocomplete {
 
   .chips {
-    padding-bottom: unset
+    padding-bottom: unset;
   }
 
   .chip-span {
@@ -105,20 +105,20 @@
 
   .chip-ul {
     position: absolute;
-    z-index: 100;
     right: 0;
+    z-index: 100;
     width: 140px;
-    background: #fff;
-    list-style-type: none;
-    overflow-y: auto;
     max-height: 210px;
     padding-left: 0;
+    overflow-y: auto;
+    list-style-type: none;
+    background: #fff;
     outline: none;
 
     li {
       padding: 12px 15px;
-      cursor: pointer;
       font-size: .875rem;
+      cursor: pointer;
 
       &:hover {
         background: #eee;

@@ -1,18 +1,18 @@
 // Social buttons
 .counter {
-  box-shadow: $z-depth-1;
   // position: absolute;
   position: relative;
+  top: -23px;
+  left: auto;
   z-index: 2;
+  padding: $btn-counter-padding-y $btn-counter-padding-x;
   // margin-top: $btn-counter-margin-top;
   margin-left: $btn-counter-margin-left;
-  border-radius: $btn-counter-border-radius;
-  padding: $btn-counter-padding-y $btn-counter-padding-x;
-  background-color: $btn-counter-bgc;
   font-size: $btn-counter-font-size;
   color: $white-base;
-  left: auto;
-  top: -23px;
+  background-color: $btn-counter-bgc;
+  border-radius: $btn-counter-border-radius;
+  box-shadow: $z-depth-1;
   &.counter-lg {
     // margin-top: $btn-lg-counter-margin-top;
     top: -27px;

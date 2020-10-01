@@ -73,7 +73,7 @@ make info
 ## Update Material Design for Bootstrap
 
 We want the scss to be packaged alongside our nijmegen styling so we can use mdb variables.
-The whole `scss` folder of mdb can be placed in `src/scss/mdb`. Mdb tries to import custom styles so you need to remove this line from `mdb.scss`: `@import "custom-styles";`.
+The whole `scss` folder of mdb can be placed in `src/scss/mdb`. Mdb tries to import custom styles so you need to remove this line from `mdb-free.scss`: `@import "custom-styles";`.
 
 Some assets need to be placed in the static folder since we don't package those ourselves but just use the variant provided by mdb:
 

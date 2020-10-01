@@ -4,7 +4,7 @@
     &.avatar {
       padding: 0;
       &.active {
-        background-color: transparent!important;
+        background-color: transparent !important;
       }
       .dropdown-toggle {
         padding: 0;
@@ -26,8 +26,8 @@
   }
   .container {
     @media (max-width: 768px) {
-      padding-left: 0;
       padding-right: 0;
+      padding-left: 0;
     }
   }
   a {
@@ -36,9 +36,9 @@
   }
   .breadcrumb-dn {
     p {
-      margin: 0;
       padding-top: 0;
       padding-left: $navbar-breadcrumb-dn-padding;
+      margin: 0;
     }
     @media (max-width: 993px) {
       display: none;
@@ -52,11 +52,11 @@
       display: none;
     }
     @media (max-width: $sidenav-breakpoint) {
-      display: block;
       position: relative;
-      font-size: $navbar-button-collapse-fs-sm;
+      display: block;
       margin-right: $navbar-button-collapse-mx;
       margin-left: $navbar-button-collapse-mx;
+      font-size: $navbar-button-collapse-fs-sm;
     }
   }
 }

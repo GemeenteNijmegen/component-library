@@ -157,3 +157,7 @@
 .timepicker.picker__input.picker__input--active {
   border-bottom: $picker-custom-materialize-styles;
 }
+
+.time-date-ghost {
+  display: none;
+}

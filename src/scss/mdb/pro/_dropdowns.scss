@@ -8,7 +8,7 @@
     padding: $dropdown-menu-padding;
 
     @each $name,
-    $color in $dropdown-colors {
+      $color in $dropdown-colors {
       &.dropdown-#{$name} {
         .dropdown-item {
 
@@ -16,8 +16,8 @@
           &:active,
           &.active {
             background-color: $color !important;
-            box-shadow: $z-depth-1-half;
             border-radius: $border-radius-base;
+            box-shadow: $z-depth-1-half;
             &.disabled {
               background-color: transparent;
               box-shadow: none;
@@ -38,19 +38,20 @@
         &:hover,
         &:active,
         &:focus {
-          box-shadow: none;
           color: $dropdown-item-disabled-color !important;
           background-color: transparent !important;
+          box-shadow: none;
         }
       }
 
       &:hover,
       &:active {
-        box-shadow: $z-depth-1-half;
-        @extend .white-text;
         background-color: $primary-color;
         border-radius: $border-radius-base;
+        box-shadow: $z-depth-1-half;
         transition: $dropdown-item-transition;
+        // color: #fff !important;
+        @extend .white-text !optional;
       }
     }
   }

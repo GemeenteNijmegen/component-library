@@ -54,7 +54,7 @@ $fixed-action-btn-li-margin-bottom:    15px !default;
 $btn-rounded-border-radius:            $border-radius-rounded !default;
 
 // Social buttons
-$btn-counter-margin-top:               0px !default;
+$btn-counter-margin-top:               0 !default;
 $btn-sm-counter-margin-top:            8px !default;
 $btn-md-counter-margin-top:            5px !default;
 $btn-lg-counter-margin-top:            -4px !default;
@@ -70,7 +70,7 @@ $icons-sm-padding:                     .5rem !default;
 $icons-sm-font-size:                   1.2rem !default;
 
 // Blog
-$blog-comment-date-text-color:         #666666 !default;
+$blog-comment-date-text-color:         #666 !default;
 $personal-sm-transition-duration:      .2s !default;
 $personal-sm-hover-transform:          scale(1.2) !default;
 
@@ -102,7 +102,7 @@ $card-reveal-title-i-color:                       $grey-base !default;
 $card-reveal-title-i-right:                       .63rem !default;
 $card-share-social-reveal-top:                    $card-btn-action-my !default;
 $card-share-social-reveal-right:                  1.88rem !default;
-$card-share-social-reveal-transition-ease:        ease ;
+$card-share-social-reveal-transition-ease:        ease !default;
 $card-share-social-reveal-transition:             transform .35s ease, opacity .35s ease !default;
 
 $panel-cascade-view-color:                        $white !default;
@@ -139,7 +139,7 @@ $input-group-text-radio-height:       24px !default;
 
 // Range input
 $input-range-my:                      15px !default;
-$input-range-mx:                      0px !default;
+$input-range-mx:                      0 !default;
 $input-range-thumb-top:               10px !default;
 $input-range-thumb-margin-left:       -6px !default;
 $input-range-transform-origin:        50% 50% !default;
@@ -202,7 +202,7 @@ $nav-item-disabled-link-color:      #6c757d !default;
 $tab-content-padding:                 1rem !default;
 $tab-content-pt:                      2rem !default;
 $md-pills-nav-link-border-radius:     2px !default;
-$md-pills-nav-link-color:             #666666 !default;
+$md-pills-nav-link-color:             #666 !default;
 
 // Tabs classic
 $classic-tabs-padding-y:              20px !default;
@@ -215,201 +215,204 @@ $classic-tabs-li-a-active-border-bottom: 3px !default;
 
 // Skins
 $skins: () !default;
-$skins: map-merge((
-  "white": (
-    "skin-primary-color":      #4285F4,
-    "skin-navbar":             $white,
-    "skin-footer-color":       #6f7178,
-    "skin-accent":             #4285F4,
-    "skin-flat":               #F9F9F9,
-    "skin-sidenav-item":       #4285F4,
-    "skin-sidenav-item-hover": rgba($black-base, .05),
-    "skin-gradient-start":     #ababab,
-    "skin-gradient-end":       $white,
-    "skin-mask-slight":        rgba($white, .5),
-    "skin-mask-light":         rgba($white, .65),
-    "skin-mask-strong":        rgba($white, .8),
-    "skin-sn-child":           #4285F4,
-    "skin-btn-primary":        #4285F4,
-    "skin-btn-secondary":      #fc685f,
-    "skin-btn-default":        #454545,
-    "skin-text":               #424242
+$skins: map-merge(
+  (
+    "white": (
+      "skin-primary-color":      #4285f4,
+      "skin-navbar":             $white,
+      "skin-footer-color":       #6f7178,
+      "skin-accent":             #4285f4,
+      "skin-flat":               #f9f9f9,
+      "skin-sidenav-item":       #4285f4,
+      "skin-sidenav-item-hover": rgba($black-base, .05),
+      "skin-gradient-start":     #ababab,
+      "skin-gradient-end":       $white,
+      "skin-mask-slight":        rgba($white, .5),
+      "skin-mask-light":         rgba($white, .65),
+      "skin-mask-strong":        rgba($white, .8),
+      "skin-sn-child":           #4285f4,
+      "skin-btn-primary":        #4285f4,
+      "skin-btn-secondary":      #fc685f,
+      "skin-btn-default":        #454545,
+      "skin-text":               #424242
+    ),
+    "black": (
+      "skin-primary-color":      #2ad1a3,
+      "skin-navbar":             #222,
+      "skin-footer-color":       #222,
+      "skin-accent":             #2ad1a3,
+      "skin-flat":               #222,
+      "skin-sidenav-item":       #2ad1a3,
+      "skin-sidenav-item-hover": #2ad1a3,
+      "skin-gradient-start":     #000,
+      "skin-gradient-end":       #616161,
+      "skin-mask-slight":        rgba($black, .5),
+      "skin-mask-light":         rgba($black, .65),
+      "skin-mask-strong":        rgba($black, .8),
+      "skin-sn-child":           #2ad1a3,
+      "skin-btn-primary":        #2ad1a3,
+      "skin-btn-secondary":      #0f478a,
+      "skin-btn-default":        #222,
+      "skin-text":               $white
+    ),
+    "cyan": (
+      "skin-primary-color":      #4fada7,
+      "skin-navbar":             #114861,
+      "skin-footer-color":       #114861,
+      "skin-accent":             #f0b247,
+      "skin-flat":               #24879d,
+      "skin-sidenav-item":       rgba(29, 65, 82, .8),
+      "skin-sidenav-item-hover": rgba(29, 65, 82, .8),
+      "skin-gradient-start":     #114861,
+      "skin-gradient-end":       #45b0c0,
+      "skin-mask-slight":        rgba(21, 78, 96, .5),
+      "skin-mask-light":         rgba(21, 78, 96, .65),
+      "skin-mask-strong":        rgba(21, 78, 96, .8),
+      "skin-sn-child":           #ffa742,
+      "skin-btn-primary":        #ffa742,
+      "skin-btn-secondary":      #45b0c0,
+      "skin-btn-default":        #114861,
+      "skin-text":               $white
+    ),
+    "mdb": (
+      "skin-primary-color":      #33b5e5,
+      "skin-navbar":             #243a51,
+      "skin-footer-color":       #243a51,
+      "skin-accent":             #33b5e5,
+      "skin-flat":               #224562,
+      "skin-sidenav-item":       rgba(72, 198, 255, .8),
+      "skin-sidenav-item-hover": rgba(72, 198, 255, .8),
+      "skin-gradient-start":     #0e2135,
+      "skin-gradient-end":       #2c76b8,
+      "skin-mask-slight":        rgba(13, 36, 60, .5),
+      "skin-mask-light":         rgba(13, 36, 60, .65),
+      "skin-mask-strong":        rgba(13, 36, 60, .8),
+      "skin-sn-child":           #67d5ff,
+      "skin-btn-primary":        #33b5e5,
+      "skin-btn-secondary":      #0e3d67,
+      "skin-btn-default":        #1a6398,
+      "skin-text":               $white
+    ),
+    "deep-purple": (
+      "skin-primary-color":      #d0637c,
+      "skin-navbar":             #7f7e91,
+      "skin-footer-color":       #7f7e91,
+      "skin-accent":             #ac85f0,
+      "skin-flat":               #372e5f,
+      "skin-sidenav-item":       rgba(176, 139, 240, .5),
+      "skin-sidenav-item-hover": rgba(176, 139, 240, .5),
+      "skin-gradient-start":     #2e1f49,
+      "skin-gradient-end":       #a47fe3,
+      "skin-mask-slight":        rgba(36, 9, 56, .5),
+      "skin-mask-light":         rgba(36, 9, 56, .65),
+      "skin-mask-strong":        rgba(36, 9, 56, .88),
+      "skin-sn-child":           #c9abfc,
+      "skin-btn-primary":        #ac85f0,
+      "skin-btn-secondary":      #6e4ca3,
+      "skin-btn-default":        #372e5f,
+      "skin-text":               $white
+    ),
+    "navy-blue": (
+      "skin-primary-color":      #309e9e,
+      "skin-navbar":             #353b50,
+      "skin-footer-color":       #353b50,
+      "skin-accent":             #40c6c6,
+      "skin-flat":               #4c5678,
+      "skin-sidenav-item":       rgba(37, 207, 207, .8),
+      "skin-sidenav-item-hover": rgba(37, 207, 207, .8),
+      "skin-gradient-start":     #222735,
+      "skin-gradient-end":       #4f68a6,
+      "skin-mask-slight":        rgba(14, 15, 32, .5),
+      "skin-mask-light":         rgba(14, 15, 32, .65),
+      "skin-mask-strong":        rgba(14, 15, 32, .8),
+      "skin-sn-child":           #40c6c6,
+      "skin-btn-primary":        #40c6c6,
+      "skin-btn-secondary":      #7e51b4,
+      "skin-btn-default":        #293756,
+      "skin-text":               $white
+    ),
+    "pink": (
+      "skin-primary-color":      #bd5d70,
+      "skin-navbar":             #535466,
+      "skin-footer-color":       #535466,
+      "skin-accent":             #9fa0ae,
+      "skin-flat":               #aa5077,
+      "skin-sidenav-item":       rgba(0, 0, 0, .4),
+      "skin-sidenav-item-hover": rgba(0, 0, 0, .4),
+      "skin-gradient-start":     #812b5a,
+      "skin-gradient-end":       #f28cc0,
+      "skin-mask-slight":        rgba(152, 47, 88, .5),
+      "skin-mask-light":         rgba(152, 47, 88, .65),
+      "skin-mask-strong":        rgba(152, 47, 88, .8),
+      "skin-sn-child":           #ffb0e6,
+      "skin-btn-primary":        #601f39,
+      "skin-btn-secondary":      #e7649d,
+      "skin-btn-default":        #535466,
+      "skin-text":               $white
+    ),
+    "indigo": (
+      "skin-primary-color":      #7f82c5,
+      "skin-navbar":             #9095aa,
+      "skin-footer-color":       #9095aa,
+      "skin-accent":             #fd668c,
+      "skin-flat":               #404f9f,
+      "skin-sidenav-item":       rgba(250, 80, 121, .8),
+      "skin-sidenav-item-hover": rgba(250, 80, 121, .8),
+      "skin-gradient-start":     #272d6e,
+      "skin-gradient-end":       #90a8ff,
+      "skin-mask-slight":        rgba(35, 65, 134, .5),
+      "skin-mask-light":         rgba(35, 65, 134, .65),
+      "skin-mask-strong":        rgba(35, 65, 134, .8),
+      "skin-sn-child":           #ff89ac,
+      "skin-btn-primary":        #fd668c,
+      "skin-btn-secondary":      #3c61ae,
+      "skin-btn-default":        #9095aa,
+      "skin-text":               $white
+    ),
+    "light-blue": (
+      "skin-primary-color":      #3d799c,
+      "skin-navbar":             #3f5c80,
+      "skin-footer-color":       #3f5c80,
+      "skin-accent":             #b4c2c9,
+      "skin-flat":               #6a9ed3,
+      "skin-sidenav-item":       rgba(29, 54, 86, .6),
+      "skin-sidenav-item-hover": rgba(29, 54, 86, .6),
+      "skin-gradient-start":     #69adf4,
+      "skin-gradient-end":       #69adf4,
+      "skin-mask-slight":        rgba(87, 134, 180, .5),
+      "skin-mask-light":         rgba(87, 134, 180, .65),
+      "skin-mask-strong":        rgba(87, 134, 180, .8),
+      "skin-sn-child":           #aadeff,
+      "skin-btn-primary":        #ff4a67,
+      "skin-btn-secondary":      #64c3f0,
+      "skin-btn-default":        #2d486a,
+      "skin-text":               $white
+    ),
+    "grey": (
+      "skin-primary-color":      #2b2b2b,
+      "skin-navbar":             #44474b,
+      "skin-footer-color":       #44474b,
+      "skin-accent":             #75c1f0,
+      "skin-flat":               #a5a4a4,
+      "skin-sidenav-item":       rgba(0, 0, 0, .4),
+      "skin-sidenav-item-hover": rgba(0, 0, 0, .4),
+      "skin-gradient-start":     #383838,
+      "skin-gradient-end":       #a5a4a4,
+      "skin-mask-slight":        rgba(121, 121, 121, .5),
+      "skin-mask-light":         rgba(121, 121, 121, .65),
+      "skin-mask-strong":        rgba(121, 121, 121, .8),
+      "skin-sn-child":           #afdffc,
+      "skin-btn-primary":        #46aded,
+      "skin-btn-secondary":      #7d8488,
+      "skin-btn-default":        #353637,
+      "skin-text":               $white
+    )
   ),
-  "black": (
-    "skin-primary-color":      #2AD1A3,
-    "skin-navbar":             #222,
-    "skin-footer-color":       #222,
-    "skin-accent":             #2AD1A3,
-    "skin-flat":               #222,
-    "skin-sidenav-item":       #2AD1A3,
-    "skin-sidenav-item-hover": #2AD1A3,
-    "skin-gradient-start":     #000,
-    "skin-gradient-end":       #616161,
-    "skin-mask-slight":        rgba($black, .5),
-    "skin-mask-light":         rgba($black, .65),
-    "skin-mask-strong":        rgba($black, .8),
-    "skin-sn-child":           #2AD1A3,
-    "skin-btn-primary":        #2AD1A3,
-    "skin-btn-secondary":      #0f478a,
-    "skin-btn-default":        #222222,
-    "skin-text":               $white
-  ),
-  "cyan": (
-    "skin-primary-color":      #4fada7,
-    "skin-navbar":             #114861,
-    "skin-footer-color":       #114861,
-    "skin-accent":             #f0b247,
-    "skin-flat":               #24879d,
-    "skin-sidenav-item":       rgba(29, 65, 82, .8),
-    "skin-sidenav-item-hover": rgba(29, 65, 82, .8),
-    "skin-gradient-start":     #114861,
-    "skin-gradient-end":       #45b0c0,
-    "skin-mask-slight":        rgba(21, 78, 96, .5),
-    "skin-mask-light":         rgba(21, 78, 96, .65),
-    "skin-mask-strong":        rgba(21, 78, 96, .8),
-    "skin-sn-child":           #ffa742,
-    "skin-btn-primary":        #ffa742,
-    "skin-btn-secondary":      #45b0c0,
-    "skin-btn-default":        #114861,
-    "skin-text":               $white
-  ),
-  "mdb": (
-    "skin-primary-color":      #33b5e5,
-    "skin-navbar":             #243a51,
-    "skin-footer-color":       #243a51,
-    "skin-accent":             #33b5e5,
-    "skin-flat":               #224562,
-    "skin-sidenav-item":       rgba(72, 198, 255, .8),
-    "skin-sidenav-item-hover": rgba(72, 198, 255, .8),
-    "skin-gradient-start":     #0e2135,
-    "skin-gradient-end":       #2c76b8,
-    "skin-mask-slight":        rgba(13, 36, 60, .5),
-    "skin-mask-light":         rgba(13, 36, 60, .65),
-    "skin-mask-strong":        rgba(13, 36, 60, .8),
-    "skin-sn-child":           #67d5ff,
-    "skin-btn-primary":        #33b5e5,
-    "skin-btn-secondary":      #0e3d67,
-    "skin-btn-default":        #1a6398,
-    "skin-text":               $white
-  ),
-  "deep-purple": (
-    "skin-primary-color":      #d0637c,
-    "skin-navbar":             #7f7e91,
-    "skin-footer-color":       #7f7e91,
-    "skin-accent":             #ac85f0,
-    "skin-flat":               #372e5f,
-    "skin-sidenav-item":       rgba(176, 139, 240, .5),
-    "skin-sidenav-item-hover": rgba(176, 139, 240, .5),
-    "skin-gradient-start":     #2e1f49,
-    "skin-gradient-end":       #a47fe3,
-    "skin-mask-slight":        rgba(36,  9,   56,  .5),
-    "skin-mask-light":         rgba(36,  9,   56,  .65),
-    "skin-mask-strong":        rgba(36,  9,   56,  .88),
-    "skin-sn-child":           #c9abfc,
-    "skin-btn-primary":        #ac85f0,
-    "skin-btn-secondary":      #6e4ca3,
-    "skin-btn-default":        #372e5f,
-    "skin-text":               $white
-  ),
-  "navy-blue": (
-    "skin-primary-color":      #309e9e,
-    "skin-navbar":             #353b50,
-    "skin-footer-color":       #353b50,
-    "skin-accent":             #40c6c6,
-    "skin-flat":               #4c5678,
-    "skin-sidenav-item":       rgba(37, 207, 207, .8),
-    "skin-sidenav-item-hover": rgba(37, 207, 207, .8),
-    "skin-gradient-start":     #222735,
-    "skin-gradient-end":       #4f68a6,
-    "skin-mask-slight":        rgba(14, 15,  32,  .5),
-    "skin-mask-light":         rgba(14, 15,  32,  .65),
-    "skin-mask-strong":        rgba(14, 15,  32,  .8),
-    "skin-sn-child":           #40c6c6,
-    "skin-btn-primary":        #40c6c6,
-    "skin-btn-secondary":      #7e51b4,
-    "skin-btn-default":        #293756,
-    "skin-text":               $white
-  ),
-  "pink": (
-    "skin-primary-color":      #bd5d70,
-    "skin-navbar":             #535466,
-    "skin-footer-color":       #535466,
-    "skin-accent":             #9fa0ae,
-    "skin-flat":               #aa5077,
-    "skin-sidenav-item":       rgba(0,   0,   0,   .4),
-    "skin-sidenav-item-hover": rgba(0,   0,   0,   .4),
-    "skin-gradient-start":     #812b5a,
-    "skin-gradient-end":       #f28cc0,
-    "skin-mask-slight":        rgba(152, 47,  88,  .5),
-    "skin-mask-light":         rgba(152, 47,  88,  .65),
-    "skin-mask-strong":        rgba(152, 47,  88,  .8),
-    "skin-sn-child":           #ffb0e6,
-    "skin-btn-primary":        #601f39,
-    "skin-btn-secondary":      #e7649d,
-    "skin-btn-default":        #535466,
-    "skin-text":               $white
-  ),
-  "indigo": (
-    "skin-primary-color":      #7f82c5,
-    "skin-navbar":             #9095aa,
-    "skin-footer-color":       #9095aa,
-    "skin-accent":             #fd668c,
-    "skin-flat":               #404f9f,
-    "skin-sidenav-item":       rgba(250, 80,  121, .8),
-    "skin-sidenav-item-hover": rgba(250, 80,  121, .8),
-    "skin-gradient-start":     #272d6e,
-    "skin-gradient-end":       #90a8ff,
-    "skin-mask-slight":        rgba(35,  65,  134, .5),
-    "skin-mask-light":         rgba(35,  65,  134, .65),
-    "skin-mask-strong":        rgba(35,  65,  134, .8),
-    "skin-sn-child":           #ff89ac,
-    "skin-btn-primary":        #fd668c,
-    "skin-btn-secondary":      #3c61ae,
-    "skin-btn-default":        #9095aa,
-    "skin-text":               $white
-  ),
-  "light-blue": (
-    "skin-primary-color":      #3d799c,
-    "skin-navbar":             #3f5c80,
-    "skin-footer-color":       #3f5c80,
-    "skin-accent":             #b4c2c9,
-    "skin-flat":               #6a9ed3,
-    "skin-sidenav-item":       rgba(29,  54,  86,  .6),
-    "skin-sidenav-item-hover": rgba(29,  54,  86,  .6),
-    "skin-gradient-start":     #69adf4,
-    "skin-gradient-end":       #69adf4,
-    "skin-mask-slight":        rgba(87,  134, 180, .5),
-    "skin-mask-light":         rgba(87,  134, 180, .65),
-    "skin-mask-strong":        rgba(87,  134, 180, .8),
-    "skin-sn-child":           #aadeff,
-    "skin-btn-primary":        #ff4a67,
-    "skin-btn-secondary":      #64c3f0,
-    "skin-btn-default":        #2d486a,
-    "skin-text":               $white
-  ),
-  "grey": (
-    "skin-primary-color":      #2b2b2b,
-    "skin-navbar":             #44474b,
-    "skin-footer-color":       #44474b,
-    "skin-accent":             #75c1f0,
-    "skin-flat":               #a5a4a4,
-    "skin-sidenav-item":       rgba(0,   0,   0,   .4),
-    "skin-sidenav-item-hover": rgba(0,   0,   0,   .4),
-    "skin-gradient-start":     #383838,
-    "skin-gradient-end":       #a5a4a4,
-    "skin-mask-slight":        rgba(121, 121, 121, .5),
-    "skin-mask-light":         rgba(121, 121, 121, .65),
-    "skin-mask-strong":        rgba(121, 121, 121, .8),
-    "skin-sn-child":           #afdffc,
-    "skin-btn-primary":        #46aded,
-    "skin-btn-secondary":      #7d8488,
-    "skin-btn-default":        #353637,
-    "skin-text":               $white
-  )
-), $skins);
+  $skins
+);
 
 $skins-side-nav-hover-transition: all .3s linear !default;
-$skins-border-color: rgba(153,153,153, .3) !default;
+$skins-border-color: rgba(153, 153, 153, .3) !default;
 $skins-white-search-border-bottom: 1px !default;
 
 // Dropdown
@@ -513,19 +516,19 @@ $sidenav-about-padding:                           1rem !default;
 $sidenav-social-li-padding:                       .6rem !default;
 $sidenav-social-fa-font-size:                     .9rem !default;
 $sidenav-social-fa-color:                       #dbe4e7 !default;
-$sidenav-social-fa-color-hover:                 #AFC4CB !default;
+$sidenav-social-fa-color-hover:                 #afc4cb !default;
 $sidenav-social-fa-transition:                    .3s !default;
 $sidenav-search-form-input-padding-left:          1.88rem !default;
 
-$sidenav-light-bgc:                             #e5e5e5                 !default;
-$sidenav-light-color:                           #555                    !default;
-$sidenav-light-border-bottom-color:               $skins-border-color       !default;
-$sidenav-light-collapsible-body-a-bgc:            rgba($black-base, .1)     !default;
-$sidenav-light-collapsible-header-hover-bgc:      rgba($black-base, .05)    !default;
-$sidenav-light-collapsible-header-active-color:   $primary-color            !default;
+$sidenav-light-bgc:                             #e5e5e5 !default;
+$sidenav-light-color:                           #555 !default;
+$sidenav-light-border-bottom-color:               $skins-border-color !default;
+$sidenav-light-collapsible-body-a-bgc:            rgba($black-base, .1) !default;
+$sidenav-light-collapsible-header-hover-bgc:      rgba($black-base, .05) !default;
+$sidenav-light-collapsible-header-active-color:   $primary-color !default;
 
 $drag-target-width:                               10px !default;
-$sidenav-overlay:                                 rgba($black-base, .5)     !default;
+$sidenav-overlay:                                 rgba($black-base, .5) !default;
 
 // LIGHT BOX
 $pswp__show-hide-transition-duration:    333ms !default;
@@ -545,7 +548,7 @@ $pswp__button-background-image:          url(#{$image-path}/lightbox/default-ski
 $pswp__preloader__icn-background:        url(#{$image-path}/lightbox/preloader.gif) !default;
 
 // Date Picker
-$datepicker-color-mdb:                #999999 !default;
+$datepicker-color-mdb:                #999 !default;
 $datepicker-box-padding:                .125rem !default;
 $datepicker-weekday-bg:                 darken($primary-color, $sidenav-logo-wrapper-medium-img-py) !default;
 $datepicker-date-bg:                    $primary-color !default;
@@ -622,12 +625,12 @@ $datepicker-table-day-infocus-color:              1px !default;
 $datepicker-table-day-infocus-hover-font-weight:  500 !default;
 
 $datepicker-table-day-outfocus-py:                .75rem !default;
-$datepicker-table-day-outfocus-hover-color:     #dddddd !default;
+$datepicker-table-day-outfocus-hover-color:     #ddd !default;
 $datepicker-table-day-outfocus-hover-font-weight: 500 !default;
 
 $datepicker-table-day-selected-hover-border-radius: 50% !default;
 $datepicker-table-day-selected-hover-transform:     scale(.9) !default;
-$datepicker-table-day-higlighted-color:           #bbbbbb !default;
+$datepicker-table-day-higlighted-color:           #bbb !default;
 
 $datepicker-footer-py:                              .3125rem !default;
 $datepicker-footer-px:                              .625rem !default;
@@ -648,23 +651,23 @@ $datepicker-footer-today-button-before-bl:         .66em !default;
 
 $datepicker-footer-clear-button-before-top:        -.25em !default;
 $datepicker-footer-clear-button-before-width:      .66em !default;
-$datepicker-footer-clear-button-before-bt-color: #ee2200 !default;
+$datepicker-footer-clear-button-before-bt-color: #e20 !default;
 $datepicker-footer-clear-button-before-bl:         3px !default;
 
 $datepicker-footer-close-button-before-top:        -.1em !default;
 $datepicker-footer-close-button-before-font-size:  1.1em !default;
 $datepicker-footer-close-button-before-mr:         .35em !default;
-$datepicker-footer-close-button-before-color:    #777777 !default;
+$datepicker-footer-close-button-before-color:    #777 !default;
 $datepicker-calender-padding:                      0 1rem !default;
 
 // Default time picker
-$timepicker-color-mdb: #666666 !default;
+$timepicker-color-mdb: #666 !default;
 $timepicker-pickerlist-padding:                    .75em 0 4.2em !default;
 $timepicker-pickerlistitem-breakpoint:             46.75em !default;
 
 $timepicker-pickerlistitem-border-bottom:               1px !default;
 $timepicker-pickerlistitem-border-top:                  1px !default;
-$timepicker-pickerlistitem-border-color:                #dddddd !default;
+$timepicker-pickerlistitem-border-color:                #ddd !default;
 $timepicker-pickerlistitem-mb:                          -1px !default;
 $timepicker-pickerlistitem-padding:                     .75em 1.25em !default;
 $timepicker-pickerlistitem-media-padding:               .5em 1em !default;
@@ -676,7 +679,7 @@ $timepicker-pickerlistitem-highlighted-border-color:    $timepicker-pickerlistit
 $timepicker-pickerlistitem-highlighted-hover-bg:        $timepicker-pickerlistitem-hover-bg !default;
 $timepicker-pickerlistitem-selected-hover-bg:           $timepicker-pickerlistitem-hover-border-color !default;
 
-$timepicker-pickerlistitem-disabled-hover-color:        #dddddd !default;
+$timepicker-pickerlistitem-disabled-hover-color:        #ddd !default;
 
 $timepicker-pickertime-button-clear-width:              80% !default;
 $timepicker-pickertime-button-clear-mt:                 1em !default;
@@ -685,7 +688,7 @@ $timepicker-pickertime-button-clear-font-weight:        500 !default;
 $timepicker-pickertime-button-clear-font-size:          .67em !default;
 
 $timepicker-pickertime-button-clear-hover-bg:           $timepicker-pickerlistitem-hover-bg !default;
-$timepicker-pickertime-button-clear-hover-border-color: #ee2200 !default;
+$timepicker-pickertime-button-clear-hover-border-color: #e20 !default;
 
 $timepicker-pickertime-button-clear-before-top:         -.25em !default;
 $timepicker-pickertime-button-clear-before-font-size:   1.25em !default;
@@ -745,8 +748,8 @@ $timepicker-clockpicker-dial-tick-hover-bg-opacity:     rgba($teal-base, .25) !d
 
 $timepicker-clockpicker-dial-out-transform:             scale(1.2, 1.2) !default;
 $timepicker-clockpicker-dial-out-transform-minutes:     scale(.8, .8) !default;
-$timepicker-clockpicker-canvas-transition:              opacity 300ms !default;
 
+$timepicker-clockpicker-canvas-transition:              opacity 300ms !default;
 $timepicker-clockpicker-canvas-stroke:                  rgba($teal-base, .25) !default;
 $timepicker-clockpicker-canvas-stroke-width:            1 !default;
 $timepicker-clockpicker-canvas-out-opacity:             .25 !default;
@@ -758,6 +761,7 @@ $timepicker-clockpicker-canvas-bg-trans-fill:           rgba($teal-base, .25) !d
 
 $timepicker-clockpicker-am-pm-block-mt:                 -.625rem !default;
 $timepicker-clockpicker-am-pm-block-height:             3.125rem !default;
+
 $timepicker-clockpicker-button-am-button-height:        2.8125rem !default;
 $timepicker-clockpicker-button-am-button-width:         $timepicker-clockpicker-button-am-button-height !default;
 $timepicker-clockpicker-button-pm-button-height:        $timepicker-clockpicker-button-am-button-height !default;
@@ -768,15 +772,14 @@ $timepicker-clockpicker-btn-floating-active-bg:         darken($primary-color, $
 
 $timepicker-clockpicker-footer-button-mt:               .9375rem !default;
 $timepicker-clockpicker-footer-button-active-bg:        rgba($teal-base, .25) !default;
+$timepicker-clockpicker-footer-button-focus-outline:    5px auto $primary-color !default;
 
 $timepicker-darktheme-clockpicker-plate-bg:             rgba($pink-accent-2, 0) !default;
 $timepicker-darktheme-clockpicker-plate-active-bg:      rgba($pink-accent-2, .25) !default;
 
 $timepicker-darktheme-clockpicker-canvas-line-stroke:   $timepicker-darktheme-clockpicker-plate-active-bg !default;
-
 $timepicker-darktheme-clockpicker-canvas-fg-fill:         $timepicker-darktheme-clockpicker-plate-bg !default;
 $timepicker-darktheme-clockpicker-canvas-active-fg-fill:  rgba($pink-accent-2, .5) !default;
-
 $timepicker-darktheme-clockpicker-canvas-bg-fill:         $timepicker-darktheme-clockpicker-plate-active-bg !default;
 $timepicker-darktheme-clockpicker-canvas-bg-trans-fill:   $timepicker-darktheme-clockpicker-canvas-active-fg-fill !default;
 
@@ -804,8 +807,8 @@ $picker-frame-media-bottom:                               -100% !default;
 $picker-frame-media-max-height:                           80% !default;
 $picker-frame-media-mb:                                   7.5% !default;
 
-$picker-box-border:                                       1px  !default;
-$picker-box-border-color:                                #777777 !default;
+$picker-box-border:                                       1px !default;
+$picker-box-border-color:                                #777 !default;
 $picker-box-border-top-color:                            #898989 !default;
 $picker-box-border-radius:                                5px 5px 0 0 !default;
 $picker-box-box-shadow:                                   0 .75rem 2.25rem 1rem rgba($black, .24) !default;
@@ -938,7 +941,7 @@ $carousel-thumbnails-indicators-li-max-width:           $carousel-thumbnails-ind
 $carousel-thumbnails-indicators-active-opacity:         1 !default;
 
 $carousel-multi-item-mb:                                5rem !default;
-$carousel-multi-item-indicators-mb:                     -2em !default;
+$carousel-multi-item-indicators-mb:                     -1em !default;
 $carousel-multi-item-indicators-li-height:              1.25rem !default;
 $carousel-multi-item-indicators-li-width:               $carousel-multi-item-indicators-li-height !default;
 $carousel-multi-item-indicators-li-max-width:           $carousel-multi-item-indicators-li-width !default;
@@ -951,6 +954,8 @@ $carousel-multi-item-controls-top-mb:                   1.88rem !default;
 $carousel-multi-item-card-cascade-narrower-mt:          1.25rem !default;
 $carousel-multi-item-card-cascade-narrower-mb:          .3rem !default;
 $carousel-multi-item-medium-screen-mb:                  -1.88rem !default;
+$carousel-multi-item-inner-pt:                          .5rem !default;
+$carousel-multi-item-inner-pb:                          1rem !default;
 
 // Advanced table with checkboxes
 $advanced-table-a-mr:                                   1rem !default;
@@ -958,7 +963,7 @@ $advanced-table-fieldset-label-height:                  .94rem !default;
 
 // Scrollbar
 $scrollbar-color-mdb:                                   $datepicker-color-mdb !default;
-$scrollbar-color-mdb-grey:                              #aaaaaa !default;
+$scrollbar-color-mdb-grey:                              #aaa !default;
 $scrollbar-ps-xrail-opacity:                            .9 !default;
 $scrollbar-ps-scrollbar-xrail-x-border-radius:          .375rem !default;
 $scrollbar-ps-scrollbar-xrail-x-bottom:                 .125rem !default;
@@ -979,7 +984,7 @@ $scrollbar-transition-height:                           height $scrollbar-scroll
 $scrollbar-transition-border-radius:                    border-radius $scrollbar-scrollbar-transition-s ease-in-out !default;
 
 // Scrollspy
-$Scrollspy-color-mdb: #666666 !default;
+$Scrollspy-color-mdb: #666 !default;
 $scrollspy-padding:                                     0 1rem !default;
 $scrollspy-padding-half:                                .5rem !default;
 $scrollspy-padding-top:                                 .625rem !default;
@@ -1042,10 +1047,10 @@ $checkbox-filled-in-border-radius:                          $border-radius-base 
 $checkbox-filled-in-transition-border:                      border .25s !default;
 $checkbox-filled-in-transition-background-color:            background-color .25s !default;
 $checkbox-filled-in-transition-time-dot-one-second:         .1s !default;
-$checkbox-filled-in-transition-width:                       width .20s $checkbox-filled-in-transition-time-dot-one-second !default;
-$checkbox-filled-in-transition-height:                      height .20s $checkbox-filled-in-transition-time-dot-one-second!default;
-$checkbox-filled-in-transition-top:                         top .20s $checkbox-filled-in-transition-time-dot-one-second !default;
-$checkbox-filled-in-transition-left:                        left .20s $checkbox-filled-in-transition-time-dot-one-second !default;
+$checkbox-filled-in-transition-width:                       width .2s $checkbox-filled-in-transition-time-dot-one-second !default;
+$checkbox-filled-in-transition-height:                      height .2s $checkbox-filled-in-transition-time-dot-one-second !default;
+$checkbox-filled-in-transition-top:                         top .2s $checkbox-filled-in-transition-time-dot-one-second !default;
+$checkbox-filled-in-transition-left:                        left .2s $checkbox-filled-in-transition-time-dot-one-second !default;
 $checkbox-filled-in-unchecked-label-before-border-width:    3px !default;
 $checkbox-filled-in-unchecked-label-before-left:            6px !default;
 $checkbox-filled-in-unchecked-label-before-top:             10px !default;
@@ -1064,9 +1069,9 @@ $progress-margin-bottom:                                    1rem !default;
 $progress-bar-height:                                       $progress-height-mdb !default;
 $progress-bar-animated-transition:                          width 2s ease-in-out !default;
 
-$progress-indeterminate-before-animation:                   indeterminate 2.1s cubic-bezier(.650, .815, .735, .395) infinite !default;
+$progress-indeterminate-before-animation:                   indeterminate 2.1s cubic-bezier(.65, .815, .735, .395) infinite !default;
 
-$progress-indeterminate-after-animation:                    indeterminate 2.1s cubic-bezier(.165, .840, .440, 1.000) infinite !default;
+$progress-indeterminate-after-animation:                    indeterminate 2.1s cubic-bezier(.165, .84, .44, 1) infinite !default;
 $progress-indeterminate-after-animation-delay:              1.15s !default;
 
 $progress-preloader-width:                                  3rem !default;
@@ -1095,7 +1100,7 @@ $progress-spinner-circle-clipper-left-circle-transform:     rotate(129deg) !defa
 $progress-spinner-circle-clipper-right-circle-left:         -100% !default;
 $progress-spinner-circle-clipper-right-circle-transform:    rotate(-129deg) !default;
 
-$progress-active-cubic:                                     cubic-bezier(.4, .0, .2, 1) !default;
+$progress-active-cubic:                                     cubic-bezier(.4, 0, .2, 1) !default;
 $progress-active-curve:                                     $progress-active-cubic infinite both !default;
 $progress-active-spinner-layer-time:                        5332ms !default;
 $progress-active-spinner-layer:                             $progress-active-spinner-layer-time $progress-active-curve !default;

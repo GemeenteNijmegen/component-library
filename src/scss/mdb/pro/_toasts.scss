@@ -9,7 +9,8 @@
 
 .md-toast-message a,
 .md-toast-message label {
-  @extend .white-text;
+  // color: #fff !important;
+  @extend .white-text !optional;
 }
 
 .md-toast-message a:hover {
@@ -18,25 +19,27 @@
 }
 
 .md-toast-close-button {
-  @extend .white-text;
+  // color: #fff !important;
+  @extend .white-text !optional;
   position: relative;
-  right: $toast-close-button-right;
   top: $toast-close-button-top;
+  right: $toast-close-button-right;
   float: right;
   font-size: $toast-close-button-font-size;
   font-weight: 400;
   text-shadow: $toast-close-button-text-shadow $white-base;
-  opacity: $toast-close-button-opacity;
   filter: $toast-close-button-filter;
+  opacity: $toast-close-button-opacity;
 }
 
 .md-toast-close-button:hover,
 .md-toast-close-button:focus {
-  @extend .black-text;
+  // color: #000 !important;
+  @extend .black-text !optional;
   text-decoration: none;
   cursor: pointer;
-  opacity: $toast-close-button-hover-opacity;
   filter: $toast-close-button-hover-filter;
+  opacity: $toast-close-button-hover-opacity;
 }
 
 button.md-toast-close-button {
@@ -54,8 +57,8 @@ button.md-toast-close-button {
 }
 
 .md-toast-bottom-center {
-  bottom: 0;
   right: 0;
+  bottom: 0;
   width: 100%;
 }
 
@@ -66,8 +69,8 @@ button.md-toast-close-button {
 }
 
 .md-toast-bottom-full-width {
-  bottom: 0;
   right: 0;
+  bottom: 0;
   width: 100%;
 }
 
@@ -100,36 +103,37 @@ button.md-toast-close-button {
   box-sizing: border-box;
 }
 
-#toast-container>div {
-  box-shadow: $z-depth-1;
-  @extend .white-text;
+#toast-container > div {
   position: relative;
-  overflow: hidden;
-  margin: 0 0 $toast-container-margin;
-  padding: $toast-container-py $toast-container-pr $toast-container-py $toast-container-pl;
   width: $toast-container-width;
-  background-position: $toast-container-py center;
-  background-repeat: no-repeat;
-  opacity: $toast-container-opacity;
+  padding: $toast-container-py $toast-container-pr $toast-container-py $toast-container-pl;
+  margin: 0 0 $toast-container-margin;
+  overflow: hidden;
   filter: $toast-container-filter;
+  background-repeat: no-repeat;
+  background-position: $toast-container-py center;
+  box-shadow: $z-depth-1;
+  opacity: $toast-container-opacity;
+  // color: #fff !important;
+  @extend .white-text !optional;
 }
 
-#toast-container> :hover {
-  box-shadow: $z-depth-2;
-  transition: $toast-container-hover-transition;
-  opacity: $toast-container-hover-opacity;
-  filter: $toast-container-hover-filter;
+#toast-container > :hover {
   cursor: pointer;
+  filter: $toast-container-hover-filter;
+  box-shadow: $z-depth-2;
+  opacity: $toast-container-hover-opacity;
+  transition: $toast-container-hover-transition;
 }
 
-#toast-container.md-toast-top-center>div,
-#toast-container.md-toast-bottom-center>div {
+#toast-container.md-toast-top-center > div,
+#toast-container.md-toast-bottom-center > div {
   width: $toast-container-width;
   margin: auto;
 }
 
-#toast-container.md-toast-top-full-width>div,
-#toast-container.md-toast-bottom-full-width>div {
+#toast-container.md-toast-top-full-width > div,
+#toast-container.md-toast-bottom-full-width > div {
   width: $toast-container-top-full-width;
   margin: auto;
 }
@@ -160,10 +164,10 @@ button.md-toast-close-button {
 
 .md-toast-progress {
   position: absolute;
-  left: 0;
   bottom: 0;
+  left: 0;
   height: $toast-progress-height;
   background-color: $black-base;
-  opacity: $toast-progress-opacity;
   filter: $toast-progress-filter;
+  opacity: $toast-progress-opacity;
 }
