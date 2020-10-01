@@ -1,0 +1,17 @@
+version: 4.0.6
+versionBump: patch
+date: 2020-09-11T05:51:27.002Z
+files:
+  - GNIJ-342.yml
+  - GNIJ-343.yml
+changes:
+  - type: changed
+    component: accordion
+    description: Added missing "data-parent" property to the tab content panels
+    what:
+      - HTML
+  - type: changed
+    component: navbar
+    description: You can navigate the navbar with your keyboard again
+    what:
+      - js
