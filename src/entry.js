@@ -5,6 +5,9 @@ import './scss/main.scss';
 import 'promise-polyfill/src/polyfill';
 import 'whatwg-fetch';
 
+// URL polyfill for IE
+import 'url-polyfill';
+
 // These scripts don't need to be exposed (they will initialize themselves)
 import './js/alerts';
 import './js/buttonHorizontalCollapse';
