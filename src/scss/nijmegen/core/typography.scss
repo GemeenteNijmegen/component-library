@@ -233,10 +233,29 @@ b, strong {
 
 :focus {
     outline-color: $focus-color;
+
+    &[tabindex='-1'] {
+        animation: outlineRemove 3  s ease;
+        outline-color: transparent;
+    }
 }
 
 .text {
     &__underline {
         text-decoration: underline;
+    }
+}
+
+@keyframes outlineRemove {
+    0% {
+        outline-color: transparent;
+    }
+
+    50% {
+        outline-color: $focus-color;
+    }
+
+    100% {
+        outline-color: transparent;
     }
 }
