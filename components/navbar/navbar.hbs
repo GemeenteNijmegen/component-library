@@ -1,4 +1,14 @@
 <nav class="navbar fixed-top navbar-expand-lg scrolling-navbar {{variant}}">
+    <ul class="navbar-skiplinks">
+        {{#if searchComponent}}
+        <li>
+            <a href="#suggest-search-query">Skip to search</a>
+        </li>
+        {{/if}}
+        <li>
+            <a href="#section-1 ">Skip to content</a>
+        </li>
+    </ul>
     <div class="container">
         {{#if hamburgerIcon}}
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar-collapse"

@@ -23,6 +23,7 @@ start: intro do-start
 start-static: intro do-static-stop do-static-build do-static-start
 stop: intro do-stop
 test: intro do-lint do-test
+fix: intro do-fix
 update: intro do-switch-branch do-run-updates do-start
 mr: intro do-checkout-mr do-run-updates do-start
 
@@ -69,6 +70,7 @@ do-show-commands:
 	@echo "    make start-static                       Start static container."
 	@echo "    make stop                               Stop container."
 	@echo "    make test                               Run jest tests."
+	@echo "    make fix                                Fix auto fixable linting problems."
 	@echo "    make update                             Update npm packages."
 	@echo "    make update BRANCH=master               Switch branch and update npm packages."
 	@echo "    make mr                                 Check out a MR from GitLab and update the project."
@@ -115,6 +117,10 @@ do-lint:
 	docker-compose run --rm frontend npm run lint-js && echo "> All files are formatted correctly"
 	@echo "\n=== Lint sass ===\n"
 	docker-compose run --rm frontend npm run lint-sass && echo "> All files are formatted correctly"
+
+do-fix:
+	@echo "\n=== Fix sass ===\n"
+	docker-compose run --rm frontend npm run fix-sass && echo "> All files are formatted correctly"
 
 do-test:
 	@echo "\n=== Start the validator service ===\n"
