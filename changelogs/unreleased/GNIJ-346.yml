@@ -1,6 +1,0 @@
-versionBump: patch # patch, minor, major
-changes:
-  - type: changed #changed, removed, added
-    component: navbar
-    description: Added a skiplinks to the navbar
-    what: [HTML, CSS, JS]

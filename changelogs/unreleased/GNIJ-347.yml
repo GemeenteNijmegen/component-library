@@ -1,6 +1,0 @@
-versionBump: patch # patch, minor, major
-changes:
-  - type: changed #changed, removed, added
-    component: navbar
-    description: Fix navigation with keyboard
-    what: [JS] # what has changed 1 or more of: [HTML, CSS, JS]
