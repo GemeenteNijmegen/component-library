@@ -12,6 +12,7 @@ import './js/cards';
 import './js/checkbox';
 import './js/datePicker';
 import './js/lightbox';
+import './js/mdbTextareaFix';
 import './js/navbar';
 import './js/popover';
 import './js/responsiveTable';
