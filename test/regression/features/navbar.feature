@@ -7,8 +7,12 @@ Feature: Accessible navbar
         When I press enter on an internal link
         Then I scroll to the correct item on the page
 
-    @focus
     Scenario: The keyboard can be used to navigate to an external link
         Given I open the component "navbar"
         When I press enter on an external link
         Then I navigate to the external page
+
+    Scenario: The keyboard can be used to navigate to a different page
+        Given I open the component "navbar"
+        When I press enter on an internal link for a different page
+        Then I navigate to the other internal page
