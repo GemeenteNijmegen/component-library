@@ -44,24 +44,21 @@ $('.nijmegen-smooth-scroll').on('click keydown', 'a', function(event) {
     if (event.type === 'keydown' && ![KEY_ENTER, KEY_SPACE].includes(event.which)) {
         return;
     }
-    const [path, hash] = $(this)
-        .attr('href')
-        .split('#');
+    const url = new URL($(this).attr('href'), location);
 
-    if (!hash) {
+    // if this a different page navigate to that page
+    if (!url.hash || url.pathname !== location.pathname) {
         if (event.type === 'keydown') {
-            window.location = path;
+            window.location = url.href;
         }
         return;
     }
-    if (path !== '' && path !== location.pathname) {
-        return;
-    }
 
+    // prevent the default navigation
     event.preventDefault();
 
     const offset = $(this).attr('data-offset') || 0;
-    smoothScrollTo(hash, offset);
+    smoothScrollTo(url.hash.substring(1), offset);
 });
 
 var SCROLLING_NAVBAR_OFFSET_TOP = 50;
