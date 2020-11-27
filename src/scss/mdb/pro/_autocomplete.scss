@@ -15,10 +15,10 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
 
-  &.active {
-    color: $primary;
-  }
+.mdb-autocomplete:focus ~ label {
+  color: $primary;
 }
 
 button {

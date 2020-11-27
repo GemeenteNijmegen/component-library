@@ -53,13 +53,14 @@
   z-index: 998;
   margin-bottom: 0;
   overflow: hidden;
-  height: 500px;
+  height: 110px;
   display: flex;
   align-items: flex-end;
   padding: $fixed-action-btn-padding-top 15px 15px 15px;
   padding-bottom: 15px;
   padding-left: 15px;
   padding-right: 15px;
+  transition: height 400ms;
   ul {
     position: absolute;
     right: 0;
@@ -97,6 +98,9 @@
     height: 300px;
     margin-bottom: 40px;
     opacity: 1;
+  }
+  &.active {
+    height: 500px;
   }
 }
 

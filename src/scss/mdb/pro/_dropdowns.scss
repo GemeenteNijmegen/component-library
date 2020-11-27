@@ -71,3 +71,14 @@
     animation-timing-function: $dropdown-menu-animated-animation-timing-function;
   }
 }
+
+@media screen and (prefers-reduced-motion: reduce) {
+
+  .dropdown .dropdown-animating {
+    -webkit-animation: unset!important;
+    animation: unset!important;
+    -webkit-transition: none!important;
+    -o-transition: none!important;
+    transition: none!important;
+    }
+ }

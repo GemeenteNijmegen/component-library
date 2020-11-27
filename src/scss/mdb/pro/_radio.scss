@@ -1,6 +1,6 @@
 // Remove default Radio Buttons
-[type="radio"]:not(:checked),
-[type="radio"]:checked {
+.form-check-input:not(:checked),
+.form-check-input:checked {
   position: absolute;
   pointer-events: none;
   opacity: 0;

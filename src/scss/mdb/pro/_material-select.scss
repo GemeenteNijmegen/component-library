@@ -27,9 +27,6 @@
   }
   
   input {
-    &::selection {
-      background: transparent; 
-    }
 
     &.select-dropdown {
       position: relative;
@@ -284,7 +281,7 @@
 select {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  &.mdb-select {
+  &.mdb-select.initialized {
     display: none !important;
     & ~ .btn {
       display: none !important;

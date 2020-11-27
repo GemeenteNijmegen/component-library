@@ -4,6 +4,10 @@ changes:
     component: material design icons
     description: Updated material design icons to version 5.8.55
     what: [CSS]
+  - type: changed
+    component: material design bootstrap (mdb)
+    description: Updated mdb to version 4.19.1
+    what: [CSS]
   - type: changed #changed, removed, added
     component: time-picker
     description: Changed icon after material design icons update

@@ -28,7 +28,7 @@
       width: 0;
       height: 0;
 
-      background-color: $primary-color;
+      background-color: #1266f1;
       border: none;
       border-radius: $border-radius-circle;
       transform: $input-range-transform;
@@ -38,7 +38,7 @@
         display: block;
         width: $input-range-thumb-value-width;
         font-size: 0;
-        color: $primary-color;
+        color: #1266f1;
         text-align: center;
         transform: $input-range-thumb-value-transform;
       }
@@ -65,7 +65,7 @@
       width: $slider-thumb-width;
       height: $slider-thumb-height;
       margin: $slider-thumb-mt 0 0 0;
-      background-color: $primary-color;
+      background-color: #1266f1;
       border: none;
       border-radius: $border-radius-circle;
       transition: $slider-thumb-transition;
@@ -89,7 +89,7 @@
       width: $slider-thumb-width;
       height: $slider-thumb-height;
       margin-top: $slider-thumb-mt;
-      background: $primary-color;
+      background: #1266f1;
       border: none;
       border-radius: $border-radius-circle;
     }
@@ -130,7 +130,7 @@
     &::-ms-thumb {
       width: $slider-thumb-width;
       height: $slider-thumb-height;
-      background: $primary-color;
+      background: #1266f1;
       border: none;
       border-radius: $border-radius-circle;
     }
