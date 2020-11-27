@@ -8,7 +8,7 @@ When('I press enter on an internal link', async function() {
 });
 
 When('I press enter on an internal link for a different page', async function() {
-    await pressKey.call(this, 'Enter', '.navbar-nav .nav-link:nth-child(2)');
+    await pressKey.call(this, 'Enter', '.navbar-nav .nav-item:nth-child(2) a');
 });
 
 When('I press enter on an external link', async function() {
