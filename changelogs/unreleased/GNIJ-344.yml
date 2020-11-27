@@ -1,4 +1,4 @@
-versionBump: patch # patch, minor, major
+versionBump: major # patch, minor, major
 changes:
   - type: changed
     component: material design icons
