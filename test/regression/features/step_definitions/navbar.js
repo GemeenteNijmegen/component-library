@@ -7,6 +7,10 @@ When('I press enter on an internal link', async function() {
     await pressKey.call(this, 'Enter', '[href="#section-4"]');
 });
 
+When('I press enter on an internal link for a different page', async function() {
+    await pressKey.call(this, 'Enter', '[href="/components/preview/navbar--no-search#section-2"]');
+});
+
 When('I press enter on an external link', async function() {
     await pressKey.call(this, 'Enter', '[href="https://nijmegen.nl"]');
 });
@@ -27,4 +31,9 @@ Then('I scroll to the correct item on the page', async function() {
 Then('I navigate to the external page', async function() {
     await this.page.waitForNavigation({ waitUntil: 'networkidle0' });
     await checkUrlContains.call(this, false, 'nijmegen.nl');
+});
+
+Then('I navigate to the other internal page', async function() {
+    await this.page.waitForNavigation({ waitUntil: 'networkidle0' });
+    await checkUrlContains.call(this, false, 'navbar--no-search');
 });
