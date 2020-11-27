@@ -1,6 +1,6 @@
 // Skins
 @each $skin,
-$data in $skins {
+  $data in $skins {
   .#{$skin}-skin {
     .gradient {
       background: map-get($data, skin-gradient-start);
@@ -12,8 +12,8 @@ $data in $skins {
     }
 
     .navbar {
-      background-color: map-get($data, skin-navbar);
       color: map-get($data, skin-text);
+      background-color: map-get($data, skin-navbar);
 
       .navbar-nav {
         .nav-item {
@@ -44,8 +44,8 @@ $data in $skins {
       form {
         .md-form {
           .form-control {
-            color: map-get($data, skin-text);
             font-weight: 300;
+            color: map-get($data, skin-text);
 
             &::placeholder {
               color: map-get($data, skin-text);
@@ -79,7 +79,7 @@ $data in $skins {
       background-color: map-get($data, skin-flat);
 
       .logo-wrapper {
-        &>div {
+        & > div {
           background-color: transparent !important;
         }
       }
@@ -118,7 +118,7 @@ $data in $skins {
           color: map-get($data, skin-text) !important;
           border-bottom: $skins-white-search-border-bottom solid $skins-border-color;
 
-          &::placeholder {
+          @include placeholder {
             color: rgba(map-get($data, skin-text), .5) !important;
           }
         }
@@ -183,12 +183,6 @@ $data in $skins {
         }
       }
 
-      // .fas,
-      // .fab,
-      // .far {
-      //   color: map-get($data, skin-text);
-      // }
-
       .sidenav-bg {
 
         &:after,
@@ -205,7 +199,7 @@ $data in $skins {
         }
       }
     }
-  
+
     @include make-button("primary", map-get($data, skin-btn-primary));
     @include make-button("secondary", map-get($data, skin-btn-secondary));
     @include make-button("default", map-get($data, skin-btn-default));
@@ -229,24 +223,24 @@ $data in $skins {
     // Outline inputs
     .md-outline {
 
-      input[type=text],
-      input[type=password],
-      input[type=email],
-      input[type=url],
-      input[type=time],
-      input[type=date],
-      input[type=datetime-local],
-      input[type=tel],
-      input[type=number],
-      input[type=search-md],
-      input[type=search],
+      input[type="text"],
+      input[type="password"],
+      input[type="email"],
+      input[type="url"],
+      input[type="time"],
+      input[type="date"],
+      input[type="datetime-local"],
+      input[type="tel"],
+      input[type="number"],
+      input[type="search-md"],
+      input[type="search"],
       textarea {
         &:focus:not([readonly]) {
           border-color: map-get($data, skin-accent);
-          box-shadow: inset 0px 0px 0px 1px map-get($data, skin-accent);
+          box-shadow: inset 0 0 0 1px map-get($data, skin-accent);
 
           // Focused label style
-          +label {
+          + label {
             color: map-get($data, skin-accent);
           }
         }
@@ -255,20 +249,19 @@ $data in $skins {
 
     .md-bg {
 
-      input[type=text],
-      input[type=password],
-      input[type=email],
-      input[type=url],
-      input[type=time],
-      input[type=date],
-      input[type=datetime-local],
-      input[type=tel],
-      input[type=number],
-      input[type=search-md],
-      input[type=search],
+      input[type="text"],
+      input[type="password"],
+      input[type="email"],
+      input[type="url"],
+      input[type="time"],
+      input[type="date"],
+      input[type="datetime-local"],
+      input[type="tel"],
+      input[type="number"],
+      input[type="search-md"],
+      input[type="search"],
       textarea.md-textarea {
-        background-image: linear-gradient(to bottom, map-get($data, skin-accent), map-get($data, skin-accent)),
-        linear-gradient(to bottom, $input-border-color, $input-border-color);
+        background-image: linear-gradient(to bottom, map-get($data, skin-accent), map-get($data, skin-accent)), linear-gradient(to bottom, $input-border-color, $input-border-color);
       }
     }
 
@@ -281,13 +274,13 @@ $data in $skins {
       border-color: map-get($data, skin-accent);
       box-shadow: 0 1px 0 0 map-get($data, skin-accent);
 
-      &+label {
+      & + label {
         color: map-get($data, skin-accent);
       }
     }
 
-    input[type=checkbox]:checked {
-      &+label {
+    input[type="checkbox"]:checked {
+      & + label {
         &:before {
           border-right: 2px solid map-get($data, skin-accent);
           border-bottom: 2px solid map-get($data, skin-accent);
@@ -295,8 +288,8 @@ $data in $skins {
       }
     }
 
-    input[type=checkbox].filled-in:checked {
-      &+label {
+    input[type="checkbox"].filled-in:checked {
+      & + label {
         &:before {
           border-right: 2px solid $white-base;
           border-bottom: 2px solid $white-base;
@@ -317,15 +310,6 @@ $data in $skins {
       }
     }
 
-    // Select colors
-    // .dropdown-content {
-    //   li:not(.disabled) {
-    //     span {
-    //       color: map-get($data, skin-accent);
-    //     }
-    //   }
-    // }
-
     .select-wrapper {
       &.colorful-select {
         &.md-form {
@@ -341,11 +325,11 @@ $data in $skins {
               &.select-dropdown {
                 &:focus {
                   border-color: map-get($data, skin-accent);
-                  box-shadow: inset 0px 0px 0px 1px map-get($data, skin-accent);
+                  box-shadow: inset 0 0 0 1px map-get($data, skin-accent);
                 }
               }
             }
-            &+label {
+            & + label {
               &.active {
                 color: map-get($data, skin-accent);
               }
@@ -373,7 +357,7 @@ $data in $skins {
 
     .carousel-multi-item {
 
-      .controls-top>a,
+      .controls-top > a,
       .carousel-indicators li,
       .carousel-indicators li.active {
         background-color: map-get($data, skin-accent);

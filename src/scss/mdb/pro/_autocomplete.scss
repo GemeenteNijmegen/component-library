@@ -10,6 +10,17 @@
   }
 }
 
+.mdb-autocomplete ~ label {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mdb-autocomplete:focus ~ label {
+  color: $primary;
+}
+
 button {
   &:focus {
     outline: 0 !important;
@@ -17,13 +28,13 @@ button {
 
   &.mdb-autocomplete-clear {
     position: absolute;
-    z-index: 2;
     top: $autocomplete-clear-top;
     right: 0;
-    visibility: hidden;
-    border: none;
-    background: transparent;
+    z-index: 2;
     cursor: pointer;
+    visibility: hidden;
+    background: transparent;
+    border: none;
 
     svg {
       fill: $autocomplete-clear-color;
@@ -32,21 +43,20 @@ button {
 }
 
 .mdb-autocomplete-wrap {
-  box-shadow: $z-depth-1;
   position: absolute;
-  z-index: 100;
-  left: 0;
   right: 0;
-  list-style-type: none;
-  overflow-y: auto;
-  max-height: $autocomplete-wrap-max-height;
+  left: 0;
+  z-index: 100;
   padding-left: 0;
+  overflow-y: auto;
+  list-style-type: none;
   background: $white-base;
+  box-shadow: $z-depth-1;
 
   li {
     padding: $autocomplete-wrap-li-padding-y $autocomplete-wrap-li-padding-x;
-    cursor: pointer;
     font-size: $autocomplete-wrap-li-font-size;
+    cursor: pointer;
 
     &:hover {
       background: $autocomplete-wrap-li-hover-bg;

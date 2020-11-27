@@ -5,8 +5,8 @@
     position: absolute;
     bottom: $collection-card-stripe-bottom;
     width: 100%;
-    text-align: center;
     padding: $collection-card-stripe-padding;
+    text-align: center;
     &.dark {
       background-color: $collection-card-stripe-dark-bgc;
       a {
@@ -34,9 +34,9 @@
 }
 
 .rating {
+  padding: 0;
   color: $ecommerce-rating-color;
   list-style-type: none;
-  padding: 0;
   li {
     display: inline-block;
   }
@@ -50,8 +50,8 @@
   }
   .table {
     .total {
-      text-transform: uppercase;
       font-weight: 600;
+      text-transform: uppercase;
     }
     .fa-times {
       color: $primary-color;

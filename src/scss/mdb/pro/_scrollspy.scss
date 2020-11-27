@@ -3,20 +3,20 @@
   &.default-pills {
     .nav-item {
       a {
-        text-align: left;
         color: $Scrollspy-color-mdb;
+        text-align: left;
         @include scrollspy-border-radius(0);
 
         &:hover {
-          background-color: transparent;
           color: $mdb-color-base;
+          background-color: transparent;
           border-left: $scrollspy-navpills-naviteam-hover-border-left solid $mdb-color-base;
           @include scrollspy-font-weight(500);
         }
 
         &.active {
-          background-color: transparent;
           color: $mdb-color-base;
+          background-color: transparent;
           border-left: $scrollspy-navpills-naviteam-active-border-left solid $mdb-color-base;
           box-shadow: none;
           @include scrollspy-font-weight(500);
@@ -24,8 +24,8 @@
           &:hover,
           &:active,
           &:focus {
-            background-color: transparent;
             color: $mdb-color-base;
+            background-color: transparent;
             @include scrollspy-font-weight(500);
           }
         }
@@ -34,7 +34,7 @@
   }
 }
 
-.nav-pills .nav-item+.nav-item {
+.nav-pills .nav-item + .nav-item {
   margin-left: 0;
 }
 
@@ -83,12 +83,12 @@
 // Dotted scrollspy
 
 .dotted-scrollspy {
-  display: block;
   position: fixed;
   top: $scrollspy-dotted-top;
   right: 0;
-  transform: $scrollspy-dotted-transform;
+  display: block;
   background: $scrollspy-dotted-bg;
+  transform: $scrollspy-dotted-transform;
   @include scrollspy-border-radius-4rows(.125rem, 0, 0, .125rem);
 
   li {
@@ -124,8 +124,8 @@
 }
 
 .scrollspy-example {
-  overflow-y: scroll;
   position: relative;
-  @include scroll-height(12.5rem);
   padding: $scrollspy-example-padding;
+  overflow-y: scroll;
+  @include scroll-height(12.5rem);
 }

@@ -1,15 +1,15 @@
 // Navs, Tabs and Pills
 .md-tabs {
-  box-shadow: $z-depth-1-half;
-  border: 0;
+  position: relative;
+  z-index: 1;
   padding: $tabs-padding;
-  margin-left: $tabs-margin-x;
   margin-right: $tabs-margin-x;
   margin-bottom: $tabs-margin-y;
+  margin-left: $tabs-margin-x;
   background-color: $nav-tabs-pills-bgc;
-  z-index: 1;
-  position: relative;
+  border: 0;
   border-radius: $nav-tabs-border-radius;
+  box-shadow: $z-depth-1-half;
   .nav-item + .nav-item {
     margin-left: 0;
   }
@@ -22,22 +22,22 @@
     }
   }
   .nav-link {
-    transition: $nav-link-transition;
-    border: 0;
     color: $white-base;
+    border: 0;
+    transition: $nav-link-transition;
   }
   .nav-link.active,
   .nav-item.open .nav-link {
-    background-color: $nav-link-active-bgc;
     color: $white-base;
-    transition: $nav-link-active-transition;
+    background-color: $nav-link-active-bgc;
     border-radius: $nav-tabs-border-radius;
+    transition: $nav-link-active-transition;
   }
   .nav-item.show .nav-link {
-    background-color: $nav-tabs-pills-bgc;
     color: $white-base;
-    transition: $nav-link-active-transition;
+    background-color: $nav-tabs-pills-bgc;
     border-radius: $nav-tabs-border-radius;
+    transition: $nav-link-active-transition;
   }
   .nav-item.show .nav-link.dropdown-toggle {
     background-color: $nav-link-active-bgc;
@@ -58,22 +58,23 @@
     padding: $pills-padding;
   }
   .show > .nav-link {
-    box-shadow: $z-depth-1;
     color: $white-base;
     background-color: $nav-tabs-pills-bgc;
+    box-shadow: $z-depth-1;
   }
   .nav-link {
-    transition: $nav-link-transition;
-    border-radius: $md-pills-nav-link-border-radius;
     color: $md-pills-nav-link-color;
     text-align: center;
+    border-radius: $md-pills-nav-link-border-radius;
+    transition: $nav-link-transition;
     &:hover {
-      @extend .rgba-grey-light;
+      // background-color: rgba(158, 158, 158, 0.3);
+      @extend .rgba-grey-light !optional;
     }
     &.active {
-      box-shadow: $z-depth-1;
       color: $white-base;
       background-color: $nav-tabs-pills-bgc;
+      box-shadow: $z-depth-1;
     }
     &.active:hover {
       box-shadow: $z-depth-1-half;
@@ -99,9 +100,9 @@
 
 .classic-tabs {
   .nav {
-    white-space: nowrap;
-    overflow-x: auto;
     position: relative;
+    overflow-x: auto;
+    white-space: nowrap;
     border-radius: $classic-tabs-border-radius $classic-tabs-border-radius 0 0;
     @media (min-width: 62rem) {
       overflow-x: hidden;
@@ -111,16 +112,16 @@
         display: block;
         padding: $classic-tabs-padding-y $classic-tabs-padding-x;
         font-size: $classic-tabs-font-size;
-        text-transform: uppercase;
         color: $classic-tabs-color;
         text-align: center;
+        text-transform: uppercase;
         border-radius: 0;
         &:not(.active) {
           margin-bottom: $classic-tabs-li-a-active-border-bottom;
         }
         &.active {
-          border-bottom: $classic-tabs-li-a-active-border-bottom solid;
           color: $white-base;
+          border-bottom: $classic-tabs-li-a-active-border-bottom solid;
         }
       }
       @media (min-width: 62em) {
@@ -156,12 +157,12 @@
         }
       }
       .floor {
+        position: absolute;
+        bottom: 0;
+        z-index: 1200;
         display: inline-block;
         width: 30px;
         height: 3px;
-        position: absolute;
-        z-index: 1200;
-        bottom: 0;
         transition: all .4s linear;
       }
     }

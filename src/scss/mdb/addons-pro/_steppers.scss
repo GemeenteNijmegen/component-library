@@ -3,44 +3,44 @@
 // CSS v2.1.3
 */
 
-/*Validate.js FIX*/
+/* Validate.js FIX */
 
 label.invalid {
-  font-size: 12.8px;
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: red !important;
   top: 50px !important;
+  font-size: 12.8px;
+  font-size: .8rem;
+  font-weight: 500;
+  color: #f00 !important;
 
   &.active {
     transform: translateY(0%) !important;
   }
 }
 
-/*Validate.js FIX*/
+/* Validate.js FIX */
 
 ul.stepper {
   .wait-feedback {
-    left: 0;
-    right: 0;
-    top: 0;
-    z-index: 2;
     position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 100%;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   .step {
     position: relative;
     list-style: none;
 
-    &.feedbacking .step-new-content>*:not(.wait-feedback) {
-      opacity: 0.1;
+    &.feedbacking .step-new-content > *:not(.wait-feedback) {
       -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+      opacity: .1;
     }
 
     &:not(:last-of-type).active {
@@ -49,17 +49,17 @@ ul.stepper {
 
     &:before {
       position: absolute;
-      top: 0.75rem;
-      counter-increment: section;
-      content: counter(section);
-      height: 1.75rem;
+      top: .75rem;
       width: 1.75rem;
-      color: white;
-      background-color: rgba(0, 0, 0, 0.3);
-      border-radius: 100%;
-      text-align: center;
-      line-height: 1.75rem;
+      height: 1.75rem;
       font-weight: 400;
+      line-height: 1.75rem;
+      color: #fff;
+      text-align: center;
+      content: counter(section);
+      counter-increment: section;
+      background-color: rgba(0, 0, 0, .3);
+      border-radius: 100%;
     }
 
     &.active:before {
@@ -67,44 +67,44 @@ ul.stepper {
     }
 
     &.done:before {
-      content: '\f00c';
-      font-family: 'Font Awesome 5 Pro', 'Font Awesome 5 Free';
+      font-family: "Font Awesome 5 Pro", "Font Awesome 5 Free", sans-serif;
       font-size: 1rem;
       font-weight: 900;
+      content: "\f00c";
       background-color: #00c851;
     }
 
     &.wrong:before {
-      content: '\f071';
-      font-family: 'Font Awesome 5 Pro', 'Font Awesome 5 Free';
+      font-family: "Font Awesome 5 Pro", "Font Awesome 5 Free", sans-serif;
       font-size: 1.1rem;
       font-weight: 900;
+      content: "\f071";
       background-color: #ff3547;
     }
   }
 
-  >li:not(:last-of-type) {
-    margin-bottom: 0.625rem;
-    transition: margin-bottom 0.4s;
+  > li:not(:last-of-type) {
+    margin-bottom: .625rem;
+    transition: margin-bottom .4s;
   }
 
   .step-title {
+    display: block;
+    padding: .9688rem 2.75rem 1.5rem 4rem;
     margin: 0 -1.3rem;
     cursor: pointer;
-    padding: 0.9688rem 2.75rem 1.5rem 4rem;
-    display: block;
 
     &:after {
-      content: attr(data-step-label);
-      display: block;
       position: absolute;
-      font-size: 0.8rem;
-      color: #424242;
+      display: block;
+      font-size: .8rem;
       font-weight: 400;
+      color: #424242;
+      content: attr(data-step-label);
     }
 
     &:hover {
-      background-color: rgba(0, 0, 0, 0.06);
+      background-color: rgba(0, 0, 0, .06);
     }
   }
 
@@ -115,24 +115,24 @@ ul.stepper {
   .step-new-content {
     position: relative;
     display: none;
-    height: calc(100% - 132px);
     width: inherit;
-    overflow: visible;
-    margin-left: 41px;
+    height: calc(100% - 132px);
     margin-right: 24px;
+    margin-left: 41px;
+    overflow: visible;
   }
 
-  >.step {
+  > .step {
     &:not(:last-of-type):after {
-      content: '';
       position: absolute;
       top: 3.125rem;
-      left: 0.8438rem;
-      width: 0.0625rem;
+      left: .8438rem;
+      width: .0625rem;
       height: 40%;
       height: calc(100% - 38px);
-      background-color: rgba(0, 0, 0, 0.1);
-      transition: all 0.4s;
+      content: "";
+      background-color: rgba(0, 0, 0, .1);
+      transition: all .4s;
     }
 
     &.active:not(:last-child):after {
@@ -142,8 +142,8 @@ ul.stepper {
 
     &[data-last="true"] {
       &:after {
-        height: 0;
         width: 0;
+        height: 0;
       }
 
       margin-bottom: 0;
@@ -151,24 +151,22 @@ ul.stepper {
   }
 
   .step-actions {
-    display: -webkit-box;
-
+    display: flex;
     -webkit-box-pack: start;
-
     .btn:not(:last-child),
     .btn-flat:not(:last-child),
     .btn-large:not(:last-child) {
-      margin-right: 0.3125rem;
+      margin-right: .3125rem;
     }
   }
 
   .step-new-content .row {
-    margin-bottom: 0.4375rem;
+    margin-bottom: .4375rem;
   }
 
   .md-form {
     label {
-      left: 0.875rem;
+      left: .875rem;
     }
 
     .validate {
@@ -183,19 +181,19 @@ ul.stepper {
     display: flex;
     justify-content: space-between;
     min-height: 20rem;
-    margin-left: -1.5rem;
-    margin-right: -1.5rem;
-    padding-left: 1.5rem;
     padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    margin-right: -1.5rem;
+    margin-left: -1.5rem;
     overflow: hidden;
 
     &:before {
-      content: '';
-      background-color: transparent;
-      width: 100%;
-      min-height: 5.25rem;
       position: absolute;
       left: -3px;
+      width: 100%;
+      min-height: 5.25rem;
+      content: "";
+      background-color: transparent;
       border-top-left-radius: 2px;
     }
 
@@ -205,74 +203,38 @@ ul.stepper {
 
     .step {
       position: static;
-      margin: 0;
-      width: 100%;
       display: flex;
       align-items: center;
+      width: 100%;
       height: 5.25rem !important;
+      margin: 0;
 
       &:not(:last-of-type):after {
-        content: '';
         position: static;
         display: inline-block;
         width: 100%;
-        height: 0.0625rem;
+        height: .0625rem;
+        content: "";
       }
-    }
-
-    >.step {
-
-      &:last-of-type,
-      &[data-last="true"] {
-        width: auto !important;
-      }
-    }
-
-    >.step.active:not(:last-of-type):after {
-      content: '';
-      position: static;
-      display: inline-block;
-      width: 100%;
-      height: 0.0625rem;
-    }
-
-    .step {
       &.active .step-title:before {
         background-color: #4285f4;
       }
 
       &.done .step-title:before {
-        font-family: 'Font Awesome 5 Pro', 'Font Awesome 5 Free';
-        font-weight: 900;
-        content: '\f00c';
+        font-family: "Font Awesome 5 Pro", "Font Awesome 5 Free", sans-serif;
         font-size: 1rem;
+        font-weight: 900;
+        content: "\f00c";
         background: #00c851;
       }
 
       &.wrong .step-title:before {
-        font-family: 'Font Awesome 5 Pro', 'Font Awesome 5 Free';
-        font-weight: 900;
-        content: '\f071';
+        font-family: "Font Awesome 5 Pro", "Font Awesome 5 Free", sans-serif;
         font-size: 1.1rem;
+        font-weight: 900;
+        content: "\f071";
         background-color: #ff3547;
       }
-    }
-
-    .step-title {
-      line-height: 5.25rem;
-      height: 5.25rem;
-      margin: 0;
-      padding: 0 1.5625rem 0 4.0625rem;
-      display: inline-block;
-      max-width: 13.75rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      -ms-flex-negative: 0;
-      flex-shrink: 0;
-    }
-
-    .step {
       &:before {
         content: none;
       }
@@ -281,57 +243,85 @@ ul.stepper {
         position: absolute;
         top: 1.7813rem;
         left: 1.1875rem;
-        counter-increment: section;
-        content: counter(section);
-        height: 1.75rem;
         width: 1.75rem;
-        color: white;
-        background-color: rgba(0, 0, 0, 0.3);
-        border-radius: 100%;
-        text-align: center;
-        line-height: 1.75rem;
+        height: 1.75rem;
         font-weight: 400;
+        line-height: 1.75rem;
+        color: #fff;
+        text-align: center;
+        content: counter(section);
+        counter-increment: section;
+        background-color: rgba(0, 0, 0, .3);
+        border-radius: 100%;
       }
     }
 
+    > .step {
+
+      &:last-of-type,
+      &[data-last="true"] {
+        width: auto !important;
+      }
+    }
+
+    > .step.active:not(:last-of-type):after {
+      position: static;
+      display: inline-block;
+      width: 100%;
+      height: .0625rem;
+      content: "";
+    }
+
+    .step-title {
+      display: inline-block;
+      flex-shrink: 0;
+      max-width: 13.75rem;
+      height: 5.25rem;
+      padding: 0 1.5625rem 0 4.0625rem;
+      margin: 0;
+      overflow: hidden;
+      line-height: 5.25rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      -ms-flex-negative: 0;
+    }
+
     & .step-title:after {
-      top: 0.9375rem;
+      top: .9375rem;
     }
 
     & .step-new-content {
       position: absolute;
-      height: calc(100% - 84px);
       top: 6rem;
       left: 0;
       width: 100%;
-      overflow-y: auto;
-      overflow-x: hidden;
-      margin: 0;
+      height: calc(100% - 84px);
       padding: 1.25rem 1.25rem 4.75rem 1.25rem;
+      margin: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
     }
-
 
     & .step-actions {
       position: absolute;
       bottom: 0;
       left: 0;
+      flex-direction: row-reverse;
       width: 100%;
       padding: 20px;
-      ;
-      flex-direction: row-reverse;
 
       .btn:not(:last-child),
       .btn-flat:not(:last-child),
       .btn-large:not(:last-child) {
-        margin-left: 0.3125rem;
         margin-right: 0;
+        margin-left: .3125rem;
       }
     }
   }
 
   ul.stepper.horizontal .step-new-content,
   ul.stepper.horizontal .step-actions {
-    padding-left: 2.5rem;
     padding-right: 2.5rem;
+    padding-left: 2.5rem;
   }
 }
