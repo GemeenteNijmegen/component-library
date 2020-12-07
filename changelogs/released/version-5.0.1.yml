@@ -1,0 +1,11 @@
+version: 5.0.1
+versionBump: patch
+date: 2020-12-07T08:24:46.909Z
+files:
+  - GNIJ-351.yml
+changes:
+  - type: changed
+    component: null
+    description: Fixed a bug where you couldn't use your keyboard to navigate a link
+    what:
+      - JS
