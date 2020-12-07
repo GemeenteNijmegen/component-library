@@ -89,7 +89,7 @@ function updateButtons(
     mobileNextBtn,
     currentStepNumber,
     stepCount,
-    validSteps,
+    validSteps
 ) {
     setNavigationItemStatuses(navigationListItems, navigationStep, currentStepNumber, stepCount, validSteps);
     mobileNextBtn.show();
@@ -110,7 +110,7 @@ function updateStepStatus(
     mobileNextBtn,
     currentStepNumber,
     stepCount,
-    validSteps,
+    validSteps
 ) {
     updateButtons(
         navigationListItems,
@@ -121,7 +121,7 @@ function updateStepStatus(
         mobileNextBtn,
         currentStepNumber,
         stepCount,
-        validSteps,
+        validSteps
     );
     $('.current-step').text(currentStepNumber);
     $('.step-count').text(stepCount);
@@ -165,7 +165,7 @@ $(document).ready(function() {
             mobileNextBtn,
             currentStepNumber,
             allContent.length,
-            validSteps,
+            validSteps
         );
     });
 
@@ -195,7 +195,7 @@ $(document).ready(function() {
                 mobileNextBtn,
                 parseInt($item.attr('href').substring(14)),
                 allContent.length,
-                validSteps,
+                validSteps
             );
         }
     });
@@ -223,11 +223,4 @@ $(document).ready(function() {
     });
 
     activeStep.trigger('click');
-
-    $(window).keydown(function(event) {
-        if (event.keyCode == 13 && !$(event.target).is('.back-link, .backBtn, .next-link, .nextBtn, .step-link')) {
-            event.preventDefault();
-            return false;
-        }
-    });
 });
