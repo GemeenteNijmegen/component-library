@@ -22,6 +22,8 @@ build: intro do-build do-show-commands
 start: intro do-start
 start-static: intro do-static-stop do-static-build do-static-start
 stop: intro do-stop
+restart: intro do-restart
+shell: intro do-open-shell
 test: intro do-lint do-test
 fix: intro do-fix
 update: intro do-switch-branch do-run-updates do-start
@@ -69,6 +71,8 @@ do-show-commands:
 	@echo "    make start                              Start container."
 	@echo "    make start-static                       Start static container."
 	@echo "    make stop                               Stop container."
+	@echo "    make restart                            Restart container."
+	@echo "    make shell                              Open shell in frontend container."
 	@echo "    make test                               Run jest tests."
 	@echo "    make fix                                Fix auto fixable linting problems."
 	@echo "    make update                             Update npm packages."
@@ -111,6 +115,14 @@ do-static-start:
 do-stop:
 	@echo "\n=== Stop container ===\n"
 	docker-compose down
+
+do-restart:
+	@echo "\n=== Restart container ===\n"
+	docker-compose restart
+
+do-open-shell:
+	@echo "\n=== Open shell in frontend container ===\n"
+	docker-compose run --rm frontend sh
 
 do-lint:
 	@echo "\n=== Lint js ===\n"

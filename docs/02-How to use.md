@@ -25,9 +25,15 @@ All files (CSS and JavaScript) used in underneath example originate from the MDB
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <!-- Start: Core styling -->
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="%HOST%{{ assetPath '/css/bootstrap.min.css' }}">
+    <link rel="stylesheet" 
+          href="%HOST%{{ assetPath '/css/bootstrap.min.css' }}"
+          integrity="{{{ sri '/public/css/bootstrap.min.css' }}}"
+          crossorigin="anonymous">
     <!-- Material Design Bootstrap combined with custom Nijmegen styles -->
-    <link rel="stylesheet" href="%HOST%{{ assetPath '/nijmegen.css' }}">
+    <link rel="stylesheet" 
+          href="%HOST%{{ assetPath '/nijmegen.css' }}"
+          integrity="{{{ sri '/public/nijmegen.css' }}}"
+          crossorigin="anonymous">
     <!-- End: Core styling -->
 
     <title>Titel van de pagina</title>
@@ -41,17 +47,33 @@ All files (CSS and JavaScript) used in underneath example originate from the MDB
 </main>
 
 <!-- Start: Core scripts -->
-<!-- JQuery -->
-<script src="%HOST%{{ assetPath '/js/jquery.min.js' }}"></script>
-<!-- Bootstrap tooltips -->
-<script src="%HOST%{{ assetPath '/js/popper.min.js' }}"></script>
-<!-- Bootstrap core JavaScript -->
-<script src="%HOST%{{ assetPath '/js/bootstrap.min.js' }}"></script>
-<!-- MDB core JavaScript -->
-<script src="%HOST%{{ assetPath '/js/mdb.min.js' }}"></script>
-<!-- Nijmegen specific script -->
-<script src="%HOST%{{ assetPath '/nijmegen.js' }}"></script>
 
+<!-- JQuery -->
+<script src="%HOST%{{ assetPath '/js/jquery.min.js' }}"
+        integrity="{{{ sri '/public/js/jquery.min.js' }}}"
+        crossorigin="anonymous"></script>
+
+<!-- Bootstrap tooltips -->
+<script src="%HOST%{{ assetPath '/js/popper.min.js' }}"
+        integrity="{{{ sri '/public/js/popper.min.js' }}}"
+        crossorigin="anonymous"></script>
+
+<!-- Bootstrap core JavaScript -->
+<script src="%HOST%{{ assetPath '/js/bootstrap.min.js' }}"
+        integrity="{{{ sri '/public/js/bootstrap.min.js' }}}"
+        crossorigin="anonymous"></script>
+
+<!-- MDB core JavaScript -->
+<script src="%HOST%{{ assetPath '/js/mdb.min.js' }}"
+        integrity="{{{ sri '/public/js/mdb.min.js' }}}"
+        crossorigin="anonymous"></script>
+
+<!-- Nijmegen specific script -->
+<script src="%HOST%{{ assetPath '/nijmegen.js' }}"
+        integrity="{{{ sri '/public/nijmegen.js' }}}"
+        crossorigin="anonymous"></script>
+        
+<!-- End: Core scripts -->
 <!-- Start: Additional component(s) script -->
 <!-- ... -->
 <!-- End: Additional component(s) script -->
