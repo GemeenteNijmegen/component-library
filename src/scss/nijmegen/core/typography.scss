@@ -1,5 +1,5 @@
 // TYPOGRAPHY
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,700');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,700&display=swap');
 
 $oranda-font-path: '../font/oranda/';
 
@@ -8,32 +8,25 @@ $font-weight-semibold: 600;
 $font-weight-bold:     700;
 
 @font-face {
+    font-display: swap;
     font-family: 'Oranda';
     font-style: normal;
     font-weight: $font-weight-bold;
     src:
     local(Oranda BT Bold),
-    url('#{$oranda-font-path}oranda_bold_bt.eot'),
-    url('#{$oranda-font-path}oranda_bold_bt.eot?#iefix') format('embedded-opentype'),
     url('#{$oranda-font-path}oranda_bold_bt.woff2') format('woff2'),
-    url('#{$oranda-font-path}oranda_bold_bt.woff') format('woff'),
-    url('#{$oranda-font-path}oranda_bold_bt.ttf') format('truetype'),
-    url('#{$oranda-font-path}oranda_bold_bt.svg#oranda_btbold') format('svg');
+    url('#{$oranda-font-path}oranda_bold_bt.woff') format('woff');
 }
 
 @font-face {
+    font-display: swap;
     font-family: 'Oranda';
     font-style: normal;
     font-weight: $font-weight-normal;
     src:
     local(Oranda BT Roman),
-    url('#{$oranda-font-path}oranda_bt.eot'),
-    url('#{$oranda-font-path}oranda_bt.eot?#iefix') format('embedded-opentype'),
     url('#{$oranda-font-path}oranda_bt.woff2') format('woff2'),
-    url('#{$oranda-font-path}oranda_bt.woff') format('woff'),
-    url('#{$oranda-font-path}oranda_bt.ttf') format('truetype'),
-    url('#{$oranda-font-path}oranda_bt.svg#oranda_btroman') format('svg');
-
+    url('#{$oranda-font-path}oranda_bt.woff') format('woff');
 }
 
 html {

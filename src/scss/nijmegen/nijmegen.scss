@@ -1,17 +1,7 @@
 // Core
 @import 'core/mixins';
 @import 'core/colors';
-
-// Material design icons
-$mdi-font-path: '../../node_modules/@mdi/font/fonts';
-@import '~@mdi/font/scss/materialdesignicons';
-
-i.mdi,
-span.mdi {
-    display: inline-block;
-    font-size: 1.5rem;
-    line-height: 1;
-}
+@import 'core/mdi';
 
 $medium-screen-portrait: map-get($grid-breakpoints, 'md');
 $small-screen-portrait: map-get($grid-breakpoints, 'sm');
