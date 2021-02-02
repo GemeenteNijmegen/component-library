@@ -46,6 +46,7 @@ const hbs = require('@frctl/handlebars')({
         concat: (...strs) => strs.filter(str => typeof str === 'string').join(''),
         objectLength: obj => Object.keys(obj).length,
         sri: require('./helpers/fractal/calculate-integrity'),
+        preloadFiles: require('./helpers/fractal/preloadFiles').getPreloadFiles,
     },
     partials: getPartials(path.join(__dirname, './docs/partials')),
 });

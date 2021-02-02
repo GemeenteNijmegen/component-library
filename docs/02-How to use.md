@@ -23,6 +23,22 @@ All files (CSS and JavaScript) used in underneath example originate from the MDB
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <!-- Preload fonts and external styles -->
+    <link rel="preload" 
+          as="style"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,700&display=swap">
+    <link rel="preconnect" 
+          href="https://fonts.gstatic.com/" 
+          crossorigin="anonymous">
+    {{#each (preloadFiles) as |file| }}
+    <link rel="preload" 
+          as="{{file.as}}" 
+          href="%HOST%{{ assetPath file.url }}" 
+          type="{{file.as}}/{{file.type}}"
+          crossorigin="anonymous">
+    {{/each}}
+
     <!-- Start: Core styling -->
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" 
