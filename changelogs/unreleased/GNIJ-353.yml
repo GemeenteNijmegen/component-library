@@ -1,6 +1,0 @@
-versionBump: patch # patch, minor, major
-changes:
-  - type: changed #changed, removed, added
-    component:
-    description: Added an integrity hash to all included scripts (see 'How To Use')
-    what: [HTML] # what has changed 1 or more of: [HTML, CSS, JS]

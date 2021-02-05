@@ -1,0 +1,17 @@
+version: 5.0.2
+versionBump: patch
+date: 2021-02-05T14:04:42.544Z
+files:
+  - GNIJ-353.yml
+  - GNIJ-356.yml
+changes:
+  - type: changed
+    component: null
+    description: Added an integrity hash to all included scripts (see 'How To Use')
+    what:
+      - HTML
+  - type: changed
+    component: null
+    description: Added preload links for all fonts to the "How to use" section
+    what:
+      - HTML
