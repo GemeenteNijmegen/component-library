@@ -2,5 +2,7 @@ versionBump: patch # patch, minor, major
 changes:
   - type: changed #changed, removed, added
     component: [facets, facets-advanced, searchresults-template]
-    description: Changed the facets title to a button so it is keyboard accessible
+    description: >
+      Changed the facets title to a button so it is keyboard accessible.
+      Changed wrapper from <section> to <nav>.
     what: [HTML, CSS] # what has changed 1 or more of: [HTML, CSS, JS]
