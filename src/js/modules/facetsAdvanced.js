@@ -4,30 +4,21 @@ function FacetsAdvanced() {
     this.facetGroupTemplate = null;
     this.facetItemTemplate = null;
     this.globalCallback = null;
+
+    this.Facets = new nijmegen.Facets();
 }
 
-FacetsAdvanced.prototype.init = function(selector, globalCallback) {
+FacetsAdvanced.prototype.init = function (selector, globalCallback, allowCollapseOnDesktop = false) {
+    this.Facets.init(selector, globalCallback, allowCollapseOnDesktop);
+
     this.$facets = $(selector);
     this.$facetsContainer = $('.facets__facets', this.$facets);
-    this.$facetsContainer.addClass('hide');
 
     this.globalCallback = globalCallback;
     this.facetGroupTemplate = $.parseHTML($('#facets-advanced-group-template').html());
     this.facetItemTemplate = $.parseHTML($('#facets-advanced-item-template').html());
     this.facetItemCheckboxTemplate = $.parseHTML($('#facets-advanced-item-checkbox-template').html());
 
-    $('.facets__title', this.$facets).click(this.clickHandler.bind(this));
-};
-
-FacetsAdvanced.prototype.clickHandler = function() {
-    var $title = $('.facets__title', this.$facets);
-    if ($title.hasClass('expanded')) {
-        $title.removeClass('expanded');
-        this.$facetsContainer.removeClass('expanded');
-    } else {
-        $title.addClass('expanded');
-        this.$facetsContainer.addClass('expanded');
-    }
 };
 
 FacetsAdvanced.prototype.createGroup = function(facetGroup, id) {
@@ -37,7 +28,7 @@ FacetsAdvanced.prototype.createGroup = function(facetGroup, id) {
     }
     $('.facets__group-title', $facetGroup).html(facetGroup.title);
     $('.facets__group-button', $facetGroup)
-        .click(function() {
+        .on('click', function() {
             var $facetGroup = $(this).parent();
             if ($facetGroup.hasClass('expanded')) {
                 $facetGroup.removeClass('expanded');
@@ -63,7 +54,7 @@ FacetsAdvanced.prototype.createItem = function(facetItem) {
     }
     if (facetItem.callback || this.globalCallback) {
         var callback = facetItem.callback ? facetItem.callback : this.globalCallback;
-        $('.facets__link', $facetItem).click(
+        $('.facets__link', $facetItem).on('click',
             (function($facetItem, facetItem) {
                 return function(event) {
                     callback(event, $facetItem, facetItem);
@@ -83,7 +74,7 @@ FacetsAdvanced.prototype.createItemCheckbox = function(facetItem, id) {
     var callback = facetItem.callback ? facetItem.callback : this.globalCallback;
     $('.facets__checkbox', $facetItem)
         .attr('id', namedId)
-        .change(
+        .on('change',
             (function($facetItem, facetItem) {
                 return function(event) {
                     callback(event, $facetItem, facetItem);
@@ -99,7 +90,7 @@ FacetsAdvanced.prototype.createItemCheckbox = function(facetItem, id) {
     return $facetItem;
 };
 
-FacetsAdvanced.prototype.show = function(facets) {
+FacetsAdvanced.prototype.show = function (facets) {
     this.$facetsContainer.html('');
     if (facets && facets.length) {
         this.$facets.removeClass('facets--hide');

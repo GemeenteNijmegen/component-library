@@ -40,8 +40,10 @@
             content: '\25B4'
         }
 
-        @media #{$large-and-up} {
-            display: none;
+        &:not(.allow-collapse-on-desktop){
+            @media #{$large-and-up} {
+                display: none;
+            }
         }
     }
 
@@ -53,6 +55,9 @@
             &:not(.expanded){
                 display: none;
             }
+        }
+        &.allow-collapse-on-desktop:not(.expanded){
+            display: none;
         }
     }
 
