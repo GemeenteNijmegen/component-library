@@ -39,3 +39,15 @@ Look at the example to see how the data needs to be formatted that you can feed 
 ```html
 {{ render '@facets-example-scripts' }}
 ```
+
+#### Collapse the facets on desktop
+
+Normally the facets are only collapsed in the mobile view. It is also possible to configure the facets to also collapse in the desktop view.
+
+The third argument of the facets init function (`allowCollapseOnDesktop`) defaults to `false` but can be set to `true` to collapse the facets on desktop.
+
+```html
+<script>
+    facets.init('#facets', facetClickHandler, true);
+</script>
+```

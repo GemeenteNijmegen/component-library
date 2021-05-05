@@ -24,14 +24,23 @@
     }
 
     &__group-title{
+        @include web-font-rendering-support;
+
+        font-family: 'Oranda', sans-serif;
+        margin-bottom: to-rem(8);
         position: relative;
 
         &::before {
             @include mdi('chevron-up');
-            left: -30px;
+            left: -28px;
             line-height: 100%;
             position: absolute;
             top: 5px;
+
+            @media #{$medium-and-down} {
+                left: -26px;
+                top: 0;
+            }
         }
     }
 

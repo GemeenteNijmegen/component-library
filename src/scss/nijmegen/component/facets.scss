@@ -4,12 +4,19 @@
     }
 
     &__title{
+        background: none;
+        border: 0;
         border-bottom: 1px solid color('nijmegen-grey', 'base');
         color: $body-color;
         cursor: pointer;
+        display: block;
         font-size: to-rem(18);
+        line-height: 1.2;
+        margin-bottom: to-rem(8);
         padding: to-rem(20) 0;
         position: relative;
+        text-align: left;
+        width: 100%;
 
         &::before{
             @include mdi('filter');
@@ -25,12 +32,18 @@
             top: to-rem(20);
         }
 
+        &:focus {
+            @include tab-focus-minimal;
+        }
+
         &.expanded::after {
             content: '\25B4'
         }
 
-        @media #{$large-and-up} {
-            display: none;
+        &:not(.allow-collapse-on-desktop){
+            @media #{$large-and-up} {
+                display: none;
+            }
         }
     }
 
@@ -42,6 +55,9 @@
             &:not(.expanded){
                 display: none;
             }
+        }
+        &.allow-collapse-on-desktop:not(.expanded){
+            display: none;
         }
     }
 
