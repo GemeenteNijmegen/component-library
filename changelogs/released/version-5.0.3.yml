@@ -1,0 +1,26 @@
+version: 5.0.3
+versionBump: patch
+date: 2021-06-11T05:36:04.501Z
+files:
+  - GNIJ-362.yml
+changes:
+  - type: changed
+    component:
+      - facets
+      - facets-advanced
+      - searchresults-template
+    description: >
+      Changed the facets title to a button so it is keyboard accessible. Changed
+      wrapper from <section> to <nav>.
+    what:
+      - HTML
+      - CSS
+  - type: changed
+    component:
+      - facets
+      - facets-advanced
+    description: |
+      Added option to allow the facets to be collapsible on desktop
+    what:
+      - HTML
+      - JS
