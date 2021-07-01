@@ -9,7 +9,7 @@ changes:
       - facets
       - facets-advanced
       - searchresults-template
-    description: >
+    description: >-
       Changed the facets title to a button so it is keyboard accessible. Changed
       wrapper from <section> to <nav>.
     what:
@@ -19,7 +19,7 @@ changes:
     component:
       - facets
       - facets-advanced
-    description: |
+    description: >-
       Added option to allow the facets to be collapsible on desktop
     what:
       - HTML
