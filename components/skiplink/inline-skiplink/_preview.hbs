@@ -1,0 +1,36 @@
+{{> '@tpl-head' }}
+
+</head>
+
+<body>
+    <h1>Inline skiplink demo</h1>
+    <p>
+        Eget <a href="#">commodo</a> erat neque. Eros pulvinar magnis inceptos venenatis. Sit facilisis turpis
+        himenaeos inceptos
+        rutrum. Netus sodales phasellus donec purus. Dictum viverra dui suspendisse ultrices id penatibus.
+        Adipiscing maximus massa sem enim. Ante est <a href="#">nisi</a> dictumst.
+    </p>
+    {{{ yield }}}
+    <h2>Skip over the list of links</h2>
+    <ul>
+        <li><a href="#">accumsan</a></li>
+        <li><a href="#">eros</a></li>
+        <li><a href="#">turpis</a></li>
+        <li><a href="#">consectetur</a></li>
+        <li><a href="#">faucibus</a></li>
+        <li><a href="#">ultrices</a></li>
+    </ul>
+    <h2 tabindex="-1" id="skip-to-here">To here</h2>
+    <p>
+        Montes pellentesque <a href="#">ullamcorper</a> mattis proin torquent. Ultrices euismod potenti metus
+        dictumst. Eget commodo purus suscipit integer diam pretium. Velit tempus iaculis justo. Congue ex maximus
+        sollicitudin.
+    </p>
+
+    </main>
+
+    {{> '@tpl-scripts' }}
+
+</body>
+
+</html>

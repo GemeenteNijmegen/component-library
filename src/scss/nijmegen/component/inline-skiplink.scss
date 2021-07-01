@@ -1,0 +1,26 @@
+.inline-skiplink {
+    background: #fff;
+    border: 1px solid $focus-color;
+    font-size: 1.125rem;
+    left: 0;
+    line-height: 1.5rem;
+    padding: 0 .8125rem;
+    position: absolute;
+    text-decoration: underline;
+    top: 0;
+    z-index: 99;
+
+    &:not(:focus){
+        @include sr-only;
+    }
+
+    &:focus {
+        outline: none !important    ;
+    }
+
+    &__container {
+        height: 0;
+        position: relative;
+    }
+
+}
