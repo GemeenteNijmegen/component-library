@@ -12,7 +12,6 @@ import 'url-polyfill';
 import './js/alerts';
 import './js/buttonHorizontalCollapse';
 import './js/cards';
-import './js/checkbox';
 import './js/datePicker';
 import './js/lightbox';
 import './js/mdbTextareaFix';
