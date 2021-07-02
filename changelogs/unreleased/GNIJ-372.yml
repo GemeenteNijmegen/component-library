@@ -4,3 +4,7 @@ changes:
     component: checkbox
     description: Removed the aria-checked attribute since it is not needed for a native checkbox
     what: [JS, HTML] # what has changed 1 or more of: [HTML, CSS, JS]
+  - type: changed
+    component: switch
+    description: Removed the aria-checked attribute for the hidden input element since it is not needed for a native checkbox
+    what: [JS, HTML]
