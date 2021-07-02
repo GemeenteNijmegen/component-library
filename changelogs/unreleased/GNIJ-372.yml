@@ -1,0 +1,14 @@
+versionBump: patch # patch, minor, major
+changes:
+  - type: changed #changed, removed, added
+    component: checkbox
+    description: Removed the aria-checked attribute since it is not needed for a native checkbox
+    what: [JS, HTML] # what has changed 1 or more of: [HTML, CSS, JS]
+  - type: changed
+    component: switch
+    description: Removed the aria-checked attribute for the hidden input element since it is not needed for a native checkbox
+    what: [JS, HTML]
+  - type: changed
+    component: pagination
+    description: Added the role=button and tabindex=-1 when a navigation button is disabled
+    what: [JS, HTML]
