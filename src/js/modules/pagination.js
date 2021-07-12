@@ -78,14 +78,18 @@ Pagination.prototype.hideButton = function(button) {
     $(button).addClass('disabled');
     $('.page-link', button)
         .attr('href', '')
-        .attr('aria-disabled', 'true');
+        .attr('aria-disabled', 'true')
+        .attr('tabindex', -1)
+        .attr('role', 'button');
 };
 
 Pagination.prototype.showButton = function(button, page) {
     $(button).removeClass('disabled');
     $('.page-link', button)
         .attr('href', this.link.replace('{page}', page))
-        .attr('aria-disabled', 'false');
+        .attr('aria-disabled', 'false')
+        .attr('tabindex', 0)
+        .attr('role', undefined);
 };
 
 export default Pagination;
