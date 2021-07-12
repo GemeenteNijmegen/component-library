@@ -14,7 +14,7 @@ services:
       - nijmegen
 
   html-validator:
-    image: validator/validator:latest
+    image: ghcr.io/validator/validator:latest
     networks:
       - nijmegen
 
