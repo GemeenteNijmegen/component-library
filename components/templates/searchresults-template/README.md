@@ -17,6 +17,15 @@ For the search a real-time feed is provided by Pandosearch.
 {{ render '@search-results-pandosearch-example-scripts' }}
 ```
 
+### Accessibility - Skiplinks
+
+There are a few cases where it is recommended to implement an [inline skiplink]({{ componentPath '@inline-skiplink' }}) just above the [facets]({{ componentPath '@facets' }}):
+
+* When a page doesn't refresh after searching
+* When there is no generic skiplink implemented (like the [navbar skiplink]({{ componentPath '@navbar-skiplink' }})).
+
+In those cases a keyboard user needs to tab over all facets before he/she will reach the search results. With an inline skiplink the user can skip over all the facets directly to the top of the search results.
+
 ### Notes
 
 * Used components: see the "References" in the component library info tab
