@@ -4,14 +4,24 @@ const KEY_ENTER = 13;
 const KEY_SPACE = 32;
 
 // close if clicked outside the navbar
-$(document).on('click', function(event) {
+$(document).on('click keyup', function(event) {
     if (
+        event.type === 'click' &&
         navbarToggler.is(':visible') &&
         !navbarToggler.hasClass('collapsed') &&
         !$(event.target).closest('.navbar-toggler').length &&
         !$(event.target).closest('.navbar-collapse').length
     ) {
         navbarToggler.trigger('click');
+    }
+    if (
+        event.type === 'keyup' &&
+        event.key === 'Escape' &&
+        navbarToggler.is(':visible') &&
+        !navbarToggler.hasClass('collapsed')
+    ) {
+        navbarToggler.trigger('click');
+        navbarToggler.trigger('focus');
     }
 });
 
@@ -25,6 +35,14 @@ if (navbarToggler.is(':visible')) {
         });
     });
 }
+
+navbarToggler.on('click', () => {
+    if (navbarToggler.hasClass('collapsed')) {
+        $('.navbar-brand').attr('tabindex', -1);
+        return;
+    }
+    $('.navbar-brand').attr('tabindex', 0);
+});
 
 const smoothScrollTo = (hash, offset = 0) => {
     if (!$(`#${hash}`).length) {
