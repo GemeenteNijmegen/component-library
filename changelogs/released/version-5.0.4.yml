@@ -1,0 +1,54 @@
+version: 5.0.4
+versionBump: patch
+date: 2021-07-15T05:31:30.962Z
+files:
+  - GNIJ-363.yml
+  - GNIJ-364.yml
+  - GNIJ-365.yml
+  - GNIJ-372.yml
+changes:
+  - type: changed
+    component: searchresults-template
+    description: >-
+      Added note about the possibility to add an inline skiplink to skip over
+      facets
+    what:
+      - NOTES
+  - type: added
+    component: inline-skiplink
+    description: Added an inline skiplink component
+    what:
+      - HTML
+      - CSS
+  - type: changed
+    component: navbar
+    description: The hamburger menu will now close when the Escape key is pressed
+    what:
+      - JS
+  - type: changed
+    component: navbar
+    description: When the hamburger menu is open the logo is removed from the tab order
+    what:
+      - JS
+  - type: changed
+    component: checkbox
+    description: >-
+      Removed the aria-checked attribute since it is not needed for a native
+      checkbox
+    what:
+      - JS
+      - HTML
+  - type: changed
+    component: switch
+    description: >-
+      Removed the aria-checked attribute for the hidden input element since it
+      is not needed for a native checkbox
+    what:
+      - JS
+      - HTML
+  - type: changed
+    component: pagination
+    description: Added the role=button and tabindex=-1 when a navigation button is disabled
+    what:
+      - JS
+      - HTML
