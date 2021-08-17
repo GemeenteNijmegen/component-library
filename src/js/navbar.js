@@ -1,3 +1,5 @@
+import * as focusTrap from 'focus-trap';
+
 var navbarToggler = $('.navbar-toggler');
 const SMOOTH_SCROLL_DURATION = 700;
 const KEY_ENTER = 13;
@@ -25,23 +27,16 @@ $(document).on('click keyup', function(event) {
     }
 });
 
-// close if there is a smooth scroll
-if (navbarToggler.is(':visible')) {
-    $('.navbar-nav.nijmegen-smooth-scroll').each(function() {
-        $('.nav-link', this).on('click', function() {
-            if (!navbarToggler.hasClass('collapsed')) {
-                navbarToggler.trigger('click');
-            }
-        });
-    });
-}
+const trap = focusTrap.createFocusTrap(navbarToggler.parent().get(), { clickOutsideDeactivates: true });
 
-navbarToggler.on('click', () => {
-    if (navbarToggler.hasClass('collapsed')) {
+navbarToggler.on('click', function() {
+    if ($(this).hasClass('collapsed')) {
         $('.navbar-brand').attr('tabindex', -1);
+        trap.activate();
         return;
     }
     $('.navbar-brand').attr('tabindex', 0);
+    trap.deactivate();
 });
 
 const smoothScrollTo = (hash, offset = 0) => {
@@ -77,6 +72,10 @@ $('.nijmegen-smooth-scroll').on('click keydown', 'a', function(event) {
 
     const offset = $(this).attr('data-offset') || 0;
     smoothScrollTo(url.hash.substring(1), offset);
+
+    if (!navbarToggler.hasClass('collapsed')) {
+        navbarToggler.trigger('click');
+    }
 });
 
 var SCROLLING_NAVBAR_OFFSET_TOP = 50;
@@ -101,19 +100,19 @@ $(document).ready(function() {
 function NavbarSearch() {}
 
 NavbarSearch.prototype.init = function() {
-    $('#navbar-open-search').click(this.openSearch);
+    $('#navbar-open-search').on('click', this.openSearch);
     $('.autocomplete').on('close', this.closeSearch);
-    $('#navbar-close-search').click(this.closeSearch);
+    $('#navbar-close-search').on('click', this.closeSearch);
 };
 
 NavbarSearch.prototype.openSearch = function(event) {
     $('.navbar').addClass('search-open');
-    $('.autocomplete__input').focus();
+    $('.autocomplete__input').trigger('focus');
     event.stopPropagation();
     event.preventDefault();
 };
 
 NavbarSearch.prototype.closeSearch = function() {
     $('.navbar').removeClass('search-open');
-    $('#navbar-open-search').focus();
+    $('#navbar-open-search').trigger('focus');
 };
