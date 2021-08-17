@@ -27,8 +27,8 @@ $(document).on('click keyup', function(event) {
 
 // close if there is a smooth scroll
 if (navbarToggler.is(':visible')) {
-    $('.navbar-nav.smooth-scroll').each(function() {
-        $('.nav-link', this).click(function() {
+    $('.navbar-nav.nijmegen-smooth-scroll').each(function() {
+        $('.nav-link', this).on('click', function() {
             if (!navbarToggler.hasClass('collapsed')) {
                 navbarToggler.trigger('click');
             }
