@@ -51,6 +51,7 @@ Feature: Visual component check
             | autocomplete |
             | facets |
             | facets-advanced |
+            | radio-button |
             | results |
             | select |
             | stepper |

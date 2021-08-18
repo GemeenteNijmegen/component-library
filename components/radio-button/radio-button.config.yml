@@ -1,0 +1,9 @@
+---
+title: Radio Button
+notes:
+status: ready
+default: "block"
+variants:
+  - name: inline
+    context:
+      modifier: form-check-inline
