@@ -7,3 +7,6 @@ variants:
   - name: inline
     context:
       modifier: form-check-inline
+  - name: disabled
+    context:
+      disabled: disabled

@@ -1,0 +1,10 @@
+.form-check-input[type='radio']:checked + label:after,
+.form-check-input[type='radio'].with-gap:checked + label:after {
+    background-color: color('nijmegen-primary', 'base');
+}
+
+.form-check-input[type='radio']:checked + label:after,
+.form-check-input[type='radio'].with-gap:checked + label:before,
+.form-check-input[type='radio'].with-gap:checked + label:after {
+    border: color('nijmegen-primary', 'base');
+}
