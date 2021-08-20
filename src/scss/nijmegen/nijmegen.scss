@@ -26,6 +26,7 @@ $small-screen-portrait: map-get($grid-breakpoints, 'sm');
 @import 'component/forminputs-template';
 @import 'component/forms';
 @import 'component/hover-effects';
+@import 'component/icons';
 @import 'component/inline-skiplink';
 @import 'component/labels'; // tags, labels, badges
 @import 'component/lightbox';
