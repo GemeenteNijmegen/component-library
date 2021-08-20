@@ -23,7 +23,7 @@
 
 button {
   &:focus {
-    outline: 0 !important;
+    outline: 0;
   }
 
   &.mdb-autocomplete-clear {

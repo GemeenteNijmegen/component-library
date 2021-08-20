@@ -40,11 +40,11 @@
 }
 
 @mixin tab-focus() {
-    outline: 3px auto $focus-color !important;
+    outline: 3px auto $focus-color;
 }
 
 @mixin tab-focus-minimal() {
-    outline: 1px solid $focus-color !important;
+    outline: 1px solid $focus-color;
 }
 
 @mixin aspect-ratio($width, $height) {

@@ -28,9 +28,9 @@
         &:before {
             border: 0;
             color: color('nijmegen-primary', 'base');
-            display: block !important;
+            display: block;
             font-size: to-rem(18);
-            margin: initial !important;
+            margin: initial;
         }
     }
 
@@ -75,10 +75,10 @@
                 color: color('nijmegen-forms', 'body-color');
             }
 
-            &.picker__day--selected {
+            &.picker__day--selected[aria-selected="true"] {
                 background-color: color('nijmegen-forms', 'picker-focus');
                 box-shadow: none;
-                color: color('nijmegen-forms', 'body-color') !important;
+                color: color('nijmegen-forms', 'body-color');
                 font-weight: $font-weight-semibold;
                 transform: initial;
             }

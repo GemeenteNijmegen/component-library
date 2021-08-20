@@ -298,7 +298,7 @@
 @mixin make-button ($name, $color) {
   .btn-#{$name} {
     color: set-notification-text-color($color);
-    background-color: $color !important;
+    background-color: $color;
 
     &:hover {
       color: set-notification-text-color($color);

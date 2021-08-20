@@ -24,8 +24,8 @@
         }
     }
 
-    .carousel-control-prev,
-    .carousel-control-next {
+    .carousel-control-prev[role="button"],
+    .carousel-control-next[role="button"] {
         border-radius: 100%;
         height: 56px;
         opacity: 1;
@@ -48,7 +48,7 @@
         &:focus {
             background: rgba(color('nijmegen-primary', 'lighten-1'), .5);
             box-shadow: 0 0 2px #fff;
-            outline: none !important;
+            outline: none;
         }
     }
 
