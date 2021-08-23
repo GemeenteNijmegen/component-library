@@ -1,0 +1,6 @@
+versionBump: major # patch, minor, major
+changes:
+  - type: [added, removed, changed] #changed, removed, added
+    component: almost all components
+    description: Remove (almost) all `!importants` from the css file in order to provide cleaner css to Nijmegen. In the future they have more control over their html elements without interference of our css
+    what: [CSS] # what has changed 1 or more of: [HTML, CSS, JS]
