@@ -1,5 +1,5 @@
 versionBump: patch
 changes:
   - type: changed
-    component: icons
+    component: icon-list
     description: Addded a visual example of the current icons which are used by Nijmegen
