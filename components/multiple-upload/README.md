@@ -16,3 +16,4 @@ Underneath is an example on how to achieve this and should be placed in the `Add
 
 * By adding an `accept` attribute to the input element such as: `accept="image/jpeg, image/jpg, .pdf"`, you can help indicate to the browser the allowed file types, although this may not necessarily replace your own validation.
 * You should handle the file upload using your own script in a way specific to your own application
+* When you don't want to specify an action attribute on a form don't leave it empty, following the accessibility rules you should either delete it and it will fallback to action='/' or use action='/' yourself

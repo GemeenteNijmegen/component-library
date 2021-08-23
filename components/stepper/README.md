@@ -36,3 +36,4 @@ The submit button will post the form inputs, and could appear on any step.
   * For completed steps, we use the text "Voltooide stap"
   * For the current step, we use the text "Actieve stap"
 * The titles in this component are rendered via `h3` elements, choose your own heading according the structure of the page.
+* When you don't want to specify an action attribute on a form don't leave it empty, following the accessibility rules you should either delete it and it will fallback to action='/' or use action='/' yourself
