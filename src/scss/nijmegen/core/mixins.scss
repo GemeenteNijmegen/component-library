@@ -34,7 +34,7 @@
 
 @mixin web-font-rendering-support {
     -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
+    -webkit-font-smoothing: ialiased;
     font-feature-settings: 'liga';
     text-rendering: optimizeLegibility;
 }
@@ -44,7 +44,12 @@
 }
 
 @mixin tab-focus-minimal() {
-    outline: 1px solid $focus-color;
+    outline: 2px solid $focus-color ;
+    transition: none;
+}
+
+@mixin tab-focus-minimal-inverted() {
+    outline: 2px solid $light-focus-color ;
 }
 
 @mixin aspect-ratio($width, $height) {

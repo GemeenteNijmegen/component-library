@@ -72,7 +72,7 @@
 }
 
 .waves-notransition {
-  @include waves-transition(none #{"!important"});
+  @include waves-transition(none #{"ant"});
 }
 
 .waves-button,

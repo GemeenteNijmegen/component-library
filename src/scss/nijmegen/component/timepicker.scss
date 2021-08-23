@@ -60,7 +60,7 @@
         padding: 10px;
 
         .clockpicker-button {
-            color: color('nijmegen-primary', 'base') !important;
+            color: color('nijmegen-primary', 'base');
             cursor: pointer;
             font-size: to-rem(16);
             font-weight: $font-weight-normal;

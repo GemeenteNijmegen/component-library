@@ -2,14 +2,14 @@
 // Styles for body
 body {
   &.modal-open {
-    padding-right: 0 !important;
+    padding-right: 0;
     overflow: auto;
 
     .fixed-top {
-      padding-right: 1rem !important;
+      padding-right: 1rem;
     }
     .fixed-bottom {
-      padding-right: 0 !important;
+      padding-right: 0;
     }
   }
   &.scrollable {
@@ -172,7 +172,7 @@ body {
 
 // Position & Size
 .modal {
-  padding-right: 0 !important;
+  padding-right: 0;
   .modal-dialog {
     @media (min-width: 768px) {
       &.modal-top {
@@ -244,8 +244,8 @@ body {
     .modal-frame {
       position: absolute;
       width: 100%;
-      max-width: 100% !important;
-      margin: 0 !important;
+      max-width: 100%;
+      margin: 0;
       &.modal-bottom {
         bottom: 0;
       }

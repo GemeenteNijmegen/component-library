@@ -75,7 +75,7 @@
                 color: color('nijmegen-forms', 'body-color');
             }
 
-            &.picker__day--selected[aria-selected="true"] {
+            &.picker__day--selected[aria-selected='true'] {
                 background-color: color('nijmegen-forms', 'picker-focus');
                 box-shadow: none;
                 color: color('nijmegen-forms', 'body-color');

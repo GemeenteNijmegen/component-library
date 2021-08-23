@@ -116,13 +116,13 @@
 // Background color
 @mixin bg-variant($parent, $color) {
   #{$parent} {
-    background-color: $color !important;
+    background-color: $color;
   }
 
   a#{$parent},
   button#{$parent} {
     @include hover-focus {
-      background-color: darken($color, 10%) !important;
+      background-color: darken($color, 10%);
     }
   }
 }
@@ -130,12 +130,12 @@
 // Typography
 @mixin text-emphasis-variant($parent, $color) {
   #{$parent} {
-    color: $color !important;
+    color: $color;
   }
 
   a#{$parent} {
     @include hover-focus {
-      color: darken($color, 10%) !important;
+      color: darken($color, 10%);
     }
   }
 }
@@ -210,15 +210,15 @@
 }
 
 @mixin float-left {
-  float: left !important;
+  float: left;
 }
 
 @mixin float-right {
-  float: right !important;
+  float: right;
 }
 
 @mixin float-none {
-  float: none !important;
+  float: none;
 }
 
 // CSS image replacement
@@ -271,7 +271,7 @@
 }
 
 @mixin invisible($visibility) {
-  visibility: $visibility !important;
+  visibility: $visibility;
 }
 
 // MDB Mixins
@@ -317,18 +317,18 @@
     }
 
     &.dropdown-toggle {
-      background-color: $color !important;
+      background-color: $color;
 
       &:hover,
       &:focus {
-        background-color: lighten($color, 5%) !important;
+        background-color: lighten($color, 5%);
       }
     }
 
     &:not([disabled]):not(.disabled):active,
     &:not([disabled]):not(.disabled).active,
     .show > &.dropdown-toggle {
-      background-color: darken($color, 20%) !important;
+      background-color: darken($color, 20%);
       box-shadow: $z-depth-1-half;
     }
 
@@ -340,7 +340,7 @@
   }
 
   .#{$name}-ic {
-    color: $color !important;
+    color: $color;
 
     &:hover,
     &:focus {
@@ -369,25 +369,25 @@
 // Make outline button
 @mixin make-outline-button ($name, $color) {
   .btn-outline-#{$name} {
-    color: $color !important;
-    background-color: transparent !important;
-    border: 2px solid $color !important;
+    color: $color;
+    background-color: transparent;
+    border: 2px solid $color;
 
     &:hover,
     &:focus,
     &:active,
     &:active:focus,
     &.active {
-      color: $color !important;
-      background-color: transparent !important;
-      border-color: $color !important;
+      color: $color;
+      background-color: transparent;
+      border-color: $color;
     }
 
     &:not([disabled]):not(.disabled):active,
     &:not([disabled]):not(.disabled).active,
     .show > &.dropdown-toggle {
-      background-color: transparent !important;
-      border-color: $color !important;
+      background-color: transparent;
+      border-color: $color;
       box-shadow: $z-depth-1-half;
     }
 
@@ -402,7 +402,7 @@
 // Make gradient
 @mixin make-gradient($name, $value) {
   .#{$name}-gradient {
-    background: linear-gradient(40deg, map-get($value, start), map-get($value, end)) !important;
+    background: linear-gradient(40deg, map-get($value, start), map-get($value, end));
   }
 }
 
@@ -411,7 +411,7 @@ $opacity: .9 !default;
 // Make gradient
 @mixin make-gradient-rgba($name, $value) {
   .#{$name}-gradient-rgba {
-    background: linear-gradient(40deg, map-get($value, start), map-get($value, end)) !important;
+    background: linear-gradient(40deg, map-get($value, start), map-get($value, end));
   }
 }
 
@@ -440,8 +440,8 @@ $opacity: .9 !default;
 
 @mixin make-badge($name, $color) {
   .badge-#{$name} {
-    color: set-notification-text-color($color) !important;
-    background-color: $color !important;
+    color: set-notification-text-color($color);
+    background-color: $color;
   }
 }
 

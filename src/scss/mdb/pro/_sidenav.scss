@@ -36,7 +36,7 @@
   transform: translateX(-100%);
   backface-visibility: hidden;
   will-change: transform;
-  // color: #fff !important;
+  // color: #fff;
   @extend .white-text !optional;
 
   &.wide {
@@ -108,7 +108,7 @@
 
     &.slim {
       right: 3.75rem;
-      width: 3.75rem !important;
+      width: 3.75rem;
       transition-timing-function: linear, linear, ease;
       transition-duration: .5s, .5s, .55s;
       transition-property: top, bottom, width;
@@ -200,11 +200,11 @@
 
     .search-form {
       input[type="text"] {
-        color: $sidenav-light-color !important;
+        color: $sidenav-light-color;
         border-bottom-color: $sidenav-light-border-bottom-color;
 
         @include placeholder {
-          color: $sidenav-light-color !important;
+          color: $sidenav-light-color;
         }
       }
     }
@@ -494,7 +494,7 @@
     }
 
     .form-control {
-      // color: #fff !important;
+      // color: #fff;
       @extend .white-text !optional;
       margin-bottom: 0;
     }
@@ -523,5 +523,5 @@
 
 // Fix to input in sidenav, when you click on mobile ( android , chrome 73+ )
 .transform-fix-input {
-  transform: translateX(0) !important;
+  transform: translateX(0);
 }
