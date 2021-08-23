@@ -1,4 +1,4 @@
-import * as focusTrap from 'focus-trap';
+import { createFocusTrap } from 'focus-trap';
 
 var navbarToggler = $('.navbar-toggler');
 const SMOOTH_SCROLL_DURATION = 700;
@@ -27,7 +27,7 @@ $(document).on('click keyup', function(event) {
     }
 });
 
-const trap = focusTrap.createFocusTrap(navbarToggler.parent().get(), { clickOutsideDeactivates: true });
+const trap = createFocusTrap(navbarToggler.parent().get(), { clickOutsideDeactivates: true });
 
 navbarToggler.on('click', function() {
     if ($(this).hasClass('collapsed')) {
