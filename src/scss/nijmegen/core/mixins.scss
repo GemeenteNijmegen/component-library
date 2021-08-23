@@ -44,7 +44,12 @@
 }
 
 @mixin tab-focus-minimal() {
-    outline: 1px solid $focus-color !important;
+    outline: 2px solid $focus-color !important;
+    transition: none;
+}
+
+@mixin tab-focus-minimal-inverted() {
+    outline: 2px solid $light-focus-color !important;
 }
 
 @mixin aspect-ratio($width, $height) {

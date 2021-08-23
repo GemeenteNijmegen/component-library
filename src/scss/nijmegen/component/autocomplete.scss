@@ -82,7 +82,7 @@
 
         &:hover,
         &:focus {
-            @include tab-focus;
+            @include tab-focus-minimal-inverted;
         }
     }
 

@@ -56,6 +56,10 @@ $tablet-only: 'only screen and (min-width: #{$medium-screen-portrait}) and (max-
         position: relative;
         transition: margin-right .5s ease-in-out;
 
+        &:focus {
+            @include tab-focus-minimal-inverted;
+        }
+
         @media #{$medium-and-down} {
             display: inline-block;
             left: 50%;
@@ -107,7 +111,7 @@ $tablet-only: 'only screen and (min-width: #{$medium-screen-portrait}) and (max-
         position: relative;
 
         &:focus {
-            @include tab-focus-minimal;
+            @include tab-focus-minimal-inverted;
         }
 
         & + .navbar-brand {
@@ -202,7 +206,7 @@ $tablet-only: 'only screen and (min-width: #{$medium-screen-portrait}) and (max-
 
                 &:focus {
                     @media #{$medium-and-down} {
-                        outline: 1px solid  $focus-color !important;
+                        @include tab-focus-minimal-inverted
                     }
                 }
             }
@@ -264,7 +268,7 @@ $tablet-only: 'only screen and (min-width: #{$medium-screen-portrait}) and (max-
                 }
 
                 &:focus {
-                    border-bottom: 2px solid color('nijmegen-primary', 'base');
+                    border-bottom: 2px solid $light-focus-color;
                     box-shadow: none;
 
                     &::placeholder {
@@ -300,7 +304,7 @@ $tablet-only: 'only screen and (min-width: #{$medium-screen-portrait}) and (max-
         }
 
         &:focus {
-            outline: 1px solid  $focus-color !important;
+            @include tab-focus-minimal-inverted;
         }
     }
 
@@ -357,7 +361,7 @@ $tablet-only: 'only screen and (min-width: #{$medium-screen-portrait}) and (max-
                 }
 
                 &:focus {
-                    @include tab-focus-minimal;
+                    @include tab-focus-minimal-inverted;
                 }
 
                 &::before {
@@ -411,7 +415,7 @@ $tablet-only: 'only screen and (min-width: #{$medium-screen-portrait}) and (max-
                     }
 
                     &:focus {
-                        @include tab-focus-minimal;
+                        @include tab-focus-minimal-inverted;
                     }
                 }
             }
@@ -570,6 +574,54 @@ $tablet-only: 'only screen and (min-width: #{$medium-screen-portrait}) and (max-
         .navbar__search {
             @media #{$medium-and-down} {
                 background-color: color('white', 'base');
+            }
+        }
+
+        .navbar {
+            &-brand {
+                &:focus {
+                    @include tab-focus-minimal;
+                }
+            }
+
+            &-toggler {
+                &:focus {
+                    @include tab-focus-minimal;
+                }
+            }
+
+            &__search {
+                .autocomplete {
+                    &__search-button,
+                    &__clear-button {
+                        &:focus {
+                            @include tab-focus-minimal;
+                        }
+                    }
+                    &__input:focus {
+                        border-bottom: 2px solid $focus-color;
+                    }
+                }
+            }
+
+            &__search-button:focus {
+                @include tab-focus-minimal;
+            }
+
+            &-nav {
+                .nav-item {
+                    .nav-link:focus {
+                        @include tab-focus-minimal;
+                    }
+
+                    &.active {
+                        .nav-link {
+                            &:focus {
+                                @include tab-focus-minimal;
+                            }
+                        }
+                    }
+                }
             }
         }
 
