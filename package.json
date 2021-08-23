@@ -42,6 +42,7 @@
         "@mdi/font": "^5.8.55",
         "compare-versions": "^3.5.1",
         "del": "^3.0.0",
+        "focus-trap": "^6.6.1",
         "js-yaml": "^3.12.0",
         "picker.js": "^0.1.11",
         "popper.js": "^1.16.0",
