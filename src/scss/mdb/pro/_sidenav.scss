@@ -36,7 +36,6 @@
   transform: translateX(-100%);
   backface-visibility: hidden;
   will-change: transform;
-  // color: #fff;
   @extend .white-text !optional;
 
   &.wide {
@@ -494,7 +493,6 @@
     }
 
     .form-control {
-      // color: #fff;
       @extend .white-text !optional;
       margin-bottom: 0;
     }

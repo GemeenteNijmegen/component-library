@@ -68,7 +68,6 @@ div.timepicker input{
   margin-bottom: $timepicker-pickerlistitem-mb;
   border-top: $timepicker-pickerlistitem-border-top solid $timepicker-pickerlistitem-border-color;
   border-bottom: $timepicker-pickerlistitem-border-bottom solid $timepicker-pickerlistitem-border-color;
-  // background-color: #fff;
   @extend .white !optional;
   @media (min-height: $timepicker-pickerlistitem-breakpoint) {
     padding: $timepicker-pickerlistitem-media-padding;
@@ -103,7 +102,6 @@ div.timepicker input{
 .picker--focused .picker__list-item--selected {
   z-index: 10;
   background: $timepicker-pickerlistitem-selected-hover-bg;
-  // color: #fff
   @extend .white-text !optional;
 }
 
@@ -141,10 +139,8 @@ div.timepicker input{
       cursor: pointer;
       background: $timepicker-pickertime-button-clear-hover-bg;
       border-color: $timepicker-pickertime-button-clear-hover-border-color;
-      // color: #fff
       @extend .white-text !optional;
       &::before {
-        // color: #fff
         @extend .white-text !optional;
       }
     }
@@ -200,7 +196,6 @@ div.timepicker input{
   font-weight: $timepicker-pickerdate-display-font-weight;
   text-align: center;
   background-color: $datepicker-date-bg;
-  // color: #fff
   @extend .white-text !optional;
 
   .clockpicker-display {
@@ -219,7 +214,6 @@ div.timepicker input{
       #click-am.text-primary,
       #click-pm.text-primary {
         animation-name: $timepicker-clockpicker-display-animate-name;
-        // color: #fff
         @extend .white-text !optional;
       }
       #click-am,
@@ -263,7 +257,6 @@ div.timepicker input{
     #click-am.text-primary,
     #click-pm.text-primary {
       animation-name: $timepicker-clockpicker-display-animate-name;
-      // color: #fff
       @extend .white-text !optional;
     }
     #click-am,
@@ -445,10 +438,8 @@ div.timepicker input{
     .picker__date-display {
       background-color: transparent;
       .clockpicker-display {
-        // color: #fff
         @extend .white-text !optional;
         .clockpicker-span-am-pm {
-          // color: #fff
           @extend .white-text !optional;
         }
 
@@ -458,7 +449,6 @@ div.timepicker input{
       .clockpicker-plate {
         background-color: transparent;
         .clockpicker-tick {
-          // color: #fff
           @extend .white-text !optional;
           background-color: $timepicker-darktheme-clockpicker-plate-bg;
           &.active,
@@ -488,7 +478,6 @@ div.timepicker input{
     }
     .picker__footer{
       button {
-        // color: #fff
         @extend .white-text !optional;
       }
       .clockpicker-button:active {

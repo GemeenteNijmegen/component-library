@@ -188,7 +188,6 @@ div.picker.datepicker .picker__box {
       padding-bottom: .3125rem;
       font-weight: 400;
       background-color: $datepicker-date-bg;
-      // color: #fff;
       @extend .white-text !optional;
 
       .picker__weekday-display {
@@ -257,14 +256,12 @@ div.picker.datepicker .picker__box {
     .picker__select--month.browser-default {
       display: inline;
       width: $datepicker-select-month-browser-width;
-      // background-color: #fff;
       @extend .white !optional;
     }
 
     .picker__select--year.browser-default {
       display: inline;
       width: $datepicker-select-year-browser-width;
-      // background-color: #fff;
       @extend .white !optional;
     }
 
@@ -396,7 +393,6 @@ div.picker.datepicker .picker__box {
     .picker__day--outfocus {
       display: none;
       padding: $datepicker-table-day-outfocus-py 0;
-      // color: #fff;
       @extend .white-text !optional;
 
       &:hover {
@@ -424,7 +420,6 @@ div.picker.datepicker .picker__box {
         background-color: $datepicker-selected-outfocus;
       }
 
-      // color: #fff;
       @extend .white-text !optional;
     }
 

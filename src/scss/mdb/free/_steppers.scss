@@ -47,7 +47,6 @@ ul.stepper {
     &.warning {
       a {
         .circle {
-          // background-color: #ff3547;
           @extend .danger-color !optional;
         }
       }
