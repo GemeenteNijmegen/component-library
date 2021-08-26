@@ -1,0 +1,10 @@
+versionBump: patch
+changes:
+  - type: changed
+    component: autocomplete
+    description: removed the `role="listbox"` attribute from the default template since by default the `ul` is empty. On autocomplete it will add this attribute automatically
+    what: [HTML]
+  - type: changed
+    component: [multi-upload, autocomplete, stepper]
+    description: Added extra information regarding accessibility rules for the action attribute on a form
+    what: [NOTES]
