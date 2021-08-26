@@ -1,3 +1,3 @@
-const version = () => process.env.npm_package_version;
+const version = () => `/v${process.env.npm_package_version}`;
 
 module.exports = version;
