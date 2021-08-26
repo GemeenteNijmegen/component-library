@@ -1,0 +1,78 @@
+context:
+  icons:
+    - name: Calendar-clock
+      class: mdi-calendar-clock
+    - name: Account
+      class: mdi-account
+    - name: Parking
+      class: mdi-parking
+    - name: Waves
+      class: mdi-waves
+    - name: Comment
+      class: mdi-comment
+    - name: Passport
+      class: mdi-passport
+    - name: Account-search
+      class: mdi-account-search
+    - name: Currency-eur
+      class: mdi-currency-eur
+    - name: Pen
+      class: mdi-pen
+    - name: Home-outline
+      class: mdi-home-outline
+    - name: Recycle
+      class: mdi-recycle
+    - name: Shovel
+      class: mdi-shovel
+    - name: Heart
+      class: mdi-heart
+    - name: Account-music
+      class: mdi-account-music
+    - name: Comment-text
+      class: mdi-comment-text
+    - name: Home-account
+      class: mdi-home-account
+    - name: Tree
+      class: mdi-tree
+    - name: Shield
+      class: mdi-shield
+    - name: Briefcase-check
+      class: mdi-briefcase-check
+    - name: Seal
+      class: mdi-seal
+    - name: School
+      class: mdi-school
+    - name: Card-account-details
+      class: mdi-card-account-details
+    - name: Soccer
+      class: mdi-soccer
+    - name: File-document
+      class: mdi-file-document
+    - name: File-multiple
+      class: mdi-file-multiple
+    - name: Package-variant
+      class: mdi-package-variant
+    - name: Walk
+      class: mdi-walk
+    - name: Google-maps
+      class: mdi-google-maps
+    - name: Hospital
+      class: mdi-hospital
+    - name: Webcam
+      class: mdi-webcam
+    - name: Folder-multiple
+      class: mdi-folder-multiple
+    - name: Shield-half-full
+      class: mdi-shield-half-full
+    - name: Alert-circle
+      class: mdi-alert-circle
+    - name: Border-none
+      class: mdi-border-none
+    - name: Comment-question-outline
+      class: mdi-comment-question-outline
+    - name: Account-multiple
+      class: mdi-account-multiple
+    - name: Book-open-variant
+      class: mdi-book-open-variant
+    - name: Account-key
+      class: mdi-account-key
