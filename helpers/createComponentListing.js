@@ -1,6 +1,6 @@
 const fractal = require('../fractal');
 const fs = require('fs');
-const getVersion = require('./getVersion');
+const getVersionBaseUrl = require('./getVersionBaseUrl');
 const { componentListingFile, componentListingRootFile } = require('./paths');
 
 const documentHeader = `
@@ -30,7 +30,7 @@ const route = fractal.web._themes.get('default')._routes.get('preview');
 let baseUrl = '';
 let linkExtension = '';
 if (process.env.NODE_ENV === 'production') {
-    baseUrl = getVersion();
+    baseUrl = getVersionBaseUrl();
     linkExtension = fractal._config.web.builder.ext;
 }
 
