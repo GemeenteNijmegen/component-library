@@ -1,41 +1,42 @@
-$body-color:      #212121;      // rgb(33, 33, 33)
+$body-color:        #212121;      // rgb(33, 33, 33)
 
-$focus-color:     #00b593;      // rgb(0, 181, 147)
+$focus-color:       #00a889;      // rgb(0, 168, 137);
+$light-focus-color: #fdfdfd;      // rgb(253, 253, 253)
 
 $nijmegen-brand: (
-    'lighten-2':  #f4dfe4,      // rgb(244, 223, 228);
-    'lighten-1':  #e4b3be,      // rgb(228, 179, 190);
-    'base':       #a80a2d,      // rgb(168, 10, 45);
-    'darken-1':   #890825,      // rgb(137, 8, 37);
-    'darken-2':   #780721,      // rgb(120, 7, 33);
-    'darken-3':   #580518,      // rgb(88, 5, 24);
+    'lighten-2':    #f4dfe4,      // rgb(244, 223, 228);
+    'lighten-1':    #e4b3be,      // rgb(228, 179, 190);
+    'base':         #a80a2d,      // rgb(168, 10, 45);
+    'darken-1':     #890825,      // rgb(137, 8, 37);
+    'darken-2':     #780721,      // rgb(120, 7, 33);
+    'darken-3':     #580518,      // rgb(88, 5, 24);
 );
 
 $nijmegen-grey: (
-    'lighten-1':  #efefef,      // rgb(239, 239, 239)
-    'base':       #dadada,      // rgb(218, 218, 218)
-    'darken-1':   #ababab,      // rgb(171, 171, 171)
-    'darken-2':   #6b6b6b,      // rgb(107, 107, 107)
-    'darken-3':   #5b5b5b,      // rgb(91, 91, 91)
-    'darken-4':   #2b2b2b,      // rgb(43, 43, 43)
+    'lighten-1':    #efefef,      // rgb(239, 239, 239)
+    'base':         #dadada,      // rgb(218, 218, 218)
+    'darken-1':     #ababab,      // rgb(171, 171, 171)
+    'darken-2':     #6b6b6b,      // rgb(107, 107, 107)
+    'darken-3':     #5b5b5b,      // rgb(91, 91, 91)
+    'darken-4':     #2b2b2b,      // rgb(43, 43, 43)
 );
 
 $nijmegen-primary: (
-    'lighten-2':  #00b593,      // rgb(0, 181, 147)
-    'lighten-1':  #30a08b,      // rgb(48, 160, 139)
-    'base':       #157c68,      // rgb(21, 124, 104)
-    'darken-1':   #1a6b5b,      // rgb(26, 107, 91)
-    'darken-2':   #17564a,      // rgb(23, 86, 74)
-    'darken-3':   #123f36,      // rgb(18, 63, 54)
+    'lighten-2':    #00b593,      // rgb(0, 181, 147)
+    'lighten-1':    #30a08b,      // rgb(48, 160, 139)
+    'base':         #157c68,      // rgb(21, 124, 104)
+    'darken-1':     #1a6b5b,      // rgb(26, 107, 91)
+    'darken-2':     #17564a,      // rgb(23, 86, 74)
+    'darken-3':     #123f36,      // rgb(18, 63, 54)
 );
 
 $nijmegen-backgrounds: (
-    'default':    $body-color,
-    'primary':    #5b5b5b,      // rgb(91, 91, 91)
-    'success':    #cddc39,      // rgb(205, 220, 57)
-    'info':       #40c4ff,      // rgb(64, 196, 255)
-    'warning':    #ffab00,      // rgb(255, 171, 0)
-    'danger':     #d50000,      // rgb(213, 0, 0)
+    'default':      $body-color,
+    'primary':      #5b5b5b,      // rgb(91, 91, 91)
+    'success':      #cddc39,      // rgb(205, 220, 57)
+    'info':         #40c4ff,      // rgb(64, 196, 255)
+    'warning':      #ffab00,      // rgb(255, 171, 0)
+    'danger':       #d50000,      // rgb(213, 0, 0)
     'pagination-active': #3a3a3a, // rgb(58, 58 ,58)
     'footer-primary': #3a3a3a,   // rgb(58, 58 ,58)
     'sidebar-hover': #3a3a3a,   // rgb(58, 58 ,58)
