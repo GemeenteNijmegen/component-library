@@ -38,6 +38,7 @@ const hbs = require('@frctl/handlebars')({
     helpers: {
         componentPath: require('./helpers/fractal/component-path')(fractal),
         assetPath: require('./helpers/fractal/asset-path')(fractal),
+        componentPreviewPath: require('./helpers/fractal/component-preview-path')(fractal),
         mdbootstrapPath: require('./helpers/fractal/mdbootstrap-path')(fractal),
         changelogReleasedOld: getOldVersions,
         changelogReleasedNew: getNewVersions,
