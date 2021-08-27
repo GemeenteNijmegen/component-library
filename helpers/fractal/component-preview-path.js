@@ -1,11 +1,11 @@
 const getVersionBaseUrl = require('../getVersionBaseUrl');
 
 module.exports = fractal => {
-    return compenentPath => {
+    return componentPath => {
         if (fractal._config.env === 'production') {
-            return `${getVersionBaseUrl()}/components/preview/${compenentPath}.html`;
+            return `${getVersionBaseUrl()}/components/preview/${componentPath}.html`;
         }
 
-        return compenentPath;
+        return `/components/preview/${componentPath}`;
     };
 };
