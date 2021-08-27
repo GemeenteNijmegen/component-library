@@ -1,6 +1,0 @@
-versionBump: patch
-changes:
-  - type: changed
-    component: navbar
-    description: Adjusted the focus color and improved the contrasts of the elements
-    what: [CSS]
