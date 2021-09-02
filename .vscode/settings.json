@@ -1,0 +1,7 @@
+{
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "html.format.wrapAttributes": "preserve",
+    "jest.pathToJest": "npm test --"
+}
