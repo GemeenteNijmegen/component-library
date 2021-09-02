@@ -8,6 +8,9 @@
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
     "jest.pathToJest": "npm test --",
     "html.format.endWithNewline": true,
     "html.format.wrapAttributes": "preserve"
