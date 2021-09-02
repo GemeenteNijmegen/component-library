@@ -171,8 +171,7 @@ do-create-release:
 
 do-regression-build:
 	@echo "\n=== Updating node modules for testing ===\n"
-	mkdir test/regression/node_modules || true
-	${set-ids} docker-compose run --rm --entrypoint "npm install" regression
+	${set-ids} docker-compose run --rm -u $$USERID:$$GROUPID --entrypoint "npm install" regression
 
 do-regression-clear-screenshots:
 	@echo "\n=== Clear old screenshots ===\n"
@@ -180,7 +179,7 @@ do-regression-clear-screenshots:
 
 do-regression-tests:
 	@echo "\n=== Running regression tests ===\n"
-	${set-ids} docker-compose run --rm regression --world-parameters "`cat test/regression/defaults.json`" ${REGRESSION_FAIL_FAST} ${REGRESSION_FOCUS} ${REGRESSION_PARALLEL} || echo "\nTests failed"
+	${set-ids} docker-compose run --rm -u $$USERID:$$GROUPID regression --world-parameters "`cat test/regression/defaults.json`" ${REGRESSION_FAIL_FAST} ${REGRESSION_FOCUS} ${REGRESSION_PARALLEL} || echo "\nTests failed"
 
 do-create-changelog-file:
 	@echo "\n=== Creating an unreleased changelog file ===\n"
