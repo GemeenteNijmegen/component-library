@@ -86,7 +86,7 @@ do-show-commands:
 
 do-build:
 	@echo "\n=== Building container ===\n"
-	docker-compose build
+	docker-compose build frontend
 
 do-init:
 	@echo "\n=== Initialisation ===\n"
