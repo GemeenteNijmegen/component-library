@@ -1,0 +1,22 @@
+<h1>Icon list</h1>
+
+<div class="nijmegen">
+  <table>
+    <thead>
+      <tr>
+        <th>Naam</th>
+        <th>Class</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each icons}}
+      <tr>
+        <td>{{this.name}}</td>
+        <td><code>{{this.class}}</code></td>
+        <td><span class="mdi {{this.class}}"></span></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

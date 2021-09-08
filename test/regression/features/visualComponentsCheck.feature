@@ -27,7 +27,8 @@ Feature: Visual component check
             | date-picker |
             | footer |
             | hover-effects |
-            | icons |
+            | icon |
+            | icon-list |
             | input |
             | textarea |
             | lightbox |

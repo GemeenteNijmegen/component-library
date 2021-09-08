@@ -1,0 +1,34 @@
+.nijmegen {
+    table {
+        background: #f4dfe4;
+        border-collapse: collapse;
+
+        thead th,
+        tfoot th {
+            background: #a80a2d;
+            color: #fdfdfd;
+            font-size: larger;
+            text-align: center;
+        }
+
+        th,
+        td {
+            border: 1px solid #a14458;
+            padding: .5em;
+            width: 200px;
+        }
+
+        td {
+            code {
+                background: #fff;
+                border-radius: 4px;
+                color: #111;
+                padding: 4px;
+            }
+
+            &:last-of-type {
+                text-align: center;
+            }
+        }
+    }
+}

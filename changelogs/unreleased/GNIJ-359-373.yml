@@ -1,9 +1,0 @@
-versionBump: patch # patch, minor, major
-changes:
-  - type: changed #changed, removed, added
-    component: navbar
-    description: >-
-      Added a focus trap to the mobile navbar menu.
-      This is done to prevent keyboard users to focus on items behind the navbar.
-      The navbar mobile menu will also close when you navigate to an item on the same page when you use the .nijmegen-smooth-scroll class.
-    what: [JS] # what has changed 1 or more of: [HTML, CSS, JS]
