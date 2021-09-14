@@ -1,5 +1,0 @@
-versionBump: patch # patch, minor, major
-changes:
-  - type: added
-    component: radio-button
-    description: Added a radio-button component to the library

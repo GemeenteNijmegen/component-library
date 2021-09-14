@@ -1,0 +1,48 @@
+version: 5.0.5
+versionBump: patch
+date: 2021-08-27T13:26:39.874Z
+files:
+  - GNIJ-359-373.yml
+  - GNIJ-367.yml
+  - GNIJ-369.yml
+  - GNIJ-370.yml
+  - GNIJ-371.yml
+changes:
+  - type: changed
+    component: navbar
+    description: >-
+      Added a focus trap to the mobile navbar menu. This is done to prevent
+      keyboard users to focus on items behind the navbar. The navbar mobile menu
+      will also close when you navigate to an item on the same page when you use
+      the .nijmegen-smooth-scroll class.
+    what:
+      - JS
+  - type: changed
+    component: navbar
+    description: Adjusted the focus color and improved the contrasts of the elements
+    what:
+      - CSS
+  - type: added
+    component: radio-button
+    description: Added a radio-button component to the library
+  - type: changed
+    component: icon-list
+    description: Addded a visual example of the current icons which are used by Nijmegen
+  - type: changed
+    component: autocomplete
+    description: >-
+      removed the `role="listbox"` attribute from the default template since by
+      default the `ul` is empty. On autocomplete it will add this attribute
+      automatically
+    what:
+      - HTML
+  - type: changed
+    component:
+      - multi-upload
+      - autocomplete
+      - stepper
+    description: >-
+      Added extra information regarding accessibility rules for the action
+      attribute on a form
+    what:
+      - NOTES
