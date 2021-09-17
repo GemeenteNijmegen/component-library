@@ -1,0 +1,17 @@
+tasks:
+  - name: Docker
+    init: make init # runs during prebuild
+    command: make start
+  - name: Pull images used for testing
+    init: docker-compose pull html-validator regression
+
+# List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
+ports:
+  - port: 3000
+    onOpen: open-preview
+
+vscode:
+  extensions:
+    - dbaeumer.vscode-eslint
+    - esbenp.prettier-vscode
+    - orta.vscode-jest

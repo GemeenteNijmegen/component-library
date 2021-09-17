@@ -17,7 +17,7 @@ intro:
 # Main commands
 # ===========================
 
-init: intro do-build do-init do-show-commands
+init: intro do-install-git-hooks do-build do-init do-show-commands
 build: intro do-build do-show-commands
 start: intro do-start
 start-static: intro do-static-stop do-static-build do-static-start
@@ -33,8 +33,6 @@ create-release: intro do-create-release
 create-changelog-file: intro do-create-changelog-file
 
 test-regression: intro do-start do-regression-build do-regression-clear-screenshots do-regression-tests
-
-pre-commit: intro do-commit-intro
 
 # ===========================
 # Snippets
@@ -88,7 +86,7 @@ do-show-commands:
 
 do-build:
 	@echo "\n=== Building container ===\n"
-	docker-compose build
+	docker-compose build frontend
 
 do-init:
 	@echo "\n=== Initialisation ===\n"
@@ -123,6 +121,11 @@ do-restart:
 do-open-shell:
 	@echo "\n=== Open shell in frontend container ===\n"
 	docker-compose run --rm frontend sh
+
+do-install-git-hooks:
+	@echo "\n=== Installing git hooks ===\n"
+	cp dev/git-hooks/* .git/hooks
+	chmod +x .git/hooks/*
 
 do-lint:
 	@echo "\n=== Lint js ===\n"
@@ -168,8 +171,7 @@ do-create-release:
 
 do-regression-build:
 	@echo "\n=== Updating node modules for testing ===\n"
-	mkdir test/regression/node_modules || true
-	${set-ids} docker-compose run --rm --entrypoint "npm install" regression
+	${set-ids} docker-compose run --rm -u $$USERID:$$GROUPID --entrypoint "npm install" regression
 
 do-regression-clear-screenshots:
 	@echo "\n=== Clear old screenshots ===\n"
@@ -177,10 +179,7 @@ do-regression-clear-screenshots:
 
 do-regression-tests:
 	@echo "\n=== Running regression tests ===\n"
-	${set-ids} docker-compose run --rm regression --world-parameters "`cat test/regression/defaults.json`" ${REGRESSION_FAIL_FAST} ${REGRESSION_FOCUS} ${REGRESSION_PARALLEL} || echo "\nTests failed"
-
-do-commit-intro:
-	@echo "\n=== Committing ===\n"
+	${set-ids} docker-compose run --rm -u $$USERID:$$GROUPID regression --world-parameters "`cat test/regression/defaults.json`" ${REGRESSION_FAIL_FAST} ${REGRESSION_FOCUS} ${REGRESSION_PARALLEL} || echo "\nTests failed"
 
 do-create-changelog-file:
 	@echo "\n=== Creating an unreleased changelog file ===\n"
