@@ -1,0 +1,17 @@
+version: 6.0.0
+versionBump: major
+date: 2021-09-17T13:35:44.864Z
+files:
+  - GNIJ-368-remove-importants.yml
+changes:
+  - type:
+      - added
+      - removed
+      - changed
+    component: almost all components
+    description: >-
+      Remove (almost) all `!importants` from the css file in order to provide
+      cleaner css. In the future the user has more control over their html
+      elements without interference.
+    what:
+      - CSS
