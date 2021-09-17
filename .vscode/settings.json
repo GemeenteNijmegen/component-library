@@ -13,5 +13,11 @@
     },
     "jest.pathToJest": "npm test --",
     "html.format.endWithNewline": true,
-    "html.format.wrapAttributes": "preserve"
+    "html.format.wrapAttributes": "preserve",
+    "cSpell.words": ["nijmegen"],
+    "cucumberautocomplete.steps": [
+        "test/regression/features/**/*.js",
+        "test/regression/node_modules/cucumber-puppeteer/**/*.js",
+        "test/regression/node_modules/cucumber-puppeteer-axe/**/*.js"
+    ]
 }

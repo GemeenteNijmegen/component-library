@@ -15,3 +15,5 @@ vscode:
     - dbaeumer.vscode-eslint
     - esbenp.prettier-vscode
     - orta.vscode-jest
+    - streetsidesoftware.code-spell-checker
+    - streetsidesoftware.code-spell-checker-dutch
