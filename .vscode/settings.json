@@ -15,6 +15,7 @@
     "html.format.endWithNewline": true,
     "html.format.wrapAttributes": "preserve",
     "cSpell.words": ["nijmegen"],
+    "cSpell.language": "en,nl",
     "cucumberautocomplete.steps": [
         "test/regression/features/**/*.js",
         "test/regression/node_modules/cucumber-puppeteer/**/*.js",
