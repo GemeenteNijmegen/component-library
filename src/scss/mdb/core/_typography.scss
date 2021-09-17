@@ -31,9 +31,9 @@ h1, h2, h3, h4, h5, h6 {
 
 @each $name, $color in $basic {
   .bq-#{$name} {
-    border-left: 3px solid $color !important;
+    border-left: 3px solid $color;
     .bq-title {
-      color: $color !important;
+      color: $color;
     }
   }
 }

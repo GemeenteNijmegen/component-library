@@ -11,7 +11,7 @@
   position: relative;
   &:not(.md-outline) .select-dropdown {
     &:focus {
-      border-bottom: 1px solid $input-md-focus-color; 
+      border-bottom: 1px solid $input-md-focus-color;
       box-shadow: 0 1px 0 0 $input-md-focus-color;
     }
   }
@@ -25,7 +25,7 @@
       color: $primary;
     }
   }
-  
+
   input {
 
     &.select-dropdown {
@@ -92,10 +92,10 @@
         border: none;
         border-bottom: 1px solid #ced4da;
         border-radius: 0;
-      
+
         &:focus {
-          box-shadow: none !important;
-          box-shadow: 0 1px 0 0 #4285f4 !important;
+          box-shadow: none;
+          box-shadow: 0 1px 0 0 #4285f4;
         }
       }
     }
@@ -223,13 +223,13 @@
           padding-right: .75rem;
           padding-left: .75rem;
           &.active {
-            color: #4285f4 !important;
+            color: #4285f4;
           }
         }
       }
 
       .dropdown-content {
-        top: 2.7rem !important;
+        top: 2.7rem;
       }
 
       input {
@@ -246,9 +246,9 @@
 
       & + label {
         position: absolute;
-        top: .5em !important;
+        top: .5em;
         left: 23px;
-        z-index: 2 !important;
+        z-index: 2;
         padding-right: 5px;
         padding-left: 5px;
         font-size: 13px;
@@ -282,16 +282,16 @@ select {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   &.mdb-select.initialized {
-    display: none !important;
+    display: none;
     & ~ .btn {
-      display: none !important;
+      display: none;
     }
   }
 
   &.browser-default {
-    display: block !important;
+    display: block;
   }
-  
+
   &:disabled {
     color: $material-select-wrapper-input-dropdown-disabled-color;
   }
@@ -321,7 +321,7 @@ select {
     &.optgroup {
       color: $material-select-wrapper-input-dropdown-disabled-color;
       cursor: context-menu;
-      background-color: transparent !important;
+      background-color: transparent;
     }
 
     &.optgroup {
@@ -393,7 +393,7 @@ select {
 
     li {
       &.active span {
-        color: $material-select-colorful-dropdown-content-li-active-color !important;
+        color: $material-select-colorful-dropdown-content-li-active-color;
         box-shadow: $z-depth-1-half;
 
         [type="checkbox"]:checked + label:before {
@@ -403,7 +403,7 @@ select {
 
       a:hover,
       span:hover {
-        color: $material-select-colorful-dropdown-content-li-active-color !important;
+        color: $material-select-colorful-dropdown-content-li-active-color;
         border-radius: $material-select-colorful-dropdown-content-li-hover-border-radius;
         box-shadow: $z-depth-2;
         transition: $material-select-colorful-dropdown-content-li-hover-transition;
@@ -421,7 +421,7 @@ select {
       &:disabled,
       &.optgroup {
         &.active span {
-          color: $material-select-wrapper-input-dropdown-disabled-color !important;
+          color: $material-select-wrapper-input-dropdown-disabled-color;
           cursor: default;
           border-bottom-color: $material-select-wrapper-input-dropdown-disabled-color;
           box-shadow: none;
@@ -429,9 +429,9 @@ select {
 
         a:hover,
         span:hover {
-          color: $material-select-wrapper-input-dropdown-disabled-color !important;
+          color: $material-select-wrapper-input-dropdown-disabled-color;
           cursor: default;
-          background-color: $white !important;
+          background-color: $white;
           border-bottom-color: $material-select-wrapper-input-dropdown-disabled-color;
           box-shadow: none;
         }
@@ -452,12 +452,12 @@ select {
       &.active,
       a,
       span:hover {
-        background-color: $color !important;
+        background-color: $color;
       }
 
       &.disabled {
         &.active {
-          background-color: transparent !important;
+          background-color: transparent;
         }
       }
     }
@@ -473,7 +473,7 @@ select {
   li {
     &.disabled {
       &.active {
-        background-color: transparent !important;
+        background-color: transparent;
       }
     }
   }

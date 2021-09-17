@@ -6,7 +6,7 @@ $form-drop-down-bottom-border: 1px solid rgba(0, 0, 0, .125);
 .md-form {
     label {
         color: color('nijmegen-forms', 'unfocussed-gray');
-        font-size: to-rem(16) !important;
+        font-size: to-rem(16);
         width: 100%;
 
         &.active {
@@ -29,6 +29,8 @@ $form-drop-down-bottom-border: 1px solid rgba(0, 0, 0, .125);
     input[type='search']:not(.browser-default),
     textarea.md-textarea:not(.browser-default),
     .aria-select button {
+        box-sizing: border-box;
+
         &:not([disabled]){
             border-bottom-color: color('nijmegen-forms', 'unfocussed-gray');
         }
@@ -99,7 +101,7 @@ $form-drop-down-bottom-border: 1px solid rgba(0, 0, 0, .125);
                 &:before,
                 &:after {
                     line-height: 1.2rem;
-                    top: 4rem !important;
+                    top: 4rem;
                 }
             }
         }
@@ -118,10 +120,10 @@ $form-drop-down-bottom-border: 1px solid rgba(0, 0, 0, .125);
         }
     }
 
-    .md-textarea {
+    textarea.md-textarea {
         font-weight: $font-weight-normal;
-        min-height: to-rem(92) !important;
-        padding: .6rem 0 !important;
+        min-height: to-rem(92);
+        padding: .6rem 0;
     }
 
     textarea.md-textarea + label {

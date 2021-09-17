@@ -8,7 +8,7 @@
     }
 
     .primary-color {
-      background-color: map-get($data, skin-primary-color) !important;
+      background-color: map-get($data, skin-primary-color);
     }
 
     .navbar {
@@ -80,7 +80,7 @@
 
       .logo-wrapper {
         & > div {
-          background-color: transparent !important;
+          background-color: transparent;
         }
       }
 
@@ -106,7 +106,7 @@
             .fas,
             .fab,
             .far {
-              color: map-get($data, skin-accent) !important;
+              color: map-get($data, skin-accent);
               transition: $skins-side-nav-hover-transition;
             }
           }
@@ -115,11 +115,11 @@
 
       @if $skin=="white" {
         .search-form .md-form input {
-          color: map-get($data, skin-text) !important;
+          color: map-get($data, skin-text);
           border-bottom: $skins-white-search-border-bottom solid $skins-border-color;
 
           @include placeholder {
-            color: rgba(map-get($data, skin-text), .5) !important;
+            color: rgba(map-get($data, skin-text), .5);
           }
         }
       }
@@ -177,7 +177,7 @@
             &:hover,
             &.active,
             &:active {
-              color: map-get($data, skin-sn-child) !important;
+              color: map-get($data, skin-sn-child);
             }
           }
         }
@@ -212,11 +212,11 @@
 
       &:hover,
       &:focus {
-        background-color: lighten(map-get($data, skin-btn-default), 5%) !important;
+        background-color: lighten(map-get($data, skin-btn-default), 5%);
       }
 
       &.active {
-        background-color: darken(map-get($data, skin-btn-default), 20%) !important;
+        background-color: darken(map-get($data, skin-btn-default), 20%);
       }
     }
 
@@ -317,7 +317,7 @@
             span {
               &.caret {
                 &.active {
-                  color: map-get($data, skin-accent) !important;
+                  color: map-get($data, skin-accent);
                 }
               }
             }
@@ -339,11 +339,11 @@
             &.active,
             a,
             span:hover {
-              background-color: map-get($data, skin-accent) !important;
+              background-color: map-get($data, skin-accent);
             }
             &.disabled {
               &.active {
-                background-color: transparent !important;
+                background-color: transparent;
               }
             }
           }

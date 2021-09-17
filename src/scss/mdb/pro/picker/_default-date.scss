@@ -91,7 +91,7 @@ div.picker.datepicker .picker__box {
           content: "\f053";
         }
       }
-  
+
       .picker__nav--next {
         right: 0.5rem;
         padding: 0;
@@ -114,7 +114,7 @@ div.picker.datepicker .picker__box {
   .picker__table {
     min-height: 267px;
     padding: .5rem;
-    
+
     .picker__day.picker__day--infocus {
       border-radius: 50%;
       &:hover:not(.picker__day--selected) {
@@ -179,7 +179,7 @@ div.picker.datepicker .picker__box {
     text-align: center;
 
     select {
-      display: inline-block !important;
+      display: inline-block;
     }
 
     .picker__date-display {
@@ -188,7 +188,6 @@ div.picker.datepicker .picker__box {
       padding-bottom: .3125rem;
       font-weight: 400;
       background-color: $datepicker-date-bg;
-      // color: #fff !important;
       @extend .white-text !optional;
 
       .picker__weekday-display {
@@ -257,14 +256,12 @@ div.picker.datepicker .picker__box {
     .picker__select--month.browser-default {
       display: inline;
       width: $datepicker-select-month-browser-width;
-      // background-color: #fff !important;
       @extend .white !optional;
     }
 
     .picker__select--year.browser-default {
       display: inline;
       width: $datepicker-select-year-browser-width;
-      // background-color: #fff !important;
       @extend .white !optional;
     }
 
@@ -396,7 +393,6 @@ div.picker.datepicker .picker__box {
     .picker__day--outfocus {
       display: none;
       padding: $datepicker-table-day-outfocus-py 0;
-      // color: #fff !important;
       @extend .white-text !optional;
 
       &:hover {
@@ -424,7 +420,6 @@ div.picker.datepicker .picker__box {
         background-color: $datepicker-selected-outfocus;
       }
 
-      // color: #fff !important;
       @extend .white-text !optional;
     }
 
@@ -556,7 +551,7 @@ div.picker.datepicker .picker__box {
 div.datepicker input {
   cursor: auto;
   ~ i.input-prefix {
-    cursor: pointer; 
+    cursor: pointer;
     pointer-events: all;
   }
 }

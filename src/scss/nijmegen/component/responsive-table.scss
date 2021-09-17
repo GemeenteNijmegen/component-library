@@ -25,6 +25,7 @@ table.responsive-table {
     tbody tr {
         padding-bottom: 6px;
         padding-top: 6px;
+
         td, th {
             border-bottom: 2px solid color('nijmegen-grey', 'base');
             color: $body-color;
@@ -57,39 +58,45 @@ table.responsive-table {
             top: -9999px;
         }
 
-        tr {
-            border-top: 1px solid #ccc;
-            &:last-child {
-                border-bottom: 1px solid color('nijmegen-grey', 'base');
-            }
-        }
+        tbody {
+            tr {
+                border-top: 1px solid #ccc;
+                padding-bottom: 6px;
+                padding-top: 6px;
 
-        td {
-            border: 0 !important;
-            margin-left: 50%;
-            padding-bottom: 6px;
-            padding-top: 6px;
-            position: relative;
-            width: 50%;
+                &:last-child {
+                    border-bottom: 1px solid color('nijmegen-grey', 'base');
+                }
 
-            &:before {
-                border-bottom: 0 !important;
-                content: attr(data-title);
-                display: inline-block;
-                float: left;
-                margin-left: -100%;
-                padding-bottom: 0 !important;
-                padding-top: 3px !important;
-                white-space: normal;
-                width: 100%;
-            }
 
-            &:after {
-                clear: both;
-                content: '';
-                display: block;
-                height: 0;
-                visibility: hidden;
+                td {
+                    border: 0;
+                    margin-left: 50%;
+                    padding-bottom: 5px;
+                    padding-top: 5px;
+                    position: relative;
+                    width: 50%;
+
+                    &:before {
+                        border-bottom: 0;
+                        content: attr(data-title);
+                        display: inline-block;
+                        float: left;
+                        margin-left: -100%;
+                        padding-bottom: 0;
+                        padding-top: 3px;
+                        white-space: normal;
+                        width: 100%;
+                    }
+
+                    &:after {
+                        clear: both;
+                        content: '';
+                        display: block;
+                        height: 0;
+                        visibility: hidden;
+                    }
+                }
             }
         }
     }

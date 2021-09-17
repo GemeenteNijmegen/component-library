@@ -73,9 +73,9 @@
 
   .input {
     display: inline-block;
-    width: $chips-input-width !important;
+    width: $chips-input-width;
     height: $chips-input-height;
-    padding: 0 !important;
+    padding: 0;
     margin-right: $chips-input-margin-right;
     font-size: $chips-input-font-size;
     font-weight: $chips-input-font-weight;
@@ -86,8 +86,8 @@
     outline: 0;
 
     &:focus {
-      border: 0 !important;
-      box-shadow: none !important;
+      border: 0;
+      box-shadow: none;
     }
   }
 }

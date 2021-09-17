@@ -15,7 +15,7 @@
   }
   .nav-item {
     &.disabled {
-      pointer-events: none !important;
+      pointer-events: none;
       .nav-link {
         color: $nav-item-disabled-link-color;
       }
@@ -85,16 +85,16 @@
 @each $name, $color in $mdb-colors {
   .pills-#{$name} {
     .show > .nav-link {
-      background-color: $color !important;
+      background-color: $color;
     }
     .nav-link {
       &.active {
-        background-color: $color !important;
+        background-color: $color;
       }
     }
   }
   .tabs-#{$name} {
-    background-color: $color !important;
+    background-color: $color;
   }
 }
 

@@ -177,18 +177,18 @@
         /* STROKEWIDTH */
         border-style: solid;
         border-width: $progress-spinner-circle-clipper-circle-border-width;
-        border-bottom-color: transparent !important;
+        border-bottom-color: transparent;
         border-radius: $progress-spinner-circle-clipper-circle-border-radius;
         animation: none;
       }
       &.left .circle {
         left: 0;
-        border-right-color: transparent !important;
+        border-right-color: transparent;
         transform: $progress-spinner-circle-clipper-left-circle-transform;
       }
       &.right .circle {
         left: $progress-spinner-circle-clipper-right-circle-left;
-        border-left-color: transparent !important;
+        border-left-color: transparent;
         transform: $progress-spinner-circle-clipper-right-circle-transform;
       }
     }

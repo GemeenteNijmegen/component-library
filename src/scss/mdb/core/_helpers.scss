@@ -68,7 +68,7 @@
   @include bg-variant(".bg-#{$name}", $color);
 
   .border-#{$name} {
-    border-color: $color !important;
+    border-color: $color;
   }
 }
 
@@ -83,7 +83,7 @@
 }
 
 .mml-1 {
-  margin-left: - .25rem !important;
+  margin-left: - .25rem;
 }
 
 .flex-1 {

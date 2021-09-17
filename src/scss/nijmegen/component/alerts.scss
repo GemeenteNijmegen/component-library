@@ -3,12 +3,12 @@ $icon-size: 24px;
 
 #toast-container {
     > .toast {
-        background-image: none !important;
-        box-shadow: none !important;
-        color: $body-color !important;
+        background-image: none;
+        box-shadow: none;
+        color: $body-color;
         margin: 15px 0;
         opacity: 1;
-        padding-left: $icon-spacing !important;
+        padding-left: $icon-spacing;
         position: relative;
 
         .toast-message {
@@ -31,7 +31,7 @@ $icon-size: 24px;
     }
 
     .toast-close-button {
-        color: $body-color !important;
+        color: $body-color;
         opacity: 1;
 
         &:hover {
@@ -44,7 +44,7 @@ $icon-size: 24px;
     }
 
     .toast-success {
-        background-color: color('nijmegen-backgrounds', 'success') !important;
+        background-color: color('nijmegen-backgrounds', 'success');
 
         &:before {
             @include mdi('check');
@@ -52,7 +52,7 @@ $icon-size: 24px;
     }
 
     .toast-info {
-        background-color: color('nijmegen-backgrounds', 'info') !important;
+        background-color: color('nijmegen-backgrounds', 'info');
 
         &:before {
             @include mdi('information');
@@ -60,7 +60,7 @@ $icon-size: 24px;
     }
 
     .toast-warning {
-        background-color: color('nijmegen-backgrounds', 'warning') !important;
+        background-color: color('nijmegen-backgrounds', 'warning');
 
         &:before {
             @include mdi('alert');
@@ -68,11 +68,11 @@ $icon-size: 24px;
     }
 
     .toast-error {
-        background-color: color('nijmegen-backgrounds', 'danger') !important;
-        color: color('white', 'base') !important;
+        background-color: color('nijmegen-backgrounds', 'danger');
+        color: color('white', 'base');
 
         .toast-close-button {
-            color: color('white', 'base') !important;
+            color: color('white', 'base');
 
             &:hover {
                 text-shadow: 0 0 5px rgba(color('white', 'base'), .5);
@@ -81,7 +81,7 @@ $icon-size: 24px;
 
         &:before {
             @include mdi('information');
-            color: color('white', 'base') !important;
+            color: color('white', 'base');
         }
     }
 }

@@ -15,16 +15,16 @@ button {
     }
 }
 
-.btn-primary {
-    background-color: color('nijmegen-primary', 'base') !important;
+.btn.btn-primary {
+    background-color: color('nijmegen-primary', 'base');
 
     &:hover {
-        background-color: color('nijmegen-primary', 'lighten-1') !important;
+        background-color: color('nijmegen-primary', 'lighten-1');
     }
 
     &:focus {
         @include tab-focus;
-        background-color: color('nijmegen-primary', 'darken-1') !important;
+        background-color: color('nijmegen-primary', 'darken-1');
         color: #fff;
     }
 
@@ -33,26 +33,26 @@ button {
     &:active:hover,
     &.active:hover,
     &:not([disabled]):not(.disabled):active {
-        background-color: color('nijmegen-primary', 'darken-3') !important;
+        background-color: color('nijmegen-primary', 'darken-3');
     }
 
     &:disabled,
     &:disabled:hover {
-        background-color: color('nijmegen-grey', 'base') !important;
+        background-color: color('nijmegen-grey', 'base');
         box-shadow: none;
     }
 }
 
-.btn-secondary {
-    background-color: color('white', 'base') !important;
+.btn.btn-secondary {
+    background-color: color('white', 'base');
     border: 1px solid color('nijmegen-grey', 'darken-1');
-    color: color('nijmegen-primary', 'base') !important;
+    color: color('nijmegen-primary', 'base');
 
     &:hover,
     &:focus {
-        background-color: color('nijmegen-grey', 'lighten-1') !important;
+        background-color: color('nijmegen-grey', 'lighten-1');
         border-color: color('nijmegen-grey', 'darken-1');
-        color: color('nijmegen-primary', 'darken-2') !important;
+        color: color('nijmegen-primary', 'darken-2');
     }
 
     &:focus {
@@ -64,37 +64,36 @@ button {
     &:active:hover,
     &.active:hover,
     &:not([disabled]):not(.disabled):active {
-        background-color: color('nijmegen-grey', 'lighten-1') !important;
-        color: #212121 !important;
+        background-color: color('nijmegen-grey', 'lighten-1');
+        color: #212121;
     }
 
     &:disabled,
     &:disabled:hover {
         @extend .z-depth-1;
-        background-color: color('white', 'base') !important;
+        background-color: color('white', 'base');
         border-color: color('nijmegen-grey', 'darken-1');
-        color: color('nijmegen-grey', 'base') !important;
+        color: color('nijmegen-grey', 'base');
     }
 }
 
 .btn-info {
-    background-color: color('white', 'base') !important;
+    background-color: color('white', 'base');
     border: 1px solid transparent;
     box-shadow: none;
-    color: color('nijmegen-primary', 'base') !important;
+    color: color('nijmegen-primary', 'base');
 
     &:hover,
     &:focus {
-        background-color: color('nijmegen-grey', 'lighten-1') !important;
+        background-color: color('nijmegen-grey', 'lighten-1');
         border-color: transparent;
         box-shadow: none;
-        color: color('nijmegen-primary', 'darken-2') !important;
+        color: color('nijmegen-primary', 'darken-2');
     }
 
     &:focus {
         @include tab-focus;
-        background-color: color('white', 'base') !important;
-        border-color: color('nijmegen-grey', 'base');
+        background-color: color('white', 'base');
     }
 
     &:active,
@@ -102,16 +101,16 @@ button {
     &:active:hover,
     &.active:hover,
     &:not([disabled]):not(.disabled):active {
-        background-color: color('white', 'base') !important;
+        background-color: color('white', 'base');
         border-color: transparent;
         box-shadow: none;
-        color: $body-color !important;
+        color: $body-color;
     }
 
     &:disabled,
     &:disabled:hover {
-        background-color: color('white', 'base') !important;
+        background-color: color('white', 'base');
         border-color: transparent;
-        color: color('nijmegen-grey', 'base') !important;
+        color: color('nijmegen-grey', 'base');
     }
 }

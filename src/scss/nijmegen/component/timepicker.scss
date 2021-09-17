@@ -38,6 +38,15 @@
         font-size: to-rem(38);
         height: auto;
         padding-bottom: 10px;
+
+        &-column {
+            .clockpicker-span-hours.text-primary,
+            .clockpicker-span-minutes.text-primary {
+                // this !important is required because the boostrap.min.css
+                // has all the color set with a !important
+                color: $white !important;
+            }
+        }
     }
 
     // .picker__date-display .clockpicker-display
@@ -60,7 +69,7 @@
         padding: 10px;
 
         .clockpicker-button {
-            color: color('nijmegen-primary', 'base') !important;
+            color: color('nijmegen-primary', 'base');
             cursor: pointer;
             font-size: to-rem(16);
             font-weight: $font-weight-normal;

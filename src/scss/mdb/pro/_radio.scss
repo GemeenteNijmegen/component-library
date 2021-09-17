@@ -116,10 +116,10 @@ label.btn input[type="radio"] {
 }
 
 .md-disabled::after {
-  background-color: rgba($radio-fill-color, .5) !important;
-  border-color: rgba($radio-fill-color, .2) !important;
+  background-color: rgba($radio-fill-color, .5);
+  border-color: rgba($radio-fill-color, .2);
 }
 
 .md-disabled::before {
-  border-color: rgba($radio-fill-color, .25) !important;
+  border-color: rgba($radio-fill-color, .25);
 }

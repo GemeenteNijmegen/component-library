@@ -19,10 +19,10 @@ label.btn input[type="checkbox"] {
     cursor: pointer;
     user-select: none;
     &.form-check-label-left{
-      padding: 0 35px 0 0 !important;
+      padding: 0 35px 0 0;
       &:before{
         right: 0;
-        left: 100% !important;
+        left: 100%;
         transform: translateX(-100%);
       }
     }

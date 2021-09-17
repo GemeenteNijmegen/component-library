@@ -22,7 +22,7 @@
         {
             background: color('nijmegen-grey', 'base');
             color: color('nijmegen-primary', 'darken-1');
-            outline: none !important;
+            outline: none;
         }
 
         &:focus {
@@ -39,7 +39,7 @@
             &:focus {
                 @include tab-focus-minimal;
                 outline-offset: 2px;
-                outline-width: 2px !important;
+                outline-width: 2px;
             }
         }
     }

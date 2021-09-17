@@ -195,14 +195,14 @@
       margin-top: -65px;
       background-color: $deep-purple-accent-1;
       i {
-        color: $black-base !important;
+        color: $black-base;
       }
     }
     .btn-teal-accent {
       margin-top: -65px;
       background-color: $teal-accent-3;
       i {
-        color: $black-base !important;
+        color: $black-base;
       }
     }
   }
@@ -260,7 +260,7 @@
       height: 77%;
       overflow: hidden;
       background-color: transparent;
-      border-radius: 0 !important;
+      border-radius: 0;
       transition: all 1s;
       &.closed {
         top: 100%;
@@ -364,12 +364,12 @@ $checkbox-colors: map-merge(
       &.active {
         background-color: #fb0025;
         &.rounded-right {
-          border-top-right-radius: 50% !important;
-          border-bottom-right-radius: 50% !important;
+          border-top-right-radius: 50%;
+          border-bottom-right-radius: 50%;
         }
         &.rounded-left {
-          border-top-left-radius: 50% !important;
-          border-bottom-left-radius: 50% !important;
+          border-top-left-radius: 50%;
+          border-bottom-left-radius: 50%;
         }
       }
     }

@@ -5,8 +5,8 @@ $tablet-only: 'only screen and (min-width: #{$medium-screen-portrait}) and (max-
     background-color: color('nijmegen-brand', 'base');
 
     @media #{$medium-and-down} {
-        margin: 0 !important;
-        padding-bottom: 0 !important;
+        margin: 0;
+        padding-bottom: 0;
     }
 
     &::before {
@@ -70,7 +70,7 @@ $tablet-only: 'only screen and (min-width: #{$medium-screen-portrait}) and (max-
 
         img {
             @media #{$medium-and-down} {
-                transition: none !important;
+                transition: none;
             }
         }
 

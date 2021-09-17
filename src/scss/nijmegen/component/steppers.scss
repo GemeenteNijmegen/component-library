@@ -117,8 +117,8 @@
         }
 
         .label {
-            color: $body-color !important;
-            font-weight: $font-weight-normal !important;
+            color: $body-color;
+            font-weight: $font-weight-normal;
             margin-top: 0;
             white-space: nowrap;
         }
@@ -131,7 +131,7 @@
     &.active,
     &.completed {
         a.step-link:hover .circle {
-            background-color: color('nijmegen-primary', 'darken-2') !important;
+            background-color: color('nijmegen-primary', 'darken-2');
         }
     }
 
