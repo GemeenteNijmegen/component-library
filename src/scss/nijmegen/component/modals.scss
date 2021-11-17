@@ -5,9 +5,22 @@
 
 .modal-header {
     .close {
+        border-radius: .125rem;
         color: color('nijmegen-primary', 'base');
-        margin-top: -.5rem;
+        margin: -.25rem -.75rem -.75rem;
         opacity: 1;
+        padding: .75rem;
+
+        &:not(:disabled):not(.disabled):hover,
+        &:not(:disabled):not(.disabled):focus {
+            background: color('nijmegen-grey', 'lighten-1');
+            color: color('nijmegen-primary', 'darken-2');
+            opacity: 1;
+        }
+
+        &:focus {
+            @include tab-focus;
+        }
     }
 }
 
