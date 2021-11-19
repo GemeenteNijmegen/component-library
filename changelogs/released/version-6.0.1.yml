@@ -1,0 +1,11 @@
+version: 6.0.1
+versionBump: patch
+date: 2021-11-19T06:48:10.087Z
+files:
+  - GNIJ-376.yml
+changes:
+  - type: changed
+    component: modals
+    description: Changed the focus and hover state for the close button
+    what:
+      - CSS

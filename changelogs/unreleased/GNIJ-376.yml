@@ -1,6 +1,0 @@
-versionBump: patch # patch, minor, major
-changes:
-  - type: changed #changed, removed, added
-    component: modals
-    description: Changed the focus and hover state for the close button
-    what: [CSS] # what has changed 1 or more of: [HTML, CSS, JS]
