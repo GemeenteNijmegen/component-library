@@ -26,6 +26,7 @@
 
     .carousel-control-prev[role='button'],
     .carousel-control-next[role='button'] {
+        background-color: rgba(color('nijmegen-grey', 'lighten-1'), .2);
         border-radius: 100%;
         height: 56px;
         opacity: 1;

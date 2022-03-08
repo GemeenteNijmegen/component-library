@@ -6,7 +6,16 @@ Carousel.prototype.init = function(element, options) {
     this.$carousel = $(element);
     const currentOptions = options ? options : { interval: 2000, pause: false };
     this.$carousel.carousel(currentOptions);
+    var carousel = this.$carousel;
 
+    $('.carousel-indicators li').on('keypress', function(event) {
+        const enterEvent = 13;
+
+        if (event.which == enterEvent) {
+            const targetIndex = event.target.getAttribute('data-slide-to');
+            carousel.carousel(Number(targetIndex));
+        }
+    });
     $('.carousel-control-play', this.$carousel).click(this.play.bind(this));
     $('.carousel-control-pause', this.$carousel).click(this.pause.bind(this));
 };
