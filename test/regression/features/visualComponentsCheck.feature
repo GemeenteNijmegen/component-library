@@ -38,6 +38,7 @@ Feature: Visual component check
             | title-no-link |
             | listing |
             | multiple-upload |
+            | meta-block |
             | navbar--default |
             | navbar--default-white |
             | navbar--no-search |
