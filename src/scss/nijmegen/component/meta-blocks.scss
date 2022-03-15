@@ -1,0 +1,27 @@
+.meta-blocks {
+    &--content {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &--content-heading {
+        font-weight: bold;
+        margin-bottom: .5rem;
+    }
+
+    &--col {
+        margin-top: 1.5rem;
+
+        @media #{$large-and-up} {
+            margin-top: 2rem;
+        }
+
+        :not(p:first-of-type) {
+            margin: 0;
+        }
+    }
+
+    &--hr {
+        margin-top: 1.5rem;
+    }
+}
