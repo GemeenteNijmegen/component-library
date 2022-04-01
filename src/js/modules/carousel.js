@@ -14,7 +14,6 @@ Carousel.prototype.init = function(element, options) {
     $('.carousel-indicators li').on('keypress', function(event) {
         if (event.key == 'Enter') {
             $(this).trigger('click');
-            $('.carousel-play-pause .carousel-control-pause').trigger('click');
         }
     });
 
@@ -23,6 +22,8 @@ Carousel.prototype.init = function(element, options) {
 
     $('.carousel-control-prev', this.$carousel).on('click', this.pause.bind(this));
     $('.carousel-control-next', this.$carousel).on('click', this.pause.bind(this));
+
+    $('.carousel-indicators li[data-slide-to]', this.$carousel).on('click', this.pause.bind(this));
 };
 
 Carousel.prototype.play = function() {
@@ -32,17 +33,23 @@ Carousel.prototype.play = function() {
         .attr('aria-hidden', 'true');
     $('.carousel-control-pause', this.$carousel)
         .show()
-        .attr('aria-hidden', 'false');
+        .attr('aria-hidden', 'false')
+        .trigger('focus');
 };
 
-Carousel.prototype.pause = function() {
+Carousel.prototype.pause = function(event) {
     this.$carousel.carousel('pause');
     $('.carousel-control-pause', this.$carousel)
-        .hide()
-        .attr('aria-hidden', 'true');
+    .hide()
+    .attr('aria-hidden', 'true');
     $('.carousel-control-play', this.$carousel)
-        .show()
-        .attr('aria-hidden', 'false');
+    .show()
+    .attr('aria-hidden', 'false');
+    
+    const pauseButtonClicked = event.currentTarget.classList.contains('carousel-control-pause');
+    if(pauseButtonClicked){
+        $('.carousel-control-play', this.$carousel).trigger('focus');
+    }
 };
 
 export default Carousel;
