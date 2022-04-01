@@ -1,6 +1,0 @@
-versionBump: patch
-changes:
-  - type: changed
-    component: carousel
-    description: Improve accessibility of indicator buttons
-    what: [HTML, CSS, JS]

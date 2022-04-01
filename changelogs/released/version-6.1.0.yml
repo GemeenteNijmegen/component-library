@@ -1,0 +1,20 @@
+version: 6.1.0
+versionBump: minor
+date: 2022-04-01T13:49:26.663Z
+files:
+  - GNIJ-379.yml
+  - GNIJ-385.yml
+changes:
+  - type: changed
+    component: carousel
+    description: Improve accessibility of indicator buttons
+    what:
+      - HTML
+      - CSS
+      - JS
+  - type: added
+    component: meta-block
+    description: component to display meta information on a page.
+    what:
+      - HTML
+      - CSS

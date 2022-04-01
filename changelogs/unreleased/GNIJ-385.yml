@@ -1,6 +1,0 @@
-versionBump: minor
-changes:
-  - type: added
-    component: meta-block
-    description: component to display meta information on a page.
-    what: [HTML, CSS]
