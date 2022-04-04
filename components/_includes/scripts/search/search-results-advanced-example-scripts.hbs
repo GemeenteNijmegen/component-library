@@ -1,0 +1,74 @@
+<script>
+    var searchResults = new nijmegen.SearchResults();
+    var mockResults = [
+        { 
+            url: '', 
+            title: 'Maecenas ipsum <em>testing</em>', 
+            body: 'Lorem ipsum <em>testing</em> dolor sit amet Fusce habitant curabitur dis pulvinar. Accumsan dolor amet primis mattis rutrum risus lorem. In quam euismod sem placerat magnis litora curabitur platea. Tempus iaculis vestibulum urna aptent.',
+            meta: [
+                {
+                    text: '17 september',
+                    icon: {
+                        name: 'mdi-calendar',
+                        label: 'Datum'
+                    }
+                },
+                {
+                    text: '19.00 - 20.00',
+                    icon: {
+                        name: 'mdi-clock',
+                        label: 'Tijd'
+                    }
+                },
+                {
+                    text: 'Korfbal',
+                    icon: {
+                        name: 'mdi-soccer',
+                        label: 'Sport'
+                    }
+                },
+                {
+                    text: 'Alle leeftijden',
+                    icon: {
+                        name: 'mdi-account',
+                        label: 'Voor wie'
+                    }
+                },
+                {
+                    text: 'Drieskensacker 1140, Nijmegen',
+                    link: 'https://www.google.com/maps/place/Drieskensacker+1140,+6546+MG+Nijmegen',
+                    icon: {
+                        name: 'mdi-google-maps',
+                        label: 'Waar'
+                    }
+                }
+            ]
+        },
+        { 
+            url: '', 
+            title: 'Sagittis est eu lacus <em>testing</em>hac sodales', 
+            body: 'Lorem ipsum dolor sit amet fames sit fringilla tempus. Semper aliquam ultrices lacus platea. Consequat imperdiet amet <em>testing</em> faucibus ornare curae. Torquent turpis natoque quam morbi fusce.',
+            meta: [
+                {
+                    text: '20 september',
+                    icon: {
+                        name: 'mdi-calendar',
+                        label: 'Datum'
+                    }
+                }
+            ]
+        },
+        { 
+            url: '', 
+            title: 'Gravida potenti vitae congue', 
+            body: 'Lorem ipsum dolor <em>testing</em> sit amet lacus parturient enim tellus. Tristique fusce vitae vulputate aptent consectetur ante dapibus in scelerisque. Laoreet purus eget et orci ad. Parturient <em>testing</em> pede posuere finibus penatibus.' 
+        }
+
+    ];
+    var searchTerm = 'testing';
+
+    $(document).ready(function () {
+        searchResults.init();
+        searchResults.show(mockResults, searchTerm);
+    });
+</script>
