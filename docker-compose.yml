@@ -6,10 +6,11 @@ services:
     volumes:
       - ./:/app
     environment:
-      NODE_ENV: development
-      HTML_VALIDATOR_URL: http://html-validator:8888
+      - NODE_ENV=development
+      - HTML_VALIDATOR_URL=http://html-validator:8888
+      - PORT
     ports:
-      - 3000:3000
+      - 3000:${PORT:-3000}
     networks:
       - nijmegen
 
