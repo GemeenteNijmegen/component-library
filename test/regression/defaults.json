@@ -2,5 +2,6 @@
     "defaultViewport": {
         "width": 1300,
         "height": 500
-    }
+    },
+    "executablePath": "/usr/bin/chromium-browser"
 }
