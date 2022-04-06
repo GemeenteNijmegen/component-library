@@ -4,6 +4,6 @@ changes:
     component: results-advanced
     description: This new component is based on the search-results. It provides the option to add meta data to a search result item.
   - type: changed
-    components: accordion
-    what: [CSS, HTML]
-    description: Changed the role and nesting of the accordion headings to make it better accessible
+    component: accordion
+    what: [HTML]
+    description: Changed the role of the accordion headings to make it better accessible
