@@ -3,7 +3,7 @@ Feature: Lightbox
     The lightbox will show a big image
 
     Background: Disable accessibility rule
-        Given I disable the accessibility rule "page-has-heading-one"
+        Given I disable the accessibility rules "page-has-heading-one,aria-dialog-name"
 
     Scenario: Show the big image
         Given I open the component "lightbox"

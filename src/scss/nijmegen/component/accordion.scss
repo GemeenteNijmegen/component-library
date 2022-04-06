@@ -7,6 +7,7 @@
                 color: color('nijmegen-primary', 'base');
                 font-family: 'Oranda', sans-serif;
                 font-size: to-rem(26);
+                pointer-events: none;
 
                 @media only screen and (min-width: #{$medium-screen-portrait}) {
                     font-size: to-rem(28);
@@ -50,9 +51,12 @@
 
         &::after {
             @include mdi('chevron-up');
-            float: right;
             font-size: to-rem(36);
             line-height: to-rem(30);
+            position: absolute;
+            top: to-rem(26);
+            right: to-rem(10);
+            display: block;
         }
 
         &.collapsed::after{
