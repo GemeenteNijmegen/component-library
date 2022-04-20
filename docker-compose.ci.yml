@@ -13,7 +13,7 @@ services:
     networks:
       - nijmegen
   regression:
-    image: enrise/puppeteer-cucumber:2.2
+    image: enrise/puppeteer-cucumber:3.0
     volumes:
       - ./test/regression/features:/home/node/app/features
       - ./test/regression/results:/home/node/app/test
