@@ -1,0 +1,32 @@
+version: 6.2.0
+versionBump: minor
+date: 2022-04-26T09:38:27.245Z
+files:
+  - GNIJ-379.yml
+  - GNIJ-381.yml
+  - GNIJ-384.yml
+changes:
+  - type: changed
+    component: carousel
+    description: Changed focus and active style of carousel indicators
+    what:
+      - CSS
+      - JS
+  - type: changed
+    component: switch
+    description: >-
+      Added aria-hidden to the switch options to make it better accessible for
+      screen reader users
+    what:
+      - HTML
+      - NOTES
+  - type: added
+    component: results-advanced
+    description: >-
+      This new component is based on the search-results. It provides the option
+      to add meta data to a search result item.
+  - type: changed
+    component: accordion
+    what:
+      - HTML
+    description: Changed the role of the accordion headings to make it better accessible

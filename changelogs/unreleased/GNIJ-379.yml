@@ -1,6 +1,0 @@
-versionBump: patch # patch, minor, major
-changes:
-  - type: changed #changed, removed, added
-    component: carousel
-    description: Changed focus and active style of carousel indicators
-    what: [CSS, JS] # what has changed 1 or more of: [HTML, CSS, JS]

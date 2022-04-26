@@ -1,9 +1,0 @@
-versionBump: minor # patch, minor, major
-changes:
-  - type: added #changed, removed, added
-    component: results-advanced
-    description: This new component is based on the search-results. It provides the option to add meta data to a search result item.
-  - type: changed
-    component: accordion
-    what: [HTML]
-    description: Changed the role of the accordion headings to make it better accessible
