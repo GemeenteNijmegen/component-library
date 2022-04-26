@@ -23,6 +23,7 @@ Carousel.prototype.init = function(element, options) {
     $('.carousel-control-prev', this.$carousel).on('click', this.pause.bind(this));
     $('.carousel-control-next', this.$carousel).on('click', this.pause.bind(this));
 
+    $('.carousel-indicators li[data-slide-to]', this.$carousel).attr('tab-index', 0);
     $('.carousel-indicators li[data-slide-to]', this.$carousel).on('click', this.pause.bind(this));
 };
 
