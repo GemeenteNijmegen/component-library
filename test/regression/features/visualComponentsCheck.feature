@@ -55,6 +55,7 @@ Feature: Visual component check
             | facets-advanced |
             | radio-button |
             | results |
+            | results-advanced |
             | select |
             | stepper |
             | sticky-content |

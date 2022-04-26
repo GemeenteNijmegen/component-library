@@ -1,7 +1,7 @@
 tasks:
   - name: Docker
     init: make init # runs during prebuild
-    command: make start
+    command: PORT=443 make start
   - name: Pull images used for testing
     init: docker-compose pull html-validator regression
 
@@ -17,6 +17,7 @@ vscode:
     - orta.vscode-jest
     - streetsidesoftware.code-spell-checker
     - streetsidesoftware.code-spell-checker-dutch
+    - alexkrechik.cucumberautocomplete
 
 gitConfig:
   http.sslverify: "false"

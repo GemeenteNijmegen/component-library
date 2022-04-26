@@ -11,20 +11,29 @@
         padding-bottom: to-rem(20);
     }
 
+    .search-results-advanced &__item {
+        margin-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
     &__item-title {
         color: color('nijmegen-brand', 'base');
-        font-size: to-rem(28);
+        font-size: to-rem(26);
 
         em {
             font-style: normal;
         }
     }
 
-    &__item-body em {
-        background: color('nijmegen-grey', 'lighten-1');
-        color: color('nijmegen-primary', 'darken-1');
-        font-style: normal;
-        padding: 0 to-rem(2);
+    &__item-body {
+        font-size: to-rem(18);
+
+        em {
+            background: color('nijmegen-grey', 'lighten-1');
+            color: color('nijmegen-primary', 'darken-1');
+            font-style: normal;
+            padding: 0 to-rem(2);
+        }
     }
 
     &__noresults,
@@ -35,6 +44,30 @@
     &__pagination {
         display: flex;
         justify-content: center;
+    }
+
+    &__item-meta {
+        color: color('nijmegen-grey', 'darken-2');
+        font-size: to-rem(14);
+        line-height: to-rem(24);
+        font-weight: 400;
+        margin: to-rem(8) to-rem(-13) to-rem(28);
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+            padding: to-rem(4) to-rem(13);
+
+            a {
+                text-decoration: underline;
+            }
+        }
+
+        .mdi {
+            font-size: to-rem(14);
+            margin-right: to-rem(8);
+            vertical-align: 0;
+        }
     }
 }
 

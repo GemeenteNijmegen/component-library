@@ -1,6 +1,5 @@
 const { When } = require('cucumber');
 const openUrl = require('cucumber-puppeteer/features/support/action/openUrl');
-const waitFor = require('cucumber-puppeteer/features/support/action/waitFor');
 const { expect } = require('chai');
 
 const globalStyle = {
@@ -27,6 +26,6 @@ When('I open the component {string}', async function(componentName) {
         openUrl.call(this, url),
     ]);
     await this.page.addStyleTag(globalStyle);
-    await waitFor.call(this, 0.5);
+    await this.page.waitForTimeout(500);
     expect(response.status(), `Loading url: ${url} failed`).to.be.within(200, 299);
 });

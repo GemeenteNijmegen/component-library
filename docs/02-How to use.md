@@ -16,6 +16,22 @@ basic markup needed and all the proper references to styling and interactivity i
 
 All files (CSS and JavaScript) used in underneath example originate from the MDB framework and are therefor needed to kick-start your implementation.
 
+**Integrity hashes**
+
+We include integrity hashes for all files that come directly from the component library. 
+
+| Type       | Url                                            | Integrity hash                              |
+| ---------- | ---------------------------------------------- | ------------------------------------------- |
+| stylesheet | %HOST%{{ assetPath '/css/bootstrap.min.css' }} | {{{ sri '/public/css/bootstrap.min.css' }}} |
+| stylesheet | %HOST%{{ assetPath '/nijmegen.css' }}          | {{{ sri '/public/nijmegen.css' }}}          |
+| script     | %HOST%{{ assetPath '/js/jquery.min.js' }}      | {{{ sri '/public/js/jquery.min.js' }}}      |
+| script     | %HOST%{{ assetPath '/js/popper.min.js' }}      | {{{ sri '/public/js/popper.min.js' }}}      |
+| script     | %HOST%{{ assetPath '/js/bootstrap.min.js' }}   | {{{ sri '/public/js/bootstrap.min.js' }}}   |
+| script     | %HOST%{{ assetPath '/js/mdb.min.js' }}         | {{{ sri '/public/js/mdb.min.js' }}}         |
+| script     | %HOST%{{ assetPath '/nijmegen.js' }}           | {{{ sri '/public/nijmegen.js' }}}           |
+
+**Full implementation**
+
 ```html
 <!doctype html>
 <html lang="nl">

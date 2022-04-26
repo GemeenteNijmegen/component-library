@@ -6,12 +6,15 @@ services:
     volumes:
       - ./:/app
     environment:
-      NODE_ENV: development
-      HTML_VALIDATOR_URL: http://html-validator:8888
+      - NODE_ENV=development
+      - HTML_VALIDATOR_URL=http://html-validator:8888
+      - PORT
     ports:
-      - 3000:3000
+      - 3000:${PORT:-3000}
     networks:
-      - nijmegen
+      nijmegen:
+        aliases:
+          - "componenten.nijmegen.nl"
 
   html-validator:
     image: ghcr.io/validator/validator:latest
@@ -19,7 +22,7 @@ services:
       - nijmegen
 
   regression:
-    image: enrise/puppeteer-cucumber:2.2
+    image: enrise/puppeteer-cucumber:3.0
     volumes:
       - ./test/regression/features:/home/node/app/features
       - ./test/regression/results:/home/node/app/test
@@ -27,7 +30,7 @@ services:
     networks:
       - nijmegen
     environment:
-      - ROOT_URL=http://frontend:3000
+      - ROOT_URL=http://componenten.nijmegen.nl:3000
       - LOCAL=true
 
   static:
