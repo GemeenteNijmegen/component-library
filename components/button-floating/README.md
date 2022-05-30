@@ -5,7 +5,8 @@ Based on the version from MDB:<br>
 
 ### Accessibility
 
-Be sure to add textual content to the button using `aria-label` so this will be available to assistive technologies.
+Be sure to add textual content using `aria-label` to the anchors or buttons so this will be available to assistive technologies. This should be an action, for example: `Add item` , `Delete` or `Leave a message`.
+
 Icons should be hidden from screen-readers by applying `aria-hidden="true"` to the child span `mdi` element.
 If the button is a link, then use an anchor tag instead `<a class="btn-floating btn-large btn-floating-primary" href="/add" aria-label="Toevoegen">...</a>`.
 
