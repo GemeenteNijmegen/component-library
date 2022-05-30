@@ -9,18 +9,12 @@ When('I press enter on an internal link', async function() {
 
 When('I press enter on an internal link for a different page', async function() {
     await pressKey.call(this, 'Enter', '.navbar-nav .nav-item:nth-child(2) a');
-    console.log('URL1',await this.page.url());
     await this.page.waitForNavigation({ waitUntil: 'networkidle0' });
-    console.log('URL2',await this.page.url());
 });
 
 When('I press enter on an external link', async function() {
     await pressKey.call(this, 'Enter', '[href="https://nijmegen.nl"]');
-    console.log('URL3',await this.page.url());
-
     await this.page.waitForNavigation({ waitUntil: 'networkidle0' });
-    console.log('URL4',await this.page.url());
-
 });
 
 Then('I scroll to the correct item on the page', async function() {
