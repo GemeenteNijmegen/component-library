@@ -32,7 +32,7 @@ const runDev = async function() {
     const logger = fractal.cli.console;
     const server = fractal.web.server({
         sync: true,
-        port: process.env.PORT ? process.env.PORT : 3000,
+        port: process.env.PORT ? process.env.PORT : 80,
     });
 
     const bundler = new Bundler(entryFiles, options);

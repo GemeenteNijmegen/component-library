@@ -17,16 +17,16 @@ intro:
 # Main commands
 # ===========================
 
-init: intro do-install-git-hooks do-build do-init do-show-commands
+init: intro do-prepare-proxy do-install-git-hooks do-build do-init do-show-commands
 build: intro do-build do-show-commands
-start: intro do-start
+start: intro do-start-proxy do-start do-connect-proxy do-check-hosts-file
 start-static: intro do-static-stop do-static-build do-static-start
-stop: intro do-stop
+stop: intro do-stop do-disconnect-proxy
 restart: intro do-restart
 shell: intro do-open-shell
 test: intro do-lint do-test
 fix: intro do-fix
-update: intro do-switch-branch do-run-updates do-start
+update: intro do-prepare-proxy do-switch-branch do-run-updates do-start
 mr: intro do-checkout-mr do-run-updates do-start
 
 create-release: intro do-create-release
@@ -95,7 +95,7 @@ do-init:
 do-start:
 	@echo "\n=== Start container ===\n"
 	docker-compose up -d frontend
-	@echo "\n-> Your container is running on http://localhost:3000\n"
+	@echo "\n-> Your container is running on https://componenten.nijmegen.dev\n"
 
 do-static-stop:
 	@echo "\n=== Stop static container ===\n"
@@ -185,3 +185,43 @@ do-create-changelog-file:
 	@echo "\n=== Creating an unreleased changelog file ===\n"
 	@cp dev/unreleased-changelog.template.yml changelogs/unreleased/`git rev-parse --abbrev-ref HEAD`.yml \
 		&& echo 'Created a new unreleased changelog file'
+
+# ===========================
+# Hosts proxy
+# ===========================
+
+do-start-proxy:
+	@echo "\n=== Start hosts proxy ===\n"
+	@curl --silent https://gitlab.enrise.com/Enrise/DevProxy/-/raw/master/start.sh | sh
+
+do-connect-proxy:
+	@echo "\n=== Connect to hosts proxy ===\n"
+	@docker network connect nijmegen enrise-dev-proxy && echo "Connected." || true
+
+do-stop-proxy:
+	@echo "\n=== Stop hosts proxy ===\n"
+	@docker container stop enrise-dev-proxy && echo "Stopped." || true
+
+do-disconnect-proxy:
+	@echo "\n=== Disconnect from hosts proxy ===\n"
+	@docker network disconnect nijmegen enrise-dev-proxy && echo "Disconnected." || true
+
+do-check-hosts-file:
+	@cat /etc/hosts | grep componenten.nijmegen.dev> /dev/null \
+	|| (echo "\n=== HOSTS MISSING ===\n\n \
+	You are missing some hosts in your /etc/hosts file:" \
+	"127.0.0.1 componenten.nijmegen.dev" \
+	&& false)
+
+do-prepare-proxy:
+	@echo "\n=== Creating certificates ===\n"
+	@mkdir -p ./dev/traefik-config/certs || true \
+	&& cd ./dev/traefik-config/certs \
+	&& (mkcert *.nijmegen.dev \
+	&& echo "> certificates created") \
+	|| echo "> could not create certificates, did you install mkcert?"
+	@echo "\n=== Copy dev proxy config ===\n"
+	@cp ./dev/traefik-config/nijmegen.yml ~/.enrise-dev-proxy/config/nijmegen.yml
+	@echo "> configuration copied"
+	@cp ./dev/traefik-config/certs/* ~/.enrise-dev-proxy/certs/
+	@echo "> certificates copied"

@@ -9,12 +9,16 @@ services:
       - NODE_ENV=development
       - HTML_VALIDATOR_URL=http://html-validator:8888
       - PORT
-    ports:
-      - 3000:${PORT:-3000}
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.nijmegen.rule=Host(`componenten.nijmegen.dev`)
+      - traefik.http.routers.nijmegen.tls=true
+      - traefik.http.services.nijmegen.loadbalancer.server.port=80
     networks:
       nijmegen:
         aliases:
           - "componenten.nijmegen.nl"
+          - "componenten.nijmegen.dev"
 
   html-validator:
     image: ghcr.io/validator/validator:latest
@@ -30,7 +34,7 @@ services:
     networks:
       - nijmegen
     environment:
-      - ROOT_URL=http://componenten.nijmegen.nl:3000
+      - ROOT_URL=http://componenten.nijmegen.nl
       - LOCAL=true
 
   static:
@@ -46,6 +50,7 @@ services:
 
 networks:
   nijmegen:
+    name: nijmegen
     driver: bridge
     ipam:
       driver: default
