@@ -38,7 +38,7 @@ make init
 make start
 ```
 
-The website should now be available on URL <http://localhost:3000>
+The website should now be available on URL <https://componenten.nijmegen.dev>
 
 ### Visual regression testing
 

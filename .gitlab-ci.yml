@@ -66,6 +66,7 @@ build image:
     - docker-compose -f docker-compose.ci.yml pull -q frontend || true
     - docker-compose -f docker-compose.ci.yml build frontend
     - docker-compose -f docker-compose.ci.yml push frontend
+  needs: []
 
 # ======================
 # Regression stage
@@ -85,6 +86,8 @@ regression:
     expire_in: 1 week
     when: on_failure
   retry: 1
+  needs:
+    - build image
 
 # ======================
 # Push stage

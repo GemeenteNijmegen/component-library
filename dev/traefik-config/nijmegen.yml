@@ -1,0 +1,4 @@
+tls:
+  certificates:
+    - certFile: /var/certs/_wildcard.nijmegen.dev.pem
+      keyFile: /var/certs/_wildcard.nijmegen.dev-key.pem

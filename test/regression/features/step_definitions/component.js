@@ -27,5 +27,5 @@ When('I open the component {string}', async function(componentName) {
     ]);
     await this.page.addStyleTag(globalStyle);
     await this.page.waitForTimeout(500);
-    expect(response.status(), `Loading url: ${url} failed`).to.be.within(200, 299);
+    expect(response.status(), `Loading url: ${url} failed`).to.be.within(200, 304);
 });

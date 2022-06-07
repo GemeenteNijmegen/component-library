@@ -33,36 +33,50 @@
         right: 0;
         top: 14px;
         transform: translateX(150%);
+        padding-right: 16px;
+
+        @media #{$medium-and-up} {
+            padding-right: 20px;
+        }
 
         li {
             display: inline-block;
             line-height: 44px;
-            margin: 0 6px;
-
-            @media #{$medium-and-up} {
-                margin: 0 10px;
-            }
 
             .mdi {
                 color: color('white', 'base');
                 line-height: inherit;
             }
 
+            button, a
+            {
+                padding: 0 6px;
+
+                @media #{$medium-and-up} {
+                    padding: 0 10px;
+                }
+            }
+
             button {
                 background: none;
                 border: 0;
                 margin: 0;
-                padding: 0;
             }
 
             a {
                 display: block;
             }
 
+            a:hover,
+            a:focus,
+            button:hover,
+            button:focus {
+                background: color('nijmegen-primary', 'lighten-2');
+            }
+
             a:focus,
             button:focus {
                 @include tab-focus;
-                background: color('nijmegen-primary', 'lighten-1');
             }
 
             &.btn-floating-wrapper {
@@ -74,6 +88,10 @@
     &.active {
         .btn-floating-collapse {
             background-color: color('nijmegen-primary', 'darken-3');
+
+            &:hover, &:focus{
+                background-color: color('nijmegen-primary', 'darken-2');
+            }
         }
 
         .expand-horizontal {
