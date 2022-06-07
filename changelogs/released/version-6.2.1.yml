@@ -1,0 +1,21 @@
+version: 6.2.1
+versionBump: patch
+date: 2022-06-07T10:47:18.816Z
+files:
+  - GNIJ-382.yml
+  - GNIJ-387.yml
+changes:
+  - type: changed
+    component:
+      - button-floating
+      - button-horizontal-collapse
+    description: Added some examples of correct aria-labels for the button icons
+    what:
+      - NOTES
+  - type: changed
+    component:
+      - button-floating
+      - button-horizontal-collapse
+    description: Improved the focus and hover states of the buttons
+    what:
+      - CSS
