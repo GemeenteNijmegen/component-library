@@ -1,0 +1,83 @@
+.Changelog-warning {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    background: orange;
+    border-radius: 50%;
+    box-sizing: border-box;
+    margin-left: 4px;
+    font-weight: normal;
+    margin-bottom: 1px;
+}
+
+.Changelog-warning::after {
+    display: block;
+    position: absolute;
+    content: "!";
+    color: white;
+    text-align:center;
+    width: 16px;
+    font-size: 16px;
+    font-family: 'Courier New', monospace;
+    font-weight: 900;
+}
+
+.Changelog-tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+
+.Changelog-tooltip-text {
+    visibility: hidden;
+    width: auto;
+    min-width: 200px;
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    font-size: 14px;
+
+    position: absolute;
+    z-index: 1;
+
+    bottom: 100%;
+    left: -10px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+}
+
+.Changelog-tooltip-text a {
+    color: #fff;
+}
+
+.Changelog-tooltip-text a:hover {
+    color: #ccc;
+}
+
+.Changelog-tooltip-text::after {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 17px;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.Changelog-tooltip-text::before {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 10px;
+    width: 14px;
+    height: 5px;
+    background: transparent;
+}
+
+.Changelog-tooltip:hover .Changelog-tooltip-text {
+    visibility: visible;
+}

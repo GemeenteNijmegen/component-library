@@ -1,5 +1,9 @@
 {{#if (objectLength changelog)}}
-<h2>{{{title}}}</h2>
+<h2>{{{title}}} {{#versionHasStyleOrScriptChanges changes}}<div class="Changelog-tooltip Changelog-warning">
+        <div class="Changelog-tooltip-text">Some integrity hashes are changed, check the <a
+                href="{{ docsPath 'how-to-use' }}#integrity-hashes">how to
+                use</a> for the correct hashes</div>
+    </div>{{/versionHasStyleOrScriptChanges}}</h2>
 {{#each changelog as |changes type|}}
 <h3>{{type}}</h3>
 <ul>

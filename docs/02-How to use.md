@@ -16,7 +16,9 @@ basic markup needed and all the proper references to styling and interactivity i
 
 All files (CSS and JavaScript) used in underneath example originate from the MDB framework and are therefor needed to kick-start your implementation.
 
+
 **Integrity hashes**
+<a name="integrity-hashes"></a>
 
 We include integrity hashes for all files that come directly from the component library. 
 
