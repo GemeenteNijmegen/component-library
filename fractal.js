@@ -20,7 +20,12 @@ const version = require('./helpers/getVersion')();
 const nijmegenTheme = mandelbrot({
     nav: ['docs', 'components'],
     panels: ['html', 'notes', 'info'],
-    styles: ['default', '/_subtheme/css/nijmegen.css', '/_subtheme/css/versionCheck.css'], // link to the default stylesheet followed by a custom one
+    styles: [
+        'default',
+        '/_subtheme/css/nijmegen.css',
+        '/_subtheme/css/versionCheck.css',
+        '/_subtheme/css/changelog.css',
+    ], // link to the default stylesheet followed by a custom one
     scripts: ['default', '/_subtheme/js/versionCheck.js'],
     favicon: '/_subtheme/img/favicon.ico',
     version: version,
@@ -37,6 +42,7 @@ const getPartials = require('./helpers/fractal/getPartials');
 const hbs = require('@frctl/handlebars')({
     helpers: {
         componentPath: require('./helpers/fractal/component-path')(fractal),
+        docsPath: require('./helpers/fractal/docsPath')(fractal),
         assetPath: require('./helpers/fractal/asset-path')(fractal),
         componentPreviewPath: require('./helpers/fractal/component-preview-path')(fractal),
         mdbootstrapPath: require('./helpers/fractal/mdbootstrap-path')(fractal),
@@ -48,6 +54,7 @@ const hbs = require('@frctl/handlebars')({
         objectLength: obj => Object.keys(obj).length,
         sri: require('./helpers/fractal/calculate-integrity'),
         preloadFiles: require('./helpers/fractal/preloadFiles').getPreloadFiles,
+        versionHasStyleOrScriptChanges: require('./helpers/fractal/versionHasStyleOrScriptChanges'),
     },
     partials: getPartials(path.join(__dirname, './docs/partials')),
 });
