@@ -45,3 +45,16 @@ a:hover {
 .Prose {
     max-width: 50em;
 }
+
+.Tree-title {
+    font-weight: bold;
+    color: #222;
+}
+
+.Browser-panel {
+    background-color: #F9F9F9;
+}
+
+.Status-label {
+    font-weight: bold;
+}
