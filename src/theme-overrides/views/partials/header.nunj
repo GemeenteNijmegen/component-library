@@ -1,5 +1,5 @@
 <div class="Header">
-    <button class="Header-button Header-navToggle" data-action="toggle-sidebar">
+    <button class="Header-button Header-navToggle" data-action="toggle-sidebar" role="button" aria-label="header-nav-toggle">
         {% include 'icons/close-nav.svg' %}
         {% include 'icons/open-nav.svg' %}
     </button>

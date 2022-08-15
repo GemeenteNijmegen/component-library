@@ -33,6 +33,8 @@ const nijmegenTheme = mandelbrot({
 
 // specify a directory to hold the theme override templates
 nijmegenTheme.addLoadPath(__dirname + '/src/theme-overrides/views');
+nijmegenTheme.addLoadPath(__dirname + '/src/theme-overrides/layouts');
+nijmegenTheme.addLoadPath(__dirname + '/src/theme-overrides/assets');
 
 // Add Nijmegen subtheme to fractal instance
 fractal.web.theme(nijmegenTheme);
@@ -129,3 +131,36 @@ fractal.cli.command('list-components', listComponents, {
 });
 
 fractal.web.set('server.sync', true);
+
+// Setup custom statuses
+
+fractal.docs.set('statuses', {
+    draft: {
+        label: 'Draft',
+        description: 'Work in progress.',
+        color: '#ad0505',
+    },
+    ready: {
+        label: 'Ready',
+        description: 'Ready for referencing.',
+        color: '#006800',
+    },
+});
+
+fractal.components.set('statuses', {
+    prototype: {
+        label: 'Prototype',
+        description: 'Do not implement.',
+        color: '#ad0505',
+    },
+    wip: {
+        label: 'WIP',
+        description: 'Work in progress. Implement with caution.',
+        color: '#915e00',
+    },
+    ready: {
+        label: 'Ready',
+        description: 'Ready to implement.',
+        color: '#006800',
+    },
+});
