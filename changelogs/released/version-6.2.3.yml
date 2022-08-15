@@ -1,0 +1,12 @@
+version: 6.2.3
+versionBump: patch
+date: 2022-08-15T08:04:44.628Z
+files:
+  - GNIJ-388.yml
+changes:
+  - type: changed
+    component: null
+    description: >-
+      Added warning to changelog entries when one of the integrity hashes has
+      changed
+    what: []
