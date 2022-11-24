@@ -21,7 +21,7 @@ services:
           - "componenten.nijmegen.dev"
 
   html-validator:
-    image: ghcr.io/validator/validator:latest
+    image: ghcr.io/validator/validator:21.7.10
     networks:
       - nijmegen
 
