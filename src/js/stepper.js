@@ -129,13 +129,13 @@ function updateStepStatus(
 
 // Stepper Form
 $(document).ready(function() {
-    var navigationListItems = $('.stepper-steps li a'),
+    var navigationListItems = $('.stepper-steps > li > a'),
         allContent = $('.step-content'),
         allBackBtn = $('.backBtn'),
         allNextBtn = $('.nextBtn'),
         mobileBackBtn = $('.back-link'),
         mobileNextBtn = $('.next-link'),
-        activeStep = $('.stepper-steps li.active a'),
+        activeStep = $('.stepper-steps > li.active > a'),
         stepperForm = $('#stepper-form'),
         stepperFormInputs = $('#stepper-form :input'),
         validSteps = [];
@@ -144,7 +144,7 @@ $(document).ready(function() {
 
     stepperFormInputs.on('change keyup paste', function(event) {
         var currentStepContent = $(this).closest('.step-content'),
-            currentStep = $('.stepper-steps li a[href="#' + currentStepContent.attr('id') + '"]').parent(),
+            currentStep = $('.stepper-steps > li > a[href="#' + currentStepContent.attr('id') + '"]').parent(),
             currentStepNumber = parseInt(currentStepContent.attr('id').substring(13)),
             currentInputs = currentStepContent.find('input');
 
@@ -201,8 +201,8 @@ $(document).ready(function() {
     });
 
     mobileBackBtn.add(allBackBtn).click(function() {
-        var currentStepContent = $('.stepper-steps li.active').children('.step-content'),
-            previousStep = $('.stepper-steps li a[href="#' + currentStepContent.attr('id') + '"]')
+        var currentStepContent = $('.stepper-steps > li.active').children('.step-content'),
+            previousStep = $('.stepper-steps > li > a[href="#' + currentStepContent.attr('id') + '"]')
                 .parent()
                 .prev()
                 .children('a');
@@ -210,8 +210,8 @@ $(document).ready(function() {
     });
 
     mobileNextBtn.add(allNextBtn).click(function() {
-        var currentStepContent = $('.stepper-steps li.active').children('.step-content'),
-            nextStep = $('.stepper-steps li a[href="#' + currentStepContent.attr('id') + '"]')
+        var currentStepContent = $('.stepper-steps > li.active').children('.step-content'),
+            nextStep = $('.stepper-steps > li > a[href="#' + currentStepContent.attr('id') + '"]')
                 .parent()
                 .next()
                 .children('a'),
