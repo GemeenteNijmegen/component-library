@@ -1,0 +1,13 @@
+version: 6.2.4
+versionBump: patch
+date: 2022-12-01T12:27:41.815Z
+files:
+  - GNIJ-390.yml
+changes:
+  - type: changed
+    component: stepper
+    description: >-
+      Updated the Stepper scripts to specifically select the direct children.
+      This also makes it possible to use links in the content of the component.
+    what:
+      - JS
