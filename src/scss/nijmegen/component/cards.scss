@@ -83,6 +83,9 @@
 }
 
 .card-news {
+    display: flex;
+    flex-direction: column-reverse;
+
     .card-title,
     .card-body h3,
     .card-body h5 {
