@@ -206,7 +206,7 @@ $tablet-only: 'only screen and (min-width: #{$medium-screen-portrait}) and (max-
 
                 &:focus {
                     @media #{$medium-and-down} {
-                        @include tab-focus-minimal-inverted
+                        @include tab-focus-minimal-inverted;
                     }
                 }
             }
