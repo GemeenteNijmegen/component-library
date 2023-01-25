@@ -1,6 +1,8 @@
-versionBump: patch
+versionBump: minor
 changes:
   - type: changed
-    component: accordion
-    description: Updated CSS to make accordion focus more visible
-    what: [CSS]
+    component:
+      - tags
+      - badges
+    description: Updated tags & badges components with better visibility of the close button and focus.
+    what: [HTML, CSS]
