@@ -108,7 +108,7 @@ $icon-size: 24;
                 outline: inherit;
 
                 &:focus {
-                    outline: 2px solid #00a889;
+                    outline: 2px solid color('nijmegen-primary', 'base');
                 }
             }
 
