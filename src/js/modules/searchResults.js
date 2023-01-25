@@ -45,8 +45,12 @@ SearchResults.prototype.show = function(results, searchTerm, didYouMeanTerm) {
         for(const metaItem of result.meta) {            
             const icon = document.createElement('span');
             icon.className = `mdi ${metaItem.icon.name}`;
-            icon.ariaLabel = metaItem.icon.label;
-            
+
+            const screenReaderLabel = document.createElement('span');
+            screenReaderLabel.className = 'sr-only';
+            screenReaderLabel.innerHTML = metaItem.icon.label;
+            icon.append(screenReaderLabel);
+
             const metaItemLi = document.createElement('li');
 
             if(!metaItem.link){
