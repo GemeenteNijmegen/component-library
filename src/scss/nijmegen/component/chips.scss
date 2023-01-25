@@ -1,23 +1,36 @@
 .chip {
+    height: auto;
+    display: inline-flex;
+    line-height: normal;
     background-color: color('white', 'base');
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
     color: $body-color;
     font-size: to-rem(13);
     font-weight: $font-weight-semibold;
-
-    // in MDB v4.3.2 we had a shadow, yet in v4.5.0 it's removed but design in Zeplin defines a shadow
-    // thus restore it here
     padding-right: 16px;
 
+    span {
+        margin: auto 0;
+    }
     .close {
-        color: color('nijmegen-primary', 'base');
+        opacity: 1;
+        line-height: inherit;
+        float: none;
+        background-color: color('nijmegen-grey', 'darken-3');
+        color: color('white', 'base');
         font-size: to-rem(16);
         font-weight: $font-weight-semibold;
-        margin-right: -8px;
+        margin: 5px -9px 5px 9px;
+        padding: 0;
+        border-radius: 21px;
+        width: 21px;
+        height: 21px;
+        font-size: 13px;
 
         &:focus,
         &:hover {
-            color: color('nijmegen-primary', 'darken-2');
+            background-color: color('nijmegen-primary', 'darken-2');
+            outline: 2px solid color('nijmegen-primary', 'base');
         }
     }
 }
