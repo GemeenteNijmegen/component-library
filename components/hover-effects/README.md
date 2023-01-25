@@ -14,4 +14,4 @@ No additional actions, aside from the markup, are needed to use this component.
 
 ### Notes
 
-* MDB defines more hover effects, yet Nijmegen only needed 3 therefore the library supports `light`, `strong` and `super light` overlays.
+* MDB defines more hover effects, yet Nijmegen only needed one because of accessibility standards. Therefore the library only supports the `strong` overlay.
