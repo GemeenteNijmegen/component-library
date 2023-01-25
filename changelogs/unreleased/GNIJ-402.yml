@@ -6,3 +6,7 @@ changes:
       - badges
     description: Updated tags & badges components with better visibility of the close button and focus.
     what: [HTML, CSS]
+  - type: changed
+    component: accordion
+    description: Improved accordion component with better focus when tabbing
+    what: [CSS]
