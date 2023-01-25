@@ -1,0 +1,6 @@
+versionBump: patch
+changes:
+  - type: added
+    component: stepper
+    description: Added correct autocomplete attributes to the input fields. Make sure to add the correct autocomplete attributes for your usecase, see https://www.w3.org/TR/WCAG21/#input-purposes.
+    what: [HTML]
