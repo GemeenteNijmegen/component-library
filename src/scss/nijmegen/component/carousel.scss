@@ -33,6 +33,7 @@
         opacity: 1;
         top: calc(50% - 28px);
         width: 56px;
+        z-index: 2;
 
         &.carousel-control-prev {
             left: 84px;
