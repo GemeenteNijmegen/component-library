@@ -2,5 +2,5 @@ versionBump: minor
 changes:
   - type: removed
     component: hover-effects
-    description: Removed options for `light` & `super light` because of accessibility standards. Make sure to updated these components.
+    description: Removed options for `light` & `super light` for not meeting the required accessibility standards for contrast. Make sure to update these components.
     what: [HTML]
