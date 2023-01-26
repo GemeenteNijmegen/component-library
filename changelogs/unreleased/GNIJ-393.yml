@@ -1,0 +1,22 @@
+versionBump: minor
+changes:
+  - type: changed
+    component:
+      - cards-filename
+      - cards-news
+      - cards-services
+      - cards-services-no-icon
+    description: Update titles from paragraphs to h3 headings 
+    what: [HTML]
+  - type: added
+    component: complex-table
+    description: Added table scopes to improve screen reader support to complex tables
+    what: [HTML]
+  - type: removed
+    component: stepper
+    description: Removed unnecessary strong tags in titles in Stepper component
+    what: [HTML]
+  - type: added
+    component: tooltips
+    description: Added aria-labels to add screen reader support to buttons with tooltips
+    what: [HTML]
