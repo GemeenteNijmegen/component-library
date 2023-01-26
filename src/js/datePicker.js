@@ -26,7 +26,7 @@ $('.date-picker').each(function() {
         formatSubmit: 'yyyy/mm/dd',
         buttonClear: 'none',
         onSet: function() {
-            $('.date-picker-input', $picker).val(this.get('value'));
+            $('.date-picker-input', $picker).val(this.get('value')).removeClass('is-invalid');
         },
         onStart: function() {
             $('.picker__nav--prev, .picker__nav--next').attr('tabindex', '-1');
@@ -37,8 +37,9 @@ $('.date-picker').each(function() {
     $('.date-picker-input', $picker).on('change', function() {
         if (dateIsValid(this.value)) {
             picker.set('select', parseDateInput(this.value));
+            $(this).removeClass('is-invalid');
         } else {
-            $(this).val('');
+            $(this).addClass('is-invalid');
         }
     });
 });
