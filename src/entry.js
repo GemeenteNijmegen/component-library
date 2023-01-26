@@ -19,6 +19,7 @@ import './js/navbar';
 import './js/popover';
 import './js/responsiveTable';
 import './js/select';
+import './js/sidenav';
 import './js/skipLinks';
 import './js/stepper';
 import './js/switch';

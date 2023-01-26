@@ -71,7 +71,7 @@ $icon-size: 24;
 
             }
 
-            a {
+            a, button {
                 font-size: to-rem(16);
                 height: to-rem($item-height);
                 line-height: to-rem($item-height);
@@ -96,6 +96,19 @@ $icon-size: 24;
                         right: 0;
                         top: to-rem(($item-height / 2) - ($icon-size / 2));
                     }
+                }
+            }
+
+            button {
+                width: 100%;
+                text-align: left;
+                border: 0;
+                background: none;
+                color: inherit;
+                outline: inherit;
+
+                &:focus {
+                    outline: 2px solid color('nijmegen-primary', 'base');
                 }
             }
 
