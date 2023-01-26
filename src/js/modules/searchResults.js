@@ -45,11 +45,13 @@ SearchResults.prototype.show = function(results, searchTerm, didYouMeanTerm) {
         for(const metaItem of result.meta) {            
             const icon = document.createElement('span');
             icon.className = `mdi ${metaItem.icon.name}`;
-            icon.ariaLabel = metaItem.icon.label;
-            $(icon).attr('role', 'img');
-            
+
+            const screenReaderLabel = document.createElement('span');
+            screenReaderLabel.className = 'sr-only';
+            screenReaderLabel.innerHTML = metaItem.icon.label;
+            icon.append(screenReaderLabel);
+
             const metaItemLi = document.createElement('li');
-            metaItemLi.title = `${metaItem.icon.label}: ${metaItem.text}`;
 
             if(!metaItem.link){
                 $(metaItemLi).append(icon).append(metaItem.text);
