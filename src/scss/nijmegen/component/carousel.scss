@@ -27,7 +27,7 @@
 
     .carousel-control-prev[role='button'],
     .carousel-control-next[role='button'] {
-        background-color: rgba(color('nijmegen-grey', 'darken-3'), .5);
+        background-color: color('nijmegen-grey', 'darken-3');
         border-radius: 100%;
         height: 56px;
         opacity: 1;
@@ -45,11 +45,11 @@
 
         &:hover {
             @extend .z-depth-1;
-            background-color: rgba(color('nijmegen-primary', 'lighten-1'), .5);
+            background-color: color('nijmegen-primary', 'lighten-1');
         }
 
         &:focus {
-            background: rgba(color('nijmegen-primary', 'lighten-1'), .5);
+            background: color('nijmegen-primary', 'lighten-1');
             box-shadow: 0 0 2px #fff;
             outline: none;
         }

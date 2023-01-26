@@ -2,7 +2,7 @@ $icon-spacing: 70px;
 $icon-size: 24px;
 
 #toast-container {
-    > .toast {
+    > .md-toast {
         background-image: none;
         box-shadow: none;
         color: $body-color;
@@ -11,11 +11,11 @@ $icon-size: 24px;
         padding-left: $icon-spacing;
         position: relative;
 
-        .toast-message {
+        .md-toast-message {
             line-height: 30px;
         }
 
-        .toast-close-button {
+        .md-toast-close-button {
             display: block;
         }
 
@@ -30,7 +30,7 @@ $icon-size: 24px;
         }
     }
 
-    .toast-close-button {
+    .md-toast-close-button {
         color: $body-color;
         opacity: 1;
 
@@ -43,7 +43,7 @@ $icon-size: 24px;
         }
     }
 
-    .toast-success {
+    .md-toast-success {
         background-color: color('nijmegen-backgrounds', 'success');
 
         &:before {
@@ -51,7 +51,7 @@ $icon-size: 24px;
         }
     }
 
-    .toast-info {
+    .md-toast-info {
         background-color: color('nijmegen-backgrounds', 'info');
 
         &:before {
@@ -59,7 +59,7 @@ $icon-size: 24px;
         }
     }
 
-    .toast-warning {
+    .md-toast-warning {
         background-color: color('nijmegen-backgrounds', 'warning');
 
         &:before {
@@ -67,11 +67,11 @@ $icon-size: 24px;
         }
     }
 
-    .toast-error {
+    .md-toast-error {
         background-color: color('nijmegen-backgrounds', 'danger');
         color: color('white', 'base');
 
-        .toast-close-button {
+        .md-toast-close-button {
             color: color('white', 'base');
 
             &:hover {
