@@ -1,6 +1,0 @@
-versionBump: minor
-changes:
-  - type: changed
-    component: date-picker
-    description: Added visible feedback to date picker / validation
-    what: [HTML, JS]

@@ -1,0 +1,114 @@
+version: 6.3.0
+versionBump: minor
+date: 2023-01-30T08:44:08.014Z
+files:
+  - GNIJ-393.yml
+  - GNIJ-394.yml
+  - GNIJ-395.yml
+  - GNIJ-396.yml
+  - GNIJ-397.yml
+  - GNIJ-399.yml
+  - GNIJ-401.yml
+  - GNIJ-402.yml
+  - GNIJ-405.yml
+  - GNIJ-407.yml
+changes:
+  - type: changed
+    component:
+      - cards-filename
+      - cards-news
+      - cards-services
+      - cards-services-no-icon
+    description: Update titles from paragraphs to h3 headings
+    what:
+      - HTML
+  - type: added
+    component: complex-table
+    description: Added table scopes to improve screen reader support to complex tables
+    what:
+      - HTML
+  - type: removed
+    component: stepper
+    description: Removed unnecessary strong tags in titles in Stepper component
+    what:
+      - HTML
+  - type: added
+    component: tooltips
+    description: Added aria-labels to add screen reader support to buttons with tooltips
+    what:
+      - HTML
+  - type: changed
+    component: cards-news
+    description: >-
+      Updated the order of the HTML elements (card-body and figure) to improve
+      the output of screen readers
+    what:
+      - HTML
+  - type: added
+    component: stepper
+    description: >-
+      Added correct autocomplete attributes to the input fields. Make sure to
+      add the correct autocomplete attributes for your usecase, see
+      https://www.w3.org/TR/WCAG21/#input-purposes.
+    what:
+      - HTML
+  - type: removed
+    component: anchors
+    description: >-
+      Removed the optional class `no-underline` on regular anchors. In older
+      releases this removed the underline from normal links. The reason of
+      removal is to improve accessibility.
+    what:
+      - CSS
+  - type: removed
+    component: hover-effects
+    description: >-
+      Removed options for `light` & `super light` for not meeting the required
+      accessibility standards for contrast. Make sure to update these
+      components.
+    what:
+      - HTML
+  - type: changed
+    component: sidenav
+    description: >-
+      Updated sidenav collapsible items with accessibility improvements to
+      enable keyboard navigation. The correct `aria-expanded` and
+      `aria-controls` are added for screen readers.
+    what:
+      - HTML
+      - CSS
+  - type: changed
+    component: carousel
+    description: >-
+      Updated the focus order of the Prev/Next buttons in the carousel component
+      to improve accessibility tab order.
+    what:
+      - HTML
+  - type: changed
+    component:
+      - tags
+      - badges
+    description: >-
+      Updated tags & badges components with better visibility of the close
+      button and focus.
+    what:
+      - HTML
+      - CSS
+  - type: changed
+    component: accordion
+    description: Improved accordion component with better focus when tabbing
+    what:
+      - CSS
+  - type: changed
+    component: date-picker
+    description: Added visible feedback to date picker / validation
+    what:
+      - HTML
+      - JS
+  - type: added
+    component:
+      - carousel
+      - progress-bar
+    description: Added correct aria-labels on carousel and progress-bar components.
+    what:
+      - HTML

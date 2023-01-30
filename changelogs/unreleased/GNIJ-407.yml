@@ -1,8 +1,0 @@
-versionBump: patch
-changes:
-  - type: added
-    component:
-      - carousel
-      - progress-bar
-    description: Added correct aria-labels on carousel and progress-bar components.
-    what: [HTML]

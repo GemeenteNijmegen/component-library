@@ -1,6 +1,0 @@
-versionBump: minor
-changes:
-  - type: changed
-    component: sidenav
-    description: Updated sidenav collapsible items with accessibility improvements to enable keyboard navigation. The correct `aria-expanded` and `aria-controls` are added for screen readers.
-    what: [HTML, CSS]
