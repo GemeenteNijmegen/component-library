@@ -1,5 +1,6 @@
 .accordion {
     .card {
+        overflow: visible;
         .card-header {
             padding: 0;
 
@@ -39,6 +40,8 @@
         padding: to-rem(26) to-rem(10);
         text-align: left;
         width: 100%;
+        position: relative;
+        z-index: 1;
 
         &:not(.collapsed) {
             color: color('nijmegen-primary', 'darken-3');
