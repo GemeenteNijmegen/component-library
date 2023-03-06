@@ -1,6 +1,0 @@
-versionBump: patch
-changes:
-  - type: changed
-    component: [date-picker, input]
-    description: Improved input field validation instructions
-    what: [HTML]
