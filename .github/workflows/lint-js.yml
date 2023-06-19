@@ -13,9 +13,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '12'
-      
-      - name: 'Install git'
-        run: 'apk add git'
 
       - name: 'Install packages'
         run: 'npm ci'
