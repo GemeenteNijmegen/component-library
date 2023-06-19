@@ -1,0 +1,24 @@
+name: 'Sass linting'
+
+on: [workflow_dispatch]
+
+jobs:
+  js-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout code'
+        uses: actions/checkout@v3
+
+      - name: 'Install node and npm'
+        uses: actions/setup-node@v3
+        with:
+          node-version: '12'
+      
+      - name: 'Install git'
+        run: 'apk add git'
+
+      - name: 'Install packages'
+        run: 'npm ci'
+
+      - name: 'Run Sass linter'
+        run: 'npm run lint-sass'
