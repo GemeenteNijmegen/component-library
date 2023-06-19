@@ -1,0 +1,24 @@
+name: "Run Jest tests (Javascript testing)"
+
+on:
+  pull_request:
+    types: [opened, edited, reopened]
+    branches:    
+      - main
+      - master
+
+jobs:
+  jest-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@v3
+
+      - name: "Run the Jest docker container"
+        run: docker-compose -f docker-compose.jest.yml up -d
+
+      - name: "Install packages"
+        run: docker-compose -f docker-compose.jest.yml run frontend sh -c 'npm ci'
+
+      - name: "Run Tests"
+        run: docker-compose -f docker-compose.jest.yml run frontend npm test

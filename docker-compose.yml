@@ -34,7 +34,7 @@ services:
     networks:
       - nijmegen
     environment:
-      - ROOT_URL=http://componenten.nijmegen.nl
+      - ROOT_URL=https://componenten.nijmegen.nl
       - LOCAL=true
 
   static:
@@ -47,7 +47,8 @@ services:
       - nijmegen
     ports:
       - 3001:80
-
+    container_name: static
+    
 networks:
   nijmegen:
     name: nijmegen

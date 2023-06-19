@@ -1,6 +1,11 @@
 name: 'Check JS code quality (linting)'
 
-on: [workflow_dispatch]
+on:
+  pull_request:
+    types: [opened, edited, reopened]
+    branches:    
+      - main
+      - master
 
 jobs:
   js-lint:

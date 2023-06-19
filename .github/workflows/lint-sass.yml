@@ -1,9 +1,14 @@
 name: 'Sass linting'
 
-on: [workflow_dispatch]
+on:
+  pull_request:
+    types: [opened, edited, reopened]
+    branches:    
+      - main
+      - master
 
 jobs:
-  js-lint:
+  sass-lint:
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout code'
