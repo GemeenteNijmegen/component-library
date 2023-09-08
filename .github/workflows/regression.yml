@@ -1,0 +1,31 @@
+name: "Run regression tests"
+
+on:
+  pull_request:
+    types: [opened, edited, reopened]
+    branches:    
+      - main
+      - master
+
+env: 
+    FRONTEND_IMAGE: nijmegen_component_library/frontend
+    IMAGE_TAG: latest
+
+jobs:
+  regression-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@v3
+
+      - name: "Setting version varriable"
+        run: echo "VERSION=v`helpers/getVersion.sh`" >> "$GITHUB_ENV"
+
+      - name: "Run the frontend docker container"
+        run: docker-compose -f docker-compose.ci.yml up -d frontend
+
+      - name: "Wait for frontend"
+        run: docker-compose -f docker-compose.ci.yml run -T wait-for-frontend
+
+      - name: "Run Tests"
+        run: USERID=$(id -u) GROUPID=$(id -g) docker-compose -f docker-compose.ci.yml run --rm -T regression --parallel 10 --world-parameters "`cat test/regression/defaults.json`"

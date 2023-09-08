@@ -1,5 +1,8 @@
 FROM node:12.14-alpine as build
 
+# install python for deasync@0.1.15
+RUN apk add g++ make py3-pip
+
 WORKDIR /app
 
 COPY package.json package-lock.json /app/

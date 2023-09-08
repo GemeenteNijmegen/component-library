@@ -1,9 +1,14 @@
 name: 'Sass linting'
 
-on: [workflow_dispatch]
+on:
+  pull_request:
+    types: [opened, edited, reopened]
+    branches:    
+      - main
+      - master
 
 jobs:
-  js-lint:
+  sass-lint:
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout code'
@@ -13,9 +18,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '12'
-      
-      - name: 'Install git'
-        run: 'apk add git'
 
       - name: 'Install packages'
         run: 'npm ci'

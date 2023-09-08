@@ -1,0 +1,90 @@
+name: 'Create a PRODUCTION release and deploy'
+run-name: ${{ github.actor }} deploying to PRODUCTION
+on: [workflow_dispatch]
+
+jobs:
+  create-production-release-version:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - name: 'Checkout code'
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - name: 'Check if branche is main (fail if not)'
+        if: github.event_name == 'workflow_dispatch' && github.ref != 'refs/heads/main'
+        run: |
+          echo "This workflow should not be triggered with workflow_dispatch on a branch other than main"
+          exit 1
+
+      - name: 'Check if an unreleased changelog existence'
+        uses: thebinaryfelix/check-file-existence-action@1.0.0
+        with:
+          files: 'changelogs/unreleased/*.yml'
+
+      - name: 'Fail if no unreleased changelogs exist'
+        if: steps.check_files.outputs.exists == 'false'
+        run: |
+          echo "There are no unreleased changelog so no new version could be created"
+          exit 1
+      
+      - name: 'Install node and npm'
+        uses: actions/setup-node@v3
+        with:
+          node-version: '12'
+
+      - name: 'Install packages'
+        run: 'npm ci'
+
+      - name: 'Create release'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          npm run create-release
+
+      - name: 'Push changes to main branche'
+        uses: ad-m/github-push-action@master
+        with:
+          force_with_lease: true
+          branch: ${{ github.head_ref }}
+  
+  deploy-to-production:
+    needs: create-production-release-version
+    runs-on: ubuntu-latest
+    permissions: write-all
+    environment: 
+      name: production
+      url: ${{ vars.DEPLOY_URL }}
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    steps:
+      - name: 'Checkout code'
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: "Setting version varriable"
+        run: echo "VERSION=v`helpers/getVersion.sh`" >> "$GITHUB_ENV"
+
+      - name: 'Create release directory'
+        run: mkdir release
+
+      - name: 'Run the static build'
+        run: docker-compose up -d static
+
+      - name: 'Copy html to release directory'
+        run: docker cp static:/usr/share/nginx/html release/
+
+      - name: 'Push static files to S3'
+        uses: reggionick/s3-deploy@v3
+        with:
+          folder: release/html
+          bucket: ${{ secrets.AWS_BUCKET }}
+          bucket-region: eu-west-1
+          delete-removed: true
+          no-cache: true
+          private: true
