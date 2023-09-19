@@ -79,12 +79,24 @@ jobs:
       - name: 'Copy html to release directory'
         run: docker cp static:/usr/share/nginx/html release/
 
-      - name: 'Push static files to S3'
-        uses: reggionick/s3-deploy@v3
+      - name: 'Push static files to S3 (cached)'
+        uses: reggionick/s3-deploy@v4
         with:
           folder: release/html
           bucket: ${{ secrets.AWS_BUCKET }}
           bucket-region: eu-west-1
-          delete-removed: true
+          delete-removed: '{index,version}.{json,html}'
+          cache: public,max-age=31536000
+          private: true
+          files-to-include: '**/!(index.html|version.json)'
+      
+      - name: 'Push index.html and version.json (non cached)'
+        uses: reggionick/s3-deploy@v4
+        with:
+          folder: release/html
+          bucket: ${{ secrets.AWS_BUCKET }}
+          bucket-region: eu-west-1
+          delete-removed: false 
           no-cache: true
           private: true
+          files-to-include: '{index,version}.{json,html}'
