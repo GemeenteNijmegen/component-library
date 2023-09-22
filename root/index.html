@@ -4,28 +4,8 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Nijmegen component library</title>
-        <script>
-            var httpRequest = new XMLHttpRequest();
-            httpRequest.onreadystatechange = function() {
-                if (httpRequest.readyState === XMLHttpRequest.DONE && httpRequest.status === 200) {
-                    var version = JSON.parse(httpRequest.responseText);
-                    location.href = '/v' + version.latest + '/';
-                }
-            };
-            httpRequest.open('GET', '/version.json', true);
-            httpRequest.send();
-        </script>
-        <style>
-            body {
-                font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-            }
-            .message {
-                padding-top: 100px;
-                color: #555;
-                text-align: center;
-                font-size: 1.5em;
-            }
-        </style>
+        <script src="/index.js"></script>
+        <script src="/index.css"></script>
     </head>
     <body>
         <div class="message">Redirecting to the latest version ...</div>

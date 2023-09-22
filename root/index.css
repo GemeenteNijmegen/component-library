@@ -1,0 +1,9 @@
+body {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+.message {
+  padding-top: 100px;
+  color: #555;
+  text-align: center;
+  font-size: 1.5em;
+}
