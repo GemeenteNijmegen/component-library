@@ -6,6 +6,7 @@
     });
 
     function getAutocompleteResults(query, callback) {
+        query = cleanAutoCompleteQuery(query);
         var rawResults = [
             { header: 'Zoekresultaten:' },
             { title: 'Finibus<em>' + query + '</em>', url: '?q=1_' + query },
@@ -21,5 +22,11 @@
             results.pop();
         }
         callback(results);
+    }
+    
+    function cleanAutoCompleteQuery(query) {
+        var p = document.createElement('p');
+        p.innerText = query;
+        return p.innerHTML;
     }
 </script>
