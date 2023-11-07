@@ -12,7 +12,7 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
-
+          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: 'Check if branche is main (fail if not)'
         if: github.event_name == 'workflow_dispatch' && github.ref != 'refs/heads/main'
         run: |
@@ -47,7 +47,7 @@ jobs:
       - name: 'Push changes to main branche'
         uses: ad-m/github-push-action@master
         with:
-          force_with_lease: true
+          ssh: true
           branch: ${{ github.head_ref }}
   
   deploy-to-production:
