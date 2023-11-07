@@ -1,6 +1,0 @@
-versionBump: patch # patch, minor, major
-changes:
-  - type: changed #changed, removed, added
-    component: autocomplete
-    description: Modified demo search script to better sanitize input
-    what: [JS] # what has changed 1 or more of: [HTML, CSS, JS]
