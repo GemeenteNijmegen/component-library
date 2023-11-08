@@ -1,0 +1,11 @@
+version: 6.3.2
+versionBump: patch
+date: 2023-11-07T13:07:48.015Z
+files:
+  - main.yml
+changes:
+  - type: changed
+    component: autocomplete
+    description: Modified demo search script to better sanitize input
+    what:
+      - JS
