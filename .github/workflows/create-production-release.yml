@@ -99,4 +99,4 @@ jobs:
           delete-removed: false 
           no-cache: true
           private: true
-          files-to-include: '{index,version}.{json,html}'
+          files-to-include: '**/{index,version}.{json,html}'
