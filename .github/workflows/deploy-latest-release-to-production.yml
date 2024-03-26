@@ -1,0 +1,65 @@
+name: 'Deploy the latest release to PRODUCTION (no self release)'
+run-name: ${{ github.actor }} deploying latest known release to PRODUCTION
+on: [workflow_dispatch]
+
+jobs:  
+  deploy-latest-release-to-prodution:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    environment: 
+      name: production
+      url: ${{ vars.DEPLOY_URL }}
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    steps:
+      - name: 'Checkout main code'
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: main
+          path: main
+
+      - name: "Setting version varriable"
+        run: cd main && echo "VERSION=v`helpers/getVersion.sh`" >> "$GITHUB_ENV"
+
+      - name: 'Checkout latest version code'
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: ${{env.VERSION }}
+          path: latest
+
+      - name: 'Create release directory'
+        working-directory: ./latest
+        run: mkdir release
+
+      - name: 'Run the static build'
+        working-directory: ./latest
+        run: docker-compose up -d static
+
+      - name: 'Copy html to release directory'
+        working-directory: ./latest
+        run: docker cp static:/usr/share/nginx/html release/
+
+      - name: 'Push static files to S3 (cached)'
+        uses: reggionick/s3-deploy@v4
+        with:
+          folder: latest/release/html
+          bucket: ${{ secrets.AWS_BUCKET }}
+          bucket-region: eu-west-1
+          delete-removed: '{index,version}.{json,html}'
+          cache: public,max-age=31536000
+          private: true
+          files-to-include: '**/!(index.html|version.json)'
+      
+      - name: 'Push index.html and version.json (non cached)'
+        uses: reggionick/s3-deploy@v4
+        with:
+          folder: latest/release/html
+          bucket: ${{ secrets.AWS_BUCKET }}
+          bucket-region: eu-west-1
+          delete-removed: false 
+          no-cache: true
+          private: true
+          files-to-include: '**/{index,version}.{json,html}'
