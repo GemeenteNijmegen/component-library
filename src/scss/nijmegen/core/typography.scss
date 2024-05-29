@@ -126,6 +126,7 @@ ul:not([class]) {
     position: relative;
 
     li {
+        font-family: initial;
         &:before {
             content: '●';
             font-size: to-rem(8);
