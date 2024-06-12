@@ -34,7 +34,7 @@ services:
     networks:
       - nijmegen
     environment:
-      - ROOT_URL=https://componenten.nijmegen.nl
+      - ROOT_URL=http://componenten.nijmegen.dev
       - LOCAL=true
 
   static:
