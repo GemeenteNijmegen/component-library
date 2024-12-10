@@ -22,10 +22,10 @@ jobs:
         run: echo "VERSION=v`helpers/getVersion.sh`" >> "$GITHUB_ENV"
 
       - name: "Run the frontend docker container"
-        run: docker-compose -f docker-compose.ci.yml up -d frontend
+        run: docker compose -f docker-compose.ci.yml up -d frontend
 
       - name: "Wait for frontend"
-        run: docker-compose -f docker-compose.ci.yml run -T wait-for-frontend
+        run: docker compose -f docker-compose.ci.yml run -T wait-for-frontend
 
       - name: "Run Tests"
-        run: USERID=$(id -u) GROUPID=$(id -g) docker-compose -f docker-compose.ci.yml run --rm -T regression --parallel 10 --world-parameters "`cat test/regression/defaults.json`"
+        run: USERID=$(id -u) GROUPID=$(id -g) docker compose -f docker-compose.ci.yml run --rm -T regression --parallel 10 --world-parameters "`cat test/regression/defaults.json`"

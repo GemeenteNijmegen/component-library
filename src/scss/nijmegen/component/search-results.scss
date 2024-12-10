@@ -29,10 +29,8 @@
         font-size: to-rem(18);
 
         em {
-            background: color('nijmegen-grey', 'lighten-1');
-            color: color('nijmegen-primary', 'darken-1');
             font-style: normal;
-            padding: 0 to-rem(2);
+            font-weight: bold;
         }
     }
 

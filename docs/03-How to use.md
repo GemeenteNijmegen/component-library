@@ -29,8 +29,6 @@ We include integrity hashes for all files that come directly from the component 
 | script     | %HOST%{{ assetPath '/js/jquery.min.js' }}      | {{{ sri '/public/js/jquery.min.js' }}}      |
 | script     | %HOST%{{ assetPath '/js/popper.min.js' }}      | {{{ sri '/public/js/popper.min.js' }}}      |
 | script     | %HOST%{{ assetPath '/js/bootstrap.min.js' }}   | {{{ sri '/public/js/bootstrap.min.js' }}}   |
-| script     | %HOST%{{ assetPath '/js/mdb.min.js' }}         | {{{ sri '/public/js/mdb.min.js' }}}         |
-| script     | %HOST%{{ assetPath '/nijmegen.js' }}           | {{{ sri '/public/nijmegen.js' }}}           |
 
 **Full implementation**
 

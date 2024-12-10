@@ -9,7 +9,7 @@ const { mock, mockContext } = require('./validateHtml.setup');
 
 describe('Validate html for every component', () => {
     mock();
-    const files = glob.sync('components/!(_includes|templates)/**/!(_preview*).hbs');
+    const files = glob.sync('components/md-bootstrap/!(_includes|templates)/**/!(_preview*).hbs');
     it.each(files)('The file %s should not have validation errors', async file => {
         const hbs = readFileSync(file).toString();
         const template = handlebars.compile(hbs);
