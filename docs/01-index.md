@@ -3,6 +3,9 @@ title: Nijmegen Component Library
 status: ready # draft, ready
 ---
 
+# IMPORTANT:
+**As of version 6.4.0 we started the implementation of NL Design System (NLDS) components. We will periodically release new NLDS components. Please use these components (if available) instead of the MD Bootstrap components.**
+
 This library has been created to facilitate Gemeente Nijmegen in a uniform and consistent visual representation throughout all her digital exposures.
 
 The goals of this component library are:
@@ -12,7 +15,6 @@ The goals of this component library are:
 * A reference document for different teams, to ensure consistency between sites and/or platforms.
 
 Built upon [MDB framework]({{ mdbootstrapPath '/' }}) with custom styling specific for Nijmegen.
-
 
 ## Component listing
 

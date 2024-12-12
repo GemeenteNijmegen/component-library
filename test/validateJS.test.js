@@ -5,8 +5,8 @@ const glob = require('glob');
 const { readFileSync } = require('fs');
 
 describe('Validate js for all scripts', () => {
-    const jshintConfig = JSON.parse(readFileSync('components/_includes/scripts/.jshintrc'));
-    const files = glob.sync('components/_includes/scripts/**/*.hbs');
+    const jshintConfig = JSON.parse(readFileSync('components/md-bootstrap/_includes/scripts/.jshintrc'));
+    const files = glob.sync('components/md-bootstrap/_includes/scripts/**/*.hbs');
     it.each(files)('The script %s should be valid es5', file => {
         const contents = readFileSync(file).toString();
         const html = jquery.parseHTML(contents, null, true);

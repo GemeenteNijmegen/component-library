@@ -16,6 +16,7 @@
     "scripts": {
         "start": "NODE_ENV=development node server.js",
         "build": "NODE_ENV=production node server.js",
+        "build-nlds": "sass src/nlds/scss/main.scss public/nijmegen-nlds.min.css --load-path=/app/node_modules --style=compressed",
         "test": "node_modules/.bin/jest",
         "lint-js": "eslint src/js/**/*.js",
         "lint-sass": "node node_modules/sass-lint/bin/sass-lint.js -v",
@@ -49,6 +50,9 @@
     "devDependencies": {
         "@babel/core": "^7.10.5",
         "@babel/preset-env": "^7.10.4",
+        "@gemeentenijmegen/design-tokens": "0.0.2-alpha.1",
+        "@utrecht/components": "^3.0.1-alpha.27",
+        "@utrecht/focus-ring-css": "^2.3.0",
         "autoprefixer": "^9.7.1",
         "babel-jest": "^26.1.0",
         "eslint": "^5.4.0",

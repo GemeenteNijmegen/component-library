@@ -25,6 +25,7 @@ const nijmegenTheme = mandelbrot({
         '/_subtheme/css/nijmegen.css',
         '/_subtheme/css/versionCheck.css',
         '/_subtheme/css/changelog.css',
+        '/nijmegen-nlds.min.css',
     ], // link to the default stylesheet followed by a custom one
     scripts: ['default', '/_subtheme/js/versionCheck.js'],
     favicon: '/_subtheme/img/favicon.ico',

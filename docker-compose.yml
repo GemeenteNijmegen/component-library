@@ -2,7 +2,7 @@ version: "3"
 services:
   frontend:
     build: .
-    command: "npm run start"
+    command: sh -c "npm run build-nlds && npm run start"
     volumes:
       - ./:/app
     environment:
