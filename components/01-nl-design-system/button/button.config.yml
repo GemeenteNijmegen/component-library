@@ -1,0 +1,27 @@
+---
+title: Button
+handle: nijmegen-button
+notes:
+status: wip # prototype, wip, ready
+context:
+  label: Button label
+  label-disabled: Button disabled
+  label-link: Button link
+default: "primary"
+variants:
+  - name: primary
+    label: "Primary"
+    context:
+      modifier: primary
+      class: " utrecht-button--primary-action"
+  - name: secondary
+    label: "Secondary"
+    context:
+      modifier: secondary
+      class: " utrecht-button--secondary-action"
+  - name: subtle
+    label: "Subtle"
+    context:
+      modifier: subtle
+      class: " utrecht-button--subtle"
+
