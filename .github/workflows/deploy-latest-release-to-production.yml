@@ -34,9 +34,13 @@ jobs:
         working-directory: ./latest
         run: mkdir release
 
-      - name: 'Run the static build'
+      - name: 'Build the static container (no cache)'
         working-directory: ./latest
-        run: docker compose up -d static --build
+        run: docker-compose build static --no-cache
+
+      - name: 'Run the static container'
+        working-directory: ./latest
+        run: docker compose up -d static
 
       - name: 'Copy html to release directory'
         working-directory: ./latest

@@ -73,8 +73,11 @@ jobs:
       - name: 'Create release directory'
         run: mkdir release
 
+      - name: 'Build the static container (no cache)'
+        run: docker-compose build static --no-cache
+
       - name: 'Run the static build'
-        run: docker compose up -d static --build
+        run: docker compose up -d static
 
       - name: 'Copy html to release directory'
         run: docker cp static:/usr/share/nginx/html release/
