@@ -41,6 +41,8 @@ const runDev = async function() {
     await server.start();
     copyFileSync(path.join(__dirname, 'root/version.json'), path.join(__dirname, 'public/version.json'));
     logger.success(`Fractal server is now running at ${server.url}`);
+
+    logger.success('Running now...');
 };
 
 const build = async function() {

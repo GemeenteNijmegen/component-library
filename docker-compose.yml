@@ -2,7 +2,7 @@ version: "3"
 services:
   frontend:
     build: .
-    command: "npm run start"
+    command: sh -c "npm run build-nlds && npm run start"
     volumes:
       - ./:/app
     environment:
@@ -34,7 +34,7 @@ services:
     networks:
       - nijmegen
     environment:
-      - ROOT_URL=https://componenten.nijmegen.nl
+      - ROOT_URL=http://componenten.nijmegen.dev
       - LOCAL=true
 
   static:

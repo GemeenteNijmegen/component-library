@@ -7,11 +7,8 @@ context:
   label: Button label
   label-disabled: Button disabled
   label-link: Button link
+default: "primary"
 variants:
-  - name: default
-    label: "Default"
-    context:
-      modifier: Default
   - name: primary
     label: "Primary"
     context:

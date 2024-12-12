@@ -192,19 +192,19 @@ do-create-changelog-file:
 
 do-start-proxy:
 	@echo "\n=== Start hosts proxy ===\n"
-	@curl --silent https://gitlab.enrise.com/Enrise/DevProxy/-/raw/master/start.sh | sh
+	@curl --silent https://raw.githubusercontent.com/Enrise/DevelopmentProxy/refs/heads/production/start.sh | sh
 
 do-connect-proxy:
 	@echo "\n=== Connect to hosts proxy ===\n"
-	@docker network connect nijmegen enrise-dev-proxy && echo "Connected." || true
+	@docker network connect nijmegen development-proxy && echo "Connected." || true
 
 do-stop-proxy:
 	@echo "\n=== Stop hosts proxy ===\n"
-	@docker container stop enrise-dev-proxy && echo "Stopped." || true
+	@docker container stop development-proxy && echo "Stopped." || true
 
 do-disconnect-proxy:
 	@echo "\n=== Disconnect from hosts proxy ===\n"
-	@docker network disconnect nijmegen enrise-dev-proxy && echo "Disconnected." || true
+	@docker network disconnect nijmegen development-proxy && echo "Disconnected." || true
 
 do-check-hosts-file:
 	@cat /etc/hosts | grep componenten.nijmegen.dev> /dev/null \
@@ -221,7 +221,7 @@ do-prepare-proxy:
 	&& echo "> certificates created") \
 	|| echo "> could not create certificates, did you install mkcert?"
 	@echo "\n=== Copy dev proxy config ===\n"
-	@cp ./dev/traefik-config/nijmegen.yml ~/.enrise-dev-proxy/config/nijmegen.yml
+	@cp ./dev/traefik-config/nijmegen.yml ~/.development-proxy/config/nijmegen.yml
 	@echo "> configuration copied"
-	@cp ./dev/traefik-config/certs/* ~/.enrise-dev-proxy/certs/
+	@cp ./dev/traefik-config/certs/* ~/.development-proxy/certs/
 	@echo "> certificates copied"
