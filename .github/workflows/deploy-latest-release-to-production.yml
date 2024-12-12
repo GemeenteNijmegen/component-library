@@ -36,7 +36,7 @@ jobs:
 
       - name: 'Run the static build'
         working-directory: ./latest
-        run: docker compose up -d static
+        run: docker compose up -d static --build
 
       - name: 'Copy html to release directory'
         working-directory: ./latest

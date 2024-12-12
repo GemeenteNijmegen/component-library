@@ -74,7 +74,7 @@ jobs:
         run: mkdir release
 
       - name: 'Run the static build'
-        run: docker compose up -d static
+        run: docker compose up -d static --build
 
       - name: 'Copy html to release directory'
         run: docker cp static:/usr/share/nginx/html release/
