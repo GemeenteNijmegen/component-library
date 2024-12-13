@@ -14,7 +14,7 @@ ARG VERSION
 ENV PUBLIC_URL=/${VERSION}
 
 RUN npm run build
-RUN npm run build-nlds
+RUN npx sass src/nlds/scss/main.scss /app/build/nijmegen-nlds.min.css --load-path=/app/node_modules --style=compressed
 
 FROM nginx:1.17-alpine as prod
 
