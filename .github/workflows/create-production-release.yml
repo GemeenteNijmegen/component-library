@@ -74,7 +74,7 @@ jobs:
         run: mkdir release
 
       - name: 'Build the static container (no cache)'
-        run: docker-compose build static --no-cache
+        run: docker compose build static --no-cache
 
       - name: 'Run the static build'
         run: docker compose up -d static
