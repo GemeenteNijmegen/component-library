@@ -13,6 +13,7 @@ COPY ./ /app
 ARG VERSION
 ENV PUBLIC_URL=/${VERSION}
 
+RUN npm run build-nlds
 RUN npm run build
 RUN npx sass src/nlds/scss/main.scss /app/build/nijmegen-nlds.min.css --load-path=/app/node_modules --style=compressed
 
