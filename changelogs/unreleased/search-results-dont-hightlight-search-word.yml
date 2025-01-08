@@ -1,6 +1,0 @@
-versionBump: patch 
-changes:
-  - type: changed 
-    component: search results, search results-advanced
-    description: The search term in the search result is bold instead of highlighted
-    what: [CSS] 

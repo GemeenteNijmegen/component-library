@@ -1,7 +1,0 @@
-versionBump: patch
-changes:
-  - type: changed
-    component: navbar-skiplink
-    description: Changed navbar-skiplink size for better accesibility
-    what: [CSS] 
-

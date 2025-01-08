@@ -1,6 +1,0 @@
-versionBump: patch 
-changes:
-  - type: removed
-    component: none
-    description: Deleted unused chart.js library
-    what: [JS] 

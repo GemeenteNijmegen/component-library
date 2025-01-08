@@ -1,6 +1,0 @@
-versionBump: patch # patch, minor, major
-changes:
-    - type: changed
-      component: carousel
-      description: Added guidance on preventing XSS exploits. Changed example code to mitigate this risk further.
-      what: [HTML] # what has changed 1 or more of: [HTML, CSS, JS]

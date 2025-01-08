@@ -1,6 +1,0 @@
-versionBump: patch 
-changes:
-  - type: changed 
-    component: lists
-    description: Fixed unordered list for macOS
-    what: [CSS] 

@@ -1,6 +1,0 @@
-versionBump: minor 
-changes:
-  - type: added 
-    component: nijmegen-button
-    description: Added NLDS button component
-    what: [HTML, CSS] 

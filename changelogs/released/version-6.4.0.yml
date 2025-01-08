@@ -1,0 +1,44 @@
+version: 6.4.0
+versionBump: minor
+date: 2025-01-08T12:33:01.782Z
+files:
+  - carousel-update.yml
+  - fix-delete-chartjs.yml
+  - nlds-button.yml
+  - search-results-dont-hightlight-search-word.yml
+  - skip-link-accesibility.yml
+  - unordered-list-fix-chrome-mac.yml
+changes:
+  - type: changed
+    component: carousel
+    description: >-
+      Added guidance on preventing XSS exploits. Changed example code to
+      mitigate this risk further.
+    what:
+      - HTML
+  - type: removed
+    component: none
+    description: Deleted unused chart.js library
+    what:
+      - JS
+  - type: added
+    component: nijmegen-button
+    description: Added NLDS button component
+    what:
+      - HTML
+      - CSS
+  - type: changed
+    component: 'search results, search results-advanced'
+    description: The search term in the search result is bold instead of highlighted
+    what:
+      - CSS
+  - type: changed
+    component: navbar-skiplink
+    description: Changed navbar-skiplink size for better accesibility
+    what:
+      - CSS
+  - type: changed
+    component: lists
+    description: Fixed unordered list for macOS
+    what:
+      - CSS
