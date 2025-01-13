@@ -23,6 +23,8 @@ The Nijmegen NLDS components styles will only be applied inside the `nijmegen-th
 </div>
 ```
 
+Best practice to use the NLDS Nijmegen theme is to apply the `nijmegen-theme` class on the body element as stated in the example below.
+
 ### Example use NLDS and MD Bootstrap components
 ```html
 <!doctype html>
@@ -69,7 +71,7 @@ The Nijmegen NLDS components styles will only be applied inside the `nijmegen-th
 
     <title>Titel van de pagina</title>
 </head>
-<body>
+<body class="nijmegen-theme">
 
 <main>
     <!-- START: MD Bootstrap component(s) -->
@@ -77,11 +79,7 @@ The Nijmegen NLDS components styles will only be applied inside the `nijmegen-th
     <!-- END: MD Bootstrap component(s) -->
     
     <!-- START: NLDS Nijmegen theme -->
-    <div class="nijmegen-theme">
-        <!-- START: NLDS Nijmegen component(s) -->
-            <!-- ... -->
-        <!-- END: NLDS Nijmegen component(s) -->
-    </div>
+    <!-- ... -->
     <!-- END: NLDS Nijmegen theme -->
 </main>
 
