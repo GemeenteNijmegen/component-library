@@ -1,6 +1,0 @@
-versionBump: patch 
-changes:
-  - type: changed 
-    component: nijmegen-button
-    description: wrapped rendered component css inside nijmegen-theme class
-    what: [CSS] 

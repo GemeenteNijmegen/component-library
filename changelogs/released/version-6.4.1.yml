@@ -1,0 +1,11 @@
+version: 6.4.1
+versionBump: patch
+date: 2025-01-14T12:24:50.438Z
+files:
+  - use-nlds-besides-mdbs.yml
+changes:
+  - type: changed
+    component: nijmegen-button
+    description: wrapped rendered component css inside nijmegen-theme class
+    what:
+      - CSS
