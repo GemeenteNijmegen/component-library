@@ -1,0 +1,22 @@
+---
+title: Link
+handle: nijmegen-link
+notes:
+status: wip # prototype, wip, ready
+default: "default"
+variants:
+  - name: default
+    label: "Link"
+    context:
+      iconStart: false
+      iconEnd: false 
+  - name: start
+    label: "Icon start"
+    context:
+      iconStart: true
+      iconEnd: false
+  - name: end
+    label: "Icon End"
+    context:
+      iconStart: false
+      iconEnd: true

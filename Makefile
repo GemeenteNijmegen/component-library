@@ -86,41 +86,41 @@ do-show-commands:
 
 do-build:
 	@echo "\n=== Building container ===\n"
-	docker-compose build frontend
+	docker compose build frontend
 
 do-init:
 	@echo "\n=== Initialisation ===\n"
-	docker-compose run --rm frontend npm ci
+	docker compose run --rm frontend npm install
 
 do-start:
 	@echo "\n=== Start container ===\n"
-	docker-compose up -d frontend
+	docker compose up -d frontend
 	@echo "\n-> Your container is running on https://componenten.nijmegen.dev\n"
 
 do-static-stop:
 	@echo "\n=== Stop static container ===\n"
-	docker-compose stop static
+	docker compose stop static
 
 do-static-build:
 	@echo "\n=== Building static container ===\n"
-	VERSION=v`helpers/getVersion.sh` docker-compose build static
+	VERSION=v`helpers/getVersion.sh` docker compose build static
 
 do-static-start:
 	@echo "\n=== Start static container ===\n"
-	docker-compose up -d static
+	docker compose up -d static
 	@echo "\n-> Your static container is running on http://localhost:3001\n"
 
 do-stop:
 	@echo "\n=== Stop container ===\n"
-	docker-compose down
+	docker compose down
 
 do-restart:
 	@echo "\n=== Restart container ===\n"
-	docker-compose restart
+	docker compose restart
 
 do-open-shell:
 	@echo "\n=== Open shell in frontend container ===\n"
-	docker-compose run --rm frontend sh
+	docker compose run --rm frontend sh
 
 do-install-git-hooks:
 	@echo "\n=== Installing git hooks ===\n"
@@ -129,19 +129,19 @@ do-install-git-hooks:
 
 do-lint:
 	@echo "\n=== Lint js ===\n"
-	docker-compose run --rm frontend npm run lint-js && echo "> All files are formatted correctly"
+	docker compose run --rm frontend npm run lint-js && echo "> All files are formatted correctly"
 	@echo "\n=== Lint sass ===\n"
-	docker-compose run --rm frontend npm run lint-sass && echo "> All files are formatted correctly"
+	docker compose run --rm frontend npm run lint-sass && echo "> All files are formatted correctly"
 
 do-fix:
 	@echo "\n=== Fix sass ===\n"
-	docker-compose run --rm frontend npm run fix-sass && echo "> All files are formatted correctly"
+	docker compose run --rm frontend npm run fix-sass && echo "> All files are formatted correctly"
 
 do-test:
 	@echo "\n=== Start the validator service ===\n"
-	docker-compose up -d html-validator
+	docker compose up -d html-validator
 	@echo "\n=== Run jest tests ===\n"
-	docker-compose run --rm frontend npm test
+	docker compose run --rm frontend npm test
 
 do-switch-branch:
 	@if [ -z $$BRANCH ]; then \
@@ -163,15 +163,15 @@ do-checkout-mr:
 
 do-run-updates:
 	@echo "\n=== Updating project ===\n"
-	docker-compose run --rm frontend npm ci
+	docker compose run --rm frontend npm ci
 
 do-create-release:
 	@echo "\n=== Build component listing ===\n"
-	docker-compose exec -e SKIP_GIT_TAG=true frontend npm run create-release
+	docker compose exec -e SKIP_GIT_TAG=true frontend npm run create-release
 
 do-regression-build:
 	@echo "\n=== Updating node modules for testing ===\n"
-	${set-ids} docker-compose run --rm -u $$USERID:$$GROUPID --entrypoint "npm install" regression
+	${set-ids} docker compose run --rm -u $$USERID:$$GROUPID --entrypoint "npm install" regression
 
 do-regression-clear-screenshots:
 	@echo "\n=== Clear old screenshots ===\n"
@@ -179,7 +179,7 @@ do-regression-clear-screenshots:
 
 do-regression-tests:
 	@echo "\n=== Running regression tests ===\n"
-	${set-ids} docker-compose run --rm -u $$USERID:$$GROUPID regression --world-parameters "`cat test/regression/defaults.json`" ${REGRESSION_FAIL_FAST} ${REGRESSION_FOCUS} ${REGRESSION_PARALLEL} || echo "\nTests failed"
+	${set-ids} docker compose run --rm -u $$USERID:$$GROUPID regression --world-parameters "`cat test/regression/defaults.json`" ${REGRESSION_FAIL_FAST} ${REGRESSION_FOCUS} ${REGRESSION_PARALLEL} || echo "\nTests failed"
 
 do-create-changelog-file:
 	@echo "\n=== Creating an unreleased changelog file ===\n"
