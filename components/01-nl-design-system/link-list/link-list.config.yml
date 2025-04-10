@@ -1,0 +1,9 @@
+---
+title: Link list
+handle: nijmegen-link-list
+notes:
+status: wip # prototype, wip, ready
+default: "default"
+variants:
+  - name: default
+    label: "Link list"

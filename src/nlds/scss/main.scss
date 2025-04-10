@@ -1,4 +1,7 @@
 @use '@gemeentenijmegen/design-tokens/dist/index.css';
 .nijmegen-theme {
     @import '@utrecht/components/button/css/index';
+    @import '@utrecht/link-css/dist/index';
+    @import '@utrecht/button-group-css/dist/index';
+    @import '@gemeentenijmegen/layout-css/dist/layout';
 }

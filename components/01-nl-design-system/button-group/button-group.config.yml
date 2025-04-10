@@ -1,0 +1,9 @@
+---
+title: Button Group
+handle: nijmegen-button-group
+notes:
+status: wip # prototype, wip, ready
+default: "default"
+variants:
+  - name: default
+    label: "Button group"

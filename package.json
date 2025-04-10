@@ -50,9 +50,12 @@
     "devDependencies": {
         "@babel/core": "^7.10.5",
         "@babel/preset-env": "^7.10.4",
-        "@gemeentenijmegen/design-tokens": "0.0.2-alpha.1",
+        "@gemeentenijmegen/design-tokens": "^0.0.2-alpha.12",
+        "@gemeentenijmegen/layout-css": "0.0.1-alpha.1",
+        "@utrecht/button-group-css": "^1.4.0",
         "@utrecht/components": "^3.0.1-alpha.27",
         "@utrecht/focus-ring-css": "^2.3.0",
+        "@utrecht/link-css": "^1.6.0",
         "autoprefixer": "^9.7.1",
         "babel-jest": "^26.1.0",
         "eslint": "^5.4.0",
