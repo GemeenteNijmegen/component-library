@@ -1,0 +1,20 @@
+version: 6.5.0
+versionBump: minor
+date: 2025-04-11T12:11:27.275Z
+files:
+  - ds-002-implementation.yml
+changes:
+  - type: added
+    component: nijmegen-foundations
+    description: 'Added color, icon and layout foundation'
+    what:
+      - CSS
+  - type: added
+    component:
+      - nijmegen-button-group
+      - nijmegen-link
+      - nijmegen-link-list
+    description: 'Added new NLDS button group, link and link list components'
+    what:
+      - HTML
+      - CSS
