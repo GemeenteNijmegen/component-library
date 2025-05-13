@@ -43,7 +43,7 @@ rules:
   no-trailing-whitespace: 2
   no-trailing-zero: 1
   one-declaration-per-line: 2
-  property-sort-order: 1
+  property-sort-order: 0
   quotes: 2
   shorthand-values: 1
   space-after-bang: 2
