@@ -33,7 +33,7 @@
             @include utrecht-button-appearance-properties('utrecht-button', 'primary-action');
         }
         &.btn-secondary {
-            @include utrecht-button-appearance-properties('utrecht-button', 'secondary-actiom');
+            @include utrecht-button-appearance-properties('utrecht-button', 'secondary-action');
         }
     }
 }
