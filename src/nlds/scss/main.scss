@@ -1,5 +1,5 @@
 @use '@gemeentenijmegen/design-tokens/dist/index.css';
-@import "./mixin";
+@import './mixin';
 
 .nijmegen-theme {
     @import '@utrecht/components/button/css/index';
@@ -7,7 +7,6 @@
     @import '@utrecht/button-group-css/dist/index';
     @import '@gemeentenijmegen/layout-css/dist/layout';
     @import '@utrecht/link-list-css/dist/index';
-    
     // class mapping for nijmegen.nl
     .btn {
         @include utrecht-button;
@@ -17,24 +16,24 @@
         &:disabled {
             @include utrecht-button--disabled;
         }
-        &:focus:not(:disabled, [aria-disabled="true"]) {
+        &:focus:not(:disabled, [aria-disabled='true']) {
             @include utrecht-button--focus;
         }
         &:focus-visible {
             @include utrecht-button--focus;
             @include utrecht-button--focus-visible;
         }
-        &:hover:not(:disabled, [aria-disabled="true"]) {
+        &:hover:not(:disabled, [aria-disabled='true']) {
             @include utrecht-button--hover;
         }
-        &:active:not(:disabled, [aria-disabled="true"]) {
+        &:active:not(:disabled, [aria-disabled='true']) {
             @include utrecht-button--active;
         }
         &.btn-primary {
-            @include utrecht-button-appearance-properties("utrecht-button", "primary-action");
+            @include utrecht-button-appearance-properties('utrecht-button', 'primary-action');
         }
         &.btn-secondary {
-            @include utrecht-button-appearance-properties("utrecht-button", "secondary-action");
+            @include utrecht-button-appearance-properties('utrecht-button', 'secondary-actiom');
         }
     }
 }
