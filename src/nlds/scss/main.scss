@@ -1,12 +1,20 @@
 @use '@gemeentenijmegen/design-tokens/dist/index.css';
 @import './mixin';
-
+    ul:not([class]) {
+        margin-left: unset;
+    padding-left: unset;
+    }
 .nijmegen-theme {
     @import '@utrecht/components/button/css/index';
     @import '@utrecht/link-css/dist/index';
     @import '@utrecht/button-group-css/dist/index';
     @import '@gemeentenijmegen/layout-css/dist/layout';
     @import '@utrecht/link-list-css/dist/index';
+
+    ul:not([class]) li:before {
+        all:unset;
+    }
+
     // class mapping for nijmegen.nl
     .btn {
         @include utrecht-button;
@@ -38,3 +46,5 @@
         }
     }
 }
+
+@import '@gemeentenijmegen/semantic-html/dist/index';
