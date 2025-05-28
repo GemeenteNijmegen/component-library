@@ -57,3 +57,16 @@
 }
 
 @import '@gemeentenijmegen/semantic-html/dist/index';
+
+// temp fixes
+.nijmegen-html a {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.nijmegen-html [type=button]:not(:disabled),
+[type=reset]:not(:disabled),
+[type=submit]:not(:disabled),
+button:not(:disabled) {
+    cursor: pointer;
+}
