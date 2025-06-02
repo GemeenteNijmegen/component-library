@@ -1,0 +1,18 @@
+version: 6.5.1
+versionBump: patch
+date: 2025-06-02T13:15:38.570Z
+files:
+  - class-mapping-website.yml
+  - semantic-html-support.yml
+changes:
+  - type: added
+    component: nijmegen-foundations
+    description: Added old btn classes mapping with new NLDS styles.
+    what:
+      - CSS
+  - type: added
+    component: nijmegen-semantic-html
+    description: Added semantic html support for most used html elements.
+    what:
+      - HTML
+      - CSS
