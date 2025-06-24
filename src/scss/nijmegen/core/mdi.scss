@@ -19,11 +19,12 @@ $ti-font-family: 'tabler-icons' !default;
 
 
 @font-face {
-  font-family: $ti-font-family;
-  font-style: normal;
-  font-weight: 400;
-  font-display: null;
-  src: url('#{$ti-font-path}/tabler-icons.woff2?v3.34.0') format('woff2'),
+    font-family: $ti-font-family;
+    font-style: normal;
+    font-weight: 400;
+    font-display: null;
+    src:
+    url('#{$ti-font-path}/tabler-icons.woff2?v3.34.0') format('woff2'),
     url('#{$ti-font-path}/tabler-icons.woff?') format('woff'),
     url('#{$ti-font-path}/tabler-icons.ttf?v3.34.0') format('truetype');
 }
