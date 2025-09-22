@@ -1,6 +1,0 @@
-versionBump: patch # patch, minor, major
-changes:
-  - type: changed #changed, removed, added
-    component: footer
-    description: Changed logo Twitter to X.
-    what: [CSS] 

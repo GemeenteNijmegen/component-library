@@ -1,0 +1,11 @@
+version: 6.5.2
+versionBump: patch
+date: 2025-09-22T15:12:17.505Z
+files:
+  - change-twitter-logo.yml
+changes:
+  - type: changed
+    component: footer
+    description: Changed logo Twitter to X.
+    what:
+      - CSS
