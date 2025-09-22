@@ -1,6 +1,8 @@
 // sass-lint:disable clean-import-paths
 // Material design icons
 $mdi-font-path: '../../node_modules/@mdi/font/fonts';
+$ti-font-path: '../../node_modules/@tabler/icons-webfont/dist/fonts';
+$ti-font-family: 'tabler-icons' !default;
 
 @import '~@mdi/font/scss/_variables';
 @import '~@mdi/font/scss/_functions';
@@ -15,14 +17,32 @@ $mdi-font-path: '../../node_modules/@mdi/font/fonts';
     url('#{$mdi-font-path}/#{$mdi-filename}-webfont.woff') format('woff');
 }
 
+
+@font-face {
+    font-family: $ti-font-family;
+    font-style: normal;
+    font-weight: 400;
+    font-display: null;
+    src:
+    url('#{$ti-font-path}/tabler-icons.woff2?v3.34.0') format('woff2'),
+    url('#{$ti-font-path}/tabler-icons.woff?') format('woff'),
+    url('#{$ti-font-path}/tabler-icons.ttf?v3.34.0') format('truetype');
+}
+
 @import '~@mdi/font/scss/_core';
 @import '~@mdi/font/scss/_icons';
 @import '~@mdi/font/scss/_extras';
 @import '~@mdi/font/scss/_animated';
+
 
 i.mdi,
 span.mdi {
     display: inline-block;
     font-size: 1.5rem;
     line-height: 1;
+}
+
+span.mdi.mdi-twitter::before {
+    content: '\fc0f';
+    font-family: $ti-font-family;
 }
